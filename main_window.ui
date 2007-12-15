@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>673</width>
-    <height>553</height>
+    <width>669</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -69,7 +69,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_2" >
-       <layout class="QVBoxLayout" >
+       <layout class="QGridLayout" >
         <property name="leftMargin" >
          <number>0</number>
         </property>
@@ -82,7 +82,7 @@
         <property name="bottomMargin" >
          <number>0</number>
         </property>
-        <item>
+        <item row="0" column="0" colspan="2" >
          <layout class="QGridLayout" >
           <property name="leftMargin" >
            <number>0</number>
@@ -102,6 +102,62 @@
           <property name="verticalSpacing" >
            <number>6</number>
           </property>
+          <item row="0" column="1" >
+           <widget class="QLabel" name="label" >
+            <property name="text" >
+             <string>&lt;b>Files available for restoring:&lt;/b></string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_5" >
+            <property name="pixmap" >
+             <pixmap resource="resources.qrc" >:/new/prefix1/images/Restore16.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" >
+         <layout class="QGridLayout" >
+          <property name="leftMargin" >
+           <number>0</number>
+          </property>
+          <property name="topMargin" >
+           <number>0</number>
+          </property>
+          <property name="rightMargin" >
+           <number>0</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
+           <number>6</number>
+          </property>
+          <item row="1" column="0" >
+           <widget class="QListWidget" name="restore_list" >
+            <property name="statusTip" >
+             <string>List of files available for restoring</string>
+            </property>
+           </widget>
+          </item>
           <item row="2" column="0" >
            <layout class="QGridLayout" >
             <property name="leftMargin" >
@@ -122,240 +178,134 @@
             <property name="verticalSpacing" >
              <number>6</number>
             </property>
-            <item row="0" column="2" >
-             <layout class="QGridLayout" >
-              <property name="leftMargin" >
-               <number>0</number>
+            <item row="0" column="0" >
+             <widget class="QPushButton" name="selTmpAllBtn" >
+              <property name="statusTip" >
+               <string>Select all temporary files</string>
               </property>
-              <property name="topMargin" >
-               <number>0</number>
+              <property name="text" >
+               <string>Select all</string>
               </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
-               <number>0</number>
-              </property>
-              <property name="horizontalSpacing" >
-               <number>6</number>
-              </property>
-              <property name="verticalSpacing" >
-               <number>6</number>
-              </property>
-              <item row="4" column="0" >
-               <widget class="QLineEdit" name="path_of_syncfile" >
-                <property name="acceptDrops" >
-                 <bool>false</bool>
-                </property>
-                <property name="statusTip" >
-                 <string>Original file path</string>
-                </property>
-                <property name="readOnly" >
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0" >
-               <widget class="QCheckBox" name="to_black_list" >
-                <property name="statusTip" >
-                 <string>Add file to blacklist</string>
-                </property>
-                <property name="text" >
-                 <string>Do not synchronise this file again (add to blacklist)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" >
-               <widget class="QLabel" name="label_3" >
-                <property name="text" >
-                 <string>Date and time of synchronisation:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0" >
-               <widget class="QLabel" name="label_4" >
-                <property name="text" >
-                 <string>Original file path:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" >
-               <widget class="QLabel" name="label_2" >
-                <property name="text" >
-                 <string>&lt;b>About the selected item:&lt;/b></string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" >
-               <widget class="QDateTimeEdit" name="date_of_sync" >
-                <property name="statusTip" >
-                 <string>Date and time of synchronisation</string>
-                </property>
-                <property name="readOnly" >
-                 <bool>true</bool>
-                </property>
-                <property name="displayFormat" >
-                 <string>yyyy.MM.dd-hh:mm:ss</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0" >
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="7" column="0" >
-               <layout class="QGridLayout" >
-                <property name="leftMargin" >
-                 <number>0</number>
-                </property>
-                <property name="topMargin" >
-                 <number>0</number>
-                </property>
-                <property name="rightMargin" >
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin" >
-                 <number>0</number>
-                </property>
-                <property name="horizontalSpacing" >
-                 <number>6</number>
-                </property>
-                <property name="verticalSpacing" >
-                 <number>6</number>
-                </property>
-                <item row="0" column="1" >
-                 <widget class="QPushButton" name="restore_files" >
-                  <property name="statusTip" >
-                   <string>Restore selected files</string>
-                  </property>
-                  <property name="text" >
-                   <string>Restore</string>
-                  </property>
-                  <property name="icon" >
-                   <iconset resource="resources.qrc" >:/new/prefix1/images/Restore.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0" >
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-             </layout>
+             </widget>
             </item>
             <item row="0" column="1" >
-             <layout class="QGridLayout" >
-              <property name="leftMargin" >
-               <number>0</number>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
               </property>
-              <property name="topMargin" >
-               <number>0</number>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
               </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
-               <number>0</number>
-              </property>
-              <property name="horizontalSpacing" >
-               <number>6</number>
-              </property>
-              <property name="verticalSpacing" >
-               <number>6</number>
-              </property>
-              <item row="1" column="0" >
-               <widget class="QListWidget" name="restore_list" >
-                <property name="statusTip" >
-                 <string>List of files available for restoring</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" >
-               <layout class="QGridLayout" >
-                <property name="leftMargin" >
-                 <number>0</number>
-                </property>
-                <property name="topMargin" >
-                 <number>0</number>
-                </property>
-                <property name="rightMargin" >
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin" >
-                 <number>0</number>
-                </property>
-                <property name="horizontalSpacing" >
-                 <number>6</number>
-                </property>
-                <property name="verticalSpacing" >
-                 <number>6</number>
-                </property>
-                <item row="0" column="0" >
-                 <widget class="QPushButton" name="delTmpAllBtn" >
-                  <property name="statusTip" >
-                   <string>Delete all temporary files</string>
-                  </property>
-                  <property name="text" >
-                   <string>Delete all</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1" >
-                 <widget class="QPushButton" name="delTmpSelBtn" >
-                  <property name="statusTip" >
-                   <string>Delete selected temporary files</string>
-                  </property>
-                  <property name="text" >
-                   <string>Delete selected</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2" >
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="0" >
-               <widget class="QLineEdit" name="restore_search" >
-                <property name="text" >
-                 <string>Search</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             </spacer>
             </item>
            </layout>
           </item>
           <item row="0" column="0" >
+           <widget class="ExtendedLineEdit" name="restore_search" >
+            <property name="text" >
+             <string>Search</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="MTAdvancedGroupBox" native="1" name="restore_clean_gb" />
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1" >
+         <layout class="QGridLayout" >
+          <property name="leftMargin" >
+           <number>0</number>
+          </property>
+          <property name="topMargin" >
+           <number>0</number>
+          </property>
+          <property name="rightMargin" >
+           <number>0</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
+           <number>6</number>
+          </property>
+          <item row="4" column="0" >
+           <widget class="QLineEdit" name="path_of_syncfile" >
+            <property name="acceptDrops" >
+             <bool>false</bool>
+            </property>
+            <property name="statusTip" >
+             <string>Original file path</string>
+            </property>
+            <property name="readOnly" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" >
+           <widget class="QCheckBox" name="to_black_list" >
+            <property name="statusTip" >
+             <string>Add file to blacklist</string>
+            </property>
+            <property name="text" >
+             <string>Do not synchronise this file again (add to blacklist)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Date and time of synchronisation:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Original file path:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_2" >
+            <property name="text" >
+             <string>&lt;b>About the selected item:&lt;/b></string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QDateTimeEdit" name="date_of_sync" >
+            <property name="statusTip" >
+             <string>Date and time of synchronisation</string>
+            </property>
+            <property name="readOnly" >
+             <bool>true</bool>
+            </property>
+            <property name="displayFormat" >
+             <string>yyyy.MM.dd-hh:mm:ss</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="7" column="0" >
            <layout class="QGridLayout" >
             <property name="leftMargin" >
              <number>0</number>
@@ -376,20 +326,19 @@
              <number>6</number>
             </property>
             <item row="0" column="1" >
-             <widget class="QLabel" name="label" >
+             <widget class="QPushButton" name="restore_files" >
+              <property name="statusTip" >
+               <string>Restore selected files</string>
+              </property>
               <property name="text" >
-               <string>&lt;b>Files available for restoring:&lt;/b></string>
+               <string>Restore</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/Restore.png</iconset>
               </property>
              </widget>
             </item>
             <item row="0" column="0" >
-             <widget class="QLabel" name="label_5" >
-              <property name="pixmap" >
-               <pixmap resource="resources.qrc" >:/new/prefix1/images/Restore16.png</pixmap>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2" >
              <spacer>
               <property name="orientation" >
                <enum>Qt::Horizontal</enum>
@@ -442,67 +391,6 @@
           <property name="verticalSpacing" >
            <number>6</number>
           </property>
-          <item row="6" column="0" >
-           <layout class="QGridLayout" >
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="2" >
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="0" column="1" >
-             <widget class="QPushButton" name="blacklist_removefolder" >
-              <property name="statusTip" >
-               <string>Remove folder from blacklist</string>
-              </property>
-              <property name="text" >
-               <string>Remove</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" >
-             <widget class="QPushButton" name="blacklist_addfolder" >
-              <property name="statusTip" >
-               <string>Add folder to blacklist</string>
-              </property>
-              <property name="text" >
-               <string>Add</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
           <item row="0" column="0" >
            <layout class="QGridLayout" >
             <property name="leftMargin" >
@@ -551,62 +439,6 @@
              </widget>
             </item>
            </layout>
-          </item>
-          <item row="4" column="0" >
-           <layout class="QGridLayout" >
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="2" >
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="0" column="1" >
-             <widget class="QLabel" name="label_6" >
-              <property name="text" >
-               <string>&lt;b>Folders in the blacklist:&lt;/b></string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" >
-             <widget class="QLabel" name="label_9" >
-              <property name="pixmap" >
-               <pixmap resource="resources.qrc" >:/new/prefix1/images/folder_16.png</pixmap>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="0" >
-           <widget class="QListWidget" name="blacklist_folderslist" >
-            <property name="statusTip" >
-             <string>List of folders in the blacklist</string>
-            </property>
-           </widget>
           </item>
           <item row="1" column="0" >
            <widget class="QListWidget" name="blacklist_fileslist" >
@@ -683,6 +515,123 @@
             </property>
            </widget>
           </item>
+          <item row="4" column="0" >
+           <layout class="QGridLayout" >
+            <property name="leftMargin" >
+             <number>0</number>
+            </property>
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="2" >
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QLabel" name="label_6" >
+              <property name="text" >
+               <string>&lt;b>Folders in the blacklist:&lt;/b></string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label_9" >
+              <property name="pixmap" >
+               <pixmap resource="resources.qrc" >:/new/prefix1/images/folder_16.png</pixmap>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="0" >
+           <widget class="QListWidget" name="blacklist_folderslist" >
+            <property name="statusTip" >
+             <string>List of folders in the blacklist</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" >
+           <layout class="QGridLayout" >
+            <property name="leftMargin" >
+             <number>0</number>
+            </property>
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="2" >
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QPushButton" name="blacklist_removefolder" >
+              <property name="statusTip" >
+               <string>Remove folder from blacklist</string>
+              </property>
+              <property name="text" >
+               <string>Remove</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QPushButton" name="blacklist_addfolder" >
+              <property name="statusTip" >
+               <string>Add folder to blacklist</string>
+              </property>
+              <property name="text" >
+               <string>Add</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
          </layout>
         </item>
        </layout>
@@ -702,237 +651,22 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QGridLayout" >
-          <property name="leftMargin" >
+         <widget class="QTabWidget" name="multi_tabWidget" >
+          <property name="currentIndex" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
-           <number>6</number>
-          </property>
-          <item row="3" column="0" >
-           <layout class="QHBoxLayout" >
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_10" >
-              <property name="text" >
-               <string>&lt;b>Destination:&lt;/b></string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="destination_multi" >
-              <property name="statusTip" >
-               <string>Set a destination</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="browse_multi" >
-              <property name="statusTip" >
-               <string>Browse for destination</string>
-              </property>
-              <property name="text" >
-               <string>Browse</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/folder_16.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="4" column="0" >
-           <widget class="QTableWidget" name="tw_multi" >
-            <property name="statusTip" >
-             <string>Multisync log</string>
-            </property>
-            <property name="columnCount" >
-             <number>2</number>
-            </property>
-            <column/>
-            <column/>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <layout class="QGridLayout" >
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="3" >
-             <widget class="QPushButton" name="add_multi" >
-              <property name="statusTip" >
-               <string>Add source</string>
-              </property>
-              <property name="text" >
-               <string>Add</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="4" >
-             <widget class="QPushButton" name="remove_multi" >
-              <property name="statusTip" >
-               <string>Remove source</string>
-              </property>
-              <property name="text" >
-               <string>Remove</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2" >
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QListWidget" name="list_multi" >
-            <property name="statusTip" >
-             <string>List of multisync sources</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0" >
-           <widget class="QLabel" name="label_11" >
-            <property name="text" >
-             <string>&lt;b>Sources:&lt;/b></string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0" >
-           <layout class="QGridLayout" >
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="3" >
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="0" column="4" >
-             <widget class="QPushButton" name="sync_multi" >
-              <property name="statusTip" >
-               <string>Start multisync</string>
-              </property>
-              <property name="text" >
-               <string>Multisync</string>
-              </property>
-              <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" >
-             <widget class="QPushButton" name="load_multi" >
-              <property name="statusTip" >
-               <string>Load a multisync</string>
-              </property>
-              <property name="text" >
-               <string>Load</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1" >
-             <widget class="QPushButton" name="saveas_multi" >
-              <property name="statusTip" >
-               <string>Save the current multisync</string>
-              </property>
-              <property name="text" >
-               <string>Save as</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2" >
-             <widget class="QPushButton" name="save_multi" >
-              <property name="statusTip" >
-               <string>Save the current multisync</string>
-              </property>
-              <property name="text" >
-               <string>Save</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+          <widget class="QWidget" name="tab_2" >
+           <attribute name="title" >
+            <string>Sync #1</string>
+           </attribute>
+           <attribute name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+           </attribute>
+           <attribute name="toolTip" >
+            <string>Sync #1</string>
+           </attribute>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1393,6 +1127,164 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_6" >
+       <layout class="QGridLayout" >
+        <property name="leftMargin" >
+         <number>2</number>
+        </property>
+        <property name="topMargin" >
+         <number>2</number>
+        </property>
+        <property name="rightMargin" >
+         <number>2</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>2</number>
+        </property>
+        <item row="0" column="0" colspan="3" >
+         <layout class="QHBoxLayout" >
+          <item>
+           <widget class="QLabel" name="label_18" >
+            <property name="pixmap" >
+             <pixmap resource="resources.qrc" >:/new/prefix1/images/filter16.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_16" >
+            <property name="text" >
+             <string>&lt;b>Filters:&lt;/b></string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item rowspan="3" row="1" column="0" colspan="3" >
+         <widget class="QListWidget" name="filter_list" >
+          <property name="statusTip" >
+           <string>List of filters</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3" colspan="3" >
+         <widget class="QLabel" name="label_17" >
+          <property name="text" >
+           <string>&lt;b>Extensions in the selected filter:&lt;/b></string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3" colspan="3" >
+         <widget class="QListWidget" name="filter_extensions_list" >
+          <property name="statusTip" >
+           <string>List of extensions in the selected filter</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3" >
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="4" >
+         <widget class="QPushButton" name="filter_add_extension" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="statusTip" >
+           <string>Add an extension</string>
+          </property>
+          <property name="text" >
+           <string>Add</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="5" >
+         <widget class="QPushButton" name="filter_remove_extension" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="statusTip" >
+           <string>Remove the current extension</string>
+          </property>
+          <property name="text" >
+           <string>Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" >
+         <widget class="QPushButton" name="filter_add" >
+          <property name="enabled" >
+           <bool>true</bool>
+          </property>
+          <property name="statusTip" >
+           <string>Add a filter</string>
+          </property>
+          <property name="text" >
+           <string>Add</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1" >
+         <widget class="QPushButton" name="filter_remove" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="statusTip" >
+           <string>Remove the current filter</string>
+          </property>
+          <property name="text" >
+           <string>Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2" >
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -1402,7 +1294,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>673</width>
+     <width>669</width>
      <height>21</height>
     </rect>
    </property>
@@ -1412,6 +1304,7 @@
     </property>
     <addaction name="actionNew_sync" />
     <addaction name="actionClose_sync" />
+    <addaction name="actionSave_log" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
    </widget>
@@ -1427,16 +1320,18 @@
      <string>View</string>
     </property>
     <addaction name="actionSynchronise" />
-    <addaction name="actionRestore" />
-    <addaction name="actionBlacklist" />
     <addaction name="actionMultisync" />
     <addaction name="actionScheduler" />
+    <addaction name="actionRestore" />
+    <addaction name="actionBlacklist" />
+    <addaction name="actionFilters" />
    </widget>
    <widget class="QMenu" name="menuOptions" >
     <property name="title" >
      <string>Options</string>
     </property>
     <addaction name="actionRun_hidden" />
+    <addaction name="actionDisable_tray_messages" />
     <addaction name="actionChange_language" />
    </widget>
    <addaction name="menuFile" />
@@ -1465,12 +1360,12 @@
    <addaction name="actionClose_sync" />
    <addaction name="separator" />
    <addaction name="actionSynchronise" />
-   <addaction name="actionRestore" />
-   <addaction name="actionBlacklist" />
    <addaction name="actionMultisync" />
    <addaction name="actionScheduler" />
+   <addaction name="actionRestore" />
+   <addaction name="actionBlacklist" />
+   <addaction name="actionFilters" />
    <addaction name="separator" />
-   <addaction name="actionSync_current" />
    <addaction name="actionSync_all" />
   </widget>
   <action name="actionQuit" >
@@ -1513,10 +1408,10 @@
   </action>
   <action name="actionNew_sync" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
+    <iconset resource="resources.qrc" >:/new/prefix1/images/tab-new_32.png</iconset>
    </property>
    <property name="text" >
-    <string>New sync</string>
+    <string>New tab</string>
    </property>
    <property name="statusTip" >
     <string>Open new sync tab</string>
@@ -1524,10 +1419,10 @@
   </action>
   <action name="actionClose_sync" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128_closetab.png</iconset>
+    <iconset resource="resources.qrc" >:/new/prefix1/images/tab-remove_32.png</iconset>
    </property>
    <property name="text" >
-    <string>Close sync</string>
+    <string>Close tab</string>
    </property>
    <property name="statusTip" >
     <string>Close current sync tab</string>
@@ -1589,17 +1484,6 @@
     <string>Start Synkron hidden</string>
    </property>
   </action>
-  <action name="actionSync_current" >
-   <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/sync.png</iconset>
-   </property>
-   <property name="text" >
-    <string>Sync current</string>
-   </property>
-   <property name="statusTip" >
-    <string>Sync current</string>
-   </property>
-  </action>
   <action name="actionSync_all" >
    <property name="icon" >
     <iconset resource="resources.qrc" >:/new/prefix1/images/sync_all.png</iconset>
@@ -1655,26 +1539,55 @@
     <string>Change language</string>
    </property>
   </action>
+  <action name="actionFilters" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/filter32.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Filters</string>
+   </property>
+   <property name="statusTip" >
+    <string>Go to Filters</string>
+   </property>
+  </action>
+  <action name="actionDisable_tray_messages" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Disable tray icon messages</string>
+   </property>
+   <property name="statusTip" >
+    <string>Disable tray icon messages</string>
+   </property>
+  </action>
+  <action name="actionSave_log" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/save.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Save log</string>
+   </property>
+  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ExtendedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>extendedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MTAdvancedGroupBox</class>
+   <extends>QWidget</extends>
+   <header location="global" >mtadvancedgroupbox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc" />
  </resources>
- <connections>
-  <connection>
-   <sender>actionQuit</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>331</x>
-     <y>269</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
