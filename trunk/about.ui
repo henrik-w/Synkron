@@ -94,7 +94,7 @@
        </font>
       </property>
       <property name="text" >
-       <string>Synkron 0.9.0</string>
+       <string>Synkron 0.9.1</string>
       </property>
       <property name="alignment" >
        <set>Qt::AlignCenter</set>

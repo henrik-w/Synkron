@@ -47,6 +47,7 @@ public:
     //QPushButton * restore_cancel;
     //QPushButton * restore;
     QCheckBox * periodical_sync;
+    QCheckBox * sync_hidden;
     ///QCheckBox * to_black_list;
     QSpinBox * sync_interval;
     //QDateTimeEdit * date_of_sync;

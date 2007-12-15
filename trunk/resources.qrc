@@ -2,6 +2,7 @@
     <qresource prefix="/new/prefix1" >
         <file>images/OK.png</file>
         <file>images/Restore.png</file>
+        <file>images/Restore16.png</file>
         <file>images/STOP.png</file>
         <file>images/Synkron128.png</file>
         <file>images/Synkron128_closetab.png</file>
