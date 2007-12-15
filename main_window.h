@@ -85,8 +85,10 @@ private slots:
     void removeFolderFromBlacklist();
     void tabNameEdited();
     SyncPage * addTab();
-    SyncPage * addTab(QString, QString, QString);
+    SyncPage * addTab(QString, QString, QString, bool, bool, int);
     void closeTab() { tabWidget->removeTab(tabWidget->currentIndex()); }
+    void delTmpAll();
+    void delTmpSel();
 
 private:
     //QString directory1;

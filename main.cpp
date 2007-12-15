@@ -39,14 +39,18 @@ MainWindow::MainWindow()
     connect(blacklist_removefile, SIGNAL(released()), this, SLOT(removeFileFromBlacklist()));
     connect(blacklist_addfolder, SIGNAL(released()), this, SLOT(addFolderToBlacklist()));
     connect(blacklist_removefolder, SIGNAL(released()), this, SLOT(removeFolderFromBlacklist()));
+    connect(delTmpAllBtn, SIGNAL(released()), this, SLOT(delTmpAll()));
+    connect(delTmpSelBtn, SIGNAL(released()), this, SLOT(delTmpSel()));
     
     tabWidget->removeTab(0);
     readSettings();
 }
 
-SyncPage * MainWindow::addTab() { return addTab("", "", ""); }
+SyncPage * MainWindow::addTab() { return addTab("", "", "", true, false, 5); }
 
-SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2)
+//SyncPage * MainWindow::addTab(bool p, bool h) { return addTab("", "", "", p, h); }
+
+SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2, bool periodical, bool hidden, int interval)
 {
     SyncPage * page = new SyncPage;
     page->tab = new QWidget (tabWidget);
@@ -159,11 +163,13 @@ SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2)
     QGridLayout * hlayout5 = new QGridLayout (page->stacked_page_2);
     page->periodical_sync = new QCheckBox (tr("Synchronise periodically, every "), page->stacked_page_2);
     page->periodical_sync->setStatusTip("Synchronise periodically");
-    page->periodical_sync->setChecked(true);
+    if (periodical==true) page->periodical_sync->setChecked(true);
+    else page->periodical_sync->setChecked(false);
     hlayout5->addWidget(page->periodical_sync, 0, 0); // #######################
     page->sync_interval = new QSpinBox (page->stacked_page_2);
     page->sync_interval->setStatusTip("Set sync interval");
-    page->sync_interval->setValue(5);
+    page->sync_interval->setValue(interval);
+    if (!page->periodical_sync->isChecked()) page->sync_interval->setEnabled(false);
     hlayout5->addWidget(page->sync_interval, 0, 1); // #########################
     QLabel * min_text = new QLabel (page->stacked_page_2);
     min_text->setText(tr(" minute(s)"));
@@ -173,7 +179,8 @@ SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2)
     glayout2->addLayout(hlayout5, 2, 0); // ###################################
     connect(page->periodical_sync, SIGNAL(toggled(bool)), page->sync_interval, SLOT(setEnabled(bool)));
     page->sync_hidden = new QCheckBox (page->stacked_page_2);
-    page->sync_hidden->setChecked(false);
+    if (hidden==false) page->sync_hidden->setChecked(false);
+    else page->sync_hidden->setChecked(true);
     page->sync_hidden->setText(tr("Synchronise hidden files and folders"));
     glayout2->addWidget(page->sync_hidden, 3, 0);
         
@@ -204,23 +211,23 @@ void MainWindow::browse(QAbstractButton * btn)
 {
     SyncPage * page = tabs.value(tabWidget->currentWidget());
     if (btn == page->browse_1) {
-        page->sync_folder_1->setText(QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
+    	page->sync_folder_1->setText(QFileDialog::getExistingDirectory(
+                this,
+                "Choose a directory",
+                QDir::homePath(),
+                QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
     } else if (btn == page->browse_2) {
-        page->sync_folder_2->setText(QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
+    	page->sync_folder_2->setText(QFileDialog::getExistingDirectory(
+                this,
+                "Choose a directory",
+                QDir::homePath(),
+                QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
     }
 }
 
 void MainWindow::sync(QWidget* syncTab)
 {
-    SyncPage * page = tabs.value(syncTab);
+    SyncPage * page = tabs.value(syncTab); int x = syncFiles;
     QString directory1 = page->sync_folder_1->text();
     QString directory2 = page->sync_folder_2->text();
     if ((directory1.isEmpty()) || (directory2.isEmpty()))
@@ -229,7 +236,14 @@ void MainWindow::sync(QWidget* syncTab)
         return;
     }
     QDir d1 (directory1); QDir d2 (directory2);
-    if ((!d1.exists()) && (!d2.exists())) {
+    if ((!d1.exists()) || (!d2.exists())) {
+		QListWidgetItem * item = new QListWidgetItem(tr("%1	Synchronisation failed: Directory not found").arg(QTime(QTime().currentTime()).toString("hh:mm:ss")));
+    	item->setBackground(QBrush(Qt::red));
+		page->lw->addItem(item);
+		page->stacked_widget->setCurrentIndex(1);
+		return;
+	}
+    /*if ((!d1.exists()) && (!d2.exists())) {
 		QMessageBox msgBox; msgBox.setText(tr("Directories %1 and %2 not found. Create?").arg(d1.dirName()).arg(d2.dirName()));
 		msgBox.setWindowTitle(QString("Synkron - %1").arg(tabWidget->tabText(tabWidget->indexOf(page->tab)))); msgBox.setIcon(QMessageBox::Question);
  		msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
@@ -271,7 +285,7 @@ void MainWindow::sync(QWidget* syncTab)
 		 default:
      		break;
  		}
-    }
+    }*/
     /*if (d1.count() == 0 && d2.count() == 0) {
        QMessageBox::warning(this, tr("Synkron - %1").arg(tabWidget->tabText(tabWidget->indexOf(page->tab))), tr("The selected directories are empty."));
        return;
@@ -289,10 +303,13 @@ void MainWindow::sync(QWidget* syncTab)
 	qApp->processEvents();
     subSync(d1, d2, page, repeated, d1_blacklist, d2_blacklist);
     QApplication::restoreOverrideCursor();
-    if (!syncingAll) { trayIcon->showMessage(tr("Synchronisation complete"), tr("%1 files synchronised").arg(syncFiles)); syncFiles = 0; }
     //if (page->periodical_sync->isChecked()) { sync_timer.stop(); sync_timer.singleShot(((page->sync_interval->value())*60000), page, SLOT(syncPage())); sync_timer.stop(); }
     if (page->periodical_sync->isChecked()) { page->sync_timer->stop(); page->sync_timer->start(page->sync_interval->value()*60000); }
     else { page->sync_timer->stop(); }
+    QListWidgetItem * item = new QListWidgetItem(tr("%1	Synchronisation complete: %2 file(s) synchronised").arg(QTime(QTime().currentTime()).toString("hh:mm:ss")).arg(syncFiles-x));
+    item->setBackground(QBrush(Qt::green));
+	page->lw->addItem(item);
+	if (!syncingAll) { trayIcon->showMessage(tr("Synchronisation complete"), tr("%1 files synchronised").arg(syncFiles)); syncFiles = 0; }
 }
 
 void MainWindow::subSync(QDir& d1, QDir& d2, SyncPage * page, bool repeated, bool d1_blacklist, bool d2_blacklist)
@@ -475,50 +492,77 @@ void MainWindow::resizeEvent(QResizeEvent *)
     updateGeometry();
 }
 
-void MainWindow::closeEvent(QCloseEvent * event)
+void MainWindow::closeEvent(QCloseEvent *)
 {
     QSettings settings ("Matus Tomlein", "Synkron");
+    QSettings sync_settings(QSettings::IniFormat, QSettings::UserScope, "Matus Tomlein", "Synkron");
     QStringList recentsyncs;
     for (int i = 0; i<tabWidget->count(); i++) {
         recentsyncs << tabWidget->tabText(i);
         recentsyncs << tabs.value(tabWidget->widget(i))->sync_folder_1->text();
         recentsyncs << tabs.value(tabWidget->widget(i))->sync_folder_2->text();
+        if (tabs.value(tabWidget->widget(i))->periodical_sync->isChecked()) recentsyncs << "checked";
+        else recentsyncs << "unchecked";
+        if (tabs.value(tabWidget->widget(i))->sync_hidden->isChecked()) recentsyncs << "checked";
+        else recentsyncs << "unchecked";
+        recentsyncs << QVariant(tabs.value(tabWidget->widget(i))->sync_interval->value()).toString();
     }
-    settings.setValue("recentsyncs", recentsyncs);
-    QSettings sync_settings(QSettings::IniFormat, QSettings::UserScope, "Matus Tomlein", "Synkron");
+    sync_settings.setValue("recentsyncs", recentsyncs);
     sync_settings.setValue("synchronised", synchronised);
     sync_settings.setValue("files_blacklist", files_blacklist);
     sync_settings.setValue("folders_blacklist", folders_blacklist);
-    sync_settings.setValue("pos", this->pos());
-    sync_settings.setValue("size", this->size());
+    settings.setValue("pos", this->pos());
+    settings.setValue("size", this->size());
     trayIcon->hide();
 }
 
 void MainWindow::readSettings ()
 {
 	QSettings settings ("Matus Tomlein", "Synkron");
-    QStringList recentsyncs = settings.value("recentsyncs").toStringList();
-    if (recentsyncs.count() == 0) { addTab(); return; }
-    QString name; QString sync1; QString sync2;
-    for (int i = 0; i < recentsyncs.count(); ++i) {
-        if (i % 3 == 0 || i == 0) { name = recentsyncs.at(i); }
-        if (i % 3 == 1) { sync1 = recentsyncs.at(i); }
-    	if (i % 3 == 2) { sync2 = recentsyncs.at(i); addTab(name, sync1, sync2); }
-    }
-    QSettings sync_settings(QSettings::IniFormat, QSettings::UserScope, "Matus Tomlein", "Synkron");
+	QSettings sync_settings(QSettings::IniFormat, QSettings::UserScope, "Matus Tomlein", "Synkron");
+    QStringList recentsyncs = sync_settings.value("recentsyncs").toStringList();
+    QString name; QString sync1; QString sync2; bool periodical; bool hidden;
+	if (recentsyncs.count() == 0 && settings.value("recentsyncs").toStringList().count() != 0) {
+		recentsyncs = settings.value("recentsyncs").toStringList();
+		for (int i = 0; i < recentsyncs.count(); ++i) {
+       		if (i % 3 == 0 || i == 0) { name = recentsyncs.at(i); }
+        	if (i % 3 == 1) { sync1 = recentsyncs.at(i); }
+    		if (i % 3 == 2) { sync2 = recentsyncs.at(i); addTab(name, sync1, sync2, true, false, 5); }
+    	}
+	}
+    else if (recentsyncs.count() == 0) { addTab(); return; }
+    else {
+		for (int i = 0; i < recentsyncs.count(); ++i) {
+     		if (i % 6 == 0 || i == 0) { name = recentsyncs.at(i); }
+    		if (i % 6 == 1) { sync1 = recentsyncs.at(i); }
+    		if (i % 6 == 2) { sync2 = recentsyncs.at(i); }
+    		if (i % 6 == 3) {
+				if (recentsyncs.at(i)=="unchecked") periodical = false;
+				else periodical = true;
+			}
+			if (i % 6 == 4) {
+				if (recentsyncs.at(i)=="checked") hidden = true;
+				else hidden = false;
+			}
+			if (i % 6 == 5) {
+				addTab(name, sync1, sync2, periodical, hidden, recentsyncs.at(i).toInt());
+			}
+   		}
+	}
     synchronised = sync_settings.value("synchronised").toStringList();
     files_blacklist = sync_settings.value("files_blacklist").toStringList();
 	folders_blacklist = sync_settings.value("folders_blacklist").toStringList();
-    this->move(sync_settings.value("pos", this->pos()).toPoint());
-	this->resize(sync_settings.value("size", this->size()).toSize());
+    this->move(settings.value("pos", this->pos()).toPoint());
+	this->resize(settings.value("size", this->size()).toSize());
 }
 
 void MainWindow::updateGeometry()
 {
-    mainGridLayout->setGeometry(0, 0, this->geometry().width(), this->geometry().height()-40);
-    tabWidget->setGeometry(0, 0, mainStackedWidget->width(), mainStackedWidget->height()-50);
-    restoreGridLayout->setGeometry(QRect(0, 0, mainStackedWidget->width(), mainStackedWidget->height()-50));
-    blacklistGridLayout->setGeometry(QRect(0, 0, mainStackedWidget->width(), mainStackedWidget->height()-50));
+    int h = statusBar()->height() + toolBar->height() + menubar->height();
+    mainGridLayout->setGeometry(0, 0, this->geometry().width(), this->geometry().height()-h);
+    tabWidget->setGeometry(0, 0, mainStackedWidget->width(), mainStackedWidget->height());
+    restoreGridLayout->setGeometry(QRect(0, 0, mainStackedWidget->width(), mainStackedWidget->height()));
+    blacklistGridLayout->setGeometry(QRect(0, 0, mainStackedWidget->width(), mainStackedWidget->height()));
 }
 
 void MainWindow::about ()
@@ -574,15 +618,22 @@ void MainWindow::trayIconVisible(bool visible)
 
 void MainWindow::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
-     switch (reason) {
-     case QSystemTrayIcon::Trigger:
-     case QSystemTrayIcon::DoubleClick:
-     case QSystemTrayIcon::MiddleClick:
-         trayIcon->contextMenu()->show();
-         break;
-     default:
-         break;
-     }
+    switch (reason) {
+	case QSystemTrayIcon::MiddleClick:
+	case QSystemTrayIcon::DoubleClick:
+		if (this->isHidden()) {
+			this->show();
+		}
+		else {
+			this->hide();
+		}
+		break;
+    case QSystemTrayIcon::Context:
+        trayIcon->contextMenu()->show();
+        break;
+    default:
+        break;
+    }
 }
 
 void SyncPage::syncPage()
@@ -595,7 +646,7 @@ void MainWindow::toRestorePage()
 	date_of_sync->setDateTime(QDateTime(QDate(2000, 01, 01), QTime(00, 00, 00)));
 	path_of_syncfile->clear();
 	to_black_list->setCheckState(Qt::Unchecked);
-	///page->stacked_widget->setCurrentIndex(2);
+	//page->stacked_widget->setCurrentIndex(2);
  	QListWidgetItem * item;
  	restore_list->clear();
  	for (int i = 0; i < synchronised.count(); i+=4) {
@@ -812,6 +863,71 @@ void MainWindow::tabNameEdited()
 {
 	SyncPage * page = tabs.value(tabWidget->currentWidget());
 	tabWidget->setTabText(tabWidget->indexOf(page->tab), page->tab_name->text());
+}
+
+void MainWindow::delTmpAll()
+{
+	if (restore_list->count()==0) { QMessageBox::information(this, tr("Synkron"), tr("There are no temporary files.")); return; }
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete all the temporary files?"));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+		QFile * file;
+   		for (int i = restore_list->count()-1; i>=0; --i) {
+			file = new QFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+			if (file->exists()) {
+				file->remove();
+			}
+			/*if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
+				int n = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3)) - 3;
+				synchronised.removeAt(n); synchronised.removeAt(n+1); synchronised.removeAt(n+2); synchronised.removeAt(n+3);
+			}*/
+			delete restore_list->item(i);
+		} synchronised.clear();
+   		break;
+ 	case QMessageBox::No:
+     	return;
+	default:
+   		break;
+ 	}
+}
+
+void MainWindow::delTmpSel()
+{
+	bool a = false;
+	for (int i = restore_list->count()-1; i>=0; --i) {
+		if (restore_list->item(i)->checkState() == Qt::Checked) {
+			a = true;
+		}
+	}
+	if (!a) { QMessageBox::information(this, tr("Synkron"), tr("No files selected.")); return; }
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete the selected temporary files?"));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No); 
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+		QFile * file;
+   		for (int i = restore_list->count()-1; i>=0; --i) {
+			if (restore_list->item(i)->checkState() == Qt::Checked) {
+				file = new QFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+				if (file->exists()) {
+					file->remove();
+				}
+				if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
+					int n = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+					synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
+				}
+				delete restore_list->item(i);
+			}
+		}
+		if (synchronised.count() == 0) { synchronised.clear(); }
+   		break;
+ 	case QMessageBox::No:
+     	return;
+	default:
+   		break;
+ 	}
 }
 
 int main(int argc, char *argv[])
