@@ -6,8 +6,8 @@ local makeTool = "make";
 printl("Running QMAKE");
 run("qmake", qmakeOpts);
 
-//printl("Running LRELEASE (translations)");
-//run("lrelease", [ "Synkron.pro" ]);
+printl("Running LRELEASE (translations)");
+run("lrelease", [ "Synkron.pro" ]);
 
 switch (getenv("QMAKESPEC"))
 {
