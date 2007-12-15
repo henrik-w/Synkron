@@ -122,7 +122,7 @@ private slots:
     void removeFileFromBlacklist();
     void addFolderToBlacklist();
     void removeFolderFromBlacklist();
-    void tabNameEdited();
+    void tabNameChanged(QString);
     SyncPage * addTab();
     void closeTab() { tabWidget->removeTab(tabWidget->currentIndex()); }
     void delTmpAll();
