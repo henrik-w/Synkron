@@ -5,21 +5,85 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>400</height>
+    <width>362</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>350</width>
-    <height>400</height>
+    <width>362</width>
+    <height>335</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>350</width>
-    <height>400</height>
+    <width>362</width>
+    <height>335</height>
    </size>
+  </property>
+  <property name="palette" >
+   <palette>
+    <active>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>177</red>
+        <green>195</green>
+        <blue>217</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>177</red>
+        <green>195</green>
+        <blue>217</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>177</red>
+        <green>195</green>
+        <blue>217</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window" >
+      <brush brushstyle="SolidPattern" >
+       <color alpha="255" >
+        <red>177</red>
+        <green>195</green>
+        <blue>217</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
   </property>
   <property name="windowTitle" >
    <string>About Synkron</string>
@@ -27,221 +91,95 @@
   <property name="windowIcon" >
    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
   </property>
-  <widget class="QWidget" name="gridLayout" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>351</width>
-     <height>401</height>
-    </rect>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
    </property>
-   <layout class="QGridLayout" >
-    <property name="margin" >
-     <number>10</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item row="4" column="0" >
-     <widget class="QLabel" name="label" >
-      <property name="palette" >
-       <palette>
-        <active>
-         <colorrole role="Text" >
-          <brush brushstyle="SolidPattern" >
-           <color alpha="255" >
-            <red>255</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Text" >
-          <brush brushstyle="SolidPattern" >
-           <color alpha="255" >
-            <red>255</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Text" >
-          <brush brushstyle="SolidPattern" >
-           <color alpha="255" >
-            <red>118</red>
-            <green>116</green>
-            <blue>108</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font" >
-       <font>
-        <family>MS Shell Dlg 2</family>
-        <pointsize>15</pointsize>
-        <weight>50</weight>
-        <italic>false</italic>
-        <bold>false</bold>
-        <underline>false</underline>
-        <strikeout>false</strikeout>
-       </font>
-      </property>
-      <property name="text" >
-       <string>Synkron 0.9.2</string>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" >
-     <widget class="QLabel" name="label_4" >
-      <property name="pixmap" >
-       <pixmap/>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0" >
-     <layout class="QHBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <spacer>
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" >
-         <size>
-          <width>131</width>
-          <height>31</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="okButton" >
-        <property name="text" >
-         <string>Close</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="7" column="0" >
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="0" >
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="0" >
-     <widget class="QLabel" name="label_5" >
-      <property name="text" >
-       <string/>
-      </property>
-      <property name="pixmap" >
-       <pixmap/>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0" >
-     <widget class="QLabel" name="label_3" >
-      <property name="acceptDrops" >
-       <bool>false</bool>
-      </property>
-      <property name="text" >
-       <string>Synkron is distributed under the terms of GPL v2.&lt;br>&lt;br>2006-2007 &lt;b>Matúš Tomlein&lt;/b> (matus.tomlein@gmail.com)&lt;br>http://synkron.sourceforge.net&lt;br>&lt;br>This program uses the Qt 4 libraries.</string>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" >
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType" >
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>20</width>
-        <height>15</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="0" >
-     <widget class="QLabel" name="label_2" >
-      <property name="text" >
-       <string/>
-      </property>
-      <property name="pixmap" >
-       <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</pixmap>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+   <property name="leftMargin" >
+    <number>6</number>
+   </property>
+   <property name="topMargin" >
+    <number>6</number>
+   </property>
+   <property name="rightMargin" >
+    <number>6</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_6" >
+     <property name="pixmap" >
+      <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron-about.png</pixmap>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="ver_label" >
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3" >
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="text" >
+      <string>Synkron is distributed under the terms of GPL v2.&lt;br>&lt;br>2006-2007 &lt;b>Matúš Tomlein&lt;/b>&lt;br>matus.tomlein@gmail.com&lt;br>http://synkron.sourceforge.net&lt;br>&lt;br>This program uses the Qt 4 libraries.</string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>131</width>
+         <height>31</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="closeButton" >
+       <property name="text" >
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="resources.qrc" />
  </resources>
  <connections>
   <connection>
-   <sender>okButton</sender>
-   <signal>clicked()</signal>
+   <sender>closeButton</sender>
+   <signal>released()</signal>
    <receiver>About</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>285</x>
-     <y>399</y>
+     <x>310</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>168</x>
-     <y>235</y>
+     <x>178</x>
+     <y>172</y>
     </hint>
    </hints>
   </connection>

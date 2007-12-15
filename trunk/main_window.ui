@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>675</width>
-    <height>461</height>
+    <width>673</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -16,84 +16,130 @@
    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget" >
-   <widget class="QWidget" name="mainGridLayout" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>661</width>
-      <height>411</height>
-     </rect>
+   <layout class="QGridLayout" >
+    <property name="leftMargin" >
+     <number>2</number>
     </property>
-    <layout class="QGridLayout" >
-     <property name="margin" >
-      <number>2</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="0" >
-      <widget class="QStackedWidget" name="mainStackedWidget" >
-       <property name="currentIndex" >
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="page" >
-        <widget class="QTabWidget" name="tabWidget" >
-         <property name="geometry" >
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>637</width>
-           <height>361</height>
-          </rect>
-         </property>
-         <property name="currentIndex" >
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="tab" >
-          <attribute name="title" >
-           <string>Sync #1</string>
-          </attribute>
-          <attribute name="icon" >
-           <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
-          </attribute>
-          <attribute name="toolTip" >
-           <string>Sync #1</string>
-          </attribute>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_2" >
-        <widget class="QWidget" name="restoreGridLayout" >
-         <property name="geometry" >
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>631</width>
-           <height>351</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
+    <property name="topMargin" >
+     <number>2</number>
+    </property>
+    <property name="rightMargin" >
+     <number>2</number>
+    </property>
+    <property name="bottomMargin" >
+     <number>2</number>
+    </property>
+    <item row="0" column="0" >
+     <widget class="QStackedWidget" name="mainStackedWidget" >
+      <property name="currentIndex" >
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page" >
+       <layout class="QGridLayout" >
+        <property name="leftMargin" >
+         <number>0</number>
+        </property>
+        <property name="topMargin" >
+         <number>0</number>
+        </property>
+        <property name="rightMargin" >
+         <number>0</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>0</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QTabWidget" name="tabWidget" >
+          <property name="currentIndex" >
            <number>0</number>
           </property>
-          <property name="spacing" >
+          <widget class="QWidget" name="tab" >
+           <attribute name="title" >
+            <string>Sync #1</string>
+           </attribute>
+           <attribute name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
+           </attribute>
+           <attribute name="toolTip" >
+            <string>Sync #1</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2" >
+       <layout class="QVBoxLayout" >
+        <property name="leftMargin" >
+         <number>0</number>
+        </property>
+        <property name="topMargin" >
+         <number>0</number>
+        </property>
+        <property name="rightMargin" >
+         <number>0</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QGridLayout" >
+          <property name="leftMargin" >
+           <number>0</number>
+          </property>
+          <property name="topMargin" >
+           <number>0</number>
+          </property>
+          <property name="rightMargin" >
+           <number>0</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
            <number>6</number>
           </property>
           <item row="2" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="2" >
              <layout class="QGridLayout" >
-              <property name="margin" >
+              <property name="leftMargin" >
                <number>0</number>
               </property>
-              <property name="spacing" >
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing" >
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing" >
                <number>6</number>
               </property>
               <item row="4" column="0" >
@@ -168,10 +214,22 @@
               </item>
               <item row="7" column="0" >
                <layout class="QGridLayout" >
-                <property name="margin" >
+                <property name="leftMargin" >
                  <number>0</number>
                 </property>
-                <property name="spacing" >
+                <property name="topMargin" >
+                 <number>0</number>
+                </property>
+                <property name="rightMargin" >
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin" >
+                 <number>0</number>
+                </property>
+                <property name="horizontalSpacing" >
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing" >
                  <number>6</number>
                 </property>
                 <item row="0" column="1" >
@@ -184,12 +242,6 @@
                   </property>
                   <property name="icon" >
                    <iconset resource="resources.qrc" >:/new/prefix1/images/Restore.png</iconset>
-                  </property>
-                  <property name="iconSize" >
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
                   </property>
                  </widget>
                 </item>
@@ -212,29 +264,56 @@
             </item>
             <item row="0" column="1" >
              <layout class="QGridLayout" >
-              <property name="margin" >
+              <property name="leftMargin" >
                <number>0</number>
               </property>
-              <property name="spacing" >
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing" >
                <number>6</number>
               </property>
-              <item row="0" column="0" >
+              <property name="verticalSpacing" >
+               <number>6</number>
+              </property>
+              <item row="1" column="0" >
                <widget class="QListWidget" name="restore_list" >
                 <property name="statusTip" >
                  <string>List of files available for restoring</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" >
+              <item row="2" column="0" >
                <layout class="QGridLayout" >
-                <property name="margin" >
+                <property name="leftMargin" >
                  <number>0</number>
                 </property>
-                <property name="spacing" >
+                <property name="topMargin" >
+                 <number>0</number>
+                </property>
+                <property name="rightMargin" >
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin" >
+                 <number>0</number>
+                </property>
+                <property name="horizontalSpacing" >
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing" >
                  <number>6</number>
                 </property>
                 <item row="0" column="0" >
                  <widget class="QPushButton" name="delTmpAllBtn" >
+                  <property name="statusTip" >
+                   <string>Delete all temporary files</string>
+                  </property>
                   <property name="text" >
                    <string>Delete all</string>
                   </property>
@@ -242,6 +321,9 @@
                 </item>
                 <item row="0" column="1" >
                  <widget class="QPushButton" name="delTmpSelBtn" >
+                  <property name="statusTip" >
+                   <string>Delete selected temporary files</string>
+                  </property>
                   <property name="text" >
                    <string>Delete selected</string>
                   </property>
@@ -262,16 +344,35 @@
                 </item>
                </layout>
               </item>
+              <item row="0" column="0" >
+               <widget class="QLineEdit" name="restore_search" >
+                <property name="text" >
+                 <string>Search</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </item>
            </layout>
           </item>
           <item row="0" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="1" >
@@ -304,31 +405,61 @@
            </layout>
           </item>
          </layout>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="page_3" >
-        <widget class="QWidget" name="blacklistGridLayout" >
-         <property name="geometry" >
-          <rect>
-           <x>0</x>
-           <y>20</y>
-           <width>651</width>
-           <height>341</height>
-          </rect>
-         </property>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3" >
+       <layout class="QVBoxLayout" >
+        <property name="leftMargin" >
+         <number>0</number>
+        </property>
+        <property name="topMargin" >
+         <number>0</number>
+        </property>
+        <property name="rightMargin" >
+         <number>0</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>0</number>
+        </property>
+        <item>
          <layout class="QGridLayout" >
-          <property name="margin" >
+          <property name="leftMargin" >
            <number>0</number>
           </property>
-          <property name="spacing" >
+          <property name="topMargin" >
+           <number>0</number>
+          </property>
+          <property name="rightMargin" >
+           <number>0</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
            <number>6</number>
           </property>
           <item row="6" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="2" >
@@ -352,6 +483,9 @@
               <property name="text" >
                <string>Remove</string>
               </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+              </property>
              </widget>
             </item>
             <item row="0" column="0" >
@@ -362,16 +496,31 @@
               <property name="text" >
                <string>Add</string>
               </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+              </property>
              </widget>
             </item>
            </layout>
           </item>
           <item row="0" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="1" >
@@ -405,10 +554,22 @@
           </item>
           <item row="4" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="2" >
@@ -456,10 +617,22 @@
           </item>
           <item row="2" column="0" >
            <layout class="QGridLayout" >
-            <property name="margin" >
+            <property name="leftMargin" >
              <number>0</number>
             </property>
-            <property name="spacing" >
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
              <number>6</number>
             </property>
             <item row="0" column="2" >
@@ -483,6 +656,9 @@
               <property name="text" >
                <string>Remove</string>
               </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+              </property>
              </widget>
             </item>
             <item row="0" column="0" >
@@ -492,6 +668,9 @@
               </property>
               <property name="text" >
                <string>Add</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
               </property>
              </widget>
             </item>
@@ -505,19 +684,725 @@
            </widget>
           </item>
          </layout>
-        </widget>
-       </widget>
+        </item>
+       </layout>
       </widget>
-     </item>
-    </layout>
-   </widget>
+      <widget class="QWidget" name="page_4" >
+       <layout class="QVBoxLayout" >
+        <property name="leftMargin" >
+         <number>0</number>
+        </property>
+        <property name="topMargin" >
+         <number>0</number>
+        </property>
+        <property name="rightMargin" >
+         <number>0</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QGridLayout" >
+          <property name="leftMargin" >
+           <number>0</number>
+          </property>
+          <property name="topMargin" >
+           <number>0</number>
+          </property>
+          <property name="rightMargin" >
+           <number>0</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
+           <number>6</number>
+          </property>
+          <item row="3" column="0" >
+           <layout class="QHBoxLayout" >
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <property name="leftMargin" >
+             <number>0</number>
+            </property>
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_10" >
+              <property name="text" >
+               <string>&lt;b>Destination:&lt;/b></string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="destination_multi" >
+              <property name="statusTip" >
+               <string>Set a destination</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="browse_multi" >
+              <property name="statusTip" >
+               <string>Browse for destination</string>
+              </property>
+              <property name="text" >
+               <string>Browse</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/folder_16.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="4" column="0" >
+           <widget class="QTableWidget" name="tw_multi" >
+            <property name="statusTip" >
+             <string>Multisync log</string>
+            </property>
+            <property name="columnCount" >
+             <number>2</number>
+            </property>
+            <column/>
+            <column/>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <layout class="QGridLayout" >
+            <property name="leftMargin" >
+             <number>0</number>
+            </property>
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="3" >
+             <widget class="QPushButton" name="add_multi" >
+              <property name="statusTip" >
+               <string>Add source</string>
+              </property>
+              <property name="text" >
+               <string>Add</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4" >
+             <widget class="QPushButton" name="remove_multi" >
+              <property name="statusTip" >
+               <string>Remove source</string>
+              </property>
+              <property name="text" >
+               <string>Remove</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" >
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QListWidget" name="list_multi" >
+            <property name="statusTip" >
+             <string>List of multisync sources</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_11" >
+            <property name="text" >
+             <string>&lt;b>Sources:&lt;/b></string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" >
+           <layout class="QGridLayout" >
+            <property name="leftMargin" >
+             <number>0</number>
+            </property>
+            <property name="topMargin" >
+             <number>0</number>
+            </property>
+            <property name="rightMargin" >
+             <number>0</number>
+            </property>
+            <property name="bottomMargin" >
+             <number>0</number>
+            </property>
+            <property name="horizontalSpacing" >
+             <number>6</number>
+            </property>
+            <property name="verticalSpacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="3" >
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="4" >
+             <widget class="QPushButton" name="sync_multi" >
+              <property name="statusTip" >
+               <string>Start multisync</string>
+              </property>
+              <property name="text" >
+               <string>Multisync</string>
+              </property>
+              <property name="icon" >
+               <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QPushButton" name="load_multi" >
+              <property name="statusTip" >
+               <string>Load a multisync</string>
+              </property>
+              <property name="text" >
+               <string>Load</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QPushButton" name="saveas_multi" >
+              <property name="statusTip" >
+               <string>Save the current multisync</string>
+              </property>
+              <property name="text" >
+               <string>Save as</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" >
+             <widget class="QPushButton" name="save_multi" >
+              <property name="statusTip" >
+               <string>Save the current multisync</string>
+              </property>
+              <property name="text" >
+               <string>Save</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_5" >
+       <layout class="QGridLayout" >
+        <property name="leftMargin" >
+         <number>0</number>
+        </property>
+        <property name="topMargin" >
+         <number>0</number>
+        </property>
+        <property name="rightMargin" >
+         <number>0</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>0</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QSplitter" name="splitter" >
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QWidget" name="layoutWidget" >
+           <layout class="QVBoxLayout" >
+            <item>
+             <layout class="QGridLayout" >
+              <property name="leftMargin" >
+               <number>0</number>
+              </property>
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing" >
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing" >
+               <number>6</number>
+              </property>
+              <item row="0" column="1" >
+               <widget class="QLabel" name="label_13" >
+                <property name="text" >
+                 <string>&lt;b>Schedules:&lt;/b></string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" >
+               <widget class="QLabel" name="label_12" >
+                <property name="text" >
+                 <string/>
+                </property>
+                <property name="pixmap" >
+                 <pixmap resource="resources.qrc" >:/new/prefix1/images/scheduler16.png</pixmap>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tw_schedules" >
+              <property name="statusTip" >
+               <string>List of schedules</string>
+              </property>
+              <property name="editTriggers" >
+               <set>QAbstractItemView::EditKeyPressed</set>
+              </property>
+              <property name="showGrid" >
+               <bool>false</bool>
+              </property>
+              <property name="columnCount" >
+               <number>2</number>
+              </property>
+              <column/>
+              <column/>
+             </widget>
+            </item>
+            <item>
+             <layout class="QGridLayout" >
+              <property name="leftMargin" >
+               <number>0</number>
+              </property>
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing" >
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing" >
+               <number>6</number>
+              </property>
+              <item row="0" column="3" >
+               <widget class="QPushButton" name="add_schedule" >
+                <property name="statusTip" >
+                 <string>Add a schedule</string>
+                </property>
+                <property name="text" >
+                 <string>Add</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4" >
+               <widget class="QPushButton" name="remove_schedule" >
+                <property name="statusTip" >
+                 <string>Remove the current schedule</string>
+                </property>
+                <property name="text" >
+                 <string>Remove</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" >
+               <widget class="QPushButton" name="startall_schedules" >
+                <property name="statusTip" >
+                 <string>Start all schedules</string>
+                </property>
+                <property name="text" >
+                 <string>Start all</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="1" >
+               <widget class="QPushButton" name="stopall_schedules" >
+                <property name="statusTip" >
+                 <string>Stop all schedules</string>
+                </property>
+                <property name="text" >
+                 <string>Stop all</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGroupBox" name="schedGroupBox" >
+           <property name="enabled" >
+            <bool>false</bool>
+           </property>
+           <property name="title" >
+            <string>Schedule options</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="topMargin" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <layout class="QGridLayout" >
+              <property name="leftMargin" >
+               <number>0</number>
+              </property>
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing" >
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing" >
+               <number>6</number>
+              </property>
+              <item row="0" column="1" >
+               <widget class="QLineEdit" name="sched_name" >
+                <property name="statusTip" >
+                 <string>Set schedule name</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" >
+             <layout class="QHBoxLayout" >
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <property name="leftMargin" >
+               <number>0</number>
+              </property>
+              <property name="topMargin" >
+               <number>0</number>
+              </property>
+              <property name="rightMargin" >
+               <number>0</number>
+              </property>
+              <property name="bottomMargin" >
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <property name="leftMargin" >
+                 <number>0</number>
+                </property>
+                <property name="topMargin" >
+                 <number>0</number>
+                </property>
+                <property name="rightMargin" >
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_14" >
+                  <property name="text" >
+                   <string>&lt;b>Select tabs to be used:&lt;/b></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QListWidget" name="sched_tab_lw" >
+                  <property name="statusTip" >
+                   <string>Select tabs to be used</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QGridLayout" >
+                  <property name="leftMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="horizontalSpacing" >
+                   <number>6</number>
+                  </property>
+                  <property name="verticalSpacing" >
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="2" >
+                   <widget class="QPushButton" name="sched_stop" >
+                    <property name="statusTip" >
+                     <string>Stop schedule</string>
+                    </property>
+                    <property name="text" >
+                     <string>Stop</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" >
+                   <widget class="QPushButton" name="sched_start" >
+                    <property name="statusTip" >
+                     <string>Start schedule</string>
+                    </property>
+                    <property name="text" >
+                     <string>Start</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3" >
+                   <spacer>
+                    <property name="orientation" >
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" >
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <property name="leftMargin" >
+                 <number>0</number>
+                </property>
+                <property name="topMargin" >
+                 <number>0</number>
+                </property>
+                <property name="rightMargin" >
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_15" >
+                  <property name="text" >
+                   <string>&lt;b>Sync times:&lt;/b></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QListWidget" name="sched_time_lw" >
+                  <property name="statusTip" >
+                   <string>List of sync times</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QGridLayout" >
+                  <property name="leftMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin" >
+                   <number>0</number>
+                  </property>
+                  <property name="horizontalSpacing" >
+                   <number>6</number>
+                  </property>
+                  <property name="verticalSpacing" >
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="2" >
+                   <spacer>
+                    <property name="orientation" >
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" >
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1" >
+                   <widget class="QPushButton" name="sched_add_time" >
+                    <property name="statusTip" >
+                     <string>Add a sync time</string>
+                    </property>
+                    <property name="text" >
+                     <string>Add</string>
+                    </property>
+                    <property name="icon" >
+                     <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" >
+                   <widget class="QTimeEdit" name="sched_time_edit" >
+                    <property name="statusTip" >
+                     <string>Set sync time</string>
+                    </property>
+                    <property name="displayFormat" >
+                     <string>H:mm</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3" >
+                   <widget class="QPushButton" name="sched_remove_time" >
+                    <property name="statusTip" >
+                     <string>Remove the selected sync times</string>
+                    </property>
+                    <property name="text" >
+                     <string>Remove</string>
+                    </property>
+                    <property name="icon" >
+                     <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar" >
    <property name="geometry" >
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>675</width>
+     <width>673</width>
      <height>21</height>
     </rect>
    </property>
@@ -534,6 +1419,7 @@
     <property name="title" >
      <string>Help</string>
     </property>
+    <addaction name="actionCheck_for_updates" />
     <addaction name="actionAbout" />
    </widget>
    <widget class="QMenu" name="menuView" >
@@ -543,9 +1429,19 @@
     <addaction name="actionSynchronise" />
     <addaction name="actionRestore" />
     <addaction name="actionBlacklist" />
+    <addaction name="actionMultisync" />
+    <addaction name="actionScheduler" />
+   </widget>
+   <widget class="QMenu" name="menuOptions" >
+    <property name="title" >
+     <string>Options</string>
+    </property>
+    <addaction name="actionRun_hidden" />
+    <addaction name="actionChange_language" />
    </widget>
    <addaction name="menuFile" />
    <addaction name="menuView" />
+   <addaction name="menuOptions" />
    <addaction name="menuHelp" />
   </widget>
   <widget class="QStatusBar" name="statusbar" />
@@ -560,7 +1456,10 @@
     <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
    <attribute name="toolBarArea" >
-    <number>4</number>
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
    </attribute>
    <addaction name="actionNew_sync" />
    <addaction name="actionClose_sync" />
@@ -568,6 +1467,11 @@
    <addaction name="actionSynchronise" />
    <addaction name="actionRestore" />
    <addaction name="actionBlacklist" />
+   <addaction name="actionMultisync" />
+   <addaction name="actionScheduler" />
+   <addaction name="separator" />
+   <addaction name="actionSync_current" />
+   <addaction name="actionSync_all" />
   </widget>
   <action name="actionQuit" >
    <property name="icon" >
@@ -637,7 +1541,7 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/sync.png</iconset>
+    <iconset resource="resources.qrc" >:/new/prefix1/images/Synchronise.png</iconset>
    </property>
    <property name="text" >
     <string>Synchronise</string>
@@ -672,6 +1576,83 @@
    </property>
    <property name="statusTip" >
     <string>Go to Blacklist</string>
+   </property>
+  </action>
+  <action name="actionRun_hidden" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Run hidden</string>
+   </property>
+   <property name="statusTip" >
+    <string>Start Synkron hidden</string>
+   </property>
+  </action>
+  <action name="actionSync_current" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/sync.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Sync current</string>
+   </property>
+   <property name="statusTip" >
+    <string>Sync current</string>
+   </property>
+  </action>
+  <action name="actionSync_all" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/sync_all.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Sync all</string>
+   </property>
+   <property name="statusTip" >
+    <string>Sync all</string>
+   </property>
+  </action>
+  <action name="actionCheck_for_updates" >
+   <property name="text" >
+    <string>Check for updates</string>
+   </property>
+   <property name="statusTip" >
+    <string>Check for updates</string>
+   </property>
+  </action>
+  <action name="actionMultisync" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Multisync</string>
+   </property>
+   <property name="statusTip" >
+    <string>Go to Multisync</string>
+   </property>
+  </action>
+  <action name="actionScheduler" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="resources.qrc" >:/new/prefix1/images/scheduler64.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Scheduler</string>
+   </property>
+   <property name="statusTip" >
+    <string>Go to Scheduler</string>
+   </property>
+  </action>
+  <action name="actionChange_language" >
+   <property name="text" >
+    <string>Change language</string>
+   </property>
+   <property name="statusTip" >
+    <string>Change language</string>
    </property>
   </action>
  </widget>

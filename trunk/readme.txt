@@ -1,4 +1,4 @@
-To compile the Synkron source code, you will need Qt 4.2 or
+To compile the Synkron source code, you will need Qt 4.3 or
 a newer, binary compatible version.
 
 You now have two options:
@@ -9,7 +9,7 @@ You now have two options:
 	-----------------------------------
 	Download and install Squirrel Shell:
 		http://sourceforge.net/projects/squirrelsh/
-	Under WINDOWS, open the "Qt 4.2.x Command Prompt"
+	Under WINDOWS, open the "Qt 4.3.x Command Prompt"
 	from the Start menu, change directory to that of
 	the Synkron source code and type:
 		build.nut
@@ -23,6 +23,7 @@ You now have two options:
 	commands (it is assumed that you have already changed
 	directory to that of the Synkron source code):
 		qmake -config release
+		lrelease Synkron.pro
 		make
 	(you can also use any other maketool, such as
 	mingw32-make or nmake)
