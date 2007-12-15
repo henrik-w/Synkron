@@ -3,15 +3,18 @@ QT      += network xml
 
 HEADERS    += main_window.h \
               mtfile.h \
-              mtadvancedgroupbox.h
+              mtadvancedgroupbox.h \
+              extendedlineedit.h
 FORMS      += main_window.ui
-FORMS      += about.ui
+FORMS      += about.ui \
+              multisync_page.ui
 SOURCES    += main.cpp \
               sync.cpp \
               restore.cpp \
               blacklist.cpp \
               multisync.cpp \
               scheduler.cpp \
+              filters.cpp \
               mtfile.cpp
 RESOURCES  += resources.qrc \
               i18n.qrc
@@ -46,4 +49,5 @@ OBJECTS_DIR = .tmp.win32/
 MOC_DIR     = .tmp.win32/
 RCC_DIR     = .tmp.win32/
 }
-TRANSLATIONS += i18n/Slovak.ts
+TRANSLATIONS += i18n/Synkron-Slovak.ts \
+                i18n/Synkron-German.ts

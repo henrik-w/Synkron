@@ -21,10 +21,17 @@ bool MTFile::copy(QString dest)
 
 bool MTFile::copy(QString dest)
 {
-	if (this->QFile::copy(dest)) {
-	    QStringList arguments; QProcess touch;
+	bool ok = false;
+	if (QFile::symLinkTarget(fileName()).isEmpty()) { ok = this->QFile::copy(dest); }
+	else {
+		QStringList arguments; QProcess cp;
+		arguments << "-R" << fileName() << dest;
+		ok = cp.execute("cp", arguments) == 0;
+	}
+	if (ok) {
+		QStringList arguments; QProcess touch;
 		arguments << "-cf" << "-r" << fileName() << dest;
-	    if (touch.execute("touch", arguments) != 0) { return false; }
+		if (touch.execute("touch", arguments) != 0) { return false; }
 		if (QFileInfo(fileName()).lastModified() == QFileInfo(dest).lastModified())
 		{ return true; } else { return false; }
 	} else { return false; }
@@ -32,3 +39,16 @@ bool MTFile::copy(QString dest)
 }
 
 #endif
+
+bool MTFile::touch(QApplication * app)
+{
+    QStringList arguments; QProcess touch;
+#ifdef Q_WS_WIN
+    touch.setWorkingDirectory(QFileInfo(app->arguments().at(0)).absolutePath());
+#endif
+	arguments << "-cmf" << fileName();
+	if (touch.execute("touch", arguments) == 0) {
+		return true;
+	} else { return false; }
+	return false;
+}

@@ -1,8 +1,9 @@
 #include "main_window.h"
 
-void MainWindow::toScheduler()
+void MainWindow::addSchedule()
 {
-	
+    addSchedule(QStringList(), QStringList(), QStringList());
+    tw_schedules->setCurrentCell(tw_schedules->rowCount() - 1, 0);
 }
 
 QTableWidgetItem * MainWindow::addSchedule(QStringList tabs, QStringList times, QStringList checked_times)
@@ -51,21 +52,27 @@ void MainWindow::removeSchedule()
 	}
 }
 
-void MainWindow::scheduleActivated(int row, int, int previousRow, int)
+void MainWindow::scheduleActivated(int, int, int previousRow, int)
 {
 	if (sched_removed) return;
 	if (schedGroupBox->isEnabled()) saveSchedSettings(previousRow);
+	activateSchedule();
+}
+
+void MainWindow::activateSchedule()
+{
+	int row = tw_schedules->currentRow();
 	schedGroupBox->setEnabled(true);
 	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(row, 0));
 	sched_name->setText(tw_schedules->item(row, 0)->text());
 	sched_tab_lw->clear();
 	sched_time_lw->clear();
-	QStringList tabs;
-	
 	QListWidgetItem * litem;
-	for (int i = 0; i < tabWidget->count(); ++i) {
-		litem = new QListWidgetItem (tabWidget->tabText(i));
-		if (schedule->sched_tab_list.contains(tabWidget->tabText(i))) litem->setCheckState(Qt::Checked);
+	QMapIterator<QWidget *, SyncPage *> i(tabs);
+	while (i.hasNext()) {
+		i.next();
+		litem = new QListWidgetItem (i.value()->tab_name->text());
+		if (schedule->sched_tab_list.contains(i.value()->tab_name->text())) litem->setCheckState(Qt::Checked);
 		else litem->setCheckState(Qt::Unchecked);
 		sched_tab_lw->addItem(litem);
 	}
@@ -82,45 +89,62 @@ void MainWindow::scheduleActivated(int row, int, int previousRow, int)
 void MainWindow::addSchedTime()
 {
 	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
-	if (schedule->sched_time_list.contains(sched_time_edit->time().toString("H:mm"))) {
-		QMessageBox::information(this, tr("Synkron"), tr("The same time is already in the list"));
-		return;
-	}
+	if (schedule->sched_time_list.contains(sched_time_edit->time().toString("H:mm"))) return;
 	QListWidgetItem * item = new QListWidgetItem (sched_time_edit->time().toString("H:mm"));
 	item->setCheckState(Qt::Checked);
 	sched_time_lw->addItem(item);
 	schedule->sched_time_list << sched_time_edit->time().toString("H:mm");
+	schedule->sched_checked_time_list << sched_time_edit->time().toString("H:mm");
 }
 
 void MainWindow::removeSchedTime()
 {
-	bool found = false;
-	for (int i = sched_time_lw->count()-1; i>=0; --i) {
-		if (sched_time_lw->item(i)->checkState() == Qt::Checked) {
-			found = true;
-		}
-	} if (!found) { QMessageBox::warning(this, tr("Synkron"), tr("No sync times selected.")); return; }
-	QStringList times; QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected items from the list?"));
+	if (sched_time_lw->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No sync time selected.")); return; }
+	SyncSchedule * schedule;
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected sync time from the list?"));
 	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No); 
- 	SyncSchedule * schedule;
-	switch (msgBox.exec()) {
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+ 	switch (msgBox.exec()) {
  	case QMessageBox::Yes:
 		schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
-   		for (int i = sched_time_lw->count()-1; i>=0; --i) {
-			if (sched_time_lw->item(i)->checkState() == Qt::Checked) {
-				if (schedule->sched_time_list.contains(sched_time_lw->item(i)->text())) {
-					schedule->sched_time_list.removeAt(schedule->sched_time_list.indexOf(sched_time_lw->item(i)->text()));
-				}
-				delete sched_time_lw->item(i);
-			}
+		if (schedule->sched_time_list.contains(sched_time_lw->currentItem()->text())) {
+			schedule->sched_time_list.removeAt(schedule->sched_time_list.indexOf(sched_time_lw->currentItem()->text()));
 		}
+		delete sched_time_lw->currentItem();
    		break;
  	case QMessageBox::No:
-     	return;
+		break;
 	default:
    		break;
  	}
+}
+
+void MainWindow::schedTabClicked(QListWidgetItem * item)
+{
+	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
+	if (item->checkState()==Qt::Checked) {
+		if (!schedule->sched_tab_list.contains(item->text())) {
+			schedule->sched_tab_list << item->text();
+		}
+	} else {
+		if (schedule->sched_tab_list.contains(item->text())) {
+			schedule->sched_tab_list.removeAll(item->text());
+		}
+	}
+}
+
+void MainWindow::schedTimeClicked(QListWidgetItem * item)
+{
+	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
+	if (item->checkState()==Qt::Checked) {
+		if (!schedule->sched_checked_time_list.contains(item->text())) {
+			schedule->sched_checked_time_list << item->text();
+		}
+	} else {
+		if (schedule->sched_checked_time_list.contains(item->text())) {
+			schedule->sched_checked_time_list.removeAll(item->text());
+		}
+	}
 }
 
 void MainWindow::saveSchedSettings(int row)
@@ -133,7 +157,7 @@ void MainWindow::saveSchedSettings(int row)
 	}
 	schedule->sched_time_list.clear();
 	schedule->sched_checked_time_list.clear();
-	for (int i = 0; i<sched_time_lw->count(); ++i) {
+	for (int i = 0; i < sched_time_lw->count(); ++i) {
 		if (sched_time_lw->item(i)->checkState()!=Qt::Checked) {
 			schedule->sched_time_list << sched_time_lw->item(i)->text();
 		} else {
@@ -168,8 +192,8 @@ void MainWindow::startSchedule(QTableWidgetItem * item)
 	QDateTime current_datetime = QDateTime::currentDateTime();
 	for (int r = 0; r < schedule->sched_checked_time_list.count(); ++r) {
 		timer = new QTimer(this);
-		QObject::connect(timer, SIGNAL(timeout()), schedule, SLOT(syncSchedule()));
 		QObject::connect(timer, SIGNAL(timeout()), timer, SLOT(stop()));
+		QObject::connect(timer, SIGNAL(timeout()), schedule, SLOT(syncSchedule()));
 		QObject::connect(timer, SIGNAL(timeout()), schedule, SLOT(checkSchedStatus()));
 		int h = time.msecsTo(QTime(schedule->sched_checked_time_list.at(r).split(':').at(0).toInt(), schedule->sched_checked_time_list.at(r).split(':').at(1).toInt()));
 		if (h<0) {
@@ -239,9 +263,7 @@ void SyncSchedule::checkSchedStatus()
 	}
 	timers.clear();
 	sched_parent->startSchedule(sched_parent->item_sched_map.key(this));
-	//scheduling = false;
 	sched_parent->reloadSchedStatus();
-	//sched_parent->reloadSchedule();
 }
 
 void MainWindow::reloadSchedStatus()

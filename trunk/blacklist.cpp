@@ -6,12 +6,10 @@ void MainWindow::toBlacklist()
 	QListWidgetItem * item;
 	for (int i = 0; i < files_blacklist.count(); ++i) {
 		item = new QListWidgetItem(files_blacklist.at(i));
-		item->setCheckState(Qt::Unchecked);
 		blacklist_fileslist->addItem(item);
 	}
 	for (int i = 0; i < folders_blacklist.count(); ++i) {
 		item = new QListWidgetItem(folders_blacklist.at(i));
-		item->setCheckState(Qt::Unchecked);
 		blacklist_folderslist->addItem(item);
 	}
 }
@@ -23,28 +21,27 @@ void MainWindow::addFileToBlacklist()
     files_blacklist << file;
     QListWidgetItem *item = new QListWidgetItem;
     item->setText(file);
-    item->setCheckState(Qt::Unchecked);
     blacklist_fileslist->addItem(item);
 }
 
 void MainWindow::removeFileFromBlacklist()
 {
-	int removed = 0;
-	for (int c = 0; c < blacklist_fileslist->count();) {
-		if (blacklist_fileslist->item(c)->checkState() == Qt::Checked) {
-			if (files_blacklist.contains(blacklist_fileslist->item(c)->text())) {
-				files_blacklist.removeAt(files_blacklist.indexOf(blacklist_fileslist->item(c)->text()));
-			}
-			delete blacklist_fileslist->item(c);
-			removed++;
-		} else { c++; }
-	}
-	if (removed == 0) {
-		QMessageBox::warning(this, tr("Synkron"), tr("No files selected."));
-	}
-	else {
-		QMessageBox::information(this, tr("Synkron"), tr("%1 files removed.").arg(removed));
-	}
+	if (blacklist_fileslist->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No file selected.")); return; }
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected file from blacklist?"));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+		if (files_blacklist.contains(blacklist_fileslist->currentItem()->text())) {
+				files_blacklist.removeAt(files_blacklist.indexOf(blacklist_fileslist->currentItem()->text()));
+		}
+		delete blacklist_fileslist->currentItem();
+   		break;
+ 	case QMessageBox::No:
+		break;
+	default:
+   		break;
+ 	}
 }
 
 void MainWindow::addFolderToBlacklist()
@@ -59,26 +56,25 @@ void MainWindow::addFolderToBlacklist()
     folders_blacklist << folder;
     QListWidgetItem *item = new QListWidgetItem;
     item->setText(folder);
-    item->setCheckState(Qt::Unchecked);
     blacklist_folderslist->addItem(item);
 }
 
 void MainWindow::removeFolderFromBlacklist()
 {
-	int removed = 0;
-	for (int c = 0; c < blacklist_folderslist->count();) {
-		if (blacklist_folderslist->item(c)->checkState() == Qt::Checked) {
-			if (folders_blacklist.contains(blacklist_folderslist->item(c)->text())) {
-				folders_blacklist.removeAt(folders_blacklist.indexOf(blacklist_folderslist->item(c)->text()));
-			}
-			delete blacklist_folderslist->item(c);
-			removed++;
-		} else { c++; }
-	}
-	if (removed == 0) {
-		QMessageBox::warning(this, tr("Synkron"), tr("No folders selected."));
-	}
-	else {
-		QMessageBox::information(this, tr("Synkron"), tr("%1 folders removed.").arg(removed));
-	}
+	if (blacklist_fileslist->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No folder selected.")); return; }
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected folder from blacklist?"));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+		if (folders_blacklist.contains(blacklist_folderslist->currentItem()->text())) {
+				folders_blacklist.removeAt(folders_blacklist.indexOf(blacklist_folderslist->currentItem()->text()));
+		}
+		delete blacklist_folderslist->currentItem();
+   		break;
+ 	case QMessageBox::No:
+		break;
+	default:
+   		break;
+ 	}
 }

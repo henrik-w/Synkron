@@ -5,21 +5,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>335</height>
+    <width>354</width>
+    <height>439</height>
    </rect>
-  </property>
-  <property name="minimumSize" >
-   <size>
-    <width>362</width>
-    <height>335</height>
-   </size>
-  </property>
-  <property name="maximumSize" >
-   <size>
-    <width>362</width>
-    <height>335</height>
-   </size>
   </property>
   <property name="palette" >
    <palette>
@@ -92,46 +80,77 @@
    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="spacing" >
-    <number>6</number>
-   </property>
    <property name="leftMargin" >
-    <number>6</number>
+    <number>2</number>
    </property>
    <property name="topMargin" >
-    <number>6</number>
+    <number>2</number>
    </property>
    <property name="rightMargin" >
-    <number>6</number>
+    <number>2</number>
    </property>
    <property name="bottomMargin" >
-    <number>6</number>
+    <number>2</number>
    </property>
    <item>
     <widget class="QLabel" name="label_6" >
      <property name="pixmap" >
       <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron-about.png</pixmap>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="ver_label" >
      <property name="alignment" >
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label_3" >
-     <property name="acceptDrops" >
-      <bool>false</bool>
+    <widget class="QTabWidget" name="tabWidget" >
+     <property name="currentIndex" >
+      <number>0</number>
      </property>
-     <property name="text" >
-      <string>Synkron is distributed under the terms of GPL v2.&lt;br>&lt;br>2006-2007 &lt;b>Matúš Tomlein&lt;/b>&lt;br>matus.tomlein@gmail.com&lt;br>http://synkron.sourceforge.net&lt;br>&lt;br>This program uses the Qt 4 libraries.</string>
-     </property>
-     <property name="alignment" >
-      <set>Qt::AlignCenter</set>
-     </property>
+     <widget class="QWidget" name="about_synkron" >
+      <attribute name="title" >
+       <string>About Synkron</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="leftMargin" >
+        <number>2</number>
+       </property>
+       <property name="topMargin" >
+        <number>2</number>
+       </property>
+       <property name="rightMargin" >
+        <number>2</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QTextBrowser" name="about_synkron_tb" />
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="about_qt" >
+      <attribute name="title" >
+       <string>About Qt</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="leftMargin" >
+        <number>2</number>
+       </property>
+       <property name="topMargin" >
+        <number>2</number>
+       </property>
+       <property name="rightMargin" >
+        <number>2</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QTextBrowser" name="about_qt_tb" />
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item>

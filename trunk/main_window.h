@@ -1,4 +1,5 @@
 #include "ui_main_window.h"
+#include "ui_multisync_page.h"
 #include "ui_about.h"
 #include "mtfile.h"
 #include "mtadvancedgroupbox.h"
@@ -28,10 +29,52 @@
 #include <QTranslator>
 #include <QDomDocument>
 #include <QDomElement>
+#include <QInputDialog>
+#include <QSet>
 
 class MainWindow;
 
-class SyncPage : public QObject
+class AbstractSyncPage : public QWidget
+{
+	Q_OBJECT
+	
+public:
+	AbstractSyncPage() {};
+	AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; };
+	
+	virtual QTableWidget * tableWidget() = 0;
+	virtual bool followSymlinks() = 0;
+	virtual QString syncFolder1Text() = 0;
+	virtual QString syncFolder2Text() = 0;
+	
+	void subSync(QDir&, QDir&, bool);
+	void moveContents(QDir&, QDir&);
+	void addTableItem(QString, QString = "", QString = "", QBrush = Qt::white, QBrush = Qt::black);
+	void unknownError(QString, QString, QString, QString, QString = "");
+	
+	QSet<QString> extensions;
+	bool syncing;
+	
+    QCheckBox * sync_hidden;
+    QGroupBox * filters;
+    QCheckBox * backup_folder_1;
+    QCheckBox * backup_folder_2;
+    QCheckBox * update_only_1;
+    QCheckBox * update_only_2;
+    QCheckBox * sync_nosubdirs;
+    QCheckBox * ignore_blacklist;
+    QCheckBox * move;
+    QCheckBox * symlinks;
+    QListWidget * lw_filters;
+    MainWindow * mp_parent;
+    int synced_files;
+    
+public slots:
+    virtual int sync() = 0;
+    void stopSync() { syncing = false; };
+};
+
+class SyncPage : public AbstractSyncPage
 {
     Q_OBJECT
     
@@ -40,8 +83,22 @@ signals:
     
 public slots:
     void syncPage();
+    void moveChecked(int state);
+    void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
+    void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
+    int sync();
     
 public:
+    SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {};
+    
+	QTableWidget * tableWidget() { return tw; }
+	bool followSymlinks() { return symlinks->isChecked(); }
+	QString syncFolder1Text() { return sync_folder_1->text(); }
+	QString syncFolder2Text() { return sync_folder_2->text(); }
+	void setFoldersEnabled(bool);
+	void setSyncingOn(bool);
+	void setPeriodicalEnabled(bool);
+	
     QWidget * tab;
     QLabel * icon_label;
     QLabel * min_text;
@@ -49,24 +106,54 @@ public:
     QLineEdit * tab_name;
     QLineEdit * sync_folder_1;
     QLineEdit * sync_folder_2;
-    QLineEdit * log_search;
+    ExtendedLineEdit * log_search;
+    QTableWidget * tw;
     QPushButton * browse_1;
     QPushButton * browse_2;
-    QPushButton * sync;
-    QTableWidget * tw;
+    QPushButton * sync_btn;
+    QPushButton * stop_sync_btn;
     QPushButton * back;
     QPushButton * resync;
     QPushButton * periodical_start;
     QPushButton * periodical_stop;
-    QCheckBox * periodical_sync;
-    QCheckBox * sync_hidden;
     MTAdvancedGroupBox * advanced;
-    QCheckBox * backup_folder_1;
-    QCheckBox * backup_folder_2;
-    QCheckBox * update_only_1;
-    QCheckBox * update_only_2;
+    QCheckBox * periodical_sync;
     QSpinBox * sync_interval;
     QTimer * sync_timer;
+};
+
+class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
+{
+	Q_OBJECT
+
+public:
+	MultisyncPage(MainWindow *parent = 0);
+	
+	QTableWidget * tableWidget() { return tw_multi; }
+	bool followSymlinks() { return symlinks->isChecked(); }
+	QString syncFolder1Text() { return sync_folder_1; }
+	QString syncFolder2Text() { return sync_folder_2; }
+	void setMultisyncEnabled(bool);
+
+public slots:
+	void setAdvancedGB();
+	void multitabNameChanged();
+	void showAdvancedGroupBox(bool show) { advanced->setChecked(show); }
+	void saveMultisync();
+    void saveAsMultisync();
+    void saveAsMultisync(QString file_name);
+    void loadMultisync();
+    void loadMultisync(QString);
+    void moveChecked(int state);
+    void destinationTextChanged() { QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
+    int sync();
+	
+private:
+    QString sync_folder_1;
+    QString sync_folder_2;
+    QString slist_path;
+	
+	friend class MainWindow;
 };
 
 class SyncSchedule : public QObject
@@ -92,57 +179,72 @@ private:
 	MainWindow * sched_parent;
 };
 
+class Filter : public QListWidgetItem
+{
+public:
+	Filter():
+	QListWidgetItem(0, QListWidgetItem::UserType)
+	{};
+	Filter(QString text):
+	QListWidgetItem(0, QListWidgetItem::UserType)
+	{ setText(text); };
+    
+	QStringList extensions;
+};
+
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
     Q_OBJECT
 
 public:
     MainWindow();
-    bool runHidden() { return run_hidden; }
+    
+    QStringList synchronised;
+    QStringList files_blacklist;
+    QStringList folders_blacklist;
+    bool syncingAll;
+	bool runHidden() { return run_hidden; }
+	bool showTrayMessage(QString, QString);
         
+public slots:
+    void saveSettings();
+
 private slots:
-    void browse(QAbstractButton *);
-    void sync() { sync(tabWidget->currentWidget()); }
+	
+// Synchronisation
+	void sync() { sync(tabWidget->currentWidget()); }
     void sync(QWidget *);
     void syncAll();
-    void subSync(QDir&, QDir&, SyncPage *, bool);
-    void updateGeometry();
-    void checkForUpdates(); void httpRequestFinished(bool);
-    void about();
-    void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
-    void trayIconVisible(bool);
-    void minimizeTrayIcon() { trayIconVisible(false); }
-    void maximizeTrayIcon() { trayIconVisible(true); }
+    void tabNameChanged();
+    SyncPage * addSyncTab();
+    void startPeriodical(QWidget* syncTab = 0);
+    void stopPeriodical();
+    void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
+	
+// Restore
     void toRestorePage();
     void restoreItemChanged(QListWidgetItem *, QListWidgetItem *);
     void restoreFiles();
-    void addToBlackList(int);
-    void switchView(QAction*);
+    void setCleanGB();
+    void cleanTemporary();
+    void selTmpAll();
+    
+// Blacklist
+	void addToBlackList(int);
     void addFileToBlacklist();
     void removeFileFromBlacklist();
     void addFolderToBlacklist();
     void removeFolderFromBlacklist();
-    void tabNameChanged(QString);
-    SyncPage * addTab();
-    void closeTab() { tabWidget->removeTab(tabWidget->currentIndex()); }
-    void delTmpAll();
-    void delTmpSel();
-    void startPeriodical(QWidget* syncTab = 0);
-    void stopPeriodical();
-    void setPeriodicalEnabled(SyncPage *, bool);
-    void setRunHidden(bool b) { run_hidden = b; }
-    void setFoldersEnabled(SyncPage *, bool);
-    void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
-    void folder1TextChanged() { SyncPage * page = tabs.value(tabWidget->currentWidget()); page->backup_folder_1->setStatusTip(tr("Do not backup synchronised files from folder 1 - %1").arg(page->sync_folder_1->text().split("/").last())); }
-    void folder2TextChanged() { SyncPage * page = tabs.value(tabWidget->currentWidget()); page->backup_folder_2->setStatusTip(tr("Do not backup synchronised files from folder 2 - %1").arg(page->sync_folder_2->text().split("/").last())); }
-    void addTableItem(SyncPage *, QString, QString = "", QString = "", QBrush = Qt::white, QBrush = Qt::black);
-    void toMultisync();
-    void addMultisync();
+    //void delTmpSel();
+    
+// Multisync
+	MultisyncPage * addMultiTab();
+	void addMultisync();
     void removeMultisync();
     void browseMultiDestination();
-    void multisync();
-    void toScheduler();
-    void addSchedule() { addSchedule(QStringList(), QStringList(), QStringList()); }
+    
+// Scheduler
+    void addSchedule();
     QTableWidgetItem * addSchedule(QStringList, QStringList, QStringList);
     void removeSchedule();
     void reloadSchedule() { scheduleActivated(tw_schedules->currentRow(), tw_schedules->currentColumn(), tw_schedules->currentRow(), tw_schedules->currentColumn()); }
@@ -153,44 +255,59 @@ private slots:
     void removeSchedTime();
     void saveSchedSettings(int);
     void setScheduleStatusOn(bool, QTableWidgetItem*);
-    void saveSettings();
+    void schedTabClicked(QListWidgetItem*);
+    void schedTimeClicked(QListWidgetItem*);
     void startSchedule() { startSchedule(tw_schedules->item(tw_schedules->currentRow(), 0)); }
     void startSchedule(QTableWidgetItem *);
     void stopSchedule() { stopSchedule(tw_schedules->item(tw_schedules->currentRow(), 0)); }
     void stopSchedule(QTableWidgetItem *);
-    void logSearch(const QString);
-    void restoreSearch(const QString);
+    void searchTw(const QString);
+    void searchLw(const QString);
     void startAllSchedules();
     void stopAllSchedules();
     void enableSchedule(int);
+    void activateSchedule();
+    
+// Filters
+    void addFilter();
+    void addFilter(QString, QStringList);
+    void removeFilter();
+    void addFilterExtension();
+    void removeFilterExtension();
+    void filterChanged();
+    void setFiltersEnabled(bool);
+    
+// Other
     void changeLanguage(); void langChanged();
-    void saveMultisync();
-    void saveAsMultisync();
-    void saveAsMultisync(QString file_name);
-    void loadMultisync();
-    void loadMultisync(QString);
-    void setMultisyncEnabled(bool);
+    void browse(QAbstractButton *);
+    void checkForUpdates(); void httpRequestFinished(bool);
+    void about();
+    void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
+    void trayIconVisible(bool);
+    void minimizeTrayIcon() { trayIconVisible(false); }
+    void maximizeTrayIcon() { trayIconVisible(true); }
+    void switchView(QAction*);
+    void addTab();
+    void closeTab();
+    bool closeDialogue();
+    void closeApp() { no_closedialogue = true; this->close(); }
+    void saveSyncLog();
+    void setRunHidden(bool b) { run_hidden = b; }
 
 private:
     float f_ver;
 	QString ver;
-    int syncFiles;
-    bool syncingAll;
     bool run_hidden;
     bool sched_removed;
-    QStringList synchronised;
-    QStringList files_blacklist;
-    QStringList folders_blacklist;
+    bool no_closedialogue;
     QHttp * http; QBuffer * http_buffer;
     
-    void resizeEvent(QResizeEvent*);
     void closeEvent(QCloseEvent*);
     void readSettings();
     void createTrayIcon();
     void createActions();
-    void unknownError(SyncPage *, QString, QString, QString, QString, QString = "");
     void toBlacklist();
-
+    
     QButtonGroup * btngrpBrowse;
     QActionGroup * actgrpView;
     QComboBox * langComboBox;
@@ -198,18 +315,26 @@ private:
     QMap<QTableWidgetItem*, SyncSchedule*> item_sched_map;
     QMap<QString, QString> synkron_i18n;
     
+    QCheckBox * restore_clean_selected;
+    QCheckBox * restore_clean_by_date;
+    QCheckBox * restore_clean_repeated;
+    QSpinBox * restore_clean_date;
+    QSpinBox * restore_clean_files;
+    QPushButton * restore_clean;
+    
     QAction *minimizeAction;
     QAction *maximizeAction;
     QAction *syncAction;
     QAction *quitAction;
     QAction *syncAllAction;
-
     QSystemTrayIcon *trayIcon;
 #ifdef Q_WS_MAC
 	QAction * actionBrushedMetalStyle;
 #endif
 
 	friend class SyncSchedule;
+	friend class SyncPage;
+	friend class MultisyncPage;
 };
 
 class About : public QDialog, private Ui::About
@@ -217,5 +342,5 @@ class About : public QDialog, private Ui::About
     Q_OBJECT
     
 public:
-    About(QString ver) { setupUi(this); ver_label->setText(tr("version <b>%1</b>").arg(ver)); };
+    About(QString, QString, QString);
 };
