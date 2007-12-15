@@ -163,15 +163,19 @@ SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2)
     hlayout5->addWidget(page->periodical_sync, 0, 0); // #######################
     page->sync_interval = new QSpinBox (page->stacked_page_2);
     page->sync_interval->setStatusTip("Set sync interval");
-    page->sync_interval->setValue(1);
+    page->sync_interval->setValue(5);
     hlayout5->addWidget(page->sync_interval, 0, 1); // #########################
-    QLabel * min_text = new QLabel (page->stacked_page_1);
+    QLabel * min_text = new QLabel (page->stacked_page_2);
     min_text->setText(tr(" minute(s)"));
     hlayout5->addWidget(min_text, 0, 2); // ###################################
     spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     hlayout5->addItem(spacerItem, 0, 3); // ###################################
     glayout2->addLayout(hlayout5, 2, 0); // ###################################
     connect(page->periodical_sync, SIGNAL(toggled(bool)), page->sync_interval, SLOT(setEnabled(bool)));
+    page->sync_hidden = new QCheckBox (page->stacked_page_2);
+    page->sync_hidden->setChecked(false);
+    page->sync_hidden->setText(tr("Synchronise hidden files and folders"));
+    glayout2->addWidget(page->sync_hidden, 3, 0);
         
     QGridLayout * hlayout6 = new QGridLayout (page->stacked_page_2);
     page->back = new QPushButton (tr("Back"), page->stacked_page_2);
@@ -188,49 +192,7 @@ SyncPage * MainWindow::addTab(QString name, QString folder1, QString folder2)
     page->resync->setIconSize(QSize(24, 24));
     hlayout6->addWidget(page->resync, 0, 2);
     QObject::connect(page->resync, SIGNAL(released()), this, SLOT(sync()));
-    glayout2->addLayout(hlayout6, 3, 0); // ###################################
-    
-    /*QGridLayout * glayout3 = new QGridLayout (page->stacked_page_3);
-    glayout3->setMargin(10); glayout2->setSpacing(6);
-    QLabel *restore_list_text = new QLabel (page->stacked_page_3);
-    restore_list_text->setText("Files available for restoring:");
-    glayout3->addWidget(restore_list_text, 0, 0);
-    QGridLayout * hlayout7 = new QGridLayout (page->stacked_page_3);
-    page->restore_list = new QListWidget (page->stacked_page_3);
-    QObject::connect(page->restore_list, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(restoreItemChanged(QListWidgetItem *, QListWidgetItem *)));
-    hlayout7->addWidget(page->restore_list, 0, 0);
-    QGridLayout * hlayout8 = new QGridLayout (page->stacked_page_3);
-    QLabel * about_item = new QLabel (tr("<b>About the selected item:</b>"), page->stacked_page_3);
-    hlayout8->addWidget(about_item, 0, 0);
-    QLabel * sync_date = new QLabel(tr("Date of synchronisation:"), page->stacked_page_3);
-    hlayout8->addWidget(sync_date, 1, 0);
-    page->date_of_sync = new QDateTimeEdit (page->stacked_page_3);
-    page->date_of_sync->setReadOnly(true);
-    page->date_of_sync->setDisplayFormat("yyyy.MM.dd-hh:mm");
-    hlayout8->addWidget(page->date_of_sync, 2, 0);
-    QLabel * sync_file_path = new QLabel (tr("Original file path:"), page->stacked_page_3);
-    hlayout8->addWidget(sync_file_path, 3, 0);
-    page->path_of_syncfile = new QLineEdit (page->stacked_page_3);
-    page->path_of_syncfile->setReadOnly(true);
-    hlayout8->addWidget(page->path_of_syncfile, 4, 0);
-    page->to_black_list = new QCheckBox (tr("Do not synchronise this file again"), page->stacked_page_3);
-    page->to_black_list->setCheckState(Qt::Unchecked);
-    QObject::connect(page->to_black_list, SIGNAL(stateChanged(int)), this, SLOT(addToBlackList(int)));
-    hlayout8->addWidget(page->to_black_list, 5, 0);
-    spacerItem = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    hlayout8->addItem(spacerItem, 6, 0);
-    hlayout7->addLayout(hlayout8, 0, 1);
-    glayout3->addLayout(hlayout7, 1, 0);
-    QGridLayout * hlayout9 = new QGridLayout (page->stacked_page_3);
-    page->restore_cancel = new QPushButton (tr("Cancel"), page->stacked_page_3);
-    QObject::connect(page->restore_cancel, SIGNAL(released()), this, SLOT(goBack()));
-    hlayout9->addWidget(page->restore_cancel, 0, 0);
-    spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    hlayout9->addItem(spacerItem, 0, 1);
-    page->restore_files = new QPushButton (tr("Restore selected files"), page->stacked_page_3);
-    QObject::connect(page->restore_files, SIGNAL(released()), this, SLOT(restoreFiles()));
-    hlayout9->addWidget(page->restore_files, 0, 2);
-    glayout3->addLayout(hlayout9, 2, 0); // ###################################*/
+    glayout2->addLayout(hlayout6, 4, 0); // ###################################
     
     page->sync_timer = new QTimer();
     page->sync_timer->connect(page->sync_timer, SIGNAL(timeout()), page, SLOT(syncPage()));
@@ -335,8 +297,14 @@ void MainWindow::sync(QWidget* syncTab)
 
 void MainWindow::subSync(QDir& d1, QDir& d2, SyncPage * page, bool repeated, bool d1_blacklist, bool d2_blacklist)
 {
-    QFileInfoList d1_entries = d1.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
-    QFileInfoList d2_entries = d2.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+    QFileInfoList d1_entries; QFileInfoList d2_entries;
+	if (page->sync_hidden->isChecked()) {
+		d1_entries = d1.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries | QDir::Hidden), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+    	d2_entries = d2.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries | QDir::Hidden), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+	} else {
+		d1_entries = d1.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+    	d2_entries = d2.entryInfoList((QDir::NoDotAndDotDot | QDir::AllEntries), (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+	}
     
     QString update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
     QString buffer;
@@ -490,10 +458,15 @@ void MainWindow::syncAll()
 
 void MainWindow::unknownError(SyncPage * page, QString fileName, QString type, QString action, QString toTemp)
 {
-	QListWidgetItem *item = new QListWidgetItem (tr("Unknown error %1ing %2: %3%4.").arg(action).arg(type).arg(fileName).arg(toTemp));
+	QListWidgetItem *item = new QListWidgetItem (tr("Unknown error %1ing %2: %3%4").arg(action).arg(type).arg(fileName).arg(toTemp));
 	item->setBackground(QBrush::QBrush(Qt::red));
 	item->setForeground(QBrush::QBrush(Qt::white));
-	item->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/file.png")));
+	if (type == "file") {
+		item->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/file.png")));
+	}
+	else {
+		item->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/folder_16.png")));
+	}
 	page->lw->addItem(item);
 }
 
