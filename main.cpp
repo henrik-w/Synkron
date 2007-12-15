@@ -4,8 +4,8 @@
 
 MainWindow::MainWindow()
 {
-	f_ver = 1.0;
-	ver = "1.0.0";
+	f_ver = 1.01;
+	ver = "1.0.1";
 	
     setupUi(this);
     
@@ -185,6 +185,7 @@ void MainWindow::readSettings()
 		recentsyncs = settings.value("recentsyncs").toStringList();
 		for (int i = 0; i < recentsyncs.count(); ++i) {
        		if (i % 3 == 0 || i == 0) { page = addTab();
+			   page->tab_name->setText(recentsyncs.at(i));
 			   tabWidget->setTabText(tabWidget->indexOf(page->tab), recentsyncs.at(i)); }
         	if (i % 3 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
     		if (i % 3 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
@@ -195,7 +196,8 @@ void MainWindow::readSettings()
     if ((recentsyncs.count()-1) % 6 == 5 && okey) {
 		for (int i = 0; i < recentsyncs.count(); ++i) {
      		if (i % 6 == 0 || i == 0) { page = addTab();
-				page->tab_name->setText(recentsyncs.at(i)); tabNameEdited(); }
+				page->tab_name->setText(recentsyncs.at(i));
+				tabWidget->setTabText(tabWidget->indexOf(page->tab), recentsyncs.at(i)); }
     		if (i % 6 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
     		if (i % 6 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
     		if (i % 6 == 3) page->periodical_sync->setChecked(recentsyncs.at(i)=="checked");
@@ -206,7 +208,8 @@ void MainWindow::readSettings()
 	else {
 		for (int i = 0; i < recentsyncs.count(); ++i) {
      		if (i % 12 == 0 || i == 0) { page = addTab();
-				page->tab_name->setText(recentsyncs.at(i)); tabNameEdited(); }
+				page->tab_name->setText(recentsyncs.at(i));
+				tabWidget->setTabText(tabWidget->indexOf(page->tab), recentsyncs.at(i)); }
     		if (i % 12 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
     		if (i % 12 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
     		if (i % 12 == 3) page->periodical_sync->setChecked(recentsyncs.at(i)=="checked");
@@ -232,6 +235,7 @@ void MainWindow::readSettings()
 				page->update_only_2->setChecked((recentsyncs.at(i)=="checked"));
 			}
    		}
+   		
 	}
     synchronised = sync_settings.value("synchronised").toStringList();
     files_blacklist = sync_settings.value("files_blacklist").toStringList();

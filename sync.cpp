@@ -20,7 +20,7 @@ SyncPage * MainWindow::addTab()
     page->tab_name = new QLineEdit (page->tab);
     page->tab_name->setStatusTip(tr("Set sync name"));
     page->tab_name->setText(tabWidget->tabText(tabWidget->indexOf(page->tab)));
-    QObject::connect(page->tab_name, SIGNAL(editingFinished()), this, SLOT(tabNameEdited()));
+    QObject::connect(page->tab_name, SIGNAL(textChanged(QString)), this, SLOT(tabNameChanged(QString)));
     hlayout0->addWidget(page->tab_name, 0, 1);
     spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     hlayout0->addItem(spacerItem, 0, 2);
@@ -453,7 +453,7 @@ void SyncPage::syncPage()
      emit sigsync(tab);
 }
 
-void MainWindow::tabNameEdited()
+void MainWindow::tabNameChanged(QString)
 {
 	SyncPage * page = tabs.value(tabWidget->currentWidget());
 	tabWidget->setTabText(tabWidget->indexOf(page->tab), page->tab_name->text());
