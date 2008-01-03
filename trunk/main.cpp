@@ -6,6 +6,11 @@ MainWindow::MainWindow()
 	ver = "1.1.0";
 	
     setupUi(this);
+    if (tr("LTR") == "RTL")
+    {
+    	qApp->setLayoutDirection(Qt::RightToLeft);
+    	
+    }
     
 #ifdef Q_WS_MAC
 	actionBrushedMetalStyle = new QAction(tr("Use the brushed metal style"), this);
@@ -38,6 +43,7 @@ MainWindow::MainWindow()
     actgrpView->addAction(actionScheduler);
     actgrpView->addAction(actionFilters);
     
+    synkron_i18n.insert(tr("Arabic"), "Arabic");
 	synkron_i18n.insert(tr("English"), "English");
     synkron_i18n.insert(tr("Slovak"), "Slovak");
     synkron_i18n.insert(tr("German"), "German");
