@@ -1,6 +1,7 @@
-<!DOCTYPE RCC><RCC version="1.0">
-    <qresource>
-        <file>i18n/Synkron-Slovak.qm</file>
+<RCC>
+    <qresource prefix="/" >
+        <file>i18n/Synkron-Arabic.qm</file>
         <file>i18n/Synkron-German.qm</file>
+        <file>i18n/Synkron-Slovak.qm</file>
     </qresource>
 </RCC>
