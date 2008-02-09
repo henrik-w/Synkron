@@ -79,50 +79,24 @@ SyncPage * MainWindow::addSyncTab()
     page->tw->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     mainglayout->addWidget(page->tw, 5, 0); // ###################################
     
-    QGridLayout * hlayout4 = new QGridLayout (page->tab);
-    page->periodical_sync = new QCheckBox (tr("Synchronise periodically, every "), page->tab);
-    page->periodical_sync->setStatusTip(tr("Synchronise periodically"));
-    page->periodical_start = new QPushButton (page->tab);
-    page->periodical_stop = new QPushButton (page->tab);
-    page->periodical_sync->setChecked(false);
-	page->periodical_start->setEnabled(false); 
-	page->periodical_stop->setEnabled(false);
-    hlayout4->addWidget(page->periodical_sync, 0, 0); // #######################
-    page->sync_interval = new QSpinBox (page->tab);
-    page->sync_interval->setStatusTip(tr("Set sync interval"));
-    page->sync_interval->setMaximum(1440);
-    page->sync_interval->setValue(30);
-    page->sync_interval->setEnabled(false);
-    hlayout4->addWidget(page->sync_interval, 0, 1); // #########################
-    page->min_text = new QLabel (page->tab);
-    page->min_text->setText(tr(" minute(s)"));
-    hlayout4->addWidget(page->min_text, 0, 2); // ###################################
-    page->periodical_start->setText(tr("Start"));
-    page->periodical_start->setStatusTip(tr("Start periodical synchronisation"));
-    connect(page->periodical_sync, SIGNAL(toggled(bool)), page->periodical_start, SLOT(setEnabled(bool)));
-    connect(page->periodical_start, SIGNAL(released()), this, SLOT(startPeriodical()));
-    hlayout4->addWidget(page->periodical_start, 0, 3); // ###################################
-    page->periodical_stop->setText(tr("Stop"));
-    page->periodical_stop->setStatusTip(tr("Stop periodical synchronisation"));
-    connect(page->periodical_stop, SIGNAL(released()), this, SLOT(stopPeriodical()));
-    hlayout4->addWidget(page->periodical_stop, 0, 4); // ###################################
-    spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    hlayout4->addItem(spacerItem, 0, 5); // ###################################
+    QHBoxLayout * hlayout4 = new QHBoxLayout (page->tab);
+    QCheckBox * chb_advanced = new QCheckBox(page->tab);
+    hlayout4->addWidget(chb_advanced);
+    hlayout4->addStretch(); // ###################################
     page->sync_btn = new QPushButton (tr("Sync"), page->tab);
     page->sync_btn->setStatusTip(tr("Synchronise"));
     page->sync_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sync22.png")));
     QObject::connect(page->sync_btn, SIGNAL(released()), page, SLOT(sync()));
     QObject::connect(page, SIGNAL(sigsync(QWidget *)), page, SLOT(sync()));
-    hlayout4->addWidget(page->sync_btn, 0, 6);
+    hlayout4->addWidget(page->sync_btn);
     page->stop_sync_btn = new QPushButton (tr("Stop sync"), page->tab);
     page->stop_sync_btn->setStatusTip(tr("Stop synchronisation"));
     page->stop_sync_btn->setVisible(false);
-    hlayout4->addWidget(page->stop_sync_btn, 0, 7);
+    hlayout4->addWidget(page->stop_sync_btn);
     QObject::connect(page->stop_sync_btn, SIGNAL(released()), page, SLOT(stopSync()));
     mainglayout->addLayout(hlayout4, 6, 0); // ###################################
-    connect(page->periodical_sync, SIGNAL(toggled(bool)), page->sync_interval, SLOT(setEnabled(bool)));
     
-    page->advanced = new MTAdvancedGroupBox(page->tab);
+    page->advanced = new MTAdvancedGroupBox(chb_advanced, page->tab);
     page->advanced->setStatusTip(tr("Show advanced options"));
     
     page->sync_hidden = new QCheckBox (page->advanced);
@@ -168,7 +142,7 @@ SyncPage * MainWindow::addSyncTab()
 	page->advanced->addLayout(folder1_layout, 5, 0);
 	page->move = new QCheckBox (tr("Move contents to folder 2, leaving folder 1 empty"), page->advanced);
 	page->move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
-	connect(page->move, SIGNAL(stateChanged(int)), page, SLOT(moveChecked(int)));
+	connect(page->move, SIGNAL(stateChanged(int)), page, SLOT(moveStateChanged(int)));
 	page->advanced->addWidget(page->move, 6, 0);
 	QLabel * folder2_label = new QLabel (page->advanced);
     folder2_label->setText(tr("<b>Folder 2:</b>"));
@@ -182,6 +156,10 @@ SyncPage * MainWindow::addSyncTab()
 	page->update_only_2->setStatusTip(tr("Update existing files only"));
 	folder2_layout->addWidget(page->update_only_2);
 	page->advanced->addLayout(folder2_layout, 8, 0);
+	page->clone_folder1 = new QCheckBox (tr("Clone folder 1"), page->advanced);
+	page->clone_folder1->setStatusTip(tr("Clone folder 1"));
+	connect(page->clone_folder1, SIGNAL(stateChanged(int)), page, SLOT(cloneStateChanged(int)));
+	page->advanced->addWidget(page->clone_folder1, 9, 0);
 	page->advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
 	page->filters = new QGroupBox(tr("Filters"), page->advanced);
 	page->filters->setCheckable(true);
@@ -209,11 +187,8 @@ SyncPage * MainWindow::addSyncTab()
 	vlayout_filters->addWidget(page->lw_filters);
 	page->advanced->addWidget(page->filters, 0, 2, 9, 1);
 	mainglayout->addWidget(page->advanced, 7, 0);
-    
-    page->sync_timer = new QTimer();
-    page->sync_timer->connect(page->sync_timer, SIGNAL(timeout()), page->sync_timer, SLOT(stop()));
-    page->sync_timer->connect(page->sync_timer, SIGNAL(timeout()), page, SLOT(syncPage()));
-	tabs.insert(page->tab, page);
+
+    tabs.insert(page->tab, page);
 	
 	tabWidget->setCurrentIndex(tabWidget->indexOf(page->tab));
 
@@ -254,19 +229,12 @@ int SyncPage::sync()
         addTableItem(tr("%1	Synchronisation failed: Choose the synchronization folders first").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
         return 0;
     }
-    setFoldersEnabled(false);
+    setSyncEnabled(false);
     QDir d1 (directory1); QDir d2 (directory2);
     if (!d1.exists()) {
         if (!QDir().mkpath(d1.path())) {
             addTableItem(tr("%1	Synchronisation failed: Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d1.path()), "", "", QBrush(Qt::red), QBrush(Qt::white));
-            if (periodical_sync->isChecked()) {
-			    sync_timer->stop(); sync_timer->start(sync_interval->value()*60000);
-			    setFoldersEnabled(false);
-		    	setPeriodicalEnabled(false);
-		    } else {
-		        setFoldersEnabled(true);
-		        setPeriodicalEnabled(true);
-		    }
+		    setSyncEnabled(true);
             return 0;
         } else {
             addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d1.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
@@ -274,14 +242,7 @@ int SyncPage::sync()
     } if (!d2.exists()) {
         if (!QDir().mkpath(d2.path())) {
             addTableItem(tr("%1	Synchronisation failed: Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d2.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
-            if (periodical_sync->isChecked()) {
-			    sync_timer->stop(); sync_timer->start(sync_interval->value()*60000);
-			    setFoldersEnabled(false);
-			    setPeriodicalEnabled(false);
-		    } else {
-		        setFoldersEnabled(true);
-		        setPeriodicalEnabled(true);
-		    }
+		    setSyncEnabled(true);
             return 0;
         } else {
             addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d2.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
@@ -289,7 +250,7 @@ int SyncPage::sync()
     }
     if (d1.path() == d2.path()) {
        QMessageBox::warning(mp_parent, tr("Synkron - %1").arg(mp_parent->tabWidget->tabText(mp_parent->tabWidget->indexOf(tab))), tr("Directories with the same path selected."));
-       setFoldersEnabled(true); setPeriodicalEnabled(true); return 0;
+       setSyncEnabled(true); return 0;
     }
 	QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 	extensions.clear();
@@ -306,21 +267,12 @@ int SyncPage::sync()
 			}
 		}
 	} syncing = true;
+	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
     if (move->isChecked()) moveContents(d1, d2);
 	else subSync(d1, d2, false);
 	extensions.clear();
     QApplication::restoreOverrideCursor();
-    if (periodical_sync->isChecked()) {
-		setSyncingOn(false);
-		sync_timer->stop(); sync_timer->start(sync_interval->value()*60000);
-		setPeriodicalEnabled(false);
-	}
-    else {
-		setFoldersEnabled(true);
-		sync_timer->stop();
-		setPeriodicalEnabled(true);
-		periodical_start->setEnabled(false);
-	}
+	setSyncEnabled(true);
 	mp_parent->saveSettings();
     addTableItem(tr("%1	Synchronisation complete: %2 file(s) %3").arg(QTime().currentTime().toString("hh:mm:ss")).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
 	if (!mp_parent->syncingAll) {
@@ -351,19 +303,8 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
 		d1_entries = d1.entryInfoList(extensions.toList(), filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
     	d2_entries = d2.entryInfoList(extensions.toList(), filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
 	}
-	QString update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
     QString buffer;
     bool found = false; MTFile * file; QDir * temp = new QDir (QDir::homePath());
-    /*for (int i = 0; i < d1_entries.count(); ++i) {
-        if (!d1_entries.at(i).isDir()) {
-            QMessageBox::warning(this, tr("Synkron"), tr("%1").arg(d1_entries.at(i).fileName()));
-        }
-    }
-    for (int n = 0; n < d2_entries.count(); ++n) {
-        if (!d2_entries.at(n).isDir()) {
-            QMessageBox::warning(this, tr("Synkron"), tr("%1").arg(d2_entries.at(n).fileName()));
-        }
-    }*/
     for (int i = 0; i < d1_entries.count(); ++i) {
 		if (!syncing) return;
 		if (!ignore_blacklist->isChecked()) {
@@ -398,10 +339,10 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
 				if (d1_entries.at(i).isDir() && d2_entries.at(n).isDir()) {
 					if (d2_entries.at(n).isSymLink() || d1_entries.at(i).isSymLink()) {
 						if (followSymlinks()) {
-								QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
-                				QDir subDir2 (d2_entries.at(n).isSymLink() ? d2_entries.at(n).symLinkTarget() : d2_entries.at(n).absoluteFilePath());
-                				subSync(subDir1, subDir2, false);
-								continue;
+							QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
+                			QDir subDir2 (d2_entries.at(n).isSymLink() ? d2_entries.at(n).symLinkTarget() : d2_entries.at(n).absoluteFilePath());
+                			subSync(subDir1, subDir2, false);
+							continue;
 						} else if (!d1_entries.at(i).isSymLink() || !d2_entries.at(n).isSymLink()) {
 							if (!repeated) {
 								addTableItem(tr("A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "",
@@ -435,11 +376,8 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             	}
             	else if (d1_entries.at(i).lastModified() < d2_entries.at(n).lastModified()) {
 					file = new MTFile (d1_entries.at(i).absoluteFilePath());
-					if (d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying1; }
-                    else if (d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying1; }
-					if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
+					if (backup_folder_1->isChecked() && d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying1; }
+                    else if (backup_folder_2->isChecked() && d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying1; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files)))) {
                        unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
@@ -449,24 +387,17 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                     copying1:
                     file->remove(); delete file;
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
-                    if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
                     buffer.clear(); buffer = d1_entries.at(i).absoluteFilePath();
                     if (!file->copy(buffer)) {
                        unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
                     }
                     addTableItem(d2_entries.at(n).absoluteFilePath(), d1_entries.at(i).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
-                    file->close();
                     synced_files++; delete file;
             	}
                 else if (d1_entries.at(i).lastModified() > d2_entries.at(n).lastModified()) {
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
-                    if (d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying2; }
-                    else if (d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying2; }
-                    if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
+                    if (backup_folder_1->isChecked() && d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying2; }
+                    else if (backup_folder_2->isChecked() && d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying2; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files)))) {
                        unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
@@ -476,15 +407,11 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
 					copying2:
                     file->remove(); delete file;
                     file = new MTFile (d1_entries.at(i).absoluteFilePath());
-                    if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
                     buffer.clear(); buffer = d2_entries.at(n).absoluteFilePath();
                     if (!file->copy(buffer)) {
                        unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
                     }
                     addTableItem(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
-                    file->close();
                     synced_files++; delete file;
                 }
                 break;
@@ -494,14 +421,25 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
         if (found == false) {
             if (!syncing) return;
             bool symfound = false;
+            if (clone_folder1->isChecked() && d1_entries.at(i).absoluteFilePath().startsWith(syncFolder2Text())) {
+                QString cloned_file = d1_entries.at(i).absoluteFilePath();
+                if (!d1_entries.at(i).isDir() || d1_entries.at(i).isSymLink()) {
+                    if (QFile(d1_entries.at(i).absoluteFilePath()).remove())
+                        addTableItem(tr("File %1 deleted").arg(cloned_file), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing file %1").arg(cloned_file), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                }
+                else {
+                    if (mp_parent->removeDir(d1_entries.at(i).absoluteFilePath()))
+                        addTableItem(tr("Folder %1 deleted").arg(cloned_file), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing directory %1").arg(cloned_file), "", ":/new/prefix1/images/folder_16.png", QBrush(Qt::red), QBrush(Qt::white));
+                }
+                continue;
+            }
             if (update_only_1->isChecked() && QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(syncFolder1Text())) goto end;
             if (update_only_2->isChecked() && QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(syncFolder2Text())) goto end;
             file = new MTFile (d1_entries.at(i).absoluteFilePath());
-            if (!d1_entries.at(i).isDir()) {
-                if (!file->open(QIODevice::ReadOnly)) {
-                     unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                }
-            }
             buffer.clear();
             buffer = QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName());
             if (d1_entries.at(i).isDir()) {
@@ -524,7 +462,6 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
 					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
             	}
             }
-            file->close();
             synced_files++; delete file;
             end: synced_files = synced_files;
         }
@@ -532,6 +469,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
     if (!repeated) {
         subSync (d2, d1, true);
     }
+    delete temp;
 }
 
 void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
@@ -559,7 +497,6 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 		d1_entries = d1.entryInfoList(extensions.toList(), filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
     	d2_entries = d2.entryInfoList(extensions.toList(), filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
 	}
-	QString update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
     QString buffer;
     bool found = false; MTFile * file; QDir *temp = new QDir (QDir::homePath());
     for (int i = 0; i < d1_entries.count(); ++i) {
@@ -598,12 +535,24 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 				if (d1_entries.at(i).isDir() && d2_entries.at(n).isDir()) {
 					if (d2_entries.at(n).isSymLink() || d1_entries.at(i).isSymLink()) {
 						if (followSymlinks()) {
-								QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
-                				QDir subDir2 (d2_entries.at(n).isSymLink() ? d2_entries.at(n).symLinkTarget() : d2_entries.at(n).absoluteFilePath());
-                				moveContents(subDir1, subDir2);
-                				if (d1_entries.at(i).isSymLink()) QFile(d1_entries.at(i).absoluteFilePath()).remove();
-                				else d1.rmdir(d1_entries.at(i).fileName());
-								continue;
+							QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
+                			QDir subDir2 (d2_entries.at(n).isSymLink() ? d2_entries.at(n).symLinkTarget() : d2_entries.at(n).absoluteFilePath());
+                			moveContents(subDir1, subDir2);
+                			if (d1_entries.at(i).isSymLink()) {
+                                QString file_name = d1_entries.at(i).absoluteFilePath();
+                                if (QFile(d1_entries.at(i).absoluteFilePath()).remove())
+                                    addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                                else
+                                    addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                            }
+                			else {
+                                QString file_name = d1_entries.at(i).absoluteFilePath();
+                                if (d1.rmdir(d1_entries.at(i).fileName()))
+                                    addTableItem(tr("Folder %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                                else
+                                    addTableItem(tr("Error removing directory %1").arg(file_name), "", ":/new/prefix1/images/folder_16.png", QBrush(Qt::red), QBrush(Qt::white));
+                            }
+							continue;
 						} else if (!d1_entries.at(i).isSymLink() || !d2_entries.at(n).isSymLink()) {
 							addTableItem(tr("A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "",
 							    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
@@ -615,7 +564,11 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 						QDir subDir1 (d1_entries.at(i).absoluteFilePath());
                 		QDir subDir2 (d2_entries.at(n).absoluteFilePath());
                 		moveContents(subDir1, subDir2);
-                		d1.rmdir(d1_entries.at(i).fileName());
+                		QString file_name = d1_entries.at(i).absoluteFilePath();
+                        if (d1.rmdir(d1_entries.at(i).fileName()))
+                            addTableItem(tr("Folder %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                        else
+                            addTableItem(tr("Error removing directory %1").arg(file_name), "", ":/new/prefix1/images/folder_16.png", QBrush(Qt::red), QBrush(Qt::white));
                 		continue;
 					}
             	}
@@ -631,9 +584,6 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 					file = new MTFile (d1_entries.at(i).absoluteFilePath());
 					if (d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying1; }
                     else if (d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying1; }
-					if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files)))) {
                        unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
@@ -642,16 +592,18 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files);
 					addTableItem(tr("Older file %1 backed up and deleted").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"));
 					copying1:
-                    file->remove(); delete file;
+                    QString file_name = d1_entries.at(i).absoluteFilePath();
+                    if (file->remove())
+                        addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                    delete file;
                     synced_files++;
             	}
                 else if (d1_entries.at(i).lastModified() > d2_entries.at(n).lastModified()) {
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
                     if (d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying2; }
                     else if (d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying2; }
-                    if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files)))) {
                        unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
@@ -659,22 +611,33 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
                     mp_parent->synchronised << d2_entries.at(n).fileName() << update_time << d2_entries.at(n).absoluteFilePath();
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files);
                     copying2:
-                    file->remove(); delete file;
+                    QString file_name = d2_entries.at(n).absoluteFilePath();
+                    if (file->remove())
+                        addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                    delete file;
                     file = new MTFile (d1_entries.at(i).absoluteFilePath());
-                    if (!file->open(QIODevice::ReadOnly)) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                    }
                     buffer.clear(); buffer = d2_entries.at(n).absoluteFilePath();
                     if (!file->copy(buffer)) {
                        unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
                     }
-                    file->remove();
+                    file_name = d1_entries.at(i).absoluteFilePath();
+                    if (file->remove())
+                        addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
 					addTableItem(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
                     synced_files++; delete file;
                 }
                 else if (d1_entries.at(i).lastModified() == d2_entries.at(n).lastModified()) {
 					file = new MTFile (d1_entries.at(i).absoluteFilePath());
-					file->remove(); synced_files++; delete file;
+					QString file_name = d1_entries.at(i).absoluteFilePath();
+                    if (file->remove())
+                        addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    else
+                        addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+					synced_files++; delete file;
 				}
                 break;
         }
@@ -683,15 +646,10 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
         if (found == false) {
 			if (!syncing) return;
 			bool symfound = false;
+			QString file_name;
 			//if (page->updateOnly1() && QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(page->syncFolder1Text())) goto end;
             if (update_only_2->isChecked()/* && QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(page->syncFolder2Text())*/) goto end;
 			file = new MTFile (d1_entries.at(i).absoluteFilePath());
-            if (!d1_entries.at(i).isDir()) {
-                if (!file->open(QIODevice::ReadOnly)) {
-                     unknownError(d1_entries.at(i).fileName(), tr("file"), tr("open"), ":/new/prefix1/images/file.png"); delete file; continue;
-                }
-                
-            }
             buffer.clear();
             buffer = QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName());
             if (d1_entries.at(i).isDir()) {
@@ -703,8 +661,20 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
                 	QDir subDir2 (QString("%1/%2").arg(d2.absolutePath()).arg(d1_entries.at(i).fileName()));
                 	addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
 					moveContents(subDir1, subDir2);
-					if (d1_entries.at(i).isSymLink()) QFile(d1_entries.at(i).absoluteFilePath()).remove();
-                	else d1.rmdir(d1_entries.at(i).fileName());
+					if (d1_entries.at(i).isSymLink()) {
+                        file_name = d1_entries.at(i).absoluteFilePath();
+                        if (file->remove())
+                            addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                        else
+                            addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                    }
+                	else {
+                        file_name = d1_entries.at(i).absoluteFilePath();
+                        if (d1.rmdir(d1_entries.at(i).fileName()))
+                            addTableItem(tr("Folder %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                        else
+                            addTableItem(tr("Error removing directory %1").arg(file_name), "", ":/new/prefix1/images/folder_16.png", QBrush(Qt::red), QBrush(Qt::white));
+                    }
 				} else if (d1_entries.at(i).isSymLink() && !followSymlinks()) symfound = true;
 			}
             if (!d1_entries.at(i).isDir() || symfound)
@@ -716,7 +686,11 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
             	}
             }
-            file->remove();
+            file_name = d1_entries.at(i).absoluteFilePath();
+            if (file->remove())
+                addTableItem(tr("File %1 deleted").arg(file_name), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            else
+                addTableItem(tr("Error removing file %1").arg(file_name), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
             synced_files++; delete file;
             end: synced_files = synced_files;
         }
@@ -780,56 +754,28 @@ void MainWindow::tabNameChanged()
 	tabWidget->setTabText(tabWidget->indexOf(page->tab), page->tab_name->text());
 }
 
-void MainWindow::startPeriodical(QWidget* syncTab)
-{
-	SyncPage * page = 0;
-	if (syncTab==0) page = tabs.value(tabWidget->currentWidget());
-	else page = tabs.value(syncTab);
-	page->sync_timer->stop(); page->sync_timer->start(page->sync_interval->value()*60000);
-	page->setFoldersEnabled(false);
-	page->setSyncingOn(false);
-	page->setPeriodicalEnabled(false);
-}
-
-void MainWindow::stopPeriodical()
-{
-	SyncPage * page = tabs.value(tabWidget->currentWidget());
-	page->sync_timer->stop();
-	page->setFoldersEnabled(true);
-	page->setPeriodicalEnabled(true);
-}
-
-void SyncPage::setPeriodicalEnabled( bool enable)
-{
-	periodical_stop->setEnabled(!enable);
-	periodical_start->setEnabled(enable);
-	sync_btn->setEnabled(enable);
-}
-
-void SyncPage::setFoldersEnabled(bool enable)
+void SyncPage::setSyncEnabled(bool enable)
 {
 	sync_folder_1->setEnabled(enable);
 	sync_folder_2->setEnabled(enable);
 	browse_1->setEnabled(enable);
 	browse_2->setEnabled(enable);
 	log_search->setEnabled(enable);
-	//sync_btn->setEnabled(enable);
-	sync_hidden->setEnabled(enable);
 	tab_name->setEnabled(enable);
-	periodical_sync->setEnabled(enable);
-	if (periodical_sync->isChecked()) sync_interval->setEnabled(enable);
-	min_text->setEnabled(enable);
 	advanced->setEnabled(enable);
-	periodical_start->setEnabled(enable);
-	periodical_stop->setEnabled(enable);
-	setSyncingOn(!enable);
+	syncing = !enable;
+    stop_sync_btn->setVisible(!enable);
+    sync_btn->setVisible(enable);
 }
 
-void SyncPage::setSyncingOn(bool on)
+void AbstractSyncPage::moveStateChanged(int state)
 {
-    syncing = on;
-    stop_sync_btn->setVisible(on);
-    sync_btn->setVisible(!on);
+    bool checked = move->isChecked();
+    update_only_1->setEnabled(!checked);
+    update_only_1->setChecked(checked);
+    clone_folder1->setEnabled(!checked);
+    if (checked) clone_folder1->setChecked(false);
+    moveChecked(state);
 }
 
 void SyncPage::moveChecked(int state)
@@ -837,6 +783,31 @@ void SyncPage::moveChecked(int state)
 	if ((Qt::CheckState)state==Qt::Checked){
 		sync_btn->setText(tr("Move"));
 		sync_btn->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
+	} else {
+		sync_btn->setText(tr("Sync"));
+		sync_btn->setStatusTip(tr("Synchronise"));
+	}
+}
+
+void AbstractSyncPage::cloneStateChanged(int state)
+{
+    bool checked = clone_folder1->isChecked();
+    update_only_1->setEnabled(!checked);
+    update_only_1->setChecked(checked);
+    update_only_2->setEnabled(!checked);
+    move->setEnabled(!checked);
+    if (checked) {
+        update_only_2->setChecked(false);
+        move->setChecked(false);
+    }
+    cloneChecked(state);
+}
+
+void SyncPage::cloneChecked(int state)
+{
+	if ((Qt::CheckState)state==Qt::Checked){
+		sync_btn->setText(tr("Clone"));
+		sync_btn->setStatusTip(tr("Clone folder 1"));
 	} else {
 		sync_btn->setText(tr("Sync"));
 		sync_btn->setStatusTip(tr("Synchronise"));

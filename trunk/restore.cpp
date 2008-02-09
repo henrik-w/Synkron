@@ -4,20 +4,36 @@ void MainWindow::toRestorePage()
 {
 	date_of_sync->setDateTime(QDateTime(QDate(2000, 01, 01), QTime(00, 00, 00)));
 	path_of_syncfile->clear();
-	to_black_list->setCheckState(Qt::Unchecked);
  	QListWidgetItem * item;
  	restore_list->clear();
+ 	QString last_time = "";
+ 	QString last_colour = "grey";
  	for (int i = 0; i < synchronised.count(); i+=4) {
 		item = new QListWidgetItem (synchronised.at(i));
 		item->setCheckState(Qt::Unchecked);
-		restore_list->addItem(item);
 		QStringList list;
+		if (synchronised.at(i+1) == last_time) {
+            if (last_colour == "grey") {
+                item->setBackground(QBrush(QColor(226, 226, 226)));
+            }
+        } else {
+            last_time = synchronised.at(i+1);
+            if (last_colour == "grey") {
+                last_colour = "white";
+            } else {
+                item->setBackground(QBrush(QColor(226, 226, 226)));
+                last_colour = "grey";
+            }
+        }
 		list << synchronised.at(i);
 		list << synchronised.at(i+1);
 		list << synchronised.at(i+2);
 		list << synchronised.at(i+3);
 		item->setData(Qt::UserRole, list);
+		item->setToolTip(synchronised.at(i+2));
+		restore_list->addItem(item);
     }
+    to_black_list->setCheckState(Qt::Unchecked);
 }
 
 void MainWindow::restoreItemChanged(QListWidgetItem * item, QListWidgetItem *) //yyyy.MM.dd-hh.mm
@@ -43,48 +59,61 @@ void MainWindow::restoreItemChanged(QListWidgetItem * item, QListWidgetItem *) /
 
 void MainWindow::restoreFiles()
 {
-	MTFile * file; MTFile * old_file;
-	int restored_items = 0; int errors = 0; int restored [restore_list->count()];
-	for (int c = 0; c < restore_list->count(); ++c) {
+	//MTFile * file; MTFile * old_file;
+	int restored_items = 0; int errors = 0;// int restored [restore_list->count()];
+	for (int c = restore_list->count()-1; c >= 0; --c) {
 		if (restore_list->item(c)->checkState() == Qt::Checked) {
-			QStringList item_list = restore_list->item(c)->data(Qt::UserRole).toStringList();
-			file = new MTFile (item_list.at(3));
-			if (!file->open(QIODevice::ReadOnly)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error opening file: %1.").arg(item_list.at(0))); errors++; delete file; continue; }
-			old_file = new MTFile (item_list.at(2));
-			if (old_file->exists()) {
-				if (!file->copy(QString("%1.res").arg(item_list.at(2)))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); errors++; delete file; delete old_file; continue; }
-				QString file_name = old_file->fileName();
-				if (!old_file->remove()) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); errors++; delete file; delete old_file; continue; }
-				delete file; file = new MTFile (QString("%1.res").arg(item_list.at(2)));
-				if (!file->rename(file_name)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); errors++; delete file; delete old_file; continue; }
-				delete file; file = new MTFile (item_list.at(3));
-			} else {
-				if (!file->copy(item_list.at(2))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); errors++; delete file; delete old_file; continue; }
-			}
-			file->remove(); delete file;
-			file = new MTFile (item_list.at(2));
-			file->touch(qApp);
-			delete file; delete old_file;
-			restored[restored_items] = restore_list->row(restore_list->item(c)); restored_items++;
-			for (int o = 0; o < synchronised.count(); ++o) {
-				if (synchronised.at(o) == item_list.at(3)) {
-					synchronised.removeAt(o);
-					synchronised.removeAt(o-1);
-					synchronised.removeAt(o-2);
-					synchronised.removeAt(o-3);
-					break;
-				}
-			}
+			if (restoreItem(restore_list->item(c))) restored_items++;
+			else errors++;
 		}
 	}
-	for (int l = restored_items; l > 0; --l) {
+	/*for (int l = restored_items; l > 0; --l) {
 		delete restore_list->item(restored[l-1]);
-	}
+	}*/
 	if (restored_items == 0 && errors == 0) {
 		QMessageBox::warning(this, tr("Synkron"), tr("No files selected."));
 	} else {
 		QMessageBox::information(this, tr("Synkron"), tr("%1 files restored.").arg(restored_items));
 	}
+}
+
+void MainWindow::restoreCurrentItem()
+{
+	if (restore_list->currentItem()!=0) restoreItem(restore_list->currentItem());
+}
+
+bool MainWindow::restoreItem(QListWidgetItem * item)
+{
+	QStringList item_list = item->data(Qt::UserRole).toStringList();
+	MTFile * file = new MTFile (item_list.at(3));
+	if (!file->open(QIODevice::ReadOnly)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error opening file: %1.").arg(item_list.at(0))); delete file; return false; }
+	MTFile * old_file = new MTFile (item_list.at(2));
+	if (old_file->exists()) {
+		if (!file->copy(QString("%1.res").arg(item_list.at(2)))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+		QString file_name = old_file->fileName();
+		if (!old_file->remove()) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+		delete file; file = new MTFile (QString("%1.res").arg(item_list.at(2)));
+		if (!file->rename(file_name)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+		delete file; file = new MTFile (item_list.at(3));
+	} else {
+		if (!file->copy(item_list.at(2))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+	}
+	file->remove(); delete file;
+	file = new MTFile (item_list.at(2));
+	file->touch(qApp);
+	delete file; delete old_file;
+	//restored[restored_items] = restore_list->row(item);
+	for (int o = 0; o < synchronised.count(); ++o) {
+		if (synchronised.at(o) == item_list.at(3)) {
+			synchronised.removeAt(o);
+			synchronised.removeAt(o-1);
+			synchronised.removeAt(o-2);
+			synchronised.removeAt(o-3);
+			break;
+		}
+	}
+	delete item;
+	return true;
 }
 
 void MainWindow::addToBlackList(int state)
@@ -198,7 +227,7 @@ void MainWindow::cleanTemporary()
  	switch (msgBox.exec()) {
  	case QMessageBox::Yes:
  	    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-		MTFile * file;
+		//MTFile * file;
    		for (int i = restore_list->count()-1; i>=0; --i) {
             if (restore_clean_selected->isChecked() && restore_list->item(i)->checkState() == Qt::Unchecked) continue;
             bool straight_delete = false; bool repeated_only = false;
@@ -212,14 +241,15 @@ void MainWindow::cleanTemporary()
             }
             if (restore_clean_repeated->isChecked() && !straight_delete) {
                 if (repeated_map.value(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2)) >= restore_clean_files->value()) {
-                    file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+                    deleteTempFile(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+					/*file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
                     if (file->exists()) {
                         file->remove();
                     }
                     if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
                         int x = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
                         synchronised.removeAt(x); synchronised.removeAt(x-1); synchronised.removeAt(x-2); synchronised.removeAt(x-3);
-                    }
+                    }*/
                     delete restore_list->item(i);
                 } else {
                     repeated_map.insert(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2), repeated_map.value(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2))+1);
@@ -227,14 +257,15 @@ void MainWindow::cleanTemporary()
                 continue;
             }
             if (!repeated_only) {
-                file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+                deleteTempFile(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
+				/*file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
                 if (file->exists()) {
                     file->remove();
                 }
                 if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
 			    	int n = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
 			    	synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
-                }
+                }*/
                 delete restore_list->item(i);
             }
 		}
@@ -246,4 +277,62 @@ void MainWindow::cleanTemporary()
 	default:
    		break;
  	}
+}
+
+void MainWindow::deleteTempFile(QString path)
+{
+	MTFile * file = new MTFile (path);
+    if (file->exists()) {
+		file->remove();
+		QFileInfo info(path);
+		QDir dir = info.dir();
+		QString dirname = dir.dirName();
+		dir.cdUp();
+		dir.rmdir(dirname);
+    }
+    if (synchronised.contains(path)) {
+		int n = synchronised.indexOf(path);
+		synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
+    }
+}
+
+void MainWindow::deleteRestoreItem()
+{
+	if (restore_list->currentItem()==0) return;
+	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete the selected temporary file?"));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+ 	    deleteTempFile(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(3));
+    	delete restore_list->currentItem();
+   		break;
+ 	case QMessageBox::No:
+     	return;
+	default:
+   		break;
+ 	}
+}
+
+void MainWindow::checkRestoreItem()
+{
+	if (restore_list->currentItem()==0) return;
+	restore_list->currentItem()->setCheckState(restore_list->currentItem()->checkState()==Qt::Checked ? Qt::Unchecked : Qt::Checked);
+}
+
+void MainWindow::blacklistRestoreItem()
+{
+	if (restore_list->currentItem()==0) return;
+	to_black_list->setCheckState(Qt::Checked);
+}
+
+void MainWindow::restoreListConMenu(QPoint pos)
+{
+	QMenu * contextMenu = new QMenu(this);
+	contextMenu->addAction(checkRestoreItemAction);
+	contextMenu->addAction(restoreAction);
+	contextMenu->addAction(deleteRestoreItemAction);
+	contextMenu->addAction(blacklistRestoreItemAction);
+	contextMenu->move(pos);
+	contextMenu->show();
 }

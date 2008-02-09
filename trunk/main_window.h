@@ -31,6 +31,9 @@
 #include <QDomElement>
 #include <QInputDialog>
 #include <QSet>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QProgressDialog>
 
 class MainWindow;
 
@@ -65,13 +68,19 @@ public:
     QCheckBox * ignore_blacklist;
     QCheckBox * move;
     QCheckBox * symlinks;
+    QCheckBox * clone_folder1;
     QListWidget * lw_filters;
     MainWindow * mp_parent;
     int synced_files;
+    QString update_time;
     
 public slots:
     virtual int sync() = 0;
+    virtual void moveChecked(int) = 0;
+    virtual void cloneChecked(int) = 0;
     void stopSync() { syncing = false; };
+    void cloneStateChanged(int);
+    void moveStateChanged(int);
 };
 
 class SyncPage : public AbstractSyncPage
@@ -83,7 +92,8 @@ signals:
     
 public slots:
     void syncPage();
-    void moveChecked(int state);
+    void moveChecked(int);
+    void cloneChecked(int);
     void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
     void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
     int sync();
@@ -95,13 +105,10 @@ public:
 	bool followSymlinks() { return symlinks->isChecked(); }
 	QString syncFolder1Text() { return sync_folder_1->text(); }
 	QString syncFolder2Text() { return sync_folder_2->text(); }
-	void setFoldersEnabled(bool);
-	void setSyncingOn(bool);
-	void setPeriodicalEnabled(bool);
+	void setSyncEnabled(bool);
 	
     QWidget * tab;
     QLabel * icon_label;
-    QLabel * min_text;
     QLabel * sync_text;
     QLineEdit * tab_name;
     QLineEdit * sync_folder_1;
@@ -114,12 +121,7 @@ public:
     QPushButton * stop_sync_btn;
     QPushButton * back;
     QPushButton * resync;
-    QPushButton * periodical_start;
-    QPushButton * periodical_stop;
     MTAdvancedGroupBox * advanced;
-    QCheckBox * periodical_sync;
-    QSpinBox * sync_interval;
-    QTimer * sync_timer;
 };
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
@@ -144,7 +146,8 @@ public slots:
     void saveAsMultisync(QString file_name);
     void loadMultisync();
     void loadMultisync(QString);
-    void moveChecked(int state);
+    void moveChecked(int);
+    void cloneChecked(int);
     void destinationTextChanged() { QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
     int sync();
 	
@@ -164,8 +167,11 @@ public:
     SyncSchedule(MainWindow *);
     QList<QTimer*> timers;
 	QStringList sched_tab_list;
+	QStringList sched_multitab_list;
 	QStringList sched_time_list;
 	QStringList sched_checked_time_list;
+	int periodical_interval;
+	int timing_tab_index;
 	bool scheduling;
     
 signals:
@@ -192,22 +198,42 @@ public:
 	QStringList extensions;
 };
 
+class ClientConnection : public QObject
+{
+    Q_OBJECT
+
+public:
+    ClientConnection(MainWindow *, QTcpSocket *);
+
+public slots:
+    void read();
+
+private:
+    quint64 c_blocksize;
+    QTcpSocket * c_socket;
+    MainWindow * c_parent;
+};
+
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow();
+    MainWindow(QSettings *);
     
     QStringList synchronised;
     QStringList files_blacklist;
     QStringList folders_blacklist;
     bool syncingAll;
+    bool skip_close_event;
 	bool runHidden() { return run_hidden; }
 	bool showTrayMessage(QString, QString);
+	QSettings * sync_settings;
         
 public slots:
     void saveSettings();
+    bool removeDir(QString);
+    void removeFile(QString);
 
 private slots:
 	
@@ -217,8 +243,6 @@ private slots:
     void syncAll();
     void tabNameChanged();
     SyncPage * addSyncTab();
-    void startPeriodical(QWidget* syncTab = 0);
-    void stopPeriodical();
     void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
 	
 // Restore
@@ -228,6 +252,13 @@ private slots:
     void setCleanGB();
     void cleanTemporary();
     void selTmpAll();
+    void deleteTempFile(QString);
+    void restoreListConMenu(QPoint);
+    void restoreCurrentItem();
+    bool restoreItem(QListWidgetItem*);
+    void deleteRestoreItem();
+    void checkRestoreItem();
+    void blacklistRestoreItem();
     
 // Blacklist
 	void addToBlackList(int);
@@ -245,7 +276,7 @@ private slots:
     
 // Scheduler
     void addSchedule();
-    QTableWidgetItem * addSchedule(QStringList, QStringList, QStringList);
+    SyncSchedule * addSchedule(QString/*QStringList, QStringList, QStringList, QStringList, int*/);
     void removeSchedule();
     void reloadSchedule() { scheduleActivated(tw_schedules->currentRow(), tw_schedules->currentColumn(), tw_schedules->currentRow(), tw_schedules->currentColumn()); }
     void reloadSchedStatus();
@@ -256,6 +287,7 @@ private slots:
     void saveSchedSettings(int);
     void setScheduleStatusOn(bool, QTableWidgetItem*);
     void schedTabClicked(QListWidgetItem*);
+    void schedMultitabClicked(QListWidgetItem*);
     void schedTimeClicked(QListWidgetItem*);
     void startSchedule() { startSchedule(tw_schedules->item(tw_schedules->currentRow(), 0)); }
     void startSchedule(QTableWidgetItem *);
@@ -267,6 +299,8 @@ private slots:
     void stopAllSchedules();
     void enableSchedule(int);
     void activateSchedule();
+    void schedIntervalChanged(int);
+    void timngTabIndexChanged(int);
     
 // Filters
     void addFilter();
@@ -293,6 +327,12 @@ private slots:
     void closeApp() { no_closedialogue = true; this->close(); }
     void saveSyncLog();
     void setRunHidden(bool b) { run_hidden = b; }
+    void globalDelete(QString);
+    void globalRename(QString, QString);
+    void renameFile(QString, QString);
+    void sendMessageAndClose();
+    void addConnection();
+    void initServer(QAbstractSocket::SocketError);
 
 private:
     float f_ver;
@@ -301,6 +341,7 @@ private:
     bool sched_removed;
     bool no_closedialogue;
     QHttp * http; QBuffer * http_buffer;
+    QTcpServer * tcp_server; QTcpSocket * tcp_socket;
     
     void closeEvent(QCloseEvent*);
     void readSettings();
@@ -327,6 +368,10 @@ private:
     QAction *syncAction;
     QAction *quitAction;
     QAction *syncAllAction;
+    QAction *restoreAction;
+    QAction *deleteRestoreItemAction;
+    QAction *checkRestoreItemAction;
+    QAction *blacklistRestoreItemAction;
     QSystemTrayIcon *trayIcon;
 #ifdef Q_WS_MAC
 	QAction * actionBrushedMetalStyle;
@@ -335,6 +380,7 @@ private:
 	friend class SyncSchedule;
 	friend class SyncPage;
 	friend class MultisyncPage;
+	friend class ClientConnection;
 };
 
 class About : public QDialog, private Ui::About

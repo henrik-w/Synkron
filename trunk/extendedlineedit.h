@@ -15,7 +15,11 @@ public:
     ExtendedLineEdit(QWidget * parent = 0):
     QLineEdit(parent) {
         xle_btn_clear = new QToolButton(this);
-        xle_btn_clear->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/clear.png")));
+        if (layoutDirection() == Qt::LeftToRight) {
+            xle_btn_clear->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/clear.png")));
+        } else {
+            xle_btn_clear->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/clear_rtl.png")));
+        }
         xle_btn_clear->setIconSize(QSize(13, 13));
         xle_btn_clear->setCursor(Qt::ArrowCursor);
         xle_btn_clear->setStyleSheet("QToolButton { border: none; padding: 0px; }");
@@ -33,7 +37,11 @@ protected:
     void resizeEvent(QResizeEvent *) {
         QSize s = xle_btn_clear->sizeHint();
         int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-        xle_btn_clear->move(rect().right() - frameWidth - s.width(), (rect().bottom() + 1 - s.height())/2);
+        if (layoutDirection() == Qt::LeftToRight) {
+            xle_btn_clear->move(rect().right() - frameWidth - s.width(), (rect().bottom() + 1 - s.height())/2);
+        } else {
+            xle_btn_clear->move(frameWidth, (rect().bottom() + 1 - s.height())/2);
+        }
     };
     void enterEvent(QEvent * event) {
 		if (!hasFocus()) { selectAll(); setFocus(); }
