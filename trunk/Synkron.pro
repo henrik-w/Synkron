@@ -1,13 +1,11 @@
 TEMPLATE = app
-QT += network \
-    xml
+QT += network xml
 HEADERS += main_window.h \
     mtfile.h \
     mtadvancedgroupbox.h \
     extendedlineedit.h
-FORMS += about.ui \
-    main_window.ui
-FORMS += about.ui \
+FORMS += main_window.ui \
+    about.ui \
     multisync_page.ui
 SOURCES += blacklist.cpp \
     main.cpp \
@@ -22,7 +20,7 @@ RESOURCES += resources.qrc \
     i18n.qrc
 win32:RC_FILE = Synkron.rc
 DESTDIR = ./
-unix:!macx { 
+unix:!macx {
     DEFINES += USE_UNIX_TOUCH_COMMAND
     TARGET = synkron
     OBJECTS_DIR = .tmp.unix/
