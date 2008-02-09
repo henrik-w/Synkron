@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -201,22 +202,22 @@
     <message>
         <location filename="../sync.cpp" line="691"/>
         <source>File %1 deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei %1 gelöscht</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="693"/>
         <source>Error removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Entfernen der Datei %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="674"/>
         <source>Folder %1 deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnis %1 gelöscht</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="676"/>
         <source>Error removing directory %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Entfernen des Verzeichnisses %1</translation>
     </message>
 </context>
 <context>
@@ -224,12 +225,12 @@
     <message>
         <location filename="../main.cpp" line="232"/>
         <source>Synkron - Rename file</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - Datei neu benennen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="232"/>
         <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tippe einen neuen Namen für &quot;%1&quot;:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="242"/>
@@ -1230,112 +1231,112 @@
     <message>
         <location filename="../main.cpp" line="655"/>
         <source>&amp;Check/Uncheck</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Markieren/Markierung entfernen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="658"/>
         <source>&amp;Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wiederherstellen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="661"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Entfernen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="664"/>
         <source>Add to &amp;blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Zur &amp;Schwarzliste hinzufügen</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="302"/>
         <source>Are you sure you want to delete the selected temporary file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bist Du sicher, die ausgewählten temorären Dateien löschen zu wollen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
         <source>Synkron - Rename file</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - Datei n eu benennen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
         <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tippe einen neuen Namen für &quot;%1&quot;:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="965"/>
         <source>Error removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Entfernen der Datei %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="970"/>
         <source>Error removing directory %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Entfernen des Verzeichnisses %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="978"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bist Du sicher, den Pfad &quot;%1&quot; aus jeder Synchonisierung entfernen zu wollen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="988"/>
         <source>Removing files...</source>
-        <translation type="unfinished"></translation>
+        <translation>Entferne Dateien...</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1074"/>
         <source>Error renaming file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Umbenennen der Datei %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1081"/>
         <source>Error renaming directory %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Umbenennen des Verzeichnisses %1</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="952"/>
         <source>Select multisyncs to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Wähle Multisyncs aus</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="959"/>
         <source>Select syncs to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Wähle Syncs aus</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="966"/>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Syncs, die genutzt werden:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="973"/>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Multisyncs, die genutzt werden:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1043"/>
         <source>Sync times</source>
-        <translation type="unfinished"></translation>
+        <translation>Sync Zeiten</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1049"/>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Zeiten:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1154"/>
         <source>Synchronise every</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisiere jede(s)</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1174"/>
         <source>minute(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>minute(n)</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="160"/>
         <source>Clone folder 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dopple Verzeichnis 1 als Backup</translation>
     </message>
 </context>
 <context>
@@ -1615,7 +1616,7 @@
     <message>
         <location filename="../multisync.cpp" line="398"/>
         <source>Clone sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Dopple die Quellen als Backup</translation>
     </message>
 </context>
 <context>
@@ -1698,12 +1699,12 @@
     <message>
         <location filename="../sync.cpp" line="809"/>
         <source>Clone</source>
-        <translation type="unfinished"></translation>
+        <translation>Doppeln</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="810"/>
         <source>Clone folder 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Dopple Verzeichnis 1 als Backup</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1712,7 @@
     <message>
         <location filename="../scheduler.cpp" line="308"/>
         <source>Synchronisation complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisation vollständig</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="308"/>
