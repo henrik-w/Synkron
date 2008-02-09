@@ -29,7 +29,7 @@ void MainWindow::addFilter(QString text, QStringList exts)
 		item->setCheckState(Qt::Unchecked);
 		i.value()->lw_filters->addItem(item);
 	}
-	/*for (int m = 0; m < multi_tabWidget->count(); ++m) {
+    /*for (int m = 0; m < multi_tabWidget->count(); ++m) {
         item = new QListWidgetItem(text);
         item->setCheckState(Qt::Unchecked);
         ((MultisyncPage *)multi_tabWidget->widget(m))->lw_filters->addItem(item);
@@ -40,7 +40,8 @@ void MainWindow::removeFilter()
 {
 	if (filter_list->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No filter selected.")); return; }
 	Filter * filter = (Filter *) filter_list->currentItem(); QMapIterator<QWidget *, SyncPage *> i(tabs);
-	filter_list->clearSelection(); setFiltersEnabled(false); //MultisyncPage * multi_page;
+	filter_list->clearSelection(); setFiltersEnabled(false); 
+    //MultisyncPage * multi_page;
 	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected filter from the list?"));
 	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
@@ -54,7 +55,7 @@ void MainWindow::removeFilter()
 				}
 			}
 		}
-		/*for (int m = 0; m < multi_tabWidget->count(); ++m) {
+        /*for (int m = 0; m < multi_tabWidget->count(); ++m) {
             multi_page = (MultisyncPage *)multi_tabWidget->widget(m);
             for (int n = 0; n < multi_page->lw_filters->count(); ++n) {
                 if (multi_page->lw_filters->item(n)->text()==filter->text()) {

@@ -54,7 +54,7 @@ void MultisyncPage::setAdvancedGB()
 	advanced->addLayout(folder1_layout, 5, 0);
 	move = new QCheckBox (tr("Move contents to destination, leaving sources empty"), advanced);
 	move->setStatusTip(tr("Move contents to destination, leaving sources empty"));
-	connect(move, SIGNAL(stateChanged(int)), this, SLOT(moveChecked(int)));
+	connect(move, SIGNAL(stateChanged(int)), this, SLOT(moveStateChanged(int)));
 	advanced->addWidget(move, 6, 0);
 	QLabel * folder2_label = new QLabel(advanced);
     folder2_label->setText(tr("<b>Destination:</b>"));
@@ -68,7 +68,11 @@ void MultisyncPage::setAdvancedGB()
 	update_only_2->setStatusTip(tr("Update existing files only"));
 	folder2_layout->addWidget(update_only_2);
 	advanced->addLayout(folder2_layout, 8, 0);
-	/*advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
+	clone_folder1 = new QCheckBox (tr("Clone sources"), advanced);
+	clone_folder1->setStatusTip(tr("Clone sources"));
+	connect(clone_folder1, SIGNAL(stateChanged(int)), this, SLOT(cloneStateChanged(int)));
+	advanced->addWidget(clone_folder1, 9, 0);/*
+	advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
 	filters = new QGroupBox(tr("Filters"), advanced);
 	filters->setCheckable(true);
 	filters->setChecked(false);
@@ -190,7 +194,8 @@ int MultisyncPage::sync()
 	}
 	if (!found) { QMessageBox::information(mp_parent, tr("Synkron"), tr("No sources selected.")); return 0; }
 	setMultisyncEnabled(false); QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-	extensions.clear();
+	syncing = true;
+    extensions.clear();
 	/*if (filters->isChecked()) {
 		for (int f = 0; f < lw_filters->count(); ++f) {
 			if (lw_filters->item(f)->checkState()==Qt::Checked) {
@@ -231,7 +236,7 @@ int MultisyncPage::sync()
 			}
 		}
 		path = list_multi->item(i)->text();
-		if (path.startsWith("HOMEPATH", Qt::CaseSensitive)) {
+        if (path.startsWith("HOMEPATH", Qt::CaseSensitive)) {
 			path.replace("HOMEPATH", QDir::homePath());
 		} else if (path.startsWith("ROOTPATH", Qt::CaseSensitive)) {
 			path.replace("ROOTPATH", QDir::rootPath());
@@ -247,14 +252,18 @@ int MultisyncPage::sync()
         }
     	sync_folder_1 = syncfolder.path();
     	sync_folder_2 = destination.path();
+    	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
 		if (move->isChecked()) moveContents(syncfolder, destination);
 		else subSync(syncfolder, destination, false);
 		all_synced_files += synced_files;
 		addTableItem(tr("%1	%2: %3 file(s) %4").arg(QTime().currentTime().toString("hh:mm:ss")).arg(list_multi->item(i)->text()).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
 	}
-	mp_parent->saveSettings(); setMultisyncEnabled(true);
-	QApplication::restoreOverrideCursor();
-	mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 file(s) %2").arg(all_synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
+	mp_parent->saveSettings();
+	syncing = false;
+    setMultisyncEnabled(true); QApplication::restoreOverrideCursor();
+	if (!mp_parent->syncingAll) {
+	    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 file(s) %2").arg(all_synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
+	}
 	return all_synced_files;
 }
 
@@ -359,7 +368,6 @@ void MultisyncPage::setMultisyncEnabled(bool enable)
 	load_multi->setEnabled(enable);
 	saveas_multi->setEnabled(enable);
 	save_multi->setEnabled(enable);
-	//sync_multi->setEnabled(enable);
 	search_multi->setEnabled(enable);
 	advanced->setEnabled(enable);
 	syncing = !enable;
@@ -377,6 +385,17 @@ void MultisyncPage::moveChecked(int state)
 	if ((Qt::CheckState)state==Qt::Checked) {
 		sync_multi->setText(tr("Move contents"));
 		sync_multi->setStatusTip(tr("Move contents to destination, leaving sources empty"));
+	} else {
+		sync_multi->setText(tr("Multisync"));
+		sync_multi->setStatusTip(tr("Start multisync"));
+	}
+}
+
+void MultisyncPage::cloneChecked(int state)
+{
+	if ((Qt::CheckState)state==Qt::Checked) {
+		sync_multi->setText(tr("Clone sources"));
+		sync_multi->setStatusTip(tr("Clone sources"));
 	} else {
 		sync_multi->setText(tr("Multisync"));
 		sync_multi->setStatusTip(tr("Start multisync"));
