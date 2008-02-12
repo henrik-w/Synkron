@@ -16,6 +16,9 @@
 
 
 
+
+
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
 <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 <buildTargets>
 <target name="Qt Release Build" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
@@ -36,6 +39,7 @@
 </target>
 </buildTargets>
 </storageModule>
+<storageModule moduleId="scannerConfiguration"/>
 <storageModule moduleId="org.eclipse.cdt.core.pathentry">
 <pathentry base-path="C:/eclipse/qt/include" include="" kind="inc" path="" system="true"/>
 <pathentry base-path="C:/eclipse/qt/include" include="QtCore" kind="inc" path="" system="true"/>
@@ -53,6 +57,8 @@
 <pathentry base-path="C:/eclipse/qt/include" include="QtAssistant" kind="inc" path="" system="true"/>
 <pathentry base-path="C:/eclipse/qt/include" include="QtOpenGL" kind="inc" path="" system="true"/>
 <pathentry base-path="C:/eclipse/qt/include" include="QtUiTools" kind="inc" path="" system="true"/>
+<pathentry excluding="portable/main.cpp" kind="src" path=""/>
+<pathentry kind="out" path=""/>
 </storageModule>
 </cconfiguration>
 </storageModule>
