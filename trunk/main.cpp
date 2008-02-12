@@ -7,7 +7,10 @@ MainWindow::MainWindow(QSettings * s)
 	f_ver = 1.2;
 	ver = "1.2.0";
     
-    if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
+    if (tr("LTR") == "RTL")    
+    {
+    	qApp->setLayoutDirection(Qt::RightToLeft);
+    }
     
 #ifdef Q_WS_MAC
 	actionBrushedMetalStyle = new QAction(tr("Use the brushed metal style"), this);
