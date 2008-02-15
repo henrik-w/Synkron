@@ -1,8 +1,5 @@
 TEMPLATE = app
-QT += network \
-    xml \
-    gui \
-    core
+QT += network xml
 HEADERS += main_window.h \
     mtfile.h \
     mtadvancedgroupbox.h \
@@ -39,8 +36,7 @@ macx {
     icons.path = Contents/Resources
     icons.files = images/slist.icns
     QMAKE_BUNDLE_DATA += icons
-    CONFIG += x86 \
-        ppc
+    CONFIG += x86 ppc
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.4
     QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.4u.sdk
 }
