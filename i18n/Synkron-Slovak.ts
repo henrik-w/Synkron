@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="sk_SK">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -91,47 +92,47 @@
         <translation type="obsolete">verzia &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1178"/>
+        <location filename="../main.cpp" line="1200"/>
         <source>About Qt</source>
         <translation>O Qt</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1158"/>
+        <location filename="../main.cpp" line="1180"/>
         <source>Version</source>
         <translation>Verzia</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1162"/>
+        <location filename="../main.cpp" line="1184"/>
         <source>Synkron is a simple Qt application designed for easy folder synchronisation.</source>
         <translation>Synkron je Qt program dizajnovaný pre jednoduchú synchronizáciu priečinkov.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1165"/>
+        <location filename="../main.cpp" line="1187"/>
         <source>This programme is distributed under the terms of the GPL v2.</source>
         <translation>Tento program je distribuovaný pod licenciou GPL v2.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1169"/>
+        <location filename="../main.cpp" line="1191"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>Tento program je poskytovaný TAK AKO JE s ABSOLÚTNE ŽIADNOU ZÁRUKOU AKÉHOKOĽVEK DRUHU.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1180"/>
+        <location filename="../main.cpp" line="1202"/>
         <source>This programme uses Qt Open Source Edition version %1.</source>
         <translation>Tento program používa Qt Open Source Edition vo verzii %1.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1182"/>
+        <location filename="../main.cpp" line="1204"/>
         <source>Qt is a C++ toolkit for cross-platform application development.</source>
         <translation>Qt je sada nástrojov na multiplatformový vývoj aplikácií v jazyku C++.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1184"/>
+        <location filename="../main.cpp" line="1206"/>
         <source>Qt provides single-source portability across MS Windows, Mac OS X, Linux and all major commercial Unix variants. Qt is also available for embedded devices as Qtopia Core.</source>
         <translation>Qt umožňuje použitie jedného zdrojového kódu v systémoch MS Windows, Mac OS X, Linux a vo všetkých hlavných komerčných unixových variantách. Qt je tiež dostupné pre embedded zariadenia ako Qtopia Core.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1186"/>
+        <location filename="../main.cpp" line="1208"/>
         <source>Qt is a Trolltech product. See &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; for more information.</source>
         <translation>Qt je produkt spoločnosti Trolltech. Pozrite si &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; pre viac informácií.</translation>
     </message>
@@ -164,32 +165,32 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="525"/>
+        <location filename="../sync.cpp" line="539"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Priečinok %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="530"/>
+        <location filename="../sync.cpp" line="544"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Súbor %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="557"/>
+        <location filename="../sync.cpp" line="571"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>Súbor, alebo priečinok a symbolický odkaz s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory. (%1, %2)</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="576"/>
+        <location filename="../sync.cpp" line="590"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Priečinok (%1) a súbor (%2) s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="580"/>
+        <location filename="../sync.cpp" line="594"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Súbor (%1) a priečinok (%2) s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="683"/>
+        <location filename="../sync.cpp" line="703"/>
         <source>file</source>
         <translation>súboru</translation>
     </message>
@@ -199,60 +200,65 @@
         <translation type="obsolete">otváraní</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="683"/>
+        <location filename="../sync.cpp" line="703"/>
         <source>copy</source>
         <translation>kopírovaní</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="609"/>
+        <location filename="../sync.cpp" line="624"/>
         <source> to temp</source>
         <translation> do tempu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="658"/>
+        <location filename="../sync.cpp" line="678"/>
         <source>folder</source>
         <translation>priečinka</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="593"/>
+        <location filename="../sync.cpp" line="607"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>Starší súbor %1 zálohovaný a vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="734"/>
+        <location filename="../sync.cpp" line="754"/>
         <source>Unknown error %1ing %2: %3%4</source>
         <translation>Neznáma chyba pri %1 %2: %3%4</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="691"/>
+        <location filename="../sync.cpp" line="711"/>
         <source>File %1 deleted</source>
         <translation>Súbor %1 bol vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="693"/>
+        <location filename="../sync.cpp" line="713"/>
         <source>Error removing file %1</source>
         <translation>Chyba pri vymazávaní súboru %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="674"/>
+        <location filename="../sync.cpp" line="694"/>
         <source>Folder %1 deleted</source>
         <translation>Priečinok %1 bol vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="676"/>
+        <location filename="../sync.cpp" line="696"/>
         <source>Error removing directory %1</source>
         <translation>Chyba pri vymazávaní priečinku %1</translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="641"/>
+        <source>File %1 restored</source>
+        <translation>Súbor %1 obnovený</translation>
     </message>
 </context>
 <context>
     <name>ClientConnection</name>
     <message>
-        <location filename="../main.cpp" line="232"/>
+        <location filename="../main.cpp" line="224"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Premenovať súbor</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="232"/>
+        <location filename="../main.cpp" line="224"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Zadajte nové meno pre &quot;%1&quot;:</translation>
     </message>
@@ -265,22 +271,22 @@
 <context>
     <name>LanguageNames</name>
     <message>
-        <location filename="../main.cpp" line="46"/>
+        <location filename="../main.cpp" line="47"/>
         <source>Slovak</source>
         <translation>slovenčina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="47"/>
+        <location filename="../main.cpp" line="48"/>
         <source>German</source>
         <translation>nemčina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="48"/>
+        <location filename="../main.cpp" line="49"/>
         <source>Japanese</source>
         <translation>japončina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="49"/>
+        <location filename="../main.cpp" line="50"/>
         <source>Arabic</source>
         <translation>arabčina</translation>
     </message>
@@ -311,12 +317,12 @@
         <translation>Cieľ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="32"/>
+        <location filename="../main.cpp" line="33"/>
         <source>Schedule name</source>
         <translation>Meno plánovača</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="32"/>
+        <location filename="../main.cpp" line="33"/>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
@@ -446,12 +452,12 @@
         <translation type="obsolete">%1<byte value="x9"/>Synchronizácia dokončená: %2 súbor(ov) synchronizovaných</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="706"/>
+        <location filename="../sync.cpp" line="726"/>
         <source>Synchronisation complete</source>
         <translation>Synchronizácia dokončená</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="706"/>
+        <location filename="../sync.cpp" line="726"/>
         <source>%1 files synchronised</source>
         <translation>%1 súborov synchronizovaných</translation>
     </message>
@@ -481,27 +487,27 @@
         <translation type="obsolete">Neznáma chyba pri %1 %2: %3%4</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="638"/>
+        <location filename="../main.cpp" line="640"/>
         <source>&amp;Hide</source>
         <translation>&amp;Skryť</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="642"/>
+        <location filename="../main.cpp" line="644"/>
         <source>S&amp;how</source>
         <translation>&amp;Zobraziť</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="646"/>
+        <location filename="../main.cpp" line="648"/>
         <source>Sync &amp;current tab</source>
         <translation>Synchronizovať &amp;aktuálnu kartu</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="649"/>
+        <location filename="../main.cpp" line="651"/>
         <source>Sync &amp;all tabs</source>
         <translation>Synchronizovať &amp;všetky karty</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="652"/>
+        <location filename="../main.cpp" line="654"/>
         <source>&amp;Quit</source>
         <translation>&amp;Zavrieť</translation>
     </message>
@@ -513,15 +519,15 @@
     <message>
         <location filename="../restore.cpp" line="89"/>
         <source>Unknown error opening file: %1.</source>
-        <translation>Neznáma chyba pri otváraní súboru: %1.</translation>
+        <translation type="obsolete">Neznáma chyba pri otváraní súboru: %1.</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="99"/>
         <source>Unknown error copying file: %1.</source>
-        <translation>Neznáma chyba pri kopírovaní súboru: %1.</translation>
+        <translation type="obsolete">Neznáma chyba pri kopírovaní súboru: %1.</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="221"/>
+        <location filename="../restore.cpp" line="233"/>
         <source>No files selected.</source>
         <translation>Žiadne súbory neboli zadané.</translation>
     </message>
@@ -566,27 +572,27 @@
         <translation type="obsolete">Ste si istý, že chcete vymazať vyznačené dočasné súbory?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="769"/>
+        <location filename="../main.cpp" line="771"/>
         <source>Failed to check for updates.</source>
         <translation>Nepodarilo sa skontrolovať aktualizácie.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="769"/>
+        <location filename="../main.cpp" line="771"/>
         <source>&amp;Try again</source>
         <translation>Skúste &amp;znovu</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="769"/>
+        <location filename="../main.cpp" line="771"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="785"/>
+        <location filename="../main.cpp" line="787"/>
         <source>Your Synkron is up-to-date.</source>
         <translation>Váš Synkron je aktuálny.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="789"/>
+        <location filename="../main.cpp" line="791"/>
         <source>Synkron %1 is available now.</source>
         <translation>Synkron %1 je dostupný.</translation>
     </message>
@@ -626,12 +632,12 @@
         <translation type="obsolete">Ste si istý, že chcete odstrániť vyznačené položky zo zoznamu?</translation>
     </message>
     <message>
-        <location filename="../scheduler.cpp" line="208"/>
+        <location filename="../scheduler.cpp" line="211"/>
         <source>Off</source>
         <translation>Vypnuté</translation>
     </message>
     <message>
-        <location filename="../scheduler.cpp" line="212"/>
+        <location filename="../scheduler.cpp" line="215"/>
         <source>On</source>
         <translation>Zapnuté</translation>
     </message>
@@ -966,17 +972,17 @@
         <translation type="obsolete">Slovenčina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="800"/>
+        <location filename="../main.cpp" line="802"/>
         <source>Change language - Synkron</source>
         <translation>Zmena jazyka - Synkron</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="804"/>
+        <location filename="../main.cpp" line="806"/>
         <source>Select your preferred language</source>
         <translation>Vyberte jazyk</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="827"/>
+        <location filename="../main.cpp" line="829"/>
         <source>You need to restart Synkron for the changes to apply.</source>
         <translation>Musíte reštartovať Synkron, aby sa zmeny prejavili.</translation>
     </message>
@@ -986,7 +992,7 @@
         <translation>Zmeniť jazyk</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="901"/>
+        <location filename="../main.cpp" line="903"/>
         <source>Synkron - Save Multisync</source>
         <translation>Synkron - Uložiť multisynchronizáciu</translation>
     </message>
@@ -996,7 +1002,7 @@
         <translation type="obsolete">Multisynchronizácie Synkronu (*.slist)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="908"/>
+        <location filename="../main.cpp" line="910"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Nedá sa zapisovať do súboru %1:
@@ -1379,22 +1385,22 @@
         <translation type="obsolete">Ste si istý, že chcete odstrániť vyznačený čas synchronizácie zo zoznamu?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="263"/>
+        <location filename="../main.cpp" line="255"/>
         <source>Quit Synkron</source>
         <translation>Zatvoriť Synkron</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="267"/>
+        <location filename="../main.cpp" line="259"/>
         <source>Are you sure you want to quit?</source>
         <translation>Naozaj chcete skončiť?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="271"/>
+        <location filename="../main.cpp" line="263"/>
         <source>Do not ask me again</source>
         <translation>Nepýtať sa znova</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="281"/>
+        <location filename="../main.cpp" line="273"/>
         <source>&amp;Minimise</source>
         <translation>&amp;Minimalizovať</translation>
     </message>
@@ -1421,7 +1427,7 @@
     <message>
         <location filename="../sync.cpp" line="144"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
-        <translation>Premiestniť obsah do priečinka 2, nechajúc priečinok 1 prazdny</translation>
+        <translation>Premiestniť obsah do priečinka 2, nechajúc priečinok 1 prázdny</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="285"/>
@@ -1469,17 +1475,17 @@
         <translation type="obsolete">Nemčina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="903"/>
+        <location filename="../main.cpp" line="905"/>
         <source>Sync logs (*.html)</source>
         <translation>Záznamy synchronizácií (*.html)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="908"/>
+        <location filename="../main.cpp" line="910"/>
         <source>Export sync log</source>
         <translation>Exportovať záznam synchronizácie</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="914"/>
+        <location filename="../main.cpp" line="916"/>
         <source>Synkron sync log</source>
         <translation>Záznam synchronizácie Synkronu</translation>
     </message>
@@ -1489,52 +1495,52 @@
         <translation>Uložiť záznam</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="205"/>
+        <location filename="../restore.cpp" line="217"/>
         <source>Clean temporary files</source>
         <translation>Vyčistiť dočasné súbory</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="160"/>
+        <location filename="../restore.cpp" line="172"/>
         <source>Delete selected files only</source>
         <translation>Vymazať iba vyznačené súbory</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="166"/>
+        <location filename="../restore.cpp" line="178"/>
         <source>Delete files older than </source>
         <translation>Vymazať súbory staršie ako </translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="167"/>
+        <location filename="../restore.cpp" line="179"/>
         <source>Delete files older than</source>
         <translation>Vymazať súbory staršie ako</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="177"/>
+        <location filename="../restore.cpp" line="189"/>
         <source> day(s)</source>
         <translation> dní</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="185"/>
+        <location filename="../restore.cpp" line="197"/>
         <source>Delete older versions of files, keep </source>
         <translation>Vymazať staršie verzie súborov, nechať </translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="186"/>
+        <location filename="../restore.cpp" line="198"/>
         <source>Delete older versions of files</source>
         <translation>Vymazať staršie verzie súborov</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="196"/>
+        <location filename="../restore.cpp" line="208"/>
         <source> latest versions</source>
         <translation> posledných verzií</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="204"/>
+        <location filename="../restore.cpp" line="216"/>
         <source>Clean</source>
         <translation>Vyčistiť</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="224"/>
+        <location filename="../restore.cpp" line="236"/>
         <source>Are you sure you want to delete temporary files?</source>
         <translation>Ste si istý, že chcete vymazať dočasné súbory?</translation>
     </message>
@@ -1564,27 +1570,27 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="655"/>
+        <location filename="../main.cpp" line="657"/>
         <source>&amp;Check/Uncheck</source>
         <translation>Vy&amp;značiť/Odznačiť</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="658"/>
+        <location filename="../main.cpp" line="660"/>
         <source>&amp;Restore</source>
         <translation>&amp;Obnoviť</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="661"/>
+        <location filename="../main.cpp" line="663"/>
         <source>&amp;Remove</source>
         <translation>&amp;Vymazať</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="664"/>
+        <location filename="../main.cpp" line="666"/>
         <source>Add to &amp;blacklist</source>
         <translation>Pridať na čiernu &amp;listinu</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="302"/>
+        <location filename="../restore.cpp" line="314"/>
         <source>Are you sure you want to delete the selected temporary file?</source>
         <translation>Ste si istý, že chcete vymazať vyznačený dočasný súbor?</translation>
     </message>
@@ -1594,42 +1600,42 @@
         <translation type="obsolete">Arabčina</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="131"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Premenovať súbor</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="131"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Zadajte nové meno pre &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="965"/>
+        <location filename="../main.cpp" line="967"/>
         <source>Error removing file %1</source>
         <translation>Chyba pri vymazávaní súboru %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="970"/>
+        <location filename="../main.cpp" line="973"/>
         <source>Error removing directory %1</source>
         <translation>Chyba pri vymazávaní priečinku %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="978"/>
+        <location filename="../main.cpp" line="983"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>Ste si istý, že chcete odstrániť &quot;%1&quot; z každého synchronizovaného priečinku?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="988"/>
+        <location filename="../main.cpp" line="993"/>
         <source>Removing files...</source>
         <translation>Vymazávam súbory...</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1074"/>
+        <location filename="../main.cpp" line="1085"/>
         <source>Error renaming file %1</source>
         <translation>Chyba pri premenovávaní súboru %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1081"/>
+        <location filename="../main.cpp" line="1092"/>
         <source>Error renaming directory %1</source>
         <translation>Chyba pri premenovávaní priečinku %1</translation>
     </message>
@@ -1677,6 +1683,16 @@
         <location filename="../sync.cpp" line="160"/>
         <source>Clone folder 1</source>
         <translation>Klonovať priečinok 1</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="1060"/>
+        <source>File %1 deleted</source>
+        <translation>Súbor %1 bol vymazaný</translation>
+    </message>
+    <message>
+        <location filename="../restore.cpp" line="89"/>
+        <source>Unknown error restoring file: %1</source>
+        <translation>Neznáma chyba pri obnovovaní súboru: %1</translation>
     </message>
 </context>
 <context>
@@ -1960,22 +1976,22 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="784"/>
+        <location filename="../sync.cpp" line="805"/>
         <source>Move</source>
         <translation>Premiestniť</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="785"/>
+        <location filename="../sync.cpp" line="806"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>Premiestniť obsah do priečinka 2, nechajúc priečinok 1 prazdny</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="813"/>
+        <location filename="../sync.cpp" line="834"/>
         <source>Synchronise</source>
         <translation>Synchronizácia</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="812"/>
+        <location filename="../sync.cpp" line="833"/>
         <source>Sync</source>
         <translation>Synchronizovať</translation>
     </message>
@@ -2040,12 +2056,12 @@
         <translation>%1<byte value="x9"/>Priečinok %2 vytvorený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="809"/>
+        <location filename="../sync.cpp" line="830"/>
         <source>Clone</source>
         <translation>Klonovať</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="810"/>
+        <location filename="../sync.cpp" line="831"/>
         <source>Clone folder 1</source>
         <translation>Klonovať priečinok 1</translation>
     </message>
@@ -2053,12 +2069,12 @@
 <context>
     <name>SyncSchedule</name>
     <message>
-        <location filename="../scheduler.cpp" line="308"/>
+        <location filename="../scheduler.cpp" line="311"/>
         <source>Synchronisation complete</source>
         <translation>Synchronizácia dokončená</translation>
     </message>
     <message>
-        <location filename="../scheduler.cpp" line="308"/>
+        <location filename="../scheduler.cpp" line="311"/>
         <source>%1 files synchronised</source>
         <translation>%1 súborov synchronizovaných</translation>
     </message>

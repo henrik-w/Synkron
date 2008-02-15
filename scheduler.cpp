@@ -77,7 +77,7 @@ void MainWindow::activateSchedule()
 	sched_multitab_lw->clear();
 	sched_time_lw->clear();
 	QListWidgetItem * litem;
-	QMapIterator<QWidget *, SyncPage *> i(tabs);
+	//QMapIterator<QWidget *, SyncPage *> i(tabs);
 	for (int i = 0; i < tabWidget->count(); ++i) {
 		litem = new QListWidgetItem (tabWidget->tabText(i));
 		if (schedule->sched_tab_list.contains(tabWidget->tabText(i))) litem->setCheckState(Qt::Checked);
@@ -124,7 +124,8 @@ void MainWindow::removeSchedTime()
 
 void MainWindow::schedTabClicked(QListWidgetItem * item)
 {
-	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
+    if (item == 0) return;
+    SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
 	if (item->checkState()==Qt::Checked) {
 		if (!schedule->sched_tab_list.contains(item->text())) {
 			schedule->sched_tab_list << item->text();
@@ -138,7 +139,8 @@ void MainWindow::schedTabClicked(QListWidgetItem * item)
 
 void MainWindow::schedMultitabClicked(QListWidgetItem * item)
 {
-	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
+	if (item == 0) return;
+    SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
 	if (item->checkState()==Qt::Checked) {
 		if (!schedule->sched_multitab_list.contains(item->text())) {
 			schedule->sched_multitab_list << item->text();
@@ -152,7 +154,8 @@ void MainWindow::schedMultitabClicked(QListWidgetItem * item)
 
 void MainWindow::schedTimeClicked(QListWidgetItem * item)
 {
-	SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
+	if (item == 0) return;
+    SyncSchedule * schedule = item_sched_map.value(tw_schedules->item(tw_schedules->currentRow(), 0));
 	if (item->checkState()==Qt::Checked) {
 		if (!schedule->sched_checked_time_list.contains(item->text())) {
 			schedule->sched_checked_time_list << item->text();
@@ -219,7 +222,7 @@ void MainWindow::startSchedule(QTableWidgetItem * item)
 {
 	if (tw_schedules->currentItem()==item) saveSchedSettings(item->row());
 	SyncSchedule * schedule = item_sched_map.value(item);
-	if (schedule->sched_tab_list.count()==0) return;
+	if (schedule->sched_tab_list.count()==0 && schedule->sched_multitab_list.count()==0) return;
 	for (int t = 0; t < schedule->timers.count(); ++t) {
 		schedule->timers.at(t)->stop();
 		delete schedule->timers.at(t);
@@ -311,9 +314,11 @@ void SyncSchedule::syncSchedule()
 
 void SyncSchedule::checkSchedStatus()
 {
-	for (int t = 0; t < sched_checked_time_list.count(); ++t) {
-		if (QTime(sched_checked_time_list.at(t).split(':').at(0).toInt(), sched_checked_time_list.at(t).split(':').at(1).toInt())>QTime::currentTime()) return;
-	} 
+	/*if (timing_tab_index == 0) {
+        for (int t = 0; t < sched_checked_time_list.count(); ++t) {
+		  if (QTime(sched_checked_time_list.at(t).split(':').at(0).toInt(), sched_checked_time_list.at(t).split(':').at(1).toInt())>QTime::currentTime()) return;
+	   }
+    }*/
 	for (int i = 0; i < timers.count(); ++i) {
 		delete timers.at(i);
 	}

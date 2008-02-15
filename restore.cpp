@@ -84,27 +84,40 @@ void MainWindow::restoreCurrentItem()
 
 bool MainWindow::restoreItem(QListWidgetItem * item)
 {
-	QStringList item_list = item->data(Qt::UserRole).toStringList();
-	MTFile * file = new MTFile (item_list.at(3));
-	if (!file->open(QIODevice::ReadOnly)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error opening file: %1.").arg(item_list.at(0))); delete file; return false; }
-	MTFile * old_file = new MTFile (item_list.at(2));
+    QStringList item_list = item->data(Qt::UserRole).toStringList();
+    if (!restoreFile(item_list.at(3), item_list.at(2))) {
+        QMessageBox::critical(this, tr("Synkron"), tr("Unknown error restoring file: %1").arg(item_list.at(0)));
+        return false;
+    }
+    delete item;
+    return true;
+}
+
+//file_path - temp-file path, old_file_path - destination path
+bool MainWindow::restoreFile(QString file_path, QString old_file_path)
+{
+	MTFile * file = new MTFile (file_path);
+    if (!file->exists()) { delete file; return false; }
+	MTFile * old_file = new MTFile (old_file_path);
 	if (old_file->exists()) {
-		if (!file->copy(QString("%1.res").arg(item_list.at(2)))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+		if (!file->copy(QString("%1.res").arg(old_file_path))) { delete file; delete old_file; return false; }
 		QString file_name = old_file->fileName();
-		if (!old_file->remove()) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
-		delete file; file = new MTFile (QString("%1.res").arg(item_list.at(2)));
-		if (!file->rename(file_name)) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
-		delete file; file = new MTFile (item_list.at(3));
+		if (!old_file->remove()) { delete file; delete old_file; return false; }
+		delete file; file = new MTFile (QString("%1.res").arg(old_file_path));
+		if (!file->rename(file_name)) { delete file; delete old_file; return false; }
+		delete file; file = new MTFile (file_path);
 	} else {
-		if (!file->copy(item_list.at(2))) { QMessageBox::critical(this, tr("Synkron"), tr("Unknown error copying file: %1.").arg(item_list.at(0))); delete file; delete old_file; return false; }
+		if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
 	}
 	file->remove(); delete file;
-	file = new MTFile (item_list.at(2));
-	file->touch(qApp);
-	delete file; delete old_file;
+	file = new MTFile (old_file_path);
+    if (mainStackedWidget->currentIndex()==1) {
+    	file->touch(qApp);
+	}
+    delete file; delete old_file;
 	//restored[restored_items] = restore_list->row(item);
 	for (int o = 0; o < synchronised.count(); ++o) {
-		if (synchronised.at(o) == item_list.at(3)) {
+		if (synchronised.at(o) == file_path) {
 			synchronised.removeAt(o);
 			synchronised.removeAt(o-1);
 			synchronised.removeAt(o-2);
@@ -112,7 +125,6 @@ bool MainWindow::restoreItem(QListWidgetItem * item)
 			break;
 		}
 	}
-	delete item;
 	return true;
 }
 

@@ -16,7 +16,7 @@
     <message>
         <location filename="" line="136410828"/>
         <source>Japanese</source>
-        <translation>Japanese</translation>
+        <translation>日本語</translation>
     </message>
     <message>
         <location filename="" line="136410828"/>

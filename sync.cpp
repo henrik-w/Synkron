@@ -165,11 +165,11 @@ SyncPage * MainWindow::addSyncTab()
 	page->filters->setCheckable(true);
 	page->filters->setChecked(false);
 #ifdef Q_WS_WIN
-	page->filters->setMaximumSize(150, 185);
-#elif defined Q_WS_MAC
-	page->filters->setMaximumSize(150, 220);
-#else
 	page->filters->setMaximumSize(150, 200);
+#elif defined Q_WS_MAC
+	page->filters->setMaximumSize(150, 235);
+#else
+	page->filters->setMaximumSize(150, 225);
 #endif
 	page->filters->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 	QVBoxLayout * vlayout_filters = new QVBoxLayout (page->filters);
@@ -185,7 +185,7 @@ SyncPage * MainWindow::addSyncTab()
 		page->lw_filters->addItem(item);
 	}
 	vlayout_filters->addWidget(page->lw_filters);
-	page->advanced->addWidget(page->filters, 0, 2, 9, 1);
+	page->advanced->addWidget(page->filters, 0, 2, 10, 1);
 	mainglayout->addWidget(page->advanced, 7, 0);
 
     tabs.insert(page->tab, page);
@@ -376,40 +376,54 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             	}
             	else if (d1_entries.at(i).lastModified() < d2_entries.at(n).lastModified()) {
 					file = new MTFile (d1_entries.at(i).absoluteFilePath());
-					if (backup_folder_1->isChecked() && d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying1; }
-                    else if (backup_folder_2->isChecked() && d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying1; }
+                    bool skipped_temp = false;
+					if (backup_folder_1->isChecked() && d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying1; skipped_temp = true; }
+                    else if (backup_folder_2->isChecked() && d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying1; skipped_temp = true; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files)))) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                       unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
                     }
                     mp_parent->synchronised << d1_entries.at(i).fileName() << update_time << d1_entries.at(i).absoluteFilePath();
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files);
                     copying1:
-                    file->remove(); delete file;
+                    file->remove();
+                    delete file;
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
                     buffer.clear(); buffer = d1_entries.at(i).absoluteFilePath();
                     if (!file->copy(buffer)) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
+                       unknownError(d2_entries.at(n).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file;
+                        if (!skipped_temp) {
+                            if (mp_parent->restoreFile(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files), d1_entries.at(i).absoluteFilePath())) {
+                                addTableItem(tr("File %1 restored").arg(d1_entries.at(i).absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                            }
+                        } continue;
                     }
                     addTableItem(d2_entries.at(n).absoluteFilePath(), d1_entries.at(i).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
                     synced_files++; delete file;
             	}
                 else if (d1_entries.at(i).lastModified() > d2_entries.at(n).lastModified()) {
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
-                    if (backup_folder_1->isChecked() && d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying2; }
-                    else if (backup_folder_2->isChecked() && d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying2; }
+                    bool skipped_temp = false;
+                    if (backup_folder_1->isChecked() && d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) { goto copying2; skipped_temp = true; }
+                    else if (backup_folder_2->isChecked() && d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive)) { goto copying2; skipped_temp = true; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files)))) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                       unknownError(d2_entries.at(n).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
                     }
                     mp_parent->synchronised << d2_entries.at(n).fileName() << update_time << d2_entries.at(n).absoluteFilePath();
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files);
 					copying2:
-                    file->remove(); delete file;
+                    file->remove();
+                    delete file;
                     file = new MTFile (d1_entries.at(i).absoluteFilePath());
                     buffer.clear(); buffer = d2_entries.at(n).absoluteFilePath();
                     if (!file->copy(buffer)) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
+                       unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file;
+                        if (!skipped_temp) {
+                            if (mp_parent->restoreFile(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files), d2_entries.at(n).absoluteFilePath())) {
+                                addTableItem(tr("File %1 restored").arg(d2_entries.at(n).absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                            }
+                        } continue;
                     }
                     addTableItem(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
                     synced_files++; delete file;
@@ -456,7 +470,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             if (!d1_entries.at(i).isDir() || symfound)
 			{
 				if (!file->copy(buffer)) {
-                	unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
+                	unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
          		}
          		else {
 					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
@@ -586,7 +600,7 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
                     else if (d1.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying1; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files)))) {
-                       unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                       unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
                     }
                     mp_parent->synchronised << d1_entries.at(i).fileName() << update_time << d1_entries.at(i).absoluteFilePath();
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(d1_entries.at(i).fileName()).arg(synced_files);
@@ -602,11 +616,12 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
             	}
                 else if (d1_entries.at(i).lastModified() > d2_entries.at(n).lastModified()) {
                     file = new MTFile (d2_entries.at(n).absoluteFilePath());
-                    if (d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying2; }
-                    else if (d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying2; }
+                    bool skipped_temp = false;
+                    if (d2.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backup_folder_1->isChecked()) { goto copying2; skipped_temp = true; }
+                    else if (d2.path().startsWith(syncFolder2Text(), Qt::CaseInsensitive) && backup_folder_2->isChecked()) { goto copying2; skipped_temp = true; }
 					temp->mkpath(QString(".Synkron/%2").arg(update_time));
                     if (!(file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files)))) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                       unknownError(d2_entries.at(n).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
                     }
                     mp_parent->synchronised << d2_entries.at(n).fileName() << update_time << d2_entries.at(n).absoluteFilePath();
                     mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files);
@@ -620,7 +635,12 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
                     file = new MTFile (d1_entries.at(i).absoluteFilePath());
                     buffer.clear(); buffer = d2_entries.at(n).absoluteFilePath();
                     if (!file->copy(buffer)) {
-                       unknownError(d2_entries.at(n).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
+                       unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file;
+                        if (!skipped_temp) {
+                            if (mp_parent->restoreFile(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(d2_entries.at(n).fileName()).arg(synced_files), d2_entries.at(n).absoluteFilePath())) {
+                                addTableItem(tr("File %1 restored").arg(d2_entries.at(n).absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                            }
+                        } continue;
                     }
                     file_name = d1_entries.at(i).absoluteFilePath();
                     if (file->remove())
@@ -680,7 +700,7 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
             if (!d1_entries.at(i).isDir() || symfound)
 			{
 				if (!file->copy(buffer)) {
-                	unknownError(d1_entries.at(i).fileName(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
+                	unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
          		}
          		else {
 					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
@@ -741,7 +761,8 @@ void SyncPage::syncPage()
 
 void MainWindow::tabNameChanged()
 {
-	SyncPage * page = tabs.value(tabWidget->currentWidget());
+	if (tabWidget->count() == 0) return;
+    SyncPage * page = tabs.value(tabWidget->currentWidget());
 	QMapIterator<QTableWidgetItem*, SyncSchedule*>  i(item_sched_map);
 	while (i.hasNext()) {
 		i.next();
