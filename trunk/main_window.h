@@ -35,6 +35,10 @@
 #include <QTcpSocket>
 #include <QProgressDialog>
 
+#ifdef Q_WS_MAC
+#include <Carbon/Carbon.h>
+#endif
+
 class MainWindow;
 
 class AbstractSyncPage : public QWidget
@@ -227,13 +231,18 @@ public:
     bool syncingAll;
     bool skip_close_event;
 	bool runHidden() { return run_hidden; }
+    bool shownManually() { return shown_manually; }
+    //void setShownManually(bool sm) { shown_manually = sm; }
 	bool showTrayMessage(QString, QString);
 	QSettings * sync_settings;
         
 public slots:
     void saveSettings();
     bool removeDir(QString);
-    void removeFile(QString);
+    bool removeFile(QString);
+    void setShownManually() { shown_manually = true; }
+    bool restoreItem(QListWidgetItem*);
+    bool restoreFile(QString, QString);
 
 private slots:
 	
@@ -255,7 +264,6 @@ private slots:
     void deleteTempFile(QString);
     void restoreListConMenu(QPoint);
     void restoreCurrentItem();
-    bool restoreItem(QListWidgetItem*);
     void deleteRestoreItem();
     void checkRestoreItem();
     void blacklistRestoreItem();
@@ -318,8 +326,8 @@ private slots:
     void about();
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
     void trayIconVisible(bool);
-    void minimizeTrayIcon() { trayIconVisible(false); }
-    void maximizeTrayIcon() { trayIconVisible(true); }
+    //void minimizeTrayIcon() { trayIconVisible(false); }
+    //void maximizeTrayIcon() { trayIconVisible(true); }
     void switchView(QAction*);
     void addTab();
     void closeTab();
@@ -376,11 +384,15 @@ private:
 #ifdef Q_WS_MAC
 	QAction * actionBrushedMetalStyle;
 #endif
+    bool shown_manually;
 
 	friend class SyncSchedule;
 	friend class SyncPage;
 	friend class MultisyncPage;
 	friend class ClientConnection;
+protected:
+    void showEvent(QShowEvent *);
+    void hideEvent(QHideEvent *);
 };
 
 class About : public QDialog, private Ui::About
@@ -389,4 +401,38 @@ class About : public QDialog, private Ui::About
     
 public:
     About(QString, QString, QString);
+};
+
+class MTApplication : public QApplication
+{
+    Q_OBJECT
+protected:
+    void init() { app_main_window = NULL; };
+public:
+    MTApplication(int & argc, char ** argv):
+    QApplication(argc, argv) { init(); };
+    MTApplication(int & argc, char ** argv, bool GUIenabled):
+    QApplication(argc, argv, GUIenabled) { init(); };
+    MTApplication(int & argc, char ** argv, Type type):
+    QApplication(argc, argv, type) { init(); };
+#ifdef Q_WS_X11
+    MTApplication(Display * display, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0):
+    QApplication(display, visual, colormap) { init(); };
+    MTApplication(Display * display, int & argc, char ** argv, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0):
+    QApplication(display, argc, argv, visual, colormap) { init(); };
+#endif
+#ifdef Q_WS_MAC
+    bool macEventFilter(EventHandlerCallRef, EventRef event) {
+        switch (GetEventKind(event)) {
+            case kEventAppActivated: if (app_main_window != NULL) {
+                if (!app_main_window->runHidden() || app_main_window->shownManually())
+                    { app_main_window->show(); }
+            } break;
+        }
+        return false;
+    };
+#endif
+    void setAppMainWindow(MainWindow * w) { app_main_window = w; };
+private:
+    MainWindow * app_main_window;
 };

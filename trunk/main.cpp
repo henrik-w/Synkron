@@ -7,10 +7,7 @@ MainWindow::MainWindow(QSettings * s)
 	f_ver = 1.2;
 	ver = "1.2.0";
     
-    if (tr("LTR") == "RTL")    
-    {
-    	qApp->setLayoutDirection(Qt::RightToLeft);
-    }
+    if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
 #ifdef Q_WS_MAC
 	actionBrushedMetalStyle = new QAction(tr("Use the brushed metal style"), this);
@@ -31,6 +28,7 @@ MainWindow::MainWindow(QSettings * s)
     run_hidden = false;
 	no_closedialogue = false;
 	skip_close_event = false;
+    shown_manually = false;
     
     tw_schedules->setHorizontalHeaderLabels(QStringList() << tr("Schedule name") << tr("Status"));
     tw_schedules->verticalHeader()->hide();
@@ -113,6 +111,7 @@ MainWindow::MainWindow(QSettings * s)
         skip_close_event = true;
         QTimer::singleShot(0, this, SLOT(close())); }
     else { initServer(QAbstractSocket::SocketTimeoutError); }
+    QTimer::singleShot(2000, this, SLOT(setShownManually()));
 }
 
 void MainWindow::initServer(QAbstractSocket::SocketError)
@@ -174,17 +173,7 @@ void MainWindow::sendMessageAndClose()
     out << (quint64)(ba.size() - sizeof(quint64));
     tcp_socket->write(ba);
     tcp_socket->disconnectFromHost();
-    /*skip_close_event = true;
-    if (!this->close()) {
-        QMessageBox::information(this, "msg", "close failed");
-        //QTimer::singleShot(1000, this, SLOT(close())); 
-    }
-    this->close();*/
-    /*qApp->exec();
-    qApp->exit();
-    this->close();*/
     qApp->processEvents();
-    //this->close();
 }
 
 void MainWindow::addConnection()
@@ -310,10 +299,16 @@ void MainWindow::closeEvent(QCloseEvent * event)
         return;
     }
     if (!no_closedialogue) {
+#ifdef Q_WS_MAC
+        event->ignore();
+        this->hide();
+        return;
+#else
 		if (!closeDialogue()) {
 			event->ignore();
 			return;
 		}
+#endif
 	}
 	saveSettings();
     trayIcon->hide();
@@ -322,8 +317,12 @@ void MainWindow::closeEvent(QCloseEvent * event)
 void MainWindow::saveSettings()
 {
     QString lang = sync_settings->value("lang", "English").toString();
+    bool dont_ask_on_quit = sync_settings->value("dont_ask_on_quit").toBool();
+    bool minimise_on_quit = sync_settings->value("minimise_on_quit").toBool();
     sync_settings->clear();
     sync_settings->setValue("lang", lang);
+    sync_settings->setValue("dont_ask_on_quit", dont_ask_on_quit);
+    sync_settings->setValue("minimise_on_quit", minimise_on_quit);
     QStringList tabs_list;
     for (int i = 0; i < tabWidget->count(); ++i) {
 		tabs_list << tabWidget->tabText(i);
@@ -640,11 +639,11 @@ void MainWindow::createActions()
 {
      minimizeAction = new QAction(tr("&Hide"), this);
      connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
-     connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
+     //connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
 
      maximizeAction = new QAction(tr("S&how"), this);
      connect(maximizeAction, SIGNAL(triggered()), this, SLOT(show()));
-     connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
+     //connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
 
      syncAction = new QAction(tr("Sync &current tab"), this);
      connect(syncAction, SIGNAL(triggered()), this, SLOT(sync()));
@@ -959,20 +958,23 @@ bool MainWindow::removeDir(QString path)
 	return true;
 }
 
-void MainWindow::removeFile(QString path)
+bool MainWindow::removeFile(QString path)
 {
     QFileInfo file_info (path);
-    if (!file_info.exists()) return;
+    if (!file_info.exists()) return false;
     else if (file_info.isSymLink() || !file_info.isDir()) {
         if (!QFile(file_info.absoluteFilePath()).remove()) {
             QMessageBox::critical(this, tr("Synkron"), tr("Error removing file %1").arg(file_info.path()));
+            return false;
         }
     } else {
         QDir dir (path);
         if (!removeDir(dir.path())) {
             QMessageBox::critical(this, tr("Synkron"), tr("Error removing directory %1").arg(dir.path()));
+            return false;
         }
     }
+    return true;
 }
 
 void MainWindow::globalDelete(QString path)
@@ -1014,7 +1016,9 @@ void MainWindow::globalDelete(QString path)
 	    		continue;
 	    	}
 	    	if (path2 == "" || path2 == ".") continue;
-	    	removeFile(path2);
+	    	if (removeFile(path2)) {
+                i.value()->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            }
 	    	progress.setValue(progress.value()+1);
 	    	qApp->processEvents();
 	    }
@@ -1034,7 +1038,9 @@ void MainWindow::globalDelete(QString path)
                         } else if (path2.startsWith("ROOTPATH", Qt::CaseSensitive)) {
                             path2.replace("ROOTPATH", QDir::rootPath());
                         }
-                        removeFile(path2);
+                        if (removeFile(path2)) {
+                            multi_page->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                        }
                         break;
                     }
                 }
@@ -1050,7 +1056,9 @@ void MainWindow::globalDelete(QString path)
                         QString path2 = QString("%1/%2%3").arg(multi_page->destination_multi->text())
                                                         .arg(multi_page->list_multi->item(s)->text())
                                                         .arg(QString(path).remove(0, path3.count()));
-                        removeFile(path2);
+                        if (removeFile(path2)) {
+                            multi_page->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                        }
                         break;
                     }
                 }
@@ -1152,6 +1160,17 @@ void MainWindow::globalRename(QString path, QString name)
     }
 }
 
+void MainWindow::showEvent(QShowEvent *)
+{
+    shown_manually = true;
+    trayIconVisible(true);
+}
+
+void MainWindow::hideEvent(QHideEvent *)
+{
+    trayIconVisible(false);
+}
+
 About::About(QString ver, QString year, QString qtver)
 {
 	setupUi(this);
@@ -1198,7 +1217,7 @@ About::About(QString ver, QString year, QString qtver)
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    MTApplication app(argc, argv);
     app.setOrganizationName("Matus Tomlein");
     app.setApplicationName("Synkron");
     
@@ -1224,5 +1243,6 @@ int main(int argc, char *argv[])
     MainWindow *window = new MainWindow (sync_settings);
 	if (window->runHidden() && app.arguments().count() <= 1) window->hide();
 	else window->show();
+    app.setAppMainWindow(window);
     return app.exec();
 }
