@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -221,7 +222,7 @@
     <message>
         <location filename="../sync.cpp" line="641"/>
         <source>File %1 restored</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei %1 wiederhergestellt</translation>
     </message>
 </context>
 <context>
@@ -1350,7 +1351,7 @@
     <message>
         <location filename="../restore.cpp" line="89"/>
         <source>Unknown error restoring file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Fehler bei der Wiederherstellung der Datei: %1</translation>
     </message>
 </context>
 <context>
