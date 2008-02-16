@@ -377,7 +377,16 @@ void MultisyncPage::setMultisyncEnabled(bool enable)
 
 void MultisyncPage::multitabNameChanged()
 {
-	mp_parent->multi_tabWidget->setTabText(mp_parent->multi_tabWidget->indexOf(this), tab_name->text());
+	QMapIterator<QTableWidgetItem*, SyncSchedule*>  i(mp_parent->item_sched_map);
+	while (i.hasNext()) {
+		i.next();
+		for (int n = 0; n < i.value()->sched_multitab_list.count(); ++n) {
+			if (mp_parent->multi_tabWidget->tabText(mp_parent->multi_tabWidget->indexOf(this))==i.value()->sched_multitab_list.at(n)) {
+				i.value()->sched_multitab_list[n] = tab_name->text();
+			}
+		}
+	}
+    mp_parent->multi_tabWidget->setTabText(mp_parent->multi_tabWidget->indexOf(this), tab_name->text());
 }
 
 void MultisyncPage::moveChecked(int state)

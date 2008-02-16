@@ -170,10 +170,12 @@ class SyncSchedule : public QObject
 public:
     SyncSchedule(MainWindow *);
     QList<QTimer*> timers;
+    
 	QStringList sched_tab_list;
 	QStringList sched_multitab_list;
 	QStringList sched_time_list;
 	QStringList sched_checked_time_list;
+	
 	int periodical_interval;
 	int timing_tab_index;
 	bool scheduling;
@@ -337,7 +339,7 @@ private slots:
     void setRunHidden(bool b) { run_hidden = b; }
     void globalDelete(QString);
     void globalRename(QString, QString);
-    void renameFile(QString, QString);
+    bool renameFile(QString, QString);
     void sendMessageAndClose();
     void addConnection();
     void initServer(QAbstractSocket::SocketError);
