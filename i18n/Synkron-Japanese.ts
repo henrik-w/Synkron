@@ -35,7 +35,7 @@
     <message>
         <location filename="../main.cpp" line="1191"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
-        <translation>このプログラムは特定の目的のために設計、商品性および適合性の保証を含め、いかなる保証も絶対的になしでそのまま供給されます。</translation>
+        <translation>このプログラムは特定の目的の設計、商品性および適合性の保証を含め、絶対的にいかなる保証もなしでそのまま供給されます。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1202"/>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../sync.cpp" line="641"/>
         <source>File %1 restored</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 が復元されました</translation>
     </message>
 </context>
 <context>
@@ -1247,7 +1247,7 @@
     <message>
         <location filename="../restore.cpp" line="89"/>
         <source>Unknown error restoring file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの不明な復元エラーです: %1</translation>
     </message>
 </context>
 <context>
