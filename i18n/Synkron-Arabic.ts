@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -88,7 +89,7 @@
     <message>
         <location filename="../main.cpp" line="1202"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
-        <translation>هذا البرنامج غير مصحوب بأي ضمانة أو كفالة.</translation>
+        <translation>هذا البرنامج غير مصحوب بأي ضمانة أو كفالة.\n تم تعريب و المساهمة في تطوير البرنامج من قبل محمد بشير النعيمي &lt;span style=&quot;font-style:italic;&quot;&gt;http://mbnoimi.net&lt;/span&gt;.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1213"/>
@@ -1315,7 +1316,7 @@
     <message>
         <location filename="../main.cpp" line="1166"/>
         <source>File %1 renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>تم إعادة تسمية الملف %1</translation>
     </message>
 </context>
 <context>
