@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
         <location filename="../main.cpp" line="839"/>
         <source>Synkron</source>
-        <translation type="obsolete">Synkron</translation>
+        <translation type="obsolete">سينكرون</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="857"/>
@@ -58,12 +59,12 @@
     <message>
         <location filename="../about.ui" line="112"/>
         <source>About Synkron</source>
-        <translation>حول Synkron</translation>
+        <translation>حول سينكرون</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1200"/>
         <source>About Qt</source>
-        <translation>حول Qt</translation>
+        <translation>حول كيوت</translation>
     </message>
     <message>
         <location filename="../about.ui" line="177"/>
@@ -78,7 +79,7 @@
     <message>
         <location filename="../main.cpp" line="1184"/>
         <source>Synkron is a simple Qt application designed for easy folder synchronisation.</source>
-        <translation>Synkron برنامج تم كتابتة بإستخدام حزمة التطوير Qt، و قد صمم ليقوم بعملية مزامنة سهلة للمجلدات.</translation>
+        <translation>سينكرون برنامج تم كتابتة بإستخدام حزمة التطوير كيوت، و قد صمم ليقوم بعملية مزامنة سهلة للمجلدات.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1187"/>
@@ -93,12 +94,12 @@
     <message>
         <location filename="../main.cpp" line="1202"/>
         <source>This programme uses Qt Open Source Edition version %1.</source>
-        <translation>هذا البرنامج يستعمل حزمة التطوير Qt، النسخة المفتوحة المصدر ذات الإصدار %1.</translation>
+        <translation>هذا البرنامج يستعمل حزمة التطويركيوتt، النسخة المفتوحة المصدر ذات الإصدار %1.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1204"/>
         <source>Qt is a C++ toolkit for cross-platform application development.</source>
-        <translation>Qt عبارة عن حزمة تطوير بلغة C++ تستعمل من إنشاء تطبيقات متعددة نظم التشغيل.</translation>
+        <translation>كيوت عبارة عن حزمة تطوير بلغة سي بلس بلس تستعمل من إنشاء تطبيقات متعددة نظم التشغيل.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1206"/>
@@ -108,7 +109,7 @@
     <message>
         <location filename="../main.cpp" line="1208"/>
         <source>Qt is a Trolltech product. See &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; for more information.</source>
-        <translation>Qt منتج لشركة Trolltech. إنظر &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; لمزيد من المعلومات.</translation>
+        <translation>كيوت منتج لشركة Trolltech. إنظر &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; لمزيد من المعلومات.</translation>
     </message>
 </context>
 <context>
@@ -156,7 +157,7 @@
     <message>
         <location filename="../sync.cpp" line="624"/>
         <source> to temp</source>
-        <translation> إلى المجلد المؤقت</translation>
+        <translation>  إلى المجلد المؤقت</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="678"/>
@@ -196,7 +197,7 @@
     <message>
         <location filename="../sync.cpp" line="641"/>
         <source>File %1 restored</source>
-        <translation type="unfinished"></translation>
+        <translation>الملف %1 تم إستعادته</translation>
     </message>
 </context>
 <context>
@@ -214,7 +215,7 @@
     <message>
         <location filename="../main.cpp" line="242"/>
         <source>Synkron</source>
-        <translation type="obsolete">Synkron</translation>
+        <translation type="obsolete">سينكرون</translation>
     </message>
 </context>
 <context>
@@ -232,7 +233,7 @@
     <message>
         <location filename="../main.cpp" line="49"/>
         <source>Japanese</source>
-        <translation>Japanese</translation>
+        <translation>اليابانية</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="50"/>
@@ -258,7 +259,7 @@
     <message>
         <location filename="../scheduler.cpp" line="116"/>
         <source>Synkron</source>
-        <translation>Synkron</translation>
+        <translation>سينكرون</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="29"/>
@@ -363,7 +364,7 @@
     <message>
         <location filename="../main.cpp" line="255"/>
         <source>Quit Synkron</source>
-        <translation>الخروج من Synkron</translation>
+        <translation>الخروج من سينكرون</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="259"/>
@@ -423,12 +424,12 @@
     <message>
         <location filename="../main.cpp" line="787"/>
         <source>Your Synkron is up-to-date.</source>
-        <translation>سيتم تحديث نسخة Synkron.</translation>
+        <translation>سيتم تحديث نسخة سينكرون.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="791"/>
         <source>Synkron %1 is available now.</source>
-        <translation>الإصدار %1 من Synkron متوفر الآن.</translation>
+        <translation>الإصدار %1 من سينكرون متوفر الآن.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="802"/>
@@ -1310,7 +1311,7 @@
     <message>
         <location filename="../restore.cpp" line="89"/>
         <source>Unknown error restoring file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>حدث خطأ غير معروف لدى إستعادة الملف: %1</translation>
     </message>
 </context>
 <context>
@@ -1476,7 +1477,7 @@
     <message>
         <location filename="../multisync.cpp" line="332"/>
         <source>Synkron</source>
-        <translation>Synkron</translation>
+        <translation>سينكرون</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="188"/>
@@ -1602,7 +1603,7 @@
     <message>
         <location filename="../sync.cpp" line="252"/>
         <source>Synkron - %1</source>
-        <translation>Synkron - %1</translation>
+        <translation>سينكرون - %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="252"/>

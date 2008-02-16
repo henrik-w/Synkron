@@ -19,10 +19,13 @@
 
 
 <storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+
+<storageModule moduleId="scannerConfiguration"/>
+
 <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 <buildTargets>
 <target name="Qt Release Build" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>mingw32-make</buildCommand>
+<buildCommand>make</buildCommand>
 <buildArguments/>
 <buildTarget>release</buildTarget>
 <stopOnError>false</stopOnError>
@@ -30,7 +33,7 @@
 <runAllBuilders>true</runAllBuilders>
 </target>
 <target name="Qt Debug Build" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>mingw32-make</buildCommand>
+<buildCommand>make</buildCommand>
 <buildArguments/>
 <buildTarget>debug</buildTarget>
 <stopOnError>false</stopOnError>
@@ -39,7 +42,6 @@
 </target>
 </buildTargets>
 </storageModule>
-<storageModule moduleId="scannerConfiguration"/>
 <storageModule moduleId="org.eclipse.cdt.core.pathentry">
 <pathentry base-path="C:/eclipse/qt/include" include="" kind="inc" path="" system="true"/>
 <pathentry base-path="C:/eclipse/qt/include" include="QtCore" kind="inc" path="" system="true"/>
