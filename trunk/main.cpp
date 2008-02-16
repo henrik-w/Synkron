@@ -128,7 +128,8 @@ void MainWindow::initServer(QAbstractSocket::SocketError)
                 i++;
             } else if (qApp->arguments().at(i) == "-rename" && i < qApp->arguments().count() - 1) {
                 bool ok = false;
-                QString new_name = QInputDialog::getText(this, tr("Synkron - Rename file"), tr("Type a new name for \"%1\":").arg(qApp->arguments().at(i + 1)), QLineEdit::Normal, "", &ok);
+                QString file_name = QFileInfo(qApp->arguments().at(i + 1)).fileName();
+                QString new_name = QInputDialog::getText(this, tr("Synkron - Rename file"), tr("Type a new name for \"%1\":").arg(qApp->arguments().at(i + 1)), QLineEdit::Normal, file_name, &ok);
                 if (ok) globalRename(qApp->arguments().at(i + 1), new_name);
                 i++;
             } else {
@@ -221,7 +222,8 @@ void ClientConnection::read()
         else if (bufferlist.at(0) == "[Synkron globalRename ") {
             c_parent->show();
             bool ok = false;
-            QString new_name = QInputDialog::getText(c_parent, tr("Synkron - Rename file"), tr("Type a new name for \"%1\":").arg(bufferlist.at(1)), QLineEdit::Normal, "", &ok);
+            QString file_name = QFileInfo(bufferlist.at(1)).fileName();
+            QString new_name = QInputDialog::getText(c_parent, tr("Synkron - Rename file"), tr("Type a new name for \"%1\":").arg(bufferlist.at(1)), QLineEdit::Normal, file_name, &ok);
             if (ok) c_parent->globalRename(bufferlist.at(1), new_name);
         }
         else if (bufferlist.at(0) == "[Synkron globalDelete ") { c_parent->show(); c_parent->globalDelete(bufferlist.at(1)); }
@@ -1074,15 +1076,16 @@ void MainWindow::globalDelete(QString path)
  	}
 }
 
-void MainWindow::renameFile(QString path, QString name)
+bool MainWindow::renameFile(QString path, QString name)
 {
     QFileInfo file_info (path);
 	path = file_info.absoluteFilePath();
-	if (!file_info.exists()) return;
+	if (!file_info.exists()) return false;
 	else if (file_info.isSymLink() || !file_info.isDir()) {
 		QFile file (path);
 		if (!file.rename(QString("%1/%2").arg(file_info.dir().path()).arg(name))) {
 			QMessageBox::critical(this, tr("Synkron"), tr("Error renaming file %1").arg(path));
+			return false;
 		}
 	} else {
 		QDir dir (path);
@@ -1090,8 +1093,10 @@ void MainWindow::renameFile(QString path, QString name)
 		dir.cdUp();
 		if (!dir.rename(dirname, name)) {
 			QMessageBox::critical(this, tr("Synkron"), tr("Error renaming directory %1").arg(path));
+			return false;
 		}
 	}
+	return true;
 }
 
 void MainWindow::globalRename(QString path, QString name)
@@ -1117,7 +1122,9 @@ void MainWindow::globalRename(QString path, QString name)
 		}
 		if (path2 == "" || path2 == ".") continue;
 		
-		renameFile(path2, name);
+		if (renameFile(path2, name)) {
+            i.value()->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+        }
 	}
 	
 	MultisyncPage * multi_page;
@@ -1137,7 +1144,9 @@ void MainWindow::globalRename(QString path, QString name)
                         path2.replace("ROOTPATH", QDir::rootPath());
                     }
                     
-                    renameFile(path2, name);
+                    if (renameFile(path2, name)) {
+                        multi_page->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    }
                 }
             }
         } else {
@@ -1153,7 +1162,9 @@ void MainWindow::globalRename(QString path, QString name)
                                                         .arg(multi_page->list_multi->item(s)->text())
                                                         .arg(QString(path).remove(0, path3.count()));
                     
-                    renameFile(path2, name);
+                    if (renameFile(path2, name)) {
+                        multi_page->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                    }
                 }
             }
         }
