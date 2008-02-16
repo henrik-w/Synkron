@@ -23,6 +23,7 @@ SyncSchedule * MainWindow::addSchedule(QString name/*QStringList tabs, QStringLi
 	if (checked_times.count()!=0) schedule->sched_checked_time_list = checked_times;
 	if (interval!=0) schedule->periodical_interval = interval;*/
 	schedule->scheduling = false;
+    schedule->timing_tab_index = 0;
 	QObject::connect(schedule, SIGNAL(sigsched(QWidget *)), this, SLOT(sync(QWidget *)));
 	item_sched_map[item] = schedule;
 	return schedule;

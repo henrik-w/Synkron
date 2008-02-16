@@ -32,7 +32,12 @@ MainWindow::MainWindow(QSettings * s)
     
     tw_schedules->setHorizontalHeaderLabels(QStringList() << tr("Schedule name") << tr("Status"));
     tw_schedules->verticalHeader()->hide();
+
+#ifndef Q_WS_WIN
+    tw_schedules->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+#else
     tw_schedules->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+#endif
     
     actgrpView = new QActionGroup(this);
     actgrpView->addAction(actionSynchronise);

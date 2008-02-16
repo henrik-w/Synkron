@@ -169,7 +169,7 @@ SyncPage * MainWindow::addSyncTab()
 #elif defined Q_WS_MAC
 	page->filters->setMaximumSize(150, 235);
 #else
-	page->filters->setMaximumSize(150, 225);
+	page->filters->setMaximumSize(150, 235);
 #endif
 	page->filters->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 	QVBoxLayout * vlayout_filters = new QVBoxLayout (page->filters);
