@@ -1252,7 +1252,7 @@
     <message>
         <location filename="../main.cpp" line="1166"/>
         <source>File %1 renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 の名前が変更されました</translation>
     </message>
 </context>
 <context>
