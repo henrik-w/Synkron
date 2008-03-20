@@ -4,10 +4,13 @@ HEADERS += main_window.h \
     mtfile.h \
     mtadvancedgroupbox.h \
     extendedlineedit.h \
-    extendedlistwidget.h
+    extendedlistwidget.h \
+    syncfolders.h \
+    mtstringset.h
 FORMS += main_window.ui \
     about.ui \
-    multisync_page.ui
+    multisync_page.ui \
+    sync_view_item.ui
 SOURCES += main.cpp \
     sync.cpp \
     restore.cpp \
@@ -15,19 +18,21 @@ SOURCES += main.cpp \
     multisync.cpp \
     scheduler.cpp \
     filters.cpp \
-    mtfile.cpp
+    mtfile.cpp \
+    syncfolders.cpp \
+    syncview.cpp
 RESOURCES += resources.qrc \
     i18n.qrc
 win32:RC_FILE = Synkron.rc
 DESTDIR = ./
-unix:!macx { 
+unix:!macx {
     DEFINES += USE_UNIX_TOUCH_COMMAND
     TARGET = synkron
     OBJECTS_DIR = .tmp.unix/
     MOC_DIR = .tmp.unix/
     RCC_DIR = .tmp.unix/
 }
-macx { 
+macx {
     # Comment the following line to use the NSFileManager class
     # to perform copy operations instead of QFile + /usr/bin/touch:
     DEFINES += USE_UNIX_TOUCH_COMMAND
@@ -40,7 +45,10 @@ macx {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.4
     QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.4u.sdk
 }
-win32 { 
+win32 {
+    # If not commented, the following line ensures that Synkron is compiled
+    # as a portable app. More info at portableapps.com
+    # DEFINES += PORTABLE_APP
     OBJECTS_DIR = .tmp.win32/
     MOC_DIR = .tmp.win32/
     RCC_DIR = .tmp.win32/
@@ -48,4 +56,5 @@ win32 {
 TRANSLATIONS += i18n/Synkron-Slovak.ts \
     i18n/Synkron-German.ts \
     i18n/Synkron-Japanese.ts \
-    i18n/Synkron-Arabic.ts
+    i18n/Synkron-Arabic.ts \
+    i18n/Synkron-Russian.ts

@@ -21,6 +21,7 @@
         <file>images/folder_16.png</file>
         <file>images/folder_red.png</file>
         <file>images/multisync.png</file>
+        <file>images/multisync_16.png</file>
         <file>images/open.png</file>
         <file>images/remove.png</file>
         <file>images/save-as.png</file>
@@ -32,6 +33,7 @@
         <file>images/sync22.png</file>
         <file>images/sync_all.png</file>
         <file>images/sync_schedule.png</file>
+        <file>images/syncview_48.png</file>
         <file>images/tab-new_32.png</file>
         <file>images/tab-remove_32.png</file>
     </qresource>

@@ -4,8 +4,8 @@ MainWindow::MainWindow(QSettings * s)
 {
     setupUi(this);
     
-	f_ver = 1.2;
-	ver = "1.2.0";
+	f_ver = 1.3;
+	ver = "1.3.0";
     
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
@@ -38,6 +38,12 @@ MainWindow::MainWindow(QSettings * s)
 #else
     tw_schedules->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 #endif
+    syncs_syncview->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    syncs_syncview->horizontalHeader()->hide();
+    syncs_syncview->verticalHeader()->hide();
+    multisyncs_syncview->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    multisyncs_syncview->horizontalHeader()->hide();
+    multisyncs_syncview->verticalHeader()->hide();
     
     actgrpView = new QActionGroup(this);
     actgrpView->addAction(actionSynchronise);
@@ -46,6 +52,7 @@ MainWindow::MainWindow(QSettings * s)
     actgrpView->addAction(actionMultisync);
     actgrpView->addAction(actionScheduler);
     actgrpView->addAction(actionFilters);
+    actgrpView->addAction(actionSyncView);
     
     QTranslator translator; translator.load(":/i18n/Synkron-i18n.qm");
     synkron_i18n.insert("English", "English");
@@ -53,6 +60,7 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "German"), "German");
     synkron_i18n.insert(translator.translate("LanguageNames", "Japanese"), "Japanese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Arabic"), "Arabic");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Russian"), "Russian");
     
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
@@ -65,6 +73,8 @@ MainWindow::MainWindow(QSettings * s)
     connect(blacklist_removefile, SIGNAL(released()), this, SLOT(removeFileFromBlacklist()));
     connect(blacklist_addfolder, SIGNAL(released()), this, SLOT(addFolderToBlacklist()));
     connect(blacklist_removefolder, SIGNAL(released()), this, SLOT(removeFolderFromBlacklist()));
+    connect(blacklist_addext, SIGNAL(released()), this, SLOT(addExtToBlacklist()));
+    connect(blacklist_removeext, SIGNAL(released()), this, SLOT(removeExtFromBlacklist()));
     connect(selTmpAllBtn, SIGNAL(released()), this, SLOT(selTmpAll()));
     connect(actionRun_hidden, SIGNAL(toggled(bool)), this, SLOT(setRunHidden(bool)));
     connect(actionSync_all, SIGNAL(triggered()), this, SLOT(syncAll()));
@@ -333,8 +343,9 @@ void MainWindow::saveSettings()
     QStringList tabs_list;
     for (int i = 0; i < tabWidget->count(); ++i) {
 		tabs_list << tabWidget->tabText(i);
-		sync_settings->setValue(QString("tab_%1_%2/folder1").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_1->text());
-		sync_settings->setValue(QString("tab_%1_%2/folder2").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_2->text());
+		sync_settings->setValue(QString("tab_%1_%2/folders").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folders->pathsList());
+		//sync_settings->setValue(QString("tab_%1_%2/folder1").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_1->text());
+		//sync_settings->setValue(QString("tab_%1_%2/folder2").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_2->text());
 		sync_settings->setValue(QString("tab_%1_%2/sync_hidden").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_hidden->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("tab_%1_%2/advanced").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->advanced->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("tab_%1_%2/backup_folder_1").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->backup_folder_1->isChecked() ? "checked" : "unchecked");
@@ -345,6 +356,9 @@ void MainWindow::saveSettings()
 		sync_settings->setValue(QString("tab_%1_%2/ignore_blacklist").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->ignore_blacklist->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("tab_%1_%2/move").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->move->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("tab_%1_%2/clone_folder1").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->clone_folder1->isChecked() ? "checked" : "unchecked");
+		sync_settings->setValue(QString("tab_%1_%2/propagate_deletions").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->propagate_deletions->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("tab_%1_%2/backup_folders").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->backup_folders->isChecked() ? "checked" : "unchecked");
+		sync_settings->setValue(QString("tab_%1_%2/update_only").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->update_only->isChecked() ? "checked" : "unchecked");
 	#ifndef Q_WS_WIN
 		sync_settings->setValue(QString("tab_%1_%2/symlinks").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->symlinks->isChecked() ? "checked" : "unchecked");
 	#endif
@@ -356,6 +370,9 @@ void MainWindow::saveSettings()
 			}
 		}
 		sync_settings->setValue(QString("tab_%1_%2/flist").arg(tabWidget->tabText(i)).arg(i), flist);
+        sync_settings->setValue(QString("tab_%1_%2/files_blacklist").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->files_blacklist);
+        sync_settings->setValue(QString("tab_%1_%2/folders_blacklist").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->folders_blacklist);
+        sync_settings->setValue(QString("tab_%1_%2/exts_blacklist").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->exts_blacklist);
 	}
 	sync_settings->setValue("tabs", tabs_list);
 	QStringList filters;
@@ -386,7 +403,10 @@ void MainWindow::saveSettings()
 		sync_settings->setValue(QString("multitab_%1_%2/ignore_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->ignore_blacklist->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/move").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->move->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/clone_folder1").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->clone_folder1->isChecked() ? "checked" : "unchecked");
-	#ifndef Q_WS_WIN
+		sync_settings->setValue(QString("multitab_%1_%2/propagate_deletions").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->propagate_deletions->isChecked() ? "checked" : "unchecked");
+        //sync_settings->setValue(QString("multitab_%1_%2/backup_folders").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->backup_folders->isChecked() ? "checked" : "unchecked");
+		//sync_settings->setValue(QString("multitab_%1_%2/update_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->update_only->isChecked() ? "checked" : "unchecked");
+    #ifndef Q_WS_WIN
 		sync_settings->setValue(QString("multitab_%1_%2/symlinks").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->symlinks->isChecked() ? "checked" : "unchecked");
 	#endif
         /*sync_settings->setValue(QString("multitab_%1_%2/filters_gb").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->filters->isChecked() ? "checked" : "unchecked");
@@ -397,6 +417,9 @@ void MainWindow::saveSettings()
 			}
 		}
 		sync_settings->setValue(QString("multitab_%1_%2/flist").arg(multi_tabWidget->tabText(i)).arg(i), flist);*/
+        sync_settings->setValue(QString("multitab_%1_%2/files_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->files_blacklist);
+        sync_settings->setValue(QString("multitab_%1_%2/folders_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->folders_blacklist);
+        sync_settings->setValue(QString("multitab_%1_%2/exts_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->exts_blacklist);
 	}
 	sync_settings->setValue("multitabs", multitabs_list);
     sync_settings->setValue("synchronised", synchronised);
@@ -407,6 +430,7 @@ void MainWindow::saveSettings()
     sync_settings->setValue("restore_clean_files", restore_clean_files->value());
     sync_settings->setValue("files_blacklist", files_blacklist);
     sync_settings->setValue("folders_blacklist", folders_blacklist);
+    sync_settings->setValue("exts_blacklist", exts_blacklist);
     sync_settings->setValue("run_hidden", run_hidden);
     sync_settings->setValue("current_synctab", tabWidget->currentIndex());
     sync_settings->setValue("current_multitab", multi_tabWidget->currentIndex());
@@ -447,29 +471,37 @@ void MainWindow::readSettings()
 	}
 	SyncPage * page = 0;
 	QStringList tabs_list = sync_settings->value("tabs").toStringList();
-	if (tabs_list.count()==0) {
+    if (tabs_list.count()==0) {
 		QStringList recentsyncs = sync_settings->value("recentsyncs").toStringList();
 		if (recentsyncs.count() != 0) {
 			bool okey; recentsyncs.last().toInt(&okey);
     		if ((recentsyncs.count()-1) % 6 == 5 && okey) {
 				for (int i = 0; i < recentsyncs.count(); ++i) {
      				if (i % 6 == 0 || i == 0) { page = addSyncTab();
-						QDir dirpath(recentsyncs.at(i));
+						page->sync_folders->removeAllFolders();
+                        QDir dirpath(recentsyncs.at(i));
 						page->tab_name->setText(dirpath.path());
-						tabWidget->setTabText(tabWidget->indexOf(page->tab), dirpath.path()); }
-  		  			if (i % 6 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
-    				if (i % 6 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
+						tabWidget->setTabText(tabWidget->indexOf(page->tab_stw), dirpath.path()); }
+  		  			if (i % 6 == 1) {
+                        page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
+                        page->sync_folders->addToFolders(2);
+                    }
+    				if (i % 6 == 2) page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
 					if (i % 6 == 4) page->sync_hidden->setChecked(recentsyncs.at(i)=="checked");
   				}
 			}
 			else {
 				for (int i = 0; i < recentsyncs.count(); ++i) {
      				if (i % 12 == 0 || i == 0) { page = addSyncTab();
+     				    page->sync_folders->removeAllFolders();
 						QDir dirpath(recentsyncs.at(i));
 						page->tab_name->setText(dirpath.path());
-						tabWidget->setTabText(tabWidget->indexOf(page->tab), dirpath.path()); }
-   			 		if (i % 12 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
-    				if (i % 12 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
+						tabWidget->setTabText(tabWidget->indexOf(page->tab_stw), dirpath.path()); }
+   			 		if (i % 12 == 1) {
+                        page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
+                        page->sync_folders->addToFolders(2);
+                    }
+    				if (i % 12 == 2) page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
 					if (i % 12 == 4) page->sync_hidden->setChecked(recentsyncs.at(i)=="checked");
 					if (i % 12 == 7) {
 						showAdvancedGroupBox((recentsyncs.at(i)=="checked"), page);
@@ -492,31 +524,59 @@ void MainWindow::readSettings()
 			recentsyncs = settings.value("recentsyncs").toStringList();
 			for (int i = 0; i < recentsyncs.count(); ++i) {
        			if (i % 3 == 0 || i == 0) { page = addSyncTab();
-					QDir dirpath(recentsyncs.at(i));
+					page->sync_folders->removeAllFolders();
+                    QDir dirpath(recentsyncs.at(i));
 					page->tab_name->setText(dirpath.path());
-					tabWidget->setTabText(tabWidget->indexOf(page->tab), dirpath.path()); }
-        		if (i % 3 == 1) page->sync_folder_1->setText(recentsyncs.at(i));
-    			if (i % 3 == 2) page->sync_folder_2->setText(recentsyncs.at(i));
+					tabWidget->setTabText(tabWidget->indexOf(page->tab_stw), dirpath.path()); }
+        		if (i % 3 == 1) page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
+    			if (i % 3 == 2) {
+                    page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
+                    page->sync_folders->addToFolders(2);
+                }
     		}
 		}
 	}
 	for (int i = 0; i < tabs_list.count(); ++i) {
 		page = addSyncTab();
 		page->tab_name->setText(tabs_list.at(i));
-		tabWidget->setTabText(tabWidget->indexOf(page->tab), tabs_list.at(i));
-		page->sync_folder_1->setText(sync_settings->value(QString("tab_%1_%2/folder1").arg(tabs_list.at(i)).arg(i)).toString());
-		page->sync_folder_2->setText(sync_settings->value(QString("tab_%1_%2/folder2").arg(tabs_list.at(i)).arg(i)).toString());
-		page->sync_hidden->setChecked(sync_settings->value(QString("tab_%1_%2/sync_hidden").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		tabWidget->setTabText(tabWidget->indexOf(page->tab_stw), tabs_list.at(i));
+		QStringList folders = sync_settings->value(QString("tab_%1_%2/folders").arg(tabs_list.at(i)).arg(i)).toStringList();
+		if (folders.count()==0) {
+            folders << sync_settings->value(QString("tab_%1_%2/folder1").arg(tabs_list.at(i)).arg(i)).toString();
+            folders << sync_settings->value(QString("tab_%1_%2/folder2").arg(tabs_list.at(i)).arg(i)).toString();
+        }
+        page->sync_folders->removeAllFolders();
+        for (int f = 0; f < folders.count(); ++f) {
+            if (folders.at(f) != "")
+                page->sync_folders->addFolder()->setPath(folders.at(f));
+        }
+        page->sync_folders->addToFolders(2);
+        //page->sync_folder_1->setText(sync_settings->value(QString("tab_%1_%2/folder1").arg(tabs_list.at(i)).arg(i)).toString());
+		//page->sync_folder_2->setText(sync_settings->value(QString("tab_%1_%2/folder2").arg(tabs_list.at(i)).arg(i)).toString());
 		showAdvancedGroupBox(sync_settings->value(QString("tab_%1_%2/advanced").arg(tabs_list.at(i)).arg(i)).toString()=="checked", page);
-		page->backup_folder_1->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->backup_folder_2->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->update_only_1->setChecked(sync_settings->value(QString("tab_%1_%2/update_only_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->update_only_2->setChecked(sync_settings->value(QString("tab_%1_%2/update_only_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		page->sync_hidden->setChecked(sync_settings->value(QString("tab_%1_%2/sync_hidden").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		page->sync_nosubdirs->setChecked(sync_settings->value(QString("tab_%1_%2/sync_nosubdirs").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		page->ignore_blacklist->setChecked(sync_settings->value(QString("tab_%1_%2/ignore_blacklist").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->move->setChecked(sync_settings->value(QString("tab_%1_%2/move").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->clone_folder1->setChecked(sync_settings->value(QString("tab_%1_%2/clone_folder1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-	    if (sync_settings->value(QString("tab_%1_%2/periodical").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
+		if (sync_settings->value(QString("tab_%1_%2/backup_folder_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->backup_folder_1->isChecked()) page->backup_folder_1->click();
+		if (sync_settings->value(QString("tab_%1_%2/backup_folder_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->backup_folder_2->isChecked()) page->backup_folder_2->click();
+		if (sync_settings->value(QString("tab_%1_%2/update_only_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->update_only_1->isChecked()) page->update_only_1->click();
+        if (sync_settings->value(QString("tab_%1_%2/update_only_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->update_only_2->isChecked()) page->update_only_2->click();
+		if (sync_settings->value(QString("tab_%1_%2/move").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->move->isChecked()) page->move->click();
+		if (sync_settings->value(QString("tab_%1_%2/clone_folder1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->clone_folder1->isChecked()) page->clone_folder1->click();
+        if (sync_settings->value(QString("tab_%1_%2/propagate_deletions").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
+            page->propagate_deletions->setChecked(true); page->propagatedStateChanged(true); }
+		if (sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->backup_folders->isChecked()) page->backup_folders->click();
+		if (sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->update_only->isChecked()) page->update_only->click();
+        //page->backup_folder_1->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->backup_folder_2->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->update_only_1->setChecked(sync_settings->value(QString("tab_%1_%2/update_only_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->update_only_2->setChecked(sync_settings->value(QString("tab_%1_%2/update_only_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->move->setChecked(sync_settings->value(QString("tab_%1_%2/move").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->clone_folder1->setChecked(sync_settings->value(QString("tab_%1_%2/clone_folder1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+	    //page->propagate_deletions->setChecked(sync_settings->value(QString("tab_%1_%2/propagate_deletions").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+        //page->backup_folders->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		//page->update_only->setChecked(sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+		if (sync_settings->value(QString("tab_%1_%2/periodical").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
 	        SyncSchedule * sync_sched = addSchedule(tabs_list.at(i));
 	        sync_sched->periodical_interval = sync_settings->value(QString("tab_%1_%2/sync_interval").arg(tabs_list.at(i)).arg(i), 1).toInt();
 	        sync_sched->timing_tab_index = 1;
@@ -537,7 +597,13 @@ void MainWindow::readSettings()
 				}
 			}
 		}
-	}
+        page->files_blacklist = sync_settings->value(QString("tab_%1_%2/files_blacklist").arg(tabs_list.at(i)).arg(i), sync_settings->value("files_blacklist")).toStringList();
+        page->folders_blacklist = sync_settings->value(QString("tab_%1_%2/folders_blacklist").arg(tabs_list.at(i)).arg(i), sync_settings->value("folders_blacklist")).toStringList();
+        page->exts_blacklist = sync_settings->value(QString("tab_%1_%2/exts_blacklist").arg(tabs_list.at(i)).arg(i), sync_settings->value("exts_blacklist")).toStringList();
+	    
+	    //QMessageBox::warning(this, tr("Synk"), tr("%1").arg(page->syncFolder1Text()));
+        //QMessageBox::warning(this, tr("Synk"), tr("%1").arg(page->syncFolder2Text()));
+    }
     synchronised = sync_settings->value("synchronised").toStringList();
     restore_clean_selected->setChecked(sync_settings->value("restore_clean_selected", true).toBool());
     restore_clean_by_date->setChecked(sync_settings->value("restore_clean_by_date").toBool());
@@ -546,6 +612,7 @@ void MainWindow::readSettings()
     restore_clean_files->setValue(sync_settings->value("restore_clean_files", 3).toInt());
     files_blacklist = sync_settings->value("files_blacklist").toStringList();
 	folders_blacklist = sync_settings->value("folders_blacklist").toStringList();
+	exts_blacklist = sync_settings->value("exts_blacklist").toStringList();
 	QStringList multitabs_list = sync_settings->value("multitabs").toStringList();
 	MultisyncPage * multi_page;
 	if (multitabs_list.count()==0) {
@@ -594,6 +661,9 @@ void MainWindow::readSettings()
 		multi_page->ignore_blacklist->setChecked(sync_settings->value(QString("multitab_%1_%2/ignore_blacklist").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 		multi_page->move->setChecked(sync_settings->value(QString("multitab_%1_%2/move").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 		multi_page->clone_folder1->setChecked(sync_settings->value(QString("multitab_%1_%2/clone_folder1").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+        multi_page->propagate_deletions->setChecked(sync_settings->value(QString("multitab_%1_%2/propagate_deletions").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+        //multi_page->backup_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/backup_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+		//multi_page->update_only->setChecked(sync_settings->value(QString("multitab_%1_%2/update_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 	#ifndef Q_WS_WIN
 		multi_page->symlinks->setChecked(sync_settings->value(QString("multitab_%1_%2/symlinks").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 	#endif
@@ -607,6 +677,9 @@ void MainWindow::readSettings()
 				}
 			}
 		}*/
+        multi_page->files_blacklist = sync_settings->value(QString("multitab_%1_%2/files_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("files_blacklist")).toStringList();
+        multi_page->folders_blacklist = sync_settings->value(QString("multitab_%1_%2/folders_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("folders_blacklist")).toStringList();
+        multi_page->exts_blacklist = sync_settings->value(QString("multitab_%1_%2/exts_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("exts_blacklist")).toStringList();
 	}
 	run_hidden = sync_settings->value("run_hidden", false).toBool();
 	actionDisable_tray_messages->setChecked(sync_settings->value("disable_tray_messages").toBool());
@@ -761,6 +834,13 @@ void MainWindow::switchView(QAction * action)
 		actionClose_sync->setDisabled(true);
 		actionSave_log->setEnabled(false);
 		mainStackedWidget->setCurrentIndex(5);
+	}
+	else if (action == actionSyncView) {
+        toSyncView();
+		actionNew_sync->setDisabled(true);
+		actionClose_sync->setDisabled(true);
+		actionSave_log->setEnabled(false);
+		mainStackedWidget->setCurrentIndex(6);
 	}
 }
 
@@ -1013,7 +1093,23 @@ void MainWindow::globalDelete(QString path)
 	    	i.next();
 	    	if (progress.wasCanceled()) return;
 	    	QString path2;
-	    	if (path.startsWith(i.value()->syncFolder1Text())) {
+	    	for (int n = 0; n < i.value()->sync_folders->count(); ++n) {
+                if (path.startsWith(i.value()->sync_folders->syncFolder(n)->path())) {
+                    path2 = path;
+	    		    path2.remove(i.value()->sync_folders->syncFolder(n)->path());
+	    		    break;
+                }
+            }
+            if (path2 == "" || path2 == ".") continue;
+            for (int n = 0; n < i.value()->sync_folders->count(); ++n) {
+                QString path3 = path2;
+                path3.insert(0, i.value()->sync_folders->syncFolder(n)->path());
+                if (path3 == path) continue;
+                if (removeFile(path3)) {
+                    i.value()->addTableItem(tr("File %1 deleted").arg(path3), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+                }
+            }
+	    	/*if (path.startsWith(i.value()->syncFolder1Text())) {
 	    		path2 = path;
 	    		path2.replace(i.value()->syncFolder1Text(), i.value()->syncFolder2Text());
 	    	} else if (path.startsWith(i.value()->syncFolder2Text())) {
@@ -1025,7 +1121,7 @@ void MainWindow::globalDelete(QString path)
 	    	if (path2 == "" || path2 == ".") continue;
 	    	if (removeFile(path2)) {
                 i.value()->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
-            }
+            }*/
 	    	progress.setValue(progress.value()+1);
 	    	qApp->processEvents();
 	    }
@@ -1116,7 +1212,24 @@ void MainWindow::globalRename(QString path, QString name)
 	while (i.hasNext()) {
 		i.next();
 		QString path2;
-		if (path.startsWith(i.value()->syncFolder1Text())) {
+		for (int n = 0; n < i.value()->sync_folders->count(); ++n) {
+            if (path.startsWith(i.value()->sync_folders->syncFolder(n)->path())) {
+                path2 = path;
+	    		path2.remove(i.value()->sync_folders->syncFolder(n)->path());
+	    		break;
+            }
+        }
+        if (path2 == "" || path2 == ".") continue;
+        for (int n = 0; n < i.value()->sync_folders->count(); ++n) {
+            QString path3 = path2;
+            path3.insert(0, i.value()->sync_folders->syncFolder(n)->path());
+            if (path3 == path) continue;
+            if (renameFile(path3, name)) {
+                i.value()->addTableItem(tr("File %1 renamed").arg(path3), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            }
+        }
+        
+		/*if (path.startsWith(i.value()->syncFolder1Text())) {
 			path2 = path;
 			path2.replace(i.value()->syncFolder1Text(), i.value()->syncFolder2Text());
 		} else if (path.startsWith(i.value()->syncFolder2Text())) {
@@ -1129,7 +1242,7 @@ void MainWindow::globalRename(QString path, QString name)
 		
 		if (renameFile(path2, name)) {
             i.value()->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
-        }
+        }*/
 	}
 	
 	MultisyncPage * multi_page;
@@ -1239,6 +1352,10 @@ int main(int argc, char *argv[])
     
     QFileInfo file_info (app.arguments().at(0));
     QDir dir (file_info.dir()); QSettings * sync_settings;
+#ifdef PORTABLE_APP
+    dir.cdUp(); dir.cdUp();
+    dir.cd("Data"); dir.cd("settings");
+#endif
     if (dir.exists("Synkron.ini")) {
         sync_settings = new QSettings (dir.absoluteFilePath("Synkron.ini"), QSettings::IniFormat);
     } else {

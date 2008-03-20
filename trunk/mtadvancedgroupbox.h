@@ -59,6 +59,8 @@ public:
     { agb_glayout->addWidget(widget, row, column, alignment); };
     void addWidget(QWidget * widget, int fromRow, int fromColumn, int rowSpan, int columnSpan, Qt::Alignment alignment = 0)
     { agb_glayout->addWidget(widget, fromRow, fromColumn, rowSpan, columnSpan, alignment); };
+    void addItem(QLayoutItem * item, int row, int column, int rowSpan = 1, int columnSpan = 1, Qt::Alignment alignment = 0) 
+    { agb_glayout->addItem(item, row, column, rowSpan, columnSpan, alignment); };
     QGridLayout * gridLayout() { return agb_glayout; };
 
 public slots:

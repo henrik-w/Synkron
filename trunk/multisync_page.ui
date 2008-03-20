@@ -5,333 +5,353 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
-    <height>433</height>
+    <width>492</width>
+    <height>452</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QGridLayout" >
    <property name="leftMargin" >
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="topMargin" >
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="rightMargin" >
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin" >
-    <number>2</number>
+    <number>0</number>
    </property>
-   <item>
-    <layout class="QGridLayout" >
-     <item row="0" column="2" >
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
+   <item row="0" column="0" >
+    <widget class="QStackedWidget" name="tab_stw" >
+     <widget class="QWidget" name="page" >
+      <layout class="QVBoxLayout" >
+       <property name="leftMargin" >
+        <number>4</number>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
+       <property name="topMargin" >
+        <number>4</number>
        </property>
-      </spacer>
-     </item>
-     <item row="0" column="0" >
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
+       <property name="rightMargin" >
+        <number>4</number>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
+       <property name="bottomMargin" >
+        <number>4</number>
        </property>
-      </spacer>
-     </item>
-     <item row="0" column="1" >
-      <widget class="QLineEdit" name="tab_name" >
-       <property name="statusTip" >
-        <string>Set multisync name</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" >
-     <item>
-      <widget class="QLabel" name="label_21" >
-       <property name="pixmap" >
-        <pixmap resource="resources.qrc" >:/new/prefix1/images/sources.png</pixmap>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_12" >
-       <property name="text" >
-        <string>&lt;b>Sources:&lt;/b></string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QListWidget" name="list_multi" >
-     <property name="statusTip" >
-      <string>List of multisync sources</string>
-     </property>
+       <item>
+        <layout class="QGridLayout" >
+         <item row="0" column="2" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QLineEdit" name="tab_name" >
+           <property name="statusTip" >
+            <string>Set multisync name</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <item>
+          <widget class="QLabel" name="label_21" >
+           <property name="pixmap" >
+            <pixmap resource="resources.qrc" >:/new/prefix1/images/sources.png</pixmap>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_12" >
+           <property name="text" >
+            <string>&lt;b>Sources:&lt;/b></string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="list_multi" >
+         <property name="statusTip" >
+          <string>List of multisync sources</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" >
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="2" >
+          <widget class="QPushButton" name="add_multi" >
+           <property name="statusTip" >
+            <string>Add source</string>
+           </property>
+           <property name="text" >
+            <string>Add</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" >
+          <widget class="QPushButton" name="remove_multi" >
+           <property name="statusTip" >
+            <string>Remove source</string>
+           </property>
+           <property name="text" >
+            <string>Remove</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_22" >
+           <property name="pixmap" >
+            <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron16.png</pixmap>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_13" >
+           <property name="text" >
+            <string>&lt;b>Destination:&lt;/b></string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="destination_multi" >
+           <property name="statusTip" >
+            <string>Set a destination</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="browse_multi" >
+           <property name="statusTip" >
+            <string>Browse for destination</string>
+           </property>
+           <property name="text" >
+            <string>Browse</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/folder_16.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="ExtendedLineEdit" name="search_multi" >
+         <property name="text" >
+          <string>Search</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tw_multi" >
+         <property name="statusTip" >
+          <string>Multisync log</string>
+         </property>
+         <property name="columnCount" >
+          <number>2</number>
+         </property>
+         <column/>
+         <column/>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" >
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="3" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="4" >
+          <widget class="QPushButton" name="sync_multi" >
+           <property name="statusTip" >
+            <string>Start multisync</string>
+           </property>
+           <property name="text" >
+            <string>Multisync</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" >
+          <widget class="QPushButton" name="load_multi" >
+           <property name="statusTip" >
+            <string>Load a multisync</string>
+           </property>
+           <property name="text" >
+            <string>Load</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/open.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QPushButton" name="save_multi" >
+           <property name="statusTip" >
+            <string>Save the current multisync</string>
+           </property>
+           <property name="text" >
+            <string>Save</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/save.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" >
+          <widget class="QPushButton" name="saveas_multi" >
+           <property name="statusTip" >
+            <string>Save the current multisync</string>
+           </property>
+           <property name="text" >
+            <string>Save as</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="resources.qrc" >:/new/prefix1/images/save-as.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5" >
+          <widget class="QPushButton" name="stop_sync_btn" >
+           <property name="statusTip" >
+            <string>Stop multisync</string>
+           </property>
+           <property name="text" >
+            <string>Stop multisync</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="MTAdvancedGroupBox" native="1" name="advanced" />
+       </item>
+      </layout>
+     </widget>
     </widget>
-   </item>
-   <item>
-    <layout class="QGridLayout" >
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
-      <number>0</number>
-     </property>
-     <property name="horizontalSpacing" >
-      <number>6</number>
-     </property>
-     <property name="verticalSpacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="2" >
-      <widget class="QPushButton" name="add_multi" >
-       <property name="statusTip" >
-        <string>Add source</string>
-       </property>
-       <property name="text" >
-        <string>Add</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3" >
-      <widget class="QPushButton" name="remove_multi" >
-       <property name="statusTip" >
-        <string>Remove source</string>
-       </property>
-       <property name="text" >
-        <string>Remove</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1" >
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="label_22" >
-       <property name="pixmap" >
-        <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron16.png</pixmap>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_13" >
-       <property name="text" >
-        <string>&lt;b>Destination:&lt;/b></string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="destination_multi" >
-       <property name="statusTip" >
-        <string>Set a destination</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="browse_multi" >
-       <property name="statusTip" >
-        <string>Browse for destination</string>
-       </property>
-       <property name="text" >
-        <string>Browse</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/folder_16.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="ExtendedLineEdit" name="search_multi" >
-     <property name="text" >
-      <string>Search</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QTableWidget" name="tw_multi" >
-     <property name="statusTip" >
-      <string>Multisync log</string>
-     </property>
-     <property name="columnCount" >
-      <number>2</number>
-     </property>
-     <column/>
-     <column/>
-    </widget>
-   </item>
-   <item>
-    <layout class="QGridLayout" >
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
-      <number>0</number>
-     </property>
-     <property name="horizontalSpacing" >
-      <number>6</number>
-     </property>
-     <property name="verticalSpacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="4" >
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="5" >
-      <widget class="QPushButton" name="sync_multi" >
-       <property name="statusTip" >
-        <string>Start multisync</string>
-       </property>
-       <property name="text" >
-        <string>Multisync</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" >
-      <widget class="QPushButton" name="load_multi" >
-       <property name="statusTip" >
-        <string>Load a multisync</string>
-       </property>
-       <property name="text" >
-        <string>Load</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/open.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2" >
-      <widget class="QPushButton" name="save_multi" >
-       <property name="statusTip" >
-        <string>Save the current multisync</string>
-       </property>
-       <property name="text" >
-        <string>Save</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/save.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3" >
-      <widget class="QPushButton" name="saveas_multi" >
-       <property name="statusTip" >
-        <string>Save the current multisync</string>
-       </property>
-       <property name="text" >
-        <string>Save as</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="resources.qrc" >:/new/prefix1/images/save-as.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="6" >
-      <widget class="QPushButton" name="stop_sync_btn" >
-       <property name="statusTip" >
-        <string>Stop multisync</string>
-       </property>
-       <property name="text" >
-        <string>Stop multisync</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="MTAdvancedGroupBox" native="1" name="advanced" />
    </item>
   </layout>
  </widget>
