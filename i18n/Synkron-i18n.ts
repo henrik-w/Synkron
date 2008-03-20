@@ -23,5 +23,10 @@
         <source>Arabic</source>
         <translation>العربية</translation>
     </message>
+    <message>
+        <location filename="" line="136410828"/>
+        <source>Russian</source>
+        <translation>Русский</translation>
+    </message>
 </context>
 </TS>

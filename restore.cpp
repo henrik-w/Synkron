@@ -348,3 +348,65 @@ void MainWindow::restoreListConMenu(QPoint pos)
 	contextMenu->move(pos);
 	contextMenu->show();
 }
+
+void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool add_table_item)
+{
+    int former_files = synced_files;
+    QDir dir (dir_path);
+    QFileInfoList entries;
+    if (extensions.count()==0) {
+        entries = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+    } else {
+        entries = dir.entryInfoList(extensions.toList(), QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+    }
+    //deleted_files += entries.count();
+    for (int i = 0; i < entries.count(); ++i) {
+        if (!syncing) {
+            if (add_table_item && synced_files!=former_files) {
+                addTableItem(tr("%1 files deleted").arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            }
+            return;
+        }
+        if (entries.at(i).isDir() && !entries.at(i).isSymLink()) {
+            backupAndRemoveDir(entries.at(i).absoluteFilePath(), backup, false);
+        } else {
+            backupAndRemoveFile(entries.at(i), backup, false);
+            qApp->processEvents();
+        }
+    }
+    if (!syncing) {
+        if (add_table_item && synced_files!=former_files) {
+            addTableItem(tr("%1 files deleted").arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+        }
+        return;
+    }
+	QString dirname = dir.dirName();
+	dir.cdUp();
+	if (dir.rmdir(dirname)) {
+        if (add_table_item) addTableItem(tr("Folder %1 with %2 files deleted").arg(dir_path).arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+        synced_files++;
+    } else {
+        if (add_table_item) addTableItem(tr("Unknown error removing folder: %1").arg(dir_path), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+    }
+    return;
+}
+
+void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, bool add_table_item)
+{
+    MTFile file (file_info.absoluteFilePath());
+    if (backup) {
+        QDir::home().mkpath(QString(".Synkron/%2").arg(update_time));
+        if (!file.copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files))) {
+            unknownError(file_info.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp"));
+            return;
+        }
+        mp_parent->synchronised << file_info.fileName() << update_time << file_info.absoluteFilePath();
+        mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files);
+    }
+    if (!file.remove()) {
+        if (add_table_item) addTableItem(tr("Unknown error removing file: %1").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::red), QBrush(Qt::white));
+        return;
+    }
+    if (add_table_item) addTableItem(tr("File %1 deleted").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+    synced_files++;
+}

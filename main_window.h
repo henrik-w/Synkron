@@ -1,8 +1,11 @@
 #include "ui_main_window.h"
 #include "ui_multisync_page.h"
 #include "ui_about.h"
+#include "ui_sync_view_item.h"
 #include "mtfile.h"
 #include "mtadvancedgroupbox.h"
+#include "mtstringset.h"
+#include "syncfolders.h"
 
 #include <QFileDialog>
 #include <QDir>
@@ -34,6 +37,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QProgressDialog>
+#include <QPalette>
 
 #ifdef Q_WS_MAC
 #include <Carbon/Carbon.h>
@@ -53,15 +57,30 @@ public:
 	virtual bool followSymlinks() = 0;
 	virtual QString syncFolder1Text() = 0;
 	virtual QString syncFolder2Text() = 0;
+	virtual QString tabNameText() = 0;
+	virtual void deleteAllFolderDatabases() = 0;
+	virtual void saveAllFolderDatabases() = 0;
+	virtual int countSyncFolders() = 0;
 	
 	void subSync(QDir&, QDir&, bool);
 	void moveContents(QDir&, QDir&);
 	void addTableItem(QString, QString = "", QString = "", QBrush = Qt::white, QBrush = Qt::black);
 	void unknownError(QString, QString, QString, QString, QString = "");
+	void countExtsBl();
+	void saveFolderDatabase(QString);
+	void deleteFolderDatabase(QString);
+	QStringList getEntryList(QString, QString);
+	void backupAndRemoveDir(QString, bool = true, bool = true);
+	void backupAndRemoveFile(QFileInfo, bool = true, bool = true);
+	bool isInDatabase(QString);
 	
 	QSet<QString> extensions;
 	bool syncing;
+	QMap<QString, int> exts_bl_map;
+	QMap<QString, QStringList> folder_prop_list_map;
+    QDir::Filters dir_filters;
 	
+    QWidget * blacklist;
     QCheckBox * sync_hidden;
     QGroupBox * filters;
     QCheckBox * backup_folder_1;
@@ -73,18 +92,47 @@ public:
     QCheckBox * move;
     QCheckBox * symlinks;
     QCheckBox * clone_folder1;
+    QCheckBox * propagate_deletions;
     QListWidget * lw_filters;
+    QToolButton * edit_blacklist;
+    QListWidget * blacklist_fileslist;
+    QListWidget * blacklist_folderslist;
+    QListWidget * blacklist_extslist;
+    QPushButton * blacklist_addfile;
+    QPushButton * blacklist_addfolder;
+    QPushButton * blacklist_addext;
+    QPushButton * blacklist_removefile;
+    QPushButton * blacklist_removefolder;
+    QPushButton * blacklist_removeext;
+    QPushButton * blacklist_back;
+    
     MainWindow * mp_parent;
     int synced_files;
     QString update_time;
+    QStringList files_blacklist;
+    QStringList folders_blacklist;
+    QStringList exts_blacklist;
     
 public slots:
     virtual int sync() = 0;
-    virtual void moveChecked(int) = 0;
-    virtual void cloneChecked(int) = 0;
+    virtual void moveChecked(bool) = 0;
+    virtual void cloneChecked(bool) = 0;
+    virtual void blacklistStwChangeIndex(int) = 0;
+    virtual void showThisPage() = 0;
     void stopSync() { syncing = false; };
-    void cloneStateChanged(int);
-    void moveStateChanged(int);
+    void cloneStateChanged(bool);
+    void moveStateChanged(bool);
+    void propagatedStateChanged(bool);
+    void propagatedClicked(bool);
+    void editBlacklist();
+    void backFromBlacklist() { blacklistStwChangeIndex(0); };
+    void addFileToBlacklist();
+    void removeFileFromBlacklist();
+    void addFolderToBlacklist();
+    void removeFolderFromBlacklist();
+    void addExtToBlacklist();
+    void removeExtFromBlacklist();
+    void setBlacklistWidget();
 };
 
 class SyncPage : public AbstractSyncPage
@@ -96,36 +144,49 @@ signals:
     
 public slots:
     void syncPage();
-    void moveChecked(int);
-    void cloneChecked(int);
-    void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
-    void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
+    void moveChecked(bool);
+    void cloneChecked(bool);
+    //void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
+    //void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
+    void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
     int sync();
+    void subGroupSync(MTStringSet);
+    void syncFoldersChanged();
+    void showThisPage();
+    void updateOnlyStateChanged(bool);
+    void updateOnlyOneFolderStateChanged(bool);
+    void backupFoldersStateChanged(bool);
+    void backupOneFolderStateChanged(bool);
     
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {};
     
 	QTableWidget * tableWidget() { return tw; }
 	bool followSymlinks() { return symlinks->isChecked(); }
-	QString syncFolder1Text() { return sync_folder_1->text(); }
-	QString syncFolder2Text() { return sync_folder_2->text(); }
+	QString syncFolder1Text() { return sync_folders->syncFolder(0)->path(); }
+	QString syncFolder2Text() { return sync_folders->syncFolder(1)->path(); }
+	QString tabNameText() { return tab_name->text(); }
 	void setSyncEnabled(bool);
+	void saveAllFolderDatabases();
+	void deleteAllFolderDatabases();
+	bool isInGroupDatabase(QString);
+	int countSyncFolders() { return sync_folders->count(); };
 	
     QWidget * tab;
     QLabel * icon_label;
-    QLabel * sync_text;
     QLineEdit * tab_name;
-    QLineEdit * sync_folder_1;
-    QLineEdit * sync_folder_2;
     ExtendedLineEdit * log_search;
     QTableWidget * tw;
-    QPushButton * browse_1;
-    QPushButton * browse_2;
     QPushButton * sync_btn;
     QPushButton * stop_sync_btn;
     QPushButton * back;
     QPushButton * resync;
+    QCheckBox * show_sync_folders;
+    QCheckBox * backup_folders;
+    QCheckBox * update_only;
     MTAdvancedGroupBox * advanced;
+    QStackedWidget * tab_stw;
+    SyncFolders * sync_folders;
 };
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
@@ -139,7 +200,11 @@ public:
 	bool followSymlinks() { return symlinks->isChecked(); }
 	QString syncFolder1Text() { return sync_folder_1; }
 	QString syncFolder2Text() { return sync_folder_2; }
+	QString tabNameText() { return tab_name->text(); }
 	void setMultisyncEnabled(bool);
+	void deleteAllFolderDatabases();
+	void saveAllFolderDatabases();
+	int countSyncFolders() { return 2; };
 
 public slots:
 	void setAdvancedGB();
@@ -150,9 +215,11 @@ public slots:
     void saveAsMultisync(QString file_name);
     void loadMultisync();
     void loadMultisync(QString);
-    void moveChecked(int);
-    void cloneChecked(int);
+    void moveChecked(bool);
+    void cloneChecked(bool);
     void destinationTextChanged() { QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
+    void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
+    void showThisPage();
     int sync();
 	
 private:
@@ -220,6 +287,23 @@ private:
     MainWindow * c_parent;
 };
 
+class SyncViewItem : public QWidget, private Ui::SyncViewItem
+{
+	Q_OBJECT
+
+public:
+	SyncViewItem(AbstractSyncPage *);
+	
+	void setName(QString name) { sync_name_lbl->setText(name); };
+	
+public slots:
+    void startSync();
+	
+private:
+    AbstractSyncPage * parent_page;
+	
+};
+
 class MainWindow : public QMainWindow, private Ui::MainWindow
 {
     Q_OBJECT
@@ -230,6 +314,7 @@ public:
     QStringList synchronised;
     QStringList files_blacklist;
     QStringList folders_blacklist;
+    QStringList exts_blacklist;
     bool syncingAll;
     bool skip_close_event;
 	bool runHidden() { return run_hidden; }
@@ -276,6 +361,8 @@ private slots:
     void removeFileFromBlacklist();
     void addFolderToBlacklist();
     void removeFolderFromBlacklist();
+    void addExtToBlacklist();
+    void removeExtFromBlacklist();
     //void delTmpSel();
     
 // Multisync
@@ -321,9 +408,14 @@ private slots:
     void filterChanged();
     void setFiltersEnabled(bool);
     
+//SyncView
+    void refreshSyncs();
+    void refreshMultisyncs();
+    void toSyncView();
+    
 // Other
     void changeLanguage(); void langChanged();
-    void browse(QAbstractButton *);
+    //void browse(QAbstractButton *);
     void checkForUpdates(); void httpRequestFinished(bool);
     void about();
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
@@ -365,6 +457,9 @@ private:
     QMap<QWidget *, SyncPage *> tabs;
     QMap<QTableWidgetItem*, SyncSchedule*> item_sched_map;
     QMap<QString, QString> synkron_i18n;
+    /*QMap<SyncPage *, SyncViewItem *> sv_sync_items_map;
+    QMap<MultisyncPage *, SyncViewItem *> sv_multisync_items_map;*/
+    
     
     QCheckBox * restore_clean_selected;
     QCheckBox * restore_clean_by_date;
