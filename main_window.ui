@@ -1474,7 +1474,7 @@
             <item>
              <widget class="QLabel" name="label_22" >
               <property name="text" >
-               <string>&lt;b>Multisyncs&lt;/b></string>
+               <string>&lt;b>Multisyncs:&lt;/b></string>
               </property>
              </widget>
             </item>

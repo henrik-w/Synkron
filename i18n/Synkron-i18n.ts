@@ -28,5 +28,10 @@
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
+    <message>
+        <location filename="" line="136410828"/>
+        <source>Spanish</source>
+        <translation>Español</translation>
+    </message>
 </context>
 </TS>
