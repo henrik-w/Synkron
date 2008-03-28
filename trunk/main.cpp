@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matúš Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -80,6 +80,7 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Japanese"), "Japanese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Arabic"), "Arabic");
     synkron_i18n.insert(translator.translate("LanguageNames", "Russian"), "Russian");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Spanish"), "Spanish");
     
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));

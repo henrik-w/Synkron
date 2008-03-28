@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matúš Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -334,6 +334,24 @@ void MainWindow::sync(QWidget* syncTab)
 int SyncPage::sync()
 {
     if (syncing) return 0;
+    MTStringSet sync_folders_set;
+    for (int i = 0; i < sync_folders->count(); ++i) {
+        QDir sync_dir (sync_folders->at(i)->path());
+        if (sync_dir.exists()) {
+            sync_folders_set << sync_dir.path();
+        } else {
+            if (!QDir().mkpath(sync_dir.path())) {
+                addTableItem(tr("%1	Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(sync_dir.path()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+            } else {
+                addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(sync_dir.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                sync_folders_set << sync_dir.path();
+            }
+        }
+    }
+    if (sync_folders_set.count() < 2) {
+        addTableItem(tr("%1	Synchronisation failed: Not enough valid directories specified").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
+        return 0;
+    }
     synced_files = 0;
     setSyncEnabled(false);
     exts_bl_map.clear();
@@ -356,9 +374,9 @@ int SyncPage::sync()
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
     if (propagate_deletions->isChecked()) {
         folder_prop_list_map.clear();
-        for (int i = 0; i < sync_folders->count(); ++i) {
+        for (int i = 0; i < sync_folders_set.count(); ++i) {
             QStringList prop_files_list;
-            QFile file(QString("%1/%2").arg(sync_folders->at(i)->path()).arg(".synkron.syncdb"));
+            QFile file(QString("%1/%2").arg(sync_folders_set.at(i)).arg(".synkron.syncdb"));
             if (!file.exists()) continue;
             if (!file.open(QFile::ReadOnly | QFile::Text)) {
 		        //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
@@ -367,23 +385,23 @@ int SyncPage::sync()
             QTextStream in(&file);
             in.setCodec("UTF-8");
             while (!in.atEnd()) { prop_files_list << in.readLine(); }
-            folder_prop_list_map.insert(sync_folders->at(i)->path(), prop_files_list);
+            folder_prop_list_map.insert(sync_folders_set.at(i), prop_files_list);
         }
     }
     
     update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
     
-    if (sync_folders->count() == 2) {
-        QString directory1 = syncFolder1Text();
-        QString directory2 = syncFolder2Text();
+    if (sync_folders_set.count() == 2) {
+        /*QString directory1 = sync_folders_set.at(0);
+        QString directory2 = sync_folders_set.at(1);
         if ((directory1.isEmpty()) || (directory2.isEmpty()))
         {
             addTableItem(tr("%1	Synchronisation failed: Choose the synchronization folders first").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
             return 0;
-        }
+        }*/
         
-        QDir d1 (directory1); QDir d2 (directory2);
-        if (!d1.exists()) {
+        QDir d1 (sync_folders_set.at(0)); QDir d2 (sync_folders_set.at(1));
+        /*if (!d1.exists()) {
             if (!QDir().mkpath(d1.path())) {
                 addTableItem(tr("%1	Synchronisation failed: Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d1.path()), "", "", QBrush(Qt::red), QBrush(Qt::white));
                 setSyncEnabled(true);
@@ -399,7 +417,7 @@ int SyncPage::sync()
             } else {
                 addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(d2.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
             }
-        }
+        }*/
         if (d1.path() == d2.path()) {
             addTableItem(tr("%1	Synchronisation failed: Directories with the same path selected").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
             //QMessageBox::warning(mp_parent, tr("Synkron - %1").arg(mp_parent->tabWidget->tabText(mp_parent->tabWidget->indexOf(tab))), tr("Directories with the same path selected."));
@@ -411,13 +429,13 @@ int SyncPage::sync()
         else subSync(d1, d2, false);
         countExtsBl();
         if (propagate_deletions->isChecked()) {
-            saveFolderDatabase(syncFolder1Text());
-            saveFolderDatabase(syncFolder2Text());
+            saveFolderDatabase(sync_folders_set.at(0));
+            saveFolderDatabase(sync_folders_set.at(1));
         }
         
         QApplication::restoreOverrideCursor();
-    } else if (sync_folders->count() > 2) {
-        MTStringSet sync_folders_set;
+    } else if (sync_folders_set.count() > 2) {
+        /*MTStringSet sync_folders_set;
         for (int i = 0; i < sync_folders->count(); ++i) {
             QDir sync_dir (sync_folders->at(i)->path());
             if (sync_dir.exists()) {
@@ -432,7 +450,7 @@ int SyncPage::sync()
             }
         }
         
-        if (sync_folders_set.count() > 1) {
+        if (sync_folders_set.count() > 1) {*/
             QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
             
             subGroupSync(sync_folders_set);
@@ -440,14 +458,14 @@ int SyncPage::sync()
             if (propagate_deletions->isChecked()) saveAllFolderDatabases();
             
             QApplication::restoreOverrideCursor();
-        } else {
+        /*} else {
             addTableItem(tr("%1	Synchronisation failed: Not enough valid directories specified").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
-        }
-    } else {
+        }*/
+    }/* else {
         addTableItem(tr("%1	Synchronisation failed: Not enough valid directories specified").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white));
         setSyncEnabled(true);
         return 0;
-    }
+    }*/
     
     extensions.clear();
 	setSyncEnabled(true);
@@ -1191,6 +1209,7 @@ void SyncPage::setSyncEnabled(bool enable)
 	syncing = !enable;
     stop_sync_btn->setVisible(!enable);
     sync_btn->setVisible(enable);
+    qApp->processEvents();
 }
 
 void AbstractSyncPage::moveStateChanged(bool checked)
