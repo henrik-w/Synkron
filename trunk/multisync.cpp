@@ -185,6 +185,7 @@ MultisyncPage * MainWindow::addMultiTab()
     multi_page->tw_multi->setShowGrid(false);
     multi_page->tw_multi->setStatusTip(tr("List of synchronised files and folders"));
     multi_page->tw_multi->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    multi_page->tw_multi->setLayoutDirection(Qt::LeftToRight);
 	
 	connect(multi_page->add_multi, SIGNAL(released()), this, SLOT(addMultisync()));
 	connect(multi_page->remove_multi, SIGNAL(released()), this, SLOT(removeMultisync()));
