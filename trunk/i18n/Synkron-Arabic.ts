@@ -1563,7 +1563,7 @@
     <message>
         <location filename="../sync.cpp" line="121"/>
         <source>Propagate deletions</source>
-        <translation>حذف إمكانية التراجع</translation>
+        <translation>حذف المجلدات المختلفة من كلا الوجهتين</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="181"/>
