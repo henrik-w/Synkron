@@ -470,6 +470,7 @@ void MultisyncPage::setMultisyncEnabled(bool enable)
 	syncing = !enable;
 	stop_sync_btn->setVisible(!enable);
     sync_multi->setVisible(enable);
+    mp_parent->actionClose_sync->setEnabled(enable);
     qApp->processEvents();
 }
 

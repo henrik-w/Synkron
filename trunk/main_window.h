@@ -476,9 +476,6 @@ private:
     QMap<QWidget *, SyncPage *> tabs;
     QMap<QTableWidgetItem*, SyncSchedule*> item_sched_map;
     QMap<QString, QString> synkron_i18n;
-    /*QMap<SyncPage *, SyncViewItem *> sv_sync_items_map;
-    QMap<MultisyncPage *, SyncViewItem *> sv_multisync_items_map;*/
-    
     
     QCheckBox * restore_clean_selected;
     QCheckBox * restore_clean_by_date;
@@ -505,6 +502,7 @@ private:
 	friend class SyncSchedule;
 	friend class SyncPage;
 	friend class MultisyncPage;
+	friend class SyncViewItem;
 	friend class ClientConnection;
 protected:
     void showEvent(QShowEvent *);
