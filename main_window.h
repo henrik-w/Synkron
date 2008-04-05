@@ -62,6 +62,10 @@
 #include <Carbon/Carbon.h>
 #endif
 
+inline void release(QFileInfo *& f) { if (f) { delete f; f = NULL; } }
+inline void release(QFile *& f) { if (f) { delete f; f = NULL; } }
+inline void release(QObject *& o) { if (o) { delete o; o = NULL; } }
+
 class MainWindow;
 
 class AbstractSyncPage : public QWidget
