@@ -981,7 +981,8 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set)
                 if (!ignore_blacklist->isChecked()) {
                     if (folders_blacklist.contains(file_info2->absoluteFilePath(), Qt::CaseInsensitive)) {
 			    	    addTableItem(tr("Folder %1 blacklisted, skipped").arg(file_info2->absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-			    	    continue;
+			    	    release(file_info);
+                        break;
                     }
                 }
             } else {
@@ -993,7 +994,8 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set)
                 if (!ignore_blacklist->isChecked()) {
                     if (files_blacklist.contains(file_info2->absoluteFilePath(), Qt::CaseInsensitive)) {
                         addTableItem(tr("File %1 blacklisted, skipped").arg(file_info2->absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-                        continue;
+                        release(file_info);
+                        break;
                     }
                     /*bool found_ext = false;
                     for (int e = 0; e < exts_blacklist.count(); ++e) {
