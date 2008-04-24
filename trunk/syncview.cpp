@@ -82,8 +82,8 @@ void SyncViewItem::startSync()
     stop_btn->setEnabled(true);
     
     int synced_files = parent_page->sync();
-    sync_name_lbl->setText(QString("%1<span style=\"color: rgb(128, 128, 128)\"> - %2 %3</span>")
-            .arg(parent_page->tabNameText()).arg(synced_files).arg(tr("file(s) synchronised")));
+    sync_info_lbl->setText(QString("<span style=\"color: rgb(128, 128, 128)\">&nbsp;%1 %2</span>")
+                .arg(synced_files).arg(tr("file(s) synchronised")));
     
     start_btn->setEnabled(true);
     stop_btn->setEnabled(false);

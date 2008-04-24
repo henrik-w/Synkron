@@ -1157,11 +1157,7 @@ void AbstractSyncPage::addTableItem(QString source, QString destination, QString
 	if (destination=="") {
 		item->setBackground(background);
 		item->setForeground(foreground);
-        if (tr("LTR") == "RTL") {
-            tableWidget()->setSpan(tableWidget()->rowCount() - 1, 1, 1, -2);
-        } else {
-            tableWidget()->setSpan(tableWidget()->rowCount() - 1, 0, 1, 2);
-        }
+        tableWidget()->setSpan(tableWidget()->rowCount() - 1, 0, 1, 2);
 	}
 	tableWidget()->setItem(tableWidget()->rowCount() - 1, 0, item);
 	if (destination!="") {

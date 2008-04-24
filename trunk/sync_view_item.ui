@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>100</width>
-    <height>30</height>
+    <width>622</width>
+    <height>91</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -34,6 +34,9 @@
       <string>Sync name</string>
      </property>
     </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="sync_info_lbl" />
    </item>
    <item>
     <spacer>
