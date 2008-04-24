@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -1220,7 +1221,7 @@
     <message>
         <location filename="../main_window.ui" line="1177"/>
         <source>Synchronise periodically</source>
-        <translation>Synchonisiere regelmäßig</translation>
+        <translation>Synchronisiere regelmäßig</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="92"/>
@@ -1255,12 +1256,12 @@
     <message>
         <location filename="../sync.cpp" line="116"/>
         <source>Synchronise hidden files and folders</source>
-        <translation>Synchonisiere die versteckten Dateien und Verzeichnisse</translation>
+        <translation>Synchronisiere die versteckten Dateien und Verzeichnisse</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="130"/>
         <source>Do not synchronise subdirectories</source>
-        <translation>Keine Unterverzeichnisse synchonisieren</translation>
+        <translation>Keine Unterverzeichnisse synchronisieren</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="137"/>
@@ -1300,7 +1301,7 @@
     <message>
         <location filename="../sync.cpp" line="1148"/>
         <source>Synchronisation complete</source>
-        <translation>Synchonisation vollständig abgeschlossen</translation>
+        <translation>Synchronisation vollständig abgeschlossen</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1148"/>
@@ -1462,7 +1463,7 @@
     <message>
         <location filename="../main.cpp" line="1090"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation>Bist Du sicher, den Pfad &quot;%1&quot; aus jeder Synchonisierung entfernen zu wollen?</translation>
+        <translation>Bist Du sicher, den Pfad &quot;%1&quot; aus jeder Synchronisierung entfernen zu wollen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1100"/>
@@ -1758,7 +1759,7 @@
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Synchronise hidden files and folders</source>
-        <translation>Synchonisiere die versteckten Dateien und Verzeichnisse</translation>
+        <translation>Synchronisiere die versteckten Dateien und Verzeichnisse</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="53"/>
@@ -1843,7 +1844,7 @@
     <message>
         <location filename="../multisync.cpp" line="362"/>
         <source>Synchronisation complete</source>
-        <translation>Synchonisation abgeschlossen</translation>
+        <translation>Synchronisation abgeschlossen</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="362"/>
@@ -1998,7 +1999,7 @@
     <message>
         <location filename="../sync.cpp" line="426"/>
         <source>Synchronisation complete</source>
-        <translation>Synchonisation abgeschlossen</translation>
+        <translation>Synchronisation abgeschlossen</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="426"/>
@@ -2023,7 +2024,7 @@
     <message>
         <location filename="../sync.cpp" line="1261"/>
         <source>Synchronise</source>
-        <translation>Synchonisiere</translation>
+        <translation>Synchronisiere</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="381"/>
@@ -2154,7 +2155,7 @@
     <message>
         <location filename="../syncview.cpp" line="86"/>
         <source>file(s) synchronised</source>
-        <translation>Datei(n) synchronisiert</translation>
+        <translation>Datei(en) synchronisiert</translation>
     </message>
     <message>
         <location filename="../sync_view_item.ui" line="54"/>
