@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
-<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -79,7 +78,7 @@
     <message>
         <location filename="../main.cpp" line="1333"/>
         <source>Synkron is a simple Qt application designed for easy folder synchronisation.</source>
-        <translation>Synkron ist ein Programm zur benutzerfreundlichen Synchonisation von Dateien und Verzeichnissen.</translation>
+        <translation>Synkron ist ein Programm zur benutzerfreundlichen Synchronisation von Dateien und Verzeichnissen.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1336"/>
@@ -152,17 +151,17 @@
     <message>
         <location filename="../sync.cpp" line="777"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
-        <translation>Eine Datei oder ein Verzeichnis und ein Symbol-Hinweis mit dem gleichen Namen wurde gefunden. Diese Elemente können daher nicht synchonisiert werden. (%1, %2)</translation>
+        <translation>Eine Datei oder ein Verzeichnis und ein Symbol-Hinweis mit dem gleichen Namen wurde gefunden. Diese Elemente können daher nicht synchronisiert werden. (%1, %2)</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="796"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
-        <translation>Ein Verzeichnis (%1) und/oder eine Datei (%2) mit dem selben Namen wurde gefunden. Diese Elemente können nicht synchonisiert werden.</translation>
+        <translation>Ein Verzeichnis (%1) und/oder eine Datei (%2) mit dem selben Namen wurde gefunden. Diese Elemente können nicht synchronisiert werden.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="800"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
-        <translation>Eine Datei (%1) und/oder ein Verzeichnis (%2) mit dem selben Namen wurde gefunden. Diese Elemente kann nicht synchonisiert werden.</translation>
+        <translation>Eine Datei (%1) und/oder ein Verzeichnis (%2) mit dem selben Namen wurde gefunden. Diese Elemente kann nicht synchronisiert werden.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="909"/>
@@ -701,7 +700,7 @@
     <message>
         <location filename="../main_window.ui" line="257"/>
         <source>Do not synchronise this file again (add to blacklist)</source>
-        <translation>Synchonisiere diese Datei nicht noch einmal (zur Blacklist hinzufügen)</translation>
+        <translation>Synchronisiere diese Datei nicht noch einmal (zur Blacklist hinzufügen)</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="264"/>
@@ -1006,12 +1005,12 @@
     <message>
         <location filename="../sync.cpp" line="95"/>
         <source>Synchronise</source>
-        <translation>Synchonisiere</translation>
+        <translation>Synchronisiere</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1669"/>
         <source>Go to Synchronise</source>
-        <translation>Gehe zu Synchonisieren</translation>
+        <translation>Gehe zu Synchronisieren</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1683"/>
@@ -1041,7 +1040,7 @@
     <message>
         <location filename="../main_window.ui" line="1719"/>
         <source>Sync all</source>
-        <translation>Synchonisiere alle</translation>
+        <translation>Synchronisiere alle</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1727"/>
@@ -1106,7 +1105,7 @@
     <message>
         <location filename="../sync.cpp" line="85"/>
         <source>List of synchronised files and folders</source>
-        <translation>Liste synchonisierte Dateien und Verzeichnisse auf</translation>
+        <translation>Liste synchronisierte Dateien und Verzeichnisse auf</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="230"/>
@@ -1839,7 +1838,7 @@
     <message>
         <location filename="../multisync.cpp" line="362"/>
         <source>synchronised</source>
-        <translation>synchonisiert</translation>
+        <translation>synchronisiert</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="362"/>
@@ -1994,7 +1993,7 @@
     <message>
         <location filename="../sync.cpp" line="426"/>
         <source>synchronised</source>
-        <translation>synchonisiert</translation>
+        <translation>synchronisiert</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="426"/>
@@ -2074,7 +2073,7 @@
     <message>
         <location filename="../sync.cpp" line="990"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
-        <translation>Eine Datei und/oder ein Verzeichnis mit dem selben Namen (%1) wurden gefunden. Diese Elemente können nicht synchonisiert werden.</translation>
+        <translation>Eine Datei und/oder ein Verzeichnis mit dem selben Namen (%1) wurden gefunden. Diese Elemente können nicht synchronisiert werden.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="983"/>
@@ -2155,7 +2154,7 @@
     <message>
         <location filename="../syncview.cpp" line="86"/>
         <source>file(s) synchronised</source>
-        <translation>Datei(n) synkronisiert</translation>
+        <translation>Datei(n) synchronisiert</translation>
     </message>
     <message>
         <location filename="../sync_view_item.ui" line="54"/>
