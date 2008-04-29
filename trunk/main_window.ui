@@ -210,9 +210,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0" >
-           <widget class="MTAdvancedGroupBox" native="1" name="restore_clean_gb" />
-          </item>
          </layout>
         </item>
         <item row="1" column="1" >
@@ -235,7 +232,7 @@
           <property name="verticalSpacing" >
            <number>6</number>
           </property>
-          <item row="4" column="0" >
+          <item row="5" column="0" >
            <widget class="QLineEdit" name="path_of_syncfile" >
             <property name="acceptDrops" >
              <bool>false</bool>
@@ -248,7 +245,7 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0" >
+          <item row="6" column="0" >
            <widget class="QCheckBox" name="to_black_list" >
             <property name="statusTip" >
              <string>Add file to blacklist</string>
@@ -258,28 +255,28 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" >
+          <item row="2" column="0" >
            <widget class="QLabel" name="label_3" >
             <property name="text" >
              <string>Date and time of synchronisation:</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0" >
+          <item row="4" column="0" >
            <widget class="QLabel" name="label_4" >
             <property name="text" >
              <string>Original file path:</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0" >
+          <item row="1" column="0" >
            <widget class="QLabel" name="label_2" >
             <property name="text" >
              <string>&lt;b>About the selected item:&lt;/b></string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0" >
+          <item row="3" column="0" >
            <widget class="QDateTimeEdit" name="date_of_sync" >
             <property name="statusTip" >
              <string>Date and time of synchronisation</string>
@@ -292,7 +289,7 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="0" >
+          <item row="7" column="0" >
            <spacer>
             <property name="orientation" >
              <enum>Qt::Vertical</enum>
@@ -305,7 +302,7 @@
             </property>
            </spacer>
           </item>
-          <item row="7" column="0" >
+          <item row="10" column="0" >
            <layout class="QGridLayout" >
             <property name="leftMargin" >
              <number>0</number>
@@ -352,6 +349,12 @@
              </spacer>
             </item>
            </layout>
+          </item>
+          <item row="9" column="0" >
+           <widget class="MTAdvancedGroupBox" native="1" name="restore_clean_gb" />
+          </item>
+          <item row="8" column="0" >
+           <widget class="MTAdvancedGroupBox" native="1" name="restore_select_gb" />
           </item>
          </layout>
         </item>
@@ -1518,7 +1521,7 @@
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile" >
@@ -1820,7 +1823,7 @@
   <customwidget>
    <class>MTAdvancedGroupBox</class>
    <extends>QWidget</extends>
-   <header location="global" >mtadvancedgroupbox.h</header>
+   <header>mtadvancedgroupbox.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

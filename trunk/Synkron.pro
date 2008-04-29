@@ -1,6 +1,7 @@
 TEMPLATE = app
 QT += network xml
 HEADERS += main_window.h \
+    syncpage.h \
     mtfile.h \
     mtadvancedgroupbox.h \
     extendedlineedit.h \
@@ -20,7 +21,8 @@ SOURCES += main.cpp \
     filters.cpp \
     mtfile.cpp \
     syncfolders.cpp \
-    syncview.cpp
+    syncview.cpp \
+    analyse.cpp
 RESOURCES += resources.qrc \
     i18n.qrc
 win32:RC_FILE = Synkron.rc

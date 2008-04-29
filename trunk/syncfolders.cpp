@@ -29,19 +29,30 @@ SyncFolders::SyncFolders(QWidget * parent):
     connect(this, SIGNAL(sigfolderschanged()), this, SLOT(foldersChanged()));
     
     QVBoxLayout * main_vlayout = new QVBoxLayout(this);
-    main_vlayout->setMargin(0); main_vlayout->setSpacing(6);
+    main_vlayout->setMargin(0);
+#ifdef Q_WS_MAC
+    main_vlayout->setSpacing(3);
+#else
+    main_vlayout->setSpacing(6);
+#endif
     /*QLabel * label1 = new QLabel(this);
     label1->setText(tr("<b>Sync folders:</b>"));
     main_vlayout->addWidget(label1);*/
     
     folders_vlayout = new QVBoxLayout(this);
-    folders_vlayout->setMargin(0); folders_vlayout->setSpacing(6);
+    folders_vlayout->setMargin(0);
+#ifdef Q_WS_MAC
+    folders_vlayout->setSpacing(0);
+#else
+    folders_vlayout->setSpacing(6);
+#endif
     addFolder();
     addFolder();
     main_vlayout->addLayout(folders_vlayout);
     
     add_folder_btn = new QToolButton (this);
     add_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/add.png")));
+    add_folder_btn->setStatusTip(tr("Add"));
     connect(add_folder_btn, SIGNAL(released()), this, SLOT(addFolder()));
     main_vlayout->addWidget(add_folder_btn);
 }
@@ -115,15 +126,18 @@ SyncFolder::SyncFolder(QWidget * parent):
     
     remove_folder_btn = new QToolButton (this);
     remove_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/remove.png")));
+    remove_folder_btn->setStatusTip(tr("Remove"));
     connect(remove_folder_btn, SIGNAL(released()), this, SLOT(removeFolder()));
     hlayout->addWidget(remove_folder_btn);
     
     folder_name_lne = new QLineEdit (this);
+    folder_name_lne->setStatusTip(tr("Path"));
     connect(folder_name_lne, SIGNAL(editingFinished()), this, SLOT(lneEdited()));
     hlayout->addWidget(folder_name_lne);
     
     browse_btn = new QPushButton (this);
     browse_btn->setText(tr("Browse"));
+    browse_btn->setStatusTip(tr("Browse"));
     browse_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/folder_16.png")));
     connect(browse_btn, SIGNAL(released()), this, SLOT(browse()));
     hlayout->addWidget(browse_btn);
