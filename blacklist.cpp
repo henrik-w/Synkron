@@ -198,7 +198,12 @@ void MainWindow::removeExtFromBlacklist()
 void AbstractSyncPage::addFileToBlacklist()
 {
     QString file = QFileDialog::getOpenFileName(this, tr("Choose a file"), QDir::homePath());
-	if (file.isEmpty()) { return; }
+	addFileToBlacklist(file);
+}
+
+void AbstractSyncPage::addFileToBlacklist(QString file)
+{
+    if (file.isEmpty()) { return; }
     files_blacklist << file;
     QListWidgetItem *item = new QListWidgetItem;
     item->setText(file);
@@ -225,6 +230,13 @@ void AbstractSyncPage::removeFileFromBlacklist()
  	}
 }
 
+void AbstractSyncPage::removeFileFromBlacklist(QString file_name)
+{
+    if (files_blacklist.contains(file_name)) {
+        files_blacklist.removeAt(files_blacklist.indexOf(file_name));
+    }
+}
+
 void AbstractSyncPage::addFolderToBlacklist()
 {
     QString folder = QFileDialog::getExistingDirectory(
@@ -232,6 +244,11 @@ void AbstractSyncPage::addFolderToBlacklist()
                     "Choose a directory",
                     QDir::homePath(),
                     QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+	addFolderToBlacklist(folder);
+}
+
+void AbstractSyncPage::addFolderToBlacklist(QString folder)
+{
 	if (folder.isEmpty()) { return; }
 	QDir dir(folder); folder = dir.path();
     folders_blacklist << folder;
@@ -260,13 +277,27 @@ void AbstractSyncPage::removeFolderFromBlacklist()
  	}
 }
 
+void AbstractSyncPage::removeFolderFromBlacklist(QString folder_name)
+{
+    if (folders_blacklist.contains(folder_name)) {
+        folders_blacklist.removeAt(folders_blacklist.indexOf(folder_name));
+    }
+}
+
 void AbstractSyncPage::addExtToBlacklist()
 {
     bool ok;
     QString text = QInputDialog::getText(this, tr("Set extension"),
                                         tr("Extension name:"), QLineEdit::Normal,
                                         ".ext", &ok);
-    if (ok && !text.isEmpty()) {
+    if (ok) {
+		addExtToBlacklist(text);
+	}
+}
+
+void AbstractSyncPage::addExtToBlacklist(QString text)
+{
+    if (!text.isEmpty()) {
 		text.remove(" ");
 		QStringList exts = text.split(",");
 		for (int i = 0; i < exts.count(); ++i) {
@@ -295,6 +326,18 @@ void AbstractSyncPage::removeExtFromBlacklist()
 	default:
    		break;
  	}
+}
+
+void AbstractSyncPage::removeExtFromBlacklist(QString ext)
+{
+    if (exts_blacklist.contains(ext)) {
+        exts_blacklist.removeAt(exts_blacklist.indexOf(ext));
+    }
+    for (int i = 0; i < blacklist_extslist->count(); ++i) {
+        if (blacklist_extslist->item(i)->text() == ext) {
+            delete blacklist_extslist->item(i);
+        }
+    }
 }
 
 void AbstractSyncPage::editBlacklist()

@@ -25,9 +25,16 @@ SyncPage * MainWindow::addSyncTab()
     page->tab_stw = new QStackedWidget(tabWidget);
     page->tab = new QWidget ();
     page->blacklist = new QWidget ();
+    //page->analyse_widget = new QWidget ();
+    
     page->tab_stw->addWidget(page->tab);
     page->tab_stw->addWidget(page->blacklist);
+    //page->tab_stw->addWidget(page->analyse_widget);
+    
+    page->setSyncWidget();
     page->setBlacklistWidget();
+    //page->setAnalyseWidget();
+    
     QString title;
     int n = 1; gen_title:
     title = tr("Sync #%1").arg(n); bool ok = true;
@@ -36,218 +43,239 @@ SyncPage * MainWindow::addSyncTab()
     }
     if (!ok) { n++; goto gen_title; }
     tabWidget->addTab(page->tab_stw, QIcon(QString::fromUtf8(":/new/prefix1/images/Synkron128.png")), title);
-    QGridLayout * mainglayout = new QGridLayout (page->tab);
+    
+    tabs.insert(page->tab_stw, page);
+	tabWidget->setCurrentIndex(tabWidget->indexOf(page->tab_stw));
+
+    return page;
+}
+
+void SyncPage::setSyncWidget()
+{
+    QGridLayout * mainglayout = new QGridLayout (tab);
     mainglayout->setMargin(4); mainglayout->setSpacing(6);
-    QGridLayout * hlayout0 = new QGridLayout (page->tab);
-    spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    hlayout0->addItem(spacerItem, 0, 0);
-    page->tab_name = new QLineEdit (page->tab);
-    page->tab_name->setStatusTip(tr("Set sync name"));
-    page->tab_name->setText(tabWidget->tabText(tabWidget->indexOf(page->tab_stw)));
-    QObject::connect(page->tab_name, SIGNAL(editingFinished()), this, SLOT(tabNameChanged()));
-    hlayout0->addWidget(page->tab_name, 0, 1);
+    QGridLayout * hlayout0 = new QGridLayout (tab);
+    QSpacerItem * spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    hlayout0->addItem(mp_parent->spacerItem, 0, 0);
+    tab_name = new QLineEdit (tab);
+    tab_name->setStatusTip(tr("Set sync name"));
+    tab_name->setText(mp_parent->tabWidget->tabText(mp_parent->tabWidget->indexOf(tab_stw)));
+    QObject::connect(tab_name, SIGNAL(editingFinished()), this, SLOT(tabNameChanged()));
+    hlayout0->addWidget(tab_name, 0, 1);
     spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     hlayout0->addItem(spacerItem, 0, 2);
     mainglayout->addLayout(hlayout0, 0, 0);
-    QHBoxLayout * folders_hlayout = new QHBoxLayout (page->tab);
-    page->show_sync_folders = new QCheckBox (page->tab);
-    page->show_sync_folders->setStatusTip(tr("Show/hide sync folders"));
-    page->show_sync_folders->setChecked(true);
-    folders_hlayout->addWidget(page->show_sync_folders);
-    QLabel * sync_text = new QLabel (page->tab);
+    QHBoxLayout * folders_hlayout = new QHBoxLayout (tab);
+    show_sync_folders = new QCheckBox (tab);
+    show_sync_folders->setStatusTip(tr("Show/hide sync folders"));
+    show_sync_folders->setChecked(true);
+    folders_hlayout->addWidget(show_sync_folders);
+    QLabel * sync_text = new QLabel (tab);
     sync_text->setText(tr("<b>Sync folders:</b>"));
     folders_hlayout->addWidget(sync_text);
     folders_hlayout->addStretch();
     mainglayout->addLayout(folders_hlayout, 1, 0); // ###################################
     
-    page->sync_folders = new SyncFolders (this);
-    connect(page->sync_folders, SIGNAL(sigfolderschanged()), page, SLOT(syncFoldersChanged()));
-    connect(page->show_sync_folders, SIGNAL(clicked(bool)), page->sync_folders, SLOT(setVisible(bool)));
-    mainglayout->addWidget(page->sync_folders, 2, 0);
+    sync_folders = new SyncFolders (this);
+    connect(sync_folders, SIGNAL(sigfolderschanged()), this, SLOT(syncFoldersChanged()));
+    connect(show_sync_folders, SIGNAL(clicked(bool)), sync_folders, SLOT(setVisible(bool)));
+    mainglayout->addWidget(sync_folders, 2, 0);
     
-    QGridLayout * hlayout3 = new QGridLayout (page->tab);
-	QLabel * sync_text_2 = new QLabel (page->tab);
-    sync_text_2->setText(tr("<b>Sync log:</b>"));
-    hlayout3->addWidget(sync_text_2, 0, 0);
+    QGridLayout * hlayout3 = new QGridLayout (tab);
+	sync_log_label = new QLabel (tab);
+    sync_log_label->setText(tr("<b>Sync log:</b>"));
+    hlayout3->addWidget(sync_log_label, 0, 0);
     spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     hlayout3->addItem(spacerItem, 0, 1);
-    page->log_search = new ExtendedLineEdit(page->tab);
-    page->log_search->setStatusTip(tr("Search sync log"));
-    page->log_search->setText(tr("Search"));
-    QObject::connect(page->log_search, SIGNAL(textEdited(const QString &)), this, SLOT(searchTw(const QString)));
-    hlayout3->addWidget(page->log_search, 0, 3);
+    log_search = new ExtendedLineEdit(tab);
+    log_search->setStatusTip(tr("Search sync log"));
+    log_search->setText(tr("Search"));
+    QObject::connect(log_search, SIGNAL(textEdited(const QString &)), mp_parent, SLOT(searchTw(const QString)));
+    QObject::connect(log_search, SIGNAL(returnPressed()), this, SLOT(searchAnalyseTree()));
+    hlayout3->addWidget(log_search, 0, 3);
     mainglayout->addLayout(hlayout3, 4, 0);// #################################
-    page->tw = new QTableWidget (0, 2, page->tab);
-    page->tw->setHorizontalHeaderLabels(QStringList() << tr("Source") << tr("Destination"));
-    page->tw->verticalHeader()->hide();
-    page->tw->setMinimumSize(0, 50);
-    page->tw->setShowGrid(false);
-    page->tw->setStatusTip(tr("List of synchronised files and folders"));
-    page->tw->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
-    page->tw->setLayoutDirection(Qt::LeftToRight);
-    mainglayout->addWidget(page->tw, 5, 0); // ###################################
+    tw = new QTableWidget (0, 2, tab);
+    tw->setHorizontalHeaderLabels(QStringList() << tr("Source") << tr("Destination"));
+    tw->verticalHeader()->hide();
+    tw->setMinimumSize(0, 50);
+    tw->setShowGrid(false);
+    tw->setStatusTip(tr("List of synchronised files and folders"));
+    tw->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    tw->setLayoutDirection(Qt::LeftToRight);
     
-    QHBoxLayout * hlayout4 = new QHBoxLayout (page->tab);
-    QCheckBox * chb_advanced = new QCheckBox(page->tab);
+    analyse_tree = new QTreeWidget (this);
+    connect(analyse_tree, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemClicked(QTreeWidgetItem *, int)));
+    connect(analyse_tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemDoubleClicked(QTreeWidgetItem *, int)));
+    
+    logs_stw = new QStackedWidget (tab);
+    logs_stw->addWidget(tw);
+    logs_stw->addWidget(analyse_tree);
+    
+    mainglayout->addWidget(logs_stw, 5, 0); // ###################################
+    
+    QHBoxLayout * hlayout4 = new QHBoxLayout (tab);
+    QCheckBox * chb_advanced = new QCheckBox(tab);
     hlayout4->addWidget(chb_advanced);
     hlayout4->addStretch(); // ###################################
-    page->sync_btn = new QPushButton (tr("Sync"), page->tab);
-    page->sync_btn->setStatusTip(tr("Synchronise"));
-    page->sync_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sync22.png")));
-    QObject::connect(page->sync_btn, SIGNAL(released()), page, SLOT(sync()));
-    QObject::connect(page, SIGNAL(sigsync(QWidget *)), page, SLOT(sync()));
-    hlayout4->addWidget(page->sync_btn);
-    page->stop_sync_btn = new QPushButton (tr("Stop sync"), page->tab);
-    page->stop_sync_btn->setStatusTip(tr("Stop synchronisation"));
-    page->stop_sync_btn->setVisible(false);
-    hlayout4->addWidget(page->stop_sync_btn);
-    QObject::connect(page->stop_sync_btn, SIGNAL(released()), page, SLOT(stopSync()));
+    
+    go_to_analyse = new QPushButton (tr("Analyse"), tab);
+    go_to_analyse->setStatusTip(tr("Analyse"));
+    connect(go_to_analyse, SIGNAL(released()), this, SLOT(goToAnalyse()));
+    hlayout4->addWidget(go_to_analyse);
+    
+    sync_btn = new QPushButton (tr("Sync"), tab);
+    sync_btn->setStatusTip(tr("Synchronise"));
+    sync_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sync22.png")));
+    QObject::connect(sync_btn, SIGNAL(released()), this, SLOT(sync()));
+    QObject::connect(this, SIGNAL(sigsync(QWidget *)), this, SLOT(sync()));
+    hlayout4->addWidget(sync_btn);
+    
+    stop_sync_btn = new QPushButton (tr("Stop sync"), tab);
+    stop_sync_btn->setStatusTip(tr("Stop synchronisation"));
+    stop_sync_btn->setVisible(false);
+    hlayout4->addWidget(stop_sync_btn);
+    QObject::connect(stop_sync_btn, SIGNAL(released()), this, SLOT(stopSync()));
     mainglayout->addLayout(hlayout4, 6, 0); // ##################################
     
     //Advanced -----------------------------------------------------------------
-    page->advanced = new MTAdvancedGroupBox(chb_advanced, page->tab);
-    page->advanced->setStatusTip(tr("Show advanced options"));
-    QVBoxLayout * column1_layout  = new QVBoxLayout (page->advanced);
-    QVBoxLayout * column2_layout  = new QVBoxLayout (page->advanced);
+    advanced = new MTAdvancedGroupBox(chb_advanced, tab);
+    advanced->setStatusTip(tr("Show advanced options"));
+    QVBoxLayout * column1_layout  = new QVBoxLayout (advanced);
+    QVBoxLayout * column2_layout  = new QVBoxLayout (advanced);
     
-	page->sync_hidden = new QCheckBox (page->advanced);
-    page->sync_hidden->setChecked(false);
-    page->sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
-    page->sync_hidden->setText(tr("Synchronise hidden files and folders"));
-	column1_layout->addWidget(page->sync_hidden);
+	sync_hidden = new QCheckBox (advanced);
+    sync_hidden->setChecked(false);
+    sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
+    sync_hidden->setText(tr("Synchronise hidden files and folders"));
+	column1_layout->addWidget(sync_hidden);
 	
-    page->propagate_deletions = new QCheckBox (page->advanced);
-    page->propagate_deletions->setChecked(false);
-    page->propagate_deletions->setStatusTip(tr("Propagate deletions"));
-    page->propagate_deletions->setText(tr("Propagate deletions"));
-    connect(page->propagate_deletions, SIGNAL(clicked(bool)), page, SLOT(propagatedStateChanged(bool)));
-    connect(page->propagate_deletions, SIGNAL(clicked(bool)), page, SLOT(propagatedClicked(bool)));
-	column2_layout->addWidget(page->propagate_deletions);
+    propagate_deletions = new QCheckBox (advanced);
+    propagate_deletions->setChecked(false);
+    propagate_deletions->setStatusTip(tr("Propagate deletions"));
+    propagate_deletions->setText(tr("Propagate deletions"));
+    connect(propagate_deletions, SIGNAL(clicked(bool)), this, SLOT(propagatedStateChanged(bool)));
+    connect(propagate_deletions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
+	column2_layout->addWidget(propagate_deletions);
     
-	page->sync_nosubdirs = new QCheckBox (page->advanced);
-    page->sync_nosubdirs->setChecked(false);
-    page->sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
-    page->sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
-	column1_layout->addWidget(page->sync_nosubdirs);
+	sync_nosubdirs = new QCheckBox (advanced);
+    sync_nosubdirs->setChecked(false);
+    sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
+    sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
+	column1_layout->addWidget(sync_nosubdirs);
 	
-    QHBoxLayout * bl_layout = new QHBoxLayout (page->advanced);
-    page->ignore_blacklist = new QCheckBox (page->advanced);
-    page->ignore_blacklist->setChecked(false);
-    page->ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
-    page->ignore_blacklist->setText(tr("Ignore blacklist"));
-    bl_layout->addWidget(page->ignore_blacklist);
+    QHBoxLayout * bl_layout = new QHBoxLayout (advanced);
+    ignore_blacklist = new QCheckBox (advanced);
+    ignore_blacklist->setChecked(false);
+    ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
+    ignore_blacklist->setText(tr("Ignore blacklist"));
+    connect(ignore_blacklist, SIGNAL(clicked(bool)), this, SLOT(ignoreBlacklistClicked(bool)));
+    bl_layout->addWidget(ignore_blacklist);
     bl_layout->addItem(new QSpacerItem(10, 5, QSizePolicy::Fixed, QSizePolicy::Fixed));
     
-    page->edit_blacklist = new QToolButton(page->advanced);
-    page->edit_blacklist->setText(tr("Edit blacklist"));
-    page->edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
-    connect(page->edit_blacklist, SIGNAL(released()), page, SLOT(editBlacklist()));
-    bl_layout->addWidget(page->edit_blacklist);
+    edit_blacklist = new QToolButton(advanced);
+    edit_blacklist->setText(tr("Edit blacklist"));
+    edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
+    connect(edit_blacklist, SIGNAL(released()), this, SLOT(editBlacklist()));
+    bl_layout->addWidget(edit_blacklist);
 	column2_layout->addLayout(bl_layout);
 	
-	page->backup_folders = new QCheckBox (tr("Do not backup updated files"), page->advanced);
-	page->backup_folders->setStatusTip(tr("Do not backup updated files"));
-	connect(page->backup_folders, SIGNAL(clicked(bool)), page, SLOT(backupFoldersStateChanged(bool)));
-	column1_layout->addWidget(page->backup_folders);
+	backup_folders = new QCheckBox (tr("Do not backup updated files"), advanced);
+	backup_folders->setStatusTip(tr("Do not backup updated files"));
+	connect(backup_folders, SIGNAL(clicked(bool)), this, SLOT(backupFoldersStateChanged(bool)));
+	column1_layout->addWidget(backup_folders);
 	
-    page->update_only = new QCheckBox (tr("Update existing files only"), page->advanced);
-	page->update_only->setStatusTip(tr("Update existing files only"));
-	connect(page->update_only, SIGNAL(clicked(bool)), page, SLOT(updateOnlyStateChanged(bool)));
-	column2_layout->addWidget(page->update_only);
+    update_only = new QCheckBox (tr("Update existing files only"), advanced);
+	update_only->setStatusTip(tr("Update existing files only"));
+	connect(update_only, SIGNAL(clicked(bool)), this, SLOT(updateOnlyStateChanged(bool)));
+	column2_layout->addWidget(update_only);
     
-    page->files_blacklist = files_blacklist;
-    page->folders_blacklist = folders_blacklist;
-    page->exts_blacklist = exts_blacklist;
+    files_blacklist = mp_parent->files_blacklist;
+    folders_blacklist = mp_parent->folders_blacklist;
+    exts_blacklist = mp_parent->exts_blacklist;
     
-    page->symlinks = new QCheckBox;
+    symlinks = new QCheckBox;
 #ifdef Q_WS_WIN
-    page->symlinks->setChecked(false);
+    symlinks->setChecked(false);
 #else
-	page->symlinks->setParent(page->advanced);
-	page->symlinks->setChecked(false);
-	page->symlinks->setStatusTip(tr("Follow symbolic links"));
-    page->symlinks->setText(tr("Follow symbolic links"));
-    column1_layout->addWidget(page->symlinks);
-    QLabel * blank_label1 = new QLabel("", page->advanced);
+	symlinks->setParent(advanced);
+	symlinks->setChecked(false);
+	symlinks->setStatusTip(tr("Follow symbolic links"));
+    symlinks->setText(tr("Follow symbolic links"));
+    column1_layout->addWidget(symlinks);
+    QLabel * blank_label1 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label1);
 #endif
     
-    QLabel * folder1_label = new QLabel (page->advanced);
+    QLabel * folder1_label = new QLabel (advanced);
     folder1_label->setText(tr("<b>Folder 1:</b>"));
     column1_layout->addWidget(folder1_label);
-    QLabel * blank_label2 = new QLabel("", page->advanced);
+    QLabel * blank_label2 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label2);
     
-	page->backup_folder_1 = new QCheckBox (tr("Do not backup updated files"), page->advanced);
-	page->backup_folder_1->setStatusTip(tr("Do not backup updated files from Folder 1"));
-	connect(page->backup_folder_1, SIGNAL(clicked(bool)), page, SLOT(backupOneFolderStateChanged(bool)));
-	column1_layout->addWidget(page->backup_folder_1);
+	backup_folder_1 = new QCheckBox (tr("Do not backup updated files"), advanced);
+	backup_folder_1->setStatusTip(tr("Do not backup updated files from Folder 1"));
+	connect(backup_folder_1, SIGNAL(clicked(bool)), this, SLOT(backupOneFolderStateChanged(bool)));
+	column1_layout->addWidget(backup_folder_1);
 	
-    page->update_only_1 = new QCheckBox (tr("Update existing files only"), page->advanced);
-	page->update_only_1->setStatusTip(tr("Update existing files in Folder 1 only"));
-	connect(page->update_only_1, SIGNAL(clicked(bool)), page, SLOT(updateOnlyOneFolderStateChanged(bool)));
-	column2_layout->addWidget(page->update_only_1);
-    QLabel * blank_label3 = new QLabel("", page->advanced);
+    update_only_1 = new QCheckBox (tr("Update existing files only"), advanced);
+	update_only_1->setStatusTip(tr("Update existing files in Folder 1 only"));
+	connect(update_only_1, SIGNAL(clicked(bool)), this, SLOT(updateOnlyOneFolderStateChanged(bool)));
+	column2_layout->addWidget(update_only_1);
+    QLabel * blank_label3 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label3);
 	
-	page->move = new QCheckBox (tr("Move contents to folder 2, leaving folder 1 empty"), page->advanced);
-	page->move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
-	connect(page->move, SIGNAL(clicked(bool)), page, SLOT(moveStateChanged(bool)));
-	column1_layout->addWidget(page->move);
-    QLabel * blank_label4 = new QLabel("", page->advanced);
+	move = new QCheckBox (tr("Move contents to folder 2, leaving folder 1 empty"), advanced);
+	move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
+	connect(move, SIGNAL(clicked(bool)), this, SLOT(moveStateChanged(bool)));
+	column1_layout->addWidget(move);
+    QLabel * blank_label4 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label4);
 	
-	QLabel * folder2_label = new QLabel (page->advanced);
+	QLabel * folder2_label = new QLabel (advanced);
     folder2_label->setText(tr("<b>Folder 2:</b>"));
     column1_layout->addWidget(folder2_label);
-    QLabel * blank_label5 = new QLabel("", page->advanced);
+    QLabel * blank_label5 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label5);
     
-	page->backup_folder_2 = new QCheckBox (tr("Do not backup updated files"), page->advanced);
-	page->backup_folder_2->setStatusTip(tr("Do not backup updated files from Folder 2"));
-	connect(page->backup_folder_2, SIGNAL(clicked(bool)), page, SLOT(backupOneFolderStateChanged(bool)));
-	column1_layout->addWidget(page->backup_folder_2);
+	backup_folder_2 = new QCheckBox (tr("Do not backup updated files"), advanced);
+	backup_folder_2->setStatusTip(tr("Do not backup updated files from Folder 2"));
+	connect(backup_folder_2, SIGNAL(clicked(bool)), this, SLOT(backupOneFolderStateChanged(bool)));
+	column1_layout->addWidget(backup_folder_2);
 	
-    page->update_only_2 = new QCheckBox (tr("Update existing files only"), page->advanced);
-	page->update_only_2->setStatusTip(tr("Update existing files in Folder 2 only"));
-	connect(page->update_only_2, SIGNAL(clicked(bool)), page, SLOT(updateOnlyOneFolderStateChanged(bool)));
-	column2_layout->addWidget(page->update_only_2);
+    update_only_2 = new QCheckBox (tr("Update existing files only"), advanced);
+	update_only_2->setStatusTip(tr("Update existing files in Folder 2 only"));
+	connect(update_only_2, SIGNAL(clicked(bool)), this, SLOT(updateOnlyOneFolderStateChanged(bool)));
+	column2_layout->addWidget(update_only_2);
 	
-	page->clone_folder1 = new QCheckBox (tr("Clone folder 1"), page->advanced);
-	page->clone_folder1->setStatusTip(tr("Clone folder 1"));
-	connect(page->clone_folder1, SIGNAL(clicked(bool)), page, SLOT(cloneStateChanged(bool)));
-	column1_layout->addWidget(page->clone_folder1);
-	QLabel * blank_label6 = new QLabel("", page->advanced);
+	clone_folder1 = new QCheckBox (tr("Clone folder 1"), advanced);
+	clone_folder1->setStatusTip(tr("Clone folder 1"));
+	connect(clone_folder1, SIGNAL(clicked(bool)), this, SLOT(cloneStateChanged(bool)));
+	column1_layout->addWidget(clone_folder1);
+	QLabel * blank_label6 = new QLabel("", advanced);
     column2_layout->addWidget(blank_label6);
 	
-	page->filters = new QGroupBox(tr("Filters"), page->advanced);
-	page->filters->setCheckable(true);
-	page->filters->setChecked(false);
-	page->filters->setMaximumWidth(150);
-	QVBoxLayout * vlayout_filters = new QVBoxLayout (page->filters);
+	filters = new QGroupBox(tr("Filters"), advanced);
+	filters->setCheckable(true);
+	filters->setChecked(false);
+	filters->setMaximumWidth(150);
+	QVBoxLayout * vlayout_filters = new QVBoxLayout (filters);
 #ifndef Q_WS_MAC
 	vlayout_filters->setContentsMargins(9, 6, 9, 9);
 #endif
-	page->lw_filters = new QListWidget(page->filters);
+	lw_filters = new QListWidget(filters);
 	QListWidgetItem * item;
-    for (int f = 0; f < filter_list->count(); ++f) {
-		item = new QListWidgetItem (filter_list->item(f)->text());
+    for (int f = 0; f < mp_parent->filter_list->count(); ++f) {
+		item = new QListWidgetItem (mp_parent->filter_list->item(f)->text());
 		item->setCheckState(Qt::Unchecked);
-		page->lw_filters->addItem(item);
+		lw_filters->addItem(item);
 	}
-	vlayout_filters->addWidget(page->lw_filters);
+	vlayout_filters->addWidget(lw_filters);
 	
-	page->advanced->addLayout(column1_layout, 0, 1);
-	page->advanced->addLayout(column2_layout, 0, 2);
-	page->advanced->addItem(new QSpacerItem(10, 5, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 3);
-	page->advanced->addWidget(page->filters, 0, 4);
-	mainglayout->addWidget(page->advanced, 7, 0);
-
-    tabs.insert(page->tab_stw, page);
-	
-	tabWidget->setCurrentIndex(tabWidget->indexOf(page->tab_stw));
-
-    return page;
+	advanced->addLayout(column1_layout, 0, 1);
+	advanced->addLayout(column2_layout, 0, 2);
+	advanced->addItem(new QSpacerItem(10, 5, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 3);
+	advanced->addWidget(filters, 0, 4);
+	mainglayout->addWidget(advanced, 7, 0);
 }
 
 void AbstractSyncPage::setBlacklistWidget()
@@ -335,6 +363,7 @@ void MainWindow::sync(QWidget* syncTab)
 int SyncPage::sync()
 {
     if (syncing) return 0;
+    leaveAnalyse();
     MTStringSet sync_folders_set;
     for (int i = 0; i < sync_folders->count(); ++i) {
         if (sync_folders->at(i)->path() == "") continue;
@@ -1085,6 +1114,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set)
                             file = new MTFile (file_info->absoluteFilePath());
                             if (!file->copy(file_info2->absoluteFilePath())) {
                                 unknownError(file_info->absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png");
+                                //file->close();
                             } else {
                                 addTableItem(file_info->absoluteFilePath(), file_info2->absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
                                 synced_files++;
@@ -1099,6 +1129,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set)
                             QDir::home().mkpath(QString(".Synkron/%2").arg(update_time));
                             if (!file->copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(file_info2->fileName()).arg(synced_files))) {
                                 unknownError(file_info2->absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp"));
+                                //file->close();
                                 delete file;
                                 continue;
                             }
@@ -1110,6 +1141,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set)
                         file = new MTFile (file_info->absoluteFilePath());
                         if (!file->copy(file_info2->absoluteFilePath())) {
                             unknownError(file_info->absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png");
+                            //file->close();
                             if (mp_parent->restoreFile(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(file_info2->fileName()).arg(synced_files), file_info2->absoluteFilePath())) {
                                 addTableItem(tr("File %1 restored").arg(file_info2->absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
                             }

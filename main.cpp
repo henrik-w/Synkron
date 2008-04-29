@@ -23,8 +23,8 @@ MainWindow::MainWindow(QSettings * s)
 {
     setupUi(this);
     
-	f_ver = 1.3;
-	ver = "1.3.0";
+	f_ver = 1.4;
+	ver = "1.4.0";
     
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
@@ -127,6 +127,7 @@ MainWindow::MainWindow(QSettings * s)
 	connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timngTabIndexChanged(int)));
     
     setCleanGB();
+    setSelectGB();
     tabWidget->removeTab(0);
     multi_tabWidget->removeTab(0);
     
@@ -621,8 +622,6 @@ void MainWindow::readSettings()
         page->folders_blacklist = sync_settings->value(QString("tab_%1_%2/folders_blacklist").arg(tabs_list.at(i)).arg(i), sync_settings->value("folders_blacklist")).toStringList();
         page->exts_blacklist = sync_settings->value(QString("tab_%1_%2/exts_blacklist").arg(tabs_list.at(i)).arg(i), sync_settings->value("exts_blacklist")).toStringList();
 	    
-	    //QMessageBox::warning(this, tr("Synk"), tr("%1").arg(page->syncFolder1Text()));
-        //QMessageBox::warning(this, tr("Synk"), tr("%1").arg(page->syncFolder2Text()));
     }
     synchronised = sync_settings->value("synchronised").toStringList();
     restore_clean_selected->setChecked(sync_settings->value("restore_clean_selected", true).toBool());
@@ -945,6 +944,7 @@ void MainWindow::searchTw(const QString text)
 	QTableWidget * tw = NULL;
 	if (mainStackedWidget->currentIndex()==0) {
 		SyncPage * page = tabs.value(tabWidget->currentWidget());
+        if (page->logs_stw->currentIndex()==1) return;
 		tw = page->tw;
 	} else if (mainStackedWidget->currentIndex()==3) {
 		MultisyncPage * page = (MultisyncPage *) multi_tabWidget->currentWidget();

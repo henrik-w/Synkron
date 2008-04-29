@@ -69,10 +69,14 @@ void MainWindow::restoreItemChanged(QListWidgetItem * item, QListWidgetItem *) /
 			to_black_list->setCheckState(Qt::Unchecked);
 		}
 	 QStringList date_time = item_list.at(1).split("-");
-	 QStringList date = date_time.at(0).split(".");
-	 QStringList time = date_time.at(1).split(".");
-	 date_of_sync->setDate(QDate(date.at(0).toInt(), date.at(1).toInt(), date.at(2).toInt()));
-	 date_of_sync->setTime(QTime(time.at(0).toInt(), time.at(1).toInt(), time.at(2).toInt()));
+	 QStringList date_str = date_time.at(0).split(".");
+	 QStringList time_str = date_time.at(1).split(".");
+     QDate date (date_str.at(0).toInt(), date_str.at(1).toInt(), date_str.at(2).toInt());
+     QTime time (time_str.at(0).toInt(), time_str.at(1).toInt(), time_str.at(2).toInt());
+	 date_of_sync->setDate(date);
+	 date_of_sync->setTime(time);
+     restore_select_dt_edit->setDate(date);
+     restore_select_dt_edit->setTime(time);
 	 path_of_syncfile->setText(item_list.at(2));
 }
 
@@ -428,4 +432,83 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
     }
     if (add_table_item) addTableItem(tr("File %1 deleted").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
     synced_files++;
+}
+
+void MainWindow::setSelectGB()
+{
+    restore_select_gb->setTitle(tr("Advanced selection"));
+    
+    restore_select_last_sync = new QToolButton (restore_select_gb);
+    restore_select_last_sync->setStatusTip(tr("Select files from last synchronisation"));
+    connect(restore_select_last_sync, SIGNAL(released()), this, SLOT(restoreSelLastSync()));
+    restore_select_gb->addWidget(restore_select_last_sync, 0, 0);
+    QLabel * sel_last_sync_lbl = new QLabel (restore_select_gb);
+    sel_last_sync_lbl->setText(tr("Select files from the last synchronisation"));
+    restore_select_gb->addWidget(sel_last_sync_lbl, 0, 1);
+    
+    /*restore_select_older = new QToolButton (restore_select_gb);
+    restore_select_older->setStatusTip(tr("Select older files"));
+    connect(restore_select_older, SIGNAL(released()), this, SLOT(restoreSelOlderFiles()));
+    restore_select_gb->addWidget(restore_select_older, 1, 0);
+    QHBoxLayout * select_older_layout = new QHBoxLayout (restore_select_gb);
+    QLabel * select_older_lbl_1 = new QLabel (restore_select_gb);
+    select_older_lbl_1->setText(tr("Select files older than "));
+    select_older_layout->addWidget(select_older_lbl_1);
+    restore_select_older_date = new QSpinBox (restore_select_gb);
+    restore_select_older_date->setMaximum(1440);
+    restore_select_older_date->setValue(30);
+    select_older_layout->addWidget(restore_select_older_date);
+    QLabel * select_older_lbl_2 = new QLabel (restore_select_gb);
+    select_older_lbl_2->setText(tr(" day(s)"));
+    select_older_layout->addWidget(select_older_lbl_2);
+    select_older_layout->addStretch();
+    restore_select_gb->addLayout(select_older_layout, 1, 1);*/
+    
+    restore_select_common_date = new QToolButton (restore_select_gb);
+    restore_select_common_date->setStatusTip(tr("Select files with common date and time of synchronisation"));
+    connect(restore_select_common_date, SIGNAL(released()), this, SLOT(restoreSelCommonDate()));
+    restore_select_gb->addWidget(restore_select_common_date, 1, 0);
+    QHBoxLayout * select_common_layout = new QHBoxLayout (restore_select_gb);
+    QLabel * select_common_lbl_1 = new QLabel (restore_select_gb);
+    select_common_lbl_1->setText(tr("Select files synchronised on "));
+    select_common_layout->addWidget(select_common_lbl_1);
+    restore_select_dt_edit = new QDateTimeEdit(restore_select_gb);
+    restore_select_dt_edit->setDisplayFormat("yyyy.MM.dd-hh:mm:ss");
+    select_common_layout->addWidget(restore_select_dt_edit);
+    select_common_layout->addStretch();
+    restore_select_gb->addLayout(select_common_layout, 1, 1);
+}
+
+void MainWindow::restoreSelLastSync()
+{
+    QString last_date = restore_list->item(restore_list->count()-1)->data(Qt::UserRole).toStringList().at(1);
+    for (int i = restore_list->count()-1; i >= 0; --i) {
+        if (restore_list->item(i)->data(Qt::UserRole).toStringList().at(1) == last_date) {
+            restore_list->item(i)->setCheckState(Qt::Checked);
+        } else return;
+    }
+}
+/*
+void MainWindow::restoreSelOlderFiles()
+{
+    QStringList date;
+    for (int i = restore_list->count()-1; i >= 0; --i) {
+        date = restore_list->item(i)->data(Qt::UserRole).toStringList().at(1).split("-")
+                                                            .at(0).split(".");
+        int days_to = QDate(date.at(0).toInt(), date.at(1).toInt(), date.at(2).toInt())
+                                                            .daysTo(QDate::currentDate());
+        if (days_to >= restore_select_older_date->value()) {
+            restore_list->item(i)->setCheckState(Qt::Checked);
+        }
+    }
+}*/
+     
+void MainWindow::restoreSelCommonDate()
+{
+    QString date_time = restore_select_dt_edit->dateTime().toString("yyyy.MM.dd-hh.mm.ss");
+    for (int i = restore_list->count()-1; i >= 0; --i) {
+        if (date_time == restore_list->item(i)->data(Qt::UserRole).toStringList().at(1)) {
+            restore_list->item(i)->setCheckState(Qt::Checked);
+        }
+    }
 }
