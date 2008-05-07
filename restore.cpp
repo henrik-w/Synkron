@@ -439,7 +439,8 @@ void MainWindow::setSelectGB()
     restore_select_gb->setTitle(tr("Advanced selection"));
     
     restore_select_last_sync = new QToolButton (restore_select_gb);
-    restore_select_last_sync->setStatusTip(tr("Select files from last synchronisation"));
+    restore_select_last_sync->setStatusTip(tr("Select files from the last synchronisation"));
+    restore_select_last_sync->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/ok_16.png")));
     connect(restore_select_last_sync, SIGNAL(released()), this, SLOT(restoreSelLastSync()));
     restore_select_gb->addWidget(restore_select_last_sync, 0, 0);
     QLabel * sel_last_sync_lbl = new QLabel (restore_select_gb);
@@ -466,6 +467,7 @@ void MainWindow::setSelectGB()
     
     restore_select_common_date = new QToolButton (restore_select_gb);
     restore_select_common_date->setStatusTip(tr("Select files with common date and time of synchronisation"));
+    restore_select_common_date->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/ok_16.png")));
     connect(restore_select_common_date, SIGNAL(released()), this, SLOT(restoreSelCommonDate()));
     restore_select_gb->addWidget(restore_select_common_date, 1, 0);
     QHBoxLayout * select_common_layout = new QHBoxLayout (restore_select_gb);

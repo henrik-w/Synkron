@@ -61,6 +61,7 @@
 #include "mtadvancedgroupbox.h"
 #include "mtstringset.h"
 #include "syncfolders.h"
+#include "extendedtreewidget.h"
 
 class MainWindow;
 class SyncViewItem;
@@ -175,8 +176,9 @@ public slots:
     //void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
     //void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
     void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
-    int sync();
-    void subGroupSync(MTStringSet);
+    int sync() { return sync(MTStringSet()); };
+    int sync(MTStringSet);
+    void subGroupSync(MTStringSet, MTStringSet = MTStringSet());
     void syncFoldersChanged();
     void showThisPage();
     void updateOnlyStateChanged(bool);
@@ -196,6 +198,11 @@ public slots:
     void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); };
     void searchAnalyseTree();
     bool subSearchAnalyseTree(QString, QTreeWidgetItem *);
+    void subCheckExpanded(QTreeWidgetItem *);
+    void analyseTreeConMenu(QPoint);
+    void openAnalyseTreeItem();
+    void syncCurrentAnalyseItem();
+    void deleteCurrentAnalyseItem();
     
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {};
@@ -232,7 +239,7 @@ public:
     QStackedWidget * tab_stw;
     QStackedWidget * logs_stw;
     SyncFolders * sync_folders;
-    QTreeWidget * analyse_tree;
+    ExtendedTreeWidget * analyse_tree;
 };
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm

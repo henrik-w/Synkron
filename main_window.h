@@ -21,9 +21,10 @@
 #include "ui_sync_view_item.h"
 #include "syncpage.h"
 
-inline void release(QFileInfo *& f) { if (f) { delete f; f = NULL; } }
-inline void release(QFile *& f) { if (f) { delete f; f = NULL; } }
-inline void release(QObject *& o) { if (o) { delete o; o = NULL; } }
+//inline void release(QFileInfo *& f) { if (f) { delete f; f = NULL; } }
+//inline void release(QFile *& f) { if (f) { delete f; f = NULL; } }
+template<class T>
+inline void release(T *& o) { if (o) { delete o; o = NULL; } }
 template<class T>
 inline void release(QList<T> *& l) { if (l) { delete l; l = NULL; } }
 

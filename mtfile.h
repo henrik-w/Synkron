@@ -35,7 +35,36 @@ public:
 	MTFile(QString);
 	MTFile(QString, QObject *);
 	bool copy(QString);
-	bool touch(QApplication * = 0);
+	bool touch(QApplication *);
+};
+
+class MTEvenDateTime : public QDateTime
+{
+public:
+    MTEvenDateTime(): QDateTime() { makeEven(); };
+    MTEvenDateTime(const QDate & date): QDateTime(date) { makeEven(); };
+    MTEvenDateTime(const QDate & date, const QTime & time, Qt::TimeSpec spec = Qt::LocalTime): QDateTime(date, time, spec) { makeEven(); };
+    MTEvenDateTime(const QDateTime & other): QDateTime(other) { makeEven(); };
+
+    void setTime(const QTime & time) { QDateTime::setTime(time); makeEven(); };
+    void setTime_t(uint seconds) { QDateTime::setTime_t(seconds); makeEven(); };
+protected:
+    void makeEven() {
+        if (time().second() % 2 != 0) { setTime(time().addSecs(1)); }
+    };
+};
+
+class MTFileInfo : public QFileInfo
+{
+public:
+    MTFileInfo(): QFileInfo() {};
+    MTFileInfo(const QString & file): QFileInfo(file) {};
+    MTFileInfo(const QFile & file): QFileInfo(file) {};
+    MTFileInfo(const QDir & dir, const QString & file): QFileInfo(dir, file) {};
+    MTFileInfo(const QFileInfo & fileinfo): QFileInfo(fileinfo) {};
+
+    MTEvenDateTime lastModified() const { return MTEvenDateTime(QFileInfo::lastModified()); };
+    MTEvenDateTime lastRead() const { return MTEvenDateTime(QFileInfo::lastRead()); };
 };
 
 #endif // MTFILE_H
