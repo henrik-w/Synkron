@@ -32,7 +32,7 @@ QFile(s, o)
 
 bool MTFile::copy(QString dest)
 {
-	return this->QFile::copy(dest);
+    return this->QFile::copy(dest);
 }
 
 #endif
@@ -51,8 +51,7 @@ bool MTFile::copy(QString dest)
 		QStringList arguments; QProcess touch;
 		arguments << "-cf" << "-r" << fileName() << dest;
 		if (touch.execute("touch", arguments) != 0) { return false; }
-		if (QFileInfo(fileName()).lastModified() == QFileInfo(dest).lastModified())
-		{ return true; } else { return false; }
+		return QFileInfo(fileName()).lastModified() == QFileInfo(dest).lastModified();
 	} else { return false; }
 	return false;
 }

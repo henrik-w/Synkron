@@ -79,8 +79,25 @@ void SyncPage::analyseFolders()
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
     
+    if (propagate_deletions->isChecked()) {
+        folder_prop_list_map.clear();
+        for (int i = 0; i < sync_folders->count(); ++i) {
+            QStringList prop_files_list;
+            QFile file(QString("%1/%2").arg(sync_folders->at(i)->path()).arg(".synkron.syncdb"));
+            if (!file.exists()) continue;
+            if (!file.open(QFile::ReadOnly | QFile::Text)) {
+		        //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
+		        continue;
+            }
+            QTextStream in(&file);
+            in.setCodec("UTF-8");
+            while (!in.atEnd()) { prop_files_list << in.readLine(); }
+            folder_prop_list_map.insert(sync_folders->at(i)->path(), prop_files_list);
+        }
+    }
+    
+    syncing = true;
     QTreeWidgetItem * parent_item = new QTreeWidgetItem (analyse_tree);
-    parent_item->setExpanded(true);
     parent_item->setText(0, tr("Root directory"));
     QStringList data0; data0 << ""; data0 << "checked";
     parent_item->setData(0, Qt::UserRole, QVariant(data0));
@@ -93,16 +110,20 @@ void SyncPage::analyseFolders()
     
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     subAnalyse(folders_set, parent_item);
+    subCheckExpanded(parent_item);
+    parent_item->setExpanded(true);
     QApplication::restoreOverrideCursor();
+    syncing = false;
 }
 
 bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item)
 {
     MTStringSet file_names;
+    QFileInfoList entries;
+    QDir dir;
     for (int i = 0; i < folders_set.count(); ++i) {
-        QDir dir = folders_set.at(i);
+        dir = folders_set.at(i);
         if (!dir.exists()) continue;
-        QFileInfoList entries;
         if (extensions.count()==0) {
             entries = dir.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
         } else {
@@ -119,7 +140,7 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
         if (file_names.at(i) == ".synkron.syncdb") continue;
         QString rel_parent_path = parent_item->data(0, Qt::UserRole).toStringList().at(0);
         QString rel_path = QString("%1/%2").arg(rel_parent_path).arg(file_names.at(i));
-        if (rel_path.isEmpty()/* || rel_parent_path.isEmpty()*/) continue;
+        if (rel_path.isEmpty()) continue;
         
         bool blacklisted = parent_item->checkState(0) == Qt::Unchecked;
         if (!ignore_blacklist->isChecked()) {
@@ -130,17 +151,25 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
                 }
             }
         }
-        QFileInfo * file_info = NULL;
+        MTFileInfo * file_info = NULL;
         MTStringSet child_folders_set;
         QTreeWidgetItem * child_item = new QTreeWidgetItem;
-        QDateTime newest_datetime; QList<int> * newest_indices = new QList<int>;
+        MTEvenDateTime newest_datetime; QList<int> * newest_indices = new QList<int>;
         for (int i = 0; i < sync_folders->count(); ++i) {
             release(file_info);
-            file_info = new QFileInfo (QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
+            file_info = new MTFileInfo (QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
             if (!file_info->exists()) {
+                child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
+                special = true;
+                if (propagate_deletions->isChecked()) {
+                    if (isInGroupDatabase(file_info->absoluteFilePath())) {
+                        child_item->setText(i+1, tr("DELETED"));
+                        child_item->setForeground(i+1, QBrush(Qt::darkMagenta));
+                        continue;
+                    }
+                }
                 child_item->setText(i+1, tr("NOT FOUND"));
                 child_item->setForeground(i+1, QBrush(Qt::red));
-                special = true;
                 continue;
             }
             if (file_info->isDir() && !file_info->isSymLink()) {
@@ -196,10 +225,23 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
             if (subAnalyse(child_folders_set, child_item)) special = true;
         }
         if (blacklisted) special = false;
-        if (special) parent_item->setExpanded(true);
+        if (special) data0 << "special";
+        else data0 << "regular";
+        child_item->setData(0, Qt::UserRole, QVariant(data0));
+        //if (special) parent_item->setExpanded(true);
         release(newest_indices);
     }
+    file_names.clear();
+    //delete file_names;
     return special;
+}
+
+void SyncPage::subCheckExpanded(QTreeWidgetItem * parent_item)
+{
+    for (int i = 0; i < parent_item->childCount(); ++i) {
+        if (parent_item->child(i)->childCount() != 0) subCheckExpanded(parent_item->child(i));
+        if (parent_item->child(i)->data(0, Qt::UserRole).toStringList().at(2) == "special") parent_item->setExpanded(true);
+    }
 }
 
 void SyncPage::analyseTreeItemClicked(QTreeWidgetItem * item, int column)
@@ -338,4 +380,138 @@ void SyncPage::analyseTreeItemDoubleClicked(QTreeWidgetItem * item, int column)
 {
     if (column == 0) return;
     QDesktopServices::openUrl(QUrl::fromLocalFile(item->data(column, Qt::UserRole).toString()));
+}
+
+void SyncPage::analyseTreeConMenu(QPoint pos)
+{
+    QMenu * contextMenu = new QMenu(this);
+    QAction * open_analyse_action;
+    if (analyse_tree->currentColumn() != 0) {
+        open_analyse_action = new QAction (tr("Open"), this);
+        connect(open_analyse_action, SIGNAL(triggered()), this, SLOT(openAnalyseTreeItem()));
+        contextMenu->addAction(open_analyse_action);
+    }
+    
+    QAction * sync_analyse_action;
+    //if (analyse_tree->currentColumn() == 0) {
+        /*bool syncable = false;
+        for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+            QColor fg_colour = analyse_tree->currentItem()->foreground(i).color();
+            if (fg_colour == Qt::darkRed || fg_colour == Qt::red) {
+                syncable = true; break;
+            }
+        }*/
+        /*for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+            QFileInfo file_info (analyse_tree->currentItem()->data(i, Qt::UserRole).toString());
+            if (file_info.exists()) {
+                if (file_info.isDir() && !file_info.isSymLink()) {
+                    syncable = true; break;
+                }
+            }
+        }
+        if (analyse_tree->currentItem()->checkState(0) == Qt::Unchecked) syncable = false;*/
+        if (analyse_tree->currentItem()->checkState(0) == Qt::Checked) {
+            sync_analyse_action = new QAction (tr("Sync"), this);
+            connect(sync_analyse_action, SIGNAL(triggered()), this, SLOT(syncCurrentAnalyseItem()));
+            contextMenu->addAction(sync_analyse_action);
+        }
+    //}
+    
+    QAction * del_analyse_action = new QAction (tr("Delete"), this);
+    connect(del_analyse_action, SIGNAL(triggered()), this, SLOT(deleteCurrentAnalyseItem()));
+    contextMenu->addAction(del_analyse_action);
+    
+	contextMenu->move(pos);
+	contextMenu->show();
+}
+
+void SyncPage::openAnalyseTreeItem()
+{
+    if (analyse_tree->currentColumn() == 0) return;
+    QDesktopServices::openUrl(QUrl::fromLocalFile(analyse_tree->currentItem()
+        ->data(analyse_tree->currentColumn(), Qt::UserRole).toString()));
+}
+
+void SyncPage::syncCurrentAnalyseItem()
+{
+    QTreeWidgetItem * item = analyse_tree->currentItem();
+    MTStringSet sync_folders;
+    MTStringSet rel_paths;
+    MTFileInfo * file_info = 0;
+    leaveAnalyse();
+    for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+        release(file_info);
+        file_info = new MTFileInfo (item->data(i, Qt::UserRole).toString());
+        if (!file_info->exists() && file_info->isDir() && !file_info->isSymLink()) {
+            if (!QDir().mkpath(file_info->absoluteFilePath())) {
+                addTableItem(tr("%1	Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+                continue;
+            } else {
+                addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+            }
+        }
+        if (file_info->isDir() && !file_info->isSymLink()) {
+            sync_folders << file_info->absoluteFilePath();
+        } else {
+            rel_paths << file_info->fileName();
+            sync_folders << file_info->dir().path();
+        }
+    }
+    release(file_info);
+    if (sync_folders.count() != 0) {
+        if (rel_paths.count() == 0) {
+            sync(sync_folders);
+        } else {
+            setSyncEnabled(false);
+                subGroupSync(sync_folders, rel_paths);
+            setSyncEnabled(true);
+            addTableItem(tr("%1	Synchronisation complete: %2 file(s) %3").arg(QTime().currentTime().toString("hh:mm:ss")).arg(synced_files).arg(tr("synchronised")), "", "", QBrush(Qt::green));
+		    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(tr("synchronised")));
+            synced_files = 0;
+        }
+    }
+}
+
+void SyncPage::deleteCurrentAnalyseItem()
+{
+    QTreeWidgetItem * item = analyse_tree->currentItem();
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove \"%1\" from every synced location?").arg(item->text(0)));
+	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+ 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    QFileInfo * file_info = 0;
+    bool backup = true;
+    bool sub_backup = true;
+ 	
+ 	switch (msgBox.exec()) {
+ 	case QMessageBox::Yes:
+        logs_stw->setCurrentIndex(0);
+        update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
+        if (backup_folders->isChecked()) backup = false;
+        for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+            sub_backup = backup;
+            release(file_info);
+            file_info = new QFileInfo (item->data(i, Qt::UserRole).toString());
+            if (sub_backup && sync_folders->count() < 3) {
+                if (file_info->absoluteFilePath().startsWith(sync_folders->at(0)->path()) && backup_folder_1->isChecked()) {
+                    sub_backup = false;
+                } else if (file_info->absoluteFilePath().startsWith(sync_folders->at(1)->path()) && backup_folder_2->isChecked()) {
+                    sub_backup = false;
+                }
+            }
+            if (!file_info->exists()) continue;
+            if (file_info->isDir() && !file_info->isSymLink()) {
+                syncing = true;
+                backupAndRemoveDir(file_info->absoluteFilePath(), sub_backup);
+                syncing = false;
+            } else {
+                backupAndRemoveFile(*file_info, sub_backup);
+            }
+        }
+        release(file_info);
+        break;
+ 	case QMessageBox::No:
+     	break;
+	default:
+   		break;
+ 	}
 }

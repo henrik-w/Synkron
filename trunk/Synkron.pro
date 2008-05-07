@@ -6,6 +6,7 @@ HEADERS += main_window.h \
     mtadvancedgroupbox.h \
     extendedlineedit.h \
     extendedlistwidget.h \
+    extendedtreewidget.h \
     syncfolders.h \
     mtstringset.h
 FORMS += main_window.ui \

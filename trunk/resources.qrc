@@ -36,5 +36,8 @@
         <file>images/syncview_48.png</file>
         <file>images/tab-new_32.png</file>
         <file>images/tab-remove_32.png</file>
+        <file>images/ok_16.png</file>
+        <file>images/analyse_16.png</file>
+        <file>images/stop_sync22.png</file>
     </qresource>
 </RCC>

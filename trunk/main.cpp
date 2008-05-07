@@ -33,6 +33,9 @@ MainWindow::MainWindow(QSettings * s)
 	actionBrushedMetalStyle->setStatusTip(tr("Use the brushed metal style"));
 	actionBrushedMetalStyle->setCheckable(true);
 	menuOptions->addAction(actionBrushedMetalStyle);
+    
+    actionQuit->setText("Quit");
+    actionAbout->setText("About");
 #endif
     
     http = new QHttp(this);
