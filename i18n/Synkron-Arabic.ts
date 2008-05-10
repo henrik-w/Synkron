@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -1602,22 +1603,22 @@
     <message>
         <location filename="../restore.cpp" line="439"/>
         <source>Advanced selection</source>
-        <translation type="unfinished"></translation>
+        <translation>تحديد متقدم</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="447"/>
         <source>Select files from the last synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>تحديد الملفات من المزامنة السابقة</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="469"/>
         <source>Select files with common date and time of synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>تحديد الملفات وفق تاريخ و وقت محدد</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="475"/>
         <source>Select files synchronised on </source>
-        <translation type="unfinished"></translation>
+        <translation>تحديد الملفات التي تمت مزامنتها في</translation>
     </message>
 </context>
 <context>
@@ -1939,12 +1940,12 @@
     <message>
         <location filename="../syncfolders.cpp" line="129"/>
         <source>Remove</source>
-        <translation type="unfinished">إزالة</translation>
+        <translation>إزالة</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="134"/>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>مسار</translation>
     </message>
 </context>
 <context>
@@ -1952,7 +1953,7 @@
     <message>
         <location filename="../syncfolders.cpp" line="55"/>
         <source>Add</source>
-        <translation type="unfinished">إضافة</translation>
+        <translation>إضافة</translation>
     </message>
 </context>
 <context>
@@ -2095,192 +2096,192 @@
     <message>
         <location filename="../analyse.cpp" line="26"/>
         <source>&lt;b&gt;Analysis:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;تحليل:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="30"/>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم الملف</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="32"/>
         <source>Folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>المجلد %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="86"/>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;سجل المزامنة:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;سجل المزامنة:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="101"/>
         <source>Root directory</source>
-        <translation type="unfinished"></translation>
+        <translation>المجلد الجذر</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="171"/>
         <source>NOT FOUND</source>
-        <translation type="unfinished"></translation>
+        <translation>غير موجود</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="61"/>
         <source>Set sync name</source>
-        <translation type="unfinished">تخصيص إسم المزامنة</translation>
+        <translation>تخصيص إسم المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="70"/>
         <source>Show/hide sync folders</source>
-        <translation type="unfinished">عرض/إخفاء مجلدات المزامنة</translation>
+        <translation>عرض/إخفاء مجلدات المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="74"/>
         <source>&lt;b&gt;Sync folders:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;مجلدات المزامنة:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;مجلدات المزامنة:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="91"/>
         <source>Search sync log</source>
-        <translation type="unfinished">البحث عن سجل المزامنة</translation>
+        <translation>البحث عن سجل المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="92"/>
         <source>Search</source>
-        <translation type="unfinished">بحث</translation>
+        <translation>بحث</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="98"/>
         <source>Source</source>
-        <translation type="unfinished">المصدر</translation>
+        <translation>المصدر</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="98"/>
         <source>Destination</source>
-        <translation type="unfinished">الوجهة</translation>
+        <translation>الوجهة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="102"/>
         <source>List of synchronised files and folders</source>
-        <translation type="unfinished">قائمة الملفات و المجلدات التي تمت مزامنتها</translation>
+        <translation>قائمة الملفات و المجلدات التي تمت مزامنتها</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="123"/>
         <source>Analyse</source>
-        <translation type="unfinished"></translation>
+        <translation>تحليل</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="135"/>
         <source>Stop sync</source>
-        <translation type="unfinished">إيقاف المزامنة</translation>
+        <translation>إيقاف المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="136"/>
         <source>Stop synchronisation</source>
-        <translation type="unfinished">إيقاف المزامنة</translation>
+        <translation>إيقاف المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="145"/>
         <source>Show advanced options</source>
-        <translation type="unfinished">عرض الخيارات المتقدمة</translation>
+        <translation>عرض الخيارات المتقدمة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="152"/>
         <source>Synchronise hidden files and folders</source>
-        <translation type="unfinished">مزامنة الملفات و المجلدات المخفية</translation>
+        <translation>مزامنة الملفات و المجلدات المخفية</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="158"/>
         <source>Propagate deletions</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف المجلدات المختلفة من كلا الوجهتين</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="166"/>
         <source>Do not synchronise subdirectories</source>
-        <translation type="unfinished">لا تقم بمزامنة المجلدات الفرعية</translation>
+        <translation>لا تقم بمزامنة المجلدات الفرعية</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="173"/>
         <source>Ignore blacklist</source>
-        <translation type="unfinished">تجاهل القائمة السوداء</translation>
+        <translation>تجاهل القائمة السوداء</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="179"/>
         <source>Edit blacklist</source>
-        <translation type="unfinished">تحرير القائمة السوداء</translation>
+        <translation>تحرير القائمة السوداء</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="180"/>
         <source>Edit blacklist for this tab</source>
-        <translation type="unfinished">تحرير القائمة السوداء لهذه الصفحة</translation>
+        <translation>تحرير القائمة السوداء لهذه الصفحة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="243"/>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها</translation>
+        <translation>لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="248"/>
         <source>Update existing files only</source>
-        <translation type="unfinished">تحديث الملفات الموجودة فقط</translation>
+        <translation>تحديث الملفات الموجودة فقط</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="206"/>
         <source>Follow symbolic links</source>
-        <translation type="unfinished">تتبع الإختصارات</translation>
+        <translation>تتبع الإختصارات</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="213"/>
         <source>&lt;b&gt;Folder 1:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;المجلد الأول:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;المجلد الأول:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="219"/>
         <source>Do not backup updated files from Folder 1</source>
-        <translation type="unfinished">لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها من المجلد 1</translation>
+        <translation>لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها من المجلد 1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="224"/>
         <source>Update existing files in Folder 1 only</source>
-        <translation type="unfinished">تحديث الملفات الموجودة في المجلد 1 فقط</translation>
+        <translation>تحديث الملفات الموجودة في المجلد 1 فقط</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="238"/>
         <source>&lt;b&gt;Folder 2:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;المجلد الثاني:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;المجلد الثاني:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="244"/>
         <source>Do not backup updated files from Folder 2</source>
-        <translation type="unfinished">لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها من المجلد 2</translation>
+        <translation>لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها من المجلد 2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="249"/>
         <source>Update existing files in Folder 2 only</source>
-        <translation type="unfinished">تحديث الملفات الموجودة في المجلد 2 فقط</translation>
+        <translation>تحديث الملفات الموجودة في المجلد 2 فقط</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="260"/>
         <source>Filters</source>
-        <translation type="unfinished">مرشحات التصفية</translation>
+        <translation>مرشحات التصفية</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="390"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>فتح</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="478"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="unfinished">هل أنت متأكد من أنك تريد إزالة &quot;%1&quot; من كل مسار يتم مزامنته؟</translation>
+        <translation>هل أنت متأكد من أنك تريد إزالة &quot;%1&quot; من كل مسار يتم مزامنته؟</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="166"/>
         <source>DELETED</source>
-        <translation type="unfinished"></translation>
+        <translation>تم حذفه</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="420"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
 </context>
 <context>
