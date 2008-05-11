@@ -151,13 +151,12 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
                 }
             }
         }
-        MTFileInfo * file_info = NULL;
+        MTFileInfo * file_info = new MTFileInfo;
         MTStringSet child_folders_set;
         QTreeWidgetItem * child_item = new QTreeWidgetItem;
         MTEvenDateTime newest_datetime; QList<int> * newest_indices = new QList<int>;
         for (int i = 0; i < sync_folders->count(); ++i) {
-            release(file_info);
-            file_info = new MTFileInfo (QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
+            file_info->setFile(QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
             if (!file_info->exists()) {
                 child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
                 special = true;
@@ -421,6 +420,10 @@ void SyncPage::analyseTreeConMenu(QPoint pos)
     connect(del_analyse_action, SIGNAL(triggered()), this, SLOT(deleteCurrentAnalyseItem()));
     contextMenu->addAction(del_analyse_action);
     
+    QAction * rename_analyse_action = new QAction (tr("Rename"), this);
+    connect(rename_analyse_action, SIGNAL(triggered()), this, SLOT(renameCurrentAnalyseItem()));
+    contextMenu->addAction(rename_analyse_action);
+    
 	contextMenu->move(pos);
 	contextMenu->show();
 }
@@ -484,7 +487,7 @@ void SyncPage::deleteCurrentAnalyseItem()
  	
  	switch (msgBox.exec()) {
  	case QMessageBox::Yes:
-        logs_stw->setCurrentIndex(0);
+        leaveAnalyse();
         update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
         if (backup_folders->isChecked()) backup = false;
         for (int i = 1; i < analyse_tree->columnCount(); ++i) {
@@ -514,4 +517,43 @@ void SyncPage::deleteCurrentAnalyseItem()
 	default:
    		break;
  	}
+}
+
+void SyncPage::renameCurrentAnalyseItem()
+{
+    QTreeWidgetItem * item = analyse_tree->currentItem();
+    bool ok = false;
+    QFileInfo * file_info = 0;
+    for (int i = 0; i < sync_folders->count(); ++i) {
+        file_info = new QFileInfo (item->data(i+1, Qt::UserRole).toString());
+        if (file_info->exists()) break;
+        else release(file_info);
+    }
+    if (!file_info->exists()) return;
+    QString new_name = QInputDialog::getText(this, tr("Synkron - Rename file"), tr("Type a new name for \"%1\":").arg(file_info->fileName()), QLineEdit::Normal, file_info->fileName(), &ok);
+    if (!ok) return;
+    leaveAnalyse();
+    for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+        release(file_info);
+        file_info = new QFileInfo (item->data(i, Qt::UserRole).toString());
+        if (!file_info->exists()) continue;
+        if (file_info->isDir() && !file_info->isSymLink()) {
+            QDir dir (file_info->absoluteFilePath());
+            QString dirname = dir.dirName();
+            dir.cdUp();
+            if (!dir.rename(dirname, new_name)) {
+                addTableItem(tr("Error renaming directory %1").arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+            } else {
+                addTableItem(tr("File %1 renamed").arg(file_info->absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            }
+        } else {
+            QFile file (file_info->absoluteFilePath());
+            if (!file.rename(QString("%1/%2").arg(file_info->dir().path()).arg(new_name))) {
+                addTableItem(tr("Error renaming file %1").arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+            } else {
+                addTableItem(tr("File %1 renamed").arg(file_info->absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+            }
+        }
+	}
+    release(file_info);
 }

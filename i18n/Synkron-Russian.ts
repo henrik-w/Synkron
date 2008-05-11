@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -296,21 +297,9 @@
         <translation>Пропущены файлы %1 %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1259"/>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">Не могу записать файл %1:
-%2.</translation>
-    </message>
-    <message>
         <location filename="../sync.cpp" line="1336"/>
         <source>Cannot write file %1: %2</source>
         <translation>Не могу записать файл %1: %2</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="1160"/>
-        <source>LTR</source>
-        <translation type="obsolete">LTR</translation>
     </message>
 </context>
 <context>
@@ -1247,111 +1236,6 @@
         <translation>Синк #%1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="45"/>
-        <source>Set sync name</source>
-        <translation type="obsolete">Имя синхронизации</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="58"/>
-        <source>&lt;b&gt;Sync folders:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Каталоги:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="40"/>
-        <source>Set the first synchronisation folder</source>
-        <translation type="obsolete">Первый синхронизируемый каталог</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="57"/>
-        <source>Browse</source>
-        <translation type="obsolete">Обзор</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="53"/>
-        <source>Set the second synchronisation folder</source>
-        <translation type="obsolete">Второй синхронизируемый каталог</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="70"/>
-        <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Отчет:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="75"/>
-        <source>Search sync log</source>
-        <translation type="obsolete">Найти отчет</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="94"/>
-        <source>Sync</source>
-        <translation type="obsolete">Синхронизация</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="100"/>
-        <source>Stop sync</source>
-        <translation type="obsolete">Остановить</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="101"/>
-        <source>Stop synchronisation</source>
-        <translation type="obsolete">Остановить синхронизацию</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="109"/>
-        <source>Show advanced options</source>
-        <translation type="obsolete">Расширенные опции</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="116"/>
-        <source>Synchronise hidden files and folders</source>
-        <translation type="obsolete">Синхронизировать скрытые файлы и каталоги</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="130"/>
-        <source>Do not synchronise subdirectories</source>
-        <translation type="obsolete">Не синхронизировать подкаталоги</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="137"/>
-        <source>Ignore blacklist</source>
-        <translation type="obsolete">Игнорировать исключения</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="169"/>
-        <source>Follow symbolic links</source>
-        <translation type="obsolete">Следовать за симлинками</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="176"/>
-        <source>&lt;b&gt;Folder 1:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Каталог 1:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="206"/>
-        <source>Do not backup updated files</source>
-        <translation type="obsolete">Не делать копию обновленных файлов</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="211"/>
-        <source>Update existing files only</source>
-        <translation type="obsolete">Обновить только существующие файлы</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="194"/>
-        <source>Move contents to folder 2, leaving folder 1 empty</source>
-        <translation type="obsolete">Переместить содержимое в каталог 2, очистив каталог 1</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="201"/>
-        <source>&lt;b&gt;Folder 2:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Каталог 2:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="217"/>
-        <source>Clone folder 1</source>
-        <translation type="obsolete">Клонировать каталог 1</translation>
-    </message>
-    <message>
         <location filename="../sync.cpp" line="1181"/>
         <source>Synchronisation complete</source>
         <translation>Синхронизация выполнена</translation>
@@ -1387,16 +1271,6 @@
         <translation>Удалить расширение из исключений</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="142"/>
-        <source>Edit blacklist</source>
-        <translation type="obsolete">Править исключения</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="143"/>
-        <source>Edit blacklist for this tab</source>
-        <translation type="obsolete">Править исключения для этой вкладки</translation>
-    </message>
-    <message>
         <location filename="../main_window.ui" line="641"/>
         <source>&lt;b&gt;Extensions in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Расширения в исключениях:&lt;/b&gt;</translation>
@@ -1407,11 +1281,6 @@
         <translation>&lt;b&gt;Синк:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1477"/>
-        <source>&lt;b&gt;Multisyncs&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Мультисинк&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../main_window.ui" line="1816"/>
         <source>SyncView</source>
         <translation>Смотреть синк</translation>
@@ -1420,36 +1289,6 @@
         <location filename="../main_window.ui" line="1819"/>
         <source>Go to SyncView</source>
         <translation>Перейти к просмотру синка</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="54"/>
-        <source>Show/hide sync folders</source>
-        <translation type="obsolete">Показать/скрыть синхронизируемые каталоги</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="122"/>
-        <source>Propagate deletions</source>
-        <translation type="obsolete">Подразумевать удаление</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="182"/>
-        <source>Do not backup updated files from Folder 1</source>
-        <translation type="obsolete">Не делать копию обновленных файлов из Каталога 1</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="187"/>
-        <source>Update existing files in Folder 1 only</source>
-        <translation type="obsolete">Обновить существующие файлы только в Каталоге 1</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="207"/>
-        <source>Do not backup updated files from Folder 2</source>
-        <translation type="obsolete">Не делать копию обновленных файлов из Каталога 2</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="212"/>
-        <source>Update existing files in Folder 2 only</source>
-        <translation type="obsolete">Обновить существующие файлы только в Каталоге 2</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1462"/>
@@ -1469,22 +1308,22 @@
     <message>
         <location filename="../restore.cpp" line="439"/>
         <source>Advanced selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенный выбор</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="447"/>
         <source>Select files from the last synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файлы из последней синхронизации</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="469"/>
         <source>Select files with common date and time of synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файлы с общей датой и временем синхронизации</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="475"/>
         <source>Select files synchronised on </source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файлы, синхронизированные на </translation>
     </message>
 </context>
 <context>
@@ -1658,11 +1497,6 @@
         <translation>Synkron</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="201"/>
-        <source>Choose a destination first.</source>
-        <translation type="obsolete">Сначала выберите приемник.</translation>
-    </message>
-    <message>
         <location filename="../multisync.cpp" line="264"/>
         <source>No sources selected.</source>
         <translation>Источники не выбраны.</translation>
@@ -1802,12 +1636,12 @@
     <message>
         <location filename="../syncfolders.cpp" line="129"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="134"/>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь</translation>
     </message>
 </context>
 <context>
@@ -1815,35 +1649,15 @@
     <message>
         <location filename="../syncfolders.cpp" line="55"/>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
 </context>
 <context>
     <name>SyncPage</name>
     <message>
         <location filename="../sync.cpp" line="381"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Choose the synchronization folders first</source>
-        <translation type="obsolete">%1<byte value="x9"/>Ошибка синхронизации: сначала выберите синхронизируемые каталоги</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="396"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
-        <translation type="obsolete">%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога %2</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="381"/>
         <source>%1<byte value="x9"/>Directory %2 created</source>
         <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="348"/>
-        <source>Synkron - %1</source>
-        <translation type="obsolete">Synkron - %1</translation>
-    </message>
-    <message>
-        <location filename="../sync.cpp" line="348"/>
-        <source>Directories with the same path selected.</source>
-        <translation type="obsolete">Выбрены каталоги с одинаковым путем.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="453"/>
@@ -1958,192 +1772,192 @@
     <message>
         <location filename="../analyse.cpp" line="26"/>
         <source>&lt;b&gt;Analysis:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Анализ:&lt;/b</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="30"/>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя файла</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="32"/>
         <source>Folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="86"/>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Отчет:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Отчет:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="101"/>
         <source>Root directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Корневой каталог</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="171"/>
         <source>NOT FOUND</source>
-        <translation type="unfinished"></translation>
+        <translation>НЕ НАЙДЕНО</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="61"/>
         <source>Set sync name</source>
-        <translation type="unfinished">Имя синхронизации</translation>
+        <translation>Имя синхронизации</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="70"/>
         <source>Show/hide sync folders</source>
-        <translation type="unfinished">Показать/скрыть синхронизируемые каталоги</translation>
+        <translation>Показать/скрыть синхронизируемые каталоги</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="74"/>
         <source>&lt;b&gt;Sync folders:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Каталоги:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Каталоги:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="91"/>
         <source>Search sync log</source>
-        <translation type="unfinished">Найти отчет</translation>
+        <translation>Найти отчет</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="92"/>
         <source>Search</source>
-        <translation type="unfinished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="98"/>
         <source>Source</source>
-        <translation type="unfinished">Источник</translation>
+        <translation>Источник</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="98"/>
         <source>Destination</source>
-        <translation type="unfinished">Приемник</translation>
+        <translation>Приемник</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="102"/>
         <source>List of synchronised files and folders</source>
-        <translation type="unfinished">Список синхронизируемых файлов и каталогов</translation>
+        <translation>Список синхронизируемых файлов и каталогов</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="123"/>
         <source>Analyse</source>
-        <translation type="unfinished"></translation>
+        <translation>Анализировать</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="135"/>
         <source>Stop sync</source>
-        <translation type="unfinished">Остановить</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="136"/>
         <source>Stop synchronisation</source>
-        <translation type="unfinished">Остановить синхронизацию</translation>
+        <translation>Остановить синхронизацию</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="145"/>
         <source>Show advanced options</source>
-        <translation type="unfinished">Расширенные опции</translation>
+        <translation>Расширенные опции</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="152"/>
         <source>Synchronise hidden files and folders</source>
-        <translation type="unfinished">Синхронизировать скрытые файлы и каталоги</translation>
+        <translation>Синхронизировать скрытые файлы и каталоги</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="158"/>
         <source>Propagate deletions</source>
-        <translation type="unfinished">Подразумевать удаление</translation>
+        <translation>Подразумевать удаление</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="166"/>
         <source>Do not synchronise subdirectories</source>
-        <translation type="unfinished">Не синхронизировать подкаталоги</translation>
+        <translation>Не синхронизировать подкаталоги</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="173"/>
         <source>Ignore blacklist</source>
-        <translation type="unfinished">Игнорировать исключения</translation>
+        <translation>Игнорировать исключения</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="179"/>
         <source>Edit blacklist</source>
-        <translation type="unfinished">Править исключения</translation>
+        <translation>Править исключения</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="180"/>
         <source>Edit blacklist for this tab</source>
-        <translation type="unfinished">Править исключения для этой вкладки</translation>
+        <translation>Править исключения для этой вкладки</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="243"/>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">Не делать копию обновленных файлов</translation>
+        <translation>Не делать копию обновленных файлов</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="248"/>
         <source>Update existing files only</source>
-        <translation type="unfinished">Обновить только существующие файлы</translation>
+        <translation>Обновить только существующие файлы</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="206"/>
         <source>Follow symbolic links</source>
-        <translation type="unfinished"></translation>
+        <translation>Следовать симлинкам</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="213"/>
         <source>&lt;b&gt;Folder 1:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Каталог 1:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Каталог 1:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="219"/>
         <source>Do not backup updated files from Folder 1</source>
-        <translation type="unfinished">Не делать копию обновленных файлов из Каталога 1</translation>
+        <translation>Не делать копию обновленных файлов из Каталога 1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="224"/>
         <source>Update existing files in Folder 1 only</source>
-        <translation type="unfinished">Обновить существующие файлы только в Каталоге 1</translation>
+        <translation>Обновить существующие файлы только в Каталоге 1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="238"/>
         <source>&lt;b&gt;Folder 2:&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Каталог 2:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Каталог 2:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="244"/>
         <source>Do not backup updated files from Folder 2</source>
-        <translation type="unfinished">Не делать копию обновленных файлов из Каталога 2</translation>
+        <translation>Не делать копию обновленных файлов из Каталога 2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="249"/>
         <source>Update existing files in Folder 2 only</source>
-        <translation type="unfinished">Обновить существующие файлы только в Каталоге 2</translation>
+        <translation>Обновить существующие файлы только в Каталоге 2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="260"/>
         <source>Filters</source>
-        <translation type="unfinished">Фильтры</translation>
+        <translation>Фильтры</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="390"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="478"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="unfinished">Вы точно хотите удалить &quot;%1&quot; из каждого синхронизированного расположения?</translation>
+        <translation>Вы точно хотите удалить &quot;%1&quot; из каждого синхронизированного расположения?</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="166"/>
         <source>DELETED</source>
-        <translation type="unfinished"></translation>
+        <translation>УДАЛЕНО</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="420"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
