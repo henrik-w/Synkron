@@ -127,10 +127,11 @@ MainWindow::MainWindow(QSettings * s)
 	connect(actionSave_log, SIGNAL(triggered()), this, SLOT(saveSyncLog()));
 	connect(restore_list, SIGNAL(sigconmenu(QPoint)), this, SLOT(restoreListConMenu(QPoint)));
 	connect(sched_interval_spin, SIGNAL(valueChanged(int)), this, SLOT(schedIntervalChanged(int)));
-	connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timngTabIndexChanged(int)));
+	connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timingTabIndexChanged(int)));
     
     setCleanGB();
     setSelectGB();
+    setSchedDatesGB();
     tabWidget->removeTab(0);
     multi_tabWidget->removeTab(0);
     
@@ -471,6 +472,9 @@ void MainWindow::saveSettings()
 		sync_settings->setValue(QString("sched_%1_%2_checkedtimes").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->sched_checked_time_list);
 		sync_settings->setValue(QString("sched_%1_%2_periodical_interval").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->periodical_interval);
 		sync_settings->setValue(QString("sched_%1_%2_tab_index").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->timing_tab_index);
+		sync_settings->setValue(QString("sched_%1_%2_dates").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->sched_date_list);
+		sync_settings->setValue(QString("sched_%1_%2_checkeddates").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->sched_checked_date_list);
+		sync_settings->setValue(QString("sched_%1_%2_uncheckeddays").arg(tw_schedules->item(i, 0)->text()).arg(i), schedule->sched_unchecked_days_list);
 	}
 	sync_settings->setValue("schedules", schedules);
     sync_settings->setValue("pos", this->pos());
@@ -716,6 +720,9 @@ void MainWindow::readSettings()
 		    sync_sched->sched_checked_time_list = sync_settings->value(QString("sched_%1_%2_checkedtimes").arg(schedules.at(i)).arg(i/2), QStringList()).toStringList();
 		    sync_sched->periodical_interval = sync_settings->value(QString("sched_%1_%2_periodical_interval").arg(schedules.at(i)).arg(i/2), 1).toInt();
 		    sync_sched->timing_tab_index = sync_settings->value(QString("sched_%1_%2_tab_index").arg(schedules.at(i)).arg(i/2), 0).toInt();
+		    sync_sched->sched_date_list = sync_settings->value(QString("sched_%1_%2_dates").arg(schedules.at(i)).arg(i/2), QStringList()).toStringList();
+		    sync_sched->sched_checked_date_list = sync_settings->value(QString("sched_%1_%2_checkeddates").arg(schedules.at(i)).arg(i/2), QStringList()).toStringList();
+		    sync_sched->sched_unchecked_days_list = sync_settings->value(QString("sched_%1_%2_uncheckeddays").arg(schedules.at(i)).arg(i/2), QStringList()).toStringList();
 		}
 		if (i % 2 == 1) {
 			if (schedules.at(i)=="on") {

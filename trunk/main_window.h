@@ -40,6 +40,9 @@ public:
 	QStringList sched_multitab_list;
 	QStringList sched_time_list;
 	QStringList sched_checked_time_list;
+    QStringList sched_date_list;
+	QStringList sched_checked_date_list;
+	QStringList sched_unchecked_days_list;
 	
 	int periodical_interval;
 	int timing_tab_index;
@@ -51,9 +54,13 @@ signals:
 public slots:
 	void syncSchedule();
 	void checkSchedStatus();
+    void startSchedule();
 	
 private:
 	MainWindow * sched_parent;
+	QTableWidgetItem * parent_item;
+    
+    friend class MainWindow;
 };
 
 class Filter : public QListWidgetItem
@@ -199,7 +206,12 @@ private slots:
     void enableSchedule(int);
     void activateSchedule();
     void schedIntervalChanged(int);
-    void timngTabIndexChanged(int);
+    void timingTabIndexChanged(int);
+    void setSchedDatesGB();
+    void addSchedDate();
+    void removeSchedDate();
+    void schedDateClicked(QListWidgetItem *);
+    void schedDayClicked(QListWidgetItem *);
     
 // Filters
     void addFilter();
@@ -271,6 +283,11 @@ private:
     QSpinBox * restore_select_older_date;*/
     QToolButton * restore_select_common_date;
     QDateTimeEdit * restore_select_dt_edit;
+    QListWidget * sched_sync_dates;
+    QListWidget * sched_days_lw;
+    QDateEdit * sched_date_edit;
+    QPushButton * add_date_btn;
+    QPushButton * rem_date_btn;
     
     QAction *minimizeAction;
     QAction *maximizeAction;

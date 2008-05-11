@@ -60,7 +60,7 @@ void SyncPage::setSyncWidget()
     tab_name = new QLineEdit (tab);
     tab_name->setStatusTip(tr("Set sync name"));
     tab_name->setText(mp_parent->tabWidget->tabText(mp_parent->tabWidget->indexOf(tab_stw)));
-    QObject::connect(tab_name, SIGNAL(editingFinished()), this, SLOT(tabNameChanged()));
+    QObject::connect(tab_name, SIGNAL(editingFinished()), mp_parent, SLOT(tabNameChanged()));
     hlayout0->addWidget(tab_name, 0, 1);
     spacerItem = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     hlayout0->addItem(spacerItem, 0, 2);

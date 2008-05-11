@@ -203,6 +203,7 @@ public slots:
     void openAnalyseTreeItem();
     void syncCurrentAnalyseItem();
     void deleteCurrentAnalyseItem();
+    void renameCurrentAnalyseItem();
     
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {};
