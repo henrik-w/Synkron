@@ -98,15 +98,15 @@ class SyncViewItem : public QWidget, private Ui::SyncViewItem
 
 public:
 	SyncViewItem(AbstractSyncPage *);
+	AbstractSyncPage * parent_page;
 	
 	void setName(QString name) { sync_name_lbl->setText(name); };
 	
 public slots:
     void startSync();
-	
-private:
-    AbstractSyncPage * parent_page;
-	
+
+protected:
+    void mouseDoubleClickEvent(QMouseEvent *) { parent_page->showThisPage(); };
 };
 
 class MainWindow : public QMainWindow, private Ui::MainWindow
@@ -116,7 +116,7 @@ class MainWindow : public QMainWindow, private Ui::MainWindow
 public:
     MainWindow(QSettings *);
     
-    QStringList synchronised;
+    //QStringList synchronised;
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
@@ -127,6 +127,7 @@ public:
     //void setShownManually(bool sm) { shown_manually = sm; }
 	bool showTrayMessage(QString, QString);
 	QSettings * sync_settings;
+	QSettings * temp_settings;
         
 public slots:
     void saveSettings();
@@ -134,7 +135,7 @@ public slots:
     bool removeFile(QString);
     void setShownManually() { shown_manually = true; }
     bool restoreItem(QListWidgetItem*);
-    bool restoreFile(QString, QString);
+    bool restoreFile(QString, QString, QString);
 
 private slots:
 	
@@ -163,6 +164,9 @@ private slots:
     void restoreSelLastSync();
     //void restoreSelOlderFiles();
     void restoreSelCommonDate();
+    void loadTempSettings();
+    void readTempSettings();
+    void convertOldTempSettings(QStringList);
     
 // Blacklist
 	void addToBlackList(int);

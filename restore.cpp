@@ -25,9 +25,32 @@ void MainWindow::toRestorePage()
 	path_of_syncfile->clear();
  	QListWidgetItem * item;
  	restore_list->clear();
- 	QString last_time = "";
- 	QString last_colour = "grey";
- 	for (int i = 0; i < synchronised.count(); i+=4) {
+ 	//QString last_time = "";
+ 	//QString last_colour = "grey";
+ 	QStringList time_groups = temp_settings->childGroups();
+ 	for (int i = 0; i < time_groups.count(); ++i) {
+        temp_settings->beginGroup(time_groups.at(i));
+        QStringList file_groups = temp_settings->childGroups();
+        for (int n = 0; n < file_groups.count(); ++n) {
+            temp_settings->beginGroup(file_groups.at(n));
+            item = new QListWidgetItem (temp_settings->value("file_name").toString());
+            item->setCheckState(Qt::Unchecked);
+            if (i % 2 == 1) {
+                item->setBackground(QBrush(QColor(226, 226, 226)));
+            }
+            QStringList list;
+            list << temp_settings->value("file_name").toString();
+            list << time_groups.at(i);
+            list << temp_settings->value("old_file_path").toString();
+            list << temp_settings->value("temp_file_path").toString();
+            item->setData(Qt::UserRole, list);
+            item->setToolTip(temp_settings->value("old_file_path").toString());
+            restore_list->addItem(item);
+            temp_settings->endGroup();
+        }
+        temp_settings->endGroup();
+    }
+ 	/*for (int i = 0; i < synchronised.count(); i+=4) {
 		item = new QListWidgetItem (synchronised.at(i));
 		item->setCheckState(Qt::Unchecked);
 		QStringList list;
@@ -51,7 +74,7 @@ void MainWindow::toRestorePage()
 		item->setData(Qt::UserRole, list);
 		item->setToolTip(synchronised.at(i+2));
 		restore_list->addItem(item);
-    }
+    }*/
     to_black_list->setCheckState(Qt::Unchecked);
 }
 
@@ -108,7 +131,7 @@ void MainWindow::restoreCurrentItem()
 bool MainWindow::restoreItem(QListWidgetItem * item)
 {
     QStringList item_list = item->data(Qt::UserRole).toStringList();
-    if (!restoreFile(item_list.at(3), item_list.at(2))) {
+    if (!restoreFile(item_list.at(3), item_list.at(2), item_list.at(1))) {
         QMessageBox::critical(this, tr("Synkron"), tr("Unknown error restoring file: %1").arg(item_list.at(0)));
         return false;
     }
@@ -117,7 +140,7 @@ bool MainWindow::restoreItem(QListWidgetItem * item)
 }
 
 //file_path - temp-file path, old_file_path - destination path
-bool MainWindow::restoreFile(QString file_path, QString old_file_path)
+bool MainWindow::restoreFile(QString file_path, QString old_file_path, QString group_name)
 {
 	MTFile * file = new MTFile (file_path);
     if (!file->exists()) { delete file; return false; }
@@ -138,8 +161,19 @@ bool MainWindow::restoreFile(QString file_path, QString old_file_path)
     	file->touch(qApp);
 	}
     delete file; delete old_file;
+    QFileInfo info(file_path);
+	QDir dir = info.dir();
+	QString dirname = dir.dirName();
+	dir.cdUp();
+	dir.rmdir(dirname);
 	//restored[restored_items] = restore_list->row(item);
-	for (int o = 0; o < synchronised.count(); ++o) {
+	temp_settings->beginGroup(group_name);
+	temp_settings->remove(file_path.split("/").last());
+	if (temp_settings->childGroups().count() == 0) {
+        temp_settings->remove("");
+    }
+    temp_settings->endGroup();
+	/*for (int o = 0; o < synchronised.count(); ++o) {
 		if (synchronised.at(o) == file_path) {
 			synchronised.removeAt(o);
 			synchronised.removeAt(o-1);
@@ -147,7 +181,7 @@ bool MainWindow::restoreFile(QString file_path, QString old_file_path)
 			synchronised.removeAt(o-3);
 			break;
 		}
-	}
+	}*/
 	return true;
 }
 
@@ -304,7 +338,7 @@ void MainWindow::cleanTemporary()
                 delete restore_list->item(i);
             }
 		}
-		if (synchronised.count() == 0) { synchronised.clear(); }
+		//if (synchronised.count() == 0) { synchronised.clear(); }
    		QApplication::restoreOverrideCursor();
    		break;
  	case QMessageBox::No:
@@ -325,10 +359,18 @@ void MainWindow::deleteTempFile(QString path)
 		dir.cdUp();
 		dir.rmdir(dirname);
     }
-    if (synchronised.contains(path)) {
+    QStringList path_split = path.split("/");
+    QString time = path_split.at(path_split.count()-2);
+    temp_settings->beginGroup(time);
+	temp_settings->remove(path_split.last());
+	if (temp_settings->childGroups().count() == 0) {
+        temp_settings->remove("");
+    }
+    temp_settings->endGroup();
+    /*if (synchronised.contains(path)) {
 		int n = synchronised.indexOf(path);
 		synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
-    }
+    }*/
 }
 
 void MainWindow::deleteRestoreItem()
@@ -423,8 +465,9 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
             unknownError(file_info.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp"));
             return;
         }
-        mp_parent->synchronised << file_info.fileName() << update_time << file_info.absoluteFilePath();
-        mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files);
+        saveBackedUpFile(file_info);
+        //mp_parent->synchronised << file_info.fileName() << update_time << file_info.absoluteFilePath();
+        //mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files);
     }
     if (!file.remove()) {
         if (add_table_item) addTableItem(tr("Unknown error removing file: %1").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::red), QBrush(Qt::white));
@@ -513,4 +556,45 @@ void MainWindow::restoreSelCommonDate()
             restore_list->item(i)->setCheckState(Qt::Checked);
         }
     }
+}
+
+void MainWindow::convertOldTempSettings(QStringList old_settings)
+{
+    QString temp_file_name;
+    for (int i = 0; i < old_settings.count(); i+=4) {
+        //at(i) - file name
+        //at(i+1) - sync time
+        //at(i+2) - old file path
+        //at(i+3) - temp file path
+		temp_settings->beginGroup(old_settings.at(i+1));
+		temp_file_name = old_settings.at(i+3).split("/").last();
+		temp_settings->beginGroup(temp_file_name);
+		temp_settings->setValue("file_name", old_settings.at(i));
+        temp_settings->setValue("old_file_path", old_settings.at(i+2));
+        temp_settings->setValue("temp_file_path", old_settings.at(i+3));
+		/*temp_settings->setValue(QString("%1/file_name").arg(temp_file_name), old_settings.at(i));
+        temp_settings->setValue(QString("%1/old_file_path").arg(temp_file_name), old_settings.at(i+2));
+        temp_settings->setValue(QString("%1/temp_file_path").arg(temp_file_name), old_settings.at(i+3));*/
+        temp_settings->endGroup();
+        temp_settings->endGroup();
+    }
+}
+
+void MainWindow::loadTempSettings()
+{
+    QDir dir (QDir::home());
+    dir.mkdir(".Synkron");
+    dir.cd(".Synkron");
+    QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".backup.syncdb"));
+    if (!file.open(QFile::Append | QFile::Text)) {
+		QMessageBox::critical(this, tr("Synkron"), tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()));
+        return;
+    }
+    temp_settings = new QSettings (dir.absoluteFilePath(".backup.syncdb"), QSettings::IniFormat);
+    
+}
+
+void MainWindow::readTempSettings()
+{
+    
 }

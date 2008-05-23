@@ -160,6 +160,7 @@ public slots:
     void removeExtFromBlacklist();
     void removeExtFromBlacklist(QString);
     void setBlacklistWidget();
+    void saveBackedUpFile(QFileInfo);
 };
 
 class SyncPage : public AbstractSyncPage
@@ -204,6 +205,9 @@ public slots:
     void syncCurrentAnalyseItem();
     void deleteCurrentAnalyseItem();
     void renameCurrentAnalyseItem();
+    void blacklistCurrentAnalyseItem();
+    void blExtCurrentAnalyseItem();
+    void analyseTreeItemExpanded(QTreeWidgetItem *);
     
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {};
@@ -236,11 +240,15 @@ public:
     QCheckBox * show_sync_folders;
     QCheckBox * backup_folders;
     QCheckBox * update_only;
+    QCheckBox * fast_analyse;
+    QCheckBox * analyse_special_only;
     MTAdvancedGroupBox * advanced;
     QStackedWidget * tab_stw;
     QStackedWidget * logs_stw;
     SyncFolders * sync_folders;
     ExtendedTreeWidget * analyse_tree;
+    QGroupBox * folder1_gb;
+    QGroupBox * folder2_gb;
 };
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm

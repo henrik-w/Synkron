@@ -61,4 +61,5 @@ TRANSLATIONS += i18n/Synkron-Slovak.ts \
     i18n/Synkron-Japanese.ts \
     i18n/Synkron-Arabic.ts \
     i18n/Synkron-Russian.ts \
-    i18n/Synkron-Spanish.ts
+    i18n/Synkron-Spanish.ts \
+    i18n/Synkron-Brazilian_Portuguese.ts

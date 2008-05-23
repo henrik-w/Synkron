@@ -33,5 +33,10 @@
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
+    <message>
+        <location filename="" line="136410828"/>
+        <source>Brazilian Portuguese</source>
+        <translation>Português Brasileiro</translation>
+    </message>
 </context>
 </TS>
