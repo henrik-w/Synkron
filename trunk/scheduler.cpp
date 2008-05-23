@@ -480,7 +480,7 @@ void MainWindow::enableSchedule(int row)
 
 void MainWindow::setSchedDatesGB()
 {
-    sched_dates_agb->setTitle(tr("Dates"));
+    sched_dates_agb->setTitle(tr("Dates/Days"));
     
     QHBoxLayout * lw_layout = new QHBoxLayout;
     sched_sync_dates = new QListWidget (sched_dates_agb);

@@ -136,8 +136,12 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
     }
     
     bool special = false;
+    QTreeWidgetItem * child_item = 0;
+    MTFileInfo * file_info = new MTFileInfo;
+    QList<int> * newest_indices = 0;
     for (int i = 0; i < file_names.count(); ++i) {
         if (file_names.at(i) == ".synkron.syncdb") continue;
+        release(newest_indices);
         QString rel_parent_path = parent_item->data(0, Qt::UserRole).toStringList().at(0);
         QString rel_path = QString("%1/%2").arg(rel_parent_path).arg(file_names.at(i));
         if (rel_path.isEmpty()) continue;
@@ -151,15 +155,18 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
                 }
             }
         }
-        MTFileInfo * file_info = new MTFileInfo;
+        //file_info = new MTFileInfo;
         MTStringSet child_folders_set;
-        QTreeWidgetItem * child_item = new QTreeWidgetItem;
-        MTEvenDateTime newest_datetime; QList<int> * newest_indices = new QList<int>;
+        child_item = new QTreeWidgetItem;
+        MTEvenDateTime newest_datetime;
+        newest_indices = new QList<int>;
+        bool will_be_shown = false;
         for (int i = 0; i < sync_folders->count(); ++i) {
             file_info->setFile(QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
             if (!file_info->exists()) {
                 child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
                 special = true;
+                will_be_shown = true;
                 if (propagate_deletions->isChecked()) {
                     if (isInGroupDatabase(file_info->absoluteFilePath())) {
                         child_item->setText(i+1, tr("DELETED"));
@@ -178,6 +185,7 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
                     }
                 }
                 child_folders_set << file_info->absoluteFilePath();
+                will_be_shown = true;
             } else {
                 if (!ignore_blacklist->isChecked()) {
                     if (files_blacklist.contains(file_info->absoluteFilePath(), Qt::CaseInsensitive)) {
@@ -205,11 +213,15 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
                 child_item->setText(0, file_info->fileName());
             }
         }
-        release(file_info);
+        //release(file_info);
         if (newest_indices->count() != 0) {
             for (int ind = 0; ind < newest_indices->count(); ++ind) {
                 //child_item->setBackground(newest_indices.at(ind), QBrush(Qt::darkGreen));
                 child_item->setForeground(newest_indices->at(ind), QBrush(Qt::darkGreen));
+            }
+            if (newest_indices->count() != sync_folders->count()) {
+                special = true;
+                will_be_shown = true;
             }
         }
         child_item->setCheckState(0, blacklisted ? Qt::Unchecked : Qt::Checked);
@@ -219,18 +231,35 @@ bool SyncPage::subAnalyse(MTStringSet folders_set, QTreeWidgetItem * parent_item
         if (child_item->checkState(0) == Qt::Checked) data0 << "checked";
         else data0 << "unchecked";
         child_item->setData(0, Qt::UserRole, QVariant(data0));
+        if (blacklisted) special = false;
+        if (analyse_special_only->isChecked() && !will_be_shown) {
+            delete child_item;
+            continue;
+        }
         parent_item->addChild(child_item);
         if (child_folders_set.count() != 0) {
-            if (subAnalyse(child_folders_set, child_item)) special = true;
+            if (fast_analyse->isChecked()) {
+                QTreeWidgetItem * loading_item = new QTreeWidgetItem;
+                loading_item->setText(0, tr("Loading..."));
+                QStringList ld_data;
+                ld_data << rel_path;
+                ld_data << "unchecked";
+                ld_data << "regular";
+                loading_item->setData(0, Qt::UserRole, QVariant(ld_data));
+                child_item->addChild(loading_item);
+                special = false;
+            } else {
+                if (subAnalyse(child_folders_set, child_item)) special = true;
+            }
         }
         if (blacklisted) special = false;
         if (special) data0 << "special";
         else data0 << "regular";
         child_item->setData(0, Qt::UserRole, QVariant(data0));
-        //if (special) parent_item->setExpanded(true);
-        release(newest_indices);
     }
-    file_names.clear();
+    release(newest_indices);
+    release(file_info);
+    //file_names.clear();
     //delete file_names;
     return special;
 }
@@ -240,6 +269,32 @@ void SyncPage::subCheckExpanded(QTreeWidgetItem * parent_item)
     for (int i = 0; i < parent_item->childCount(); ++i) {
         if (parent_item->child(i)->childCount() != 0) subCheckExpanded(parent_item->child(i));
         if (parent_item->child(i)->data(0, Qt::UserRole).toStringList().at(2) == "special") parent_item->setExpanded(true);
+    }
+}
+
+void SyncPage::analyseTreeItemExpanded(QTreeWidgetItem * item)
+{
+    if (fast_analyse->isChecked() && item->isExpanded() && item->childCount() == 1) {
+        if (item->child(0)->text(0) == tr("Loading...")) {
+            delete item->child(0);
+            MTStringSet folders_set;
+            QString rel_path = item->data(0, Qt::UserRole).toStringList().at(0);
+            MTFileInfo * file_info = new MTFileInfo;
+            for (int i = 0; i < sync_folders->count(); ++i) {
+                file_info->setFile(QString("%1%2").arg(sync_folders->at(i)->path()).arg(rel_path));
+                if (file_info->exists()) {
+                    if (file_info->isDir() && !file_info->isSymLink()) {
+                        folders_set << file_info->absoluteFilePath();
+                    }
+                }
+            }
+            release(file_info);
+            if (folders_set.count() != 0) {
+                QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+                subAnalyse(folders_set, item);
+                QApplication::restoreOverrideCursor();
+            }
+        }
     }
 }
 
@@ -308,10 +363,12 @@ void SyncPage::subCheckAnalyseTree(QTreeWidgetItem * parent_item)
 {
     QTreeWidgetItem * child_item;
     QFileInfo * file_info = 0;
+    QStringList data0;
     for (int i = 0; i < parent_item->childCount(); ++i) {
         child_item = parent_item->child(i);
         bool blacklisted = false;
-        QString rel_path = child_item->data(0, Qt::UserRole).toStringList().at(0);
+        data0 = child_item->data(0, Qt::UserRole).toStringList();
+        QString rel_path = data0.at(0);
         for (int e = 0; e < exts_blacklist.count(); ++e) {
             if (rel_path.endsWith(exts_blacklist.at(e))) {
                 blacklisted = true;
@@ -345,6 +402,8 @@ void SyncPage::subCheckAnalyseTree(QTreeWidgetItem * parent_item)
             blacklisted = false;
         }
         child_item->setCheckState(0, blacklisted ? Qt::Unchecked : Qt::Checked);
+        data0.replace(1, blacklisted ? QString("unchecked") : QString("checked"));
+        child_item->setData(0, Qt::UserRole, data0);
         if (child_item->childCount() != 0) subCheckAnalyseTree(child_item);
     }
 }
@@ -423,6 +482,21 @@ void SyncPage::analyseTreeConMenu(QPoint pos)
     QAction * rename_analyse_action = new QAction (tr("Rename"), this);
     connect(rename_analyse_action, SIGNAL(triggered()), this, SLOT(renameCurrentAnalyseItem()));
     contextMenu->addAction(rename_analyse_action);
+    
+    QAction * bl_analyse_action = new QAction (this);
+    if (analyse_tree->currentItem()->checkState(0) == Qt::Checked) {
+        bl_analyse_action->setText(tr("Add to blacklist"));
+    } else {
+        bl_analyse_action->setText(tr("Remove from blacklist"));
+    }
+    connect(bl_analyse_action, SIGNAL(triggered()), this, SLOT(blacklistCurrentAnalyseItem()));
+    contextMenu->addAction(bl_analyse_action);
+    
+    if (analyse_tree->currentItem()->checkState(0) == Qt::Checked) {
+        QAction * bl_ext_analyse_action = new QAction (tr("Add extension to blacklist"), this);
+        connect(bl_ext_analyse_action, SIGNAL(triggered()), this, SLOT(blExtCurrentAnalyseItem()));
+        contextMenu->addAction(bl_ext_analyse_action);
+    }
     
 	contextMenu->move(pos);
 	contextMenu->show();
@@ -556,4 +630,16 @@ void SyncPage::renameCurrentAnalyseItem()
         }
 	}
     release(file_info);
+}
+
+void SyncPage::blacklistCurrentAnalyseItem()
+{
+    analyse_tree->currentItem()->setCheckState(0, analyse_tree->currentItem()->checkState(0) == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+    analyseTreeItemClicked(analyse_tree->currentItem(), 0);
+}
+
+void SyncPage::blExtCurrentAnalyseItem()
+{
+    addExtToBlacklist(analyse_tree->currentItem()->text(0).split(".").last().split(" ").last());
+    checkAnalyseTree();
 }
