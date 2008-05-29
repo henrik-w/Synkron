@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -419,12 +420,12 @@
     <message>
         <location filename="../main.cpp" line="86"/>
         <source>Spanish</source>
-        <translation>Español</translation>
+        <translation>الإسبانية</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="87"/>
         <source>Brazilian Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>البرازيلية</translation>
     </message>
 </context>
 <context>
@@ -1627,52 +1628,52 @@
     <message>
         <location filename="../restore.cpp" line="590"/>
         <source>Cannot write file %1: %2</source>
-        <translation type="unfinished">غير قادر على كتابة الملف %1: %2</translation>
+        <translation>غير قادر على كتابة الملف %1: %2</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="490"/>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation>الإثنين</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="493"/>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation>الثلاثاء</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="496"/>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation>الأربعاء</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="499"/>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation>الخميس</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="502"/>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation>الجمعة</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="505"/>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation>السبت</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="508"/>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation>الأحد</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="546"/>
         <source>No sync date selected.</source>
-        <translation type="unfinished"></translation>
+        <translation>لم يتم تحديد تاريخ للمزامنة.</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="483"/>
         <source>Dates/Days</source>
-        <translation type="unfinished"></translation>
+        <translation>تواريخ/أيام</translation>
     </message>
 </context>
 <context>
@@ -2340,77 +2341,77 @@
     <message>
         <location filename="../analyse.cpp" line="278"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>تحميل...</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="482"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>إعادة تسمية</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="488"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>أضف للقائمة السوداء</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="490"/>
         <source>Remove from blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة من القائمة السوداء</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="496"/>
         <source>Add extension to blacklist</source>
-        <translation type="unfinished">أضف إمتداد  للقائمة السوداء</translation>
+        <translation>أضف إمتداد  للقائمة السوداء</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="607"/>
         <source>Synkron - Rename file</source>
-        <translation type="unfinished">سينكرون - إعادة تسمية الملف</translation>
+        <translation>سينكرون - إعادة تسمية الملف</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="607"/>
         <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="unfinished">قم بكتابة تسمية جديدة لـ &quot;%1&quot;:</translation>
+        <translation>قم بكتابة تسمية جديدة لـ &quot;%1&quot;:</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="619"/>
         <source>Error renaming directory %1</source>
-        <translation type="unfinished">حدث خطأ أثناء إعادة تسمية المجلد %1</translation>
+        <translation>حدث خطأ أثناء إعادة تسمية المجلد %1</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="628"/>
         <source>File %1 renamed</source>
-        <translation type="unfinished">تم إعادة تسمية الملف %1</translation>
+        <translation>تم إعادة تسمية الملف %1</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="626"/>
         <source>Error renaming file %1</source>
-        <translation type="unfinished">حدث خطأ أثناء إعادة تسمية الملف %1</translation>
+        <translation>حدث خطأ أثناء إعادة تسمية الملف %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="283"/>
         <source>Fast analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>تحليل سريع</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="287"/>
         <source>List files which need to be synchronised only</source>
-        <translation type="unfinished"></translation>
+        <translation>قائمة الملفات التي هي بحاجة للمزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="234"/>
         <source>Folder 1</source>
-        <translation type="unfinished"></translation>
+        <translation>المجلد الأول</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="256"/>
         <source>Folder 2</source>
-        <translation type="unfinished"></translation>
+        <translation>المجلد الثاني</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="278"/>
         <source>Analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>تحليل</translation>
     </message>
 </context>
 <context>
