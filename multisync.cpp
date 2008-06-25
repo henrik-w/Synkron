@@ -30,8 +30,8 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
 
 void MultisyncPage::setAdvancedGB()
 {
-    QVBoxLayout * column1_layout  = new QVBoxLayout (advanced);
-    QVBoxLayout * column2_layout  = new QVBoxLayout (advanced);
+    QVBoxLayout * column1_layout  = new QVBoxLayout;
+    QVBoxLayout * column2_layout  = new QVBoxLayout;
     
 	sync_hidden = new QCheckBox(advanced);
     sync_hidden->setChecked(true);
@@ -53,7 +53,7 @@ void MultisyncPage::setAdvancedGB()
     sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
 	column1_layout->addWidget(sync_nosubdirs);
 	
-    QHBoxLayout * bl_layout = new QHBoxLayout (advanced);
+    QHBoxLayout * bl_layout = new QHBoxLayout;
     ignore_blacklist = new QCheckBox(advanced);
     ignore_blacklist->setChecked(false);
     ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
@@ -361,6 +361,16 @@ int MultisyncPage::sync()
 	if (!mp_parent->syncingAll) {
 	    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 file(s) %2").arg(all_synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
 	}
+	if (mp_parent->actionShut_down_after_sync->isChecked()) {
+        if (!mp_parent->isSyncing()) {
+            mp_parent->shutDownComputer();
+        }
+    }
+    if (mp_parent->actionQuit_after_sync->isChecked()) {
+        if (!mp_parent->isSyncing()) {
+            mp_parent->close();
+        }
+    }
 	return all_synced_files;
 }
 

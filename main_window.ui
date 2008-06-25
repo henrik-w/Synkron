@@ -19,20 +19,20 @@
    <string>Synkron</string>
   </property>
   <property name="windowIcon" >
-   <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
+   <iconset resource="resources.qrc" >
+    <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>73</y>
+     <width>663</width>
+     <height>488</height>
+    </rect>
+   </property>
    <layout class="QGridLayout" >
-    <property name="leftMargin" >
-     <number>2</number>
-    </property>
-    <property name="topMargin" >
-     <number>2</number>
-    </property>
-    <property name="rightMargin" >
-     <number>2</number>
-    </property>
-    <property name="bottomMargin" >
+    <property name="margin" >
      <number>2</number>
     </property>
     <item row="0" column="0" >
@@ -41,17 +41,16 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="page" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>659</width>
+         <height>484</height>
+        </rect>
+       </property>
        <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item row="0" column="0" >
@@ -60,11 +59,20 @@
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab" >
+           <property name="geometry" >
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>653</width>
+             <height>455</height>
+            </rect>
+           </property>
            <attribute name="title" >
             <string>Sync #1</string>
            </attribute>
            <attribute name="icon" >
-            <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
+            <iconset resource="resources.qrc" >
+             <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
            </attribute>
            <attribute name="toolTip" >
             <string>Sync #1</string>
@@ -75,37 +83,24 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_2" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item row="0" column="0" colspan="2" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="0" column="1" >
@@ -127,7 +122,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -139,22 +134,10 @@
         </item>
         <item row="1" column="0" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="1" column="0" >
@@ -166,22 +149,10 @@
           </item>
           <item row="2" column="0" >
            <layout class="QGridLayout" >
-            <property name="leftMargin" >
+            <property name="margin" >
              <number>0</number>
             </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
+            <property name="spacing" >
              <number>6</number>
             </property>
             <item row="0" column="0" >
@@ -199,7 +170,7 @@
               <property name="orientation" >
                <enum>Qt::Horizontal</enum>
               </property>
-              <property name="sizeHint" >
+              <property name="sizeHint" stdset="0" >
                <size>
                 <width>40</width>
                 <height>20</height>
@@ -220,22 +191,10 @@
         </item>
         <item row="1" column="1" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="5" column="0" >
@@ -300,7 +259,7 @@
             <property name="orientation" >
              <enum>Qt::Vertical</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>20</width>
               <height>40</height>
@@ -310,22 +269,10 @@
           </item>
           <item row="10" column="0" >
            <layout class="QGridLayout" >
-            <property name="leftMargin" >
+            <property name="margin" >
              <number>0</number>
             </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <property name="horizontalSpacing" >
-             <number>6</number>
-            </property>
-            <property name="verticalSpacing" >
+            <property name="spacing" >
              <number>6</number>
             </property>
             <item row="0" column="1" >
@@ -337,7 +284,8 @@
                <string>Restore</string>
               </property>
               <property name="icon" >
-               <iconset resource="resources.qrc" >:/new/prefix1/images/Restore.png</iconset>
+               <iconset resource="resources.qrc" >
+                <normaloff>:/new/prefix1/images/Restore.png</normaloff>:/new/prefix1/images/Restore.png</iconset>
               </property>
              </widget>
             </item>
@@ -346,7 +294,7 @@
               <property name="orientation" >
                <enum>Qt::Horizontal</enum>
               </property>
-              <property name="sizeHint" >
+              <property name="sizeHint" stdset="0" >
                <size>
                 <width>40</width>
                 <height>20</height>
@@ -367,37 +315,24 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_3" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item row="0" column="0" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="0" column="1" >
@@ -412,7 +347,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -438,22 +373,10 @@
         </item>
         <item row="2" column="0" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="0" column="2" >
@@ -461,7 +384,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -478,7 +401,8 @@
              <string>Remove</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
           </item>
@@ -491,7 +415,8 @@
              <string>Add</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
           </item>
@@ -506,22 +431,10 @@
         </item>
         <item row="4" column="0" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="0" column="2" >
@@ -529,7 +442,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -562,22 +475,10 @@
         </item>
         <item row="6" column="0" >
          <layout class="QGridLayout" >
-          <property name="leftMargin" >
+          <property name="margin" >
            <number>0</number>
           </property>
-          <property name="topMargin" >
-           <number>0</number>
-          </property>
-          <property name="rightMargin" >
-           <number>0</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>0</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
+          <property name="spacing" >
            <number>6</number>
           </property>
           <item row="0" column="2" >
@@ -585,7 +486,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -602,7 +503,8 @@
              <string>Remove</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
           </item>
@@ -615,7 +517,8 @@
              <string>Add</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
           </item>
@@ -653,7 +556,8 @@
              <string>Add</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
           </item>
@@ -666,7 +570,8 @@
              <string>Remove</string>
             </property>
             <property name="icon" >
-             <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+             <iconset resource="resources.qrc" >
+              <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
           </item>
@@ -675,7 +580,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -688,17 +593,16 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_4" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QVBoxLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item>
@@ -707,11 +611,20 @@
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab_2" >
+           <property name="geometry" >
+            <rect>
+             <x>20</x>
+             <y>150</y>
+             <width>640</width>
+             <height>409</height>
+            </rect>
+           </property>
            <attribute name="title" >
             <string>Sync #1</string>
            </attribute>
            <attribute name="icon" >
-            <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+            <iconset resource="resources.qrc" >
+             <normaloff>:/new/prefix1/images/multisync.png</normaloff>:/new/prefix1/images/multisync.png</iconset>
            </attribute>
            <attribute name="toolTip" >
             <string>Sync #1</string>
@@ -722,17 +635,16 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_5" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item row="0" column="0" >
@@ -744,22 +656,10 @@
            <layout class="QVBoxLayout" >
             <item>
              <layout class="QGridLayout" >
-              <property name="leftMargin" >
+              <property name="margin" >
                <number>0</number>
               </property>
-              <property name="topMargin" >
-               <number>0</number>
-              </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
-               <number>0</number>
-              </property>
-              <property name="horizontalSpacing" >
-               <number>6</number>
-              </property>
-              <property name="verticalSpacing" >
+              <property name="spacing" >
                <number>6</number>
               </property>
               <item row="0" column="1" >
@@ -784,7 +684,7 @@
                 <property name="orientation" >
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" >
+                <property name="sizeHint" stdset="0" >
                  <size>
                   <width>40</width>
                   <height>20</height>
@@ -814,22 +714,10 @@
             </item>
             <item>
              <layout class="QGridLayout" >
-              <property name="leftMargin" >
+              <property name="margin" >
                <number>0</number>
               </property>
-              <property name="topMargin" >
-               <number>0</number>
-              </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
-               <number>0</number>
-              </property>
-              <property name="horizontalSpacing" >
-               <number>6</number>
-              </property>
-              <property name="verticalSpacing" >
+              <property name="spacing" >
                <number>6</number>
               </property>
               <item row="0" column="3" >
@@ -841,7 +729,8 @@
                  <string>Add</string>
                 </property>
                 <property name="icon" >
-                 <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+                 <iconset resource="resources.qrc" >
+                  <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
                 </property>
                </widget>
               </item>
@@ -854,7 +743,8 @@
                  <string>Remove</string>
                 </property>
                 <property name="icon" >
-                 <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+                 <iconset resource="resources.qrc" >
+                  <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
                 </property>
                </widget>
               </item>
@@ -873,7 +763,7 @@
                 <property name="orientation" >
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" >
+                <property name="sizeHint" stdset="0" >
                  <size>
                   <width>40</width>
                   <height>20</height>
@@ -908,22 +798,10 @@
             </property>
             <item row="0" column="0" >
              <layout class="QGridLayout" >
-              <property name="leftMargin" >
+              <property name="margin" >
                <number>0</number>
               </property>
-              <property name="topMargin" >
-               <number>0</number>
-              </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
-               <number>0</number>
-              </property>
-              <property name="horizontalSpacing" >
-               <number>6</number>
-              </property>
-              <property name="verticalSpacing" >
+              <property name="spacing" >
                <number>6</number>
               </property>
               <item row="0" column="1" >
@@ -938,7 +816,7 @@
                 <property name="orientation" >
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" >
+                <property name="sizeHint" stdset="0" >
                  <size>
                   <width>40</width>
                   <height>20</height>
@@ -951,7 +829,7 @@
                 <property name="orientation" >
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" >
+                <property name="sizeHint" stdset="0" >
                  <size>
                   <width>40</width>
                   <height>20</height>
@@ -966,16 +844,7 @@
               <property name="spacing" >
                <number>6</number>
               </property>
-              <property name="leftMargin" >
-               <number>0</number>
-              </property>
-              <property name="topMargin" >
-               <number>0</number>
-              </property>
-              <property name="rightMargin" >
-               <number>0</number>
-              </property>
-              <property name="bottomMargin" >
+              <property name="margin" >
                <number>0</number>
               </property>
               <item>
@@ -983,16 +852,7 @@
                 <property name="spacing" >
                  <number>6</number>
                 </property>
-                <property name="leftMargin" >
-                 <number>0</number>
-                </property>
-                <property name="topMargin" >
-                 <number>0</number>
-                </property>
-                <property name="rightMargin" >
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin" >
+                <property name="margin" >
                  <number>0</number>
                 </property>
                 <item>
@@ -1029,22 +889,10 @@
                 </item>
                 <item>
                  <layout class="QGridLayout" >
-                  <property name="leftMargin" >
+                  <property name="margin" >
                    <number>0</number>
                   </property>
-                  <property name="topMargin" >
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin" >
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin" >
-                   <number>0</number>
-                  </property>
-                  <property name="horizontalSpacing" >
-                   <number>6</number>
-                  </property>
-                  <property name="verticalSpacing" >
+                  <property name="spacing" >
                    <number>6</number>
                   </property>
                   <item row="0" column="2" >
@@ -1072,7 +920,7 @@
                     <property name="orientation" >
                      <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="sizeHint" >
+                    <property name="sizeHint" stdset="0" >
                      <size>
                       <width>40</width>
                       <height>20</height>
@@ -1090,6 +938,14 @@
                  <number>0</number>
                 </property>
                 <widget class="QWidget" name="sync_times" >
+                 <property name="geometry" >
+                  <rect>
+                   <x>20</x>
+                   <y>150</y>
+                   <width>640</width>
+                   <height>409</height>
+                  </rect>
+                 </property>
                  <attribute name="title" >
                   <string>Sync times</string>
                  </attribute>
@@ -1110,22 +966,10 @@
                   </item>
                   <item>
                    <layout class="QGridLayout" >
-                    <property name="leftMargin" >
+                    <property name="margin" >
                      <number>0</number>
                     </property>
-                    <property name="topMargin" >
-                     <number>0</number>
-                    </property>
-                    <property name="rightMargin" >
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin" >
-                     <number>0</number>
-                    </property>
-                    <property name="horizontalSpacing" >
-                     <number>6</number>
-                    </property>
-                    <property name="verticalSpacing" >
+                    <property name="spacing" >
                      <number>6</number>
                     </property>
                     <item row="0" column="2" >
@@ -1133,7 +977,7 @@
                       <property name="orientation" >
                        <enum>Qt::Horizontal</enum>
                       </property>
-                      <property name="sizeHint" >
+                      <property name="sizeHint" stdset="0" >
                        <size>
                         <width>40</width>
                         <height>20</height>
@@ -1150,7 +994,8 @@
                        <string>Add</string>
                       </property>
                       <property name="icon" >
-                       <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+                       <iconset resource="resources.qrc" >
+                        <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
                       </property>
                      </widget>
                     </item>
@@ -1173,7 +1018,8 @@
                        <string>Remove</string>
                       </property>
                       <property name="icon" >
-                       <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+                       <iconset resource="resources.qrc" >
+                        <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
                       </property>
                      </widget>
                     </item>
@@ -1185,6 +1031,14 @@
                  </layout>
                 </widget>
                 <widget class="QWidget" name="periodically" >
+                 <property name="geometry" >
+                  <rect>
+                   <x>20</x>
+                   <y>150</y>
+                   <width>640</width>
+                   <height>409</height>
+                  </rect>
+                 </property>
                  <attribute name="title" >
                   <string>Synchronise periodically</string>
                  </attribute>
@@ -1194,7 +1048,7 @@
                     <property name="orientation" >
                      <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="sizeHint" >
+                    <property name="sizeHint" stdset="0" >
                      <size>
                       <width>40</width>
                       <height>20</height>
@@ -1234,7 +1088,7 @@
                     <property name="orientation" >
                      <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="sizeHint" >
+                    <property name="sizeHint" stdset="0" >
                      <size>
                       <width>40</width>
                       <height>20</height>
@@ -1255,17 +1109,16 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_6" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>2</number>
-        </property>
-        <property name="topMargin" >
-         <number>2</number>
-        </property>
-        <property name="rightMargin" >
-         <number>2</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>2</number>
         </property>
         <item row="0" column="0" colspan="3" >
@@ -1289,7 +1142,7 @@
             <property name="orientation" >
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" >
+            <property name="sizeHint" stdset="0" >
              <size>
               <width>40</width>
               <height>20</height>
@@ -1325,7 +1178,7 @@
           <property name="orientation" >
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" >
+          <property name="sizeHint" stdset="0" >
            <size>
             <width>40</width>
             <height>20</height>
@@ -1345,7 +1198,8 @@
            <string>Add</string>
           </property>
           <property name="icon" >
-           <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+           <iconset resource="resources.qrc" >
+            <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
           </property>
          </widget>
         </item>
@@ -1361,7 +1215,8 @@
            <string>Remove</string>
           </property>
           <property name="icon" >
-           <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+           <iconset resource="resources.qrc" >
+            <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
           </property>
          </widget>
         </item>
@@ -1377,7 +1232,8 @@
            <string>Add</string>
           </property>
           <property name="icon" >
-           <iconset resource="resources.qrc" >:/new/prefix1/images/add.png</iconset>
+           <iconset resource="resources.qrc" >
+            <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
           </property>
          </widget>
         </item>
@@ -1393,7 +1249,8 @@
            <string>Remove</string>
           </property>
           <property name="icon" >
-           <iconset resource="resources.qrc" >:/new/prefix1/images/remove.png</iconset>
+           <iconset resource="resources.qrc" >
+            <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
           </property>
          </widget>
         </item>
@@ -1402,7 +1259,7 @@
           <property name="orientation" >
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" >
+          <property name="sizeHint" stdset="0" >
            <size>
             <width>40</width>
             <height>20</height>
@@ -1413,17 +1270,16 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_7" >
+       <property name="geometry" >
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
        <layout class="QVBoxLayout" >
-        <property name="leftMargin" >
-         <number>0</number>
-        </property>
-        <property name="topMargin" >
-         <number>0</number>
-        </property>
-        <property name="rightMargin" >
-         <number>0</number>
-        </property>
-        <property name="bottomMargin" >
+        <property name="margin" >
          <number>0</number>
         </property>
         <item>
@@ -1442,7 +1298,7 @@
               <property name="orientation" >
                <enum>Qt::Horizontal</enum>
               </property>
-              <property name="sizeHint" >
+              <property name="sizeHint" stdset="0" >
                <size>
                 <width>40</width>
                 <height>20</height>
@@ -1495,7 +1351,7 @@
               <property name="orientation" >
                <enum>Qt::Horizontal</enum>
               </property>
-              <property name="sizeHint" >
+              <property name="sizeHint" stdset="0" >
                <size>
                 <width>40</width>
                 <height>20</height>
@@ -1540,6 +1396,7 @@
     <addaction name="actionNew_sync" />
     <addaction name="actionClose_sync" />
     <addaction name="actionSave_log" />
+    <addaction name="actionSync_all" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
    </widget>
@@ -1567,6 +1424,10 @@
     </property>
     <addaction name="actionRun_hidden" />
     <addaction name="actionDisable_tray_messages" />
+    <addaction name="actionSync_at_launch" />
+    <addaction name="actionQuit_after_sync" />
+    <addaction name="actionShut_down_after_sync" />
+    <addaction name="separator" />
     <addaction name="actionChange_language" />
    </widget>
    <addaction name="menuFile" />
@@ -1574,8 +1435,25 @@
    <addaction name="menuOptions" />
    <addaction name="menuHelp" />
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QStatusBar" name="statusbar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>561</y>
+     <width>663</width>
+     <height>19</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QToolBar" name="toolBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>21</y>
+     <width>663</width>
+     <height>52</height>
+    </rect>
+   </property>
    <property name="movable" >
     <bool>false</bool>
    </property>
@@ -1601,12 +1479,11 @@
    <addaction name="actionRestore" />
    <addaction name="actionBlacklist" />
    <addaction name="actionFilters" />
-   <addaction name="separator" />
-   <addaction name="actionSync_all" />
   </widget>
   <action name="actionQuit" >
    <property name="icon" >
-    <iconset/>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/quit.png</normaloff>:/new/prefix1/images/quit.png</iconset>
    </property>
    <property name="text" >
     <string>Quit</string>
@@ -1614,10 +1491,14 @@
    <property name="statusTip" >
     <string>Quit</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
   </action>
   <action name="actionAbout" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/Synkron128.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
    </property>
    <property name="text" >
     <string>About</string>
@@ -1628,7 +1509,8 @@
   </action>
   <action name="actionFolder_1" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/folder.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/folder.png</normaloff>:/new/prefix1/images/folder.png</iconset>
    </property>
    <property name="text" >
     <string>Set synchronization folder 1</string>
@@ -1636,7 +1518,8 @@
   </action>
   <action name="actionFolder_2" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/folder.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/folder.png</normaloff>:/new/prefix1/images/folder.png</iconset>
    </property>
    <property name="text" >
     <string>Set synchronization folder 2</string>
@@ -1644,7 +1527,8 @@
   </action>
   <action name="actionNew_sync" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/tab-new_32.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/tab-new_32.png</normaloff>:/new/prefix1/images/tab-new_32.png</iconset>
    </property>
    <property name="text" >
     <string>New tab</string>
@@ -1652,16 +1536,23 @@
    <property name="statusTip" >
     <string>Open new sync tab</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+T</string>
+   </property>
   </action>
   <action name="actionClose_sync" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/tab-remove_32.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/tab-remove_32.png</normaloff>:/new/prefix1/images/tab-remove_32.png</iconset>
    </property>
    <property name="text" >
     <string>Close tab</string>
    </property>
    <property name="statusTip" >
     <string>Close current sync tab</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+W</string>
    </property>
   </action>
   <action name="actionSynchronise" >
@@ -1672,7 +1563,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/Synchronise.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/Synchronise.png</normaloff>:/new/prefix1/images/Synchronise.png</iconset>
    </property>
    <property name="text" >
     <string>Synchronise</string>
@@ -1686,7 +1578,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/Restore.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/Restore.png</normaloff>:/new/prefix1/images/Restore.png</iconset>
    </property>
    <property name="text" >
     <string>Restore</string>
@@ -1700,7 +1593,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/blacklist.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/blacklist.png</normaloff>:/new/prefix1/images/blacklist.png</iconset>
    </property>
    <property name="text" >
     <string>Blacklist</string>
@@ -1722,7 +1616,8 @@
   </action>
   <action name="actionSync_all" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/sync_all.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/sync_all.png</normaloff>:/new/prefix1/images/sync_all.png</iconset>
    </property>
    <property name="text" >
     <string>Sync all</string>
@@ -1732,6 +1627,10 @@
    </property>
   </action>
   <action name="actionCheck_for_updates" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/reload.png</normaloff>:/new/prefix1/images/reload.png</iconset>
+   </property>
    <property name="text" >
     <string>Check for updates</string>
    </property>
@@ -1744,7 +1643,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/multisync.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/multisync.png</normaloff>:/new/prefix1/images/multisync.png</iconset>
    </property>
    <property name="text" >
     <string>Multisync</string>
@@ -1758,7 +1658,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/scheduler64.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/scheduler64.png</normaloff>:/new/prefix1/images/scheduler64.png</iconset>
    </property>
    <property name="text" >
     <string>Scheduler</string>
@@ -1768,6 +1669,10 @@
    </property>
   </action>
   <action name="actionChange_language" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/locale.png</normaloff>:/new/prefix1/images/locale.png</iconset>
+   </property>
    <property name="text" >
     <string>Change language</string>
    </property>
@@ -1780,7 +1685,8 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/filter32.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/filter32.png</normaloff>:/new/prefix1/images/filter32.png</iconset>
    </property>
    <property name="text" >
     <string>Filters</string>
@@ -1802,7 +1708,8 @@
   </action>
   <action name="actionSave_log" >
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/save.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/save.png</normaloff>:/new/prefix1/images/save.png</iconset>
    </property>
    <property name="text" >
     <string>Save log</string>
@@ -1813,13 +1720,47 @@
     <bool>true</bool>
    </property>
    <property name="icon" >
-    <iconset resource="resources.qrc" >:/new/prefix1/images/syncview_48.png</iconset>
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/syncview_48.png</normaloff>:/new/prefix1/images/syncview_48.png</iconset>
    </property>
    <property name="text" >
     <string>SyncView</string>
    </property>
    <property name="statusTip" >
     <string>Go to SyncView</string>
+   </property>
+  </action>
+  <action name="actionSync_at_launch" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Sync all at launch</string>
+   </property>
+   <property name="statusTip" >
+    <string>Sync all tabs at launch</string>
+   </property>
+  </action>
+  <action name="actionShut_down_after_sync" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Shut down after synchronisation</string>
+   </property>
+   <property name="statusTip" >
+    <string>Shut down computer after synchronisation finishes</string>
+   </property>
+  </action>
+  <action name="actionQuit_after_sync" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Quit Synkron after synchronisation</string>
+   </property>
+   <property name="statusTip" >
+    <string>Quit Synkron after synchronisation finishes</string>
    </property>
   </action>
  </widget>

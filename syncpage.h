@@ -191,7 +191,7 @@ public slots:
     void goToAnalyse();
     void leaveAnalyse();
     void analyseFolders();
-    bool subAnalyse(MTStringSet, QTreeWidgetItem *);
+    bool subAnalyse(const MTStringSet &, QTreeWidgetItem */*, int i = 5*/);
     void analyseTreeItemClicked(QTreeWidgetItem *, int);
     void analyseTreeItemDoubleClicked(QTreeWidgetItem *, int);
     void checkAnalyseTree();
@@ -199,7 +199,7 @@ public slots:
     void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); };
     void searchAnalyseTree();
     bool subSearchAnalyseTree(QString, QTreeWidgetItem *);
-    void subCheckExpanded(QTreeWidgetItem *);
+    //void subCheckExpanded(QTreeWidgetItem *);
     void analyseTreeConMenu(QPoint);
     void openAnalyseTreeItem();
     void syncCurrentAnalyseItem();

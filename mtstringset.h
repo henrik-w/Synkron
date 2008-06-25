@@ -29,7 +29,8 @@ public:
     MTStringSet(const QString & str): QStringList(str) {};
     MTStringSet(const QStringList & other): QStringList(other) {};
     MTStringSet(const QList<QString> & other): QStringList(other) {};
-    virtual ~MTStringSet() { this->QStringList::~QStringList(); };
+    MTStringSet(const MTStringSet & other): QStringList(*((QStringList *)&other)) {};
+    //virtual ~MTStringSet() { this->QStringList::~QStringList(); };
 
     void append(const QString & str) {
         if (!contains(str)) { this->QStringList::append(str); }

@@ -229,7 +229,7 @@ void MainWindow::setCleanGB()
     restore_clean_selected->setStatusTip(tr("Delete selected files only"));
     restore_clean_gb->addWidget(restore_clean_selected, 0, 0);
     
-    QHBoxLayout * clean_date_layout = new QHBoxLayout (restore_clean_gb);
+    QHBoxLayout * clean_date_layout = new QHBoxLayout;
     restore_clean_by_date = new QCheckBox(restore_clean_gb);
     restore_clean_by_date->setChecked(false);
     restore_clean_by_date->setText(tr("Delete files older than "));
@@ -248,7 +248,7 @@ void MainWindow::setCleanGB()
     clean_date_layout->addStretch();
     restore_clean_gb->addLayout(clean_date_layout, 1, 0);
     
-    QHBoxLayout * clean_repeated_layout = new QHBoxLayout(restore_clean_gb);
+    QHBoxLayout * clean_repeated_layout = new QHBoxLayout;
     restore_clean_repeated = new QCheckBox(restore_clean_gb);
     restore_clean_repeated->setChecked(false);
     restore_clean_repeated->setText(tr("Delete older versions of files, keep "));
@@ -267,7 +267,7 @@ void MainWindow::setCleanGB()
     clean_repeated_layout->addStretch();
     restore_clean_gb->addLayout(clean_repeated_layout, 2, 0);
     
-    QHBoxLayout * clean_layout = new QHBoxLayout (restore_clean_gb);
+    QHBoxLayout * clean_layout = new QHBoxLayout;
     clean_layout->addStretch();
     restore_clean = new QPushButton(restore_clean_gb);
     restore_clean->setText(tr("Clean"));
@@ -394,21 +394,27 @@ void MainWindow::deleteRestoreItem()
 void MainWindow::checkRestoreItem()
 {
 	if (restore_list->currentItem()==0) return;
-	restore_list->currentItem()->setCheckState(restore_list->currentItem()->checkState()==Qt::Checked ? Qt::Unchecked : Qt::Checked);
+	restore_list->currentItem()->setCheckState(restore_list->currentItem()->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
 }
 
 void MainWindow::blacklistRestoreItem()
 {
 	if (restore_list->currentItem()==0) return;
-	to_black_list->setCheckState(Qt::Checked);
+	to_black_list->setCheckState(to_black_list->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
 }
 
 void MainWindow::restoreListConMenu(QPoint pos)
 {
+    if (restore_list->currentItem()==0) return;
 	QMenu * contextMenu = new QMenu(this);
 	contextMenu->addAction(checkRestoreItemAction);
 	contextMenu->addAction(restoreAction);
 	contextMenu->addAction(deleteRestoreItemAction);
+	if (!files_blacklist.contains(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(2))) {
+        blacklistRestoreItemAction->setText(tr("Add to blacklist"));
+    } else {
+        blacklistRestoreItemAction->setText(tr("Remove from blacklist"));
+    }
 	contextMenu->addAction(blacklistRestoreItemAction);
 	contextMenu->move(pos);
 	contextMenu->show();
@@ -490,30 +496,12 @@ void MainWindow::setSelectGB()
     sel_last_sync_lbl->setText(tr("Select files from the last synchronisation"));
     restore_select_gb->addWidget(sel_last_sync_lbl, 0, 1);
     
-    /*restore_select_older = new QToolButton (restore_select_gb);
-    restore_select_older->setStatusTip(tr("Select older files"));
-    connect(restore_select_older, SIGNAL(released()), this, SLOT(restoreSelOlderFiles()));
-    restore_select_gb->addWidget(restore_select_older, 1, 0);
-    QHBoxLayout * select_older_layout = new QHBoxLayout (restore_select_gb);
-    QLabel * select_older_lbl_1 = new QLabel (restore_select_gb);
-    select_older_lbl_1->setText(tr("Select files older than "));
-    select_older_layout->addWidget(select_older_lbl_1);
-    restore_select_older_date = new QSpinBox (restore_select_gb);
-    restore_select_older_date->setMaximum(1440);
-    restore_select_older_date->setValue(30);
-    select_older_layout->addWidget(restore_select_older_date);
-    QLabel * select_older_lbl_2 = new QLabel (restore_select_gb);
-    select_older_lbl_2->setText(tr(" day(s)"));
-    select_older_layout->addWidget(select_older_lbl_2);
-    select_older_layout->addStretch();
-    restore_select_gb->addLayout(select_older_layout, 1, 1);*/
-    
     restore_select_common_date = new QToolButton (restore_select_gb);
     restore_select_common_date->setStatusTip(tr("Select files with common date and time of synchronisation"));
     restore_select_common_date->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/ok_16.png")));
     connect(restore_select_common_date, SIGNAL(released()), this, SLOT(restoreSelCommonDate()));
     restore_select_gb->addWidget(restore_select_common_date, 1, 0);
-    QHBoxLayout * select_common_layout = new QHBoxLayout (restore_select_gb);
+    QHBoxLayout * select_common_layout = new QHBoxLayout;
     QLabel * select_common_lbl_1 = new QLabel (restore_select_gb);
     select_common_lbl_1->setText(tr("Select files synchronised on "));
     select_common_layout->addWidget(select_common_lbl_1);
@@ -533,21 +521,7 @@ void MainWindow::restoreSelLastSync()
         } else return;
     }
 }
-/*
-void MainWindow::restoreSelOlderFiles()
-{
-    QStringList date;
-    for (int i = restore_list->count()-1; i >= 0; --i) {
-        date = restore_list->item(i)->data(Qt::UserRole).toStringList().at(1).split("-")
-                                                            .at(0).split(".");
-        int days_to = QDate(date.at(0).toInt(), date.at(1).toInt(), date.at(2).toInt())
-                                                            .daysTo(QDate::currentDate());
-        if (days_to >= restore_select_older_date->value()) {
-            restore_list->item(i)->setCheckState(Qt::Checked);
-        }
-    }
-}*/
-     
+
 void MainWindow::restoreSelCommonDate()
 {
     QString date_time = restore_select_dt_edit->dateTime().toString("yyyy.MM.dd-hh.mm.ss");

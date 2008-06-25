@@ -5,5 +5,8 @@
         <file>i18n/Synkron-German.qm</file>
         <file>i18n/Synkron-Japanese.qm</file>
         <file>i18n/Synkron-Arabic.qm</file>
+        <file>i18n/Synkron-Russian.qm</file>
+        <file>i18n/Synkron-Spanish.qm</file>
+        <file>i18n/Synkron-Brazilian_Portuguese.qm</file>
     </qresource>
 </RCC>
