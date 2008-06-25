@@ -57,6 +57,7 @@ MainWindow::MainWindow(QSettings * s)
 
 #ifndef Q_WS_WIN
     tw_schedules->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    actionShut_down_after_sync->setVisible(true);
 #else
     tw_schedules->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 #endif
@@ -149,10 +150,16 @@ MainWindow::MainWindow(QSettings * s)
 	//QObject::connect(tcp_socket, SIGNAL(connected()), this, SLOT(sendMessageAndClose()));
 	//QObject::connect(tcp_socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(initServer(QAbstractSocket::SocketError)));
 	tcp_socket->connectToHost("Localhost", settings.value("process_id", 1).toUInt());
-	if (tcp_socket->waitForConnected(1000)) { sendMessageAndClose();
+	if (tcp_socket->waitForConnected(1000)) {
+        sendMessageAndClose();
         skip_close_event = true;
         QTimer::singleShot(0, this, SLOT(close())); }
-    else { initServer(QAbstractSocket::SocketTimeoutError); }
+    else {
+        initServer(QAbstractSocket::SocketTimeoutError);
+        if (actionSync_at_launch->isChecked()) {
+            QTimer::singleShot(0, this, SLOT(syncAll()));
+        }
+    }
     QTimer::singleShot(2000, this, SLOT(setShownManually()));
 }
 
@@ -307,7 +314,7 @@ bool MainWindow::closeDialogue()
 	rm_minimise->setText(tr("Do not ask me again"));
 	rm_minimise->setChecked(true);
 	cl_glayout->addWidget(rm_minimise, 1, 0);
-	QHBoxLayout * hlayout = new QHBoxLayout (cl_dialogue);
+	QHBoxLayout * hlayout = new QHBoxLayout;
 	hlayout->addStretch();
 	QPushButton * close_btn = new QPushButton (cl_dialogue);
 	close_btn->setText(tr("&Quit"));
@@ -464,6 +471,11 @@ void MainWindow::saveSettings()
     sync_settings->setValue("current_synctab", tabWidget->currentIndex());
     sync_settings->setValue("current_multitab", multi_tabWidget->currentIndex());
     sync_settings->setValue("disable_tray_messages", actionDisable_tray_messages->isChecked());
+    sync_settings->setValue("sync_at_launch", actionSync_at_launch->isChecked());
+#ifdef Q_WS_WIN
+    sync_settings->setValue("shut_down_after_sync", actionShut_down_after_sync->isChecked());
+#endif
+    sync_settings->setValue("quit_after_sync", actionQuit_after_sync->isChecked());
     QStringList schedules; SyncSchedule * schedule;
 	for (int i = 0; i < tw_schedules->rowCount(); ++i) {
 		schedule = item_sched_map.value(tw_schedules->item(i, 0));
@@ -717,6 +729,11 @@ void MainWindow::readSettings()
 	}
 	run_hidden = sync_settings->value("run_hidden", false).toBool();
 	actionDisable_tray_messages->setChecked(sync_settings->value("disable_tray_messages").toBool());
+	actionSync_at_launch->setChecked(sync_settings->value("sync_at_launch").toBool());
+#ifdef Q_WS_WIN
+    actionShut_down_after_sync->setChecked(sync_settings->value("shut_down_after_sync").toBool());
+#endif
+	actionQuit_after_sync->setChecked(sync_settings->value("quit_after_sync").toBool());
 	QStringList schedules = sync_settings->value("schedules").toStringList(); QString schedule;
 	SyncSchedule * sync_sched = 0;
 	for (int i = 0; i < schedules.count(); ++i) {
@@ -748,7 +765,7 @@ void MainWindow::readSettings()
 
 void MainWindow::about ()
 {
-    About *about = new About(ver, QVariant(QDate::currentDate().year()).toString(), "4.3");
+    About *about = new About(ver, QVariant(QDate::currentDate().year()).toString());
     about->show();
 }
 
@@ -970,11 +987,8 @@ void MainWindow::searchTw(const QString text)
 	} else return;
 	if (tw == NULL) return;
 	for (int i = 0; i < tw->rowCount(); ++i) {
-		if (tw->item(i, 0)->text().contains(text, Qt::CaseInsensitive)) tw->showRow(i);
-		else if (tw->columnSpan(i, 0)!=2) {
-			if (tw->item(i, 1)->text().contains(text, Qt::CaseInsensitive)) tw->showRow(i);
-			else tw->hideRow(i);
-		}
+        if (tw->item(i, 0) && tw->item(i, 0)->text().contains(text, Qt::CaseInsensitive)) tw->showRow(i);
+		else if (tw->item(i, 1) && tw->item(i, 1)->text().contains(text, Qt::CaseInsensitive)) tw->showRow(i);
 		else tw->hideRow(i);
 	}
 }
@@ -1339,7 +1353,17 @@ void MainWindow::hideEvent(QHideEvent *)
     trayIconVisible(false);
 }
 
-About::About(QString ver, QString year, QString qtver)
+void MainWindow::shutDownComputer()
+{
+#ifdef Q_WS_WIN
+    QProcess process;
+	QStringList arguments;
+    arguments << "-s" << "-t" << "10";
+    process.execute("shutdown", arguments);
+#endif
+}
+
+About::About(QString ver, QString year/*, QString qtver*/)
 {
 	setupUi(this);
 	
@@ -1367,7 +1391,7 @@ About::About(QString ver, QString year, QString qtver)
 	QString aboutQt = "<p style=\"font-family: sans-serif; font-style:italic;\"><span style=\"font-size:12pt;\">";
     aboutQt.append(tr("About Qt"));
 	aboutQt.append("</span></p><p></p><p style=\"font-family: sans-serif; font-size:8pt; font-style:italic;\">");
-	aboutQt.append(tr("This programme uses Qt Open Source Edition version %1.").arg(qtver));
+	aboutQt.append(tr("This programme uses Qt Open Source Edition version %1.").arg(qVersion()));
 	aboutQt.append("</p><p></p><p style=\"font-family: sans-serif; font-size:8pt;\">");
 	aboutQt.append(tr("Qt is a C++ toolkit for cross-platform application development."));
 	aboutQt.append("</p><p></p><p style=\"font-family: sans-serif; font-size:8pt;\">");

@@ -120,12 +120,14 @@ public:
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
+    
     bool syncingAll;
     bool skip_close_event;
 	bool runHidden() { return run_hidden; }
     bool shownManually() { return shown_manually; }
     //void setShownManually(bool sm) { shown_manually = sm; }
 	bool showTrayMessage(QString, QString);
+	bool isSyncing();
 	QSettings * sync_settings;
 	QSettings * temp_settings;
         
@@ -136,6 +138,8 @@ public slots:
     void setShownManually() { shown_manually = true; }
     bool restoreItem(QListWidgetItem*);
     bool restoreFile(QString, QString, QString);
+    void shutDownComputer();
+    QString addFileToBlDialogue(bool);
 
 private slots:
 	
@@ -323,7 +327,7 @@ class About : public QDialog, private Ui::About
     Q_OBJECT
     
 public:
-    About(QString, QString, QString);
+    About(QString, QString);
 };
 
 class MTApplication : public QApplication

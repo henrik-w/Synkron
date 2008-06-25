@@ -39,7 +39,7 @@ SyncFolders::SyncFolders(QWidget * parent):
     label1->setText(tr("<b>Sync folders:</b>"));
     main_vlayout->addWidget(label1);*/
     
-    folders_vlayout = new QVBoxLayout(this);
+    folders_vlayout = new QVBoxLayout;
     folders_vlayout->setMargin(0);
 #ifdef Q_WS_MAC
     folders_vlayout->setSpacing(0);

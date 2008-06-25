@@ -437,6 +437,16 @@ void SyncSchedule::syncSchedule()
 	   }
 	   sched_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files synchronised").arg(all_synced_files));
 	   sched_parent->syncingAll = false;
+	   if (sched_parent->actionShut_down_after_sync->isChecked()) {
+            if (!sched_parent->isSyncing()) {
+                sched_parent->shutDownComputer();
+            }
+        }
+        if (sched_parent->actionQuit_after_sync->isChecked()) {
+            if (!sched_parent->isSyncing()) {
+                sched_parent->close();
+            }
+        }
     }
 }
 
