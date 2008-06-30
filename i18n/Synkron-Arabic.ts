@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -1247,7 +1248,7 @@
     <message>
         <location filename="../blacklist.cpp" line="385"/>
         <source>Browse</source>
-        <translation type="unfinished">إستعراض</translation>
+        <translation>إستعراض</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="53"/>
@@ -1677,87 +1678,87 @@
     <message>
         <location filename="../main_window.ui" line="1385"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1430"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1445"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1628"/>
         <source>Sync all at launch</source>
-        <translation type="unfinished"></translation>
+        <translation>مزامنة الكل عند التشغيل</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1639"/>
         <source>Shut down after synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>إغلاق الحاسب بعد من المزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1642"/>
         <source>Shut down computer after synchronisation finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>إغلاق الحاسب بعد الإنتهاء من المزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1650"/>
         <source>Quit Synkron after synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>إغلاق سينكرون بعد المزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1653"/>
         <source>Quit Synkron after synchronisation finishes</source>
-        <translation type="unfinished"></translation>
+        <translation>إغلاق سينكرون بعد الإنتهاء من المزامنة</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="405"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished">أضف للقائمة السوداء</translation>
+        <translation>إضافة للقائمة السوداء</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="407"/>
         <source>Remove from blacklist</source>
-        <translation type="unfinished">إزالة من القائمة السوداء</translation>
+        <translation>إزالة من القائمة السوداء</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1631"/>
         <source>Sync all tabs at launch</source>
-        <translation type="unfinished"></translation>
+        <translation>مزامنة كل الصفحات عند بدء التشغيل</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="369"/>
         <source>Enter file path</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل مسار الملف</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="369"/>
         <source>Enter folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>أدخل مسار المجلد</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="373"/>
         <source>Enter file path:</source>
-        <translation type="unfinished"></translation>
+        <translation>إدخال مسار الملف:</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="373"/>
         <source>Enter folder path:</source>
-        <translation type="unfinished"></translation>
+        <translation>إدخال مسار المجلد:</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="381"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="333"/>
         <source>%1 files deleted.</source>
-        <translation type="unfinished"></translation>
+        <translation>تم حذف %1 ملف.</translation>
     </message>
 </context>
 <context>
@@ -2500,17 +2501,17 @@
     <message>
         <location filename="../analyse.cpp" line="578"/>
         <source>%1 Failed to create directory %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>غير قادر على إنشاء المجلد %2</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="581"/>
         <source>%1 Directory %2 created</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>مجلد %2 تم إنشاؤه</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="68"/>
         <source>Add</source>
-        <translation type="unfinished">إضافة</translation>
+        <translation>إضافة</translation>
     </message>
 </context>
 <context>
