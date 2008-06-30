@@ -152,7 +152,13 @@ bool MainWindow::restoreFile(QString file_path, QString old_file_path, QString g
 		delete file; file = new MTFile (QString("%1.res").arg(old_file_path));
 		if (!file->rename(file_name)) { delete file; delete old_file; return false; }
 		delete file; file = new MTFile (file_path);
-	} else {
+	} else if (!QFileInfo(old_file_path).dir().exists()) {
+        if (QDir().mkpath(QFileInfo(old_file_path).dir().path())) {
+            if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
+        } else {
+            delete file; delete old_file; return false;
+        }
+     } else {
 		if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
 	}
 	file->remove(); delete file;
@@ -289,14 +295,13 @@ void MainWindow::cleanTemporary()
 	    }
 	    if (!a) { QMessageBox::information(this, tr("Synkron"), tr("No files selected.")); return; }
     }
-    QMap<QString, int> repeated_map;
+    QMap<QString, int> repeated_map; int deleted_files = 0;
 	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete temporary files?"));
 	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
  	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No); 
  	switch (msgBox.exec()) {
  	case QMessageBox::Yes:
  	    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-		//MTFile * file;
    		for (int i = restore_list->count()-1; i>=0; --i) {
             if (restore_clean_selected->isChecked() && restore_list->item(i)->checkState() == Qt::Unchecked) continue;
             bool straight_delete = false; bool repeated_only = false;
@@ -311,15 +316,8 @@ void MainWindow::cleanTemporary()
             if (restore_clean_repeated->isChecked() && !straight_delete) {
                 if (repeated_map.value(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2)) >= restore_clean_files->value()) {
                     deleteTempFile(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-					/*file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-                    if (file->exists()) {
-                        file->remove();
-                    }
-                    if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
-                        int x = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-                        synchronised.removeAt(x); synchronised.removeAt(x-1); synchronised.removeAt(x-2); synchronised.removeAt(x-3);
-                    }*/
                     delete restore_list->item(i);
+                    deleted_files++;
                 } else {
                     repeated_map.insert(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2), repeated_map.value(restore_list->item(i)->data(Qt::UserRole).toStringList().at(2))+1);
                 }
@@ -327,19 +325,12 @@ void MainWindow::cleanTemporary()
             }
             if (!repeated_only) {
                 deleteTempFile(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-				/*file = new MTFile (restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-                if (file->exists()) {
-                    file->remove();
-                }
-                if (synchronised.contains(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3))) {
-			    	int n = synchronised.indexOf(restore_list->item(i)->data(Qt::UserRole).toStringList().at(3));
-			    	synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
-                }*/
                 delete restore_list->item(i);
+                deleted_files++;
             }
 		}
-		//if (synchronised.count() == 0) { synchronised.clear(); }
-   		QApplication::restoreOverrideCursor();
+        QApplication::restoreOverrideCursor();
+        QMessageBox::information(this, tr("Synkron"), tr("%1 files deleted.").arg(deleted_files));
    		break;
  	case QMessageBox::No:
      	return;

@@ -42,7 +42,7 @@ public:
     QList <SyncFolder *> folders_list;
     //QStringList paths_list;
     QVBoxLayout * folders_vlayout;
-    QToolButton * add_folder_btn;
+    //QToolButton * add_folder_btn;
     
     SyncFolder * syncFolder(int i) { return folders_list.at(i); };
     SyncFolder * at(int i) { return folders_list.at(i); };

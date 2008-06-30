@@ -368,7 +368,7 @@ int MultisyncPage::sync()
     }
     if (mp_parent->actionQuit_after_sync->isChecked()) {
         if (!mp_parent->isSyncing()) {
-            mp_parent->close();
+            mp_parent->closeApp();
         }
     }
 	return all_synced_files;

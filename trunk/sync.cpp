@@ -63,6 +63,10 @@ void SyncPage::setSyncWidget()
     hlayout0->addItem(spacerItem, 0, 2);
     mainglayout->addLayout(hlayout0, 0, 0);
     QHBoxLayout * folders_hlayout = new QHBoxLayout;
+    QToolButton * add_folder_btn = new QToolButton (this);
+    add_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/add.png")));
+    add_folder_btn->setStatusTip(tr("Add"));
+    folders_hlayout->addWidget(add_folder_btn);
     show_sync_folders = new QCheckBox (tab);
     show_sync_folders->setStatusTip(tr("Show/hide sync folders"));
     show_sync_folders->setChecked(true);
@@ -76,6 +80,8 @@ void SyncPage::setSyncWidget()
     sync_folders = new SyncFolders (this);
     connect(sync_folders, SIGNAL(sigfolderschanged()), this, SLOT(syncFoldersChanged()));
     connect(show_sync_folders, SIGNAL(clicked(bool)), sync_folders, SLOT(setVisible(bool)));
+    connect(show_sync_folders, SIGNAL(clicked(bool)), add_folder_btn, SLOT(setVisible(bool)));
+    connect(add_folder_btn, SIGNAL(released()), sync_folders, SLOT(addFolder()));
     mainglayout->addWidget(sync_folders, 2, 0);
     
     QGridLayout * hlayout3 = new QGridLayout;
@@ -498,7 +504,7 @@ int SyncPage::sync(MTStringSet sync_folders_set)
     }
     if (mp_parent->actionQuit_after_sync->isChecked()) {
         if (!mp_parent->isSyncing()) {
-            mp_parent->close();
+            mp_parent->closeApp();
         }
     }
 	return synced_files;
@@ -1330,7 +1336,7 @@ void MainWindow::syncAll()
     }
     if (actionQuit_after_sync->isChecked()) {
         if (!isSyncing()) {
-            this->close();
+            this->closeApp();
         }
     }
 }
