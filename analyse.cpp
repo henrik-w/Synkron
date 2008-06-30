@@ -531,18 +531,59 @@ void SyncPage::syncCurrentAnalyseItem()
     MTStringSet rel_paths;
     MTFileInfo * file_info = 0;
     leaveAnalyse();
+    bool is_dir = false;
     for (int i = 1; i < analyse_tree->columnCount(); ++i) {
         release(file_info);
         file_info = new MTFileInfo (item->data(i, Qt::UserRole).toString());
-        if (!file_info->exists() && file_info->isDir() && !file_info->isSymLink()) {
+        if (file_info->exists()) {
+            if (file_info->isDir() && !file_info->isSymLink()) {
+                is_dir = true; break;
+            }
+        }
+    }
+    for (int i = 1; i < analyse_tree->columnCount(); ++i) {
+        release(file_info);
+        file_info = new MTFileInfo (item->data(i, Qt::UserRole).toString());
+        /*QDir dir = file_info->absoluteDir();
+        if (!file_info->isSymLink()){
+            if (!dir.exists()) {
+                if (!QDir().mkpath(dir.absolutePath())) {
+                    addTableItem(tr("%1 Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+                    continue;
+                } else {
+                    addTableItem(tr("%1 Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                }
+            }
+        }*/
+        /*if (!file_info->exists() && file_info->isDir() && !file_info->isSymLink()) {
             if (!QDir().mkpath(file_info->absoluteFilePath())) {
                 addTableItem(tr("%1	Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
                 continue;
             } else {
                 addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
             }
+        }*/
+        if (!file_info->exists()) {
+            if (is_dir) {
+                if (!QDir().mkpath(file_info->absoluteFilePath())) {
+                    addTableItem(tr("%1 Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+                    continue;
+                } else {
+                    addTableItem(tr("%1 Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                }
+            } else {
+                QDir dir = file_info->dir();
+                if (!dir.exists()) {
+                    if (!QDir().mkpath(dir.absolutePath())) {
+                        addTableItem(tr("%1 Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
+                        continue;
+                    } else {
+                        addTableItem(tr("%1 Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                    }
+                }
+            }
         }
-        if (file_info->isDir() && !file_info->isSymLink()) {
+        if (is_dir) {
             sync_folders << file_info->absoluteFilePath();
         } else {
             rel_paths << file_info->fileName();
@@ -557,6 +598,7 @@ void SyncPage::syncCurrentAnalyseItem()
             setSyncEnabled(false);
                 subGroupSync(sync_folders, rel_paths);
             setSyncEnabled(true);
+            if (propagate_deletions->isChecked()) saveAllFolderDatabases();
             addTableItem(tr("%1	Synchronisation complete: %2 file(s) %3").arg(QTime().currentTime().toString("hh:mm:ss")).arg(synced_files).arg(tr("synchronised")), "", "", QBrush(Qt::green));
 		    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(tr("synchronised")));
             synced_files = 0;

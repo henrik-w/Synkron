@@ -57,7 +57,7 @@ MainWindow::MainWindow(QSettings * s)
 
 #ifndef Q_WS_WIN
     tw_schedules->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
-    actionShut_down_after_sync->setVisible(true);
+    actionShut_down_after_sync->setVisible(false);
 #else
     tw_schedules->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 #endif

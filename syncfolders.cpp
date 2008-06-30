@@ -49,12 +49,6 @@ SyncFolders::SyncFolders(QWidget * parent):
     addFolder();
     addFolder();
     main_vlayout->addLayout(folders_vlayout);
-    
-    add_folder_btn = new QToolButton (this);
-    add_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/add.png")));
-    add_folder_btn->setStatusTip(tr("Add"));
-    connect(add_folder_btn, SIGNAL(released()), this, SLOT(addFolder()));
-    main_vlayout->addWidget(add_folder_btn);
 }
 
 SyncFolder * SyncFolders::addFolder()
