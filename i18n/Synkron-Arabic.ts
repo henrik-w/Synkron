@@ -1698,7 +1698,7 @@
     <message>
         <location filename="../main_window.ui" line="1639"/>
         <source>Shut down after synchronisation</source>
-        <translation>إغلاق الحاسب بعد من المزامنة</translation>
+        <translation>إغلاق الحاسب بعد المزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1642"/>
