@@ -77,6 +77,12 @@ MainWindow::MainWindow(QSettings * s)
     actgrpView->addAction(actionFilters);
     actgrpView->addAction(actionSyncView);
     
+    QActionGroup * options_actgrp = new QActionGroup(this);
+    options_actgrp->addAction(actionShut_down_after_sync);
+    options_actgrp->addAction(actionQuit_after_sync);
+    options_actgrp->addAction(actionSync_at_launch);
+    options_actgrp->setExclusive(false);
+    
     QTranslator translator; translator.load(":/i18n/Synkron-i18n.qm");
     synkron_i18n.insert("English", "English");
     synkron_i18n.insert(translator.translate("LanguageNames", "Slovak"), "Slovak");
@@ -91,6 +97,7 @@ MainWindow::MainWindow(QSettings * s)
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
     connect(actionClose_sync, SIGNAL(triggered()), this, SLOT(closeTab()));
     connect(actgrpView, SIGNAL(triggered(QAction*)), this, SLOT(switchView(QAction*)));
+    connect(options_actgrp, SIGNAL(triggered(QAction*)), this, SLOT(optionClicked(QAction*)));
     connect(restore_list, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(restoreItemChanged(QListWidgetItem *, QListWidgetItem *)));
     connect(to_black_list, SIGNAL(stateChanged(int)), this, SLOT(addToBlackList(int)));
     connect(restore_files, SIGNAL(released()), this, SLOT(restoreFiles()));
@@ -1357,10 +1364,29 @@ void MainWindow::shutDownComputer()
 {
 #ifdef Q_WS_WIN
     QProcess process;
-	QStringList arguments;
-    arguments << "-s" << "-t" << "10";
+    QStringList arguments;
+    arguments << "-f" << "-s" << "-t" << "10";
     process.execute("shutdown", arguments);
 #endif
+}
+
+void MainWindow::optionClicked(QAction * clckd_action)
+{
+    if (clckd_action->isChecked()) {
+        #ifdef Q_WS_WIN
+            if (clckd_action == actionShut_down_after_sync) {
+                actionQuit_after_sync->setChecked(false);
+                actionSync_at_launch->setChecked(false);
+            }
+        #endif
+        if (clckd_action == actionQuit_after_sync) {
+            actionShut_down_after_sync->setChecked(false);
+            actionSync_at_launch->setChecked(false);
+        } else if (clckd_action == actionSync_at_launch) {
+            actionShut_down_after_sync->setChecked(false);
+            actionQuit_after_sync->setChecked(false);
+        }
+    }
 }
 
 About::About(QString ver, QString year/*, QString qtver*/)
