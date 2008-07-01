@@ -257,6 +257,7 @@ private slots:
     void sendMessageAndClose();
     void addConnection();
     void initServer(QAbstractSocket::SocketError);
+    void optionClicked(QAction*);
 
 private:
     float f_ver;

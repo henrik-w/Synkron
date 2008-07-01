@@ -489,7 +489,7 @@ int SyncPage::sync(MTStringSet sync_folders_set)
         if (propagate_deletions->isChecked()) saveAllFolderDatabases();
         
     }
-    
+    bool manually_stopped = !syncing;
     extensions.clear();
 	setSyncEnabled(true);
 	mp_parent->saveSettings();
@@ -497,14 +497,16 @@ int SyncPage::sync(MTStringSet sync_folders_set)
 	if (!mp_parent->syncingAll) {
 		mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
 	}
-	if (mp_parent->actionShut_down_after_sync->isChecked()) {
-        if (!mp_parent->isSyncing()) {
-            mp_parent->shutDownComputer();
+	if (!manually_stopped) {
+        if (mp_parent->actionShut_down_after_sync->isChecked()) {
+            if (!mp_parent->isSyncing()) {
+                mp_parent->shutDownComputer();
+            }
         }
-    }
-    if (mp_parent->actionQuit_after_sync->isChecked()) {
-        if (!mp_parent->isSyncing()) {
-            mp_parent->closeApp();
+        if (mp_parent->actionQuit_after_sync->isChecked()) {
+            if (!mp_parent->isSyncing()) {
+                mp_parent->closeApp();
+            }
         }
     }
 	return synced_files;
