@@ -163,7 +163,7 @@ bool MainWindow::restoreFile(QString file_path, QString old_file_path, QString g
 	}
 	file->remove(); delete file;
 	file = new MTFile (old_file_path);
-    if (mainStackedWidget->currentIndex()==1) {
+    if (mainStackedWidget->currentIndex() == 1) {
     	file->touch(qApp);
 	}
     delete file; delete old_file;
