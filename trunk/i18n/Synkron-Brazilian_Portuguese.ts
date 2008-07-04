@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="pt_BR">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -1616,7 +1617,7 @@
         <location filename="../main.cpp" line="1056"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível escrever o arquivo %1:%2.</translation>
     </message>
 </context>
 <context>
@@ -1918,13 +1919,13 @@
         <location filename="../multisync.cpp" line="418"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível ler o arquivo %1:%2.</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="439"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível ler o arquivo %1:%2.</translation>
     </message>
 </context>
 <context>
