@@ -24,7 +24,7 @@ MainWindow::MainWindow(QSettings * s)
     setupUi(this);
     
 	f_ver = 1.4;
-	ver = "1.4.0";
+	ver = "1.4.0 RC1";
     
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
@@ -34,8 +34,8 @@ MainWindow::MainWindow(QSettings * s)
 	actionBrushedMetalStyle->setCheckable(true);
 	menuOptions->addAction(actionBrushedMetalStyle);
     
-    actionQuit->setText("Quit");
-    actionAbout->setText("About");
+    actionQuit->setMenuRole(QAction::QuitRole);
+    actionAbout->setMenuRole(QAction::AboutRole);
 #endif
     
     http = new QHttp(this);
@@ -92,6 +92,8 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Russian"), "Russian");
     synkron_i18n.insert(translator.translate("LanguageNames", "Spanish"), "Spanish");
     synkron_i18n.insert(translator.translate("LanguageNames", "Brazilian Portuguese"), "Brazilian Portuguese");
+    //synkron_i18n.insert(translator.translate("LanguageNames", "Polish"), "Polish");
+    //synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
     
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
@@ -447,6 +449,8 @@ void MainWindow::saveSettings()
 		sync_settings->setValue(QString("multitab_%1_%2/move").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->move->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/clone_folder1").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->clone_folder1->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/propagate_deletions").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->propagate_deletions->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("multitab_%1_%2/fast_analyse").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->fast_analyse->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("multitab_%1_%2/analyse_special_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->analyse_special_only->isChecked() ? "checked" : "unchecked");
         //sync_settings->setValue(QString("multitab_%1_%2/backup_folders").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->backup_folders->isChecked() ? "checked" : "unchecked");
 		//sync_settings->setValue(QString("multitab_%1_%2/update_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->update_only->isChecked() ? "checked" : "unchecked");
     #ifndef Q_WS_WIN
@@ -463,6 +467,16 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("multitab_%1_%2/files_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->files_blacklist);
         sync_settings->setValue(QString("multitab_%1_%2/folders_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->folders_blacklist);
         sync_settings->setValue(QString("multitab_%1_%2/exts_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->exts_blacklist);
+        QString vars;
+        QMapIterator<QString, QString> iter(multi_page->vars_map);
+        while (iter.hasNext()) {
+            iter.next();
+            vars.append(iter.key());
+            vars.append(";");
+            vars.append(iter.value());
+            if (iter.hasNext()) vars.append("<:?:>");
+        }
+        sync_settings->setValue(QString("multitab_%1_%2/vars_map").arg(multi_tabWidget->tabText(i)).arg(i), vars);
 	}
 	sync_settings->setValue("multitabs", multitabs_list);
     //sync_settings->setValue("synchronised", synchronised);
@@ -618,8 +632,8 @@ void MainWindow::readSettings()
 		if (sync_settings->value(QString("tab_%1_%2/clone_folder1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->clone_folder1->isChecked()) page->clone_folder1->click();
         if (sync_settings->value(QString("tab_%1_%2/propagate_deletions").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
             page->propagate_deletions->setChecked(true); page->propagatedStateChanged(true); }
-		if (sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->backup_folders->isChecked()) page->backup_folders->click();
-		if (sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->update_only->isChecked()) page->update_only->click();
+		if (sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->backup_folders->isChecked()) { page->backup_folders->setChecked(true); page->backupFoldersStateChanged(true); }
+		if (sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked") if (!page->update_only->isChecked()) { page->update_only->setChecked(true); page->updateOnlyStateChanged(true); }
         //page->backup_folder_1->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		//page->backup_folder_2->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folder_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		//page->update_only_1->setChecked(sync_settings->value(QString("tab_%1_%2/update_only_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
@@ -715,6 +729,8 @@ void MainWindow::readSettings()
 		multi_page->move->setChecked(sync_settings->value(QString("multitab_%1_%2/move").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 		multi_page->clone_folder1->setChecked(sync_settings->value(QString("multitab_%1_%2/clone_folder1").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         multi_page->propagate_deletions->setChecked(sync_settings->value(QString("multitab_%1_%2/propagate_deletions").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+        multi_page->fast_analyse->setChecked(sync_settings->value(QString("multitab_%1_%2/fast_analyse").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+		multi_page->analyse_special_only->setChecked(sync_settings->value(QString("multitab_%1_%2/analyse_special_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         //multi_page->backup_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/backup_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 		//multi_page->update_only->setChecked(sync_settings->value(QString("multitab_%1_%2/update_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 	#ifndef Q_WS_WIN
@@ -733,7 +749,16 @@ void MainWindow::readSettings()
         multi_page->files_blacklist = sync_settings->value(QString("multitab_%1_%2/files_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("files_blacklist")).toStringList();
         multi_page->folders_blacklist = sync_settings->value(QString("multitab_%1_%2/folders_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("folders_blacklist")).toStringList();
         multi_page->exts_blacklist = sync_settings->value(QString("multitab_%1_%2/exts_blacklist").arg(multitabs_list.at(i)).arg(i), sync_settings->value("exts_blacklist")).toStringList();
-	}
+	    if (sync_settings->value(QString("multitab_%1_%2/vars_map").arg(multitabs_list.at(i)).arg(i), "None").toString() != "None") {
+            multi_page->vars_map.clear();
+            QStringList vars = sync_settings->value(QString("multitab_%1_%2/vars_map").arg(multitabs_list.at(i)).arg(i), "").toString().split("<:?:>");
+            for (int i = 0; i < vars.count(); ++i) {
+                if (vars.at(i).split(";").count() >= 2) {
+                    multi_page->vars_map.insert(vars.at(i).split(";").first(), vars.at(i).split(";").at(1));
+                }
+            }
+        }
+    }
 	run_hidden = sync_settings->value("run_hidden", false).toBool();
 	actionDisable_tray_messages->setChecked(sync_settings->value("disable_tray_messages").toBool());
 	actionSync_at_launch->setChecked(sync_settings->value("sync_at_launch").toBool());
@@ -990,6 +1015,7 @@ void MainWindow::searchTw(const QString text)
 		tw = page->tw;
 	} else if (mainStackedWidget->currentIndex()==3) {
 		MultisyncPage * page = (MultisyncPage *) multi_tabWidget->currentWidget();
+		if (page->logs_stw->currentIndex()==1) return;
 		tw = page->tw_multi;
 	} else return;
 	if (tw == NULL) return;
@@ -1020,9 +1046,11 @@ void MainWindow::addTab()
 void MainWindow::closeTab()
 {
 	if (mainStackedWidget->currentIndex()==0) {
+        tabs.value(tabWidget->currentWidget())->deleteAllFolderDatabases();
 		tabs.remove(tabWidget->currentWidget());
 		tabWidget->removeTab(tabWidget->currentIndex());
 	} else if (mainStackedWidget->currentIndex()==3) {
+        ((MultisyncPage *) multi_tabWidget->currentWidget())->deleteAllFolderDatabases();
 		multi_tabWidget->removeTab(multi_tabWidget->currentIndex());
 	}
 }

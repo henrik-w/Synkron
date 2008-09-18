@@ -38,5 +38,15 @@
         <source>Brazilian Portuguese</source>
         <translation>Português Brasileiro</translation>
     </message>
+    <message>
+        <location filename="" line="136410828"/>
+        <source>Polish</source>
+        <translation>Polish</translation>
+    </message>
+    <message>
+        <location filename="" line="136410828"/>
+        <source>French</source>
+        <translation>French</translation>
+    </message>
 </context>
 </TS>

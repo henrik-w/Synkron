@@ -57,6 +57,7 @@ SyncFolder * SyncFolders::addFolder()
     connect(folder, SIGNAL(sigremove(SyncFolder *)), this, SLOT(removeFolder(SyncFolder *)));
     folders_vlayout->addWidget(folder);
     folders_list << folder;
+    folder->folder_name_lne->setToolTip(tr("Folder %1").arg(count()));
     emit sigfolderschanged();
     return folder;
 }

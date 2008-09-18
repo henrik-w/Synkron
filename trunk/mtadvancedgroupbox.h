@@ -61,13 +61,13 @@ protected:
 
 public:
     MTAdvancedGroupBox(QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = false; init(); };
+    QWidget(parent) { agb_external_checkbox = false; slot_receiver_checkbox = 0; init(); };
     MTAdvancedGroupBox(QString title, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = false; init(); setTitle(title); };
+    QWidget(parent) { agb_external_checkbox = false; slot_receiver_checkbox = 0; init(); setTitle(title); };
     MTAdvancedGroupBox(QCheckBox * checkbox, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; init(); };
+    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; slot_receiver_checkbox = 0; init(); };
     MTAdvancedGroupBox(QString title, QCheckBox * checkbox, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; init(); setTitle(title); };
+    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; slot_receiver_checkbox = 0; init(); setTitle(title); };
 
     bool isChecked() { return agb_checkbox->isChecked(); };
     void addLayout(QLayout * layout, int row, int column, Qt::Alignment alignment = 0)
@@ -81,6 +81,9 @@ public:
     void addItem(QLayoutItem * item, int row, int column, int rowSpan = 1, int columnSpan = 1, Qt::Alignment alignment = 0) 
     { agb_glayout->addItem(item, row, column, rowSpan, columnSpan, alignment); };
     QGridLayout * gridLayout() { return agb_glayout; };
+    
+    QCheckBox * agb_checkbox;
+    QCheckBox * slot_receiver_checkbox;
 
 public slots:
     void setChecked(bool checked) {
@@ -88,6 +91,7 @@ public slots:
         agb_groupbox->setChecked(checked);
         agb_checkbox->setVisible(!checked);
         agb_groupbox->setVisible(checked);
+        emit sigUnchecked(!checked);
         if (agb_external_checkbox) { this->setVisible(checked); }
     };
     void setTitle(QString title) {
@@ -107,12 +111,14 @@ public slots:
         if (agb_external_checkbox) { agb_checkbox->setDisabled(disabled); }
     };
 
+signals:
+    void sigUnchecked(bool);
+
 private:
     bool agb_external_checkbox;
     QGridLayout * agb_glayout;
     QVBoxLayout * agb_vlayout;
     QGroupBox * agb_groupbox;
-    QCheckBox * agb_checkbox;
 };
 
 #endif // MTADVANCEDGROUPBOX_H
