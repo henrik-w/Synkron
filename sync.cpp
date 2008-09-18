@@ -79,8 +79,8 @@ void SyncPage::setSyncWidget()
     
     sync_folders = new SyncFolders (this);
     connect(sync_folders, SIGNAL(sigfolderschanged()), this, SLOT(syncFoldersChanged()));
-    connect(show_sync_folders, SIGNAL(clicked(bool)), sync_folders, SLOT(setVisible(bool)));
-    connect(show_sync_folders, SIGNAL(clicked(bool)), add_folder_btn, SLOT(setVisible(bool)));
+    connect(show_sync_folders, SIGNAL(toggled(bool)), sync_folders, SLOT(setVisible(bool)));
+    connect(show_sync_folders, SIGNAL(toggled(bool)), add_folder_btn, SLOT(setVisible(bool)));
     connect(add_folder_btn, SIGNAL(released()), sync_folders, SLOT(addFolder()));
     mainglayout->addWidget(sync_folders, 2, 0);
     
@@ -146,6 +146,7 @@ void SyncPage::setSyncWidget()
     
     //Advanced -----------------------------------------------------------------
     advanced = new MTAdvancedGroupBox(chb_advanced, tab);
+    QObject::connect(advanced, SIGNAL(sigUnchecked(bool)), show_sync_folders, SLOT(setChecked(bool)));
     advanced->setStatusTip(tr("Show advanced options"));
     QVBoxLayout * column1_layout  = new QVBoxLayout;
     QVBoxLayout * column2_layout  = new QVBoxLayout;
@@ -452,9 +453,10 @@ int SyncPage::sync(MTStringSet sync_folders_set)
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
     if (propagate_deletions->isChecked()) {
         folder_prop_list_map.clear();
+        QStringList prop_files_list;
         for (int i = 0; i < sync_folders_set.count(); ++i) {
-            QStringList prop_files_list;
-            QFile file(QString("%1/%2").arg(sync_folders_set.at(i)).arg(".synkron.syncdb"));
+            prop_files_list = getFolderDatabase(sync_folders_set.at(i));
+            /*QFile file(QString("%1/%2").arg(sync_folders_set.at(i)).arg(".synkron.syncdb"));
             if (!file.exists()) continue;
             if (!file.open(QFile::ReadOnly | QFile::Text)) {
 		        //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
@@ -462,7 +464,7 @@ int SyncPage::sync(MTStringSet sync_folders_set)
             }
             QTextStream in(&file);
             in.setCodec("UTF-8");
-            while (!in.atEnd()) { prop_files_list << in.readLine(); }
+            while (!in.atEnd()) { prop_files_list << in.readLine(); }*/
             folder_prop_list_map.insert(sync_folders_set.at(i), prop_files_list);
         }
     }
@@ -653,7 +655,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                     }
                     continue;
             	}
-                else if (MTFileInfo(d1_entries.at(i)).lastModified() != MTFileInfo(d2_entries.at(n)).lastModified()) {
+                else if (MTFileInfo(d1_entries.at(i)).lastModified().toString(Qt::ISODate) != MTFileInfo(d2_entries.at(n)).lastModified().toString(Qt::ISODate)) {
                     MTFileInfo old_fi; MTFileInfo new_fi;
                     if (clone_folder1->isChecked()) {
                         if (d1_is_d1) {
@@ -1003,7 +1005,7 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 					addTableItem(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
                     synced_files++; delete file;
                 }
-                else if (MTFileInfo(d1_entries.at(i)).lastModified() == MTFileInfo(d2_entries.at(n)).lastModified()) {
+                else if (MTFileInfo(d1_entries.at(i)).lastModified().toString(Qt::ISODate) == MTFileInfo(d2_entries.at(n)).lastModified().toString(Qt::ISODate)) {
 					file = new MTFile (d1_entries.at(i).absoluteFilePath());
 					QString file_name = d1_entries.at(i).absoluteFilePath();
                     if (file->remove())
@@ -1257,6 +1259,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set, MTStringSet rel_paths)
                             delete file;
                         }
                     }
+                    else if (file_info->lastModified().toString(Qt::ISODate) == file_info2->lastModified().toString(Qt::ISODate)) {}
                     else if (file_info->lastModified() > file_info2->lastModified()) {
                         //Overwriting older file -------------------------------
                         file = new MTFile (file_info2->absoluteFilePath());
@@ -1364,6 +1367,7 @@ void MainWindow::tabNameChanged()
 {
 	if (tabWidget->count() == 0) return;
     SyncPage * page = tabs.value(tabWidget->currentWidget());
+    if (page->tab_name->text() == tabWidget->tabText(tabWidget->indexOf(page->tab_stw))) return;
 	QMapIterator<QTableWidgetItem*, SyncSchedule*>  i(item_sched_map);
 	while (i.hasNext()) {
 		i.next();
@@ -1373,6 +1377,9 @@ void MainWindow::tabNameChanged()
 			}
 		}
 	}
+	if (page->propagate_deletions->isChecked()) {
+        page->changeTabNameInDatabase(page->tab_name->text(), tabWidget->tabText(tabWidget->indexOf(page->tab_stw)));
+    }
 	tabWidget->setTabText(tabWidget->indexOf(page->tab_stw), page->tab_name->text());
 }
 
@@ -1473,35 +1480,138 @@ void AbstractSyncPage::saveFolderDatabase(QString dir_path)
 {
     QDir dir (dir_path);
     QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+    /*QStringList other_tabs;
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+		QTextStream read_sfile(&file);
+        read_sfile.setCodec("UTF-8");
+        QString last_tab; QStringList used_tabs; QString line;
+        while (!read_sfile.atEnd()) {
+            line = read_sfile.readLine();
+            if (line.startsWith("<:?:>")) {
+                last_tab = line;
+                last_tab.remove(0, 5);
+                if (used_tabs.contains(last_tab)) {
+                    last_tab = tabNameText();
+                } else {
+                    used_tabs << last_tab;
+                }
+            }
+            if (last_tab == tabNameText()) continue;
+            other_tabs << line;
+        }
+        file.close();
+    }*/
+    QStringList other_tabs = getFolderDatabaseOfOtherTabs(file);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
 		addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
         return;
     }
-    QTextStream sfile(&file);
-	sfile.setCodec("UTF-8");
+    QTextStream write_sfile(&file);
+	write_sfile.setCodec("UTF-8");
+	for (int i = 0; i < other_tabs.count(); ++i) {
+        write_sfile << other_tabs.at(i) << endl;
+    }
 	QStringList entry_list = getEntryList(dir.absolutePath(), dir.absolutePath());
+    write_sfile << "<:?:>" << tabNameText() << endl;
     for (int i = 0; i < entry_list.count(); ++i) {
-        sfile << entry_list.at(i) << endl;
+        write_sfile << entry_list.at(i) << endl;
     }
 }
 
-void SyncPage::saveAllFolderDatabases()
+QStringList AbstractSyncPage::getFolderDatabase(QString dir_path)
 {
-    for (int i = 0; i < sync_folders->count(); ++i) {
-        saveFolderDatabase(sync_folders->at(i)->path());
+    QStringList prop_files_list;
+    QFile file(QString("%1/%2").arg(dir_path).arg(".synkron.syncdb"));
+    if (!file.exists()) return prop_files_list;
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+		//QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
+		return prop_files_list;
     }
+    QTextStream read_sfile(&file);
+    read_sfile.setCodec("UTF-8");
+    QString line; QString last_tab;
+    while (!read_sfile.atEnd()) {
+        line = read_sfile.readLine();
+        if (line.startsWith("<:?:>")) {
+            last_tab = line;
+            last_tab.remove(0, 5);
+            continue;
+        }
+        if (last_tab != tabNameText()) continue;
+        prop_files_list << line;
+    }
+    if (prop_files_list.count() == 0) {
+        if (!read_sfile.seek(0)) return prop_files_list;
+        read_sfile.setCodec("UTF-8");
+        while (!read_sfile.atEnd()) {
+            line = read_sfile.readLine();
+            if (line.startsWith("<:?:>")) break;
+            prop_files_list << line;
+        }
+    }
+    return prop_files_list;
+}
+
+void AbstractSyncPage::saveAllFolderDatabases()
+{
+    QStringList paths = syncFoldersList();
+    for (int i = 0; i < paths.count(); ++i) {
+        saveFolderDatabase(paths.at(i));
+    }
+}
+
+QStringList AbstractSyncPage::getFolderDatabaseOfOtherTabs(QFile & file)
+{
+    QStringList other_tabs;
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+		QTextStream read_sfile(&file);
+        read_sfile.setCodec("UTF-8");
+        QString last_tab; QStringList used_tabs; QString line;
+        while (!read_sfile.atEnd()) {
+            line = read_sfile.readLine();
+            if (line.startsWith("<:?:>")) {
+                last_tab = line;
+                last_tab.remove(0, 5);
+                if (used_tabs.contains(last_tab)) {
+                    last_tab = tabNameText();
+                } else {
+                    used_tabs << last_tab;
+                }
+            }
+            if (last_tab == tabNameText()) continue;
+            other_tabs << line;
+        }
+        file.close();
+    }
+    return other_tabs;
 }
 
 void AbstractSyncPage::deleteFolderDatabase(QString dir_path)
 {
     QDir dir (dir_path);
-    QFile(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb")).remove();
+    QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+    QStringList other_tabs = getFolderDatabaseOfOtherTabs(file);
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+		addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+        return;
+    }
+    QTextStream write_sfile(&file);
+	write_sfile.setCodec("UTF-8");
+	for (int i = 0; i < other_tabs.count(); ++i) {
+        write_sfile << other_tabs.at(i) << endl;
+    }
+    /*QTextStream sfile = saveFolderDatabaseOfOtherTabs(file);
+	sfile.setCodec("UTF-8");
+	QString content;
+	while (!sfile.atEnd*/
+    //.remove();
 }
 
-void SyncPage::deleteAllFolderDatabases()
+void AbstractSyncPage::deleteAllFolderDatabases()
 {
-    for (int i = 0; i < sync_folders->count(); ++i) {
-        deleteFolderDatabase(sync_folders->at(i)->path());
+    QStringList paths = syncFoldersList();
+    for (int i = 0; i < paths.count(); ++i) {
+        deleteFolderDatabase(paths.at(i));
     }
 }
 
@@ -1520,12 +1630,13 @@ QStringList AbstractSyncPage::getEntryList(QString dir_path, QString parent_dir)
     return entry_list;
 }
 
-bool SyncPage::isInGroupDatabase(QString file_name)
+bool AbstractSyncPage::isInGroupDatabase(QString file_name)
 {
     QString sync_folder_path;
-    for (int i = 0; i < sync_folders->count(); ++i) {
-        if (file_name.startsWith(sync_folders->at(i)->path())) {
-            sync_folder_path = sync_folders->at(i)->path();
+    QStringList s_folders_list = currentSyncFoldersList();
+    for (int i = 0; i < s_folders_list.count(); ++i) {
+        if (file_name.startsWith(s_folders_list.at(i))) {
+            sync_folder_path = s_folders_list.at(i);
             break;
         }
     }
@@ -1548,6 +1659,45 @@ bool AbstractSyncPage::isInDatabase(QString file_name)
     QStringList prop_files_list = folder_prop_list_map.value(dir.path());
     if (prop_files_list.contains(dir.relativeFilePath(file_name))) return true;
     return false;
+}
+
+void AbstractSyncPage::changeTabNameInDatabase(QString new_name, QString old_name)
+{
+    QStringList paths = syncFoldersList();
+    for (int i = 0; i < paths.count(); ++i) {
+        QDir dir(paths.at(i));
+        QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+        if (!file.exists()) return;
+        if (!file.open(QFile::ReadOnly | QFile::Text)) {
+		  //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
+		  return;
+        }
+        QTextStream read_sfile(&file);
+        read_sfile.setCodec("UTF-8");
+        QStringList new_db;
+        QString line; QString last_tab;
+        while (!read_sfile.atEnd()) {
+            line = read_sfile.readLine();
+            if (line.startsWith("<:?:>")) {
+                last_tab = line;
+                last_tab.remove(0, 5);
+                if (last_tab == old_name) {
+                    line = QString("<:?:>%1").arg(new_name);
+                }
+            }
+            new_db << line;
+        }
+        file.close();
+        if (!file.open(QFile::WriteOnly | QFile::Text)) {
+            //addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+            return;
+        }
+        QTextStream write_sfile(&file);
+	    write_sfile.setCodec("UTF-8");
+	    for (int n = 0; n < new_db.count(); ++n) {
+            write_sfile << new_db.at(n) << endl;
+        }
+    }
 }
 
 void AbstractSyncPage::propagatedStateChanged(bool checked)

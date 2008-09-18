@@ -184,8 +184,8 @@ private slots:
     
 // Multisync
 	MultisyncPage * addMultiTab();
-	void addMultisync();
-    void removeMultisync();
+	void addSource();
+    void removeSource();
     void browseMultiDestination();
     
 // Scheduler
