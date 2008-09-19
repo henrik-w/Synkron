@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -348,17 +349,17 @@
     <message>
         <location filename="../analyse.cpp" line="700"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="unfinished"></translation>
+        <translation>Sin Sie sicher, dass Sie &quot;%1&quot; aus allen Synchronisationsorten entfernen wollen?</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="754"/>
         <source>Synkron - Rename file</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - Datei umbenennen</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="754"/>
         <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="unfinished"></translation>
+        <translation>Geben Sie eine neue Bezeichnung für &quot;%1&quot; an:</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="766"/>
@@ -1060,7 +1061,7 @@
     <message>
         <location filename="../multisync.cpp" line="255"/>
         <source>Are you sure you want to remove the selected source from the list?</source>
-        <translation>Bist Du sicher, dass die ausgewählten Quellen von der Liste genommen werden sollen?</translation>
+        <translation>Sind Sie sicher, dass die ausgewählten Quellen von der Liste genommen werden sollen?</translation>
     </message>
     <message>
         <location filename="../restore.cpp" line="296"/>
@@ -1080,7 +1081,7 @@
     <message>
         <location filename="../scheduler.cpp" line="51"/>
         <source>Are you sure you want to remove the selected schedule from the list?</source>
-        <translation>Bist Du sicher, dass die ausgewählten Aufgaben aus der Liste entfernt werden sollen?</translation>
+        <translation>Sind Sie sicher, dass die ausgewählten Aufgaben aus der Liste entfernt werden sollen?</translation>
     </message>
     <message>
         <location filename="../scheduler.cpp" line="150"/>
@@ -1202,7 +1203,7 @@
     <message>
         <location filename="../restore.cpp" line="299"/>
         <source>Are you sure you want to delete temporary files?</source>
-        <translation>Bist Du sicher, die temporären Dateien zu löschen?</translation>
+        <translation>Sind Sie sicher, die temporären Dateien zu löschen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="29"/>
@@ -1232,7 +1233,7 @@
     <message>
         <location filename="../restore.cpp" line="370"/>
         <source>Are you sure you want to delete the selected temporary file?</source>
-        <translation>Bist Du sicher, die ausgewählten temporären Dateien löschen zu wollen?</translation>
+        <translation>Sind Sie sicher, die ausgewählten temporären Dateien löschen zu wollen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="190"/>
@@ -1257,7 +1258,7 @@
     <message>
         <location filename="../main.cpp" line="1157"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation>Bist Du sicher, den Pfad &quot;%1&quot; aus jeder Synchronisierung entfernen zu wollen?</translation>
+        <translation>Sind Sie sicher, den Pfad &quot;%1&quot; aus jeder Synchronisierung entfernen zu wollen?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="1167"/>
@@ -1660,12 +1661,12 @@
     <message>
         <location filename="../multisync_page.ui" line="153"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Variablen</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="244"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="343"/>
@@ -1882,7 +1883,7 @@
     <message>
         <location filename="../multisync.cpp" line="160"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Analyse:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="163"/>
@@ -1897,42 +1898,42 @@
     <message>
         <location filename="../multisync.cpp" line="649"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Variablen</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="614"/>
         <source>Variable name</source>
-        <translation type="unfinished"></translation>
+        <translation>Variablenname</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="615"/>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="628"/>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="633"/>
         <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="637"/>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="654"/>
         <source>Variable name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Variablenname:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="660"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordner:</translation>
     </message>
 </context>
 <context>
