@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -333,7 +334,7 @@
     <message>
         <location filename="../analyse.cpp" line="591"/>
         <source>Add to blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة للقائمة السوداء</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="593"/>
@@ -1660,12 +1661,12 @@
     <message>
         <location filename="../multisync_page.ui" line="153"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>متحولات</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="244"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="343"/>
@@ -1881,7 +1882,7 @@
     <message>
         <location filename="../multisync.cpp" line="160"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;تحليل&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="163"/>
@@ -1896,17 +1897,17 @@
     <message>
         <location filename="../multisync.cpp" line="649"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>متحولات</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="614"/>
         <source>Variable name</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم المتحول</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="615"/>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلد</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="628"/>
@@ -1926,12 +1927,12 @@
     <message>
         <location filename="../multisync.cpp" line="654"/>
         <source>Variable name:</source>
-        <translation type="unfinished"></translation>
+        <translation>إسم المتحول:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="660"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلد:</translation>
     </message>
 </context>
 <context>
