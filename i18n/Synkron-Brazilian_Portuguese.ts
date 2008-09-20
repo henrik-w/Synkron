@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="pt_BR">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -895,7 +896,7 @@
     <message>
         <location filename="../main_window.ui" line="682"/>
         <source>Start all schedules</source>
-        <translation>Iniciar todas os agendamentos</translation>
+        <translation>Iniciar todos os agendamentos</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="685"/>
@@ -1659,12 +1660,12 @@
     <message>
         <location filename="../multisync_page.ui" line="153"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Variáveis</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="244"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="343"/>
@@ -1879,7 +1880,7 @@
     <message>
         <location filename="../multisync.cpp" line="160"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Analisar:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="163"/>
@@ -1894,17 +1895,17 @@
     <message>
         <location filename="../multisync.cpp" line="649"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Variáveis</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="614"/>
         <source>Variable name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da variável</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="615"/>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasta</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="628"/>
@@ -1924,12 +1925,12 @@
     <message>
         <location filename="../multisync.cpp" line="654"/>
         <source>Variable name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da variável:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="660"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasta:</translation>
     </message>
 </context>
 <context>

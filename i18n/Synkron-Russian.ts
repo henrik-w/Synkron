@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -1660,12 +1661,12 @@
     <message>
         <location filename="../multisync_page.ui" line="153"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменные</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="244"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="343"/>
@@ -1882,7 +1883,7 @@
     <message>
         <location filename="../multisync.cpp" line="160"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Анализ:&lt;/b</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="163"/>
@@ -1897,17 +1898,17 @@
     <message>
         <location filename="../multisync.cpp" line="649"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменные</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="614"/>
         <source>Variable name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя переменной</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="615"/>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="628"/>
@@ -1927,12 +1928,12 @@
     <message>
         <location filename="../multisync.cpp" line="654"/>
         <source>Variable name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя переменной:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="660"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог:</translation>
     </message>
 </context>
 <context>
