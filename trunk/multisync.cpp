@@ -59,36 +59,25 @@ void MultisyncPage::setAdvancedGB()
     connect(propagate_deletions, SIGNAL(toggled(bool)), this, SLOT(propagatedStateChanged(bool)));
     connect(propagate_deletions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
     main_layout->addWidget(propagate_deletions, 0, 1);
-    
+
 	sync_nosubdirs = new QCheckBox(advanced);
     sync_nosubdirs->setChecked(false);
     sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
     sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
-	//column1_layout->addWidget(sync_nosubdirs);
     main_layout->addWidget(sync_nosubdirs, 1, 0);
-	
+
     ignore_blacklist = new QCheckBox(advanced);
     ignore_blacklist->setChecked(false);
     ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
     ignore_blacklist->setText(tr("Ignore blacklist"));
     main_layout->addWidget(ignore_blacklist, 1, 1);
-    
+
     edit_blacklist = new QToolButton(advanced);
     edit_blacklist->setText(tr("Edit blacklist"));
     edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
     connect(edit_blacklist, SIGNAL(released()), this, SLOT(editBlacklist()));
     main_layout->addWidget(edit_blacklist, 1, 2);
-	
-	/*backup_folders = new QCheckBox (tr("Do not backup updated files"), advanced);
-	backup_folders->setStatusTip(tr("Do not backup updated files"));
-	connect(backup_folders, SIGNAL(toggled(bool)), this, SLOT(backupFoldersStateChanged(bool)));
-	column1_layout->addWidget(backup_folders);
-	
-    update_only = new QCheckBox (tr("Update existing files only"), advanced);
-	update_only->setStatusTip(tr("Update existing files only"));
-	connect(update_only, SIGNAL(toggled(bool)), this, SLOT(updateOnlyStateChanged(bool)));
-	column2_layout->addWidget(update_only);*/
-    
+
     files_blacklist = mp_parent->files_blacklist;
     folders_blacklist = mp_parent->folders_blacklist;
     exts_blacklist = mp_parent->exts_blacklist;
@@ -107,37 +96,37 @@ void MultisyncPage::setAdvancedGB()
     QLabel * folder1_label = new QLabel (advanced);
     folder1_label->setText(tr("<b>Sources:</b>"));
     main_layout->addWidget(folder1_label, 3, 0);
-    
+
 	backup_folder_1 = new QCheckBox (tr("Do not backup updated files"), advanced);
 	backup_folder_1->setStatusTip(tr("Do not backup updated files from sources"));
     main_layout->addWidget(backup_folder_1, 4, 0);
-	
+
     update_only_1 = new QCheckBox (tr("Update existing files only"), advanced);
 	update_only_1->setStatusTip(tr("Update existing files in sources only"));
     main_layout->addWidget(update_only_1, 4, 1);
-	
+
 	move = new QCheckBox (tr("Move contents to destination, leaving sources empty"), advanced);
 	move->setStatusTip(tr("Move contents to destination, leaving sources empty"));
 	connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
     main_layout->addWidget(move, 4, 2);
-	
+
 	QLabel * folder2_label = new QLabel (advanced);
     folder2_label->setText(tr("<b>Destination:</b>"));
     main_layout->addWidget(folder2_label, 5, 0);
-    
+
 	backup_folder_2 = new QCheckBox (tr("Do not backup updated files"), advanced);
 	backup_folder_2->setStatusTip(tr("Do not backup updated files from destination"));
     main_layout->addWidget(backup_folder_2, 6, 0);
-	
+
     update_only_2 = new QCheckBox (tr("Update existing files only"), advanced);
 	update_only_2->setStatusTip(tr("Update existing files in destination only"));
     main_layout->addWidget(update_only_2, 6, 1);
-	
+
 	clone_folder1 = new QCheckBox (tr("Clone sources"), advanced);
 	clone_folder1->setStatusTip(tr("Clone sources"));
 	connect(clone_folder1, SIGNAL(toggled(bool)), this, SLOT(cloneStateChanged(bool)));
     main_layout->addWidget(clone_folder1, 6, 2);
-    
+
     /*advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
 	filters = new QGroupBox(tr("Filters"), advanced);
 	filters->setCheckable(true);
@@ -228,20 +217,10 @@ void MainWindow::addSource()
     QMapIterator<QString, QString> i(multi_page->vars_map);
     while (i.hasNext()) {
         i.next();
-        /*for (int n = 0; n < i.value().count(); ++n) {
-            if (path.contains(i.value().at(n))) {
-                path.replace(i.value().at(n), i.key() + "/");
-            }
-        }*/
         if (path.startsWith(i.value())) {
             path.replace(0, i.value().length(), i.key() + "/");
         }
     }
-	/*if (path.startsWith(QDir::homePath(), Qt::CaseInsensitive)) {
-		path.replace(QDir::homePath(), "HOMEPATH");
-	} else if (path.startsWith(QDir::rootPath(), Qt::CaseInsensitive)) {
-		path.replace(QDir::rootPath(), "ROOTPATH/");
-	}*/
 	path.replace("\\", "/");
 	path.replace("//", "/");
 	item->setText(path);
@@ -337,21 +316,11 @@ int MultisyncPage::sync()
 		QMapIterator<QString, QString> iter(vars_map);
         while (iter.hasNext()) {
             iter.next();
-            /*for (int n = 0; n < iter.value().count(); ++n) {
-                if (path.contains(iter.value().at(n))) {
-                    path.replace(iter.value().at(n), iter.key());
-                }
-            }*/
             if (path.startsWith(iter.key())) {
                 path.replace(0, iter.key().length(), iter.value());
             }
         }
         path.replace("//", "/");
-        /*if (path.startsWith("HOMEPATH", Qt::CaseSensitive)) {
-			path.replace("HOMEPATH", QDir::homePath());
-		} else if (path.startsWith("ROOTPATH", Qt::CaseSensitive)) {
-			path.replace("ROOTPATH", QDir::rootPath());
-		}*/
 		syncfolder.setPath(path);
 		if (!syncfolder.exists()) {
             if (!QDir().mkpath(syncfolder.path())) {
@@ -370,15 +339,6 @@ int MultisyncPage::sync()
                 if (i == 0) sync_folder = syncfolder.absolutePath();
                 else sync_folder = destination.absolutePath();
                 prop_files_list = getFolderDatabase(sync_folder);
-                /*QFile file(QString("%1/%2").arg(sync_folder).arg(".synkron.syncdb"));
-                if (!file.exists()) continue;
-                if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		          //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
-		          continue;
-                }
-                QTextStream in(&file);
-                in.setCodec("UTF-8");
-                while (!in.atEnd()) { prop_files_list << in.readLine(); }*/
                 folder_prop_list_map.insert(sync_folder, prop_files_list);
             }
         }
@@ -577,25 +537,14 @@ QStringList MultisyncPage::syncFoldersList()
         QMapIterator<QString, QString> iter(vars_map);
         while (iter.hasNext()) {
             iter.next();
-            /*for (int n = 0; n < iter.value().count(); ++n) {
-                if (path.contains(iter.value().at(n))) {
-                    path.replace(iter.value().at(n), iter.key());
-                }
-            }*/
             if (path.startsWith(iter.key())) {
                 path.replace(0, iter.key().length(), iter.value());
             }
         }
-        /*if (path.startsWith("HOMEPATH", Qt::CaseSensitive)) {
-			path.replace("HOMEPATH", QDir::homePath());
-		} else if (path.startsWith("ROOTPATH", Qt::CaseSensitive)) {
-			path.replace("ROOTPATH", QDir::rootPath());
-		}*/
 		path.replace("//", "/");
 		paths << path;
-		paths << QString("%1/%2").arg(destination).arg(path.remove(":"));
+		paths << QString("%1/%2").arg(destination).arg(list_multi->item(i)->text());
     }
-    //paths << destination_multi->text();
     return paths;
 }
 
@@ -603,7 +552,6 @@ void MultisyncPage::varsDialogue()
 {
     QDialog * vars_dialogue = new QDialog (this, Qt::Dialog);
 	vars_dialogue->setWindowModality(Qt::WindowModal);
-	//cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
 	vars_dialogue->setWindowTitle(tr("Variables"));
 	QVBoxLayout * vars_hlayout = new QVBoxLayout(vars_dialogue);
 	vars_hlayout->setMargin(4); vars_hlayout->setSpacing(10);
@@ -661,17 +609,6 @@ void MultisyncPage::addVariable()
     add_var_hlayout->addWidget(path_lbl);
     QLineEdit * path_le = new QLineEdit(add_var_dialogue);
 	add_var_hlayout->addWidget(path_le);
-    /*var_paths_list = new QListWidget(add_var_dialogue);
-    add_var_hlayout->addWidget(var_paths_list);
-    QHBoxLayout * path_button_layout = new QHBoxLayout;
-    path_button_layout->addStretch();
-    QPushButton * add_path = new QPushButton(tr("Add"));
-    connect(add_path, SIGNAL(released()), this, SLOT(addVarPath()));
-    path_button_layout->addWidget(add_path);
-    QPushButton * rem_path = new QPushButton(tr("Remove"));
-    connect(rem_path, SIGNAL(released()), this, SLOT(removeVarPath()));
-    path_button_layout->addWidget(rem_path);
-    add_var_hlayout->addLayout(path_button_layout);*/
 
     QDialogButtonBox * bb = new QDialogButtonBox(add_var_dialogue);
     bb->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -690,94 +627,28 @@ void MultisyncPage::addVariable()
     }
 
     QMap<QString, QString> old_vars_map = vars_map;
-    //QStringList paths = getStandardSourcePaths();
-    //QStringList new_paths;
     switch (add_var_dialogue->exec()) {
 		case 0: // Cancel
 			break;	
 		case 1: // OK
-		    /*for (int i = 0; i < var_paths_list->count(); ++i) {
-                new_paths << var_paths_list->item(i)->text();
-            }*/
 			if (name_le->text().isEmpty() || path_le->text().isEmpty()) break;
 			vars_map.insert(name_le->text(), path_le->text());
 			break;
 	}
-	//setSourcePathsFromStandard(paths);
 	resetSourcePaths(old_vars_map);
 	varsDialogue();
 }
-/*
-void MultisyncPage::addVarPath()
-{
-    QString path = QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    if (path != "") {
-        var_paths_list->addItem(path);
-    }
-}
-
-void MultisyncPage::removeVarPath()
-{
-    if (var_paths_list->currentItem() == NULL) return;
-    delete var_paths_list->currentItem();
-}*/
 
 void MultisyncPage::removeVariable()
 {
     if (vars_tree->currentItem() == NULL) return;
-    //QStringList paths = getStandardSourcePaths();
     QMap<QString, QString> old_vars_map = vars_map;
 
     vars_map.remove(vars_tree->currentItem()->text(0));
     delete vars_tree->currentItem();
 
-    //setSourcePathsFromStandard(paths);
     resetSourcePaths(old_vars_map);
 }
-/*
-QStringList MultisyncPage::getStandardSourcePaths()
-{
-    QStringList paths;
-    QString path;
-    for (int i = 0; i < list_multi->count(); ++i) {
-        path = list_multi->item(i)->text();
-        QMapIterator<QString, QString> iter(vars_map);
-        while (iter.hasNext()) {
-            iter.next();
-            if (path.contains(iter.value())) {
-                path.replace(iter.value(), iter.key());
-            }
-        }
-		path.replace("//", "/");
-		paths << path;
-    }
-    return paths;
-}
-
-void MultisyncPage::setSourcePathsFromStandard(QStringList paths)
-{
-    QString path;
-    list_multi->clear();
-    for (int i = 0; i < paths.count(); ++i) {
-        path = paths[i];
-        QMapIterator<QString, QStringList> iter(vars_map);
-        while (iter.hasNext()) {
-            iter.next();
-            for (int n = 0; n < iter.value().count(); ++n) {
-                if (path.contains(iter.value().at(n))) {
-                    path.replace(iter.value().at(n), iter.key() + "/");
-                }
-            }
-        }
-	    path.replace("\\", "/");
-        path.replace("//", "/");
-        list_multi->addItem(path);
-    }
-}*/
 
 void MultisyncPage::resetSourcePaths(QMap<QString, QString> old_vars_map)
 {
@@ -787,26 +658,15 @@ void MultisyncPage::resetSourcePaths(QMap<QString, QString> old_vars_map)
         QMapIterator<QString, QString> old_iter(old_vars_map);
         while (old_iter.hasNext()) {
             old_iter.next();
-            /*for (int n = 0; n < old_iter.value().count(); ++n) {
-                if (path.contains(old_iter.value().at(n))) {
-                    path.replace(old_iter.value().at(n), old_iter.key() + "/");
-                }
-            }*/
             if (path.startsWith(old_iter.key())) {
                 path.replace(0, old_iter.key().length(), old_iter.value() + "/");
             }
         }
         path.replace("//", "/");
-        //QMessageBox::information(this, "", path);
 
         QMapIterator<QString, QString> iter(vars_map);
         while (iter.hasNext()) {
             iter.next();
-            /*for (int n = 0; n < iter.value().count(); ++n) {
-                if (path.contains(iter.value())) {
-                    path.replace(iter.value(), iter.key() + "/");
-                }
-            }*/
             if (path.startsWith(iter.value())) {
                 path.replace(0, iter.value().length(), iter.key() + "/");
             }

@@ -50,31 +50,6 @@ void MainWindow::toRestorePage()
         }
         temp_settings->endGroup();
     }
- 	/*for (int i = 0; i < synchronised.count(); i+=4) {
-		item = new QListWidgetItem (synchronised.at(i));
-		item->setCheckState(Qt::Unchecked);
-		QStringList list;
-		if (synchronised.at(i+1) == last_time) {
-            if (last_colour == "grey") {
-                item->setBackground(QBrush(QColor(226, 226, 226)));
-            }
-        } else {
-            last_time = synchronised.at(i+1);
-            if (last_colour == "grey") {
-                last_colour = "white";
-            } else {
-                item->setBackground(QBrush(QColor(226, 226, 226)));
-                last_colour = "grey";
-            }
-        }
-		list << synchronised.at(i);
-		list << synchronised.at(i+1);
-		list << synchronised.at(i+2);
-		list << synchronised.at(i+3);
-		item->setData(Qt::UserRole, list);
-		item->setToolTip(synchronised.at(i+2));
-		restore_list->addItem(item);
-    }*/
     to_black_list->setCheckState(Qt::Unchecked);
 }
 
@@ -537,9 +512,6 @@ void MainWindow::convertOldTempSettings(QStringList old_settings)
 		temp_settings->setValue("file_name", old_settings.at(i));
         temp_settings->setValue("old_file_path", old_settings.at(i+2));
         temp_settings->setValue("temp_file_path", old_settings.at(i+3));
-		/*temp_settings->setValue(QString("%1/file_name").arg(temp_file_name), old_settings.at(i));
-        temp_settings->setValue(QString("%1/old_file_path").arg(temp_file_name), old_settings.at(i+2));
-        temp_settings->setValue(QString("%1/temp_file_path").arg(temp_file_name), old_settings.at(i+3));*/
         temp_settings->endGroup();
         temp_settings->endGroup();
     }

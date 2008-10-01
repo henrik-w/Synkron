@@ -24,7 +24,7 @@ MainWindow::MainWindow(QSettings * s)
     setupUi(this);
     
 	f_ver = 1.4;
-	ver = "1.4.0 RC1";
+	ver = "1.4.0";
     
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
