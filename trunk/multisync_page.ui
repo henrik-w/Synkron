@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>682</width>
-    <height>611</height>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -84,6 +84,12 @@
          </item>
          <item row="0" column="2" >
           <widget class="QListWidget" name="list_multi" >
+           <property name="maximumSize" >
+            <size>
+             <width>16777215</width>
+             <height>120</height>
+            </size>
+           </property>
            <property name="statusTip" >
             <string>List of multisync sources</string>
            </property>
@@ -153,6 +159,9 @@
               <spacer name="verticalSpacer" >
                <property name="orientation" >
                 <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType" >
+                <enum>QSizePolicy::Maximum</enum>
                </property>
                <property name="sizeHint" stdset="0" >
                 <size>
