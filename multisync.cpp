@@ -90,7 +90,7 @@ void MultisyncPage::setAdvancedGB()
 	symlinks->setChecked(false);
 	symlinks->setStatusTip(tr("Follow symbolic links"));
     symlinks->setText(tr("Follow symbolic links"));
-    main_layout->addWidget(symlinks, 2, 0);
+    main_layout->addWidget(symlinks, 0, 2);
 #endif
     
     QLabel * folder1_label = new QLabel (advanced);
