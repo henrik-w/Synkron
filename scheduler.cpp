@@ -283,7 +283,7 @@ void SyncSchedule::startSchedule()
             QObject::connect(timer, SIGNAL(timeout()), this, SLOT(checkSchedStatus()));
             int h = time.msecsTo(QTime(sched_checked_time_list.at(r).split(':').at(0).toInt(), sched_checked_time_list.at(r).split(':').at(1).toInt()));
             if (h<0) {
-                QDateTime datetime (QDate(QDateTime::currentDateTime().date().year(), QDateTime::currentDateTime().date().month(), QDateTime::currentDateTime().date().day()+1),
+                QDateTime datetime (QDate::currentDate().addDays(1),
                             QTime(sched_checked_time_list.at(r).split(':').at(0).toInt(), sched_checked_time_list.at(r).split(':').at(1).toInt()));
                 h = current_datetime.secsTo(datetime)*1000;
             } if (h<0) { delete timer; continue; }

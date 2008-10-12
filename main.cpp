@@ -92,7 +92,9 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Russian"), "Russian");
     synkron_i18n.insert(translator.translate("LanguageNames", "Spanish"), "Spanish");
     synkron_i18n.insert(translator.translate("LanguageNames", "Brazilian Portuguese"), "Brazilian Portuguese");
-    //synkron_i18n.insert(translator.translate("LanguageNames", "Polish"), "Polish");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Polish"), "Polish");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Chinese"), "Chinese");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Italian"), "Italian");
     //synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
     
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
@@ -387,6 +389,7 @@ void MainWindow::saveSettings()
     for (int i = 0; i < tabWidget->count(); ++i) {
 		tabs_list << tabWidget->tabText(i);
 		sync_settings->setValue(QString("tab_%1_%2/folders").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folders->pathsList());
+        sync_settings->setValue(QString("tab_%1_%2/last_sync").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->last_sync);
 		//sync_settings->setValue(QString("tab_%1_%2/folder1").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_1->text());
 		//sync_settings->setValue(QString("tab_%1_%2/folder2").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_folder_2->text());
 		sync_settings->setValue(QString("tab_%1_%2/sync_hidden").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sync_hidden->isChecked() ? "checked" : "unchecked");
@@ -438,6 +441,7 @@ void MainWindow::saveSettings()
 		}
 		sync_settings->setValue(QString("multitab_%1_%2/sources").arg(multi_tabWidget->tabText(i)).arg(i), sources);
 		sync_settings->setValue(QString("multitab_%1_%2/destination").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->destination_multi->text());
+        sync_settings->setValue(QString("multitab_%1_%2/last_sync").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->last_sync);
 		sync_settings->setValue(QString("multitab_%1_%2/advanced").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->advanced->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/sync_hidden").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->sync_hidden->isChecked() ? "checked" : "unchecked");
 		sync_settings->setValue(QString("multitab_%1_%2/backup_folder_1").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->backup_folder_1->isChecked() ? "checked" : "unchecked");
@@ -616,6 +620,8 @@ void MainWindow::readSettings()
                 page->sync_folders->addFolder()->setPath(folders.at(f));
         }
         page->sync_folders->addToFolders(2);
+        page->last_sync = sync_settings->value(QString("tab_%1_%2/last_sync").arg(tabs_list.at(i)).arg(i)).toString();
+        if (!page->last_sync.isEmpty()) page->status_table_item->setText(tr("Last synced on %1").arg(page->last_sync));
         //page->sync_folder_1->setText(sync_settings->value(QString("tab_%1_%2/folder1").arg(tabs_list.at(i)).arg(i)).toString());
 		//page->sync_folder_2->setText(sync_settings->value(QString("tab_%1_%2/folder2").arg(tabs_list.at(i)).arg(i)).toString());
 		showAdvancedGroupBox(sync_settings->value(QString("tab_%1_%2/advanced").arg(tabs_list.at(i)).arg(i)).toString()=="checked", page);
@@ -718,6 +724,8 @@ void MainWindow::readSettings()
 			}
 		}
 		multi_page->destination_multi->setText(sync_settings->value(QString("multitab_%1_%2/destination").arg(multitabs_list.at(i)).arg(i)).toString());
+        multi_page->last_sync = sync_settings->value(QString("multitab_%1_%2/last_sync").arg(multitabs_list.at(i)).arg(i)).toString();
+        if (!multi_page->last_sync.isEmpty()) multi_page->status_table_item->setText(tr("Last synced on %1").arg(multi_page->last_sync));
 		multi_page->showAdvancedGroupBox(sync_settings->value(QString("multitab_%1_%2/advanced").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 		multi_page->sync_hidden->setChecked(!(sync_settings->value(QString("multitab_%1_%2/sync_hidden").arg(multitabs_list.at(i)).arg(i)).toString()=="unchecked"));
 		multi_page->backup_folder_1->setChecked(sync_settings->value(QString("multitab_%1_%2/backup_folder_1").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");

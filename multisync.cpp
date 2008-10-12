@@ -36,6 +36,14 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
     connect(analyse_tree, SIGNAL(sigconmenu(QPoint)), this, SLOT(analyseTreeConMenu(QPoint)));
     connect(analyse_tree, SIGNAL(itemExpanded(QTreeWidgetItem *)), this, SLOT(analyseTreeItemExpanded(QTreeWidgetItem *)));
 
+    status_table_item = new QTableWidgetItem(tr("Press the \"Multisync\" button to start synchronisation"));
+    tw_multi->insertRow(0);
+    status_table_item->setBackground(Qt::blue);
+    status_table_item->setForeground(Qt::white);
+    tw_multi->setSpan(0, 0, 1, 2);
+	tw_multi->setItem(0, 0, status_table_item);
+	tw_multi->setRowHeight(0, 16);
+
     setAdvancedGB();
 
     vars_map.insert("HOMEPATH", QDir::homePath());
@@ -343,8 +351,13 @@ int MultisyncPage::sync()
             }
         }
     	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
-		if (move->isChecked()) moveContents(syncfolder, destination);
-		else subSync(syncfolder, destination, false);
+        if (move->isChecked()) {
+            status_table_item->setText(tr("Moving")); qApp->processEvents();
+            moveContents(syncfolder, destination);
+        } else {
+            status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
+            subSync(syncfolder, destination, false);
+        }
 		countExtsBl();
 		if (propagate_deletions->isChecked()) {
             saveFolderDatabase(syncfolder.absolutePath());
@@ -352,6 +365,8 @@ int MultisyncPage::sync()
         }
         all_synced_files += synced_files;
 		addTableItem(tr("%1	%2: %3 file(s) %4").arg(QTime().currentTime().toString("hh:mm:ss")).arg(list_multi->item(i)->text()).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
+        last_sync = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
+        status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
 	}
 	mp_parent->saveSettings();
 	syncing = false;
@@ -474,6 +489,7 @@ void MultisyncPage::setSyncEnabled(bool enable)
 	saveas_multi->setEnabled(enable);
 	save_multi->setEnabled(enable);
 	search_multi->setEnabled(enable);
+	vars_multi->setEnabled(enable);
 	advanced->setEnabled(enable);
 	syncing = !enable;
 	stop_sync_btn->setVisible(!enable);

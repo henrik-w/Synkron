@@ -8,7 +8,7 @@
         <translation>Synkron のバージョン情報</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1446"/>
+        <location filename="../main.cpp" line="1454"/>
         <source>About Qt</source>
         <translation>Qt のバージョン情報</translation>
     </message>
@@ -18,42 +18,42 @@
         <translation>閉じる</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1426"/>
+        <location filename="../main.cpp" line="1434"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1430"/>
+        <location filename="../main.cpp" line="1438"/>
         <source>Synkron is a simple Qt application designed for easy folder synchronisation.</source>
         <translation>Synkron は簡単なフォルダーの同期化用に設計されたシンプルな Qt アプリケーションです。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1433"/>
+        <location filename="../main.cpp" line="1441"/>
         <source>This programme is distributed under the terms of the GPL v2.</source>
         <translation>このプログラムは GPL v2 の条件の下に配布されています。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1437"/>
+        <location filename="../main.cpp" line="1445"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>このプログラムは特定の目的の設計、商品性および適合性の保証を含め、絶対的にいかなる保証もなしでそのまま供給されます。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1448"/>
+        <location filename="../main.cpp" line="1456"/>
         <source>This programme uses Qt Open Source Edition version %1.</source>
         <translation>このプログラムは Qt Open Source Edition version %1 を使用します。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1450"/>
+        <location filename="../main.cpp" line="1458"/>
         <source>Qt is a C++ toolkit for cross-platform application development.</source>
         <translation>Qt はクロスプラットフォーム アプリケーションの開発用 C++ ツールキットです。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1452"/>
+        <location filename="../main.cpp" line="1460"/>
         <source>Qt provides single-source portability across MS Windows, Mac OS X, Linux and all major commercial Unix variants. Qt is also available for embedded devices as Qtopia Core.</source>
         <translation>Qt は MS Windows、Mac OS X、Linux およびすべての大手 Unix 派生にわたるシングルソースの移植性を供給します。Qt は Qtopia Core として埋め込みデバイスでも利用可能です。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1454"/>
+        <location filename="../main.cpp" line="1462"/>
         <source>Qt is a Trolltech product. See &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; for more information.</source>
         <translation>Qt は Trolltech の製品です。さらなる情報は &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; をご覧ください。</translation>
     </message>
@@ -61,162 +61,162 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="876"/>
+        <location filename="../sync.cpp" line="893"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>フォルダー %1 がブラックリストされています、スキップされました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="888"/>
+        <location filename="../sync.cpp" line="905"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>ファイル %1 がブラックリストされています、スキップされました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="924"/>
+        <location filename="../sync.cpp" line="941"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>同じ名前のファイルまたはフォルダーとシンボリック リンクが見つかりました。これらのファイルを同期化することができません。 (%1、%2)</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="942"/>
+        <location filename="../sync.cpp" line="959"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>同じ名前のフォルダー (%1) とファイル (%2) が見つかりました。これらのファイルを同期化することができません。</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="946"/>
+        <location filename="../sync.cpp" line="963"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>同じ名前のファイル (%1) とフォルダー (%2) が見つかりました。これらのファイルを同期化することができません。</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1058"/>
+        <location filename="../sync.cpp" line="1075"/>
         <source>file</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1058"/>
+        <location filename="../sync.cpp" line="1075"/>
         <source>copy</source>
         <translation>コピー</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="977"/>
+        <location filename="../sync.cpp" line="994"/>
         <source> to temp</source>
         <translation> 一時へ</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1033"/>
+        <location filename="../sync.cpp" line="1050"/>
         <source>folder</source>
         <translation>フォルダー</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="960"/>
+        <location filename="../sync.cpp" line="977"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>より古いファイル %1 がバックアップおよび削除されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1358"/>
+        <location filename="../sync.cpp" line="1380"/>
         <source>Unknown error %1ing %2: %3%4</source>
         <translation>不明な %2 の%1 エラーです: %3%4</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1066"/>
+        <location filename="../sync.cpp" line="1083"/>
         <source>File %1 deleted</source>
         <translation>ファイル %1 が削除されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1068"/>
+        <location filename="../sync.cpp" line="1085"/>
         <source>Error removing file %1</source>
         <translation>ファイル %1 の削除エラーです</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1049"/>
+        <location filename="../sync.cpp" line="1066"/>
         <source>Folder %1 deleted</source>
         <translation>フォルダー %1 が削除されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1051"/>
+        <location filename="../sync.cpp" line="1068"/>
         <source>Error removing directory %1</source>
         <translation>ディレクトリ %1 の削除エラーです</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="996"/>
+        <location filename="../sync.cpp" line="1013"/>
         <source>File %1 restored</source>
         <translation>ファイル %1 が復元されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="317"/>
+        <location filename="../sync.cpp" line="324"/>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストのファイル&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="320"/>
+        <location filename="../sync.cpp" line="327"/>
         <source>List of files in the blacklist</source>
         <translation>ブラックリストのファイルの一覧です</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="367"/>
+        <location filename="../sync.cpp" line="374"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="326"/>
+        <location filename="../sync.cpp" line="333"/>
         <source>Add file to black list</source>
         <translation>ファイルをブラック リストに追加します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="372"/>
+        <location filename="../sync.cpp" line="379"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="331"/>
+        <location filename="../sync.cpp" line="338"/>
         <source>Remove file from black list</source>
         <translation>ブラック リストからファイルを削除します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="338"/>
+        <location filename="../sync.cpp" line="345"/>
         <source>&lt;b&gt;Folders in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストのフォルダー&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="341"/>
+        <location filename="../sync.cpp" line="348"/>
         <source>List of folders in the blacklist</source>
         <translation>ブラックリストのフォルダーの一覧です</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="347"/>
+        <location filename="../sync.cpp" line="354"/>
         <source>Add folder to black list</source>
         <translation>フォルダーをブラック リストに追加します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="352"/>
+        <location filename="../sync.cpp" line="359"/>
         <source>Remove folder from black list</source>
         <translation>ブラック リストからフォルダーを削除します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="359"/>
+        <location filename="../sync.cpp" line="366"/>
         <source>&lt;b&gt;Extensions in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストの拡張子&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="362"/>
+        <location filename="../sync.cpp" line="369"/>
         <source>List of extensions in the blacklist</source>
         <translation>ブラックリストの拡張子の一覧です</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="368"/>
+        <location filename="../sync.cpp" line="375"/>
         <source>Add extension to black list</source>
         <translation>拡張子をブラック リストに追加します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="373"/>
+        <location filename="../sync.cpp" line="380"/>
         <source>Remove extension from black list</source>
         <translation>ブラック リストから拡張子を削除します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="382"/>
+        <location filename="../sync.cpp" line="389"/>
         <source>Back</source>
         <translation>戻る</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="383"/>
+        <location filename="../sync.cpp" line="390"/>
         <source>Go back</source>
         <translation>戻ります</translation>
     </message>
@@ -266,32 +266,32 @@
         <translation>ブラックリストから選択された拡張子を削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="441"/>
+        <location filename="../restore.cpp" line="416"/>
         <source>%1 files deleted</source>
         <translation>%1 個のファイルが削除されました</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="448"/>
+        <location filename="../restore.cpp" line="423"/>
         <source>Folder %1 with %2 files deleted</source>
         <translation>%2 個のファイルのあるフォルダー %1 が削除されました</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="451"/>
+        <location filename="../restore.cpp" line="426"/>
         <source>Unknown error removing folder: %1</source>
         <translation>不明なフォルダーの削除エラーです: %1</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="470"/>
+        <location filename="../restore.cpp" line="447"/>
         <source>Unknown error removing file: %1</source>
         <translation>不明なファイルの削除エラーです: %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1308"/>
+        <location filename="../sync.cpp" line="1329"/>
         <source>%1 %2 files skipped</source>
         <translation>%1 %2 個のファイルがスキップされました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1595"/>
+        <location filename="../sync.cpp" line="1617"/>
         <source>Cannot write file %1: %2</source>
         <translation>ファイル %1 を書き込めません: %2</translation>
     </message>
@@ -375,16 +375,36 @@
         <source>Error renaming file %1</source>
         <translation>ファイル %1 の名前の変更エラーです</translation>
     </message>
+    <message>
+        <location filename="../restore.cpp" line="435"/>
+        <source>Removing file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="688"/>
+        <source>Updating file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="783"/>
+        <source>Searching for changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="776"/>
+        <source>Copying file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClientConnection</name>
     <message>
-        <location filename="../main.cpp" line="284"/>
+        <location filename="../main.cpp" line="286"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - ファイルの名前の変更</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="284"/>
+        <location filename="../main.cpp" line="286"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>&quot;%1&quot; の新しい名前を入力します:</translation>
     </message>
@@ -425,6 +445,21 @@
         <location filename="../main.cpp" line="94"/>
         <source>Brazilian Portuguese</source>
         <translation>ブラジルポルトガル語</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="95"/>
+        <source>Polish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="96"/>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="97"/>
+        <source>Italian</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -533,114 +568,114 @@
         <translation>状態</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="315"/>
+        <location filename="../main.cpp" line="317"/>
         <source>Quit Synkron</source>
         <translation>Synkron の終了</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="319"/>
+        <location filename="../main.cpp" line="321"/>
         <source>Are you sure you want to quit?</source>
         <translation>終了してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="323"/>
+        <location filename="../main.cpp" line="325"/>
         <source>Do not ask me again</source>
         <translation>再び質問しない</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="820"/>
+        <location filename="../main.cpp" line="828"/>
         <source>&amp;Quit</source>
         <translation>終了(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="333"/>
+        <location filename="../main.cpp" line="335"/>
         <source>&amp;Minimise</source>
         <translation>最小化(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="806"/>
+        <location filename="../main.cpp" line="814"/>
         <source>&amp;Hide</source>
         <translation>非表示にする(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="810"/>
+        <location filename="../main.cpp" line="818"/>
         <source>S&amp;how</source>
         <translation>表示(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="814"/>
+        <location filename="../main.cpp" line="822"/>
         <source>Sync &amp;current tab</source>
         <translation>現在のタブの同期化(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="817"/>
+        <location filename="../main.cpp" line="825"/>
         <source>Sync &amp;all tabs</source>
         <translation>すべてのタブの同期化(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="944"/>
+        <location filename="../main.cpp" line="952"/>
         <source>Failed to check for updates.</source>
         <translation>更新のチェックに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="944"/>
+        <location filename="../main.cpp" line="952"/>
         <source>&amp;Try again</source>
         <translation>再び試行(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="944"/>
+        <location filename="../main.cpp" line="952"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="960"/>
+        <location filename="../main.cpp" line="968"/>
         <source>Your Synkron is up-to-date.</source>
         <translation>Synkron は最新です。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="964"/>
+        <location filename="../main.cpp" line="972"/>
         <source>Synkron %1 is available now.</source>
         <translation>Synkron %1 は今利用可能です。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="975"/>
+        <location filename="../main.cpp" line="983"/>
         <source>Change language - Synkron</source>
         <translation>言語の変更 - Synkron</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="979"/>
+        <location filename="../main.cpp" line="987"/>
         <source>Select your preferred language</source>
         <translation>お好みの言語を選択します</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1002"/>
+        <location filename="../main.cpp" line="1010"/>
         <source>You need to restart Synkron for the changes to apply.</source>
         <translation>変更を適用するには Synkron を再起動する必要があります。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1077"/>
+        <location filename="../main.cpp" line="1085"/>
         <source>Synkron - Save Multisync</source>
         <translation>Synkron - 複同期化</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1079"/>
+        <location filename="../main.cpp" line="1087"/>
         <source>Sync logs (*.html)</source>
         <translation>Synkron ログ (*.html)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1084"/>
+        <location filename="../main.cpp" line="1092"/>
         <source>Export sync log</source>
         <translation>同期化ログのエクスポート</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1084"/>
+        <location filename="../main.cpp" line="1092"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>ファイル %1 を書き込めません:
 %2。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1090"/>
+        <location filename="../main.cpp" line="1098"/>
         <source>Synkron sync log</source>
         <translation>Synkron 同期化ログ</translation>
     </message>
@@ -1065,92 +1100,92 @@
         <translation>ログの保存</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="184"/>
+        <location filename="../multisync.cpp" line="181"/>
         <source>Multisync #%1</source>
         <translation>複同期化 #%1</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="191"/>
+        <location filename="../multisync.cpp" line="188"/>
         <source>Source</source>
         <translation>ソース</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="191"/>
+        <location filename="../multisync.cpp" line="188"/>
         <source>Destination</source>
         <translation>同期化先</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="194"/>
+        <location filename="../multisync.cpp" line="191"/>
         <source>List of synchronised files and folders</source>
         <translation>同期化されたファイルとフォルダーの一覧です</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="254"/>
+        <location filename="../multisync.cpp" line="241"/>
         <source>No source selected.</source>
         <translation>ソースが選択されていません。</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="255"/>
+        <location filename="../multisync.cpp" line="242"/>
         <source>Are you sure you want to remove the selected source from the list?</source>
         <translation>一覧から選択されたソースを削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="296"/>
+        <location filename="../restore.cpp" line="271"/>
         <source>No files selected.</source>
         <translation>ファイルが選択されていません。</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="122"/>
+        <location filename="../restore.cpp" line="97"/>
         <source>%1 files restored.</source>
         <translation>%1 個のファイルが復元されました。</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="280"/>
+        <location filename="../restore.cpp" line="255"/>
         <source>Clean temporary files</source>
         <translation>一時ファイルを掃除する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="235"/>
+        <location filename="../restore.cpp" line="210"/>
         <source>Delete selected files only</source>
         <translation>選択されたファイルのみ削除する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="241"/>
+        <location filename="../restore.cpp" line="216"/>
         <source>Delete files older than </source>
         <translation>より古いファイルを削除する </translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="242"/>
+        <location filename="../restore.cpp" line="217"/>
         <source>Delete files older than</source>
         <translation>より古いファイルを削除する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="252"/>
+        <location filename="../restore.cpp" line="227"/>
         <source> day(s)</source>
         <translation> 日</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="260"/>
+        <location filename="../restore.cpp" line="235"/>
         <source>Delete older versions of files, keep </source>
         <translation>ファイルのより古いバージョンを削除する、最新のバージョン </translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="261"/>
+        <location filename="../restore.cpp" line="236"/>
         <source>Delete older versions of files</source>
         <translation>ファイルのより古いバージョンを削除する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="271"/>
+        <location filename="../restore.cpp" line="246"/>
         <source> latest versions</source>
         <translation> 個を維持する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="279"/>
+        <location filename="../restore.cpp" line="254"/>
         <source>Clean</source>
         <translation>掃除</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="299"/>
+        <location filename="../restore.cpp" line="274"/>
         <source>Are you sure you want to delete temporary files?</source>
         <translation>一時ファイルを削除してもよろしいですか?</translation>
     </message>
@@ -1195,12 +1230,12 @@
         <translation>定期的に同期化する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1320"/>
+        <location filename="../sync.cpp" line="1341"/>
         <source>Synchronisation complete</source>
         <translation>同期化が完了しました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1320"/>
+        <location filename="../sync.cpp" line="1341"/>
         <source>%1 files synchronised</source>
         <translation>%1 個のファイルが同期化されました</translation>
     </message>
@@ -1210,62 +1245,62 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="190"/>
+        <location filename="../main.cpp" line="192"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - ファイルの名前の変更</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="190"/>
+        <location filename="../main.cpp" line="192"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>&quot;%1&quot; の新しい名前を入力します:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="823"/>
+        <location filename="../main.cpp" line="831"/>
         <source>&amp;Check/Uncheck</source>
         <translation>チェック/チェック解除(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="826"/>
+        <location filename="../main.cpp" line="834"/>
         <source>&amp;Restore</source>
         <translation>復元(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="829"/>
+        <location filename="../main.cpp" line="837"/>
         <source>&amp;Remove</source>
         <translation>削除(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="832"/>
+        <location filename="../main.cpp" line="840"/>
         <source>Add to &amp;blacklist</source>
         <translation>ブラックリストに追加(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1141"/>
+        <location filename="../main.cpp" line="1149"/>
         <source>Error removing file %1</source>
         <translation>ファイル %1 の削除エラーです</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1147"/>
+        <location filename="../main.cpp" line="1155"/>
         <source>Error removing directory %1</source>
         <translation>ディレクトリ %1 の削除エラーです</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1157"/>
+        <location filename="../main.cpp" line="1165"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>すべての同期化された場所から &quot;%1&quot; を削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1167"/>
+        <location filename="../main.cpp" line="1175"/>
         <source>Removing files...</source>
         <translation>ファイルを削除しています...</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1275"/>
+        <location filename="../main.cpp" line="1283"/>
         <source>Error renaming file %1</source>
         <translation>ファイル %1 の名前の変更エラーです</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1283"/>
+        <location filename="../main.cpp" line="1291"/>
         <source>Error renaming directory %1</source>
         <translation>ディレクトリ %1 の名前の変更エラーです</translation>
     </message>
@@ -1310,22 +1345,22 @@
         <translation>分ごとに同期化する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="370"/>
+        <location filename="../restore.cpp" line="345"/>
         <source>Are you sure you want to delete the selected temporary file?</source>
         <translation>選択された一時ファイルを削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1250"/>
+        <location filename="../main.cpp" line="1258"/>
         <source>File %1 deleted</source>
         <translation>ファイル %1 が削除されました</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="135"/>
+        <location filename="../restore.cpp" line="110"/>
         <source>Unknown error restoring file: %1</source>
         <translation>不明なファイルの復元エラーです: %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="1371"/>
+        <location filename="../main.cpp" line="1379"/>
         <source>File %1 renamed</source>
         <translation>ファイル %1 の名前が変更されました</translation>
     </message>
@@ -1390,27 +1425,27 @@
         <translation>&lt;b&gt;複期化:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="479"/>
+        <location filename="../restore.cpp" line="457"/>
         <source>Advanced selection</source>
         <translation>高度な選択</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="487"/>
+        <location filename="../restore.cpp" line="465"/>
         <source>Select files from the last synchronisation</source>
         <translation>最後の同期化からファイルを選択する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="491"/>
+        <location filename="../restore.cpp" line="469"/>
         <source>Select files with common date and time of synchronisation</source>
         <translation>共通の同期化の日時のあるファイルを選択する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="497"/>
+        <location filename="../restore.cpp" line="475"/>
         <source>Select files synchronised on </source>
         <translation>次で同期化されたファイルを選択する </translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="555"/>
+        <location filename="../restore.cpp" line="530"/>
         <source>Cannot write file %1: %2</source>
         <translation>ファイル %1 を書き込めません: %2</translation>
     </message>
@@ -1500,12 +1535,12 @@
         <translation>同期化の完了後に Synkron を終了する</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="405"/>
+        <location filename="../restore.cpp" line="380"/>
         <source>Add to blacklist</source>
         <translation>ブラックリストに追加</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="407"/>
+        <location filename="../restore.cpp" line="382"/>
         <source>Remove from blacklist</source>
         <translation>ブラックリストから削除</translation>
     </message>
@@ -1540,9 +1575,14 @@
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../restore.cpp" line="333"/>
+        <location filename="../restore.cpp" line="308"/>
         <source>%1 files deleted.</source>
         <translation>%1 個のファイルが削除されました。</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="728"/>
+        <source>Last synced on %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1558,117 +1598,117 @@
         <translation>複同期化名を設定します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="75"/>
+        <location filename="../multisync_page.ui" line="78"/>
         <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ソース:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="97"/>
+        <location filename="../multisync_page.ui" line="94"/>
         <source>List of multisync sources</source>
         <translation>複同期化ソースの一覧です</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="112"/>
+        <location filename="../multisync_page.ui" line="126"/>
         <source>Add source</source>
         <translation>ソースを追加します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="115"/>
+        <location filename="../multisync_page.ui" line="129"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="126"/>
+        <location filename="../multisync_page.ui" line="140"/>
         <source>Remove source</source>
         <translation>ソースを削除します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="129"/>
+        <location filename="../multisync_page.ui" line="143"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="177"/>
+        <location filename="../multisync_page.ui" line="108"/>
         <source>&lt;b&gt;Destination:&lt;/b&gt;</source>
         <translation>&lt;b&gt;複同期化先:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="184"/>
+        <location filename="../multisync_page.ui" line="115"/>
         <source>Set a destination</source>
         <translation>複同期化先を設定します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="191"/>
+        <location filename="../multisync_page.ui" line="181"/>
         <source>Browse for destination</source>
         <translation>複同期化先を参照します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="194"/>
+        <location filename="../multisync_page.ui" line="184"/>
         <source>Browse</source>
         <translation>参照</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="207"/>
+        <location filename="../multisync_page.ui" line="197"/>
         <source>Search</source>
         <translation>検索</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="224"/>
+        <location filename="../multisync_page.ui" line="214"/>
         <source>Multisync log</source>
         <translation>複同期化ログ</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="277"/>
+        <location filename="../multisync_page.ui" line="261"/>
         <source>Start multisync</source>
         <translation>複同期化を開始します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="280"/>
+        <location filename="../multisync_page.ui" line="264"/>
         <source>Multisync</source>
         <translation>複同期化</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="291"/>
+        <location filename="../multisync_page.ui" line="275"/>
         <source>Load a multisync</source>
         <translation>複同期化を読み込みます</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="294"/>
+        <location filename="../multisync_page.ui" line="278"/>
         <source>Load</source>
         <translation>読み込み</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="319"/>
+        <location filename="../multisync_page.ui" line="303"/>
         <source>Save the current multisync</source>
         <translation>現在の複同期化を保存します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="308"/>
+        <location filename="../multisync_page.ui" line="292"/>
         <source>Save</source>
         <translation>上書き保存</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="322"/>
+        <location filename="../multisync_page.ui" line="306"/>
         <source>Save as</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="336"/>
+        <location filename="../multisync_page.ui" line="320"/>
         <source>Stop multisync</source>
         <translation>複同期化を停止します</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="153"/>
+        <location filename="../multisync_page.ui" line="154"/>
         <source>Variables</source>
         <translation>変数</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="244"/>
+        <location filename="../multisync_page.ui" line="234"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="343"/>
+        <location filename="../multisync_page.ui" line="327"/>
         <source>Analyse</source>
         <translation>解析</translation>
     </message>
@@ -1676,186 +1716,186 @@
 <context>
     <name>MultisyncPage</name>
     <message>
-        <location filename="../multisync.cpp" line="52"/>
+        <location filename="../multisync.cpp" line="60"/>
         <source>Synchronise hidden files and folders</source>
         <translation>隠しファイルおよびフォルダーを同期化する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="66"/>
+        <location filename="../multisync.cpp" line="74"/>
         <source>Do not synchronise subdirectories</source>
         <translation>サブディレクトリを同期化しない</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="73"/>
+        <location filename="../multisync.cpp" line="80"/>
         <source>Ignore blacklist</source>
         <translation>ブラックリストを無視する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="103"/>
+        <location filename="../multisync.cpp" line="100"/>
         <source>Follow symbolic links</source>
         <translation>シンボリック リンクに追従する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="108"/>
+        <location filename="../multisync.cpp" line="105"/>
         <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ソース:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="128"/>
+        <location filename="../multisync.cpp" line="125"/>
         <source>Do not backup updated files</source>
         <translation>更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="132"/>
+        <location filename="../multisync.cpp" line="129"/>
         <source>Update existing files only</source>
         <translation>既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="547"/>
+        <location filename="../multisync.cpp" line="523"/>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>ソースを空のままにして、複同期化先へ内容を移動する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="125"/>
+        <location filename="../multisync.cpp" line="122"/>
         <source>&lt;b&gt;Destination:&lt;/b&gt;</source>
         <translation>&lt;b&gt;複同期化先:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="477"/>
+        <location filename="../multisync.cpp" line="452"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="289"/>
+        <location filename="../multisync.cpp" line="276"/>
         <source>No sources selected.</source>
         <translation>ソースが選択されていません。</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="358"/>
+        <location filename="../multisync.cpp" line="335"/>
         <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
         <translation>%1<byte value="x9"/>同期化が失敗しました: ディレクトリ %2 の作成に失敗しました</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="361"/>
+        <location filename="../multisync.cpp" line="338"/>
         <source>%1<byte value="x9"/>Directory %2 created</source>
         <translation>%1<byte value="x9"/>ディレクトリ %2 が作成されました</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="330"/>
+        <location filename="../multisync.cpp" line="317"/>
         <source>%1<byte value="x9"/>Synchronisation failed: Error creating directory in %2</source>
         <translation>%1<byte value="x9"/>同期化が失敗しました: %2 でのディレクトリの作成エラーです</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="394"/>
+        <location filename="../multisync.cpp" line="367"/>
         <source>%1<byte value="x9"/>%2: %3 file(s) %4</source>
         <translation>%1<byte value="x9"/>%2: %3 個のファイルが%4されました</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="375"/>
         <source>moved</source>
         <translation>移動</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="375"/>
         <source>synchronised</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="375"/>
         <source>Synchronisation complete</source>
         <translation>同期化が完了しました</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="375"/>
         <source>%1 file(s) %2</source>
         <translation>%1 個のファイルが%2されました</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="426"/>
+        <location filename="../multisync.cpp" line="401"/>
         <source>Synkron - Save Multisync</source>
         <translation>Synkron - 複同期化の保存</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="468"/>
+        <location filename="../multisync.cpp" line="443"/>
         <source>Synkron Multisyncs (*.slist)</source>
         <translation>Synkron 複同期化 (*.slist)</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="456"/>
+        <location filename="../multisync.cpp" line="431"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>ファイル %1 を書き込めません:
 %2。</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="466"/>
+        <location filename="../multisync.cpp" line="441"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="477"/>
+        <location filename="../multisync.cpp" line="452"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>ファイル %1 を読み取れません:
 %2。</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="546"/>
+        <location filename="../multisync.cpp" line="522"/>
         <source>Move contents</source>
         <translation>内容の移動</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="560"/>
+        <location filename="../multisync.cpp" line="536"/>
         <source>Multisync</source>
         <translation>複同期化</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="561"/>
+        <location filename="../multisync.cpp" line="537"/>
         <source>Start multisync</source>
         <translation>複同期化を開始します</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="558"/>
+        <location filename="../multisync.cpp" line="534"/>
         <source>Clone sources</source>
         <translation>ソースのクローン</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="77"/>
+        <location filename="../multisync.cpp" line="84"/>
         <source>Edit blacklist</source>
         <translation>ブラックリストの編集</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="78"/>
+        <location filename="../multisync.cpp" line="85"/>
         <source>Edit blacklist for this tab</source>
         <translation>このタブのブラックリストを編集します</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="58"/>
+        <location filename="../multisync.cpp" line="66"/>
         <source>Propagate deletions</source>
         <translation>削除の増殖</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="112"/>
+        <location filename="../multisync.cpp" line="109"/>
         <source>Do not backup updated files from sources</source>
         <translation>ソースから更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="116"/>
+        <location filename="../multisync.cpp" line="113"/>
         <source>Update existing files in sources only</source>
         <translation>ソースの既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="129"/>
+        <location filename="../multisync.cpp" line="126"/>
         <source>Do not backup updated files from destination</source>
         <translation>同期化先から更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="133"/>
+        <location filename="../multisync.cpp" line="130"/>
         <source>Update existing files in destination only</source>
         <translation>同期化先の既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="282"/>
+        <location filename="../multisync.cpp" line="269"/>
         <source>%1    Synchronisation failed: Choose a destination first</source>
         <translation>%1    同期化が失敗しました: まず同期化先を選択します</translation>
     </message>
@@ -1880,59 +1920,79 @@
         <translation>ルート ディレクトリ</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="160"/>
+        <location filename="../multisync.cpp" line="157"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
         <translation>&lt;b&gt;解析:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="163"/>
+        <location filename="../multisync.cpp" line="160"/>
         <source>Fast analysis</source>
         <translation>高速解析</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="166"/>
+        <location filename="../multisync.cpp" line="163"/>
         <source>List files which need to be synchronised only</source>
         <translation>同期化のみされる必要があるファイルを一覧します</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="649"/>
+        <location filename="../multisync.cpp" line="613"/>
         <source>Variables</source>
         <translation>変数</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="614"/>
+        <location filename="../multisync.cpp" line="578"/>
         <source>Variable name</source>
         <translation>変数名</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="615"/>
+        <location filename="../multisync.cpp" line="579"/>
         <source>Folder</source>
         <translation>フォルダー</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="628"/>
+        <location filename="../multisync.cpp" line="592"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="633"/>
+        <location filename="../multisync.cpp" line="597"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="637"/>
+        <location filename="../multisync.cpp" line="601"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="654"/>
+        <location filename="../multisync.cpp" line="618"/>
         <source>Variable name:</source>
         <translation>変数名:</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="660"/>
+        <location filename="../multisync.cpp" line="624"/>
         <source>Folder:</source>
         <translation>フォルダー:</translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="39"/>
+        <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="355"/>
+        <source>Moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="358"/>
+        <source>Searching for changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="369"/>
+        <source>Last synced on %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1964,117 +2024,117 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="425"/>
+        <location filename="../sync.cpp" line="432"/>
         <source>%1<byte value="x9"/>Directory %2 created</source>
         <translation>%1<byte value="x9"/>ディレクトリ %2 が作成されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="498"/>
+        <location filename="../sync.cpp" line="510"/>
         <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
         <translation>%1<byte value="x9"/>同期化が完了しました: %2 個のファイルが%3されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="500"/>
+        <location filename="../sync.cpp" line="512"/>
         <source>moved</source>
         <translation>移動</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="500"/>
+        <location filename="../sync.cpp" line="512"/>
         <source>synchronised</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="500"/>
+        <location filename="../sync.cpp" line="512"/>
         <source>Synchronisation complete</source>
         <translation>同期化が完了しました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="500"/>
+        <location filename="../sync.cpp" line="512"/>
         <source>%1 files %2</source>
         <translation>%1 個のファイルが%2されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1421"/>
+        <location filename="../sync.cpp" line="1443"/>
         <source>Move</source>
         <translation>移動</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1422"/>
+        <location filename="../sync.cpp" line="1444"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>フォルダー 1 を空のままにして、フォルダー 2 へ内容を移動する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1450"/>
+        <location filename="../sync.cpp" line="1472"/>
         <source>Sync</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1451"/>
+        <location filename="../sync.cpp" line="1473"/>
         <source>Synchronise</source>
         <translation>同期化します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1447"/>
+        <location filename="../sync.cpp" line="1469"/>
         <source>Clone</source>
         <translation>クローン</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1448"/>
+        <location filename="../sync.cpp" line="1470"/>
         <source>Clone folder 1</source>
         <translation>フォルダー 1 のクローン</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="475"/>
+        <location filename="../sync.cpp" line="482"/>
         <source>%1<byte value="x9"/>Synchronisation failed: Directories with the same path selected</source>
         <translation>%1<byte value="x9"/>同期化が失敗しました: 同じパスのディレクトリが選択されています</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="423"/>
+        <location filename="../sync.cpp" line="430"/>
         <source>%1<byte value="x9"/>Failed to create directory %2</source>
         <translation>%1<byte value="x9"/>ディレクトリ %2 の作成に失敗しました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="432"/>
+        <location filename="../sync.cpp" line="439"/>
         <source>%1<byte value="x9"/>Synchronisation failed: Not enough valid directories specified</source>
         <translation>%1<byte value="x9"/>同期化が失敗しました: 十分でない有効なディレクトリが指定されました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1148"/>
+        <location filename="../sync.cpp" line="1165"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>同じ名前 (%1) のファイルとフォルダーが見つかりました。これらのファイルを同期化することができません。</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1139"/>
+        <location filename="../sync.cpp" line="1156"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>フォルダー %1 がブラックリストされています、スキップされました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1160"/>
+        <location filename="../sync.cpp" line="1177"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>ファイル %1 がブラックリストされています、スキップされました</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1212"/>
+        <location filename="../sync.cpp" line="1229"/>
         <source>Unknown error creating folder: %1</source>
         <translation>不明なフォルダーの作成エラー: %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1282"/>
+        <location filename="../sync.cpp" line="1302"/>
         <source>file</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1282"/>
+        <location filename="../sync.cpp" line="1302"/>
         <source>copy</source>
         <translation>コピー</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1269"/>
+        <location filename="../sync.cpp" line="1289"/>
         <source> to temp</source>
         <translation> 一時へ</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1286"/>
+        <location filename="../sync.cpp" line="1306"/>
         <source>File %1 restored</source>
         <translation>ファイル %1 が復元されました</translation>
     </message>
@@ -2149,92 +2209,92 @@
         <translation>同期化されたファイルとフォルダーの一覧です</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="127"/>
+        <location filename="../sync.cpp" line="134"/>
         <source>Analyse</source>
         <translation>解析</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="139"/>
+        <location filename="../sync.cpp" line="146"/>
         <source>Stop sync</source>
         <translation>同期化の停止</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="140"/>
+        <location filename="../sync.cpp" line="147"/>
         <source>Stop synchronisation</source>
         <translation>同期化を停止します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="150"/>
+        <location filename="../sync.cpp" line="157"/>
         <source>Show advanced options</source>
         <translation>高度なオプションを表示します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="157"/>
+        <location filename="../sync.cpp" line="164"/>
         <source>Synchronise hidden files and folders</source>
         <translation>隠しファイルおよびフォルダーを同期化する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="163"/>
+        <location filename="../sync.cpp" line="170"/>
         <source>Propagate deletions</source>
         <translation>削除の増殖</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="171"/>
+        <location filename="../sync.cpp" line="178"/>
         <source>Do not synchronise subdirectories</source>
         <translation>サブディレクトリを同期化しない</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="178"/>
+        <location filename="../sync.cpp" line="185"/>
         <source>Ignore blacklist</source>
         <translation>ブラックリストを無視する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="184"/>
+        <location filename="../sync.cpp" line="191"/>
         <source>Edit blacklist</source>
         <translation>ブラックリストの編集</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="185"/>
+        <location filename="../sync.cpp" line="192"/>
         <source>Edit blacklist for this tab</source>
         <translation>このタブのブラックリストを編集します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="267"/>
+        <location filename="../sync.cpp" line="274"/>
         <source>Do not backup updated files</source>
         <translation>更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="272"/>
+        <location filename="../sync.cpp" line="279"/>
         <source>Update existing files only</source>
         <translation>既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="211"/>
+        <location filename="../sync.cpp" line="218"/>
         <source>Follow symbolic links</source>
         <translation>シンボリック リンクに追従する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="246"/>
+        <location filename="../sync.cpp" line="253"/>
         <source>Do not backup updated files from Folder 1</source>
         <translation>フォルダー 1 から更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="251"/>
+        <location filename="../sync.cpp" line="258"/>
         <source>Update existing files in Folder 1 only</source>
         <translation>フォルダー 1 の既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="268"/>
+        <location filename="../sync.cpp" line="275"/>
         <source>Do not backup updated files from Folder 2</source>
         <translation>フォルダー 2 から更新されたファイルをバックアップしない</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="273"/>
+        <location filename="../sync.cpp" line="280"/>
         <source>Update existing files in Folder 2 only</source>
         <translation>フォルダー 2 の既存のファイルのみ更新する</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="217"/>
+        <location filename="../sync.cpp" line="224"/>
         <source>Filters</source>
         <translation>フィルター</translation>
     </message>
@@ -2309,27 +2369,27 @@
         <translation type="obsolete">ファイル %1 の名前の変更エラーです</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="290"/>
+        <location filename="../sync.cpp" line="297"/>
         <source>Fast analysis</source>
         <translation>高速解析</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="294"/>
+        <location filename="../sync.cpp" line="301"/>
         <source>List files which need to be synchronised only</source>
         <translation>同期化のみされる必要があるファイルを一覧します</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="241"/>
+        <location filename="../sync.cpp" line="248"/>
         <source>Folder 1</source>
         <translation>フォルダー 1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="263"/>
+        <location filename="../sync.cpp" line="270"/>
         <source>Folder 2</source>
         <translation>フォルダー 2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="285"/>
+        <location filename="../sync.cpp" line="292"/>
         <source>Analysis</source>
         <translation>解析</translation>
     </message>
@@ -2347,6 +2407,36 @@
         <location filename="../sync.cpp" line="68"/>
         <source>Add</source>
         <translation>追加</translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="108"/>
+        <source>Press the &quot;Sync&quot; button to start synchronisation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="487"/>
+        <source>Moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="1313"/>
+        <source>Searching for changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="514"/>
+        <source>Last synced on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="1268"/>
+        <source>Copying file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="1284"/>
+        <source>Updating file %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

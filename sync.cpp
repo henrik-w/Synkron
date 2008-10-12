@@ -105,17 +105,24 @@ void SyncPage::setSyncWidget()
     tw->setStatusTip(tr("List of synchronised files and folders"));
     tw->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tw->setLayoutDirection(Qt::LeftToRight);
-    
+    status_table_item = new QTableWidgetItem(tr("Press the \"Sync\" button to start synchronisation"));
+    tw->insertRow(0);
+    status_table_item->setBackground(Qt::blue);
+    status_table_item->setForeground(Qt::white);
+    tw->setSpan(0, 0, 1, 2);
+	tw->setItem(0, 0, status_table_item);
+	tw->setRowHeight(0, 16);
+
     analyse_tree = new ExtendedTreeWidget (this);
     connect(analyse_tree, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemClicked(QTreeWidgetItem *, int)));
     connect(analyse_tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemDoubleClicked(QTreeWidgetItem *, int)));
     connect(analyse_tree, SIGNAL(sigconmenu(QPoint)), this, SLOT(analyseTreeConMenu(QPoint)));
     connect(analyse_tree, SIGNAL(itemExpanded(QTreeWidgetItem *)), this, SLOT(analyseTreeItemExpanded(QTreeWidgetItem *)));
-    
+
     logs_stw = new QStackedWidget (tab);
     logs_stw->addWidget(tw);
     logs_stw->addWidget(analyse_tree);
-    
+
     mainglayout->addWidget(logs_stw, 5, 0); // ###################################
     
     QHBoxLayout * hlayout4 = new QHBoxLayout;
@@ -476,8 +483,13 @@ int SyncPage::sync(MTStringSet sync_folders_set)
             setSyncEnabled(true); return 0;
         }
         
-        if (move->isChecked()) moveContents(d1, d2);
-        else subSync(d1, d2, false);
+        if (move->isChecked()) {
+            status_table_item->setText(tr("Moving")); qApp->processEvents();
+            moveContents(d1, d2);
+        } else {
+            status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
+            subSync(d1, d2, false);
+        }
         countExtsBl();
         if (propagate_deletions->isChecked()) {
             saveFolderDatabase(sync_folders_set.at(0));
@@ -485,20 +497,21 @@ int SyncPage::sync(MTStringSet sync_folders_set)
         }
         
     } else if (sync_folders_set.count() > 2) {
-        
+        status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
         subGroupSync(sync_folders_set);
         countExtsBl();
         if (propagate_deletions->isChecked()) saveAllFolderDatabases();
-        
     }
     bool manually_stopped = !syncing;
     extensions.clear();
 	setSyncEnabled(true);
 	mp_parent->saveSettings();
+    last_sync = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
     addTableItem(tr("%1	Synchronisation complete: %2 file(s) %3").arg(QTime().currentTime().toString("hh:mm:ss")).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
 	if (!mp_parent->syncingAll) {
 		mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
 	}
+    status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
 	if (!manually_stopped) {
         if (mp_parent->actionShut_down_after_sync->isChecked()) {
             if (!mp_parent->isSyncing()) {
@@ -672,6 +685,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                         old_fi = d2_entries.at(n);
                         new_fi = d1_entries.at(i);
                     }
+                    status_table_item->setText(tr("Updating file %1").arg(old_fi.absoluteFilePath())); qApp->processEvents();
                     file = new MTFile (old_fi.absoluteFilePath(), qApp);
                     bool skipped_temp = false;
                     bool old_fi_is_d1 = old_fi.absoluteFilePath().startsWith(syncFolder1Text(), Qt::CaseInsensitive);
@@ -696,6 +710,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                         } continue;
                     }
                     addTableItem(new_fi.absoluteFilePath(), old_fi.absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
+                    status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
                     synced_files++; delete file;
                 }
                 break;
@@ -758,12 +773,14 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
 			}
             if (!d1_entries.at(i).isDir() || symfound)
 			{
-				if (!file->copy(buffer)) {
+				status_table_item->setText(tr("Copying file %1").arg(d1_entries.at(i).absoluteFilePath())); qApp->processEvents();
+                if (!file->copy(buffer)) {
                 	unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
          		}
          		else {
 					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
             	}
+                status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
             }
             synced_files++; delete file;
             end: synced_files = synced_files;
@@ -1248,6 +1265,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set, MTStringSet rel_paths)
                         }
                         //Copying file -----------------------------------------
                         if (!update_only->isChecked()) {
+                            status_table_item->setText(tr("Copying file %1").arg(file_info->absoluteFilePath())); qApp->processEvents();
                             file = new MTFile (file_info->absoluteFilePath());
                             if (!file->copy(file_info2->absoluteFilePath())) {
                                 unknownError(file_info->absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png");
@@ -1257,11 +1275,13 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set, MTStringSet rel_paths)
                                 synced_files++;
                             }
                             delete file;
+                            status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
                         }
                     }
                     else if (file_info->lastModified().toString(Qt::ISODate) == file_info2->lastModified().toString(Qt::ISODate)) {}
                     else if (file_info->lastModified() > file_info2->lastModified()) {
                         //Overwriting older file -------------------------------
+                        status_table_item->setText(tr("Updating file %1").arg(file_info2->absoluteFilePath())); qApp->processEvents();
                         file = new MTFile (file_info2->absoluteFilePath());
                         if (!backup_folders->isChecked()) {
                             QDir::home().mkpath(QString(".Synkron/%2").arg(update_time));
@@ -1290,6 +1310,7 @@ void SyncPage::subGroupSync(MTStringSet sync_folders_set, MTStringSet rel_paths)
                             synced_files++;
                         }
                         delete file;
+                        status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
                     }
                 }
                 release(file_info2);
@@ -1333,23 +1354,24 @@ void MainWindow::syncAll()
 
 void AbstractSyncPage::addTableItem(QString source, QString destination, QString icon, QBrush background, QBrush foreground)
 {
-	tableWidget()->insertRow(tableWidget()->rowCount());
+    tableWidget()->insertRow(tableWidget()->rowCount()-1);
 	QTableWidgetItem *item = new QTableWidgetItem (source);
 	if (icon!="") item->setIcon(QIcon(icon));
 	if (destination=="") {
 		item->setBackground(background);
 		item->setForeground(foreground);
-        tableWidget()->setSpan(tableWidget()->rowCount() - 1, 0, 1, 2);
+        tableWidget()->setSpan(tableWidget()->rowCount() - 2, 0, 1, 2);
 	}
-	tableWidget()->setItem(tableWidget()->rowCount() - 1, 0, item);
+	tableWidget()->setItem(tableWidget()->rowCount() - 2, 0, item);
 	if (destination!="") {
 		item = new QTableWidgetItem(destination);
         if (icon!="") item->setIcon(QIcon(icon));
-        tableWidget()->setItem(tableWidget()->rowCount() - 1, 1, item);
+        tableWidget()->setItem(tableWidget()->rowCount() - 2, 1, item);
+        tableWidget()->setSpan(tableWidget()->rowCount() - 2, 0, 1, 1);
 	}
-	tableWidget()->setRowHeight(tableWidget()->rowCount() - 1, 16);
-	tableWidget()->setCurrentCell(tableWidget()->rowCount() - 1, 0);
-	tableWidget()->clearSelection();
+	tableWidget()->setRowHeight(tableWidget()->rowCount() - 2, 16);
+    tableWidget()->setSpan(tableWidget()->rowCount()-1, 0, 1, 2);
+	tableWidget()->scrollToItem(status_table_item, QAbstractItemView::PositionAtBottom);
 	qApp->processEvents();
 }
 
