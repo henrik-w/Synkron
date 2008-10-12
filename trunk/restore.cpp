@@ -431,6 +431,8 @@ void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool ad
 void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, bool add_table_item)
 {
     MTFile file (file_info.absoluteFilePath());
+    QString previous_status_text = status_table_item->text();
+    status_table_item->setText(tr("Removing file %1").arg(file_info.absoluteFilePath())); qApp->processEvents();
     if (backup) {
         QDir::home().mkpath(QString(".Synkron/%2").arg(update_time));
         if (!file.copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files))) {
@@ -446,6 +448,7 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
         return;
     }
     if (add_table_item) addTableItem(tr("File %1 deleted").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+    status_table_item->setText(previous_status_text); qApp->processEvents();
     synced_files++;
 }
 

@@ -140,11 +140,13 @@ public:
     QPushButton * blacklist_removefolder;
     QPushButton * blacklist_removeext;
     QPushButton * blacklist_back;
+    QTableWidgetItem * status_table_item;
 
     MainWindow * mp_parent;
     int synced_files;
     bool is_multisync;
     QString update_time;
+    QString last_sync;
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
