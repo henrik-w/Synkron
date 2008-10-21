@@ -17,14 +17,6 @@
     <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>84</y>
-     <width>663</width>
-     <height>509</height>
-    </rect>
-   </property>
    <layout class="QGridLayout" >
     <property name="margin" >
      <number>2</number>
@@ -35,14 +27,6 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="page" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>659</width>
-         <height>505</height>
-        </rect>
-       </property>
        <layout class="QGridLayout" >
         <property name="margin" >
          <number>0</number>
@@ -53,14 +37,6 @@
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab" >
-           <property name="geometry" >
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>653</width>
-             <height>476</height>
-            </rect>
-           </property>
            <attribute name="title" >
             <string>Sync #1</string>
            </attribute>
@@ -77,14 +53,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_2" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QGridLayout" >
         <property name="margin" >
          <number>0</number>
@@ -279,14 +247,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_3" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QGridLayout" >
         <property name="margin" >
          <number>0</number>
@@ -533,14 +493,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_4" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QVBoxLayout" >
         <property name="margin" >
          <number>0</number>
@@ -551,14 +503,6 @@
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab_2" >
-           <property name="geometry" >
-            <rect>
-             <x>24</x>
-             <y>180</y>
-             <width>640</width>
-             <height>409</height>
-            </rect>
-           </property>
            <attribute name="title" >
             <string>Sync #1</string>
            </attribute>
@@ -575,14 +519,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_5" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QGridLayout" >
         <property name="margin" >
          <number>0</number>
@@ -842,14 +778,6 @@
                  <number>0</number>
                 </property>
                 <widget class="QWidget" name="sync_times" >
-                 <property name="geometry" >
-                  <rect>
-                   <x>24</x>
-                   <y>180</y>
-                   <width>640</width>
-                   <height>409</height>
-                  </rect>
-                 </property>
                  <attribute name="title" >
                   <string>Sync times</string>
                  </attribute>
@@ -929,14 +857,6 @@
                  </layout>
                 </widget>
                 <widget class="QWidget" name="periodically" >
-                 <property name="geometry" >
-                  <rect>
-                   <x>24</x>
-                   <y>180</y>
-                   <width>640</width>
-                   <height>409</height>
-                  </rect>
-                 </property>
                  <attribute name="title" >
                   <string>Synchronise periodically</string>
                  </attribute>
@@ -1007,14 +927,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_6" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QGridLayout" >
         <property name="margin" >
          <number>2</number>
@@ -1168,14 +1080,6 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_7" >
-       <property name="geometry" >
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
        <layout class="QVBoxLayout" >
         <property name="margin" >
          <number>0</number>
@@ -1284,16 +1188,13 @@
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile" >
     <property name="title" >
      <string>File</string>
     </property>
-    <addaction name="actionNew_sync" />
-    <addaction name="actionClose_sync" />
-    <addaction name="actionSave_log" />
     <addaction name="actionSync_all" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
@@ -1328,21 +1229,26 @@
     <addaction name="separator" />
     <addaction name="actionChange_language" />
    </widget>
+   <widget class="QMenu" name="menuTab" >
+    <property name="title" >
+     <string>Tab</string>
+    </property>
+    <addaction name="actionNew_sync" />
+    <addaction name="actionClose_sync" />
+    <addaction name="separator" />
+    <addaction name="actionLoad_tab" />
+    <addaction name="actionSave_tab" />
+    <addaction name="actionSave_tab_as" />
+    <addaction name="separator" />
+    <addaction name="actionSave_log" />
+   </widget>
    <addaction name="menuFile" />
+   <addaction name="menuTab" />
    <addaction name="menuView" />
    <addaction name="menuOptions" />
    <addaction name="menuHelp" />
   </widget>
-  <widget class="QStatusBar" name="statusbar" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>593</y>
-     <width>663</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
+  <widget class="QStatusBar" name="statusbar" />
   <widget class="QToolBar" name="toolBar" >
    <property name="movable" >
     <bool>false</bool>
@@ -1651,6 +1557,33 @@
    </property>
    <property name="statusTip" >
     <string>Quit Synkron after synchronisation finishes</string>
+   </property>
+  </action>
+  <action name="actionSave_tab" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/save.png</normaloff>:/new/prefix1/images/save.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Save tab</string>
+   </property>
+  </action>
+  <action name="actionLoad_tab" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/open.png</normaloff>:/new/prefix1/images/open.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Load tab</string>
+   </property>
+  </action>
+  <action name="actionSave_tab_as" >
+   <property name="icon" >
+    <iconset resource="resources.qrc" >
+     <normaloff>:/new/prefix1/images/save-as.png</normaloff>:/new/prefix1/images/save-as.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Save tab as</string>
    </property>
   </action>
  </widget>

@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     mtfile.cpp \
     syncfolders.cpp \
     syncview.cpp \
-    analyse.cpp
+    analyse.cpp \
+    tabs.cpp
 RESOURCES += resources.qrc \
     i18n.qrc
 win32:RC_FILE = Synkron.rc
@@ -65,4 +66,5 @@ TRANSLATIONS += i18n/Synkron-Slovak.ts \
     i18n/Synkron-Brazilian_Portuguese.ts \
     i18n/Synkron-Polish.ts \
     i18n/Synkron-Chinese.ts \
-    i18n/Synkron-Italian.ts
+    i18n/Synkron-Italian.ts \
+    i18n/Synkron-French.ts

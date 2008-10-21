@@ -141,12 +141,14 @@ public:
     QPushButton * blacklist_removeext;
     QPushButton * blacklist_back;
     QTableWidgetItem * status_table_item;
+    MTAdvancedGroupBox * advanced;
 
     MainWindow * mp_parent;
     int synced_files;
     bool is_multisync;
     QString update_time;
     QString last_sync;
+    QString slist_path;
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
@@ -159,6 +161,12 @@ public slots:
     virtual void showThisPage() = 0;
     virtual void leaveAnalyse() = 0;
     virtual void syncCurrentAnalyseItem() = 0;
+    void save();
+    void saveAs();
+    virtual void saveAs(QString file_name) = 0;
+    //virtual void load(QDomElement &, QString) = 0;
+    void sharedSave(QDomDocument &, QDomElement &);
+    void sharedLoad(QDomElement &);
     void stopSync() { syncing = false; };
     void cloneStateChanged(bool);
     void moveStateChanged(bool);
@@ -227,6 +235,9 @@ public slots:
     void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); };
     //void subCheckExpanded(QTreeWidgetItem *);
     void syncCurrentAnalyseItem();
+
+    void saveAs(QString file_name);
+    void load(QDomDocument &, QString);
     
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) { is_multisync = false; };
@@ -264,7 +275,6 @@ public:
     QCheckBox * show_sync_folders;
     QCheckBox * backup_folders;
     QCheckBox * update_only;
-    MTAdvancedGroupBox * advanced;
     QStackedWidget * tab_stw;
     QStackedWidget * logs_stw;
     SyncFolders * sync_folders;
@@ -300,11 +310,8 @@ public slots:
 	void setAdvancedGB();
 	void multitabNameChanged();
 	void showAdvancedGroupBox(bool show) { advanced->setChecked(show); }
-	void saveMultisync();
-    void saveAsMultisync();
-    void saveAsMultisync(QString file_name);
-    void loadMultisync();
-    void loadMultisync(QString);
+    void saveAs(QString file_name);
+    void load(QDomDocument &, QString);
     void moveChecked(bool);
     void cloneChecked(bool);
     void destinationTextChanged() { QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
@@ -325,7 +332,6 @@ public slots:
 private:
     QString sync_folder_1;
     QString sync_folder_2;
-    QString slist_path;
     QMap<QString, QString> vars_map;
     QTreeWidget * vars_tree;
     QListWidget * var_paths_list;
