@@ -52,6 +52,8 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
 
 void MultisyncPage::setAdvancedGB()
 {
+    advanced = new MTAdvancedGroupBox(chb_advanced, this);
+    advanced_layout->addWidget(advanced);
     QGridLayout * main_layout = new QGridLayout;
     
 	sync_hidden = new QCheckBox(advanced);
@@ -199,9 +201,9 @@ MultisyncPage * MainWindow::addMultiTab()
 	connect(multi_page->stop_sync_btn, SIGNAL(released()), multi_page, SLOT(stopSync()));
 	connect(multi_page->search_multi, SIGNAL(textEdited(const QString)), this, SLOT(searchTw(QString)));
 	connect(multi_page->search_multi, SIGNAL(returnPressed()), multi_page, SLOT(searchAnalyseTree()));
-	connect(multi_page->save_multi, SIGNAL(released()), multi_page, SLOT(saveMultisync()));
-	connect(multi_page->saveas_multi, SIGNAL(released()), multi_page, SLOT(saveAsMultisync()));
-	connect(multi_page->load_multi, SIGNAL(released()), multi_page, SLOT(loadMultisync()));
+	/*connect(multi_page->save_multi, SIGNAL(released()), multi_page, SLOT(save()));
+	connect(multi_page->saveas_multi, SIGNAL(released()), multi_page, SLOT(saveAs()));
+	connect(multi_page->load_multi, SIGNAL(released()), multi_page, SLOT(load()));*/
 	connect(multi_page->destination_multi, SIGNAL(editingFinished()), multi_page, SLOT(destinationTextChanged()));
 	connect(multi_page->tab_name, SIGNAL(editingFinished()), multi_page, SLOT(multitabNameChanged()));
 	connect(multi_page->vars_multi, SIGNAL(released()), multi_page, SLOT(varsDialogue()));
@@ -387,97 +389,6 @@ int MultisyncPage::sync()
 	return all_synced_files;
 }
 
-void MultisyncPage::saveMultisync()
-{
-	if (slist_path == "") {
-		saveAsMultisync(); return;
-	}
-	saveAsMultisync(slist_path);
-}
-
-void MultisyncPage::saveAsMultisync()
-{
-	QString file_name = QFileDialog::getSaveFileName(this,
-                tr("Synkron - Save Multisync"),
-                QString("%1/multisync.slist").arg(destination_multi->text()),
-                tr("Synkron Multisyncs (*.slist)"));
-    saveAsMultisync(file_name);
-}
-
-void MultisyncPage::saveAsMultisync(QString file_name)
-{
-	if (file_name.isEmpty()) { return; }
-	QDomDocument domdoc("SynkronMultisync");
-    QDomElement el_sync = domdoc.createElement("sync");
-    domdoc.appendChild(el_sync);
-	QStringList source_list; QString checkstates;
-	for (int i = 0; i < list_multi->count(); ++i) {
-		source_list << list_multi->item(i)->text();
-		checkstates.append(list_multi->item(i)->checkState() == Qt::Checked ? "+" : "-");
-	}
-    QString dest = destination_multi->text();
-    QDomElement el_sources = domdoc.createElement("sources");
-    el_sources.setAttribute("paths", source_list.join("|"));
-    el_sources.setAttribute("checkstates", checkstates);
-    el_sync.appendChild(el_sources);
-    QDomElement el_destination = domdoc.createElement("destination");
-    el_destination.setAttribute("data", dest);
-    el_sync.appendChild(el_destination);
-    QDomElement el_name = domdoc.createElement("name");
-    el_name.setAttribute("data", tab_name->text());
-    el_sync.appendChild(el_name);
-    QFile file(file_name);
-    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-		QMessageBox::critical(this, tr("Synkron"), tr("Cannot write file %1:\n%2.").arg(file_name).arg(file.errorString()));
-		return;
-	}
-	QTextStream out(&file);
-	out << domdoc.toString();
-	slist_path = file_name;
-}
-
-void MultisyncPage::loadMultisync()
-{
-	QString file_name = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                QDir::homePath(),
-                                                tr("Synkron Multisyncs (*.slist)"));
-    loadMultisync(file_name);
-}
-
-void MultisyncPage::loadMultisync(QString file_name)
-{
-    if (file_name.isEmpty()) { return; }
-	QFile file(file_name);
-    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		QMessageBox::critical(this, tr("Synkron"), tr("Cannot read file %1:\n%2.").arg(file_name).arg(file.errorString()));
-		return;
-	}
-	QTextStream in(&file);
-    QDomDocument domdoc;
-    domdoc.setContent(in.readAll());
-    QDomElement el_sync = domdoc.firstChildElement("sync");
-    QDomElement el_sources = el_sync.firstChildElement("sources");
-    QStringList source_list = el_sources.attribute("paths").split('|');
-    list_multi->clear();
-    QListWidgetItem * item;
-	for (int i = 0; i < source_list.count(); ++i) {
-		if (source_list.at(i)=="") continue;
-		item = new QListWidgetItem (source_list.at(i));
-		item->setCheckState(el_sources.attribute("checkstates").at(i) == '+' ? Qt::Checked : Qt::Unchecked);
-		list_multi->addItem(item);
-	}
-	QDomElement el_destination = el_sync.firstChildElement("destination");
-	if (el_destination.attribute("data")!="") {
-		destination_multi->setText(el_destination.attribute("data"));
-	}
-	QDomElement el_name = el_sync.firstChildElement("name");
-	if (el_name.attribute("data")!="") {
-		tab_name->setText(el_name.attribute("data"));
-		multitabNameChanged();
-	}
-	slist_path = file_name;
-}
-
 void MultisyncPage::setSyncEnabled(bool enable)
 {
 	list_multi->setEnabled(enable);
@@ -485,9 +396,9 @@ void MultisyncPage::setSyncEnabled(bool enable)
 	remove_multi->setEnabled(enable);
 	destination_multi->setEnabled(enable);
 	browse_multi->setEnabled(enable);
-	load_multi->setEnabled(enable);
+	/*load_multi->setEnabled(enable);
 	saveas_multi->setEnabled(enable);
-	save_multi->setEnabled(enable);
+	save_multi->setEnabled(enable);*/
 	search_multi->setEnabled(enable);
 	vars_multi->setEnabled(enable);
 	advanced->setEnabled(enable);
@@ -559,7 +470,7 @@ QStringList MultisyncPage::syncFoldersList()
         }
 		path.replace("//", "/");
 		paths << path;
-		paths << QString("%1/%2").arg(destination).arg(list_multi->item(i)->text());
+		paths << QString("%1/%2").arg(destination).arg(list_multi->item(i)->text().remove(":"));
     }
     return paths;
 }

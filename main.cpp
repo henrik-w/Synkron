@@ -95,7 +95,7 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Polish"), "Polish");
     synkron_i18n.insert(translator.translate("LanguageNames", "Chinese"), "Chinese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Italian"), "Italian");
-    //synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
+    synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
     
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
@@ -141,6 +141,9 @@ MainWindow::MainWindow(QSettings * s)
 	connect(restore_list, SIGNAL(sigconmenu(QPoint)), this, SLOT(restoreListConMenu(QPoint)));
 	connect(sched_interval_spin, SIGNAL(valueChanged(int)), this, SLOT(schedIntervalChanged(int)));
 	connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timingTabIndexChanged(int)));
+	connect(actionSave_tab, SIGNAL(triggered()), this, SLOT(saveTab()));
+	connect(actionSave_tab_as, SIGNAL(triggered()), this, SLOT(saveTabAs()));
+	connect(actionLoad_tab, SIGNAL(triggered()), this, SLOT(loadTab()));
     
     setCleanGB();
     setSelectGB();
@@ -196,9 +199,7 @@ void MainWindow::initServer(QAbstractSocket::SocketError)
                 QFileInfo file_info (qApp->arguments().at(i));
                 //QMessageBox::information(this, tr("Synkron"), tr("%1").arg(qApp->arguments().at(i)));
                 if (file_info.exists()) {
-                    addMultiTab()->loadMultisync(file_info.absoluteFilePath());
-                    multi_tabWidget->setCurrentIndex(multi_tabWidget->count()-1);
-                    actionMultisync->trigger();
+                    loadTab(file_info.absoluteFilePath());
                 }
             }
         }
@@ -290,9 +291,7 @@ void ClientConnection::read()
         else if (bufferlist.at(0) == "[Synkron loadMultisync ") {
             c_parent->show();
             QFileInfo file_info (bufferlist.at(1));
-            c_parent->addMultiTab()->loadMultisync(file_info.absoluteFilePath());
-            c_parent->multi_tabWidget->setCurrentIndex(c_parent->multi_tabWidget->count()-1);
-            c_parent->actionMultisync->trigger();
+            c_parent->loadTab(file_info.absoluteFilePath());
         }
     }
 
@@ -891,51 +890,36 @@ void MainWindow::switchView(QAction * action)
 {
 	if (mainStackedWidget->currentIndex()==0) tabNameChanged();
 	if (action == actionSynchronise) {
-		actionNew_sync->setEnabled(true);
-		actionClose_sync->setEnabled(true);
-		actionSave_log->setEnabled(true);
 		mainStackedWidget->setCurrentIndex(0);
 	}
 	else if (action == actionRestore) {
 		toRestorePage();
-		actionNew_sync->setDisabled(true);
-		actionClose_sync->setDisabled(true);
-		actionSave_log->setEnabled(false);
 		mainStackedWidget->setCurrentIndex(1);
 	}
 	else if (action == actionBlacklist) {
 		toBlacklist();
-		actionNew_sync->setDisabled(true);
-		actionClose_sync->setDisabled(true);
-		actionSave_log->setEnabled(false);
 		mainStackedWidget->setCurrentIndex(2);
 	}
 	else if (action == actionMultisync) {
-		actionNew_sync->setEnabled(true);
-		actionClose_sync->setEnabled(true);
-		actionSave_log->setEnabled(true);
 		mainStackedWidget->setCurrentIndex(3);
 	}
 	else if (action == actionScheduler) {
-		actionNew_sync->setDisabled(true);
-		actionClose_sync->setDisabled(true);
-		actionSave_log->setEnabled(false);
 		if (tw_schedules->currentItem()!=0) activateSchedule();
 		mainStackedWidget->setCurrentIndex(4);
 	}
 	else if (action == actionFilters) {
-		actionNew_sync->setDisabled(true);
-		actionClose_sync->setDisabled(true);
-		actionSave_log->setEnabled(false);
 		mainStackedWidget->setCurrentIndex(5);
 	}
 	else if (action == actionSyncView) {
         toSyncView();
-		actionNew_sync->setDisabled(true);
-		actionClose_sync->setDisabled(true);
-		actionSave_log->setEnabled(false);
 		mainStackedWidget->setCurrentIndex(6);
 	}
+
+	bool tabs_enable = false;
+	if (action == actionSynchronise || action == actionMultisync) { tabs_enable = true; }
+    actionNew_sync->setEnabled(tabs_enable);
+	actionClose_sync->setEnabled(tabs_enable);
+	menuTab->setEnabled(tabs_enable);
 }
 
 void MainWindow::checkForUpdates()

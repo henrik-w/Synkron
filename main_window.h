@@ -258,6 +258,9 @@ private slots:
     void addConnection();
     void initServer(QAbstractSocket::SocketError);
     void optionClicked(QAction*);
+    void saveTab();
+    void saveTabAs();
+    void loadTab(QString = QString());
 
 private:
     float f_ver;
