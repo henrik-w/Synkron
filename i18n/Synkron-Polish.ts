@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="sk_SK">
+<!DOCTYPE TS><TS version="1.1">
 <context>
     <name>About</name>
     <message>
@@ -378,32 +378,32 @@
     <message>
         <location filename="../restore.cpp" line="435"/>
         <source>Removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie pliku %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="688"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie pliku %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="783"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukanie zmian</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="776"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiowanie pliku %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="84"/>
         <source>Synkron - Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - Zapisz tab</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="86"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Taby Synkrona (*.slist)</translation>
     </message>
 </context>
 <context>
@@ -459,22 +459,22 @@
     <message>
         <location filename="../main.cpp" line="95"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Polski</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiński</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Włoski</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Francuski</translation>
     </message>
 </context>
 <context>
@@ -1597,43 +1597,43 @@
     <message>
         <location filename="../main.cpp" line="727"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnio synchronizowano na %1</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1234"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1568"/>
         <source>Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz tab</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1577"/>
         <source>Load tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Załaduj tab</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1586"/>
         <source>Save tab as</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz tab jako</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="45"/>
         <source>Open File</source>
-        <translation type="unfinished">Otwórz plik</translation>
+        <translation>Otwórz plik</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="47"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Taby Synkrona (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="52"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">Nie można odczytać pliku %1:
+        <translation>Nie można odczytać pliku %1:
 %2.</translation>
     </message>
 </context>
@@ -1720,27 +1720,27 @@
         <translation>Multi-synchronizacja</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="275"/>
+        <location filename="" line="0"/>
         <source>Load a multisync</source>
         <translation type="obsolete">Załaduj multi-synchronizację</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="278"/>
+        <location filename="" line="0"/>
         <source>Load</source>
         <translation type="obsolete">Załaduj</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="303"/>
+        <location filename="" line="0"/>
         <source>Save the current multisync</source>
         <translation type="obsolete">Zapisz aktualną multi-synchronizację</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="292"/>
+        <location filename="" line="0"/>
         <source>Save</source>
         <translation type="obsolete">Zapisz</translation>
     </message>
     <message>
-        <location filename="../multisync_page.ui" line="306"/>
+        <location filename="" line="0"/>
         <source>Save as</source>
         <translation type="obsolete">Zapisz jako</translation>
     </message>
@@ -1752,12 +1752,12 @@
     <message>
         <location filename="../multisync_page.ui" line="154"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmienne</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="234"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="285"/>
@@ -1908,12 +1908,12 @@
         <translation>%1 plik(ów) %2</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="401"/>
+        <location filename="" line="0"/>
         <source>Synkron - Save Multisync</source>
         <translation type="obsolete">Synkron - Zapisz MultiSync</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="443"/>
+        <location filename="" line="0"/>
         <source>Synkron Multisyncs (*.slist)</source>
         <translation type="obsolete">Synkron Multi-synchronizacje (*.slist)</translation>
     </message>
@@ -1925,12 +1925,12 @@
 %2.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="441"/>
+        <location filename="" line="0"/>
         <source>Open File</source>
         <translation type="obsolete">Otwórz plik</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="452"/>
+        <location filename="" line="0"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="obsolete">Nie można odczytać pliku %1:
@@ -1944,7 +1944,7 @@
     <message>
         <location filename="../multisync.cpp" line="447"/>
         <source>Multisync</source>
-        <translation>Multi-synchronizacja</translation>
+        <translation>Multi-synchronizuj</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="448"/>
@@ -1974,12 +1974,12 @@
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Naciśnij przycisk &quot;Multi-synchronizuj&quot;, aby rozpocząć synchronizację</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="159"/>
         <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Analiza:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="162"/>
@@ -1994,32 +1994,32 @@
     <message>
         <location filename="../multisync.cpp" line="357"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>Przenoszenie</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="360"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukanie zmian</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="296"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnio synchronizowano na %1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="524"/>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmienne</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="489"/>
         <source>Variable name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa zmiennej</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="490"/>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Folder</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="503"/>
@@ -2039,12 +2039,12 @@
     <message>
         <location filename="../multisync.cpp" line="529"/>
         <source>Variable name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa zmiennej:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="535"/>
         <source>Folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Folder:</translation>
     </message>
 </context>
 <context>
@@ -2463,43 +2463,43 @@
     <message>
         <location filename="../sync.cpp" line="108"/>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Naciśnij przycisk &quot;Synchronizuj&quot;, aby rozpocząć synchronizację</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="487"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>Przenoszenie</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1313"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukanie zmian</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="214"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnio synchronizowano na %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1268"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiowanie pliku %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1284"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie pliku %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="189"/>
         <source>Synkron</source>
-        <translation type="unfinished">Synkron</translation>
+        <translation>Synkron</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="189"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">Nie można zapisać pliku %1:
+        <translation>Nie można zapisać pliku %1:
 %2.</translation>
     </message>
 </context>
