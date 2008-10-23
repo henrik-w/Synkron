@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="fr_FR">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -416,7 +417,7 @@
     <message>
         <location filename="../main.cpp" line="287"/>
         <source>Type a new name for &quot;%1&quot;:</source>
-        <translation>Entre un nouveau nom pour &quot;%1&quot; : </translation>
+        <translation>Entrez un nouveau nom pour &quot;%1&quot; : </translation>
     </message>
 </context>
 <context>
@@ -474,7 +475,7 @@
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Français</translation>
     </message>
 </context>
 <context>
@@ -620,12 +621,12 @@
     <message>
         <location filename="../main.cpp" line="821"/>
         <source>Sync &amp;current tab</source>
-        <translation>Sync l&apos;onglet &amp;actuel</translation>
+        <translation>Synchroniser l&apos;onglet &amp;actuel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="824"/>
         <source>Sync &amp;all tabs</source>
-        <translation>Sync &amp;tous les onglets</translation>
+        <translation>Synchroniser &amp;tous les onglets</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="936"/>
@@ -670,7 +671,7 @@
     <message>
         <location filename="../main_window.ui" line="514"/>
         <source>Sync #1</source>
-        <translation>Sync #1</translation>
+        <translation>Synchronisation #1</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="65"/>
@@ -1045,7 +1046,7 @@
     <message>
         <location filename="../main_window.ui" line="1446"/>
         <source>Multisync</source>
-        <translation>Multisynchronisation</translation>
+        <translation>Multisynchroniser</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1449"/>
@@ -1150,7 +1151,7 @@
     <message>
         <location filename="../sync.cpp" line="34"/>
         <source>Sync #%1</source>
-        <translation>Sync n°%1</translation>
+        <translation>Synchronisation n°%1</translation>
     </message>
     <message>
         <location filename="../blacklist.cpp" line="385"/>
@@ -2006,7 +2007,7 @@
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation>Appuyez sur le bouton &quot;Multisynchronisation&quot; pour démarrer la synchronisation</translation>
+        <translation>Appuyez sur le bouton &quot;Multisynchroniser&quot; pour démarrer la synchronisation</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="357"/>
@@ -2365,7 +2366,7 @@
     <message>
         <location filename="../sync.cpp" line="108"/>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation>Appuyez sur le bouton &quot;Sync&quot; pour démarrer la synchronisation</translation>
+        <translation>Appuyez sur le bouton &quot;Synchronisation&quot; pour démarrer la synchronisation</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="487"/>
