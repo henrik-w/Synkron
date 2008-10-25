@@ -398,12 +398,12 @@
     <message>
         <location filename="../tabs.cpp" line="84"/>
         <source>Synkron - Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - сохранить вкладку</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="86"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron вкладки (*.slist)</translation>
     </message>
 </context>
 <context>
@@ -474,7 +474,7 @@
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Франсузский</translation>
     </message>
 </context>
 <context>
@@ -1602,38 +1602,38 @@
     <message>
         <location filename="../main_window.ui" line="1234"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкладка</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1568"/>
         <source>Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить вкладку</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1577"/>
         <source>Load tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Считать вкладку</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1586"/>
         <source>Save tab as</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить вкладку как</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="45"/>
         <source>Open File</source>
-        <translation type="unfinished">Открыть файл</translation>
+        <translation>Открыть файл</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="47"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron вкладки (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="52"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">Не могу прочесть файл %1:
+        <translation>Не могу прочесть файл %1:
 %2.</translation>
     </message>
 </context>
@@ -1718,31 +1718,6 @@
         <location filename="../multisync_page.ui" line="264"/>
         <source>Multisync</source>
         <translation>Мультисинк</translation>
-    </message>
-    <message>
-        <location filename="../multisync_page.ui" line="275"/>
-        <source>Load a multisync</source>
-        <translation type="obsolete">Считать мультисинк</translation>
-    </message>
-    <message>
-        <location filename="../multisync_page.ui" line="278"/>
-        <source>Load</source>
-        <translation type="obsolete">Считать</translation>
-    </message>
-    <message>
-        <location filename="../multisync_page.ui" line="303"/>
-        <source>Save the current multisync</source>
-        <translation type="obsolete">Сохранить текущий мультисинк</translation>
-    </message>
-    <message>
-        <location filename="../multisync_page.ui" line="292"/>
-        <source>Save</source>
-        <translation type="obsolete">Сохранить</translation>
-    </message>
-    <message>
-        <location filename="../multisync_page.ui" line="306"/>
-        <source>Save as</source>
-        <translation type="obsolete">Сохранить как</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="278"/>
@@ -1868,32 +1843,10 @@
         <translation>%1 файл(ы) %2</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="401"/>
-        <source>Synkron - Save Multisync</source>
-        <translation type="obsolete">Synkron - сохранить Мультисинк</translation>
-    </message>
-    <message>
-        <location filename="../multisync.cpp" line="443"/>
-        <source>Synkron Multisyncs (*.slist)</source>
-        <translation type="obsolete">Synkron Мультисинк (*.slist)</translation>
-    </message>
-    <message>
         <location filename="../tabs.cpp" line="265"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не могу записать файл %1:
-%2.</translation>
-    </message>
-    <message>
-        <location filename="../multisync.cpp" line="441"/>
-        <source>Open File</source>
-        <translation type="obsolete">Открыть файл</translation>
-    </message>
-    <message>
-        <location filename="../multisync.cpp" line="452"/>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="obsolete">Не могу прочесть файл %1:
 %2.</translation>
     </message>
     <message>
@@ -2216,11 +2169,6 @@
         <translation>Корневой каталог</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="170"/>
-        <source>NOT FOUND</source>
-        <translation type="obsolete">НЕ НАЙДЕНО</translation>
-    </message>
-    <message>
         <location filename="../sync.cpp" line="58"/>
         <source>Set sync name</source>
         <translation>Имя синхронизации</translation>
@@ -2351,76 +2299,6 @@
         <translation>Фильтры</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="471"/>
-        <source>Open</source>
-        <translation type="obsolete">Открыть</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="621"/>
-        <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="obsolete">Вы точно хотите удалить &quot;%1&quot; из каждого синхронизированного расположения?</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="165"/>
-        <source>DELETED</source>
-        <translation type="obsolete">УДАЛЕНО</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="502"/>
-        <source>Delete</source>
-        <translation type="obsolete">Удалить</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="281"/>
-        <source>Loading...</source>
-        <translation type="obsolete">Загрузка...</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="506"/>
-        <source>Rename</source>
-        <translation type="obsolete">Переименовать</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="512"/>
-        <source>Add to blacklist</source>
-        <translation type="obsolete">Добавить в список исключений</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="514"/>
-        <source>Remove from blacklist</source>
-        <translation type="obsolete">Удалить из исключений</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="520"/>
-        <source>Add extension to blacklist</source>
-        <translation type="obsolete">Добавить расширение в исключения</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="673"/>
-        <source>Synkron - Rename file</source>
-        <translation type="obsolete">Synkron - Переименование файла</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="673"/>
-        <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="obsolete">Введите новое имя для &quot;%1&quot;:</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="685"/>
-        <source>Error renaming directory %1</source>
-        <translation type="obsolete">Ошибка переименования каталога %1</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="694"/>
-        <source>File %1 renamed</source>
-        <translation type="obsolete">Файл %1 переименован</translation>
-    </message>
-    <message>
-        <location filename="../analyse.cpp" line="692"/>
-        <source>Error renaming file %1</source>
-        <translation type="obsolete">Ошибка переименования файла %1</translation>
-    </message>
-    <message>
         <location filename="../sync.cpp" line="297"/>
         <source>Fast analysis</source>
         <translation>Быстрый анализ</translation>
@@ -2493,13 +2371,13 @@
     <message>
         <location filename="../tabs.cpp" line="189"/>
         <source>Synkron</source>
-        <translation type="unfinished">Synkron</translation>
+        <translation>Synkron</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="189"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">Не могу записать файл %1:
+        <translation>Не могу записать файл %1:
 %2.</translation>
     </message>
 </context>
