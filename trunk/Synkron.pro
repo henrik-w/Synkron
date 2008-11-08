@@ -8,7 +8,9 @@ HEADERS += main_window.h \
     extendedlistwidget.h \
     extendedtreewidget.h \
     syncfolders.h \
-    mtstringset.h
+    mtstringset.h \
+    mtpathdialogue.h \
+    mtdictionary.h
 FORMS += main_window.ui \
     about.ui \
     multisync_page.ui \
@@ -24,7 +26,10 @@ SOURCES += main.cpp \
     syncfolders.cpp \
     syncview.cpp \
     analyse.cpp \
-    tabs.cpp
+    tabs.cpp \
+    other.cpp \
+    settings.cpp \
+    syncdb.cpp
 RESOURCES += resources.qrc \
     i18n.qrc
 win32:RC_FILE = Synkron.rc
@@ -65,6 +70,5 @@ TRANSLATIONS += i18n/Synkron-Slovak.ts \
     i18n/Synkron-Spanish.ts \
     i18n/Synkron-Brazilian_Portuguese.ts \
     i18n/Synkron-Polish.ts \
-    i18n/Synkron-Chinese.ts \
     i18n/Synkron-Italian.ts \
     i18n/Synkron-French.ts

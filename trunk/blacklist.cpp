@@ -39,8 +39,9 @@ void MainWindow::toBlacklist()
 
 void MainWindow::addFileToBlacklist()
 {
-	//QString file = QFileDialog::getOpenFileName(this, tr("Choose a file"), QDir::homePath());
-	QString file = addFileToBlDialogue(true);
+	//QString file = getPathDialogue(false);
+    MTPathDialogue * dialogue = new MTPathDialogue;
+    QString file = dialogue->getPath(false);
     if (file.isEmpty() || file == ".") { return; }
     files_blacklist << file;
     blacklist_fileslist->addItem(file);
@@ -88,12 +89,9 @@ void MainWindow::removeFileFromBlacklist()
 
 void MainWindow::addFolderToBlacklist()
 {
-	/*QString folder = QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);*/
-    QString folder = addFileToBlDialogue(false);
+    //QString folder = getPathDialogue(true);
+    MTPathDialogue * dialogue = new MTPathDialogue;
+    QString folder = dialogue->getPath(true);
 	if (folder.isEmpty() || folder == ".") { return; }
 	QDir dir(folder); folder = dir.path();
     folders_blacklist << folder;
@@ -199,8 +197,9 @@ void MainWindow::removeExtFromBlacklist()
 
 void AbstractSyncPage::addFileToBlacklist()
 {
-    //QString file = QFileDialog::getOpenFileName(this, tr("Choose a file"), QDir::homePath());
-	QString file = mp_parent->addFileToBlDialogue(true);
+	//QString file = mp_parent->getPathDialogue(false);
+    MTPathDialogue * dialogue = new MTPathDialogue;
+    QString file = dialogue->getPath(false);
     addFileToBlacklist(file);
 }
 
@@ -242,12 +241,9 @@ void AbstractSyncPage::removeFileFromBlacklist(QString file_name)
 
 void AbstractSyncPage::addFolderToBlacklist()
 {
-    /*QString folder = QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);*/
-    QString folder = mp_parent->addFileToBlDialogue(false);
+    //QString folder = mp_parent->getPathDialogue(true);
+    MTPathDialogue * dialogue = new MTPathDialogue;
+    QString folder = dialogue->getPath(true);
 	addFolderToBlacklist(folder);
 }
 
@@ -359,48 +355,4 @@ void AbstractSyncPage::editBlacklist()
 		blacklist_extslist->addItem(exts_blacklist.at(i));
 	}
     blacklistStwChangeIndex(1);
-}
-
-QString MainWindow::addFileToBlDialogue(bool is_file)
-{
-    QDialog * bl_dialogue = new QDialog (this, Qt::Dialog);
-	bl_dialogue->setWindowModality(Qt::WindowModal);
-	//bl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
-	bl_dialogue->setWindowTitle(is_file ? tr("Enter file path") : tr("Enter folder path"));
-	QGridLayout * dial_glayout = new QGridLayout (bl_dialogue);
-	dial_glayout->setMargin(4); dial_glayout->setSpacing(10);
-	QLabel * dial_label = new QLabel (bl_dialogue);
-	dial_label->setText(is_file ? tr("Enter file path:") : tr("Enter folder path:"));
-	//dial_label->setAlignment(Qt::AlignHCenter);
-	dial_glayout->addWidget(dial_label, 0, 0);
-	QLineEdit * dial_le = new QLineEdit (bl_dialogue);
-	dial_glayout->addWidget(dial_le, 1, 0);
-	QHBoxLayout * hlayout = new QHBoxLayout;
-	hlayout->addStretch();
-    QPushButton * dial_ok = new QPushButton (bl_dialogue);
-	dial_ok->setText(tr("OK"));
-	connect(dial_ok, SIGNAL(released()), bl_dialogue, SLOT(reject()));
-	hlayout->addWidget(dial_ok);
-    QPushButton * dial_browse = new QPushButton (bl_dialogue);
-	dial_browse->setText(tr("Browse"));
-	connect(dial_browse, SIGNAL(released()), bl_dialogue, SLOT(accept()));
-	hlayout->addWidget(dial_browse);
-	dial_glayout->addLayout(hlayout, 2, 0);
-	switch (bl_dialogue->exec()) {
-		case 0: // OK
-			return QDir(dial_le->text()).path();
-			break;
-		case 1: // Browse
-			if (is_file) {
-                return QFileDialog::getOpenFileName(this, tr("Choose a file"), QDir::homePath());
-            } else {
-                return QFileDialog::getExistingDirectory(
-                    this,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-            }
-			break;
-	}
-	return "";
 }

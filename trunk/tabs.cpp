@@ -21,6 +21,29 @@
 
 //+++ Main Window +++
 
+void MainWindow::addTab()
+{
+	if (mainStackedWidget->currentIndex()==0) {
+		addSyncTab();
+	} else if (mainStackedWidget->currentIndex()==3) {
+		addMultiTab();
+	}
+}
+
+void MainWindow::closeTab()
+{
+	if (mainStackedWidget->currentIndex()==0) {
+        if (tabWidget->count() == 0) return;
+        tabs.value(tabWidget->currentWidget())->deleteAllFolderDatabases();
+		tabs.remove(tabWidget->currentWidget());
+		tabWidget->removeTab(tabWidget->currentIndex());
+	} else if (mainStackedWidget->currentIndex()==3) {
+        if (multi_tabWidget->count() == 0) return;
+        ((MultisyncPage *) multi_tabWidget->currentWidget())->deleteAllFolderDatabases();
+		multi_tabWidget->removeTab(multi_tabWidget->currentIndex());
+	}
+}
+
 void MainWindow::saveTab()
 {
     if (mainStackedWidget->currentIndex() == 0) { //Sync
@@ -256,6 +279,9 @@ void MultisyncPage::saveAs(QString file_name)
     QDomElement el_name = domdoc.createElement("name");
     el_name.setAttribute("data", tab_name->text());
     el_sync.appendChild(el_name);
+    QDomElement el_variables = domdoc.createElement("variables");
+    el_variables.setAttribute("data", variablesToString());
+    el_sync.appendChild(el_variables);
     el_sync.setAttribute("last_sync", last_sync);
 
     sharedSave(domdoc, el_sync);
@@ -278,20 +304,24 @@ void MultisyncPage::load(QDomDocument & domdoc, QString file_name)
     list_multi->clear();
     QListWidgetItem * item;
 	for (int i = 0; i < source_list.count(); ++i) {
-		if (source_list.at(i)=="") continue;
+		if (source_list.at(i) == "") continue;
 		item = new QListWidgetItem (source_list.at(i));
 		item->setCheckState(el_sources.attribute("checkstates").at(i) == '+' ? Qt::Checked : Qt::Unchecked);
 		list_multi->addItem(item);
 	}
 	QDomElement el_destination = el_sync.firstChildElement("destination");
-	if (el_destination.attribute("data")!="") {
+	if (el_destination.attribute("data") != "") {
 		destination_multi->setText(el_destination.attribute("data"));
 	}
 	QDomElement el_name = el_sync.firstChildElement("name");
-	if (el_name.attribute("data")!="") {
+	if (el_name.attribute("data") != "") {
 		tab_name->setText(el_name.attribute("data"));
 		multitabNameChanged();
 	}
+    QDomElement el_variables = el_sync.firstChildElement("variables");
+    if (!el_variables.attribute("data").isEmpty()) {
+        variablesFromString(el_variables.attribute("data"));
+    }
 	last_sync = el_sync.attribute("last_sync");
 	if (!last_sync.isEmpty()) status_table_item->setText(tr("Last synced on %1").arg(last_sync));
 
