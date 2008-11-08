@@ -1223,6 +1223,8 @@
     </property>
     <addaction name="actionRun_hidden" />
     <addaction name="actionDisable_tray_messages" />
+    <addaction name="actionChange_temp" />
+    <addaction name="separator" />
     <addaction name="actionSync_at_launch" />
     <addaction name="actionQuit_after_sync" />
     <addaction name="actionShut_down_after_sync" />
@@ -1584,6 +1586,11 @@
    </property>
    <property name="text" >
     <string>Save tab as</string>
+   </property>
+  </action>
+  <action name="actionChange_temp" >
+   <property name="text" >
+    <string>Change temporary folder path</string>
    </property>
   </action>
  </widget>

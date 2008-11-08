@@ -434,8 +434,8 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
     QString previous_status_text = status_table_item->text();
     status_table_item->setText(tr("Removing file %1").arg(file_info.absoluteFilePath())); qApp->processEvents();
     if (backup) {
-        QDir::home().mkpath(QString(".Synkron/%2").arg(update_time));
-        if (!file.copy(QString("%1/.Synkron/%2/%3.%4").arg(QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files))) {
+        QDir().mkpath(QString("%1/%2").arg(mp_parent->temp_path).arg(update_time));
+        if (!file.copy(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(file_info.fileName()).arg(synced_files))) {
             unknownError(file_info.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp"));
             return;
         }
@@ -522,16 +522,16 @@ void MainWindow::convertOldTempSettings(QStringList old_settings)
 
 void MainWindow::loadTempSettings()
 {
-    QDir dir (QDir::home());
-    dir.mkdir(".Synkron");
-    dir.cd(".Synkron");
+    QDir dir (temp_path);
+    dir.mkpath(temp_path);
+    /*dir.mkdir(".Synkron");
+    dir.cd(".Synkron");*/
     QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".backup.syncdb"));
     if (!file.open(QFile::Append | QFile::Text)) {
 		QMessageBox::critical(this, tr("Synkron"), tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()));
         return;
     }
     temp_settings = new QSettings (dir.absoluteFilePath(".backup.syncdb"), QSettings::IniFormat);
-    
 }
 
 void MainWindow::readTempSettings()

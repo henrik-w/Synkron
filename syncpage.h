@@ -62,6 +62,8 @@
 #include "mtstringset.h"
 #include "syncfolders.h"
 #include "extendedtreewidget.h"
+#include "mtpathdialogue.h"
+#include "mtdictionary.h"
 
 class MainWindow;
 class SyncViewItem;
@@ -69,10 +71,10 @@ class SyncViewItem;
 class AbstractSyncPage : public QWidget
 {
 	Q_OBJECT
-	
+
 public:
-	AbstractSyncPage() {};
-	AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; };
+	AbstractSyncPage() { allowed_difference = 2; };
+	AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; allowed_difference = 2; };
 
 	virtual QTableWidget * tableWidget() = 0;
 	virtual QTreeWidget * analyseTree() = 0;
@@ -95,10 +97,10 @@ public:
 	void unknownError(QString, QString, QString, QString, QString = "");
 	void countExtsBl();
 	void saveFolderDatabase(QString);
-	QStringList getFolderDatabase(QString);
-	QStringList getFolderDatabaseOfOtherTabs(QFile &);
+	MTDictionary getFolderDatabase(QString);
+	MTDictionary getFolderDatabaseOfOtherTabs(QFile &);
 	void deleteFolderDatabase(QString);
-	QStringList getEntryList(QString, QString);
+	MTDictionary getEntryList(QString, QString);
 	void backupAndRemoveDir(QString, bool = true, bool = true);
 	void backupAndRemoveFile(QFileInfo, bool = true, bool = true);
 	bool isInDatabase(QString);
@@ -106,12 +108,17 @@ public:
 	void changeTabNameInDatabase(QString, QString);
 	void deleteAllFolderDatabases();
 	void saveAllFolderDatabases();
+    bool checkForCollision(QString, QString);
+    bool fileIsDifferentFromDB(QString);
+    void displayCollisions();
+    void copyFile(QString, QString);
 
 	QSet<QString> extensions;
 	bool syncing;
 	QMap<QString, int> exts_bl_map;
-	QMap<QString, QStringList> folder_prop_list_map;
+	QMap<QString, MTDictionary> folder_prop_list_map;
     QDir::Filters dir_filters;
+    MTDictionary collided;
 
     QWidget * blacklist;
     QCheckBox * sync_hidden;
@@ -128,8 +135,8 @@ public:
     QCheckBox * propagate_deletions;
     QCheckBox * fast_analyse;
     QCheckBox * analyse_special_only;
+    QCheckBox * alert_collisions;
     QListWidget * lw_filters;
-    QToolButton * edit_blacklist;
     QListWidget * blacklist_fileslist;
     QListWidget * blacklist_folderslist;
     QListWidget * blacklist_extslist;
@@ -145,6 +152,7 @@ public:
 
     MainWindow * mp_parent;
     int synced_files;
+    int allowed_difference;
     bool is_multisync;
     QString update_time;
     QString last_sync;
@@ -167,7 +175,7 @@ public slots:
     //virtual void load(QDomElement &, QString) = 0;
     void sharedSave(QDomDocument &, QDomElement &);
     void sharedLoad(QDomElement &);
-    void stopSync() { syncing = false; };
+    void stopSync() { status_table_item->setText(tr("Stopping synchronisation, please wait...")); syncing = false; qApp->processEvents(); };
     void cloneStateChanged(bool);
     void moveStateChanged(bool);
     void propagatedStateChanged(bool);
@@ -188,6 +196,7 @@ public slots:
     void removeExtFromBlacklist(QString);
     void setBlacklistWidget();
     void saveBackedUpFile(QFileInfo);
+    void changeAllowedDifference();
 
     void analyseTreeItemExpanded(QTreeWidgetItem *);
 	void analyseTreeItemClicked(QTreeWidgetItem *, int);
@@ -305,6 +314,8 @@ public:
 	QStringList syncFoldersList();
 	QStringList currentSyncFoldersList() { QStringList l; l << sync_folder_1; l << sync_folder_2; return l; }
 	QString searchLeText() { return search_multi->text(); }
+    QString variablesToString();
+    void variablesFromString(QString);
 
 public slots:
 	void setAdvancedGB();

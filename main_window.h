@@ -120,6 +120,7 @@ public:
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
+    QString temp_path;
     
     bool syncingAll;
     bool skip_close_event;
@@ -139,7 +140,7 @@ public slots:
     bool restoreItem(QListWidgetItem*);
     bool restoreFile(QString, QString, QString);
     void shutDownComputer();
-    QString addFileToBlDialogue(bool);
+    //QString addFileToBlDialogue(bool);
 
 private slots:
 	
@@ -237,13 +238,10 @@ private slots:
     
 // Other
     void changeLanguage(); void langChanged();
-    //void browse(QAbstractButton *);
     void checkForUpdates(); void httpRequestFinished(bool);
     void about();
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
     void trayIconVisible(bool);
-    //void minimizeTrayIcon() { trayIconVisible(false); }
-    //void maximizeTrayIcon() { trayIconVisible(true); }
     void switchView(QAction*);
     void addTab();
     void closeTab();
@@ -258,6 +256,9 @@ private slots:
     void addConnection();
     void initServer(QAbstractSocket::SocketError);
     void optionClicked(QAction*);
+    void changeTemp();
+
+// Tabs
     void saveTab();
     void saveTabAs();
     void loadTab(QString = QString());

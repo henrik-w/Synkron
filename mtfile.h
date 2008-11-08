@@ -28,6 +28,7 @@
 #include <QProcess>
 #include <QDateTime>
 #include <QApplication>
+#include <QCheckBox>
 
 class MTFile : public QFile
 {
@@ -41,13 +42,29 @@ public:
 class MTEvenDateTime : public QDateTime
 {
 public:
-    MTEvenDateTime(): QDateTime() { makeEven(); };
-    MTEvenDateTime(const QDate & date): QDateTime(date) { makeEven(); };
-    MTEvenDateTime(const QDate & date, const QTime & time, Qt::TimeSpec spec = Qt::LocalTime): QDateTime(date, time, spec) { makeEven(); };
-    MTEvenDateTime(const QDateTime & other): QDateTime(other) { makeEven(); };
+    MTEvenDateTime(): QDateTime() { /*makeEven();*/ };
+    MTEvenDateTime(const QDate & date): QDateTime(date) { /*makeEven();*/ };
+    MTEvenDateTime(const QDate & date, const QTime & time, Qt::TimeSpec spec = Qt::LocalTime): QDateTime(date, time, spec) { /*makeEven();*/ };
+    MTEvenDateTime(const QDateTime & other): QDateTime(other) { /*makeEven();*/ };
 
-    void setTime(const QTime & time) { QDateTime::setTime(time); makeEven(); };
-    void setTime_t(uint seconds) { QDateTime::setTime_t(seconds); makeEven(); };
+    void setTime(const QTime & time) { QDateTime::setTime(time); /*makeEven();*/ };
+    void setTime_t(uint seconds) { QDateTime::setTime_t(seconds); /*makeEven();*/ };
+    int compareWith(MTEvenDateTime other, int ignored_secs = 1) {
+        QString this_str = QDateTime::toString("yyyyMMddhhmmss");
+        QString other_str = other.toString("yyyyMMddhhmmss");
+        if (this_str == other_str) {
+            return 0;
+        } else if (this_str > other_str) {
+            if (QDateTime::addSecs(0 - ignored_secs).toString("yyyyMMddhhmmss") > other_str) {
+                return 1;
+            }
+        } else if (this_str < other_str) {
+            if (QDateTime::addSecs(ignored_secs).toString("yyyyMMddhhmmss") < other_str) {
+                return -1;
+            }
+        }
+        return 0;
+    };
 protected:
     void makeEven() {
         if (time().second() % 2 != 0) { setTime(time().addSecs(1)); }
@@ -65,6 +82,30 @@ public:
 
     MTEvenDateTime lastModified() const { return MTEvenDateTime(QFileInfo::lastModified()); };
     MTEvenDateTime lastRead() const { return MTEvenDateTime(QFileInfo::lastRead()); };
+};
+
+class MTCheckBoxGroup : public QWidget
+{
+    Q_OBJECT
+
+public:
+    MTCheckBoxGroup(QCheckBox * achb1, QCheckBox * achb2, QWidget * parent = NULL): QWidget(parent) { chb1 = achb1; chb2 = achb2; link(); };
+
+protected:
+    void link() {
+        QObject::connect(chb1, SIGNAL(stateChanged(int)), this, SLOT(chb1StateChanged(int)));
+        QObject::connect(chb2, SIGNAL(stateChanged(int)), this, SLOT(chb2StateChanged(int)));
+        chb1->setChecked(true);
+        chb2->setChecked(true);
+    };
+
+private slots:
+    void chb1StateChanged(int state) { if (chb2->isChecked() && state) chb2->setChecked(false); };
+    void chb2StateChanged(int state) { if (chb1->isChecked() && state) chb1->setChecked(false); };
+
+private:
+    QCheckBox * chb1;
+    QCheckBox * chb2;
 };
 
 #endif // MTFILE_H

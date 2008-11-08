@@ -58,7 +58,11 @@ bool MTFile::copy(QString dest)
 
 #endif
 
-bool MTFile::touch(QApplication * app)
+bool MTFile::touch(QApplication *
+#ifdef Q_WS_WIN
+    app
+#endif
+    )
 {
     QStringList arguments; QProcess touch;
 #ifdef Q_WS_WIN

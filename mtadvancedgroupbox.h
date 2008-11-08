@@ -81,6 +81,7 @@ public:
     void addItem(QLayoutItem * item, int row, int column, int rowSpan = 1, int columnSpan = 1, Qt::Alignment alignment = 0) 
     { agb_glayout->addItem(item, row, column, rowSpan, columnSpan, alignment); };
     QGridLayout * gridLayout() { return agb_glayout; };
+    QGroupBox * groupBox() { return agb_groupbox; }
     
     QCheckBox * agb_checkbox;
     QCheckBox * slot_receiver_checkbox;

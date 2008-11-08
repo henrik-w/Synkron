@@ -43,6 +43,7 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
     tw_multi->setSpan(0, 0, 1, 2);
 	tw_multi->setItem(0, 0, status_table_item);
 	tw_multi->setRowHeight(0, 16);
+	tw_multi->setTextElideMode(Qt::ElideMiddle);
 
     setAdvancedGB();
 
@@ -55,20 +56,23 @@ void MultisyncPage::setAdvancedGB()
     advanced = new MTAdvancedGroupBox(chb_advanced, this);
     advanced_layout->addWidget(advanced);
     QGridLayout * main_layout = new QGridLayout;
-    
+    QSpacerItem * sitem = new QSpacerItem(1000, 0, QSizePolicy::Expanding, QSizePolicy::Expanding);
+    main_layout->addItem(sitem, 0, 1);
+    main_layout->addItem(sitem, 0, 3);
+
 	sync_hidden = new QCheckBox(advanced);
     sync_hidden->setChecked(true);
     sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
     sync_hidden->setText(tr("Synchronise hidden files and folders"));
     main_layout->addWidget(sync_hidden, 0, 0);
-	
+
     propagate_deletions = new QCheckBox (advanced);
     propagate_deletions->setChecked(false);
     propagate_deletions->setStatusTip(tr("Propagate deletions"));
     propagate_deletions->setText(tr("Propagate deletions"));
     connect(propagate_deletions, SIGNAL(toggled(bool)), this, SLOT(propagatedStateChanged(bool)));
     connect(propagate_deletions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
-    main_layout->addWidget(propagate_deletions, 0, 1);
+    main_layout->addWidget(propagate_deletions, 0, 2);
 
 	sync_nosubdirs = new QCheckBox(advanced);
     sync_nosubdirs->setChecked(false);
@@ -80,18 +84,19 @@ void MultisyncPage::setAdvancedGB()
     ignore_blacklist->setChecked(false);
     ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
     ignore_blacklist->setText(tr("Ignore blacklist"));
-    main_layout->addWidget(ignore_blacklist, 1, 1);
+    main_layout->addWidget(ignore_blacklist, 1, 2);
 
-    edit_blacklist = new QToolButton(advanced);
-    edit_blacklist->setText(tr("Edit blacklist"));
-    edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
-    connect(edit_blacklist, SIGNAL(released()), this, SLOT(editBlacklist()));
-    main_layout->addWidget(edit_blacklist, 1, 2);
+    alert_collisions = new QCheckBox(advanced);
+    alert_collisions->setText(tr("Detect collisions"));
+    alert_collisions->setStatusTip(tr("Detect and alert collided files"));
+    connect(alert_collisions, SIGNAL(clicked(bool)), this, SLOT(propagatedStateChanged(bool)));
+    connect(alert_collisions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
+    main_layout->addWidget(alert_collisions, 0, 4);
 
     files_blacklist = mp_parent->files_blacklist;
     folders_blacklist = mp_parent->folders_blacklist;
     exts_blacklist = mp_parent->exts_blacklist;
-    
+
     symlinks = new QCheckBox;
 #ifdef Q_WS_WIN
     symlinks->setChecked(false);
@@ -100,9 +105,9 @@ void MultisyncPage::setAdvancedGB()
 	symlinks->setChecked(false);
 	symlinks->setStatusTip(tr("Follow symbolic links"));
     symlinks->setText(tr("Follow symbolic links"));
-    main_layout->addWidget(symlinks, 0, 2);
+    main_layout->addWidget(symlinks, 1, 4);
 #endif
-    
+
     QLabel * folder1_label = new QLabel (advanced);
     folder1_label->setText(tr("<b>Sources:</b>"));
     main_layout->addWidget(folder1_label, 3, 0);
@@ -113,12 +118,12 @@ void MultisyncPage::setAdvancedGB()
 
     update_only_1 = new QCheckBox (tr("Update existing files only"), advanced);
 	update_only_1->setStatusTip(tr("Update existing files in sources only"));
-    main_layout->addWidget(update_only_1, 4, 1);
+    main_layout->addWidget(update_only_1, 4, 2);
 
 	move = new QCheckBox (tr("Move contents to destination, leaving sources empty"), advanced);
 	move->setStatusTip(tr("Move contents to destination, leaving sources empty"));
 	connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
-    main_layout->addWidget(move, 4, 2);
+    main_layout->addWidget(move, 4, 4);
 
 	QLabel * folder2_label = new QLabel (advanced);
     folder2_label->setText(tr("<b>Destination:</b>"));
@@ -130,12 +135,12 @@ void MultisyncPage::setAdvancedGB()
 
     update_only_2 = new QCheckBox (tr("Update existing files only"), advanced);
 	update_only_2->setStatusTip(tr("Update existing files in destination only"));
-    main_layout->addWidget(update_only_2, 6, 1);
+    main_layout->addWidget(update_only_2, 6, 2);
 
 	clone_folder1 = new QCheckBox (tr("Clone sources"), advanced);
 	clone_folder1->setStatusTip(tr("Clone sources"));
 	connect(clone_folder1, SIGNAL(toggled(bool)), this, SLOT(cloneStateChanged(bool)));
-    main_layout->addWidget(clone_folder1, 6, 2);
+    main_layout->addWidget(clone_folder1, 6, 4);
 
     /*advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
 	filters = new QGroupBox(tr("Filters"), advanced);
@@ -163,7 +168,26 @@ void MultisyncPage::setAdvancedGB()
     main_layout->addWidget(fast_analyse, 8, 0);
     analyse_special_only = new QCheckBox;
     analyse_special_only->setText(tr("List files which need to be synchronised only"));
-    main_layout->addWidget(analyse_special_only, 8, 1);
+    main_layout->addWidget(analyse_special_only, 8, 2);
+
+    QLabel * other_label = new QLabel(advanced);
+    other_label->setText(tr("<b>Other:</b>"));
+    main_layout->addWidget(other_label, 7, 4);
+
+    QHBoxLayout * buttons_hlayout = new QHBoxLayout;
+    QLabel * edit_blacklist = new QLabel(advanced);
+    edit_blacklist->setText(QString("<a href=\"edit\">%1</a>").arg(tr("Edit blacklist")));
+    edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
+    connect(edit_blacklist, SIGNAL(linkActivated(QString)), this, SLOT(editBlacklist()));
+    buttons_hlayout->addWidget(edit_blacklist);
+
+    QLabel * change_ignorance = new QLabel(advanced);
+    change_ignorance->setText(QString("<a href=\"edit\">%1</a>").arg(tr("Change allowed time difference")));
+    change_ignorance->setStatusTip(tr("Change the allowed time difference between synchronised files"));
+    connect(change_ignorance, SIGNAL(linkActivated(QString)), this, SLOT(changeAllowedDifference()));
+    buttons_hlayout->addWidget(change_ignorance);
+    buttons_hlayout->addStretch();
+    main_layout->addLayout(buttons_hlayout, 8, 4);
 
     advanced->addLayout(main_layout, 0, 0);
     advanced->addItem(new QSpacerItem(10, 5, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
@@ -292,10 +316,12 @@ int MultisyncPage::sync()
 			}
 		}
 	}*/
+	collided.clear();
 	dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
-    
+
+    addTableItem(tr("%1	Synchronisation started").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::yellow));
 	QStringList pathlist; QString path;
 	QDir destination; QDir syncfolder; int all_synced_files = 0;
 	for (int i = 0; i < list_multi->count(); ++i) {
@@ -344,12 +370,12 @@ int MultisyncPage::sync()
     	sync_folder_2 = destination.path();
     	if (propagate_deletions->isChecked()) {
             folder_prop_list_map.clear();
-            QString sync_folder; QStringList prop_files_list;
+            QString sync_folder; //QStringList prop_files_list;
             for (int i = 0; i < 2; ++i) {
                 if (i == 0) sync_folder = syncfolder.absolutePath();
                 else sync_folder = destination.absolutePath();
-                prop_files_list = getFolderDatabase(sync_folder);
-                folder_prop_list_map.insert(sync_folder, prop_files_list);
+                //prop_files_list = getFolderDatabase(sync_folder);
+                folder_prop_list_map.insert(sync_folder, getFolderDatabase(sync_folder));
             }
         }
     	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
@@ -360,6 +386,7 @@ int MultisyncPage::sync()
             status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
             subSync(syncfolder, destination, false);
         }
+        if (alert_collisions->isChecked() && collided.count()) displayCollisions();
 		countExtsBl();
 		if (propagate_deletions->isChecked()) {
             saveFolderDatabase(syncfolder.absolutePath());
@@ -369,6 +396,7 @@ int MultisyncPage::sync()
 		addTableItem(tr("%1	%2: %3 file(s) %4").arg(QTime().currentTime().toString("hh:mm:ss")).arg(list_multi->item(i)->text()).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
         last_sync = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
         status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
+        collided.clear();
 	}
 	mp_parent->saveSettings();
 	syncing = false;
@@ -601,5 +629,29 @@ void MultisyncPage::resetSourcePaths(QMap<QString, QString> old_vars_map)
 	    path.replace("\\", "/");
         path.replace("//", "/");
         list_multi->item(i)->setText(path);
+    }
+}
+
+QString MultisyncPage::variablesToString()
+{
+    QString vars;
+    QMapIterator<QString, QString> iter(vars_map);
+    while (iter.hasNext()) {
+        iter.next();
+        vars.append(iter.key());
+        vars.append(";");
+        vars.append(iter.value());
+        if (iter.hasNext()) vars.append("<:?:>");
+    }
+    return vars;
+}
+
+void MultisyncPage::variablesFromString(QString vars_str)
+{
+    QStringList vars = vars_str.split("<:?:>");
+    for (int i = 0; i < vars.count(); ++i) {
+        if (vars.at(i).split(";").count() >= 2) {
+            vars_map.insert(vars.at(i).split(";").first(), vars.at(i).split(";").at(1));
+        }
     }
 }

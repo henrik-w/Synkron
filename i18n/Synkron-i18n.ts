@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>French</source>
-        <translation>French</translation>
+        <translation>français</translation>
     </message>
     <message>
         <source>Italian</source>

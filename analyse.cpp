@@ -106,12 +106,12 @@ void MultisyncPage::analyse(QAction * action)
 
     if (propagate_deletions->isChecked()) {
         folder_prop_list_map.clear();
-        QString sync_folder; QStringList prop_files_list;
+        QString sync_folder; //QStringList prop_files_list;
         for (int i = 0; i < 2; ++i) {
             if (i == 0) sync_folder = syncfolder.absolutePath();
             else sync_folder = destination.absolutePath();
-            prop_files_list = getFolderDatabase(sync_folder);
-            folder_prop_list_map.insert(sync_folder, prop_files_list);
+            //prop_files_list = getFolderDatabase(sync_folder);
+            folder_prop_list_map.insert(sync_folder, getFolderDatabase(sync_folder));
         }
     }
     update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
@@ -170,19 +170,10 @@ void SyncPage::analyseFolders()
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
     
     if (propagate_deletions->isChecked()) {
-        folder_prop_list_map.clear(); QStringList prop_files_list;
+        folder_prop_list_map.clear(); //QStringList prop_files_list;
         for (int i = 0; i < sync_folders->count(); ++i) {
-            prop_files_list = getFolderDatabase(sync_folders->at(i)->path());
-            /*QFile file(QString("%1/%2").arg(sync_folders->at(i)->path()).arg(".synkron.syncdb"));
-            if (!file.exists()) continue;
-            if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		        //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
-		        continue;
-            }
-            QTextStream in(&file);
-            in.setCodec("UTF-8");
-            while (!in.atEnd()) { prop_files_list << in.readLine(); }*/
-            folder_prop_list_map.insert(sync_folders->at(i)->path(), prop_files_list);
+            //prop_files_list = getFolderDatabase(sync_folders->at(i)->path());
+            folder_prop_list_map.insert(sync_folders->at(i)->path(), getFolderDatabase(sync_folders->at(i)->path()));
         }
     }
     
@@ -247,6 +238,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
         child_item = new QTreeWidgetItem (parent_item);
         MTEvenDateTime newest_datetime;
         QList<int> newest_indices;
+        QList<int> conflicted_indices;
         for (int i = 0; i < s_folders_list.count(); ++i) {
             file_info->setFile(QString("%1%2").arg(s_folders_list.at(i)).arg(rel_path));
             if (!file_info->exists()) {
@@ -286,15 +278,22 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                         }
                     }
                 }
-                child_item->setText(i+1, file_info->lastModified().toString(Qt::ISODate));
+                child_item->setText(i+1, tr("OBSOLETE"));
                 child_item->setForeground(i+1, QBrush(Qt::darkRed));
-                if (file_info->lastModified().toString(Qt::ISODate) == newest_datetime.toString(Qt::ISODate)) {
+                int compared_dates = file_info->lastModified().compareWith(newest_datetime, allowed_difference);
+                if (compared_dates == 0) { // has the same date as the newest_datetime
                     newest_indices << i+1;
-                } else if (file_info->lastModified() > newest_datetime) {
+                } else if (compared_dates > 0) { // is newer than the newest_datetime
                     newest_datetime = file_info->lastModified();
                     newest_indices.clear();
                     newest_indices << i+1;
                 }
+                if (compared_dates != 0 && alert_collisions->isChecked()) {
+                    if (fileIsDifferentFromDB(file_info->absoluteFilePath())) {
+                        conflicted_indices << i+1;
+                    }
+                }
+                child_item->setToolTip(i+1, file_info->lastModified().toString(Qt::ISODate));
             }
             child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
             
@@ -319,9 +318,16 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             }
             for (int ind = 0; ind < newest_indices.count(); ++ind) {
                 child_item->setForeground(newest_indices.at(ind), QBrush(Qt::darkGreen));
+                child_item->setText(newest_indices.at(ind), tr("OK"));
             }
         } else if (sub_special && !blacklisted) {
             child_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16_red.png"));
+        }
+        if (conflicted_indices.count() > 1) {
+            for (int ind = 0; ind < conflicted_indices.count(); ++ind) {
+                child_item->setText(conflicted_indices.at(ind), tr("COLLISION"));
+                child_item->setForeground(conflicted_indices.at(ind), QBrush(Qt::black));
+            }
         }
         child_item->setCheckState(0, blacklisted ? Qt::Unchecked : Qt::Checked);
         if (parent_item->checkState(0) == Qt::Unchecked || ignore_blacklist->isChecked()) child_item->setDisabled(true);
