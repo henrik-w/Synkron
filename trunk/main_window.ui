@@ -205,7 +205,7 @@
             </property>
            </spacer>
           </item>
-          <item row="10" column="0" >
+          <item row="11" column="0" >
            <layout class="QGridLayout" >
             <item row="0" column="1" >
              <widget class="QPushButton" name="restore_files" >
@@ -236,11 +236,63 @@
             </item>
            </layout>
           </item>
+          <item row="8" column="0" >
+           <widget class="MTAdvancedGroupBox" native="1" name="restore_select_gb" />
+          </item>
           <item row="9" column="0" >
            <widget class="MTAdvancedGroupBox" native="1" name="restore_clean_gb" />
           </item>
-          <item row="8" column="0" >
-           <widget class="MTAdvancedGroupBox" native="1" name="restore_select_gb" />
+          <item row="10" column="0" >
+           <widget class="QGroupBox" name="restore_clean_auto_gb" >
+            <property name="title" >
+             <string>Clean temporary files automatically after each sync</string>
+            </property>
+            <property name="checkable" >
+             <bool>true</bool>
+            </property>
+            <property name="checked" >
+             <bool>false</bool>
+            </property>
+            <layout class="QGridLayout" name="gridLayout" >
+             <item row="0" column="0" >
+              <widget class="QLabel" name="keep_auto" >
+               <property name="text" >
+                <string>Keep </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" >
+              <widget class="QSpinBox" name="restore_clean_auto_files" >
+               <property name="minimum" >
+                <number>1</number>
+               </property>
+               <property name="value" >
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2" >
+              <widget class="QLabel" name="files_auto" >
+               <property name="text" >
+                <string> latest versions</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3" >
+              <spacer name="horizontalSpacer" >
+               <property name="orientation" >
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0" >
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </item>

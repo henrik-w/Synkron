@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="sk_SK">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -61,82 +62,82 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="917"/>
+        <location filename="../sync.cpp" line="890"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Priečinok %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="929"/>
+        <location filename="../sync.cpp" line="902"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Súbor %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="965"/>
+        <location filename="../sync.cpp" line="938"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>Súbor, alebo priečinok a symbolický odkaz s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory. (%1, %2)</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="983"/>
+        <location filename="../sync.cpp" line="956"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Priečinok (%1) a súbor (%2) s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="987"/>
+        <location filename="../sync.cpp" line="960"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Súbor (%1) a priečinok (%2) s rovnakým menom boli nájdené. Nemožno synchronizovať tieto súbory.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1563"/>
+        <location filename="../sync.cpp" line="1536"/>
         <source>file</source>
         <translation>súboru</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1563"/>
+        <location filename="../sync.cpp" line="1536"/>
         <source>copy</source>
         <translation>kopírovaní</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1557"/>
+        <location filename="../sync.cpp" line="1530"/>
         <source> to temp</source>
         <translation> do tempu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1077"/>
+        <location filename="../sync.cpp" line="1050"/>
         <source>folder</source>
         <translation>priečinka</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="975"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>Starší súbor %1 zálohovaný a vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1388"/>
+        <location filename="../sync.cpp" line="1361"/>
         <source>Unknown error %1ing %2: %3%4</source>
         <translation>Neznáma chyba pri %1 %2: %3%4</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1110"/>
+        <location filename="../sync.cpp" line="1083"/>
         <source>File %1 deleted</source>
         <translation>Súbor %1 bol vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1112"/>
+        <location filename="../sync.cpp" line="1085"/>
         <source>Error removing file %1</source>
         <translation>Chyba pri vymazávaní súboru %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1093"/>
+        <location filename="../sync.cpp" line="1066"/>
         <source>Folder %1 deleted</source>
         <translation>Priečinok %1 bol vymazaný</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1095"/>
+        <location filename="../sync.cpp" line="1068"/>
         <source>Error removing directory %1</source>
         <translation>Chyba pri vymazávaní priečinku %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1567"/>
+        <location filename="../sync.cpp" line="1540"/>
         <source>File %1 restored</source>
         <translation>Súbor %1 obnovený</translation>
     </message>
@@ -286,7 +287,7 @@
         <translation>Neznáma chyba pri vymazávaní súboru: %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1337"/>
+        <location filename="../sync.cpp" line="1310"/>
         <source>%1 %2 files skipped</source>
         <translation>%1 %2 súborov preskočených</translation>
     </message>
@@ -378,92 +379,92 @@
     <message>
         <location filename="../restore.cpp" line="435"/>
         <source>Removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazávam súbor %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1549"/>
+        <location filename="../sync.cpp" line="1522"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizujem súbor %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="807"/>
+        <location filename="../sync.cpp" line="779"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadám rozdiely</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="800"/>
+        <location filename="../sync.cpp" line="772"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírujem súbor %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="107"/>
         <source>Synkron - Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - Uložiť kartu</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="109"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Karty Synkronu (*.slist)</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="37"/>
         <source>Enter allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Zadajte povolený časový rozdiel</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="38"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolený časový rozdiel (v sekundách):</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="281"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>NEAKTUÁLNE</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="323"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="328"/>
         <source>COLLISION</source>
-        <translation type="unfinished"></translation>
+        <translation>KOLÍZIA</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="266"/>
         <source>Collision found between files: %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Nájdená kolízia medzi súbormi: %1 a %2</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="298"/>
         <source>Collisions found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nájdené kolízie</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="302"/>
         <source>Collided files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfliktné súbory:</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Newer files</source>
-        <translation type="unfinished"></translation>
+        <translation>Novšie súbory</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Older files</source>
-        <translation type="unfinished"></translation>
+        <translation>Staršie súbory</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="326"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../syncpage.h" line="178"/>
         <source>Stopping synchronisation, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavujem synchronizáciu, prosím čakajte...</translation>
     </message>
 </context>
 <context>
@@ -519,17 +520,17 @@
     <message>
         <location filename="../main.cpp" line="97"/>
         <source>Polish</source>
-        <translation type="unfinished">polčina</translation>
+        <translation>polčina</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>French</source>
-        <translation type="unfinished">francúzština</translation>
+        <translation>francúzština</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="99"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>taliančina</translation>
     </message>
 </context>
 <context>
@@ -545,42 +546,42 @@
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter folder path</source>
-        <translation type="unfinished">Zadajte cestu k priečinku</translation>
+        <translation>Zadajte cestu k priečinku</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter file path</source>
-        <translation type="unfinished">Zadajte cestu k súboru</translation>
+        <translation>Zadajte cestu k súboru</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter folder path:</source>
-        <translation type="unfinished">Zadajte cestu k priečinku:</translation>
+        <translation>Zadajte cestu k priečinku:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter file path:</source>
-        <translation type="unfinished">Zadajte cestu k súboru:</translation>
+        <translation>Zadajte cestu k súboru:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="57"/>
         <source>Browse</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>Hľadať</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="61"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="65"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="91"/>
         <source>Choose a file</source>
-        <translation type="unfinished">Vyberte súbor</translation>
+        <translation>Vyberte súbor</translation>
     </message>
 </context>
 <context>
@@ -626,27 +627,27 @@
         <translation>Hľadať</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="754"/>
+        <location filename="../main_window.ui" line="806"/>
         <source>Start</source>
         <translation>Spustiť</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="744"/>
+        <location filename="../main_window.ui" line="796"/>
         <source>Stop</source>
         <translation>Zastaviť</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1368"/>
+        <location filename="../main_window.ui" line="1420"/>
         <source>Synchronise</source>
         <translation>Synchronizácia</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1349"/>
+        <location filename="../sync.cpp" line="1322"/>
         <source>Synchronisation complete</source>
         <translation>Synchronizácia dokončená</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1349"/>
+        <location filename="../sync.cpp" line="1322"/>
         <source>%1 files synchronised</source>
         <translation>%1 súborov synchronizovaných</translation>
     </message>
@@ -736,7 +737,7 @@
         <translation>Zapnuté</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="514"/>
+        <location filename="../main_window.ui" line="566"/>
         <source>Sync #1</source>
         <translation>Sync #1</translation>
     </message>
@@ -786,7 +787,7 @@
         <translation>Obnoviť vyznačené súbory</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1383"/>
+        <location filename="../main_window.ui" line="1435"/>
         <source>Restore</source>
         <translation>Obnoviť</translation>
     </message>
@@ -801,7 +802,7 @@
         <translation>&lt;b&gt;Súbory dostupné na obnovovanie:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="400"/>
+        <location filename="../main_window.ui" line="452"/>
         <source>Remove folder from blacklist</source>
         <translation>Odstrániť priečinok z čiernej listiny</translation>
     </message>
@@ -811,7 +812,7 @@
         <translation>Odstrániť</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="414"/>
+        <location filename="../main_window.ui" line="466"/>
         <source>Add folder to blacklist</source>
         <translation>Pridať priečinok na čiernu listinu</translation>
     </message>
@@ -821,162 +822,162 @@
         <translation>Pridať</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="259"/>
+        <location filename="../main_window.ui" line="311"/>
         <source>&lt;b&gt;Files in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Súbory na čiernej listine:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="362"/>
+        <location filename="../main_window.ui" line="414"/>
         <source>&lt;b&gt;Folders in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Priečinky na čiernej listine:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="378"/>
+        <location filename="../main_window.ui" line="430"/>
         <source>List of folders in the blacklist</source>
         <translation>Zoznam priečinkov na čiernej listine</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="288"/>
+        <location filename="../main_window.ui" line="340"/>
         <source>List of files in the blacklist</source>
         <translation>Zoznam súborov na čiernej listine</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="310"/>
+        <location filename="../main_window.ui" line="362"/>
         <source>Remove file from blacklist</source>
         <translation>Odstrániť súbor z čiernej listiny</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="324"/>
+        <location filename="../main_window.ui" line="376"/>
         <source>Add file to black list</source>
         <translation>Pridať súbor na čiernu listinu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1448"/>
+        <location filename="../main_window.ui" line="1500"/>
         <source>Multisync</source>
         <translation>Multisynchronizácia</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="621"/>
+        <location filename="../main_window.ui" line="673"/>
         <source>Start all</source>
         <translation>Spustiť všetky</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="644"/>
+        <location filename="../main_window.ui" line="696"/>
         <source>Stop all</source>
         <translation>Zastaviť všetky</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="538"/>
+        <location filename="../main_window.ui" line="590"/>
         <source>&lt;b&gt;Schedules:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Plánovače:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="657"/>
+        <location filename="../main_window.ui" line="709"/>
         <source>Schedule options</source>
         <translation>Možnosti plánovača</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="834"/>
+        <location filename="../main_window.ui" line="886"/>
         <source>H:mm</source>
         <translation>H:mm</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="570"/>
+        <location filename="../main_window.ui" line="622"/>
         <source>List of schedules</source>
         <translation>Zoznam plánovačov</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1196"/>
+        <location filename="../main_window.ui" line="1248"/>
         <source>File</source>
         <translation>Súbor</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1222"/>
+        <location filename="../main_window.ui" line="1274"/>
         <source>Options</source>
         <translation>Možnosti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1204"/>
+        <location filename="../main_window.ui" line="1256"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1211"/>
+        <location filename="../main_window.ui" line="1263"/>
         <source>View</source>
         <translation>Zobraziť</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1290"/>
+        <location filename="../main_window.ui" line="1342"/>
         <source>Quit</source>
         <translation>Koniec</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1302"/>
+        <location filename="../main_window.ui" line="1354"/>
         <source>About</source>
         <translation>O programe</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1305"/>
+        <location filename="../main_window.ui" line="1357"/>
         <source>View About</source>
         <translation>O programe</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1314"/>
+        <location filename="../main_window.ui" line="1366"/>
         <source>Set synchronization folder 1</source>
         <translation>Nastaviť synchronizačný priečinok 1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1323"/>
+        <location filename="../main_window.ui" line="1375"/>
         <source>Set synchronization folder 2</source>
         <translation>Nastaviť synchronizačný prečinok 2</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1335"/>
+        <location filename="../main_window.ui" line="1387"/>
         <source>Open new sync tab</source>
         <translation>Otvoriť novú synchronizačnú kartu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1350"/>
+        <location filename="../main_window.ui" line="1402"/>
         <source>Close current sync tab</source>
         <translation>Zatvoriť aktuálnu synchronizačnú kartu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1371"/>
+        <location filename="../main_window.ui" line="1423"/>
         <source>Go to Synchronise</source>
         <translation>Ísť na Synchronizáciu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1386"/>
+        <location filename="../main_window.ui" line="1438"/>
         <source>Go to Restore</source>
         <translation>Ísť na Obnovovanie</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1398"/>
+        <location filename="../main_window.ui" line="1450"/>
         <source>Blacklist</source>
         <translation>Čierna listina</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1401"/>
+        <location filename="../main_window.ui" line="1453"/>
         <source>Go to Blacklist</source>
         <translation>Ísť na Čiernu listinu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1409"/>
+        <location filename="../main_window.ui" line="1461"/>
         <source>Run hidden</source>
         <translation>Spustiť skryté</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1424"/>
+        <location filename="../main_window.ui" line="1476"/>
         <source>Sync all</source>
         <translation>Synchronizovať všetky</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1436"/>
+        <location filename="../main_window.ui" line="1488"/>
         <source>Check for updates</source>
         <translation>Skontrolovať aktualizácie</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1463"/>
+        <location filename="../main_window.ui" line="1515"/>
         <source>Scheduler</source>
         <translation>Plánovač</translation>
     </message>
@@ -996,7 +997,7 @@
         <translation>Musíte reštartovať Synkron, aby sa zmeny prejavili.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1478"/>
+        <location filename="../main_window.ui" line="1530"/>
         <source>Change language</source>
         <translation>Zmeniť jazyk</translation>
     </message>
@@ -1018,72 +1019,72 @@
         <translation>Žiadny plánovač nebol zadaný.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="590"/>
+        <location filename="../main_window.ui" line="642"/>
         <source>Add a schedule</source>
         <translation>Pridať plánovač</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="604"/>
+        <location filename="../main_window.ui" line="656"/>
         <source>Remove the current schedule</source>
         <translation>Odstrániť aktuálny plánovač</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="618"/>
+        <location filename="../main_window.ui" line="670"/>
         <source>Start all schedules</source>
         <translation>Spustiť všetky plánovače</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="641"/>
+        <location filename="../main_window.ui" line="693"/>
         <source>Stop all schedules</source>
         <translation>Zastaviť všetky plánovače</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="741"/>
+        <location filename="../main_window.ui" line="793"/>
         <source>Stop schedule</source>
         <translation>Zastaviť plánovač</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="751"/>
+        <location filename="../main_window.ui" line="803"/>
         <source>Start schedule</source>
         <translation>Spustiť plánovač</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="795"/>
+        <location filename="../main_window.ui" line="847"/>
         <source>List of sync times</source>
         <translation>Zoznam časov synchronizácií</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="817"/>
+        <location filename="../main_window.ui" line="869"/>
         <source>Add a sync time</source>
         <translation>Pridať čas synchronizácie</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="831"/>
+        <location filename="../main_window.ui" line="883"/>
         <source>Set sync time</source>
         <translation>Nastaviť čas synchronizácie</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="841"/>
+        <location filename="../main_window.ui" line="893"/>
         <source>Remove the selected sync times</source>
         <translation>Odstrániť vyznačené časy synchronizácií</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="668"/>
+        <location filename="../main_window.ui" line="720"/>
         <source>Set schedule name</source>
         <translation>Nastaviť meno plánovača</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1412"/>
+        <location filename="../main_window.ui" line="1464"/>
         <source>Start Synkron hidden</source>
         <translation>Spúšťať Synkron skrytý</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1451"/>
+        <location filename="../main_window.ui" line="1503"/>
         <source>Go to Multisync</source>
         <translation>Ísť na Multisynchronizáciu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1466"/>
+        <location filename="../main_window.ui" line="1518"/>
         <source>Go to Scheduler</source>
         <translation>Ísť na Plánovač</translation>
     </message>
@@ -1093,7 +1094,7 @@
         <translation>Zoznam synchronizovaných súborov a priečinkov</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="861"/>
+        <location filename="../main_window.ui" line="913"/>
         <source>Synchronise periodically</source>
         <translation>Synchronizovať periodicky</translation>
     </message>
@@ -1133,52 +1134,52 @@
         <translation>Ste si istý, že chcete odstrániť vyznačenú príponu zo zoznamu?</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="946"/>
+        <location filename="../main_window.ui" line="998"/>
         <source>&lt;b&gt;Filters:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Filtre:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="968"/>
+        <location filename="../main_window.ui" line="1020"/>
         <source>List of filters</source>
         <translation>Zoznam filtrov</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="975"/>
+        <location filename="../main_window.ui" line="1027"/>
         <source>&lt;b&gt;Extensions in the selected filter:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Prípony vo vyznačenom filtri:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="982"/>
+        <location filename="../main_window.ui" line="1034"/>
         <source>List of extensions in the selected filter</source>
         <translation>Zoznam prípon vo vyznačenom filtri</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1005"/>
+        <location filename="../main_window.ui" line="1057"/>
         <source>Add an extension</source>
         <translation>Pridať príponu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1022"/>
+        <location filename="../main_window.ui" line="1074"/>
         <source>Remove the current extension</source>
         <translation>Odstrániť aktuálnu príponu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1039"/>
+        <location filename="../main_window.ui" line="1091"/>
         <source>Add a filter</source>
         <translation>Pridať filter</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1056"/>
+        <location filename="../main_window.ui" line="1108"/>
         <source>Remove the current filter</source>
         <translation>Odstrániť aktuálny filter</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1490"/>
+        <location filename="../main_window.ui" line="1542"/>
         <source>Filters</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1493"/>
+        <location filename="../main_window.ui" line="1545"/>
         <source>Go to Filters</source>
         <translation>Ísť na Filtre</translation>
     </message>
@@ -1268,17 +1269,17 @@
         <translation>&amp;Minimalizovať</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1504"/>
+        <location filename="../main_window.ui" line="1556"/>
         <source>Disable tray icon messages</source>
         <translation>Zakázať správy z panela úloh</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1332"/>
+        <location filename="../main_window.ui" line="1384"/>
         <source>New tab</source>
         <translation>Nový</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1347"/>
+        <location filename="../main_window.ui" line="1399"/>
         <source>Close tab</source>
         <translation>Zatvoriť</translation>
     </message>
@@ -1298,7 +1299,7 @@
         <translation>Záznam synchronizácie Synkronu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1513"/>
+        <location filename="../main_window.ui" line="1565"/>
         <source>Save log</source>
         <translation>Uložiť záznam</translation>
     </message>
@@ -1423,42 +1424,42 @@
         <translation>Chyba pri premenovávaní priečinku %1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="709"/>
+        <location filename="../main_window.ui" line="761"/>
         <source>Select multisyncs to use</source>
         <translation>Vyberte multisynchronizácie, ktoré sa budú používať</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="716"/>
+        <location filename="../main_window.ui" line="768"/>
         <source>Select syncs to use</source>
         <translation>Vyberte synchronizácie, ktoré sa budú používať</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="723"/>
+        <location filename="../main_window.ui" line="775"/>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Synchronizácie:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="730"/>
+        <location filename="../main_window.ui" line="782"/>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Multisynchronizácie:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="782"/>
+        <location filename="../main_window.ui" line="834"/>
         <source>Sync times</source>
         <translation>Časy synchronizácií</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="788"/>
+        <location filename="../main_window.ui" line="840"/>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Časy:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="880"/>
+        <location filename="../main_window.ui" line="932"/>
         <source>Synchronise every</source>
         <translation>Synchronizovať každých</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="900"/>
+        <location filename="../main_window.ui" line="952"/>
         <source>minute(s)</source>
         <translation>minút</translation>
     </message>
@@ -1488,52 +1489,52 @@
         <translation>Ste si istý, že chcete odstrániť vyznačenú príponu z čiernej listiny?</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="430"/>
+        <location filename="../main_window.ui" line="482"/>
         <source>List of extensions in the blacklist</source>
         <translation>Zoznam prípon na čiernej listine</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="453"/>
+        <location filename="../main_window.ui" line="505"/>
         <source>Add extension to blacklist</source>
         <translation>Pridať príponu na čiernu listinu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="467"/>
+        <location filename="../main_window.ui" line="519"/>
         <source>Remove extension from blacklist</source>
         <translation>Odstrániť príponu z čiernej listiny</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="444"/>
+        <location filename="../main_window.ui" line="496"/>
         <source>&lt;b&gt;Extensions in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Prípony na čiernej listine:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1094"/>
+        <location filename="../main_window.ui" line="1146"/>
         <source>&lt;b&gt;Syncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Synchronizácie:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1525"/>
+        <location filename="../main_window.ui" line="1577"/>
         <source>SyncView</source>
         <translation>Prehľad</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1528"/>
+        <location filename="../main_window.ui" line="1580"/>
         <source>Go to SyncView</source>
         <translation>Ísť na Prehľad</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1123"/>
+        <location filename="../main_window.ui" line="1175"/>
         <source>List of syncs</source>
         <translation>Zoznam synchronizácií</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1169"/>
+        <location filename="../main_window.ui" line="1221"/>
         <source>List of multisyncs</source>
         <translation>Zoznam multisynchronizácií</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1147"/>
+        <location filename="../main_window.ui" line="1199"/>
         <source>&lt;b&gt;Multisyncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Multisynchronizácie:&lt;/b&gt;</translation>
     </message>
@@ -1608,42 +1609,42 @@
         <translation>Dátumy/Dni</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1293"/>
+        <location filename="../main_window.ui" line="1345"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1338"/>
+        <location filename="../main_window.ui" line="1390"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1353"/>
+        <location filename="../main_window.ui" line="1405"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1536"/>
+        <location filename="../main_window.ui" line="1588"/>
         <source>Sync all at launch</source>
         <translation>Synchronizovať všetky pri spustení</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1547"/>
+        <location filename="../main_window.ui" line="1599"/>
         <source>Shut down after synchronisation</source>
         <translation>Vypnúť počítač po synchronizácii</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1550"/>
+        <location filename="../main_window.ui" line="1602"/>
         <source>Shut down computer after synchronisation finishes</source>
         <translation>Vypnúť počítač po dokončení synchronizácie</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1558"/>
+        <location filename="../main_window.ui" line="1610"/>
         <source>Quit Synkron after synchronisation</source>
         <translation>Ukončiť Synkron po synchronizácii</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1561"/>
+        <location filename="../main_window.ui" line="1613"/>
         <source>Quit Synkron after synchronisation finishes</source>
         <translation>Ukončiť Synkron po dokončení synchronizácie</translation>
     </message>
@@ -1658,7 +1659,7 @@
         <translation>Odstrániť z čiernej listiny</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1539"/>
+        <location filename="../main_window.ui" line="1591"/>
         <source>Sync all tabs at launch</source>
         <translation>Synchronizovať všetky karty pri spustení</translation>
     </message>
@@ -1693,50 +1694,60 @@
         <translation>%1 súborov vymazaných.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="379"/>
+        <location filename="../settings.cpp" line="383"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Naposledy synchronizované %1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1236"/>
+        <location filename="../main_window.ui" line="1288"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Karta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1570"/>
+        <location filename="../main_window.ui" line="1622"/>
         <source>Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť kartu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1579"/>
+        <location filename="../main_window.ui" line="1631"/>
         <source>Load tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Načítať kartu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1588"/>
+        <location filename="../main_window.ui" line="1640"/>
         <source>Save tab as</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložiť kartu ako</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="68"/>
         <source>Open File</source>
-        <translation type="unfinished">Otvoriť súbor</translation>
+        <translation>Otvoriť súbor</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="70"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Karty Synkronu (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="75"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">Nedá sa čítať súbor %1:%2.</translation>
+        <translation>Nedá sa čítať súbor %1:%2.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1593"/>
+        <location filename="../main_window.ui" line="1645"/>
         <source>Change temporary folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť cestu k dočasným súborom</translation>
+    </message>
+    <message>
+        <location filename="../main_window.ui" line="248"/>
+        <source>Clean temporary files automatically after each sync</source>
+        <translation>Vyčistiť dočasné súbory automaticky po každej synchronizácii</translation>
+    </message>
+    <message>
+        <location filename="../main_window.ui" line="260"/>
+        <source>Keep </source>
+        <translation>Ponechať </translation>
     </message>
 </context>
 <context>
@@ -1859,7 +1870,7 @@
     <message>
         <location filename="../multisync_page.ui" line="234"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="285"/>
@@ -1905,7 +1916,7 @@
         <translation>&lt;b&gt;Cieľ:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="462"/>
+        <location filename="../multisync.cpp" line="467"/>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>Premiestniť obsah do cieľa, nechajúc zdroje prazdne</translation>
     </message>
@@ -1942,17 +1953,17 @@
         <translation type="obsolete">Nedá sa čítať súbor %1:%2.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="461"/>
+        <location filename="../multisync.cpp" line="466"/>
         <source>Move contents</source>
         <translation>Premiestniť obsah</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="475"/>
+        <location filename="../multisync.cpp" line="480"/>
         <source>Multisync</source>
         <translation>Multisynchronizácia</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="476"/>
+        <location filename="../multisync.cpp" line="481"/>
         <source>Start multisync</source>
         <translation>Spustiť multisynchronizáciu</translation>
     </message>
@@ -1972,22 +1983,22 @@
         <translation>%1<byte value="x9"/>%2: %3 súbor(ov) %4</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="405"/>
+        <location filename="../multisync.cpp" line="410"/>
         <source>moved</source>
         <translation>premiestnených</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="405"/>
+        <location filename="../multisync.cpp" line="410"/>
         <source>synchronised</source>
         <translation>synchronizovaných</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="405"/>
+        <location filename="../multisync.cpp" line="410"/>
         <source>Synchronisation complete</source>
         <translation>Synchronizácia dokončená</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="405"/>
+        <location filename="../multisync.cpp" line="410"/>
         <source>%1 file(s) %2</source>
         <translation>%1 súbor(ov) %2</translation>
     </message>
@@ -2007,7 +2018,7 @@
         <translation>Nasledovať symbolické odkazy</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="473"/>
+        <location filename="../multisync.cpp" line="478"/>
         <source>Clone sources</source>
         <translation>Klonovať zdroje</translation>
     </message>
@@ -2087,94 +2098,99 @@
         <translation>Zobraziť iba súbory, ktoré budú synchronizované</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="552"/>
+        <location filename="../multisync.cpp" line="557"/>
         <source>Variables</source>
         <translation>Premenné</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="517"/>
+        <location filename="../multisync.cpp" line="522"/>
         <source>Variable name</source>
         <translation>Meno premennej</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="518"/>
+        <location filename="../multisync.cpp" line="523"/>
         <source>Folder</source>
         <translation>Priečinok</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="531"/>
+        <location filename="../multisync.cpp" line="536"/>
         <source>Add</source>
         <translation>Pridať</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="536"/>
+        <location filename="../multisync.cpp" line="541"/>
         <source>Remove</source>
         <translation>Odstrániť</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="540"/>
+        <location filename="../multisync.cpp" line="545"/>
         <source>Close</source>
         <translation>Zavrieť</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="557"/>
+        <location filename="../multisync.cpp" line="562"/>
         <source>Variable name:</source>
         <translation>Meno premennej:</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="563"/>
+        <location filename="../multisync.cpp" line="568"/>
         <source>Folder:</source>
         <translation>Priečinok:</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Stlačte tlačidlo &quot;Multisynchronizácia&quot; na spustenie synchronizácie</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="383"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>Premiestňujem</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="386"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadám rozdiely</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="326"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Naposledy synchronizované %1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť povolený časový rozdiel</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť povolený časový rozdiel medzi synchronizovanými súbormi</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="90"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať kolízie</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="91"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať a upozorniť na konfliktné súbory</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="174"/>
         <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Iné:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>Synchronizácia spustená</translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="404"/>
+        <source>%1 repeated temporary files deleted</source>
+        <translation>%1 opakujúcich sa dočasných súborov vymazaných</translation>
     </message>
 </context>
 <context>
@@ -2206,47 +2222,47 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="1451"/>
+        <location filename="../sync.cpp" line="1424"/>
         <source>Move</source>
         <translation>Premiestniť</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1452"/>
+        <location filename="../sync.cpp" line="1425"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>Premiestniť obsah do priečinka 2, nechajúc priečinok 1 prazdny</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1481"/>
+        <location filename="../sync.cpp" line="1454"/>
         <source>Synchronise</source>
         <translation>Synchronizácia</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1480"/>
+        <location filename="../sync.cpp" line="1453"/>
         <source>Sync</source>
         <translation>Synchronizovať</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="522"/>
+        <location filename="../sync.cpp" line="527"/>
         <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
         <translation>%1<byte value="x9"/>Synchronizácia dokončená: %2 súbor(ov) %3</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="524"/>
+        <location filename="../sync.cpp" line="529"/>
         <source>moved</source>
         <translation>premiestnených</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="524"/>
+        <location filename="../sync.cpp" line="529"/>
         <source>synchronised</source>
         <translation>synchronizovaných</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="524"/>
+        <location filename="../sync.cpp" line="529"/>
         <source>Synchronisation complete</source>
         <translation>Synchronizácia dokončená</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="524"/>
+        <location filename="../sync.cpp" line="529"/>
         <source>%1 files %2</source>
         <translation>%1 súborov %2</translation>
     </message>
@@ -2256,12 +2272,12 @@
         <translation>%1<byte value="x9"/>Priečinok %2 vytvorený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1477"/>
+        <location filename="../sync.cpp" line="1450"/>
         <source>Clone</source>
         <translation>Klonovať</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1478"/>
+        <location filename="../sync.cpp" line="1451"/>
         <source>Clone folder 1</source>
         <translation>Klonovať priečinok 1</translation>
     </message>
@@ -2281,42 +2297,42 @@
         <translation>%1<byte value="x9"/>Synchronizácia neúspešná: Nie je zadaných dosť platných priečinkov</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1186"/>
+        <location filename="../sync.cpp" line="1159"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>Súbor a priečinok s rovnakým menom (%1) boli nájdené. Nemožno synchronizovať tieto súbory.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1177"/>
+        <location filename="../sync.cpp" line="1150"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Priečinok %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1193"/>
+        <location filename="../sync.cpp" line="1166"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Súbor %1 sa nachádza na čiernej listine, preskočený</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1235"/>
+        <location filename="../sync.cpp" line="1208"/>
         <source>Unknown error creating folder: %1</source>
         <translation>Neznáma chyba pri vytváraní priečinku: %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1310"/>
+        <location filename="../sync.cpp" line="1283"/>
         <source>file</source>
         <translation>súboru</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1310"/>
+        <location filename="../sync.cpp" line="1283"/>
         <source>copy</source>
         <translation>kopírovaní</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1300"/>
+        <location filename="../sync.cpp" line="1273"/>
         <source> to temp</source>
         <translation> do tempu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1313"/>
+        <location filename="../sync.cpp" line="1286"/>
         <source>File %1 restored</source>
         <translation>Súbor %1 obnovený</translation>
     </message>
@@ -2593,68 +2609,74 @@
     <message>
         <location filename="../sync.cpp" line="108"/>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>Stlačte tlačidlo &quot;Synchronizovať&quot; na spustenie synchronizácie</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="503"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>Premiestňujem</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1320"/>
+        <location filename="../sync.cpp" line="1293"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadám rozdiely</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="237"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Naposledy synchronizované %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1274"/>
+        <location filename="../sync.cpp" line="1247"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírujem súbor %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1295"/>
+        <location filename="../sync.cpp" line="1268"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizujem súbor %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Synkron</source>
-        <translation type="unfinished">Synkron</translation>
+        <translation>Synkron</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedá sa zapisovať do súboru %1:
+%2.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="229"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť povolený časový rozdiel</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="231"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmeniť povolený časový rozdiel medzi synchronizovanými súbormi</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="208"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať kolízie</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="209"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Hľadať a upozorniť na konfliktné súbory</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>Synchronizácia spustená</translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="520"/>
+        <source>%1 repeated temporary files deleted</source>
+        <translation>%1 opakujúcich sa dočasných súborov vymazaných</translation>
     </message>
 </context>
 <context>

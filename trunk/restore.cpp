@@ -538,3 +538,37 @@ void MainWindow::readTempSettings()
 {
     
 }
+
+int MainWindow::autoCleanTemp()
+{
+    QMap<QString, int> repeated_map;
+    //int deleted_files = 0;
+    QStringList to_be_deleted;
+    QStringList time_groups = temp_settings->childGroups();
+ 	for (int i = time_groups.count() - 1; i >= 0; --i) {
+        temp_settings->beginGroup(time_groups.at(i));
+        QStringList file_groups = temp_settings->childGroups();
+        for (int n = 0; n < file_groups.count(); ++n) {
+            temp_settings->beginGroup(file_groups.at(n));
+            int rep = repeated_map.value(temp_settings->value("old_file_path").toString(), 0);
+            if (rep >= restore_clean_auto_files->value()) {
+                //QMessageBox::information(this, "", temp_settings->value("old_file_path").toString());
+                if (!to_be_deleted.contains(temp_settings->value("temp_file_path").toString())) {
+                    to_be_deleted << temp_settings->value("temp_file_path").toString();
+                }
+                /*deleteTempFile(temp_settings->value("temp_file_path").toString());
+                deleted_files++;*/
+            } else {
+                repeated_map.insert(temp_settings->value("old_file_path").toString(), rep + 1);
+            }
+            temp_settings->endGroup();
+        }
+        temp_settings->endGroup();
+    }
+    //QMessageBox::information(this, "", temp_settings->value("temp_file_path").toString());
+    for (int i = 0; i < to_be_deleted.count(); ++i) {
+        deleteTempFile(to_be_deleted.at(i));
+    }
+    restore_list->clear();
+    return to_be_deleted.count();
+}

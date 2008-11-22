@@ -398,6 +398,11 @@ int MultisyncPage::sync()
         status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
         collided.clear();
 	}
+	int deleted_temp = 0;
+    if (mp_parent->restore_clean_auto_gb->isChecked()) deleted_temp = mp_parent->autoCleanTemp();
+    if (deleted_temp > 0) {
+        addTableItem(tr("%1 repeated temporary files deleted").arg(deleted_temp), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+    }
 	mp_parent->saveSettings();
 	syncing = false;
     setSyncEnabled(true); QApplication::restoreOverrideCursor();

@@ -311,13 +311,16 @@ void AbstractSyncPage::displayCollisions()
     for (int i = 0; i < collided.count(); ++i) {
         newer = new QCheckBox;
         newer->setText(collided.key(i));
+        newer->setToolTip(collided.key(i));
         older = new QCheckBox;
         older->setText(collided.value(i));
+        older->setToolTip(collided.value(i));
         new MTCheckBoxGroup(newer, older);
         dial_tw->insertRow(dial_tw->rowCount());
         dial_tw->setCellWidget(dial_tw->rowCount()-1, 0, newer);
         dial_tw->setCellWidget(dial_tw->rowCount()-1, 1, older);
     }
+    dial_tw->resizeRowsToContents();
     col_glayout->addWidget(dial_tw, 1, 0);
     QPushButton * ok_button = new QPushButton(dialogue);
     ok_button->setText(tr("OK"));
@@ -330,6 +333,7 @@ void AbstractSyncPage::displayCollisions()
     hbuttons->addWidget(ok_button);
     hbuttons->addWidget(cancel_button);
     col_glayout->addLayout(hbuttons, 2, 0);
+    dialogue->resize(500, 250);
     dialogue->show();
     switch (dialogue->exec()) {
 		case 0:
