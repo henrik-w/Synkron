@@ -514,6 +514,11 @@ int SyncPage::sync(MTStringSet sync_folders_set)
     }
     if (alert_collisions->isChecked() && collided.count()) displayCollisions();
     if (propagate_deletions->isChecked()) saveAllFolderDatabases();
+    int deleted_temp = 0;
+    if (mp_parent->restore_clean_auto_gb->isChecked()) deleted_temp = mp_parent->autoCleanTemp();
+    if (deleted_temp > 0) {
+        addTableItem(tr("%1 repeated temporary files deleted").arg(deleted_temp), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+    }
     bool manually_stopped = !syncing;
     extensions.clear();
 	setSyncEnabled(true);
@@ -558,196 +563,163 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             }
         }
     }
-	QFileInfoList d1_entries; QFileInfoList d2_entries;
+	QFileInfoList d1_entries;
 	if (extensions.count()==0) {
 		d1_entries = d1.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
-    	d2_entries = d2.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
 	} else {
 		d1_entries = d1.entryInfoList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
-    	d2_entries = d2.entryInfoList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
 	}
 	bool d1_is_d1 = true;
 	if (!d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive)) d1_is_d1 = false;
-    QString buffer;
-    bool found = false; MTFile * file; QDir * temp = new QDir (mp_parent->temp_path);
+    MTFile * file; QDir * temp = new QDir (mp_parent->temp_path);
     for (int i = 0; i < d1_entries.count(); ++i) {
-		if (!syncing) return;
+		bool bl = false;
+        if (!syncing) return;
 		if (d1_entries.at(i).fileName() == ".synkron.syncdb") continue;
-		found = false;
         if (!ignore_blacklist->isChecked()) {
             for (int e = 0; e < exts_blacklist.count(); ++e) {
                 if (d1_entries.at(i).absoluteFilePath().endsWith(exts_blacklist.at(e))) {
                     //addTableItem(tr("File %1 blacklisted, skipped").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
                     exts_bl_map.insert(exts_blacklist.at(e), exts_bl_map.value(exts_blacklist.at(e), 0) + 1);
-                    found = true;
+                    bl = true;
                     break;
                 }
             }
-            if (found) continue;
+            if (bl) continue;
 		    if (d1_entries.at(i).isDir()) {
-		    	/*if (folders_blacklist.contains(d1_entries.at(i).absoluteFilePath(), Qt::CaseInsensitive)) {
-		    		addTableItem(tr("Folder %1 blacklisted, skipped").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-		    		continue;
-		    	}*/
 		    	for (int b = 0; b < folders_blacklist.count(); ++b) {
                     if (QRegExp(folders_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d1_entries.at(i).absoluteFilePath())) {
                         addTableItem(tr("Folder %1 blacklisted, skipped").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-		    		    found = true;
+		    		    bl = true;
                         break;
                     }
-                } if (found) continue;
+                } if (bl) continue;
 		    } else {
-		    	/*if (files_blacklist.contains(d1_entries.at(i).absoluteFilePath(), Qt::CaseInsensitive)) {
-		    		addTableItem(tr("File %1 blacklisted, skipped").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-		    		continue;
-		    	}*/
 		    	for (int b = 0; b < files_blacklist.count(); ++b) {
                     if (QRegExp(files_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d1_entries.at(i).absoluteFilePath())) {
                         addTableItem(tr("File %1 blacklisted, skipped").arg(d1_entries.at(i).absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkGray), QBrush(Qt::white));
-		    		    found = true;
+		    		    bl = true;
                         break;
                     }
-                } if (found) continue;
+                } if (bl) continue;
 		    }
 		}
-        for (int n = 0; n < d2_entries.count(); ++n) {
-        	if (!syncing) return;
-        	if (d1_entries.at(i).fileName() == d2_entries.at(n).fileName()) {
-				found = true; if (repeated) continue;
-				if (!ignore_blacklist->isChecked()) {
-				    if (d2_entries.at(n).isDir()) {
-					    /*if (folders_blacklist.contains(d2_entries.at(n).absoluteFilePath(), Qt::CaseInsensitive)) {
-					    	continue;
-					    }*/
-					    for (int b = 0; b < folders_blacklist.count(); ++b) {
-                            if (QRegExp(folders_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d2_entries.at(n).absoluteFilePath())) {
-                                found = false;
-                                break;
-                            }
-                        } if (!found) continue;
-				    } else {
-				    	/*if (files_blacklist.contains(d2_entries.at(n).absoluteFilePath(), Qt::CaseInsensitive)) {
-				    		continue;
-				    	}*/
-				    	for (int b = 0; b < files_blacklist.count(); ++b) {
-                            if (QRegExp(files_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d2_entries.at(n).absoluteFilePath())) {
-                                found = false;
-                                break;
-                            }
-                        } if (!found) continue;
-				    	/*for (int e = 0; e < exts_blacklist.count(); ++e) {
-                            if (d2_entries.at(n).absoluteFilePath().endsWith(exts_blacklist.at(e))) {
-                                exts_bl_map.insert(exts_blacklist.at(e), exts_bl_map.value(exts_blacklist.at(e), 0) + 1);
-                                continue;
-                            }
-                        }*/
-				    }
-				}
-				if (d1_entries.at(i).isDir() && d2_entries.at(n).isDir()) {
-					if (d2_entries.at(n).isSymLink() || d1_entries.at(i).isSymLink()) {
-						if (followSymlinks()) {
-							QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
-                			QDir subDir2 (d2_entries.at(n).isSymLink() ? d2_entries.at(n).symLinkTarget() : d2_entries.at(n).absoluteFilePath());
-                			subSync(subDir1, subDir2, false);
-							continue;
-						} else if (!d1_entries.at(i).isSymLink() || !d2_entries.at(n).isSymLink()) {
-							if (!repeated) {
-								addTableItem(tr("A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "",
-								    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
-                   			}
-                    		continue;
-						}
-					}
-					else {
-						if (repeated) continue;
-						QDir subDir1 (d1_entries.at(i).absoluteFilePath());
-                		QDir subDir2 (d2_entries.at(n).absoluteFilePath());
-                		subSync(subDir1, subDir2, false);
-                		continue;
-					}
-            	}
-            	if ((d1_entries.at(i).isDir() && !d2_entries.at(n).isDir())) {
-                	if (!repeated) {
-						addTableItem(tr("A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "",
-						    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
-                    }
-                    continue;
-            	}
-                else if ((d2_entries.at(n).isDir() && !d1_entries.at(i).isDir())) {
-               	    if (!repeated) {
-					    addTableItem(tr("A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "",
-						    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
-                    }
-                    continue;
-            	}
-            	else {
-                    int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(MTFileInfo(d2_entries.at(n)).lastModified(), allowed_difference);
-                    if (compared_dates != 0) { // d1_entries.at(i) is different than d2_entries.at(n)
-                        MTFileInfo old_fi; MTFileInfo new_fi;
-                        if (clone_folder1->isChecked()) {
-                            if (d1_is_d1) {
-                                old_fi = d2_entries.at(n);
-                                new_fi = d1_entries.at(i);
-                            } else {
-                                new_fi = d2_entries.at(n);
-                                old_fi = d1_entries.at(i);
-                            }
-                        } else {
-                            if (alert_collisions->isChecked()) {
-                                if (checkForCollision(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath())) {
-                                    if (compared_dates > 0) collided.insertByValue(d1_entries.at(i).absoluteFilePath(), d2_entries.at(n).absoluteFilePath());
-                                    else collided.insertByValue(d2_entries.at(n).absoluteFilePath(), d1_entries.at(i).absoluteFilePath());
-                                    continue;
-                                }
-                            }
-                            if (compared_dates < 0) { // d1_entries.at(i) is older than d2_entries.at(n)
-                                new_fi = d2_entries.at(n);
-                                old_fi = d1_entries.at(i);
-                            } else {
-                                old_fi = d2_entries.at(n);
-                                new_fi = d1_entries.at(i);
-                            }
+        if (!syncing) return;
+
+        QString d2_file_path = QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName());
+        MTFileInfo d2_info(d2_file_path);
+        if (d2_info.exists()) { // *** Exists in D2 ***
+            if (repeated) continue;
+            bl= false;
+			if (!ignore_blacklist->isChecked()) {
+			    if (d2_info.isDir()) {
+				    for (int b = 0; b < folders_blacklist.count(); ++b) {
+                        if (QRegExp(folders_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d2_info.absoluteFilePath())) {
+                            bl = true;
+                            break;
                         }
-                        status_table_item->setText(tr("Updating file %1").arg(old_fi.absoluteFilePath())); qApp->processEvents();
-                        file = new MTFile (old_fi.absoluteFilePath(), qApp);
-                        bool skipped_temp = false;
-                        bool old_fi_is_d1 = old_fi.absoluteFilePath().startsWith(syncFolder1Text(), Qt::CaseInsensitive);
-                        if (backup_folder_1->isChecked() && old_fi_is_d1) { goto copying; skipped_temp = true; }
-                        else if (backup_folder_2->isChecked() && !old_fi_is_d1) { goto copying; skipped_temp = true; }
-    					temp->mkdir(QString(update_time));
-                        if (!(file->copy(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(old_fi.fileName()).arg(synced_files)))) {
-                           unknownError(old_fi.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                    } if (bl) continue;
+                } else {
+                    for (int b = 0; b < files_blacklist.count(); ++b) {
+                        if (QRegExp(files_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(d2_info.absoluteFilePath())) {
+                            bl = true;
+                            break;
                         }
-                        saveBackedUpFile(old_fi);
-                        copying:
-                        file->remove();
-                        delete file;
-                        file = new MTFile (new_fi.absoluteFilePath());
-                        if (!file->copy(old_fi.absoluteFilePath())) {
-                           unknownError(new_fi.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file;
-                            if (!skipped_temp) {
-                                if (mp_parent->restoreFile(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(old_fi.fileName()).arg(synced_files),
-                                        old_fi.absoluteFilePath(), update_time)) {
-                                    addTableItem(tr("File %1 restored").arg(old_fi.absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
-                                }
-                            } continue;
-                        }
-                        addTableItem(new_fi.absoluteFilePath(), old_fi.absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
-                        status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
-                        synced_files++; delete file;
+                    } if (bl) continue;
+                }
+            }
+            if (d1_entries.at(i).isDir() && d2_info.isDir()) {
+                if (d2_info.isSymLink() || d1_entries.at(i).isSymLink()) {
+                    if (followSymlinks()) {
+                        QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
+                        QDir subDir2 (d2_info.isSymLink() ? d2_info.symLinkTarget() : d2_info.absoluteFilePath());
+                        subSync(subDir1, subDir2, false);
+                        continue;
+                    } else if (!d1_entries.at(i).isSymLink() || !d2_info.isSymLink()) {
+                        addTableItem(tr("A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)").arg(d1_entries.at(i).fileName()).arg(d2_info.fileName()), "",
+                            QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+                        continue;
                     }
                 }
-                break;
+                else {
+                    QDir subDir1 (d1_entries.at(i).absoluteFilePath());
+                    QDir subDir2 (d2_info.absoluteFilePath());
+                    subSync(subDir1, subDir2, false);
+                    continue;
+                }
             }
-        }
-
-        if (found == false) {
-            if (!syncing) return;
+            if ((d1_entries.at(i).isDir() && !d2_info.isDir())) {
+                addTableItem(tr("A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.").arg(d1_entries.at(i).fileName()).arg(d2_info.fileName()), "",
+                    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+                continue;
+            }
+            else if ((d2_info.isDir() && !d1_entries.at(i).isDir())) {
+                addTableItem(tr("A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.").arg(d1_entries.at(i).fileName()).arg(d2_info.fileName()), "",
+                    QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+                continue;
+            }
+            else {
+                int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(d2_info.lastModified(), allowed_difference);
+                if (compared_dates != 0) { // d1_entries.at(i) is different than d2_info
+                    MTFileInfo old_fi; MTFileInfo new_fi;
+                    if (clone_folder1->isChecked()) {
+                        if (d1_is_d1) {
+                            old_fi = d2_info;
+                            new_fi = d1_entries.at(i);
+                        } else {
+                            new_fi = d2_info;
+                            old_fi = d1_entries.at(i);
+                        }
+                    } else {
+                        if (alert_collisions->isChecked()) {
+                            if (checkForCollision(d1_entries.at(i).absoluteFilePath(), d2_info.absoluteFilePath())) {
+                                if (compared_dates > 0) collided.insertByValue(d1_entries.at(i).absoluteFilePath(), d2_info.absoluteFilePath());
+                                else collided.insertByValue(d2_info.absoluteFilePath(), d1_entries.at(i).absoluteFilePath());
+                                continue;
+                            }
+                        }
+                        if (compared_dates < 0) { // d1_entries.at(i) is older than d2_info
+                            new_fi = d2_info;
+                            old_fi = d1_entries.at(i);
+                        } else {
+                            old_fi = d2_info;
+                            new_fi = d1_entries.at(i);
+                        }
+                    }
+                    status_table_item->setText(tr("Updating file %1").arg(old_fi.absoluteFilePath())); qApp->processEvents();
+                    file = new MTFile (old_fi.absoluteFilePath(), qApp);
+                    bool skipped_temp = false;
+                    bool old_fi_is_d1 = old_fi.absoluteFilePath().startsWith(syncFolder1Text(), Qt::CaseInsensitive);
+                    if (backup_folder_1->isChecked() && old_fi_is_d1) { goto copying; skipped_temp = true; }
+                    else if (backup_folder_2->isChecked() && !old_fi_is_d1) { goto copying; skipped_temp = true; }
+                    temp->mkdir(QString(update_time));
+                    if (!(file->copy(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(old_fi.fileName()).arg(synced_files)))) {
+                        unknownError(old_fi.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp")); delete file; continue;
+                    }
+                    saveBackedUpFile(old_fi);
+                    copying:
+                    file->remove();
+                    delete file;
+                    file = new MTFile (new_fi.absoluteFilePath());
+                    if (!file->copy(old_fi.absoluteFilePath())) {
+                        unknownError(new_fi.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file;
+                        if (!skipped_temp) {
+                            if (mp_parent->restoreFile(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(old_fi.fileName()).arg(synced_files),
+                                    old_fi.absoluteFilePath(), update_time)) {
+                                addTableItem(tr("File %1 restored").arg(old_fi.absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
+                            }
+                        } continue;
+                    }
+                    addTableItem(new_fi.absoluteFilePath(), old_fi.absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/file.png"));
+                    status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
+                    synced_files++; delete file;
+                }
+            }
+        } 
+        else { // *** does not exist in D2 ***
             bool symfound = false;
-            buffer.clear();
-            buffer = QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName());
             if (propagate_deletions->isChecked()) {
-                if (isInDatabase(buffer)) {
+                if (isInDatabase(d2_file_path)) {
                     if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
                         if ((backup_folder_1->isChecked() && d1_is_d1) || (backup_folder_2->isChecked() && !d1_is_d1)) {
                             backupAndRemoveDir(d1_entries.at(i).absoluteFilePath(), false);
@@ -781,8 +753,8 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                 }
                 continue;
             }
-            if (update_only_1->isChecked() && !d1_is_d1/*QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(syncFolder1Text())*/) goto end;
-            if (update_only_2->isChecked() && d1_is_d1/*QString("%1/%2").arg(d2.path()).arg(d1_entries.at(i).fileName()).startsWith(syncFolder2Text())*/) goto end;
+            if (update_only_1->isChecked() && !d1_is_d1) goto end;
+            if (update_only_2->isChecked() && d1_is_d1) goto end;
             file = new MTFile (d1_entries.at(i).absoluteFilePath());
             if (d1_entries.at(i).isDir()) {
                 if (!d1_entries.at(i).isSymLink() || (d1_entries.at(i).isSymLink() && followSymlinks())) {
@@ -791,18 +763,18 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                 	}
                 	QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
                 	QDir subDir2 (QString("%1/%2").arg(d2.absolutePath()).arg(d1_entries.at(i).fileName()));
-                	addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
+                	addTableItem(d1_entries.at(i).absoluteFilePath(), d2_file_path, QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
 					subSync(subDir1, subDir2, true);
 				} else if (d1_entries.at(i).isSymLink() && !followSymlinks()) symfound = true;
 			}
             if (!d1_entries.at(i).isDir() || symfound)
 			{
 				status_table_item->setText(tr("Copying file %1").arg(d1_entries.at(i).absoluteFilePath())); qApp->processEvents();
-                if (!file->copy(buffer)) {
+                if (!file->copy(d2_file_path)) {
                 	unknownError(d1_entries.at(i).absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png"); delete file; continue;
          		}
          		else {
-					addTableItem(d1_entries.at(i).absoluteFilePath(), buffer, QString::fromUtf8(":/new/prefix1/images/file.png"));
+					addTableItem(d1_entries.at(i).absoluteFilePath(), d2_file_path, QString::fromUtf8(":/new/prefix1/images/file.png"));
             	}
                 status_table_item->setText(tr("Searching for changes")); qApp->processEvents();
             }
@@ -810,7 +782,8 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             end: synced_files = synced_files;
         }
     }
-    if (!repeated) {
+
+    if (!repeated && syncing) {
         subSync (d2, d1, true);
     }
     delete temp;

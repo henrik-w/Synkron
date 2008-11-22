@@ -136,6 +136,8 @@ void MainWindow::saveSettings()
     sync_settings->setValue("restore_clean_repeated", restore_clean_repeated->isChecked());
     sync_settings->setValue("restore_clean_date", restore_clean_date->value());
     sync_settings->setValue("restore_clean_files", restore_clean_files->value());
+    sync_settings->setValue("restore_clean_auto_gb", restore_clean_auto_gb->isChecked());
+    sync_settings->setValue("restore_clean_auto_files", restore_clean_auto_files->value());
     sync_settings->setValue("files_blacklist", files_blacklist);
     sync_settings->setValue("folders_blacklist", folders_blacklist);
     sync_settings->setValue("exts_blacklist", exts_blacklist);
@@ -334,6 +336,8 @@ void MainWindow::readSettings()
     restore_clean_repeated->setChecked(sync_settings->value("restore_clean_repeated").toBool());
     restore_clean_date->setValue(sync_settings->value("restore_clean_date", 7).toInt());
     restore_clean_files->setValue(sync_settings->value("restore_clean_files", 3).toInt());
+    restore_clean_auto_gb->setChecked(sync_settings->value("restore_clean_auto_gb", true).toBool());
+    restore_clean_auto_files->setValue(sync_settings->value("restore_clean_auto_files", 3).toInt());
     files_blacklist = sync_settings->value("files_blacklist").toStringList();
 	folders_blacklist = sync_settings->value("folders_blacklist").toStringList();
 	exts_blacklist = sync_settings->value("exts_blacklist").toStringList();

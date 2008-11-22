@@ -172,6 +172,7 @@ private slots:
     void loadTempSettings();
     void readTempSettings();
     void convertOldTempSettings(QStringList);
+    int autoCleanTemp();
     
 // Blacklist
 	void addToBlackList(int);
