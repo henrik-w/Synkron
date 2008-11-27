@@ -368,7 +368,9 @@ void AbstractSyncPage::propagatedStateChanged(bool checked)
 void AbstractSyncPage::propagatedClicked(bool checked)
 {
     if (checked) {
-        saveAllFolderDatabases();
+        if (!alert_collisions->isChecked() || !propagate_deletions->isChecked()) {
+            saveAllFolderDatabases();
+        }
     } else {
         if (!alert_collisions->isChecked() && !propagate_deletions->isChecked()) {
             deleteAllFolderDatabases();

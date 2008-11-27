@@ -189,10 +189,13 @@ void SyncPage::analyseFolders()
     parent_item->setCheckState(0, Qt::Checked);
     if (ignore_blacklist->isChecked()) parent_item->setDisabled(true);
     parent_item->setExpanded(true);
+    synced_files = 0;
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     subAnalyse(folders_set, parent_item);
     //subCheckExpanded(parent_item);
+    parent_item->setText(0, tr("Root directory") + " - " + tr("%1 files and folders need to be synchronised").arg(synced_files));
     QApplication::restoreOverrideCursor();
+    synced_files = 0;
     syncing = false;
 }
 
@@ -307,9 +310,10 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             }
         }
         if (newest_indices.count() != 0) { //If is not dir ---------------------
-            if (newest_indices.count() != s_folders_list.count()) {
+            if (!blacklisted && (newest_indices.count() != s_folders_list.count())) {
                 sub_special = true;
-                if (!blacklisted) child_item->setIcon(0, QIcon(":/new/prefix1/images/file_red.png"));
+                child_item->setIcon(0, QIcon(":/new/prefix1/images/file_red.png"));
+                synced_files += s_folders_list.count() - newest_indices.count();
             } else {
                 if (analyse_special_only->isChecked()) {
                     delete child_item;
@@ -322,6 +326,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             }
         } else if (sub_special && !blacklisted) {
             child_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16_red.png"));
+            synced_files++;
         }
         if (conflicted_indices.count() > 1) {
             for (int ind = 0; ind < conflicted_indices.count(); ++ind) {
@@ -351,6 +356,10 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                 sub_special = false;
             } else {
                 if (subAnalyse(child_folders_set, child_item)) sub_special = true;
+                else if (analyse_special_only->isChecked() && child_item->childCount() == 0) {
+                    delete child_item;
+                    continue;
+                }
             }
         }
         if (blacklisted) sub_special = false;
@@ -410,7 +419,7 @@ void AbstractSyncPage::analyseTreeItemClicked(QTreeWidgetItem * item, int column
     if (was_checked == is_checked) return;
     QStringList data0;
     data0 << item->data(0, Qt::UserRole).toStringList().at(0);
-    //data0 <<Â (is_checked ? "checked" : "unchecked");
+    //data0 <<Â (is_checked ? "checked" : "unchecked");
     if (is_checked) data0 << "checked";
     else data0 << "unchecked";
     item->setData(0, Qt::UserRole, QVariant(data0));

@@ -296,82 +296,82 @@
         <translation>Не могу записать файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="249"/>
+        <location filename="../analyse.cpp" line="252"/>
         <source>DELETED</source>
         <translation>УДАЛЕНО</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="254"/>
+        <location filename="../analyse.cpp" line="257"/>
         <source>NOT FOUND</source>
         <translation>НЕ НАЙДЕНО</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="379"/>
+        <location filename="../analyse.cpp" line="388"/>
         <source>Loading...</source>
         <translation>Загрузка...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="572"/>
+        <location filename="../analyse.cpp" line="581"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="581"/>
+        <location filename="../analyse.cpp" line="590"/>
         <source>Sync</source>
         <translation>Синхронизация</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="587"/>
+        <location filename="../analyse.cpp" line="596"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="591"/>
+        <location filename="../analyse.cpp" line="600"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="597"/>
+        <location filename="../analyse.cpp" line="606"/>
         <source>Add to blacklist</source>
         <translation>Добавить в список исключений</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="599"/>
+        <location filename="../analyse.cpp" line="608"/>
         <source>Remove from blacklist</source>
         <translation>Удалить из исключений</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="605"/>
+        <location filename="../analyse.cpp" line="614"/>
         <source>Add extension to blacklist</source>
         <translation>Добавить расширение в исключения</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="706"/>
+        <location filename="../analyse.cpp" line="715"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>Вы точно хотите удалить &quot;%1&quot; из каждого синхронизированного расположения?</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Переименование файла</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Введите новое имя для &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="772"/>
+        <location filename="../analyse.cpp" line="781"/>
         <source>Error renaming directory %1</source>
         <translation>Ошибка переименования каталога %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
+        <location filename="../analyse.cpp" line="790"/>
         <source>File %1 renamed</source>
         <translation>Файл %1 переименован</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="779"/>
+        <location filename="../analyse.cpp" line="788"/>
         <source>Error renaming file %1</source>
         <translation>Ошибка переименования файла %1</translation>
     </message>
@@ -416,17 +416,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="281"/>
+        <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="323"/>
+        <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="328"/>
+        <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,7 +456,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="326"/>
+        <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
         <translation type="unfinished">Отмена</translation>
     </message>
@@ -2312,7 +2312,7 @@
         <translation>&lt;b&gt;Отчет:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="182"/>
+        <location filename="../analyse.cpp" line="196"/>
         <source>Root directory</source>
         <translation>Корневой каталог</translation>
     </message>
@@ -2472,12 +2472,12 @@
         <translation>Анализ</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="672"/>
+        <location filename="../analyse.cpp" line="681"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1 Ошибка создания каталога %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="675"/>
+        <location filename="../analyse.cpp" line="684"/>
         <source>%1 Directory %2 created</source>
         <translation>%1 Каталог %2 создан</translation>
     </message>
@@ -2556,6 +2556,11 @@
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="196"/>
+        <source>%1 files and folders need to be synchronised</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -296,82 +296,82 @@
         <translation>ファイル %1 を書き込めません: %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="249"/>
+        <location filename="../analyse.cpp" line="252"/>
         <source>DELETED</source>
         <translation>削除されました</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="254"/>
+        <location filename="../analyse.cpp" line="257"/>
         <source>NOT FOUND</source>
         <translation>見つかりません</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="379"/>
+        <location filename="../analyse.cpp" line="388"/>
         <source>Loading...</source>
         <translation>読み込み中...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="572"/>
+        <location filename="../analyse.cpp" line="581"/>
         <source>Open</source>
         <translation>開く</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="581"/>
+        <location filename="../analyse.cpp" line="590"/>
         <source>Sync</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="587"/>
+        <location filename="../analyse.cpp" line="596"/>
         <source>Delete</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="591"/>
+        <location filename="../analyse.cpp" line="600"/>
         <source>Rename</source>
         <translation>名前の変更</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="597"/>
+        <location filename="../analyse.cpp" line="606"/>
         <source>Add to blacklist</source>
         <translation>ブラックリストに追加</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="599"/>
+        <location filename="../analyse.cpp" line="608"/>
         <source>Remove from blacklist</source>
         <translation>ブラックリストから削除</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="605"/>
+        <location filename="../analyse.cpp" line="614"/>
         <source>Add extension to blacklist</source>
         <translation>拡張子をブラックリストに追加します</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="706"/>
+        <location filename="../analyse.cpp" line="715"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>すべての同期化された場所から &quot;%1&quot; を削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - ファイルの名前の変更</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>&quot;%1&quot; の新しい名前を入力します:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="772"/>
+        <location filename="../analyse.cpp" line="781"/>
         <source>Error renaming directory %1</source>
         <translation>ディレクトリ %1 の名前の変更エラーです</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
+        <location filename="../analyse.cpp" line="790"/>
         <source>File %1 renamed</source>
         <translation>ファイル %1 の名前が変更されました</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="779"/>
+        <location filename="../analyse.cpp" line="788"/>
         <source>Error renaming file %1</source>
         <translation>ファイル %1 の名前の変更エラーです</translation>
     </message>
@@ -416,17 +416,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="281"/>
+        <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="323"/>
+        <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
         <translation type="unfinished">OK</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="328"/>
+        <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,7 +456,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="326"/>
+        <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
         <translation type="unfinished">キャンセル</translation>
     </message>
@@ -2359,7 +2359,7 @@
         <translation>&lt;b&gt;同期化ログ:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="182"/>
+        <location filename="../analyse.cpp" line="196"/>
         <source>Root directory</source>
         <translation>ルート ディレクトリ</translation>
     </message>
@@ -2594,12 +2594,12 @@
         <translation>解析</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="672"/>
+        <location filename="../analyse.cpp" line="681"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1 ディレクトリ %2 の作成に失敗しました</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="675"/>
+        <location filename="../analyse.cpp" line="684"/>
         <source>%1 Directory %2 created</source>
         <translation>%1 ディレクトリ %2 が作成されました</translation>
     </message>
@@ -2678,6 +2678,11 @@
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="196"/>
+        <source>%1 files and folders need to be synchronised</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

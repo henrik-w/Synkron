@@ -61,82 +61,82 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../analyse.cpp" line="249"/>
+        <location filename="../analyse.cpp" line="252"/>
         <source>DELETED</source>
         <translation>CANCELLATO</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="254"/>
+        <location filename="../analyse.cpp" line="257"/>
         <source>NOT FOUND</source>
         <translation>NON TROVATO</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="379"/>
+        <location filename="../analyse.cpp" line="388"/>
         <source>Loading...</source>
         <translation>Caricamento...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="572"/>
+        <location filename="../analyse.cpp" line="581"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="581"/>
+        <location filename="../analyse.cpp" line="590"/>
         <source>Sync</source>
         <translation>Sincronizza</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="587"/>
+        <location filename="../analyse.cpp" line="596"/>
         <source>Delete</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="591"/>
+        <location filename="../analyse.cpp" line="600"/>
         <source>Rename</source>
         <translation>Rinomina</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="597"/>
+        <location filename="../analyse.cpp" line="606"/>
         <source>Add to blacklist</source>
         <translation>Aggiungi alla Blacklist</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="599"/>
+        <location filename="../analyse.cpp" line="608"/>
         <source>Remove from blacklist</source>
         <translation>Rimuovi dalla Blacklist</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="605"/>
+        <location filename="../analyse.cpp" line="614"/>
         <source>Add extension to blacklist</source>
         <translation>Aggiungi estensione alla blacklist</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="706"/>
+        <location filename="../analyse.cpp" line="715"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>Sei sicuro di voleri rimuovere  &quot;%1&quot; da ogni locazione sincronizzata?</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Rinomina file</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="760"/>
+        <location filename="../analyse.cpp" line="769"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Scrivi un nuovo nome per &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="772"/>
+        <location filename="../analyse.cpp" line="781"/>
         <source>Error renaming directory %1</source>
         <translation>Errore di rinominazione directory %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
+        <location filename="../analyse.cpp" line="790"/>
         <source>File %1 renamed</source>
         <translation>File %1 rinominato</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="779"/>
+        <location filename="../analyse.cpp" line="788"/>
         <source>Error renaming file %1</source>
         <translation>Errore ridenominazione file %1</translation>
     </message>
@@ -416,17 +416,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="281"/>
+        <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="323"/>
+        <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
         <translation type="unfinished">OK</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="328"/>
+        <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,7 +456,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="326"/>
+        <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
         <translation type="unfinished">Cancella</translation>
     </message>
@@ -2249,17 +2249,17 @@
         <translation>&lt;b&gt;Sync log:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="182"/>
+        <location filename="../analyse.cpp" line="196"/>
         <source>Root directory</source>
         <translation>Directory radice</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="672"/>
+        <location filename="../analyse.cpp" line="681"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1 Creazione directory fallita %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="675"/>
+        <location filename="../analyse.cpp" line="684"/>
         <source>%1 Directory %2 created</source>
         <translation>%1 Directory %2 creata</translation>
     </message>
@@ -2607,6 +2607,11 @@
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="196"/>
+        <source>%1 files and folders need to be synchronised</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
