@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -408,62 +409,62 @@
     <message>
         <location filename="../other.cpp" line="37"/>
         <source>Enter allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите допустимую разницу во времени</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="38"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>Допустимая разница во времени (сек.):</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>УСТАРЕВШЕЕ</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
-        <translation type="unfinished"></translation>
+        <translation>КОЛЛИЗИЯ</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="266"/>
         <source>Collision found between files: %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдена коллизия файлов: %1 и %2</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="298"/>
         <source>Collisions found</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдены коллизии</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="302"/>
         <source>Collided files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Коллизирующие файлы:</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Newer files</source>
-        <translation type="unfinished"></translation>
+        <translation>Новые файлы</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Older files</source>
-        <translation type="unfinished"></translation>
+        <translation>Старые файлы</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../syncpage.h" line="178"/>
         <source>Stopping synchronisation, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Останавливается синхронизация, подождите...</translation>
     </message>
 </context>
 <context>
@@ -522,11 +523,6 @@
         <translation>Польский</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
-        <source>Chinese</source>
-        <translation type="obsolete">Китайский</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="99"/>
         <source>Italian</source>
         <translation>Итальянский</translation>
@@ -575,7 +571,7 @@
     <message>
         <location filename="../mtpathdialogue.h" line="61"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="65"/>
@@ -590,11 +586,6 @@
 </context>
 <context>
     <name>MainWindow</name>
-    <message>
-        <location filename="../blacklist.cpp" line="395"/>
-        <source>Choose a file</source>
-        <translation type="obsolete">Выбор файла</translation>
-    </message>
     <message>
         <location filename="../tabs.cpp" line="75"/>
         <source>Synkron</source>
@@ -1663,31 +1654,6 @@
         <translation>Синхронизировать все закладки при запуске</translation>
     </message>
     <message>
-        <location filename="../blacklist.cpp" line="369"/>
-        <source>Enter file path</source>
-        <translation type="obsolete">Введите путь файла</translation>
-    </message>
-    <message>
-        <location filename="../blacklist.cpp" line="369"/>
-        <source>Enter folder path</source>
-        <translation type="obsolete">Введите путь каталога</translation>
-    </message>
-    <message>
-        <location filename="../blacklist.cpp" line="373"/>
-        <source>Enter file path:</source>
-        <translation type="obsolete">Введите путь файла:</translation>
-    </message>
-    <message>
-        <location filename="../blacklist.cpp" line="373"/>
-        <source>Enter folder path:</source>
-        <translation type="obsolete">Введите путь каталога:</translation>
-    </message>
-    <message>
-        <location filename="../blacklist.cpp" line="385"/>
-        <source>Browse</source>
-        <translation type="obsolete">Обзор</translation>
-    </message>
-    <message>
         <location filename="../restore.cpp" line="308"/>
         <source>%1 files deleted.</source>
         <translation>Файл %1 удален.</translation>
@@ -1737,17 +1703,17 @@
     <message>
         <location filename="../main_window.ui" line="1645"/>
         <source>Change temporary folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить временный путь каталога</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="248"/>
         <source>Clean temporary files automatically after each sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически очисить временные файлы после каждого синка</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="260"/>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>Держивать</translation>
     </message>
 </context>
 <context>
@@ -2115,37 +2081,37 @@
     <message>
         <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить допустимую разницу во времени</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить допустимую разницу во времени между синхронизируемыми файлами</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="90"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдена коллизия</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="91"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="174"/>
         <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Другое:&lt;/b</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="404"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалено повторяющихся временных файлов: %1</translation>
     </message>
 </context>
 <context>
@@ -2531,37 +2497,37 @@
     <message>
         <location filename="../sync.cpp" line="229"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить допустимую разницу во времени</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="231"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Сменить допустимую разницу во времени между синхронизируемыми файлами</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="208"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдена коллизии</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="209"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалено повторяющихся временных файлов: %1</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="196"/>
         <source>%1 files and folders need to be synchronised</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталогов, требующих синхронизации: %1</translation>
     </message>
 </context>
 <context>
