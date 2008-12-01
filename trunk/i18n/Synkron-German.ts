@@ -1894,7 +1894,7 @@
     <message>
         <location filename="../multisync.cpp" line="86"/>
         <source>Ignore blacklist</source>
-        <translation>ausgeklammerten Dateien ignorieren</translation>
+        <translation>Ausgeklammerten Dateien ignorieren</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="112"/>
@@ -2188,7 +2188,7 @@
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished">%1 Synchronisation gestartet</translation>
+        <translation>%1<byte value="x9"/>Synchronisation gestartet</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="404"/>
@@ -2674,7 +2674,7 @@
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished">%1 Synchronisation gestartet</translation>
+        <translation>%1<byte value="x9"/>Synchronisation gestartet</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="520"/>
