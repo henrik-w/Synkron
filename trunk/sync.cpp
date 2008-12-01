@@ -1514,7 +1514,7 @@ void AbstractSyncPage::saveBackedUpFile(QFileInfo file_info)
     mp_parent->temp_settings->endGroup();
 }
 
-void AbstractSyncPage::copyFile(QString source_str, QString dest_str)
+void AbstractSyncPage::copyFile(QString source_str, QString dest_str, bool touch)
 {
     QString status_text = status_table_item->text();
     QFileInfo source_info(source_str);
@@ -1522,6 +1522,9 @@ void AbstractSyncPage::copyFile(QString source_str, QString dest_str)
     status_table_item->setText(tr("Updating file %1").arg(dest_str)); qApp->processEvents();
     MTFile source_file(source_str, qApp);
     MTFile dest_file(dest_str, qApp);
+    if (touch) {
+        source_file.touch(qApp);
+    }
     bool skipped_temp = false;
     if (backupFolders()) { skipped_temp = true; }
     else {

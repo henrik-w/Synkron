@@ -146,7 +146,7 @@ void MainWindow::saveSettings()
     sync_settings->setValue("current_multitab", multi_tabWidget->currentIndex());
     sync_settings->setValue("disable_tray_messages", actionDisable_tray_messages->isChecked());
     sync_settings->setValue("sync_at_launch", actionSync_at_launch->isChecked());
-    sync_settings->setValue("temp_path", temp_path);
+    sync_settings->setValue("temp_path", raw_temp_path);
 #ifdef Q_WS_WIN
     sync_settings->setValue("shut_down_after_sync", actionShut_down_after_sync->isChecked());
 #endif
@@ -432,7 +432,9 @@ void MainWindow::readSettings()
     actionShut_down_after_sync->setChecked(sync_settings->value("shut_down_after_sync").toBool());
 #endif
 	actionQuit_after_sync->setChecked(sync_settings->value("quit_after_sync").toBool());
-	temp_path = sync_settings->value("temp_path", temp_path).toString();
+	raw_temp_path = sync_settings->value("temp_path", temp_path).toString();
+    QDir dir (raw_temp_path);
+    temp_path = dir.absolutePath();
 	QStringList schedules = sync_settings->value("schedules").toStringList(); QString schedule;
 	SyncSchedule * sync_sched = 0;
 	for (int i = 0; i < schedules.count(); ++i) {

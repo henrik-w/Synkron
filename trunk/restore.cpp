@@ -143,8 +143,8 @@ bool MainWindow::restoreFile(QString file_path, QString old_file_path, QString g
 	}
     delete file; delete old_file;
     QFileInfo info(file_path);
-	QDir dir = info.dir();
-	QString dirname = dir.dirName();
+        QDir dir = info.dir();
+        QString dirname = dir.dirName();
 	dir.cdUp();
 	dir.rmdir(dirname);
 	//restored[restored_items] = restore_list->row(item);

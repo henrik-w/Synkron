@@ -25,16 +25,19 @@ void AbstractSyncPage::saveFolderDatabase(QString dir_path)
     QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
     MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
-		addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+        addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
         return;
     }
     QTextStream write_sfile(&file);
-	write_sfile.setCodec("UTF-8");
-	for (int i = 0; i < other_tabs.count(); ++i) {
-        //write_sfile << other_tabs.at(i) << endl;
-        write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+    write_sfile.setCodec("UTF-8");
+    for (int i = 0; i < other_tabs.count(); ++i) {
+        if (other_tabs.key(i).startsWith("<:?:>")) {
+            write_sfile << other_tabs.key(i) << endl;
+        } else {
+            write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+        }
     }
-	MTDictionary entry_list = getEntryList(dir.absolutePath(), dir.absolutePath());
+    MTDictionary entry_list = getEntryList(dir.absolutePath(), dir.absolutePath());
     write_sfile << "<:?:>" << tabNameText() << endl;
     for (int i = 0; i < entry_list.count(); ++i) {
         write_sfile << entry_list.key(i) << "<->" << entry_list.value(i) << endl;
@@ -98,7 +101,7 @@ MTDictionary AbstractSyncPage::getFolderDatabaseOfOtherTabs(QFile & file)
 {
     MTDictionary other_tabs;
     if (file.open(QFile::ReadOnly | QFile::Text)) {
-		QTextStream read_sfile(&file);
+        QTextStream read_sfile(&file);
         read_sfile.setCodec("UTF-8");
         QString last_tab; QStringList used_tabs; QString line;
         while (!read_sfile.atEnd()) {
@@ -131,13 +134,17 @@ void AbstractSyncPage::deleteFolderDatabase(QString dir_path)
     QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
     MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
-		addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+        addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
         return;
     }
     QTextStream write_sfile(&file);
-	write_sfile.setCodec("UTF-8");
-	for (int i = 0; i < other_tabs.count(); ++i) {
-        write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+    write_sfile.setCodec("UTF-8");
+    for (int i = 0; i < other_tabs.count(); ++i) {
+        if (other_tabs.key(i).startsWith("<:?:>")) {
+            write_sfile << other_tabs.key(i) << endl;
+        } else {
+            write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+        }
     }
 }
 
@@ -341,9 +348,9 @@ void AbstractSyncPage::displayCollisions()
 		case 1:
             for (int i = 0; i < dial_tw->rowCount(); ++i) {
                 if (((QCheckBox *) dial_tw->cellWidget(i, 0))->isChecked()) {
-                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 1))->text());
+                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), true);
                 } else if (((QCheckBox *) dial_tw->cellWidget(i, 1))->isChecked()) {
-                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 0))->text());
+                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), true);
                 }
             }
         default:

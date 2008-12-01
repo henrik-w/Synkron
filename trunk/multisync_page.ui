@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
-    <height>437</height>
+    <width>662</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -19,9 +19,9 @@
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="tab_stw" >
      <widget class="QWidget" name="page" >
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout" name="verticalLayout_5" >
        <property name="margin" >
-        <number>4</number>
+        <number>6</number>
        </property>
        <item>
         <layout class="QGridLayout" >
@@ -61,182 +61,203 @@
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_2" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_21" >
-           <property name="pixmap" >
-            <pixmap resource="resources.qrc" >:/new/prefix1/images/sources.png</pixmap>
+        <widget class="QSplitter" name="splitter" >
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <widget class="QWidget" native="1" name="widget" >
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>250</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6" >
+           <property name="margin" >
+            <number>0</number>
            </property>
-           <property name="alignment" >
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_12" >
-           <property name="text" >
-            <string>&lt;b>Sources:&lt;/b></string>
-           </property>
-           <property name="alignment" >
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2" >
-          <widget class="QListWidget" name="list_multi" >
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>120</height>
-            </size>
-           </property>
-           <property name="statusTip" >
-            <string>List of multisync sources</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_22" >
-           <property name="pixmap" >
-            <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron16.png</pixmap>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_13" >
-           <property name="text" >
-            <string>&lt;b>Destination:&lt;/b></string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2" >
-          <widget class="QLineEdit" name="destination_multi" >
-           <property name="statusTip" >
-            <string>Set a destination</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" >
-          <layout class="QHBoxLayout" name="horizontalLayout" >
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_3" >
-             <item>
-              <widget class="QPushButton" name="add_multi" >
+            <layout class="QGridLayout" name="gridLayout_2" >
+             <item row="0" column="0" >
+              <widget class="QLabel" name="label_21" >
+               <property name="pixmap" >
+                <pixmap resource="resources.qrc" >:/new/prefix1/images/sources.png</pixmap>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" >
+              <widget class="QLabel" name="label_12" >
+               <property name="text" >
+                <string>&lt;b>Sources:&lt;/b></string>
+               </property>
+               <property name="alignment" >
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2" >
+              <widget class="QListWidget" name="list_multi" >
                <property name="statusTip" >
-                <string>Add source</string>
+                <string>List of multisync sources</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3" >
+              <layout class="QHBoxLayout" name="horizontalLayout" >
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_3" >
+                 <item>
+                  <widget class="QPushButton" name="add_multi" >
+                   <property name="statusTip" >
+                    <string>Add source</string>
+                   </property>
+                   <property name="text" >
+                    <string>Add</string>
+                   </property>
+                   <property name="icon" >
+                    <iconset resource="resources.qrc" >
+                     <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="remove_multi" >
+                   <property name="statusTip" >
+                    <string>Remove source</string>
+                   </property>
+                   <property name="text" >
+                    <string>Remove</string>
+                   </property>
+                   <property name="icon" >
+                    <iconset resource="resources.qrc" >
+                     <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="vars_multi" >
+                   <property name="text" >
+                    <string>Variables</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer" >
+                   <property name="orientation" >
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0" >
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0" >
+              <widget class="QLabel" name="label_22" >
+               <property name="pixmap" >
+                <pixmap resource="resources.qrc" >:/new/prefix1/images/Synkron16.png</pixmap>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" >
+              <widget class="QLabel" name="label_13" >
+               <property name="text" >
+                <string>&lt;b>Destination:&lt;/b></string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" >
+              <widget class="QLineEdit" name="destination_multi" >
+               <property name="statusTip" >
+                <string>Set a destination</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3" >
+              <widget class="QPushButton" name="browse_multi" >
+               <property name="statusTip" >
+                <string>Browse for destination</string>
                </property>
                <property name="text" >
-                <string>Add</string>
+                <string>Browse</string>
                </property>
                <property name="icon" >
                 <iconset resource="resources.qrc" >
-                 <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
+                 <normaloff>:/new/prefix1/images/folder_16.png</normaloff>:/new/prefix1/images/folder_16.png</iconset>
                </property>
               </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="remove_multi" >
-               <property name="statusTip" >
-                <string>Remove source</string>
-               </property>
-               <property name="text" >
-                <string>Remove</string>
-               </property>
-               <property name="icon" >
-                <iconset resource="resources.qrc" >
-                 <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="vars_multi" >
-               <property name="text" >
-                <string>Variables</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer" >
-               <property name="orientation" >
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType" >
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0" >
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
              </item>
             </layout>
            </item>
           </layout>
-         </item>
-         <item row="1" column="3" >
-          <widget class="QPushButton" name="browse_multi" >
-           <property name="statusTip" >
-            <string>Browse for destination</string>
-           </property>
-           <property name="text" >
-            <string>Browse</string>
-           </property>
-           <property name="icon" >
-            <iconset resource="resources.qrc" >
-             <normaloff>:/new/prefix1/images/folder_16.png</normaloff>:/new/prefix1/images/folder_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="ExtendedLineEdit" name="search_multi" >
-         <property name="text" >
-          <string>Search</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QStackedWidget" name="logs_stw" >
-         <property name="currentIndex" >
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="page_2" >
-          <layout class="QVBoxLayout" name="verticalLayout" >
-           <property name="margin" >
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QTableWidget" name="tw_multi" >
-             <property name="statusTip" >
-              <string>Multisync log</string>
-             </property>
-             <property name="columnCount" >
-              <number>2</number>
-             </property>
-             <column/>
-             <column/>
-            </widget>
-           </item>
-          </layout>
          </widget>
-         <widget class="QWidget" name="page_3" >
-          <layout class="QVBoxLayout" name="verticalLayout_2" >
-           <property name="margin" >
-            <number>0</number>
-           </property>
+         <widget class="QWidget" name="verticalLayoutWidget" >
+          <layout class="QVBoxLayout" name="verticalLayout_4" >
            <item>
-            <widget class="ExtendedTreeWidget" name="analyse_tree" >
-             <column>
-              <property name="text" >
-               <string>1</string>
-              </property>
-             </column>
+            <widget class="ExtendedLineEdit" name="search_multi" >
+             <property name="text" >
+              <string>Search</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QStackedWidget" name="logs_stw" >
+             <property name="currentIndex" >
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="page_2" >
+              <layout class="QVBoxLayout" name="verticalLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QTableWidget" name="tw_multi" >
+                 <property name="statusTip" >
+                  <string>Multisync log</string>
+                 </property>
+                 <property name="columnCount" >
+                  <number>2</number>
+                 </property>
+                 <column/>
+                 <column/>
+                </widget>
+               </item>
+              </layout>
+              <zorder>tw_multi</zorder>
+              <zorder>verticalLayoutWidget</zorder>
+              <zorder>search_multi</zorder>
+             </widget>
+             <widget class="QWidget" name="page_3" >
+              <layout class="QVBoxLayout" name="verticalLayout_2" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="ExtendedTreeWidget" name="analyse_tree" >
+                 <column>
+                  <property name="text" >
+                   <string>1</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
           </layout>
+          <zorder>tw_multi</zorder>
+          <zorder>logs_stw</zorder>
+          <zorder>search_multi</zorder>
          </widget>
         </widget>
        </item>
