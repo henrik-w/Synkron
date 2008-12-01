@@ -25,9 +25,11 @@ void MainWindow::changeTemp()
 {
     //QString text = getPathDialogue(true, temp_path);
     MTPathDialogue * dialogue = new MTPathDialogue(this);
-    QString text = dialogue->getPath(true, temp_path);
+    QString text = dialogue->getPath(true, raw_temp_path);
     if (text.isEmpty()) return;
-    temp_path = text;
+    raw_temp_path = text;
+    QDir dir (raw_temp_path);
+    temp_path = dir.absolutePath();
     loadTempSettings();
 }
 

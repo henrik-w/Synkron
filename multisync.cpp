@@ -191,6 +191,7 @@ void MultisyncPage::setAdvancedGB()
 
     advanced->addLayout(main_layout, 0, 0);
     advanced->addItem(new QSpacerItem(10, 5, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
+    advanced->groupBox()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
 	//advanced->addWidget(page->filters, 0, 4);
 	//mainglayout->addWidget(advanced, 7, 0);
 }
@@ -210,40 +211,40 @@ MultisyncPage * MainWindow::addMultiTab()
     }
     if (!ok) { n++; goto gen_title; }
     multi_tabWidget->addTab(multi_page, QIcon(QString::fromUtf8(":/new/prefix1/images/multisync.png")), title);
-    
-	multi_page->tw_multi->setHorizontalHeaderLabels(QStringList() << tr("Source") << tr("Destination"));
+
+    multi_page->tw_multi->setHorizontalHeaderLabels(QStringList() << tr("Source") << tr("Destination"));
     multi_page->tw_multi->verticalHeader()->hide();
     multi_page->tw_multi->setShowGrid(false);
     multi_page->tw_multi->setStatusTip(tr("List of synchronised files and folders"));
     multi_page->tw_multi->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     multi_page->tw_multi->setLayoutDirection(Qt::LeftToRight);
 	
-	connect(multi_page->add_multi, SIGNAL(released()), this, SLOT(addSource()));
-	connect(multi_page->remove_multi, SIGNAL(released()), this, SLOT(removeSource()));
-	connect(multi_page->browse_multi, SIGNAL(released()), this, SLOT(browseMultiDestination()));
-	connect(multi_page->sync_multi, SIGNAL(released()), multi_page, SLOT(sync()));
-	connect(multi_page->stop_sync_btn, SIGNAL(released()), multi_page, SLOT(stopSync()));
-	connect(multi_page->search_multi, SIGNAL(textEdited(const QString)), this, SLOT(searchTw(QString)));
-	connect(multi_page->search_multi, SIGNAL(returnPressed()), multi_page, SLOT(searchAnalyseTree()));
-	/*connect(multi_page->save_multi, SIGNAL(released()), multi_page, SLOT(save()));
-	connect(multi_page->saveas_multi, SIGNAL(released()), multi_page, SLOT(saveAs()));
-	connect(multi_page->load_multi, SIGNAL(released()), multi_page, SLOT(load()));*/
-	connect(multi_page->destination_multi, SIGNAL(editingFinished()), multi_page, SLOT(destinationTextChanged()));
-	connect(multi_page->tab_name, SIGNAL(editingFinished()), multi_page, SLOT(multitabNameChanged()));
-	connect(multi_page->vars_multi, SIGNAL(released()), multi_page, SLOT(varsDialogue()));
-	
-	multi_page->tab_name->setText(multi_tabWidget->tabText(multi_tabWidget->indexOf(multi_page)));
-	
-	multi_tabWidget->setCurrentIndex(multi_tabWidget->indexOf(multi_page));
-    
-	return multi_page;
+    connect(multi_page->add_multi, SIGNAL(released()), this, SLOT(addSource()));
+    connect(multi_page->remove_multi, SIGNAL(released()), this, SLOT(removeSource()));
+    connect(multi_page->browse_multi, SIGNAL(released()), this, SLOT(browseMultiDestination()));
+    connect(multi_page->sync_multi, SIGNAL(released()), multi_page, SLOT(sync()));
+    connect(multi_page->stop_sync_btn, SIGNAL(released()), multi_page, SLOT(stopSync()));
+    connect(multi_page->search_multi, SIGNAL(textEdited(const QString)), this, SLOT(searchTw(QString)));
+    connect(multi_page->search_multi, SIGNAL(returnPressed()), multi_page, SLOT(searchAnalyseTree()));
+    /*connect(multi_page->save_multi, SIGNAL(released()), multi_page, SLOT(save()));
+    connect(multi_page->saveas_multi, SIGNAL(released()), multi_page, SLOT(saveAs()));
+    connect(multi_page->load_multi, SIGNAL(released()), multi_page, SLOT(load()));*/
+    connect(multi_page->destination_multi, SIGNAL(editingFinished()), multi_page, SLOT(destinationTextChanged()));
+    connect(multi_page->tab_name, SIGNAL(editingFinished()), multi_page, SLOT(multitabNameChanged()));
+    connect(multi_page->vars_multi, SIGNAL(released()), multi_page, SLOT(varsDialogue()));
+
+    multi_page->tab_name->setText(multi_tabWidget->tabText(multi_tabWidget->indexOf(multi_page)));
+
+    multi_tabWidget->setCurrentIndex(multi_tabWidget->indexOf(multi_page));
+
+    return multi_page;
 }
 
 void MainWindow::addSource()
 {
-	MultisyncPage * multi_page = (MultisyncPage *) multi_tabWidget->currentWidget();
+    MultisyncPage * multi_page = (MultisyncPage *) multi_tabWidget->currentWidget();
     QListWidgetItem * item = new QListWidgetItem();
-	QString path = QFileDialog::getExistingDirectory(this,
+    QString path = QFileDialog::getExistingDirectory(this,
                 "Choose a directory",
                 QDir::homePath(),
                 QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
@@ -255,11 +256,11 @@ void MainWindow::addSource()
             path.replace(0, i.value().length(), i.key() + "/");
         }
     }
-	path.replace("\\", "/");
-	path.replace("//", "/");
-	item->setText(path);
-	item->setCheckState(Qt::Checked);
-	multi_page->list_multi->addItem(item);
+    path.replace("\\", "/");
+    path.replace("//", "/");
+    item->setText(path);
+    item->setCheckState(Qt::Checked);
+    multi_page->list_multi->addItem(item);
 }
 
 void MainWindow::removeSource()

@@ -121,6 +121,7 @@ public:
     QStringList folders_blacklist;
     QStringList exts_blacklist;
     QString temp_path;
+    QString raw_temp_path;
     
     bool syncingAll;
     bool skip_close_event;

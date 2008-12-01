@@ -111,7 +111,7 @@ public:
     bool checkForCollision(QString, QString);
     bool fileIsDifferentFromDB(QString);
     void displayCollisions();
-    void copyFile(QString, QString);
+    void copyFile(QString, QString, bool = false);
 
 	QSet<QString> extensions;
 	bool syncing;
