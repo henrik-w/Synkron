@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ar_SY">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -378,92 +379,92 @@
     <message>
         <location filename="../restore.cpp" line="435"/>
         <source>Removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة الملف %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1522"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation> تحديث الملف %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="779"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>بحث عن التغييرات</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="772"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>نسخ الملف %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="107"/>
         <source>Synkron - Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>سينكرون - صفحة الحفظ</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="109"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>صفحات سينكرون (*.slist)</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="37"/>
         <source>Enter allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>إدخال إختلافات الوقت المسموح بها</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="38"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>إختلافات الوقت المسموح بها (بالثواني):</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>قديم</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
-        <translation type="unfinished">موافق</translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
-        <translation type="unfinished"></translation>
+        <translation>تعارض</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="266"/>
         <source>Collision found between files: %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>تم العثور على تعارض بين الملفين %1 و %2</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="298"/>
         <source>Collisions found</source>
-        <translation type="unfinished"></translation>
+        <translation>تم العثور على تعارضات</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="302"/>
         <source>Collided files:</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات متعارضة:</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Newer files</source>
-        <translation type="unfinished"></translation>
+        <translation>الملفات الأحدث</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Older files</source>
-        <translation type="unfinished"></translation>
+        <translation>الملفات الأقدم</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء الامر</translation>
+        <translation>إلغاء الامر</translation>
     </message>
     <message>
         <location filename="../syncpage.h" line="178"/>
         <source>Stopping synchronisation, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>جاري إيقاف المزامنة، يرجى الإنتظار...</translation>
     </message>
 </context>
 <context>
@@ -519,17 +520,17 @@
     <message>
         <location filename="../main.cpp" line="97"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>البولندية</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="99"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>الإيطالية</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>الفرنسية</translation>
     </message>
 </context>
 <context>
@@ -545,42 +546,42 @@
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter folder path</source>
-        <translation type="unfinished">أدخل مسار المجلد</translation>
+        <translation>أدخل مسار المجلد</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter file path</source>
-        <translation type="unfinished">أدخل مسار الملف</translation>
+        <translation>أدخل مسار الملف</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter folder path:</source>
-        <translation type="unfinished">إدخال مسار المجلد:</translation>
+        <translation>إدخال مسار المجلد:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter file path:</source>
-        <translation type="unfinished">إدخال مسار الملف:</translation>
+        <translation>إدخال مسار الملف:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="57"/>
         <source>Browse</source>
-        <translation type="unfinished">إستعراض</translation>
+        <translation>إستعراض</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="61"/>
         <source>OK</source>
-        <translation type="unfinished">موافق</translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="65"/>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء الامر</translation>
+        <translation>إلغاء الامر</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="91"/>
         <source>Choose a file</source>
-        <translation type="unfinished">إختر ملفاً</translation>
+        <translation>قم بإختيار ملف</translation>
     </message>
 </context>
 <context>
@@ -1695,58 +1696,59 @@
     <message>
         <location filename="../settings.cpp" line="383"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>آخر عملية مزامنة على %1</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1288"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>صفحة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1622"/>
         <source>Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ الصفحة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1631"/>
         <source>Load tab</source>
-        <translation type="unfinished"></translation>
+        <translation>فتح صفحة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1640"/>
         <source>Save tab as</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ الصفحة بإسم</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="68"/>
         <source>Open File</source>
-        <translation type="unfinished">فتح ملف</translation>
+        <translation>فتح ملف</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="70"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>صفحات سينكرون (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="75"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">غير قادر على قراءة الملف %1:%2.</translation>
+        <translation>غير قادر على قراءة الملف %1
+%2.</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1645"/>
         <source>Change temporary folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>تغيير مسار المجلد المؤقت</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="248"/>
         <source>Clean temporary files automatically after each sync</source>
-        <translation type="unfinished"></translation>
+        <translation>مسح الملفات المؤقتة تلقائياً بعد كل مزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="260"/>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>إحتفاظ</translation>
     </message>
 </context>
 <context>
@@ -2140,57 +2142,57 @@
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>قم بالنقر على زر &quot;مزامنة متعددة&quot; لبدء المزامنة</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="383"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>نقل</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="386"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>البحث عن التغييرات</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="326"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>آخر عملية مزامنة على %1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل إختلافات الوقت المسموح بها</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل إختلافات الوقت المسموح بها بين الملفات التي يتم مزامنتها</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="90"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>العثور على التعارضات</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="91"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>العثور و التنبيه على الملفات المتعارضة</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="174"/>
         <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;آخر:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>بدءت المزامنة<byte value="x9"/>%1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="404"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
     </message>
 </context>
 <context>
@@ -2609,79 +2611,79 @@
     <message>
         <location filename="../sync.cpp" line="108"/>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>قم بالنقر على زر &quot;مزامنة&quot; لبدء المزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="503"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>نقل</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1293"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>بحث عن التغييرات</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="237"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>آخر عملية مزامنة على %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1247"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>نسخ الملف %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1268"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation> تحديث الملف %1</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Synkron</source>
-        <translation type="unfinished">سينكرون</translation>
+        <translation>سينكرون</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">غير قادر على كتابة الملف %1:
+        <translation>غير قادر على كتابة الملف %1:
 %2.</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="229"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل إختلافات الوقت المسموح بها</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="231"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل إختلافات الوقت المسموح بها بين الملفات التي يتم مزامنتها</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="208"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>العثور على التعارضات</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="209"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>العثور و التنبيه على الملفات المتعارضة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>بدءت المزامنة<byte value="x9"/>%1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="196"/>
         <source>%1 files and folders need to be synchronised</source>
-        <translation type="unfinished"></translation>
+        <translation>الملفات و المجلدات التي هي بحاجة للمزامنة %1</translation>
     </message>
 </context>
 <context>
