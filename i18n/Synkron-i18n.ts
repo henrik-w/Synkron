@@ -47,5 +47,9 @@
         <source>Chinese</source>
         <translation>Chinese</translation>
     </message>
+	<message>
+        <source>Valencian</source>
+        <translation>valencià</translation>
+    </message>
 </context>
 </TS>
