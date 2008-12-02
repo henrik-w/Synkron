@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="fr_FR">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -408,62 +409,62 @@
     <message>
         <location filename="../other.cpp" line="37"/>
         <source>Enter allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez la différence de temps autorisée</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="38"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>Différence de temps (en secondes) :</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>OBSOLETE</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
-        <translation type="unfinished"></translation>
+        <translation>COLLISION</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="266"/>
         <source>Collision found between files: %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Collision trouvée en tre les fichiers : %1 et %2</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="298"/>
         <source>Collisions found</source>
-        <translation type="unfinished"></translation>
+        <translation>Collisions trouvées</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="302"/>
         <source>Collided files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers en collision :</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Newer files</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouveaux fichiers</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Older files</source>
-        <translation type="unfinished"></translation>
+        <translation>Anciens fichiers</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
-        <translation type="unfinished">Abandonner</translation>
+        <translation>Abandonner</translation>
     </message>
     <message>
         <location filename="../syncpage.h" line="178"/>
         <source>Stopping synchronisation, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêt de la synchronisations, attendez s&apos;il vous plait...</translation>
     </message>
 </context>
 <context>
@@ -1742,17 +1743,17 @@
     <message>
         <location filename="../main_window.ui" line="1645"/>
         <source>Change temporary folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Changement du chemin de dossier temporaire</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="248"/>
         <source>Clean temporary files automatically after each sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Nettoyer les fichiers temporaires automatiquement après chaque synchronisation</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="260"/>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>Garder</translation>
     </message>
 </context>
 <context>
@@ -2144,37 +2145,37 @@
     <message>
         <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier la différence de temps autorisée</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier la différence de temps autorisée entre les fichiers synchronisés</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="90"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter les collisions</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="91"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter et prévenir pour les fichiers en collision</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="174"/>
         <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Autres : &lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisation %1 démarée</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="404"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier temporaire répété %1 effacé</translation>
     </message>
 </context>
 <context>
@@ -2559,37 +2560,37 @@
     <message>
         <location filename="../sync.cpp" line="229"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier la différence de temps autorisée</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="231"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier la différence de temps autorisée entre les fichiers synchronisés</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="208"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter les collisions</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="209"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter et prévenir pour les fichiers en collision</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchronisation %1 démarée</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier temporaire répété %1 effacé</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="196"/>
         <source>%1 files and folders need to be synchronised</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 fichiers et dossiers ont besoin d&apos;être synchronisés</translation>
     </message>
 </context>
 <context>
