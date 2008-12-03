@@ -473,7 +473,7 @@ int SyncPage::sync(MTStringSet sync_folders_set)
     dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
-    if (propagate_deletions->isChecked()) {
+    if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
         folder_prop_list_map.clear();
         MTDictionary prop_files_list;
         for (int i = 0; i < sync_folders_set.count(); ++i) {
@@ -513,7 +513,7 @@ int SyncPage::sync(MTStringSet sync_folders_set)
         countExtsBl();
     }
     if (alert_collisions->isChecked() && collided.count()) displayCollisions();
-    if (propagate_deletions->isChecked()) saveAllFolderDatabases();
+    if (propagate_deletions->isChecked() || alert_collisions->isChecked()) saveAllFolderDatabases();
     int deleted_temp = 0;
     if (mp_parent->restore_clean_auto_gb->isChecked()) deleted_temp = mp_parent->autoCleanTemp();
     if (deleted_temp > 0) {

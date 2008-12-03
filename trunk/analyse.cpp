@@ -169,7 +169,7 @@ void SyncPage::analyseFolders()
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
     
-    if (propagate_deletions->isChecked()) {
+    if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
         folder_prop_list_map.clear(); //QStringList prop_files_list;
         for (int i = 0; i < sync_folders->count(); ++i) {
             //prop_files_list = getFolderDatabase(sync_folders->at(i)->path());
