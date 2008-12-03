@@ -283,6 +283,7 @@ bool AbstractSyncPage::fileIsDifferentFromDB(QString path)
     for (int i = 0; i < s_folders_list.count(); ++i) {
         if (path.startsWith(s_folders_list.at(i))) {
             folder = s_folders_list.at(i);
+            break;
         }
     }
     if (folder.isEmpty()) return false;

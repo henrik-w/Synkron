@@ -291,18 +291,18 @@ void MainWindow::browseMultiDestination()
 
 int MultisyncPage::sync()
 {
-	if (syncing) return 0;
-	leaveAnalyse();
-	if (destination_multi->text()=="") { addTableItem(tr("%1    Synchronisation failed: Choose a destination first").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white)); return 0; }
-	bool found = false;
-	for (int n = 0; n < list_multi->count(); ++n) {
-		if (list_multi->item(n)->checkState()==Qt::Checked) {
-			found = true; break;
-		}
-	}
-	if (!found) { QMessageBox::information(mp_parent, tr("Synkron"), tr("No sources selected.")); return 0; }
-	setSyncEnabled(false); QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-	syncing = true;
+    if (syncing) return 0;
+    leaveAnalyse();
+    if (destination_multi->text()=="") { addTableItem(tr("%1    Synchronisation failed: Choose a destination first").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::red), QBrush(Qt::white)); return 0; }
+    bool found = false;
+    for (int n = 0; n < list_multi->count(); ++n) {
+        if (list_multi->item(n)->checkState()==Qt::Checked) {
+            found = true; break;
+        }
+    }
+    if (!found) { QMessageBox::information(mp_parent, tr("Synkron"), tr("No sources selected.")); return 0; }
+    setSyncEnabled(false); QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    syncing = true;
     extensions.clear();
 	/*if (filters->isChecked()) {
 		for (int f = 0; f < lw_filters->count(); ++f) {
@@ -317,8 +317,8 @@ int MultisyncPage::sync()
 			}
 		}
 	}*/
-	collided.clear();
-	dir_filters = QDir::NoDotAndDotDot | QDir::Files;
+    collided.clear();
+    dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
 
@@ -336,21 +336,21 @@ int MultisyncPage::sync()
                 addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(destination.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
             }
         }
-		synced_files = 0;
-		pathlist = list_multi->item(i)->text().split("/");
-		QString s = pathlist.at(0);
-		pathlist[0] = s.remove(":");
-		for (int v = 0; v < pathlist.count(); ++v) {
-			if (!destination.cd(pathlist.at(v))) {
-				if (!destination.mkdir(pathlist.at(v))) {
-				    addTableItem(tr("%1	Synchronisation failed: Error creating directory in %2").arg(QTime().currentTime().toString("hh:mm:ss").arg(destination.path())), "", "", QBrush(Qt::red), QBrush(Qt::white));
-					setSyncEnabled(true); QApplication::restoreOverrideCursor(); return 0;
-				}
-				destination.cd(pathlist.at(v));
-			}
-		}
-		path = list_multi->item(i)->text();
-		QMapIterator<QString, QString> iter(vars_map);
+        synced_files = 0;
+        pathlist = list_multi->item(i)->text().split("/");
+        QString s = pathlist.at(0);
+        pathlist[0] = s.remove(":");
+        for (int v = 0; v < pathlist.count(); ++v) {
+            if (!destination.cd(pathlist.at(v))) {
+                if (!destination.mkdir(pathlist.at(v))) {
+                    addTableItem(tr("%1	Synchronisation failed: Error creating directory in %2").arg(QTime().currentTime().toString("hh:mm:ss").arg(destination.path())), "", "", QBrush(Qt::red), QBrush(Qt::white));
+                    setSyncEnabled(true); QApplication::restoreOverrideCursor(); return 0;
+                }
+                destination.cd(pathlist.at(v));
+            }
+        }
+        path = list_multi->item(i)->text();
+        QMapIterator<QString, QString> iter(vars_map);
         while (iter.hasNext()) {
             iter.next();
             if (path.startsWith(iter.key())) {
@@ -369,7 +369,7 @@ int MultisyncPage::sync()
         }
     	sync_folder_1 = syncfolder.path();
     	sync_folder_2 = destination.path();
-    	if (propagate_deletions->isChecked()) {
+        if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
             folder_prop_list_map.clear();
             QString sync_folder; //QStringList prop_files_list;
             for (int i = 0; i < 2; ++i) {
@@ -388,8 +388,8 @@ int MultisyncPage::sync()
             subSync(syncfolder, destination, false);
         }
         if (alert_collisions->isChecked() && collided.count()) displayCollisions();
-		countExtsBl();
-		if (propagate_deletions->isChecked()) {
+        countExtsBl();
+        if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
             saveFolderDatabase(syncfolder.absolutePath());
             saveFolderDatabase(destination.absolutePath());
         }
@@ -398,19 +398,19 @@ int MultisyncPage::sync()
         last_sync = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
         status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
         collided.clear();
-	}
-	int deleted_temp = 0;
+    }
+    int deleted_temp = 0;
     if (mp_parent->restore_clean_auto_gb->isChecked()) deleted_temp = mp_parent->autoCleanTemp();
     if (deleted_temp > 0) {
         addTableItem(tr("%1 repeated temporary files deleted").arg(deleted_temp), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
     }
-	mp_parent->saveSettings();
-	syncing = false;
+    mp_parent->saveSettings();
+    syncing = false;
     setSyncEnabled(true); QApplication::restoreOverrideCursor();
-	if (!mp_parent->syncingAll) {
-	    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 file(s) %2").arg(all_synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
-	}
-	if (mp_parent->actionShut_down_after_sync->isChecked()) {
+    if (!mp_parent->syncingAll) {
+        mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 file(s) %2").arg(all_synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")));
+    }
+    if (mp_parent->actionShut_down_after_sync->isChecked()) {
         if (!mp_parent->isSyncing()) {
             mp_parent->shutDownComputer();
         }
@@ -420,7 +420,7 @@ int MultisyncPage::sync()
             mp_parent->closeApp();
         }
     }
-	return all_synced_files;
+    return all_synced_files;
 }
 
 void MultisyncPage::setSyncEnabled(bool enable)
