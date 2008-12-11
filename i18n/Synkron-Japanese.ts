@@ -378,92 +378,92 @@
     <message>
         <location filename="../restore.cpp" line="435"/>
         <source>Removing file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 を削除しています</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1522"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 を更新しています</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="779"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を検索しています</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="772"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 をコピーしています</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="107"/>
         <source>Synkron - Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron - タブの保存</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="109"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron タブ (*.slist)</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="37"/>
         <source>Enter allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>許可される時間差を入力します</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="38"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>許可される時間差 (秒):</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="284"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>無効</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="326"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="333"/>
         <source>COLLISION</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="266"/>
         <source>Collision found between files: %1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 と %2 の間に衝突が見つかりました</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="298"/>
         <source>Collisions found</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突が見つかりました</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="302"/>
         <source>Collided files:</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突しているファイル:</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Newer files</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいファイル</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="305"/>
         <source>Older files</source>
-        <translation type="unfinished"></translation>
+        <translation>古いファイル</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="329"/>
         <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../syncpage.h" line="178"/>
         <source>Stopping synchronisation, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化を停止しています、お待ちください...</translation>
     </message>
 </context>
 <context>
@@ -519,17 +519,17 @@
     <message>
         <location filename="../main.cpp" line="97"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>ポーランド語</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="99"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>イタリア語</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>フランス語</translation>
     </message>
 </context>
 <context>
@@ -545,42 +545,42 @@
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter folder path</source>
-        <translation type="unfinished">フォルダー パスを入力します</translation>
+        <translation>フォルダー パスを入力します</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="46"/>
         <source>Enter file path</source>
-        <translation type="unfinished">ファイル パスを入力します</translation>
+        <translation>ファイル パスを入力します</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter folder path:</source>
-        <translation type="unfinished">フォルダー パスを入力します:</translation>
+        <translation>フォルダー パスを入力します:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="50"/>
         <source>Enter file path:</source>
-        <translation type="unfinished">ファイル パスを入力します:</translation>
+        <translation>ファイル パスを入力します:</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="57"/>
         <source>Browse</source>
-        <translation type="unfinished">参照</translation>
+        <translation>参照</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="61"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="65"/>
         <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../mtpathdialogue.h" line="91"/>
         <source>Choose a file</source>
-        <translation type="unfinished">ファイルの選択</translation>
+        <translation>ファイルの選択</translation>
     </message>
 </context>
 <context>
@@ -1695,59 +1695,59 @@
     <message>
         <location filename="../settings.cpp" line="383"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>最後の同期化: %1</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1288"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブ</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1622"/>
         <source>Save tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの保存</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1631"/>
         <source>Load tab</source>
-        <translation type="unfinished"></translation>
+        <translation>タブの読み込み</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1640"/>
         <source>Save tab as</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けてタブを保存</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="68"/>
         <source>Open File</source>
-        <translation type="unfinished">ファイルを開く</translation>
+        <translation>ファイルを開く</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="70"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkron タブ (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="75"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">ファイル %1 を読み取れません:
+        <translation>ファイル %1 を読み取れません:
 %2。</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1645"/>
         <source>Change temporary folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>一時フォルダのパスを変更します</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="248"/>
         <source>Clean temporary files automatically after each sync</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化後に自動的に一時ファイルをクリーンする</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="260"/>
         <source>Keep </source>
-        <translation type="unfinished"></translation>
+        <translation>維持 </translation>
     </message>
 </context>
 <context>
@@ -2142,57 +2142,57 @@
     <message>
         <location filename="../multisync.cpp" line="39"/>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化を開始するには &quot;複同期化&quot; ボタンを押します</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="383"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>移動しています</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="386"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を検索しています</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="326"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>最後の同期化: %1</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>許可される時間差の変更</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化されたファイルの間の許可される時間差を変更します</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="90"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突の検出</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="91"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突しているファイルを検出および警告します</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="174"/>
         <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;その他:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="324"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>同期化が開始されました</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="404"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 個の重複している一時ファイルが削除されました</translation>
     </message>
 </context>
 <context>
@@ -2611,79 +2611,79 @@
     <message>
         <location filename="../sync.cpp" line="108"/>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化を開始するには &quot;同期化&quot; ボタンを押します</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="503"/>
         <source>Moving</source>
-        <translation type="unfinished"></translation>
+        <translation>移動しています</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1293"/>
         <source>Searching for changes</source>
-        <translation type="unfinished"></translation>
+        <translation>変更を検索しています</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="237"/>
         <source>Last synced on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>最後の同期化: %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1247"/>
         <source>Copying file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 をコピーしています</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1268"/>
         <source>Updating file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル %1 を更新しています</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Synkron</source>
-        <translation type="unfinished">Synkron</translation>
+        <translation>Synkron</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="212"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">ファイル %1 を書き込めません:
+        <translation>ファイル %1 を書き込めません:
 %2。</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="229"/>
         <source>Change allowed time difference</source>
-        <translation type="unfinished"></translation>
+        <translation>許可される時間差の変更</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="231"/>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation type="unfinished"></translation>
+        <translation>同期化されたファイルの間の許可される時間差を変更します</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="208"/>
         <source>Detect collisions</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突の検出</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="209"/>
         <source>Detect and alert collided files</source>
-        <translation type="unfinished"></translation>
+        <translation>衝突しているファイルを検出および警告します</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="494"/>
         <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation type="unfinished"></translation>
+        <translation>%1<byte value="x9"/>同期化が開始されました</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="520"/>
         <source>%1 repeated temporary files deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 個の重複している一時ファイルが削除されました</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="196"/>
         <source>%1 files and folders need to be synchronised</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 個のファイルとフォルダに同期化される必要があります</translation>
     </message>
 </context>
 <context>
