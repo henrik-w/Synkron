@@ -297,82 +297,82 @@
         <translation>غير قادر على كتابة الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="252"/>
+        <location filename="../analyse.cpp" line="258"/>
         <source>DELETED</source>
         <translation>تم حذفه</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="257"/>
+        <location filename="../analyse.cpp" line="263"/>
         <source>NOT FOUND</source>
         <translation>غير موجود</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="388"/>
+        <location filename="../analyse.cpp" line="394"/>
         <source>Loading...</source>
         <translation>تحميل...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="581"/>
+        <location filename="../analyse.cpp" line="587"/>
         <source>Open</source>
         <translation>فتح</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="590"/>
+        <location filename="../analyse.cpp" line="596"/>
         <source>Sync</source>
         <translation>مزامنة</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="596"/>
+        <location filename="../analyse.cpp" line="602"/>
         <source>Delete</source>
         <translation>حذف</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="600"/>
+        <location filename="../analyse.cpp" line="606"/>
         <source>Rename</source>
         <translation>إعادة تسمية</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="606"/>
+        <location filename="../analyse.cpp" line="612"/>
         <source>Add to blacklist</source>
         <translation>إضافة للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="608"/>
+        <location filename="../analyse.cpp" line="614"/>
         <source>Remove from blacklist</source>
         <translation>إزالة من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="614"/>
+        <location filename="../analyse.cpp" line="620"/>
         <source>Add extension to blacklist</source>
         <translation>أضف إمتداد  للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="715"/>
+        <location filename="../analyse.cpp" line="721"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>هل أنت متأكد من أنك تريد إزالة &quot;%1&quot; من كل مسار يتم مزامنته؟</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="769"/>
+        <location filename="../analyse.cpp" line="775"/>
         <source>Synkron - Rename file</source>
         <translation>سينكرون - إعادة تسمية الملف</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="769"/>
+        <location filename="../analyse.cpp" line="775"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>قم بكتابة تسمية جديدة لـ &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
+        <location filename="../analyse.cpp" line="787"/>
         <source>Error renaming directory %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية المجلد %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="790"/>
+        <location filename="../analyse.cpp" line="796"/>
         <source>File %1 renamed</source>
         <translation>تم إعادة تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="788"/>
+        <location filename="../analyse.cpp" line="794"/>
         <source>Error renaming file %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية الملف %1</translation>
     </message>
@@ -417,7 +417,7 @@
         <translation>إختلافات الوقت المسموح بها (بالثواني):</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="284"/>
+        <location filename="../analyse.cpp" line="290"/>
         <source>OBSOLETE</source>
         <translation>قديم</translation>
     </message>
@@ -427,7 +427,7 @@
         <translation>موافق</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="333"/>
+        <location filename="../analyse.cpp" line="339"/>
         <source>COLLISION</source>
         <translation>تعارض</translation>
     </message>
@@ -2085,7 +2085,7 @@
         <translation>الوجهة</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="120"/>
+        <location filename="../analyse.cpp" line="76"/>
         <source>Root directory</source>
         <translation>المجلد الجذر</translation>
     </message>
@@ -2198,6 +2198,11 @@
         <location filename="../multisync.cpp" line="405"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="110"/>
+        <source>NOT FOUND</source>
+        <translation>غير موجود</translation>
     </message>
 </context>
 <context>
@@ -2364,14 +2369,14 @@
         <translation>&lt;b&gt;سجل المزامنة:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="196"/>
+        <location filename="../analyse.cpp" line="201"/>
         <source>Root directory</source>
         <translation>المجلد الجذر</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="170"/>
+        <location filename="../analyse.cpp" line="161"/>
         <source>NOT FOUND</source>
-        <translation type="obsolete">غير موجود</translation>
+        <translation>غير موجود</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="58"/>
@@ -2599,12 +2604,12 @@
         <translation>تحليل</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="681"/>
+        <location filename="../analyse.cpp" line="687"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1<byte value="x9"/>غير قادر على إنشاء المجلد %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="684"/>
+        <location filename="../analyse.cpp" line="690"/>
         <source>%1 Directory %2 created</source>
         <translation>%1<byte value="x9"/>مجلد %2 تم إنشاؤه</translation>
     </message>
@@ -2686,7 +2691,7 @@
         <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="196"/>
+        <location filename="../analyse.cpp" line="201"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>الملفات و المجلدات التي هي بحاجة للمزامنة %1</translation>
     </message>

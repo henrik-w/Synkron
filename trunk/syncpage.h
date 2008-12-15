@@ -70,53 +70,53 @@ class SyncViewItem;
 
 class AbstractSyncPage : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	AbstractSyncPage() { allowed_difference = 2; };
-	AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; allowed_difference = 2; };
+    AbstractSyncPage() { allowed_difference = 2; };
+    AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; allowed_difference = 2; };
 
-	virtual QTableWidget * tableWidget() = 0;
-	virtual QTreeWidget * analyseTree() = 0;
-	virtual QStackedWidget * logsStw() = 0;
-	virtual bool followSymlinks() = 0;
-	virtual QString syncFolder1Text() = 0;
-	virtual QString syncFolder2Text() = 0;
-	virtual QString tabNameText() = 0;
-	virtual int countSyncFolders() = 0;
-	virtual QStringList syncFoldersList() = 0;
-	virtual QStringList currentSyncFoldersList() = 0;
-	virtual bool backupFolders() = 0;
-	virtual void setSyncEnabled(bool) = 0;
-	virtual QString searchLeText() = 0;
+    virtual QTableWidget * tableWidget() = 0;
+    virtual QTreeWidget * analyseTree() = 0;
+    virtual QStackedWidget * logsStw() = 0;
+    virtual bool followSymlinks() = 0;
+    virtual QString syncFolder1Text() = 0;
+    virtual QString syncFolder2Text() = 0;
+    virtual QString tabNameText() = 0;
+    virtual int countSyncFolders() = 0;
+    virtual QStringList syncFoldersList() = 0;
+    virtual QStringList currentSyncFoldersList() = 0;
+    virtual bool backupFolders() = 0;
+    virtual void setSyncEnabled(bool) = 0;
+    virtual QString searchLeText() = 0;
 
-	void subSync(QDir&, QDir&, bool);
-	bool subAnalyse(const MTStringSet &, QTreeWidgetItem */*, int i = 5*/);
-	void moveContents(QDir&, QDir&);
-	void addTableItem(QString, QString = "", QString = "", QBrush = Qt::white, QBrush = Qt::black);
-	void unknownError(QString, QString, QString, QString, QString = "");
-	void countExtsBl();
-	void saveFolderDatabase(QString);
-	MTDictionary getFolderDatabase(QString);
-	MTDictionary getFolderDatabaseOfOtherTabs(QFile &);
-	void deleteFolderDatabase(QString);
-	MTDictionary getEntryList(QString, QString);
-	void backupAndRemoveDir(QString, bool = true, bool = true);
-	void backupAndRemoveFile(QFileInfo, bool = true, bool = true);
-	bool isInDatabase(QString);
-	bool isInGroupDatabase(QString);
-	void changeTabNameInDatabase(QString, QString);
-	void deleteAllFolderDatabases();
-	void saveAllFolderDatabases();
+    void subSync(QDir&, QDir&, bool);
+    bool subAnalyse(const MTStringSet &, QTreeWidgetItem */*, int i = 5*/);
+    void moveContents(QDir&, QDir&);
+    void addTableItem(QString, QString = "", QString = "", QBrush = Qt::white, QBrush = Qt::black);
+    void unknownError(QString, QString, QString, QString, QString = "");
+    void countExtsBl();
+    void saveFolderDatabase(QString);
+    MTDictionary getFolderDatabase(QString);
+    MTDictionary getFolderDatabaseOfOtherTabs(QFile &);
+    void deleteFolderDatabase(QString);
+    MTDictionary getEntryList(QString, QString);
+    void backupAndRemoveDir(QString, bool = true, bool = true);
+    void backupAndRemoveFile(QFileInfo, bool = true, bool = true);
+    bool isInDatabase(QString);
+    bool isInGroupDatabase(QString);
+    void changeTabNameInDatabase(QString, QString);
+    void deleteAllFolderDatabases();
+    void saveAllFolderDatabases();
     bool checkForCollision(QString, QString);
     bool fileIsDifferentFromDB(QString);
     void displayCollisions();
     void copyFile(QString, QString, bool = false);
 
-	QSet<QString> extensions;
-	bool syncing;
-	QMap<QString, int> exts_bl_map;
-	QMap<QString, MTDictionary> folder_prop_list_map;
+    QSet<QString> extensions;
+    bool syncing;
+    QMap<QString, int> exts_bl_map;
+    QMap<QString, MTDictionary> folder_prop_list_map;
     QDir::Filters dir_filters;
     MTDictionary collided;
 
@@ -199,9 +199,9 @@ public slots:
     void changeAllowedDifference();
 
     void analyseTreeItemExpanded(QTreeWidgetItem *);
-	void analyseTreeItemClicked(QTreeWidgetItem *, int);
-	void analyseTreeItemDoubleClicked(QTreeWidgetItem *, int);
-	void checkAnalyseTree();
+    void analyseTreeItemClicked(QTreeWidgetItem *, int);
+    void analyseTreeItemDoubleClicked(QTreeWidgetItem *, int);
+    void checkAnalyseTree();
     void subCheckAnalyseTree(QTreeWidgetItem *);
     void analyseTreeConMenu(QPoint);
     void openAnalyseTreeItem();
@@ -216,16 +216,14 @@ public slots:
 class SyncPage : public AbstractSyncPage
 {
     Q_OBJECT
-    
+
 signals:
     void sigsync(QWidget *);
-    
+
 public slots:
     void syncPage();
     void moveChecked(bool);
     void cloneChecked(bool);
-    //void folder1TextChanged() { QDir dir(sync_folder_1->text()); sync_folder_1->setText(dir.path()); }
-    //void folder2TextChanged() { QDir dir(sync_folder_2->text()); sync_folder_2->setText(dir.path()); }
     void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
     int sync() { return sync(MTStringSet()); };
     int sync(MTStringSet);
@@ -237,37 +235,32 @@ public slots:
     void backupFoldersStateChanged(bool);
     void backupOneFolderStateChanged(bool);
     void setSyncWidget();
-    //void setAnalyseWidget();
     void goToAnalyse();
     void leaveAnalyse();
     void analyseFolders();
     void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); };
-    //void subCheckExpanded(QTreeWidgetItem *);
     void syncCurrentAnalyseItem();
 
     void saveAs(QString file_name);
     void load(QDomDocument &, QString);
-    
+
 public:
     SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) { is_multisync = false; };
-    
-	QTableWidget * tableWidget() { return tw; }
-	QTreeWidget * analyseTree() { return analyse_tree; }
-	QStackedWidget * logsStw() { return logs_stw; }
-	bool followSymlinks() { return symlinks->isChecked(); }
-	bool backupFolders() { return backup_folders->isChecked(); }
-	QString syncFolder1Text() { return sync_folders->syncFolder(0)->path(); }
-	QString syncFolder2Text() { return sync_folders->syncFolder(1)->path(); }
-	QString tabNameText() { return tab_name->text(); }
-	void setSyncEnabled(bool);
-	//void saveAllFolderDatabases();
-	//void deleteAllFolderDatabases();
-	int countSyncFolders() { return sync_folders->count(); };
-	//void setAnalyseTreeItem(QString, QString);
-	QStringList syncFoldersList() { return sync_folders->pathsList(); }
-	QStringList currentSyncFoldersList() { return sync_folders->pathsList(); }
-	QString searchLeText() { return log_search->text(); }
-	
+
+    QTableWidget * tableWidget() { return tw; }
+    QTreeWidget * analyseTree() { return analyse_tree; }
+    QStackedWidget * logsStw() { return logs_stw; }
+    bool followSymlinks() { return symlinks->isChecked(); }
+    bool backupFolders() { return backup_folders->isChecked(); }
+    QString syncFolder1Text() { return sync_folders->syncFolder(0)->path(); }
+    QString syncFolder2Text() { return sync_folders->syncFolder(1)->path(); }
+    QString tabNameText() { return tab_name->text(); }
+    void setSyncEnabled(bool);
+    int countSyncFolders() { return sync_folders->count(); };
+    QStringList syncFoldersList() { return sync_folders->pathsList(); }
+    QStringList currentSyncFoldersList() { return sync_folders->pathsList(); }
+    QString searchLeText() { return log_search->text(); }
+
     QWidget * tab;
     QWidget * analyse_widget;
     QLabel * icon_label;
@@ -297,35 +290,34 @@ class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
 	Q_OBJECT
 
 public:
-	MultisyncPage(MainWindow *parent = 0);
-	
-	QTableWidget * tableWidget() { return tw_multi; }
-	QTreeWidget * analyseTree() { return analyse_tree; }
-	QStackedWidget * logsStw() { return logs_stw; }
-	bool followSymlinks() { return symlinks->isChecked(); }
-	bool backupFolders() { return backup_folder_1->isChecked() && backup_folder_2->isChecked(); }
-	QString syncFolder1Text() { return sync_folder_1; }
-	QString syncFolder2Text() { return sync_folder_2; }
-	QString tabNameText() { return tab_name->text(); }
-	void setSyncEnabled(bool);
-	//void deleteAllFolderDatabases();
-	//void saveAllFolderDatabases();
-	int countSyncFolders() { return 2; };
-	QStringList syncFoldersList();
-	QStringList currentSyncFoldersList() { QStringList l; l << sync_folder_1; l << sync_folder_2; return l; }
-	QString searchLeText() { return search_multi->text(); }
+    MultisyncPage(MainWindow *parent = 0);
+
+    QTableWidget * tableWidget() { return tw_multi; }
+    QTreeWidget * analyseTree() { return analyse_tree; }
+    QStackedWidget * logsStw() { return logs_stw; }
+    bool followSymlinks() { return symlinks->isChecked(); }
+    bool backupFolders() { return backup_folder_1->isChecked() && backup_folder_2->isChecked(); }
+    QString syncFolder1Text() { return sync_folder_1; }
+    QString syncFolder2Text() { return sync_folder_2; }
+    QString tabNameText() { return tab_name->text(); }
+    void setSyncEnabled(bool);
+    int countSyncFolders() { return 2; };
+    QStringList syncFoldersList();
+    QStringList currentSyncFoldersList() { QStringList l; l << sync_folder_1; l << sync_folder_2; return l; }
+    QString searchLeText() { return search_multi->text(); }
     QString variablesToString();
     void variablesFromString(QString);
 
 public slots:
-	void setAdvancedGB();
-	void multitabNameChanged();
-	void showAdvancedGroupBox(bool show) { advanced->setChecked(show); }
+    void setAdvancedGB();
+    void multitabNameChanged();
+    void showAdvancedGroupBox(bool show) { advanced->setChecked(show); }
     void saveAs(QString file_name);
     void load(QDomDocument &, QString);
     void moveChecked(bool);
     void cloneChecked(bool);
-    void destinationTextChanged() { QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
+    void destinationTextChanged() { if (destination_multi->text().isEmpty()) return;
+        QDir dir(destination_multi->text()); destination_multi->setText(dir.path()); }
     void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
     void showThisPage();
     int sync();
@@ -337,9 +329,7 @@ public slots:
     void aboutToShowAnalyseMenu();
     void leaveAnalyse() { logs_stw->setCurrentIndex(0); }
     void syncCurrentAnalyseItem() {}
-    /*void addVarPath();
-    void removeVarPath();*/
-	
+
 private:
     QString sync_folder_1;
     QString sync_folder_2;
@@ -347,9 +337,7 @@ private:
     QTreeWidget * vars_tree;
     QListWidget * var_paths_list;
     QMenu * analyse_con_menu;
-    /*QStringList getStandardSourcePaths();
-    void setSourcePathsFromStandard(QStringList);*/
     void resetSourcePaths(QMap<QString, QString>);
-	
-	friend class MainWindow;
+
+    friend class MainWindow;
 };

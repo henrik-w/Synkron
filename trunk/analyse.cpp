@@ -72,18 +72,32 @@ void MultisyncPage::goToAnalyse(QAction * action)
 void MultisyncPage::analyse(QAction * action)
 {
     if (syncing) return;
-    MTStringSet folders_set;
+    QTreeWidgetItem * parent_item = new QTreeWidgetItem (analyse_tree);
+    parent_item->setText(0, tr("Root directory"));
+    QStringList data0; data0 << ""; data0 << "checked";
+    parent_item->setData(0, Qt::UserRole, QVariant(data0));
+    parent_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16.png"));
+    parent_item->setCheckState(0, Qt::Checked);
+    if (ignore_blacklist->isChecked()) parent_item->setDisabled(true);
+    parent_item->setExpanded(true);
+
+    bool do_return = false;
+    MTStringSet folders_set;    
     QDir destination(destination_multi->text());
-    QStringList pathlist = action->text().split("/");
-	QString s = pathlist.at(0);
-	pathlist[0] = s.remove(":");
-	for (int v = 0; v < pathlist.count(); ++v) {
-		if (!destination.cd(pathlist.at(v))) {
-            return;
-		}
+    if (!destination.exists()) {
+        parent_item->setText(2, tr("NOT FOUND"));
+        parent_item->setForeground(2, QBrush(Qt::red));
     }
-	QString path = action->text();
-	QMapIterator<QString, QString> iter(vars_map);
+    QStringList pathlist = action->text().split("/");
+    QString s = pathlist.at(0);
+    pathlist[0] = s.remove(":");
+    for (int v = 0; v < pathlist.count(); ++v) {
+        if (!destination.cd(pathlist.at(v))) {
+            do_return = true;
+        }
+    }
+    QString path = action->text();
+    QMapIterator<QString, QString> iter(vars_map);
     while (iter.hasNext()) {
         iter.next();
         if (path.contains(iter.key())) {
@@ -91,14 +105,19 @@ void MultisyncPage::analyse(QAction * action)
         }
     }
     path.replace("//", "/");
-	QDir syncfolder(path);
-	if (!syncfolder.exists()) {
+    QDir syncfolder(path);
+    if (!syncfolder.exists()) {
+        parent_item->setText(1, tr("NOT FOUND"));
+        parent_item->setForeground(1, QBrush(Qt::red));
         return;
     }
+    if (do_return) return;
     sync_folder_1 = syncfolder.path();
     sync_folder_2 = destination.path();
     folders_set << sync_folder_1;
     folders_set << sync_folder_2;
+    parent_item->setData(1, Qt::UserRole, QVariant(sync_folder_1));
+    parent_item->setData(2, Qt::UserRole, QVariant(sync_folder_2));
 
     dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
@@ -115,20 +134,10 @@ void MultisyncPage::analyse(QAction * action)
         }
     }
     update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
-    syncing = true;
-    QTreeWidgetItem * parent_item = new QTreeWidgetItem (analyse_tree);
-    parent_item->setText(0, tr("Root directory"));
-    QStringList data0; data0 << ""; data0 << "checked";
-    parent_item->setData(0, Qt::UserRole, QVariant(data0));
-    for (int i = 0; i < folders_set.count(); ++i) {
-        parent_item->setData(i+1, Qt::UserRole, QVariant(folders_set.at(i)));
-    }
-    parent_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16.png"));
-    parent_item->setCheckState(0, Qt::Checked);
-    if (ignore_blacklist->isChecked()) parent_item->setDisabled(true);
-    parent_item->setExpanded(true);
+    syncing = true; synced_files = 0;
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     subAnalyse(folders_set, parent_item);
+    parent_item->setText(0, tr("Root directory") + " - " + tr("%1 files and folders need to be synchronised").arg(synced_files));
     QApplication::restoreOverrideCursor();
     syncing = false;
 }
@@ -142,33 +151,41 @@ void SyncPage::leaveAnalyse()
 void SyncPage::analyseFolders()
 {
     if (syncing) return;
-    MTStringSet folders_set;
+    QTreeWidgetItem * parent_item = new QTreeWidgetItem (analyse_tree);
+    parent_item->setText(0, tr("Root directory"));
+    QStringList data0; data0 << ""; data0 << "checked";
+    parent_item->setData(0, Qt::UserRole, QVariant(data0));
+    MTStringSet folders_set; QDir dir;
     for (int i = 0; i < sync_folders->count(); ++i) {
-        if (sync_folders->at(i)->path() == "") continue;
-        QDir dir (sync_folders->at(i)->path());
-        if (dir.exists()) {
-            folders_set << dir.path();
+        dir.setPath(sync_folders->at(i)->path());
+        if (!dir.exists()) {
+            parent_item->setText(i+1, tr("NOT FOUND"));
+            parent_item->setForeground(i+1, QBrush(Qt::red));
+        } else folders_set << dir.path();
+        parent_item->setData(i+1, Qt::UserRole, QVariant(sync_folders->at(i)->path()));
+    }
+    parent_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16.png"));
+    parent_item->setCheckState(0, Qt::Checked);
+    if (ignore_blacklist->isChecked()) parent_item->setDisabled(true);
+    parent_item->setExpanded(true);
+
+    extensions.clear();
+    if (filters->isChecked()) {
+        for (int f = 0; f < lw_filters->count(); ++f) {
+            if (lw_filters->item(f)->checkState()==Qt::Checked) {
+                for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
+                    if (mp_parent->filter_list->item(l)->text()==lw_filters->item(f)->text()) {
+                        for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
+                            extensions << QString("*%1").arg(((Filter *)mp_parent->filter_list->item(l))->extensions.at(e));
+                        } break;
+                    }
+                }
+            }
         }
     }
-    if (folders_set.count() < 2) return;
-    extensions.clear();
-	if (filters->isChecked()) {
-		for (int f = 0; f < lw_filters->count(); ++f) {
-			if (lw_filters->item(f)->checkState()==Qt::Checked) {
-				for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
-					if (mp_parent->filter_list->item(l)->text()==lw_filters->item(f)->text()) {
-						for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
-							extensions << QString("*%1").arg(((Filter *)mp_parent->filter_list->item(l))->extensions.at(e));
-						} break;
-					}
-				}
-			}
-		}
-	}
     dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
-    
     if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
         folder_prop_list_map.clear(); //QStringList prop_files_list;
         for (int i = 0; i < sync_folders->count(); ++i) {
@@ -176,25 +193,15 @@ void SyncPage::analyseFolders()
             folder_prop_list_map.insert(sync_folders->at(i)->path(), getFolderDatabase(sync_folders->at(i)->path()));
         }
     }
-    
     syncing = true;
-    QTreeWidgetItem * parent_item = new QTreeWidgetItem (analyse_tree);
-    parent_item->setText(0, tr("Root directory"));
-    QStringList data0; data0 << ""; data0 << "checked";
-    parent_item->setData(0, Qt::UserRole, QVariant(data0));
-    for (int i = 0; i < sync_folders->count(); ++i) {
-        parent_item->setData(i+1, Qt::UserRole, QVariant(sync_folders->at(i)->path()));
-    }
-    parent_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16.png"));
-    parent_item->setCheckState(0, Qt::Checked);
-    if (ignore_blacklist->isChecked()) parent_item->setDisabled(true);
-    parent_item->setExpanded(true);
     synced_files = 0;
+
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     subAnalyse(folders_set, parent_item);
     //subCheckExpanded(parent_item);
     parent_item->setText(0, tr("Root directory") + " - " + tr("%1 files and folders need to be synchronised").arg(synced_files));
     QApplication::restoreOverrideCursor();
+
     synced_files = 0;
     syncing = false;
 }
@@ -217,7 +224,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             file_names << entries.at(n).fileName();
         }
     }
-    
+
     bool special = false;
     QTreeWidgetItem * child_item = 0;
     MTFileInfo * file_info = new MTFileInfo;
@@ -227,7 +234,6 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
         bool sub_special = false;
         QString rel_path = QString("%1/%2").arg(parent_item->data(0, Qt::UserRole).toStringList().at(0)).arg(file_names.at(i));
         if (rel_path.isEmpty()) continue;
-        
         bool blacklisted = parent_item->checkState(0) == Qt::Unchecked;
         if (!ignore_blacklist->isChecked()) {
             for (int e = 0; e < exts_blacklist.count(); ++e) {
