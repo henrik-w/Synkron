@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="es">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -296,82 +297,82 @@
         <translation>No se pot escriure l&apos;archiu %1: %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="252"/>
+        <location filename="../analyse.cpp" line="258"/>
         <source>DELETED</source>
         <translation>ELIMINAT</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="257"/>
+        <location filename="../analyse.cpp" line="263"/>
         <source>NOT FOUND</source>
         <translation>NO TROBAT</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="388"/>
+        <location filename="../analyse.cpp" line="394"/>
         <source>Loading...</source>
         <translation>Carregant...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="581"/>
+        <location filename="../analyse.cpp" line="587"/>
         <source>Open</source>
         <translation>Obrir</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="590"/>
+        <location filename="../analyse.cpp" line="596"/>
         <source>Sync</source>
         <translation>Sincronisar</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="596"/>
+        <location filename="../analyse.cpp" line="602"/>
         <source>Delete</source>
         <translation>Eliminar</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="600"/>
+        <location filename="../analyse.cpp" line="606"/>
         <source>Rename</source>
         <translation>Renomenar</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="606"/>
+        <location filename="../analyse.cpp" line="612"/>
         <source>Add to blacklist</source>
         <translation>Afegir a la llista negra</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="608"/>
+        <location filename="../analyse.cpp" line="614"/>
         <source>Remove from blacklist</source>
         <translation>Eliminar de la llista negra</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="614"/>
+        <location filename="../analyse.cpp" line="620"/>
         <source>Add extension to blacklist</source>
         <translation>Afegir extensions a la llista negra</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="715"/>
+        <location filename="../analyse.cpp" line="721"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>¿Està segur de que vol eliminar &quot;%1&quot; de cada ubicació sincronisada?</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="769"/>
+        <location filename="../analyse.cpp" line="775"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Renomenar archiu</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="769"/>
+        <location filename="../analyse.cpp" line="775"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Escriga un nou nom per a &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
+        <location filename="../analyse.cpp" line="787"/>
         <source>Error renaming directory %1</source>
         <translation>Erro al renomenar carpeta %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="790"/>
+        <location filename="../analyse.cpp" line="796"/>
         <source>File %1 renamed</source>
         <translation>Archiu %1 renomenat</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="788"/>
+        <location filename="../analyse.cpp" line="794"/>
         <source>Error renaming file %1</source>
         <translation>Erro al renomenar archiu %1</translation>
     </message>
@@ -403,7 +404,7 @@
     <message>
         <location filename="../tabs.cpp" line="109"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pestanyes Synkron (*.slist)</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="39"/>
@@ -413,20 +414,20 @@
     <message>
         <location filename="../other.cpp" line="40"/>
         <source>Allowed time difference (in seconds):</source>
-        <translation type="unfinished"></translation>
+        <translation>Diferència de temps permesa (en segons):</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="284"/>
+        <location filename="../analyse.cpp" line="290"/>
         <source>OBSOLETE</source>
-        <translation type="unfinished"></translation>
+        <translation>OBSOLET</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="333"/>
+        <location filename="../syncdb.cpp" line="334"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="333"/>
+        <location filename="../analyse.cpp" line="339"/>
         <source>COLLISION</source>
         <translation>COLISIÓ</translation>
     </message>
@@ -436,27 +437,27 @@
         <translation>Colisió trobada entre archius %1 i %2</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="305"/>
+        <location filename="../syncdb.cpp" line="306"/>
         <source>Collisions found</source>
         <translation>Colisions trobades</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="309"/>
+        <location filename="../syncdb.cpp" line="310"/>
         <source>Collided files:</source>
         <translation>Archius colisionats:</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="312"/>
+        <location filename="../syncdb.cpp" line="313"/>
         <source>Newer files</source>
         <translation>Archius mes nous</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="312"/>
+        <location filename="../syncdb.cpp" line="313"/>
         <source>Older files</source>
         <translation>Archius mes vells</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="336"/>
+        <location filename="../syncdb.cpp" line="337"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -534,7 +535,7 @@
     <message>
         <location filename="../main.cpp" line="101"/>
         <source>Valencian</source>
-        <translation type="unfinished"></translation>
+        <translation>Valencià</translation>
     </message>
 </context>
 <context>
@@ -1730,7 +1731,7 @@
     <message>
         <location filename="../tabs.cpp" line="70"/>
         <source>Synkron Tabs (*.slist)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pestanyes Synkron (*.slist)</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="75"/>
@@ -2085,7 +2086,7 @@
         <translation>Destí</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="120"/>
+        <location filename="../analyse.cpp" line="76"/>
         <source>Root directory</source>
         <translation>Carpeta raïl</translation>
     </message>
@@ -2198,6 +2199,11 @@
         <location filename="../multisync.cpp" line="405"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>Borrats %1 archius temporals repetits</translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="110"/>
+        <source>NOT FOUND</source>
+        <translation>NO TROBAT</translation>
     </message>
 </context>
 <context>
@@ -2364,7 +2370,7 @@
         <translation>&lt;b&gt;Registre de sincronisació:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="196"/>
+        <location filename="../analyse.cpp" line="201"/>
         <source>Root directory</source>
         <translation>Carpeta raïl</translation>
     </message>
@@ -2554,12 +2560,12 @@
         <translation>Anàlisis</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="681"/>
+        <location filename="../analyse.cpp" line="687"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1 Erro al crear carpeta %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="684"/>
+        <location filename="../analyse.cpp" line="690"/>
         <source>%1 Directory %2 created</source>
         <translation>%1 Carpeta %2 creada</translation>
     </message>
@@ -2641,9 +2647,14 @@
         <translation>Borrats %1 archius temporals repetits</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="196"/>
+        <location filename="../analyse.cpp" line="201"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>%1 archius i carpetes necessiten sincronisar-se</translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="161"/>
+        <source>NOT FOUND</source>
+        <translation>NO TROBAT</translation>
     </message>
 </context>
 <context>
