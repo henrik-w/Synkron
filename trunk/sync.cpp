@@ -63,9 +63,12 @@ void SyncPage::setSyncWidget()
     hlayout0->addItem(spacerItem, 0, 2);
     mainglayout->addLayout(hlayout0, 0, 0);
     QHBoxLayout * folders_hlayout = new QHBoxLayout;
-    QToolButton * add_folder_btn = new QToolButton (this);
+    QPushButton * add_folder_btn = new QPushButton (this);
     add_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/add.png")));
     add_folder_btn->setStatusTip(tr("Add"));
+    add_folder_btn->setFlat(true);
+    add_folder_btn->setMinimumSize(22, 22);
+    add_folder_btn->setMaximumSize(22, 22);
     folders_hlayout->addWidget(add_folder_btn);
     show_sync_folders = new QCheckBox (tab);
     show_sync_folders->setStatusTip(tr("Show/hide sync folders"));
@@ -116,6 +119,7 @@ void SyncPage::setSyncWidget()
 
     analyse_tree = new ExtendedTreeWidget (this);
     analyse_tree->setAlternatingRowColors(true);
+    analyse_tree->setUniformRowHeights(true);
     connect(analyse_tree, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemClicked(QTreeWidgetItem *, int)));
     connect(analyse_tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(analyseTreeItemDoubleClicked(QTreeWidgetItem *, int)));
     connect(analyse_tree, SIGNAL(sigconmenu(QPoint)), this, SLOT(analyseTreeConMenu(QPoint)));

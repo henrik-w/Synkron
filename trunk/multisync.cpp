@@ -41,9 +41,10 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
     status_table_item->setBackground(Qt::blue);
     status_table_item->setForeground(Qt::white);
     tw_multi->setSpan(0, 0, 1, 2);
-	tw_multi->setItem(0, 0, status_table_item);
-	tw_multi->setRowHeight(0, 16);
-	tw_multi->setTextElideMode(Qt::ElideMiddle);
+    tw_multi->setItem(0, 0, status_table_item);
+    tw_multi->setRowHeight(0, 16);
+    tw_multi->setTextElideMode(Qt::ElideMiddle);
+    analyse_tree->setUniformRowHeights(true);
 
     setAdvancedGB();
 

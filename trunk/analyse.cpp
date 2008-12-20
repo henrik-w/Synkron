@@ -231,7 +231,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
     QStringList s_folders_list = currentSyncFoldersList();
     for (int i = 0; i < file_names.count(); ++i) {
         if (file_names.at(i) == ".synkron.syncdb") continue;
-        bool sub_special = false;
+        int sub_special = 0;
         QString rel_path = QString("%1/%2").arg(parent_item->data(0, Qt::UserRole).toStringList().at(0)).arg(file_names.at(i));
         if (rel_path.isEmpty()) continue;
         bool blacklisted = parent_item->checkState(0) == Qt::Unchecked;
@@ -252,7 +252,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             file_info->setFile(QString("%1%2").arg(s_folders_list.at(i)).arg(rel_path));
             if (!file_info->exists()) {
                 child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
-                sub_special = true;
+                sub_special++;
                 if (propagate_deletions->isChecked()) {
                     if (isInGroupDatabase(file_info->absoluteFilePath())) {
                         child_item->setText(i+1, tr("DELETED"));
@@ -317,7 +317,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
         }
         if (newest_indices.count() != 0) { //If is not dir ---------------------
             if (!blacklisted && (newest_indices.count() != s_folders_list.count())) {
-                sub_special = true;
+                sub_special++;
                 child_item->setIcon(0, QIcon(":/new/prefix1/images/file_red.png"));
                 synced_files += s_folders_list.count() - newest_indices.count();
             } else {
@@ -332,7 +332,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             }
         } else if (sub_special && !blacklisted) {
             child_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16_red.png"));
-            synced_files++;
+            synced_files += sub_special;
         }
         if (conflicted_indices.count() > 1) {
             for (int ind = 0; ind < conflicted_indices.count(); ++ind) {
@@ -347,7 +347,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
         if (child_item->checkState(0) == Qt::Checked) data0 << "checked";
         else data0 << "unchecked";
         child_item->setData(0, Qt::UserRole, QVariant(data0));
-        if (blacklisted) sub_special = false;
+        if (blacklisted) sub_special = 0;
         //parent_item->addChild(child_item);
         if (child_folders_set.count() != 0) {
             if (fast_analyse->isChecked()) {
@@ -359,16 +359,16 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                 ld_data << "regular";
                 loading_item->setData(0, Qt::UserRole, QVariant(ld_data));
                 child_item->addChild(loading_item);
-                sub_special = false;
+                sub_special = 0;
             } else {
-                if (subAnalyse(child_folders_set, child_item)) sub_special = true;
-                else if (analyse_special_only->isChecked() && child_item->childCount() == 0) {
+                if (subAnalyse(child_folders_set, child_item)) sub_special = 1;
+                else if (analyse_special_only->isChecked() && child_item->childCount() == 0 && !sub_special) {
                     delete child_item;
                     continue;
                 }
             }
         }
-        if (blacklisted) sub_special = false;
+        if (blacklisted) sub_special = 0;
         if (sub_special) {
             parent_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16_red.png"));
             //parent_item->setExpanded(true);
