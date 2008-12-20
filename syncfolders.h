@@ -68,7 +68,7 @@ class SyncFolder : public QWidget
 public:
     SyncFolder(QWidget * parent = 0);
     
-    QToolButton * remove_folder_btn;
+    QPushButton * remove_folder_btn;
     QLineEdit * folder_name_lne;
     QPushButton * browse_btn;
     

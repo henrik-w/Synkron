@@ -119,9 +119,12 @@ SyncFolder::SyncFolder(QWidget * parent):
     QHBoxLayout * hlayout = new QHBoxLayout(this);
     hlayout->setMargin(0); hlayout->setSpacing(6);
     
-    remove_folder_btn = new QToolButton (this);
+    remove_folder_btn = new QPushButton (this);
     remove_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/remove.png")));
     remove_folder_btn->setStatusTip(tr("Remove"));
+    remove_folder_btn->setFlat(true);
+    remove_folder_btn->setMinimumSize(22, 22);
+    remove_folder_btn->setMaximumSize(22, 22);
     connect(remove_folder_btn, SIGNAL(released()), this, SLOT(removeFolder()));
     hlayout->addWidget(remove_folder_btn);
     
