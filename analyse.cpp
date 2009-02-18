@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -29,7 +29,7 @@ void SyncPage::goToAnalyse()
     QStringList labels;
     labels << tr("File name");
     for (int i = 0; i < sync_folders->count(); ++i) {
-        labels << tr("Folder %1").arg(i+1);
+        labels << sync_folders->at(i)->label();
     }
     analyse_tree->setHeaderLabels(labels);
     analyse_tree->header()->setStretchLastSection(false);
@@ -64,7 +64,7 @@ void MultisyncPage::goToAnalyse(QAction * action)
     for (int i = 1; i < labels.count(); ++i) {
         analyse_tree->header()->setResizeMode(i, QHeaderView::ResizeToContents);
     }
-    
+
     logs_stw->setCurrentIndex(1);
     analyse(action);
 }
@@ -170,15 +170,14 @@ void SyncPage::analyseFolders()
     parent_item->setExpanded(true);
 
     extensions.clear();
-    if (filters->isChecked()) {
-        for (int f = 0; f < lw_filters->count(); ++f) {
-            if (lw_filters->item(f)->checkState()==Qt::Checked) {
-                for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
-                    if (mp_parent->filter_list->item(l)->text()==lw_filters->item(f)->text()) {
-                        for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
-                            extensions << QString("*%1").arg(((Filter *)mp_parent->filter_list->item(l))->extensions.at(e));
-                        } break;
-                    }
+    QList<QAction *> actions = filters_menu->actions();
+    for (int f = 0; f < actions.count(); ++f) {
+        if (actions.at(f)->isChecked()) {
+            for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
+                if (mp_parent->filter_list->item(l)->text() == actions.at(f)->text()) {
+                    for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
+                        extensions << QString("*%1").arg(((Filter *)mp_parent->filter_list->item(l))->extensions.at(e));
+                    } break;
                 }
             }
         }
@@ -248,6 +247,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
         MTEvenDateTime newest_datetime;
         QList<int> newest_indices;
         QList<int> conflicted_indices;
+        QList<int> unexist_conflicted_indices;
         for (int i = 0; i < s_folders_list.count(); ++i) {
             file_info->setFile(QString("%1%2").arg(s_folders_list.at(i)).arg(rel_path));
             if (!file_info->exists()) {
@@ -298,8 +298,11 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                     newest_indices << i+1;
                 }
                 if (compared_dates != 0 && alert_collisions->isChecked()) {
-                    if (fileIsDifferentFromDB(file_info->absoluteFilePath())) {
+                    int is_diff = fileIsDifferentFromDB(file_info->absoluteFilePath());
+                    if (is_diff == 1) {
                         conflicted_indices << i+1;
+                    } else if (is_diff == -1)  {
+                        unexist_conflicted_indices << i+1;
                     }
                 }
                 child_item->setToolTip(i+1, file_info->lastModified().toString(Qt::ISODate));
@@ -338,6 +341,12 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             for (int ind = 0; ind < conflicted_indices.count(); ++ind) {
                 child_item->setText(conflicted_indices.at(ind), tr("COLLISION"));
                 child_item->setForeground(conflicted_indices.at(ind), QBrush(Qt::black));
+            }
+        }
+        if (unexist_conflicted_indices.count() > 1) {
+            for (int ind = 0; ind < unexist_conflicted_indices.count(); ++ind) {
+                child_item->setText(unexist_conflicted_indices.at(ind), tr("COLLISION"));
+                child_item->setForeground(unexist_conflicted_indices.at(ind), QBrush(Qt::black));
             }
         }
         child_item->setCheckState(0, blacklisted ? Qt::Unchecked : Qt::Checked);
@@ -636,7 +645,7 @@ void AbstractSyncPage::openAnalyseTreeItem()
 void SyncPage::syncCurrentAnalyseItem()
 {
     QTreeWidgetItem * item = analyse_tree->currentItem();
-    MTStringSet sync_folders;
+    MTMap<QString, int> sync_folders;
     MTStringSet rel_paths;
     MTFileInfo * file_info = 0;
     leaveAnalyse();
@@ -653,25 +662,6 @@ void SyncPage::syncCurrentAnalyseItem()
     for (int i = 1; i < analyse_tree->columnCount(); ++i) {
         release(file_info);
         file_info = new MTFileInfo (item->data(i, Qt::UserRole).toString());
-        /*QDir dir = file_info->absoluteDir();
-        if (!file_info->isSymLink()){
-            if (!dir.exists()) {
-                if (!QDir().mkpath(dir.absolutePath())) {
-                    addTableItem(tr("%1 Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
-                    continue;
-                } else {
-                    addTableItem(tr("%1 Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(dir.absolutePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
-                }
-            }
-        }*/
-        /*if (!file_info->exists() && file_info->isDir() && !file_info->isSymLink()) {
-            if (!QDir().mkpath(file_info->absoluteFilePath())) {
-                addTableItem(tr("%1	Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::red), QBrush(Qt::white));
-                continue;
-            } else {
-                addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(file_info->absoluteFilePath()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
-            }
-        }*/
         if (!file_info->exists()) {
             if (is_dir) {
                 if (!QDir().mkpath(file_info->absoluteFilePath())) {
@@ -693,10 +683,12 @@ void SyncPage::syncCurrentAnalyseItem()
             }
         }
         if (is_dir) {
-            sync_folders << file_info->absoluteFilePath();
+            //sync_folders << file_info->absoluteFilePath();
+            sync_folders.setValue(file_info->absoluteFilePath(), i - 1);
         } else {
             rel_paths << file_info->fileName();
-            sync_folders << file_info->dir().path();
+            //sync_folders << file_info->dir().path();
+            sync_folders.setValue(file_info->dir().path(), i - 1);
         }
     }
     release(file_info);
@@ -736,9 +728,9 @@ void AbstractSyncPage::deleteCurrentAnalyseItem()
             release(file_info);
             file_info = new QFileInfo (item->data(i, Qt::UserRole).toString());
             if (sub_backup && s_folders_list.count() < 3) {
-                if (file_info->absoluteFilePath().startsWith(s_folders_list.at(0)) && backup_folder_1->isChecked()) {
+                if (file_info->absoluteFilePath().startsWith(s_folders_list.at(0)) && backupFolder(0)) {
                     sub_backup = false;
-                } else if (file_info->absoluteFilePath().startsWith(s_folders_list.at(1)) && backup_folder_2->isChecked()) {
+                } else if (file_info->absoluteFilePath().startsWith(s_folders_list.at(1)) && backupFolder(1)) {
                     sub_backup = false;
                 }
             }

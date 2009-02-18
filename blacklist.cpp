@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -21,25 +21,24 @@
 
 void MainWindow::toBlacklist()
 {
-	blacklist_fileslist->clear(); blacklist_folderslist->clear(); blacklist_extslist->clear();
-	QListWidgetItem * item;
-	for (int i = 0; i < files_blacklist.count(); ++i) {
-		item = new QListWidgetItem(files_blacklist.at(i));
-		blacklist_fileslist->addItem(item);
-	}
-	for (int i = 0; i < folders_blacklist.count(); ++i) {
-		item = new QListWidgetItem(folders_blacklist.at(i));
-		blacklist_folderslist->addItem(item);
-	}
-	for (int i = 0; i < exts_blacklist.count(); ++i) {
-		item = new QListWidgetItem(exts_blacklist.at(i));
-		blacklist_extslist->addItem(item);
-	}
+    blacklist_fileslist->clear(); blacklist_folderslist->clear(); blacklist_extslist->clear();
+    QListWidgetItem * item;
+    for (int i = 0; i < files_blacklist.count(); ++i) {
+        item = new QListWidgetItem(files_blacklist.at(i));
+        blacklist_fileslist->addItem(item);
+    }
+    for (int i = 0; i < folders_blacklist.count(); ++i) {
+        item = new QListWidgetItem(folders_blacklist.at(i));
+        blacklist_folderslist->addItem(item);
+    }
+    for (int i = 0; i < exts_blacklist.count(); ++i) {
+        item = new QListWidgetItem(exts_blacklist.at(i));
+        blacklist_extslist->addItem(item);
+    }
 }
 
 void MainWindow::addFileToBlacklist()
 {
-	//QString file = getPathDialogue(false);
     MTPathDialogue * dialogue = new MTPathDialogue;
     QString file = dialogue->getPath(false);
     if (file.isEmpty() || file == ".") { return; }
@@ -58,18 +57,18 @@ void MainWindow::addFileToBlacklist()
 
 void MainWindow::removeFileFromBlacklist()
 {
-	if (blacklist_fileslist->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No file selected.")); return; }
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected file from blacklist?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
- 	QString text;
+    if (blacklist_fileslist->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No file selected.")); return; }
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected file from blacklist?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    QString text;
     QMapIterator<QWidget *, SyncPage *> i(tabs);
     switch (msgBox.exec()) {
  	case QMessageBox::Yes:
         text = blacklist_fileslist->currentItem()->text();
-		if (files_blacklist.contains(text)) {
-				files_blacklist.removeAt(files_blacklist.indexOf(text));
-		}
+        if (files_blacklist.contains(text)) {
+            files_blacklist.removeAt(files_blacklist.indexOf(text));
+        }
         while (i.hasNext()) { i.next();
             if (i.value()->files_blacklist.contains(text))
                 i.value()->files_blacklist.removeAt(i.value()->files_blacklist.indexOf(text));
@@ -80,11 +79,11 @@ void MainWindow::removeFileFromBlacklist()
         }
         delete blacklist_fileslist->currentItem();
         break;
- 	case QMessageBox::No:
-		break;
-	default:
-   		break;
- 	}
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
 }
 
 void MainWindow::addFolderToBlacklist()
@@ -92,12 +91,12 @@ void MainWindow::addFolderToBlacklist()
     //QString folder = getPathDialogue(true);
     MTPathDialogue * dialogue = new MTPathDialogue;
     QString folder = dialogue->getPath(true);
-	if (folder.isEmpty() || folder == ".") { return; }
-	QDir dir(folder); folder = dir.path();
+    if (folder.isEmpty() || folder == ".") { return; }
+    QDir dir(folder); folder = dir.path();
     folders_blacklist << folder;
     blacklist_folderslist->addItem(folder);
     QMapIterator<QWidget *, SyncPage *> i(tabs);
-	while (i.hasNext()) { i.next();
+    while (i.hasNext()) { i.next();
         if (!i.value()->folders_blacklist.contains(folder))
             i.value()->folders_blacklist << folder;
 	}

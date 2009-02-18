@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -420,10 +420,12 @@ void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool ad
 	QString dirname = dir.dirName();
 	dir.cdUp();
 	if (dir.rmdir(dirname)) {
-        if (add_table_item) addTableItem(tr("Folder %1 with %2 files deleted").arg(dir_path).arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+        if (add_table_item) addTableItem(tr("Folder %1 with %2 files deleted").arg(getLabeledPath(dir_path)).arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
         synced_files++;
     } else {
-        if (add_table_item) addTableItem(tr("Unknown error removing folder: %1").arg(dir_path), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+        if (add_table_item) {
+            addTableItem(tr("Unknown error removing folder: %1").arg(getLabeledPath(dir_path)), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
+        }
     }
     return;
 }
@@ -436,7 +438,7 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
     if (backup) {
         QDir().mkpath(QString("%1/%2").arg(mp_parent->temp_path).arg(update_time));
         if (!file.copy(QString("%1/%2/%3.%4").arg(mp_parent->temp_path).arg(update_time).arg(file_info.fileName()).arg(synced_files))) {
-            unknownError(file_info.absoluteFilePath(), tr("file"), tr("copy"), ":/new/prefix1/images/file.png", tr(" to temp"));
+            errorCopyingFile(file_info.absoluteFilePath(), file.errorString(), true);
             return;
         }
         saveBackedUpFile(file_info);
@@ -444,10 +446,10 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
         //mp_parent->synchronised << QString("%1/.Synkron/%2/%3.%4").arg(QDir::QDir::homePath()).arg(update_time).arg(file_info.fileName()).arg(synced_files);
     }
     if (!file.remove()) {
-        if (add_table_item) addTableItem(tr("Unknown error removing file: %1").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::red), QBrush(Qt::white));
+        if (add_table_item) errorRemovingFile(file_info.absoluteFilePath(), file.errorString());
         return;
     }
-    if (add_table_item) addTableItem(tr("File %1 deleted").arg(file_info.absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
+    if (add_table_item) addTableItem(tr("File %1 deleted").arg(getLabeledPath(file_info.absoluteFilePath())), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
     status_table_item->setText(previous_status_text); qApp->processEvents();
     synced_files++;
 }

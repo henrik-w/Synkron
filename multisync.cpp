@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -21,10 +21,10 @@
 
 MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
 {
-	setupUi(this);
-	is_multisync = true;
+    setupUi(this);
+    is_multisync = true;
 
-	stop_sync_btn->setVisible(false);
+    stop_sync_btn->setVisible(false);
 
     analyse_con_menu = new QMenu;
     connect(analyse_con_menu, SIGNAL(triggered(QAction *)), this, SLOT(goToAnalyse(QAction *)));
@@ -54,147 +54,132 @@ MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
 
 void MultisyncPage::setAdvancedGB()
 {
-    advanced = new MTAdvancedGroupBox(chb_advanced, this);
-    advanced_layout->addWidget(advanced);
-    QGridLayout * main_layout = new QGridLayout;
-    QSpacerItem * sitem = new QSpacerItem(1000, 0, QSizePolicy::Expanding, QSizePolicy::Expanding);
-    main_layout->addItem(sitem, 0, 1);
-    main_layout->addItem(sitem, 0, 3);
+    show_advanced->setText(show_advanced->text() + "  ");
+    advanced_menu = new QMenu;
+    advanced_menu->setTearOffEnabled(true);
 
-	sync_hidden = new QCheckBox(advanced);
-    sync_hidden->setChecked(true);
+    sync_hidden = new QAction (advanced_menu);
+    sync_hidden->setCheckable(true);
     sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
     sync_hidden->setText(tr("Synchronise hidden files and folders"));
-    main_layout->addWidget(sync_hidden, 0, 0);
+    advanced_menu->addAction(sync_hidden);
 
-    propagate_deletions = new QCheckBox (advanced);
-    propagate_deletions->setChecked(false);
+    sync_nosubdirs = new QAction (advanced_menu);
+    sync_nosubdirs->setCheckable(true);
+    sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
+    sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
+    advanced_menu->addAction(sync_nosubdirs);
+
+    ignore_blacklist = new QAction (advanced_menu);
+    ignore_blacklist->setCheckable(true);
+    ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
+    ignore_blacklist->setText(tr("Ignore blacklist"));
+    advanced_menu->addAction(ignore_blacklist);
+
+    propagate_deletions = new QAction (advanced_menu);
+    propagate_deletions->setCheckable(true);
     propagate_deletions->setStatusTip(tr("Propagate deletions"));
     propagate_deletions->setText(tr("Propagate deletions"));
     connect(propagate_deletions, SIGNAL(toggled(bool)), this, SLOT(propagatedStateChanged(bool)));
-    connect(propagate_deletions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
-    main_layout->addWidget(propagate_deletions, 0, 2);
+    connect(propagate_deletions, SIGNAL(toggled(bool)), this, SLOT(propagatedClicked(bool)));
+    advanced_menu->addAction(propagate_deletions);
 
-	sync_nosubdirs = new QCheckBox(advanced);
-    sync_nosubdirs->setChecked(false);
-    sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
-    sync_nosubdirs->setText(tr("Do not synchronise subdirectories"));
-    main_layout->addWidget(sync_nosubdirs, 1, 0);
-
-    ignore_blacklist = new QCheckBox(advanced);
-    ignore_blacklist->setChecked(false);
-    ignore_blacklist->setStatusTip(tr("Ignore blacklist"));
-    ignore_blacklist->setText(tr("Ignore blacklist"));
-    main_layout->addWidget(ignore_blacklist, 1, 2);
-
-    alert_collisions = new QCheckBox(advanced);
+    alert_collisions = new QAction (advanced_menu);
+    alert_collisions->setCheckable(true);
     alert_collisions->setText(tr("Detect collisions"));
     alert_collisions->setStatusTip(tr("Detect and alert collided files"));
-    connect(alert_collisions, SIGNAL(clicked(bool)), this, SLOT(propagatedStateChanged(bool)));
-    connect(alert_collisions, SIGNAL(clicked(bool)), this, SLOT(propagatedClicked(bool)));
-    main_layout->addWidget(alert_collisions, 0, 4);
+    connect(alert_collisions, SIGNAL(toggled(bool)), this, SLOT(propagatedStateChanged(bool)));
+    connect(alert_collisions, SIGNAL(toggled(bool)), this, SLOT(propagatedClicked(bool)));
+    advanced_menu->addAction(alert_collisions);
 
-    files_blacklist = mp_parent->files_blacklist;
-    folders_blacklist = mp_parent->folders_blacklist;
-    exts_blacklist = mp_parent->exts_blacklist;
-
-    symlinks = new QCheckBox;
+    symlinks = new QAction(advanced_menu);
+    symlinks->setCheckable(true);
 #ifdef Q_WS_WIN
     symlinks->setChecked(false);
 #else
-	symlinks->setParent(advanced);
-	symlinks->setChecked(false);
-	symlinks->setStatusTip(tr("Follow symbolic links"));
+    symlinks->setChecked(false);
+    symlinks->setStatusTip(tr("Follow symbolic links"));
     symlinks->setText(tr("Follow symbolic links"));
-    main_layout->addWidget(symlinks, 1, 4);
+    advanced_menu->addAction(symlinks);
 #endif
 
-    QLabel * folder1_label = new QLabel (advanced);
-    folder1_label->setText(tr("<b>Sources:</b>"));
-    main_layout->addWidget(folder1_label, 3, 0);
+    advanced_menu->addSeparator();
+    QMenu * adv_analysis_menu = new QMenu;
+    adv_analysis_menu->setTitle(tr("Analysis"));
+    adv_analysis_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/analyse_16.png")));
 
-	backup_folder_1 = new QCheckBox (tr("Do not backup updated files"), advanced);
-	backup_folder_1->setStatusTip(tr("Do not backup updated files from sources"));
-    main_layout->addWidget(backup_folder_1, 4, 0);
+    fast_analyse = new QAction (tr("Fast analysis"), advanced_menu);
+    fast_analyse->setCheckable(true);
+    fast_analyse->setStatusTip(tr("Fast analysis"));
+    adv_analysis_menu->addAction(fast_analyse);
 
-    update_only_1 = new QCheckBox (tr("Update existing files only"), advanced);
-	update_only_1->setStatusTip(tr("Update existing files in sources only"));
-    main_layout->addWidget(update_only_1, 4, 2);
+    analyse_special_only = new QAction (tr("List files which need to be synchronised only"), advanced_menu);
+    analyse_special_only->setCheckable(true);
+    analyse_special_only->setStatusTip(tr("List files which need to be synchronised only"));
+    adv_analysis_menu->addAction(analyse_special_only);
 
-	move = new QCheckBox (tr("Move contents to destination, leaving sources empty"), advanced);
-	move->setStatusTip(tr("Move contents to destination, leaving sources empty"));
-	connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
-    main_layout->addWidget(move, 4, 4);
+    advanced_menu->addMenu(adv_analysis_menu);
 
-	QLabel * folder2_label = new QLabel (advanced);
-    folder2_label->setText(tr("<b>Destination:</b>"));
-    main_layout->addWidget(folder2_label, 5, 0);
+    QMenu * adv_sources_menu = new QMenu;
+    adv_sources_menu->setTitle(tr("Sources"));
+    adv_sources_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sources.png")));
 
-	backup_folder_2 = new QCheckBox (tr("Do not backup updated files"), advanced);
-	backup_folder_2->setStatusTip(tr("Do not backup updated files from destination"));
-    main_layout->addWidget(backup_folder_2, 6, 0);
+    backup_folder_1 = new QAction (tr("Do not backup updated files"), advanced_menu);
+    backup_folder_1->setCheckable(true);
+    backup_folder_1->setStatusTip(tr("Do not backup updated files from sources"));
+    adv_sources_menu->addAction(backup_folder_1);
 
-    update_only_2 = new QCheckBox (tr("Update existing files only"), advanced);
-	update_only_2->setStatusTip(tr("Update existing files in destination only"));
-    main_layout->addWidget(update_only_2, 6, 2);
+    update_only_1 = new QAction (tr("Update existing files only"), advanced_menu);
+    update_only_1->setCheckable(true);
+    update_only_1->setStatusTip(tr("Update existing files in sources only"));
+    adv_sources_menu->addAction(update_only_1);
 
-	clone_folder1 = new QCheckBox (tr("Clone sources"), advanced);
-	clone_folder1->setStatusTip(tr("Clone sources"));
-	connect(clone_folder1, SIGNAL(toggled(bool)), this, SLOT(cloneStateChanged(bool)));
-    main_layout->addWidget(clone_folder1, 6, 4);
+    move = new QAction (tr("Move contents to destination, leaving sources empty"), advanced_menu);
+    move->setCheckable(true);
+    move->setStatusTip(tr("Move contents to destination, leaving sources empty"));
+    connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
+    adv_sources_menu->addAction(move);
 
-    /*advanced->gridLayout()->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
-	filters = new QGroupBox(tr("Filters"), advanced);
-	filters->setCheckable(true);
-	filters->setChecked(false);
-	filters->setMaximumWidth(150);
-	QVBoxLayout * vlayout_filters = new QVBoxLayout(filters);
-#ifndef Q_WS_MAC
-	vlayout_filters->setContentsMargins(9, 6, 9, 9);
-#endif
-	lw_filters = new QListWidget(filters);
-	QListWidgetItem * item;
-    for (int f = 0; f < mp_parent->filter_list->count(); ++f) {
-		item = new QListWidgetItem (mp_parent->filter_list->item(f)->text());
-		item->setCheckState(Qt::Unchecked);
-		lw_filters->addItem(item);
-	}
-	vlayout_filters->addWidget(lw_filters);*/
+    advanced_menu->addMenu(adv_sources_menu);
 
-    QLabel * analyse_label = new QLabel (advanced);
-    analyse_label->setText(tr("<b>Analyse:</b>"));
-    main_layout->addWidget(analyse_label, 7, 0);
-	fast_analyse = new QCheckBox;
-    fast_analyse->setText(tr("Fast analysis"));
-    main_layout->addWidget(fast_analyse, 8, 0);
-    analyse_special_only = new QCheckBox;
-    analyse_special_only->setText(tr("List files which need to be synchronised only"));
-    main_layout->addWidget(analyse_special_only, 8, 2);
+    QMenu * adv_destination_menu = new QMenu;
+    adv_destination_menu->setTitle(tr("Destination"));
+    adv_destination_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/Synkron16.png")));
 
-    QLabel * other_label = new QLabel(advanced);
-    other_label->setText(tr("<b>Other:</b>"));
-    main_layout->addWidget(other_label, 7, 4);
+    backup_folder_2 = new QAction (tr("Do not backup updated files"), advanced_menu);
+    backup_folder_2->setCheckable(true);
+    backup_folder_2->setStatusTip(tr("Do not backup updated files from destination"));
+    adv_destination_menu->addAction(backup_folder_2);
 
-    QHBoxLayout * buttons_hlayout = new QHBoxLayout;
-    QLabel * edit_blacklist = new QLabel(advanced);
-    edit_blacklist->setText(QString("<a href=\"edit\">%1</a>").arg(tr("Edit blacklist")));
+    update_only_2 = new QAction (tr("Update existing files only"), advanced_menu);
+    update_only_2->setCheckable(true);
+    update_only_2->setStatusTip(tr("Update existing files in destination only"));
+    adv_destination_menu->addAction(update_only_2);
+
+    clone_folder1 = new QAction (tr("Clone sources"), advanced_menu);
+    clone_folder1->setCheckable(true);
+    clone_folder1->setStatusTip(tr("Clone sources"));
+    connect(clone_folder1, SIGNAL(toggled(bool)), this, SLOT(cloneStateChanged(bool)));
+    adv_destination_menu->addAction(clone_folder1);
+
+    advanced_menu->addMenu(adv_destination_menu);
+    advanced_menu->addSeparator();
+
+    QAction * edit_blacklist = new QAction(advanced_menu);
+    edit_blacklist->setText(tr("Edit blacklist"));
     edit_blacklist->setStatusTip(tr("Edit blacklist for this tab"));
-    connect(edit_blacklist, SIGNAL(linkActivated(QString)), this, SLOT(editBlacklist()));
-    buttons_hlayout->addWidget(edit_blacklist);
+    edit_blacklist->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/blacklist.png")));
+    connect(edit_blacklist, SIGNAL(triggered(bool)), this, SLOT(editBlacklist()));
+    advanced_menu->addAction(edit_blacklist);
 
-    QLabel * change_ignorance = new QLabel(advanced);
-    change_ignorance->setText(QString("<a href=\"edit\">%1</a>").arg(tr("Change allowed time difference")));
+    QAction * change_ignorance = new QAction(advanced_menu);
+    change_ignorance->setText(tr("Change allowed time difference"));
     change_ignorance->setStatusTip(tr("Change the allowed time difference between synchronised files"));
-    connect(change_ignorance, SIGNAL(linkActivated(QString)), this, SLOT(changeAllowedDifference()));
-    buttons_hlayout->addWidget(change_ignorance);
-    buttons_hlayout->addStretch();
-    main_layout->addLayout(buttons_hlayout, 8, 4);
+    change_ignorance->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sync.png")));
+    connect(change_ignorance, SIGNAL(triggered(bool)), this, SLOT(changeAllowedDifference()));
+    advanced_menu->addAction(change_ignorance);
 
-    advanced->addLayout(main_layout, 0, 0);
-    advanced->addItem(new QSpacerItem(10, 5, QSizePolicy::Expanding, QSizePolicy::Minimum), 0, 1);
-    advanced->groupBox()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
-	//advanced->addWidget(page->filters, 0, 4);
-	//mainglayout->addWidget(advanced, 7, 0);
+    show_advanced->setMenu(advanced_menu);
 }
 
 MultisyncPage * MainWindow::addMultiTab()
@@ -233,6 +218,7 @@ MultisyncPage * MainWindow::addMultiTab()
     connect(multi_page->destination_multi, SIGNAL(editingFinished()), multi_page, SLOT(destinationTextChanged()));
     connect(multi_page->tab_name, SIGNAL(editingFinished()), multi_page, SLOT(multitabNameChanged()));
     connect(multi_page->vars_multi, SIGNAL(released()), multi_page, SLOT(varsDialogue()));
+    connect(multi_page->destination_multi, SIGNAL(editingFinished()), multi_page, SLOT(foldersChanged()));
 
     multi_page->tab_name->setText(multi_tabWidget->tabText(multi_tabWidget->indexOf(multi_page)));
 
@@ -262,23 +248,28 @@ void MainWindow::addSource()
     item->setText(path);
     item->setCheckState(Qt::Checked);
     multi_page->list_multi->addItem(item);
+    multi_page->foldersChanged();
 }
 
 void MainWindow::removeSource()
 {
-	if (((MultisyncPage *)multi_tabWidget->currentWidget())->list_multi->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No source selected.")); return; }
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected source from the list?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
- 	switch (msgBox.exec()) {
- 	case QMessageBox::Yes:
-		delete ((MultisyncPage *)multi_tabWidget->currentWidget())->list_multi->currentItem();
-   		break;
- 	case QMessageBox::No:
-		break;
-	default:
-   		break;
- 	}
+    MultisyncPage * multi_page = (MultisyncPage *) multi_tabWidget->currentWidget();
+    if (multi_page->list_multi->currentItem()==0) {
+        QMessageBox::warning(this, tr("Synkron"), tr("No source selected.")); return;
+    }
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected source from the list?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        delete multi_page->list_multi->currentItem();
+        break;
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
+    multi_page->foldersChanged();
 }
 
 void MainWindow::browseMultiDestination()
@@ -359,8 +350,8 @@ int MultisyncPage::sync()
             }
         }
         path.replace("//", "/");
-		syncfolder.setPath(path);
-		if (!syncfolder.exists()) {
+        syncfolder.setPath(path);
+        if (!syncfolder.exists()) {
             if (!QDir().mkpath(syncfolder.path())) {
                 addTableItem(tr("%1	Synchronisation failed: Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(syncfolder.path()), "", "", QBrush(Qt::red), QBrush(Qt::white));
                 continue;
@@ -426,19 +417,19 @@ int MultisyncPage::sync()
 
 void MultisyncPage::setSyncEnabled(bool enable)
 {
-	list_multi->setEnabled(enable);
-	add_multi->setEnabled(enable);
-	remove_multi->setEnabled(enable);
-	destination_multi->setEnabled(enable);
-	browse_multi->setEnabled(enable);
-	/*load_multi->setEnabled(enable);
-	saveas_multi->setEnabled(enable);
-	save_multi->setEnabled(enable);*/
-	search_multi->setEnabled(enable);
-	vars_multi->setEnabled(enable);
-	advanced->setEnabled(enable);
-	syncing = !enable;
-	stop_sync_btn->setVisible(!enable);
+    list_multi->setEnabled(enable);
+    add_multi->setEnabled(enable);
+    remove_multi->setEnabled(enable);
+    destination_multi->setEnabled(enable);
+    browse_multi->setEnabled(enable);
+    /*load_multi->setEnabled(enable);
+    saveas_multi->setEnabled(enable);
+    save_multi->setEnabled(enable);*/
+    search_multi->setEnabled(enable);
+    vars_multi->setEnabled(enable);
+    advanced_menu->setEnabled(enable);
+    syncing = !enable;
+    stop_sync_btn->setVisible(!enable);
     sync_multi->setVisible(enable);
     mp_parent->actionClose_sync->setEnabled(enable);
     qApp->processEvents();
@@ -464,24 +455,24 @@ void MultisyncPage::multitabNameChanged()
 
 void MultisyncPage::moveChecked(bool checked)
 {
-	if (checked) {
-		sync_multi->setText(tr("Move contents"));
-		sync_multi->setStatusTip(tr("Move contents to destination, leaving sources empty"));
-	} else {
-		sync_multi->setText(tr("Multisync"));
-		sync_multi->setStatusTip(tr("Start multisync"));
-	}
+    if (checked) {
+        sync_multi->setText(tr("Move contents"));
+        sync_multi->setStatusTip(tr("Move contents to destination, leaving sources empty"));
+    } else {
+        sync_multi->setText(tr("Multisync"));
+        sync_multi->setStatusTip(tr("Start multisync"));
+    }
 }
 
 void MultisyncPage::cloneChecked(bool checked)
 {
-	if (checked) {
-		sync_multi->setText(tr("Clone sources"));
-		sync_multi->setStatusTip(tr("Clone sources"));
-	} else {
-		sync_multi->setText(tr("Multisync"));
-		sync_multi->setStatusTip(tr("Start multisync"));
-	}
+    if (checked) {
+        sync_multi->setText(tr("Clone sources"));
+        sync_multi->setStatusTip(tr("Clone sources"));
+    } else {
+        sync_multi->setText(tr("Multisync"));
+        sync_multi->setStatusTip(tr("Start multisync"));
+    }
 }
 
 void MultisyncPage::showThisPage()
@@ -513,12 +504,12 @@ QStringList MultisyncPage::syncFoldersList()
 void MultisyncPage::varsDialogue()
 {
     QDialog * vars_dialogue = new QDialog (this, Qt::Dialog);
-	vars_dialogue->setWindowModality(Qt::WindowModal);
-	vars_dialogue->setWindowTitle(tr("Variables"));
-	QVBoxLayout * vars_hlayout = new QVBoxLayout(vars_dialogue);
-	vars_hlayout->setMargin(4); vars_hlayout->setSpacing(10);
+    vars_dialogue->setWindowModality(Qt::WindowModal);
+    vars_dialogue->setWindowTitle(tr("Variables"));
+    QVBoxLayout * vars_hlayout = new QVBoxLayout(vars_dialogue);
+    vars_hlayout->setMargin(4); vars_hlayout->setSpacing(10);
 
-	vars_tree = new QTreeWidget(vars_dialogue);
+    vars_tree = new QTreeWidget(vars_dialogue);
     vars_tree->setColumnCount(0);
     QStringList labels;
     labels << tr("Variable name");
@@ -554,18 +545,18 @@ void MultisyncPage::varsDialogue()
 void MultisyncPage::addVariable()
 {
     QDialog * add_var_dialogue = new QDialog (this, Qt::Dialog);
-	add_var_dialogue->setWindowModality(Qt::WindowModal);
-	//cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
-	add_var_dialogue->setWindowTitle(tr("Variables"));
-	QVBoxLayout * add_var_hlayout = new QVBoxLayout(add_var_dialogue);
-	add_var_hlayout->setMargin(4); add_var_hlayout->setSpacing(10);
+    add_var_dialogue->setWindowModality(Qt::WindowModal);
+    //cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
+    add_var_dialogue->setWindowTitle(tr("Variables"));
+    QVBoxLayout * add_var_hlayout = new QVBoxLayout(add_var_dialogue);
+    add_var_hlayout->setMargin(4); add_var_hlayout->setSpacing(10);
 
-	QVBoxLayout * name_hlayout = new QVBoxLayout;
-	QLabel * name_lbl = new QLabel(tr("Variable name:"));
-	name_hlayout->addWidget(name_lbl);
-	QLineEdit * name_le = new QLineEdit(add_var_dialogue);
-	name_hlayout->addWidget(name_le);
-	add_var_hlayout->addLayout(name_hlayout);
+    QVBoxLayout * name_hlayout = new QVBoxLayout;
+    QLabel * name_lbl = new QLabel(tr("Variable name:"));
+    name_hlayout->addWidget(name_lbl);
+    QLineEdit * name_le = new QLineEdit(add_var_dialogue);
+    name_hlayout->addWidget(name_le);
+    add_var_hlayout->addLayout(name_hlayout);
 
     QLabel * path_lbl = new QLabel(tr("Folder:"));
     add_var_hlayout->addWidget(path_lbl);
@@ -660,5 +651,23 @@ void MultisyncPage::variablesFromString(QString vars_str)
         if (vars.at(i).split(";").count() >= 2) {
             vars_map.insert(vars.at(i).split(";").first(), vars.at(i).split(";").at(1));
         }
+    }
+}
+
+void MultisyncPage::foldersChanged()
+{
+    path_replacements.clear();
+    path_replacements.insert(destination_multi->text(), "Destination");
+    QString path;
+    for (int i = 0; i < list_multi->count(); ++i) {
+        path = list_multi->item(i)->text();
+        QMapIterator<QString, QString> iter(vars_map);
+        while (iter.hasNext()) {
+            iter.next();
+            if (path.startsWith(iter.key())) {
+                path.replace(0, iter.key().length(), iter.value());
+            }
+        }
+        path_replacements.insert(path, list_multi->item(i)->text());
     }
 }
