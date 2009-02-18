@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -61,13 +61,13 @@ protected:
 
 public:
     MTAdvancedGroupBox(QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = false; slot_receiver_checkbox = 0; init(); };
+    QWidget(parent) { agb_external_checkbox = false; init(); };
     MTAdvancedGroupBox(QString title, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = false; slot_receiver_checkbox = 0; init(); setTitle(title); };
+    QWidget(parent) { agb_external_checkbox = false; init(); setTitle(title); };
     MTAdvancedGroupBox(QCheckBox * checkbox, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; slot_receiver_checkbox = 0; init(); };
+    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; init(); };
     MTAdvancedGroupBox(QString title, QCheckBox * checkbox, QWidget * parent = 0):
-    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; slot_receiver_checkbox = 0; init(); setTitle(title); };
+    QWidget(parent) { agb_external_checkbox = true; agb_checkbox = checkbox; init(); setTitle(title); };
 
     bool isChecked() { return agb_checkbox->isChecked(); };
     void addLayout(QLayout * layout, int row, int column, Qt::Alignment alignment = 0)
@@ -80,11 +80,9 @@ public:
     { agb_glayout->addWidget(widget, fromRow, fromColumn, rowSpan, columnSpan, alignment); };
     void addItem(QLayoutItem * item, int row, int column, int rowSpan = 1, int columnSpan = 1, Qt::Alignment alignment = 0) 
     { agb_glayout->addItem(item, row, column, rowSpan, columnSpan, alignment); };
+    QVBoxLayout * mainLayout() { return agb_vlayout; };
     QGridLayout * gridLayout() { return agb_glayout; };
-    QGroupBox * groupBox() { return agb_groupbox; }
-    
-    QCheckBox * agb_checkbox;
-    QCheckBox * slot_receiver_checkbox;
+    QGroupBox * groupBox() { return agb_groupbox; };
 
 public slots:
     void setChecked(bool checked) {
@@ -120,6 +118,7 @@ private:
     QGridLayout * agb_glayout;
     QVBoxLayout * agb_vlayout;
     QGroupBox * agb_groupbox;
+    QCheckBox * agb_checkbox;
 };
 
 #endif // MTADVANCEDGROUPBOX_H

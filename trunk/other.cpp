@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -466,55 +466,55 @@ void MainWindow::createActions()
 
 bool MainWindow::closeDialogue()
 {
-	QSettings settings ("Matus Tomlein", "Synkron");
+    QSettings settings ("Matus Tomlein", "Synkron");
     if (sync_settings->value("dont_ask_on_quit", settings.value("dont_ask_on_quit")).toBool()==true) {
-		if (sync_settings->value("minimise_on_quit", settings.value("minimise_on_quit")).toBool()==true) {
-			minimizeAction->trigger();
-			return false;
-		} else if (sync_settings->value("minimise_on_quit", settings.value("minimise_on_quit")).toBool()==false) {
-			return true;
-		}
-	}
-	QDialog * cl_dialogue = new QDialog (this, Qt::Dialog);
-	cl_dialogue->setWindowModality(Qt::WindowModal);
-	//cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
-	cl_dialogue->setWindowTitle(tr("Quit Synkron"));
-	QGridLayout * cl_glayout = new QGridLayout (cl_dialogue);
-	cl_glayout->setMargin(4); cl_glayout->setSpacing(10);
-	QLabel * cl_label = new QLabel (cl_dialogue);
-	cl_label->setText(tr("Are you sure you want to quit?"));
-	cl_label->setAlignment(Qt::AlignHCenter);
-	cl_glayout->addWidget(cl_label, 0, 0);
-	QCheckBox * rm_minimise = new QCheckBox(cl_dialogue);
-	rm_minimise->setText(tr("Do not ask me again"));
-	rm_minimise->setChecked(true);
-	cl_glayout->addWidget(rm_minimise, 1, 0);
-	QHBoxLayout * hlayout = new QHBoxLayout;
-	hlayout->addStretch();
-	QPushButton * close_btn = new QPushButton (cl_dialogue);
-	close_btn->setText(tr("&Quit"));
-	connect(close_btn, SIGNAL(released()), cl_dialogue, SLOT(accept()));
-	hlayout->addWidget(close_btn);
-	QPushButton * minimise_btn = new QPushButton (cl_dialogue);
-	minimise_btn->setText(tr("&Minimise"));
-	connect(minimise_btn, SIGNAL(released()), cl_dialogue, SLOT(reject()));
-	hlayout->addWidget(minimise_btn);
-	hlayout->addStretch();
-	cl_glayout->addLayout(hlayout, 2, 0);
-	switch (cl_dialogue->exec()) {
-		case 0: // Minimise
-			sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
-			sync_settings->setValue("minimise_on_quit", true);
-			minimizeAction->trigger();
-			return false;
-			break;	
-		case 1: // Quit
-			sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
-			sync_settings->setValue("minimise_on_quit", false);
-			return true;
-			break;
-	}
-	return true;
+        if (sync_settings->value("minimise_on_quit", settings.value("minimise_on_quit")).toBool()==true) {
+            minimizeAction->trigger();
+            return false;
+        } else if (sync_settings->value("minimise_on_quit", settings.value("minimise_on_quit")).toBool()==false) {
+            return true;
+        }
+    }
+    QDialog * cl_dialogue = new QDialog (this, Qt::Dialog);
+    cl_dialogue->setWindowModality(Qt::WindowModal);
+    //cl_dialogue->setAttribute(Qt::WA_DeleteOnClose);
+    cl_dialogue->setWindowTitle(tr("Quit Synkron"));
+    QGridLayout * cl_glayout = new QGridLayout (cl_dialogue);
+    cl_glayout->setMargin(4); cl_glayout->setSpacing(10);
+    QLabel * cl_label = new QLabel (cl_dialogue);
+    cl_label->setText(tr("Are you sure you want to quit?"));
+    cl_label->setAlignment(Qt::AlignHCenter);
+    cl_glayout->addWidget(cl_label, 0, 0);
+    QCheckBox * rm_minimise = new QCheckBox(cl_dialogue);
+    rm_minimise->setText(tr("Do not ask me again"));
+    rm_minimise->setChecked(true);
+    cl_glayout->addWidget(rm_minimise, 1, 0);
+    QHBoxLayout * hlayout = new QHBoxLayout;
+    hlayout->addStretch();
+    QPushButton * close_btn = new QPushButton (cl_dialogue);
+    close_btn->setText(tr("&Quit"));
+    connect(close_btn, SIGNAL(released()), cl_dialogue, SLOT(accept()));
+    hlayout->addWidget(close_btn);
+    QPushButton * minimise_btn = new QPushButton (cl_dialogue);
+    minimise_btn->setText(tr("&Minimise"));
+    connect(minimise_btn, SIGNAL(released()), cl_dialogue, SLOT(reject()));
+    hlayout->addWidget(minimise_btn);
+    hlayout->addStretch();
+    cl_glayout->addLayout(hlayout, 2, 0);
+    switch (cl_dialogue->exec()) {
+        case 0: // Minimise
+            sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
+            sync_settings->setValue("minimise_on_quit", true);
+            minimizeAction->trigger();
+            return false;
+            break;
+        case 1: // Quit
+            sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
+            sync_settings->setValue("minimise_on_quit", false);
+            return true;
+            break;
+    }
+    return true;
 }
 
 void MainWindow::saveSyncLog()
@@ -611,6 +611,46 @@ void MainWindow::shutDownComputer()
     arguments << "-f" << "-s" << "-t" << "10";
     process.execute("shutdown", arguments);
 #endif
+}
+
+/*void MainWindow::showToolbarContextMenu(const QPoint & point)
+{
+    QMessageBox::information(this, "jbjk", "ojfdsffsdfdsfdsfds");
+    QMenu * toolbar_menu = new QMenu(toolBar);
+    QAction * text_only = new QAction(tr("Show text only"), toolbar_menu);
+    QAction * icons_only = new QAction(tr("Show icons only"), toolbar_menu);
+    QAction * icons_and_text = new QAction(tr("Show icons and text"), toolbar_menu);
+    QActionGroup * act_grp = new QActionGroup(toolbar_menu);
+    act_grp->addAction(text_only);
+    act_grp->addAction(icons_only);
+    act_grp->addAction(icons_and_text);
+    act_grp->setExclusive(true);
+    QAction * triggered_action = toolbar_menu->exec(point);
+    if (triggered_action) {
+        QMessageBox::information(this, "jbjk", "oj");
+    }
+    delete text_only;
+    delete icons_only;
+    delete icons_and_text;
+    delete toolbar_menu;
+}*/
+
+/*QMenu * MainWindow::createPopupMenu()
+{
+    QMessageBox::information(this, "jbjk", "ojfdsffsdfdsfdsfds");
+    QMenu * popup_menu = this->QMainWindow::createPopupMenu();
+    popup_menu->addSeparator();
+    popup_menu->addAction(actionShow_icons_only);
+    return popup_menu;
+}*/
+
+void MainWindow::showIconsOnly(bool show)
+{
+    if (show) {
+        toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    } else {
+        toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    }
 }
 
 // --- Other ---

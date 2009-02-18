@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -38,16 +38,16 @@ void MainWindow::addFilter()
 
 void MainWindow::addFilter(QString text, QStringList exts)
 {
-	Filter * filter = new Filter(text);
-	filter->extensions = exts;
-	filter_list->addItem(filter);
-	QListWidgetItem * item;
-	QMapIterator<QWidget *, SyncPage *> i(tabs);
-	while (i.hasNext()) { i.next();
-		item = new QListWidgetItem(text);
-		item->setCheckState(Qt::Unchecked);
-		i.value()->lw_filters->addItem(item);
-	}
+    Filter * filter = new Filter(text);
+    filter->extensions = exts;
+    filter_list->addItem(filter);
+    QAction * action;
+    QMapIterator<QWidget *, SyncPage *> i(tabs);
+    while (i.hasNext()) { i.next();
+        action = new QAction(text, i.value()->filters_menu);
+        action->setCheckable(true);
+        i.value()->filters_menu->addAction(action);
+    }
     /*for (int m = 0; m < multi_tabWidget->count(); ++m) {
         item = new QListWidgetItem(text);
         item->setCheckState(Qt::Unchecked);
@@ -57,40 +57,39 @@ void MainWindow::addFilter(QString text, QStringList exts)
 
 void MainWindow::removeFilter()
 {
-	if (filter_list->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No filter selected.")); return; }
-	Filter * filter = (Filter *) filter_list->currentItem(); QMapIterator<QWidget *, SyncPage *> i(tabs);
-	filter_list->clearSelection(); setFiltersEnabled(false); 
+    if (filter_list->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No filter selected.")); return; }
+    Filter * filter = (Filter *) filter_list->currentItem(); QMapIterator<QWidget *, SyncPage *> i(tabs);
+    filter_list->clearSelection(); setFiltersEnabled(false);
     //MultisyncPage * multi_page;
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected filter from the list?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
-	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-	switch (msgBox.exec()) {
-	case QMessageBox::Yes:
-		while (i.hasNext()) {
-			i.next();
-			for (int n = 0; n < i.value()->lw_filters->count(); ++n) {
-				if (i.value()->lw_filters->item(n)->text()==filter->text()) {
-					delete i.value()->lw_filters->item(n); break;
-				}
-			}
-		}
-        /*for (int m = 0; m < multi_tabWidget->count(); ++m) {
-            multi_page = (MultisyncPage *)multi_tabWidget->widget(m);
-            for (int n = 0; n < multi_page->lw_filters->count(); ++n) {
-                if (multi_page->lw_filters->item(n)->text()==filter->text()) {
-                    delete multi_page->lw_filters->item(n); break;
-				}
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected filter from the list?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        while (i.hasNext()) {
+            i.next();
+            QList<QAction *> actions = i.value()->filters_menu->actions();
+            for (int i = 0; i < actions.count(); ++i) {
+                if (actions.at(i)->text() == filter->text()) {
+                    delete actions.at(i); break;
+                }
             }
-		}*/
-		filter_extensions_list->clear();
-		delete filter;
-   		break;
- 	case QMessageBox::No:
-     	filter_list->setCurrentItem(filter);
-		break;
-	default:
-   		break;
- 	}
+            /*}
+                for (int n = 0; n < i.value()->lw_filters->count(); ++n) {
+                    if (i.value()->lw_filters->item(n)->text()==filter->text()) {
+                        delete i.value()->lw_filters->item(n); break;
+                    }
+            }*/
+        }
+        filter_extensions_list->clear();
+        delete filter;
+        break;
+        case QMessageBox::No:
+            filter_list->setCurrentItem(filter);
+            break;
+        default:
+            break;
+    }
 }
 
 void MainWindow::addFilterExtension()

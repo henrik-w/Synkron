@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -57,7 +57,8 @@ SyncFolder * SyncFolders::addFolder()
     connect(folder, SIGNAL(sigremove(SyncFolder *)), this, SLOT(removeFolder(SyncFolder *)));
     folders_vlayout->addWidget(folder);
     folders_list << folder;
-    folder->folder_name_lne->setToolTip(tr("Folder %1").arg(count()));
+    folder->setLabel(tr("Folder %1").arg(count()));
+    connect(folder, SIGNAL(sigedited()), this, SLOT(foldersEdited()));
     emit sigfolderschanged();
     return folder;
 }
@@ -69,6 +70,31 @@ QStringList SyncFolders::pathsList()
         paths << folders_list.at(i)->path();
     }
     return paths;
+}
+
+QStringList SyncFolders::pathsAndLabelsList()
+{
+    QStringList pl_list;
+    for (int i = 0; i < folders_list.count(); ++i) {
+        pl_list << folders_list.at(i)->path() + "<:>" + folders_list.at(i)->label();
+    }
+    return pl_list;
+}
+
+void SyncFolders::loadPathsAndLabelsFromList(QStringList pl_list)
+{
+    QStringList path_and_label;
+    SyncFolder * folder;
+    for (int i = 0; i < pl_list.count(); ++i) {
+        if (pl_list.at(i).isEmpty()) continue;
+        path_and_label = pl_list.at(i).split("<:>");
+        folder = addFolder();
+        folder->setPath(path_and_label.first());
+        if (path_and_label.count() > 1) {
+            folder->setLabel(path_and_label.last());
+        }
+    }
+    addToFolders(2);
 }
 
 void SyncFolders::removeAllFolders()
@@ -83,6 +109,7 @@ void SyncFolders::removeFolder(int i)
 {
     delete folders_list.takeAt(i);
     emit sigfolderschanged();
+    emit sigfoldersedited();
 }
 
 void SyncFolders::removeFolder(SyncFolder * folder)
@@ -93,6 +120,7 @@ void SyncFolders::removeFolder(SyncFolder * folder)
     else
         delete folder;
     emit sigfolderschanged();
+    emit sigfoldersedited();
 }
 
 void SyncFolders::foldersChanged()
@@ -100,7 +128,7 @@ void SyncFolders::foldersChanged()
     bool enable = true;
     if (folders_list.count() == 2) enable = false;
     for (int i = 0; i < folders_list.count(); ++i) {
-        folders_list.at(i)->remove_folder_btn->setEnabled(enable);
+        folders_list.at(i)->remove_act->setEnabled(enable);
     }
 }
 
@@ -111,6 +139,11 @@ void SyncFolders::addToFolders(int n)
     }
 }
 
+void SyncFolders::foldersEdited()
+{
+    emit sigfoldersedited();
+}
+
 //SyncFolder
 
 SyncFolder::SyncFolder(QWidget * parent):
@@ -118,21 +151,54 @@ SyncFolder::SyncFolder(QWidget * parent):
 {
     QHBoxLayout * hlayout = new QHBoxLayout(this);
     hlayout->setMargin(0); hlayout->setSpacing(6);
-    
-    remove_folder_btn = new QPushButton (this);
-    remove_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/remove.png")));
-    remove_folder_btn->setStatusTip(tr("Remove"));
-    remove_folder_btn->setFlat(true);
-    remove_folder_btn->setMinimumSize(22, 22);
-    remove_folder_btn->setMaximumSize(22, 22);
-    connect(remove_folder_btn, SIGNAL(released()), this, SLOT(removeFolder()));
-    hlayout->addWidget(remove_folder_btn);
-    
+
+    config_btn = new QPushButton(this);
+    config_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/configure16.png")));
+    config_btn->setFlat(true);
+    config_menu = new QMenu;
+    dont_update_act = new QAction(tr("Do not modify the contents of this folder"), this);
+    dont_update_act->setCheckable(true);
+    config_menu->addAction(dont_update_act);
+    update_only_act = new QAction(tr("Update existing files only"), this);
+    update_only_act->setCheckable(true);
+    config_menu->addAction(update_only_act);
+    backup_folder_act = new QAction(tr("Do not backup updated files"), this);
+    backup_folder_act->setCheckable(true);
+    config_menu->addAction(backup_folder_act);
+    config_menu->addSeparator();
+    master_act = new QAction(tr("Master"), this);
+    master_act->setCheckable(true);
+    master_act->setChecked(true);
+    config_menu->addAction(master_act);
+    slave_act = new QAction(tr("Slave"), this);
+    slave_act->setCheckable(true);
+    config_menu->addAction(slave_act);
+    QActionGroup * master_slave_actgrp = new QActionGroup(config_menu);
+    master_slave_actgrp->addAction(master_act);
+    master_slave_actgrp->addAction(slave_act);
+    master_slave_actgrp->setExclusive(true);
+    remove_act = new QAction(tr("Remove"), this);
+    remove_act->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/remove.png")));
+    connect(remove_act, SIGNAL(triggered()), this, SLOT(removeFolder()));
+    config_menu->addSeparator();
+    config_menu->addAction(remove_act);
+    config_btn->setMenu(config_menu);
+    //config_menu->setTearOffEnabled(true);
+    hlayout->addWidget(config_btn);
+
+    label_lne = new QLineEdit (this);
+    label_lne->setMaximumWidth(100);
+    label_lne->setStatusTip(tr("Folder label"));
+    label_lne->setToolTip(tr("Folder label"));
+    connect(label_lne, SIGNAL(editingFinished()), this, SLOT(lneEdited()));
+    hlayout->addWidget(label_lne);
+
     folder_name_lne = new QLineEdit (this);
-    folder_name_lne->setStatusTip(tr("Path"));
+    folder_name_lne->setStatusTip(tr("Folder path"));
+    folder_name_lne->setToolTip(tr("Folder path"));
     connect(folder_name_lne, SIGNAL(editingFinished()), this, SLOT(lneEdited()));
     hlayout->addWidget(folder_name_lne);
-    
+
     browse_btn = new QPushButton (this);
     browse_btn->setText(tr("Browse"));
     browse_btn->setStatusTip(tr("Browse"));
@@ -149,6 +215,7 @@ void SyncFolder::browse()
                 QDir::homePath(),
                 QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if (text != "") folder_name_lne->setText(text);
+    emit sigedited();
 }
 
 void SyncFolder::lneEdited()
@@ -156,5 +223,10 @@ void SyncFolder::lneEdited()
     if (folder_name_lne->text()=="") return;
     QDir dir;
     dir.setPath(folder_name_lne->text());
-    folder_name_lne->setText(dir.path());
+    QString text = dir.path();
+    if (text.at(0).isLower()) {
+        text[0] = text.at(0).toUpper();
+    }
+    folder_name_lne->setText(text);
+    emit sigedited();
 }

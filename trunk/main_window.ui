@@ -9,6 +9,9 @@
     <height>615</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy" >
+   <enum>Qt::CustomContextMenu</enum>
+  </property>
   <property name="windowTitle" >
    <string>Synkron</string>
   </property>
@@ -251,7 +254,7 @@
              <bool>true</bool>
             </property>
             <property name="checked" >
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout" >
              <item row="0" column="0" >
@@ -1240,7 +1243,7 @@
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile" >
@@ -1305,10 +1308,16 @@
   <widget class="QStatusBar" name="statusbar" />
   <widget class="QToolBar" name="toolBar" >
    <property name="movable" >
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="orientation" >
     <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
    </property>
    <property name="toolButtonStyle" >
     <enum>Qt::ToolButtonTextUnderIcon</enum>

@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -23,8 +23,8 @@ MainWindow::MainWindow(QSettings * s)
 {
     setupUi(this);
     
-	f_ver = 1.5;
-	ver = "1.5.0";
+        f_ver = 1.6;
+        ver = "1.6.0";
     
     if (tr("LTR") == "RTL") { qApp->setLayoutDirection(Qt::RightToLeft); }
     
@@ -84,7 +84,10 @@ MainWindow::MainWindow(QSettings * s)
     options_actgrp->addAction(actionQuit_after_sync);
     options_actgrp->addAction(actionSync_at_launch);
     options_actgrp->setExclusive(false);
-    
+
+    actionShow_icons_only = new QAction(tr("Show icons only"), this);
+    actionShow_icons_only->setCheckable(true);
+
     QTranslator translator; translator.load(":/i18n/Synkron-i18n.qm");
     synkron_i18n.insert("English", "English");
     synkron_i18n.insert(translator.translate("LanguageNames", "Slovak"), "Slovak");
@@ -117,37 +120,38 @@ MainWindow::MainWindow(QSettings * s)
     connect(selTmpAllBtn, SIGNAL(released()), this, SLOT(selTmpAll()));
     connect(actionRun_hidden, SIGNAL(toggled(bool)), this, SLOT(setRunHidden(bool)));
     connect(actionSync_all, SIGNAL(triggered()), this, SLOT(syncAll()));
-	connect(actionCheck_for_updates, SIGNAL(triggered()), this, SLOT(checkForUpdates()));
-	connect(http, SIGNAL(done(bool)), this, SLOT(httpRequestFinished(bool)));
-	connect(add_schedule, SIGNAL(released()), this, SLOT(addSchedule()));
-	connect(remove_schedule, SIGNAL(released()), this, SLOT(removeSchedule()));
-	connect(tw_schedules, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(scheduleActivated(int, int, int, int)));
-	connect(sched_name, SIGNAL(textEdited(const QString)), this, SLOT(setSchedName(const QString)));
-	connect(sched_add_time, SIGNAL(released()), this, SLOT(addSchedTime()));
-	connect(sched_remove_time, SIGNAL(released()), this, SLOT(removeSchedTime()));
-	connect(sched_start, SIGNAL(released()), this, SLOT(startSchedule()));
-	connect(sched_stop, SIGNAL(released()), this, SLOT(stopSchedule()));
-	connect(restore_search, SIGNAL(textEdited(const QString)), this, SLOT(searchLw(const QString)));
-	connect(startall_schedules, SIGNAL(released()), this, SLOT(startAllSchedules()));
-	connect(stopall_schedules, SIGNAL(released()), this, SLOT(stopAllSchedules()));
-	connect(actionChange_language, SIGNAL(triggered()), this, SLOT(changeLanguage()));
-	connect(filter_add, SIGNAL(released()), this, SLOT(addFilter()));
-	connect(filter_remove, SIGNAL(released()), this, SLOT(removeFilter()));
-	connect(filter_add_extension, SIGNAL(released()), this, SLOT(addFilterExtension()));
-	connect(filter_remove_extension, SIGNAL(released()), this, SLOT(removeFilterExtension()));
-	connect(filter_list, SIGNAL(itemSelectionChanged()), this, SLOT(filterChanged()));
-	connect(sched_tab_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedTabClicked(QListWidgetItem*)));
-	connect(sched_multitab_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedMultitabClicked(QListWidgetItem*)));
-	connect(sched_time_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedTimeClicked(QListWidgetItem*)));
-	connect(actionQuit, SIGNAL(triggered()), this, SLOT(closeApp()));
-	connect(actionSave_log, SIGNAL(triggered()), this, SLOT(saveSyncLog()));
-	connect(restore_list, SIGNAL(sigconmenu(QPoint)), this, SLOT(restoreListConMenu(QPoint)));
-	connect(sched_interval_spin, SIGNAL(valueChanged(int)), this, SLOT(schedIntervalChanged(int)));
-	connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timingTabIndexChanged(int)));
-	connect(actionSave_tab, SIGNAL(triggered()), this, SLOT(saveTab()));
-	connect(actionSave_tab_as, SIGNAL(triggered()), this, SLOT(saveTabAs()));
-	connect(actionLoad_tab, SIGNAL(triggered()), this, SLOT(loadTab()));
+    connect(actionCheck_for_updates, SIGNAL(triggered()), this, SLOT(checkForUpdates()));
+    connect(http, SIGNAL(done(bool)), this, SLOT(httpRequestFinished(bool)));
+    connect(add_schedule, SIGNAL(released()), this, SLOT(addSchedule()));
+    connect(remove_schedule, SIGNAL(released()), this, SLOT(removeSchedule()));
+    connect(tw_schedules, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(scheduleActivated(int, int, int, int)));
+    connect(sched_name, SIGNAL(textEdited(const QString)), this, SLOT(setSchedName(const QString)));
+    connect(sched_add_time, SIGNAL(released()), this, SLOT(addSchedTime()));
+    connect(sched_remove_time, SIGNAL(released()), this, SLOT(removeSchedTime()));
+    connect(sched_start, SIGNAL(released()), this, SLOT(startSchedule()));
+    connect(sched_stop, SIGNAL(released()), this, SLOT(stopSchedule()));
+    connect(restore_search, SIGNAL(textEdited(const QString)), this, SLOT(searchLw(const QString)));
+    connect(startall_schedules, SIGNAL(released()), this, SLOT(startAllSchedules()));
+    connect(stopall_schedules, SIGNAL(released()), this, SLOT(stopAllSchedules()));
+    connect(actionChange_language, SIGNAL(triggered()), this, SLOT(changeLanguage()));
+    connect(filter_add, SIGNAL(released()), this, SLOT(addFilter()));
+    connect(filter_remove, SIGNAL(released()), this, SLOT(removeFilter()));
+    connect(filter_add_extension, SIGNAL(released()), this, SLOT(addFilterExtension()));
+    connect(filter_remove_extension, SIGNAL(released()), this, SLOT(removeFilterExtension()));
+    connect(filter_list, SIGNAL(itemSelectionChanged()), this, SLOT(filterChanged()));
+    connect(sched_tab_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedTabClicked(QListWidgetItem*)));
+    connect(sched_multitab_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedMultitabClicked(QListWidgetItem*)));
+    connect(sched_time_lw, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(schedTimeClicked(QListWidgetItem*)));
+    connect(actionQuit, SIGNAL(triggered()), this, SLOT(closeApp()));
+    connect(actionSave_log, SIGNAL(triggered()), this, SLOT(saveSyncLog()));
+    connect(restore_list, SIGNAL(sigconmenu(QPoint)), this, SLOT(restoreListConMenu(QPoint)));
+    connect(sched_interval_spin, SIGNAL(valueChanged(int)), this, SLOT(schedIntervalChanged(int)));
+    connect(timing_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(timingTabIndexChanged(int)));
+    connect(actionSave_tab, SIGNAL(triggered()), this, SLOT(saveTab()));
+    connect(actionSave_tab_as, SIGNAL(triggered()), this, SLOT(saveTabAs()));
+    connect(actionLoad_tab, SIGNAL(triggered()), this, SLOT(loadTab()));
     connect(actionChange_temp, SIGNAL(triggered()), this, SLOT(changeTemp()));
+    connect(actionShow_icons_only, SIGNAL(toggled(bool)), this, SLOT(showIconsOnly(bool)));
     
     setCleanGB();
     setSelectGB();
@@ -162,13 +166,13 @@ MainWindow::MainWindow(QSettings * s)
     if (multi_tabWidget->count()==0) addMultiTab();
 
     QSettings settings ("Matus Tomlein", "Synkron");
-	tcp_server = new QTcpServer(this);
-	QObject::connect(tcp_server, SIGNAL(newConnection()), this, SLOT(addConnection()));
-	tcp_socket = new QTcpSocket(this);
-	//QObject::connect(tcp_socket, SIGNAL(connected()), this, SLOT(sendMessageAndClose()));
-	//QObject::connect(tcp_socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(initServer(QAbstractSocket::SocketError)));
-	tcp_socket->connectToHost("Localhost", settings.value("process_id", 1).toUInt());
-	if (tcp_socket->waitForConnected(1000)) {
+    tcp_server = new QTcpServer(this);
+    QObject::connect(tcp_server, SIGNAL(newConnection()), this, SLOT(addConnection()));
+    tcp_socket = new QTcpSocket(this);
+    //QObject::connect(tcp_socket, SIGNAL(connected()), this, SLOT(sendMessageAndClose()));
+    //QObject::connect(tcp_socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(initServer(QAbstractSocket::SocketError)));
+    tcp_socket->connectToHost("Localhost", settings.value("process_id", 1).toUInt());
+    if (tcp_socket->waitForConnected(1000)) {
         sendMessageAndClose();
         skip_close_event = true;
         QTimer::singleShot(0, this, SLOT(close())); }
@@ -270,7 +274,7 @@ void ClientConnection::read()
         in >> c_blocksize;
     }
 
-    if (c_socket->bytesAvailable() < c_blocksize)
+    if ((quint64)c_socket->bytesAvailable() < c_blocksize)
         return;
 
     QString received_string; QString buffer;

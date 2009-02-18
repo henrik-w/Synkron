@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -26,6 +26,9 @@
 #include <QFileDialog>
 #include <QIcon>
 #include <QPushButton>
+#include <QMenu>
+#include <QAction>
+#include <QActionGroup>
 
 #ifndef SYNCFOLDERS_H
 #define SYNCFOLDERS_H
@@ -38,17 +41,19 @@ class SyncFolders : public QWidget
 
 public:
     SyncFolders(QWidget * parent = 0);
-    
+
     QList <SyncFolder *> folders_list;
     //QStringList paths_list;
     QVBoxLayout * folders_vlayout;
     //QToolButton * add_folder_btn;
-    
+
     SyncFolder * syncFolder(int i) { return folders_list.at(i); };
     SyncFolder * at(int i) { return folders_list.at(i); };
     int count() { return folders_list.count(); };
     QStringList pathsList();
-    
+    QStringList pathsAndLabelsList();
+    void loadPathsAndLabelsFromList(QStringList);
+
 public slots:
     SyncFolder * addFolder();
     void addToFolders(int);
@@ -56,9 +61,11 @@ public slots:
     void removeFolder(SyncFolder *);
     void removeAllFolders();
     void foldersChanged();
-    
+    void foldersEdited();
+
 signals:
     void sigfolderschanged();
+    void sigfoldersedited();
 };
 
 class SyncFolder : public QWidget
@@ -67,20 +74,32 @@ class SyncFolder : public QWidget
 
 public:
     SyncFolder(QWidget * parent = 0);
-    
-    QPushButton * remove_folder_btn;
+
     QLineEdit * folder_name_lne;
+    QLineEdit * label_lne;
     QPushButton * browse_btn;
-    
+
+    QPushButton * config_btn;
+    QMenu * config_menu;
+    QAction * update_only_act;
+    QAction * dont_update_act;
+    QAction * backup_folder_act;
+    QAction * remove_act;
+    QAction * master_act;
+    QAction * slave_act;
+
 public slots:
     void browse();
-    void setPath(QString path) { folder_name_lne->setText(path); };
-    QString path() { return folder_name_lne->text(); };
-    void removeFolder() { emit sigremove(this); };
+    void setPath(QString path) { folder_name_lne->setText(path); }
+    QString path() { return folder_name_lne->text(); }
+    QString label() { return label_lne->text(); }
+    void setLabel(QString text) { label_lne->setText(text); }
+    void removeFolder() { emit sigremove(this); }
     void lneEdited();
-    
+
 signals:
     void sigremove(SyncFolder *);
+    void sigedited();
 };
 
 #endif

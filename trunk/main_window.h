@@ -1,6 +1,6 @@
 /*******************************************************************
  This file is part of Synkron
- Copyright (C) 2005-2008 Matus Tomlein (matus.tomlein@gmail.com)
+ Copyright (C) 2005-2009 Matus Tomlein (matus.tomlein@gmail.com)
 
  Synkron is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public Licence
@@ -66,14 +66,12 @@ private:
 class Filter : public QListWidgetItem
 {
 public:
-	Filter():
-	QListWidgetItem(0, QListWidgetItem::UserType)
-	{};
-	Filter(QString text):
-	QListWidgetItem(0, QListWidgetItem::UserType)
-	{ setText(text); };
-    
-	QStringList extensions;
+    Filter():
+    QListWidgetItem(0, QListWidgetItem::UserType) {}
+    Filter(QString text):
+    QListWidgetItem(0, QListWidgetItem::UserType) { setText(text); }
+
+    QStringList extensions;
 };
 
 class ClientConnection : public QObject
@@ -97,16 +95,16 @@ class SyncViewItem : public QWidget, private Ui::SyncViewItem
 	Q_OBJECT
 
 public:
-	SyncViewItem(AbstractSyncPage *);
-	AbstractSyncPage * parent_page;
-	
-	void setName(QString name) { sync_name_lbl->setText(name); };
+    SyncViewItem(AbstractSyncPage *);
+    AbstractSyncPage * parent_page;
+
+    void setName(QString name) { sync_name_lbl->setText(name); }
 	
 public slots:
     void startSync();
 
 protected:
-    void mouseDoubleClickEvent(QMouseEvent *) { parent_page->showThisPage(); };
+    void mouseDoubleClickEvent(QMouseEvent *) { parent_page->showThisPage(); }
 };
 
 class MainWindow : public QMainWindow, private Ui::MainWindow
@@ -125,14 +123,14 @@ public:
     
     bool syncingAll;
     bool skip_close_event;
-	bool runHidden() { return run_hidden; }
+    bool runHidden() { return run_hidden; }
     bool shownManually() { return shown_manually; }
     //void setShownManually(bool sm) { shown_manually = sm; }
-	bool showTrayMessage(QString, QString);
-	bool isSyncing();
-	QSettings * sync_settings;
-	QSettings * temp_settings;
-        
+    bool showTrayMessage(QString, QString);
+    bool isSyncing();
+    QSettings * sync_settings;
+    QSettings * temp_settings;
+
 public slots:
     void saveSettings();
     bool removeDir(QString);
@@ -141,17 +139,17 @@ public slots:
     bool restoreItem(QListWidgetItem*);
     bool restoreFile(QString, QString, QString);
     void shutDownComputer();
-    //QString addFileToBlDialogue(bool);
+    //void showToolbarContextMenu(const QPoint &);
 
 private slots:
-	
+
 // Synchronisation
-	void sync() { sync(tabWidget->currentWidget()); }
+    void sync() { sync(tabWidget->currentWidget()); }
     void sync(QWidget *);
     void syncAll();
     void tabNameChanged();
     SyncPage * addSyncTab();
-    void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
+    //void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
 	
 // Restore
     void toRestorePage();
@@ -176,28 +174,27 @@ private slots:
     int autoCleanTemp();
     
 // Blacklist
-	void addToBlackList(int);
+    void addToBlackList(int);
     void addFileToBlacklist();
     void removeFileFromBlacklist();
     void addFolderToBlacklist();
     void removeFolderFromBlacklist();
     void addExtToBlacklist();
     void removeExtFromBlacklist();
-    //void delTmpSel();
     
 // Multisync
-	MultisyncPage * addMultiTab();
-	void addSource();
+    MultisyncPage * addMultiTab();
+    void addSource();
     void removeSource();
     void browseMultiDestination();
     
 // Scheduler
     void addSchedule();
-    SyncSchedule * addSchedule(QString/*QStringList, QStringList, QStringList, QStringList, int*/);
+    SyncSchedule * addSchedule(QString);
     void removeSchedule();
     void reloadSchedule() { scheduleActivated(tw_schedules->currentRow(), tw_schedules->currentColumn(), tw_schedules->currentRow(), tw_schedules->currentColumn()); }
     void reloadSchedStatus();
-	void scheduleActivated(int, int, int, int);
+    void scheduleActivated(int, int, int, int);
     void setSchedName(const QString text) { tw_schedules->item(tw_schedules->currentRow(), 0)->setText(text); }
     void addSchedTime();
     void removeSchedTime();
@@ -259,6 +256,7 @@ private slots:
     void initServer(QAbstractSocket::SocketError);
     void optionClicked(QAction*);
     void changeTemp();
+    void showIconsOnly(bool);
 
 // Tabs
     void saveTab();
@@ -267,7 +265,7 @@ private slots:
 
 private:
     float f_ver;
-	QString ver;
+    QString ver;
     bool run_hidden;
     bool sched_removed;
     bool no_closedialogue;
@@ -279,6 +277,8 @@ private:
     void createTrayIcon();
     void createActions();
     void toBlacklist();
+
+    //QMenu * createPopupMenu();
     
     QButtonGroup * btngrpBrowse;
     QActionGroup * actgrpView;
@@ -304,26 +304,28 @@ private:
     QPushButton * add_date_btn;
     QPushButton * rem_date_btn;
     
-    QAction *minimizeAction;
-    QAction *maximizeAction;
-    QAction *syncAction;
-    QAction *quitAction;
-    QAction *syncAllAction;
-    QAction *restoreAction;
-    QAction *deleteRestoreItemAction;
-    QAction *checkRestoreItemAction;
-    QAction *blacklistRestoreItemAction;
+    QAction * minimizeAction;
+    QAction * maximizeAction;
+    QAction * syncAction;
+    QAction * quitAction;
+    QAction * syncAllAction;
+    QAction * restoreAction;
+    QAction * deleteRestoreItemAction;
+    QAction * checkRestoreItemAction;
+    QAction * blacklistRestoreItemAction;
+    QAction * actionShow_icons_only;
     QSystemTrayIcon *trayIcon;
 #ifdef Q_WS_MAC
-	QAction * actionBrushedMetalStyle;
+    QAction * actionBrushedMetalStyle;
 #endif
     bool shown_manually;
 
-	friend class SyncSchedule;
-	friend class SyncPage;
-	friend class MultisyncPage;
-	friend class SyncViewItem;
-	friend class ClientConnection;
+    friend class SyncSchedule;
+    friend class SyncPage;
+    friend class MultisyncPage;
+    friend class SyncViewItem;
+    friend class ClientConnection;
+
 protected:
     void showEvent(QShowEvent *);
     void hideEvent(QHideEvent *);
