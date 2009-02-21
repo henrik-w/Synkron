@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -468,22 +469,22 @@
     <message>
         <location filename="../sync.cpp" line="1307"/>
         <source>to temp</source>
-        <translation type="unfinished"></translation>
+        <translation>во временное</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1310"/>
         <source>Error copying file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка копирования файла %1: %2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1316"/>
         <source>Error creating folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка создания каталога %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1322"/>
         <source>Error removing file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка удаления файла %1: %2</translation>
     </message>
 </context>
 <context>
@@ -1742,7 +1743,7 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Show icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только отобразить иконки</translation>
     </message>
 </context>
 <context>
@@ -1850,7 +1851,7 @@
     <message>
         <location filename="../multisync_page.ui" line="313"/>
         <source>Advanced</source>
-        <translation type="unfinished">Больше</translation>
+        <translation>Больше</translation>
     </message>
 </context>
 <context>
@@ -2160,12 +2161,12 @@
     <message>
         <location filename="../multisync.cpp" line="108"/>
         <source>Analysis</source>
-        <translation type="unfinished">Анализ</translation>
+        <translation>Анализ</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="124"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Источники</translation>
     </message>
 </context>
 <context>
@@ -2188,37 +2189,37 @@
     <message>
         <location filename="../syncfolders.cpp" line="159"/>
         <source>Do not modify the contents of this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Немодифицировать содержимое этого каталога</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="162"/>
         <source>Update existing files only</source>
-        <translation type="unfinished">Обновить только существующие файлы</translation>
+        <translation>Обновить только существующие файлы</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="165"/>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">Не делать копию обновленных файлов</translation>
+        <translation>Не делать копию обновленных файлов</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="169"/>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translation>Главный</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="173"/>
         <source>Slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Вторичный</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="192"/>
         <source>Folder label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка каталога</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="198"/>
         <source>Folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь каталога</translation>
     </message>
 </context>
 <context>
@@ -2626,7 +2627,7 @@
     <message>
         <location filename="../sync.cpp" line="164"/>
         <source>Advanced</source>
-        <translation type="unfinished">Больше</translation>
+        <translation>Больше</translation>
     </message>
 </context>
 <context>
