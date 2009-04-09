@@ -12,5 +12,6 @@
         <file>i18n/Synkron-Spanish.qm</file>
         <file>i18n/Synkron-Valencian.qm</file>
         <file>i18n/Synkron-i18n.qm</file>
+        <file>i18n/Synkron-Finnish.qm</file>
     </qresource>
 </RCC>
