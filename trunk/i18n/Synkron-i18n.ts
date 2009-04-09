@@ -51,5 +51,9 @@
         <source>Valencian</source>
         <translation>valencià</translation>
     </message>
+	<message>
+	<source>Finnish</source>
+	<translation>suomi</translation>
+    </message>
 </context>
 </TS>

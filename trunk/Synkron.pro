@@ -72,4 +72,5 @@ TRANSLATIONS += i18n/Synkron-Slovak.ts \
     i18n/Synkron-Polish.ts \
     i18n/Synkron-Italian.ts \
     i18n/Synkron-French.ts \
-    i18n/Synkron-Valencian.ts
+    i18n/Synkron-Valencian.ts \
+    i18n/Synkron-Finnish.ts

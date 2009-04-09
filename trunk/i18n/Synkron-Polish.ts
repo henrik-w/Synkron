@@ -452,6 +452,10 @@
         <source>Valencian</source>
         <translation>Walencki</translation>
     </message>
+    <message>
+        <source>Finnish</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MTAdvancedGroupBox</name>
