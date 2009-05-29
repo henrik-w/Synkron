@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="es_ES">
 <context>
     <name>About</name>
     <message>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Go back</source>
-        <translation>Ir atrás</translation>
+        <translation>Retroceder</translation>
     </message>
     <message>
         <source>Folder %1 blacklisted, skipped</source>
@@ -192,15 +192,15 @@
     </message>
     <message>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
-        <translation>Se ha encontrado un archivo o una carpeta y un enlace simbólico con el mismo nombre. No se puede sincronizar éstos archivos. (%1, %2)</translation>
+        <translation>Se ha encontrado un archivo o una carpeta y un enlace simbólico con el mismo nombre. No es posible sincronizar éstos archivos. (%1, %2)</translation>
     </message>
     <message>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
-        <translation>Se ha encontrado una carpeta (%1) y un archivo (%2) con el mismo nombre. No se puede sincronizar éstos archivos.</translation>
+        <translation>Se ha encontrado una carpeta (%1) y un archivo (%2) con el mismo nombre. No es posible sincronizar éstos archivos.</translation>
     </message>
     <message>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
-        <translation>Se ha encontrado un archivo (%1) y una carpeta (%2) con el mismo nombre. No se puede sincronizar éstos archivos.</translation>
+        <translation>Se ha encontrado un archivo (%1) y una carpeta (%2) con el mismo nombre. No es posible sincronizar éstos archivos.</translation>
     </message>
     <message>
         <source>File %1 restored</source>
@@ -260,7 +260,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation>Delete</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Rename</source>
@@ -372,23 +372,23 @@
     </message>
     <message>
         <source>Stopping synchronisation, please wait...</source>
-        <translation>Detener la sincronización, por favor, espere ...</translation>
+        <translation>Deteniedo sincronización, por favor, espere ...</translation>
     </message>
     <message>
         <source>to temp</source>
-        <translation type="unfinished"></translation>
+        <translation> a temp</translation>
     </message>
     <message>
         <source>Error copying file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al copiar %1: %2</translation>
     </message>
     <message>
         <source>Error creating folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al crear la carpeta %1</translation>
     </message>
     <message>
         <source>Error removing file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al eliminar archivo %1: %2</translation>
     </message>
 </context>
 <context>
@@ -450,14 +450,14 @@
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Finlandés</translation>
     </message>
 </context>
 <context>
     <name>MTAdvancedGroupBox</name>
     <message>
         <source>Advanced</source>
-        <translation>Avanzada</translation>
+        <translation>Avanzado</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1431,7 @@
     </message>
     <message>
         <source>Show icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar sólo los íconos</translation>
     </message>
 </context>
 <context>
@@ -1474,11 +1474,11 @@
     </message>
     <message>
         <source>Set a destination</source>
-        <translation>Establecer un destino</translation>
+        <translation>Seleccione un destino</translation>
     </message>
     <message>
         <source>Browse for destination</source>
-        <translation>Navegar por destino</translation>
+        <translation>Examinar destino</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1538,7 +1538,7 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzada</translation>
+        <translation>Avanzado</translation>
     </message>
 </context>
 <context>
@@ -1805,11 +1805,11 @@
     </message>
     <message>
         <source>Analysis</source>
-        <translation type="unfinished">Análisis</translation>
+        <translation>Análisis</translation>
     </message>
     <message>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuentes</translation>
     </message>
 </context>
 <context>
@@ -1828,31 +1828,31 @@
     </message>
     <message>
         <source>Do not modify the contents of this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>No modificar el contenido de ésta carpeta</translation>
     </message>
     <message>
         <source>Update existing files only</source>
-        <translation type="unfinished">Actualizar sólo los archivos existentes</translation>
+        <translation>Actualizar sólo los archivos existentes</translation>
     </message>
     <message>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">No realizar backup de los archivos actualizados</translation>
+        <translation>No realizar backup de los archivos actualizados</translation>
     </message>
     <message>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translation>Maestro</translation>
     </message>
     <message>
         <source>Slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Esclavo</translation>
     </message>
     <message>
         <source>Folder label</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiqueta de la carpeta</translation>
     </message>
     <message>
         <source>Folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta de la carpeta</translation>
     </message>
 </context>
 <context>
@@ -2204,7 +2204,7 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzada</translation>
+        <translation>Avanzado</translation>
     </message>
 </context>
 <context>
