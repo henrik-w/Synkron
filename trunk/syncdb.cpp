@@ -21,27 +21,50 @@
 
 void AbstractSyncPage::saveFolderDatabase(QString dir_path)
 {
+    if (dir_path.isEmpty()) return;
+    QString status_text = status_table_item->text();
+    status_table_item->setText(tr("Creating database")); qApp->processEvents();
     QDir dir (dir_path);
-    QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
-    MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
-    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-        addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
-        return;
-    }
-    QTextStream write_sfile(&file);
-    write_sfile.setCodec("UTF-8");
-    for (int i = 0; i < other_tabs.count(); ++i) {
-        if (other_tabs.key(i).startsWith("<:?:>")) {
-            write_sfile << other_tabs.key(i) << endl;
-        } else {
-            write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+    if (!text_database) {
+        if (!dir.cd(".synkron.sync")) {
+            if (!dir.mkdir(".synkron.sync")) {
+                status_table_item->setText(status_text);
+                return;
+            }
+            dir.cd(".synkron.sync");
+        }
+        if (!dir.cd(tabNameText())) {
+            if (!dir.mkdir(tabNameText())) {
+                status_table_item->setText(status_text);
+                return;
+            }
+            dir.cd(tabNameText());
+        }
+        saveFolderEntries(dir.absolutePath(), dir_path);
+    } else {
+        QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+        MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
+        if (!file.open(QFile::WriteOnly | QFile::Text)) {
+            addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+            status_table_item->setText(status_text); qApp->processEvents();
+            return;
+        }
+        QTextStream write_sfile(&file);
+        write_sfile.setCodec("UTF-8");
+        for (int i = 0; i < other_tabs.count(); ++i) {
+            if (other_tabs.key(i).startsWith("<:?:>")) {
+                write_sfile << other_tabs.key(i) << endl;
+            } else {
+                write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+            }
+        }
+        MTDictionary entry_list = getEntryList(dir.absolutePath(), dir.absolutePath());
+        write_sfile << "<:?:>" << tabNameText() << endl;
+        for (int i = 0; i < entry_list.count(); ++i) {
+            write_sfile << entry_list.key(i) << "<->" << entry_list.value(i) << endl;
         }
     }
-    MTDictionary entry_list = getEntryList(dir.absolutePath(), dir.absolutePath());
-    write_sfile << "<:?:>" << tabNameText() << endl;
-    for (int i = 0; i < entry_list.count(); ++i) {
-        write_sfile << entry_list.key(i) << "<->" << entry_list.value(i) << endl;
-    }
+    status_table_item->setText(status_text);
 }
 
 MTDictionary AbstractSyncPage::getFolderDatabase(QString dir_path)
@@ -130,22 +153,38 @@ MTDictionary AbstractSyncPage::getFolderDatabaseOfOtherTabs(QFile & file)
 
 void AbstractSyncPage::deleteFolderDatabase(QString dir_path)
 {
-    QDir dir (dir_path);
-    QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
-    MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
-    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-        addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
-        return;
-    }
-    QTextStream write_sfile(&file);
-    write_sfile.setCodec("UTF-8");
-    for (int i = 0; i < other_tabs.count(); ++i) {
-        if (other_tabs.key(i).startsWith("<:?:>")) {
-            write_sfile << other_tabs.key(i) << endl;
-        } else {
-            write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+    if (dir_path.isEmpty()) return;
+    QString status_text = status_table_item->text();
+    status_table_item->setText(tr("Removing database")); qApp->processEvents();
+    if (!text_database) {
+        QDir dir (dir_path);
+        if (!dir.cd(".synkron.sync")) {
+            status_table_item->setText(status_text);
+            return;
+        }
+        syncing = true;
+        mp_parent->removeDir(dir.absoluteFilePath(tabNameText()));
+        syncing = false;
+    } else {
+        QDir dir (dir_path);
+        QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+        MTDictionary other_tabs = getFolderDatabaseOfOtherTabs(file);
+        if (!file.open(QFile::WriteOnly | QFile::Text)) {
+            addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+            status_table_item->setText(status_text);
+            return;
+        }
+        QTextStream write_sfile(&file);
+        write_sfile.setCodec("UTF-8");
+        for (int i = 0; i < other_tabs.count(); ++i) {
+            if (other_tabs.key(i).startsWith("<:?:>")) {
+                write_sfile << other_tabs.key(i) << endl;
+            } else {
+                write_sfile << other_tabs.key(i) << "<->" << other_tabs.value(i) << endl;
+            }
         }
     }
+    status_table_item->setText(status_text);
 }
 
 void AbstractSyncPage::deleteAllFolderDatabases()
@@ -173,6 +212,52 @@ MTDictionary AbstractSyncPage::getEntryList(QString dir_path, QString parent_dir
     return entry_list;
 }
 
+void AbstractSyncPage::saveFolderEntries(QString db_dir_path, QString sync_dir_path)
+{
+    QDir db_dir(db_dir_path);
+    QDir sync_dir(sync_dir_path);
+    MTStringSet file_names;
+    QFileInfoList entries = sync_dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+    for (int n = 0; n < entries.count(); ++n) {
+        file_names << entries.at(n).fileName();
+    }
+    entries = db_dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+    for (int n = 0; n < entries.count(); ++n) {
+        file_names << entries.at(n).fileName();
+    }
+    MTFile * file;
+    QFileInfo * db_fi = new QFileInfo;
+    QFileInfo * sync_fi = new QFileInfo;
+    for (int i = 0; i < file_names.count(); ++i) {
+        sync_fi->setFile(sync_dir.absoluteFilePath(file_names.at(i)));
+        db_fi->setFile(db_dir.absoluteFilePath(file_names.at(i)));
+        if (sync_fi->exists()) {
+            if (sync_fi->fileName().startsWith(".synkron.sync")) continue;
+            if (!sync_fi->isDir() || sync_fi->isSymLink()) {
+                //fi->setFile(dir.absoluteFilePath(entries.at(i).fileName()));
+                if (!db_fi->exists() || sync_fi->lastModified() != db_fi->lastModified()) {
+                    file = new MTFile(db_fi->absoluteFilePath());
+                    file->openAndTouch(sync_fi->absoluteFilePath());
+                    delete file;
+                }
+            } else {
+                if (!db_fi->exists() && !db_dir.mkdir(sync_fi->fileName())) continue;
+                saveFolderEntries(db_fi->absoluteFilePath(), sync_fi->absoluteFilePath());
+            }
+        } else {
+            if (!db_fi->isDir() || db_fi->isSymLink()) {
+                file = new MTFile(db_fi->absoluteFilePath());
+                file->remove();
+                delete file;
+            } else {
+                mp_parent->removeDir(db_fi->absoluteFilePath());
+            }
+        }
+    }
+    delete sync_fi;
+    delete db_fi;
+}
+
 bool AbstractSyncPage::isInGroupDatabase(QString file_name)
 {
     QString sync_folder_path;
@@ -184,61 +269,87 @@ bool AbstractSyncPage::isInGroupDatabase(QString file_name)
         }
     }
     if (sync_folder_path == "") return false;
-    MTDictionary prop_files_list = folder_prop_list_map.value(sync_folder_path);
-    if (prop_files_list.contains(QDir(sync_folder_path).relativeFilePath(file_name))) return true;
+    if (!text_database) {
+        file_name.remove(0, sync_folder_path.count());
+        QFileInfo fi(QString("%1/.synkron.sync/%2%3").arg(sync_folder_path).arg(tabNameText()).arg(file_name));
+        if (fi.exists()) return true;
+    } else {
+        MTDictionary prop_files_list = folder_prop_list_map.value(sync_folder_path);
+        if (prop_files_list.contains(QDir(sync_folder_path).relativeFilePath(file_name))) return true;
+        //if (prop_files_list.contains(file_name)) return true;
+    }
     return false;
 }
 
 bool AbstractSyncPage::isInDatabase(QString file_name)
 {
-    QDir dir;
+    //QDir dir;
+    QString sync_folder_path;
     if (file_name.startsWith(syncFolder1Text())) {
-        dir.setPath(syncFolder1Text());
+        //dir.setPath(syncFolder1Text());
+        sync_folder_path = syncFolder1Text();
     } else if (file_name.startsWith(syncFolder2Text())) {
-        dir.setPath(syncFolder2Text());
+        //dir.setPath(syncFolder2Text());
+        sync_folder_path = syncFolder2Text();
     } else {
         return false;
     }
-    MTDictionary prop_files_list = folder_prop_list_map.value(dir.path());
-    if (prop_files_list.contains(dir.relativeFilePath(file_name))) return true;
+    if (!text_database) {
+        file_name.remove(0, sync_folder_path.count());
+        QFileInfo fi(QString("%1/.synkron.sync/%2%3").arg(sync_folder_path).arg(tabNameText()).arg(file_name));
+        if (fi.exists()) return true;
+    } else {
+        MTDictionary prop_files_list = folder_prop_list_map.value(sync_folder_path);
+        //if (prop_files_list.contains(dir.relativeFilePath(file_name))) return true;
+        if (prop_files_list.contains(QDir(sync_folder_path).relativeFilePath(file_name))) return true;
+    }
     return false;
 }
 
 void AbstractSyncPage::changeTabNameInDatabase(QString new_name, QString old_name)
 {
-    QStringList paths = syncFoldersList();
-    for (int i = 0; i < paths.count(); ++i) {
-        QDir dir(paths.at(i));
-        QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
-        if (!file.exists()) return;
-        if (!file.open(QFile::ReadOnly | QFile::Text)) {
-            //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
-            return;
+    if (!text_database) {
+        QStringList paths = syncFoldersList();
+        for (int i = 0; i < paths.count(); ++i) {
+            QDir dir (paths.at(i));
+            if (!dir.cd(".synkron.sync")) continue;
+            dir.rename(old_name, new_name);
         }
-        QTextStream read_sfile(&file);
-        read_sfile.setCodec("UTF-8");
-        QStringList new_db;
-        QString line; QString last_tab;
-        while (!read_sfile.atEnd()) {
-            line = read_sfile.readLine();
-            if (line.startsWith("<:?:>")) {
-                last_tab = line;
-                last_tab.remove(0, 5);
-                if (last_tab == old_name) {
-                    line = QString("<:?:>%1").arg(new_name);
-                }
+    } else {
+        QStringList paths = syncFoldersList();
+        for (int i = 0; i < paths.count(); ++i) {
+            QDir dir(paths.at(i));
+            QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".synkron.syncdb"));
+            if (!file.exists()) return;
+            if (!file.open(QFile::ReadOnly | QFile::Text)) {
+                //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
+                return;
             }
-            new_db << line;
-        }
-        file.close();
-        if (!file.open(QFile::WriteOnly | QFile::Text)) {
-            //addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
-            return;
-        }
-        QTextStream write_sfile(&file);
-	    write_sfile.setCodec("UTF-8");
-	    for (int n = 0; n < new_db.count(); ++n) {
-            write_sfile << new_db.at(n) << endl;
+            QTextStream read_sfile(&file);
+            read_sfile.setCodec("UTF-8");
+            QStringList new_db;
+            QString line; QString last_tab;
+            while (!read_sfile.atEnd()) {
+                line = read_sfile.readLine();
+                if (line.startsWith("<:?:>")) {
+                    last_tab = line;
+                    last_tab.remove(0, 5);
+                    if (last_tab == old_name) {
+                        line = QString("<:?:>%1").arg(new_name);
+                    }
+                }
+                new_db << line;
+            }
+            file.close();
+            if (!file.open(QFile::WriteOnly | QFile::Text)) {
+                //addTableItem(tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()), "", ":/new/prefix1/images/file.png", QBrush(Qt::red), QBrush(Qt::white));
+                return;
+            }
+            QTextStream write_sfile(&file);
+            write_sfile.setCodec("UTF-8");
+            for (int n = 0; n < new_db.count(); ++n) {
+                write_sfile << new_db.at(n) << endl;
+            }
         }
     }
 }
@@ -265,13 +376,23 @@ int AbstractSyncPage::fileIsDifferentFromDB(QString path)
         }
     }
     if (folder.isEmpty()) return -1;
-    MTDictionary dict = folder_prop_list_map.value(folder);
-    if (!dict.contains(QDir(folder).relativeFilePath(path))) return -1;
-    QString date_str = dict.value(dict.indexOfKey(QDir(folder).relativeFilePath(path)));
-    if (date_str.isEmpty()) return 0;
-    MTFileInfo file_info(path);
-    if (file_info.lastModified().toString(Qt::ISODate) != date_str) {
-        return 1;
+    if (!text_database) {
+        QString db_file_name = path.right(path.count() - folder.count());
+        MTFileInfo fi_db(QString("%1/.synkron.sync/%2%3").arg(folder).arg(tabNameText()).arg(db_file_name));
+        if (!fi_db.exists()) return -1;
+        MTFileInfo fi(path);
+        if (fi.lastModified().toString(Qt::ISODate) != fi_db.lastModified().toString(Qt::ISODate)) {
+            return 1;
+        }
+    } else {
+        MTDictionary dict = folder_prop_list_map.value(folder);
+        if (!dict.contains(QDir(folder).relativeFilePath(path))) return -1;
+        QString date_str = dict.value(dict.indexOfKey(QDir(folder).relativeFilePath(path)));
+        if (date_str.isEmpty()) return 0;
+        MTFileInfo file_info(path);
+        if (file_info.lastModified().toString(Qt::ISODate) != date_str) {
+            return 1;
+        }
     }
     return 0;
 }
@@ -353,7 +474,7 @@ void AbstractSyncPage::propagatedStateChanged(bool checked)
 
 void AbstractSyncPage::propagatedClicked(bool checked)
 {
-    if (mp_parent->isHidden()) return;
+    if (mp_parent->isHidden() || loading) return;
     if (checked) {
         if (!alert_collisions->isChecked() || !propagate_deletions->isChecked()) {
             saveAllFolderDatabases();
@@ -363,4 +484,14 @@ void AbstractSyncPage::propagatedClicked(bool checked)
             deleteAllFolderDatabases();
         }
     }
+}
+
+void SyncPage::useTextDatabase(bool use)
+{
+    if (text_database == use) return;
+    if (alert_collisions->isChecked() || propagate_deletions->isChecked()) {
+        deleteAllFolderDatabases();
+        text_database = use;
+        saveAllFolderDatabases();
+    } else text_database = use;
 }

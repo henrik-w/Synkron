@@ -134,7 +134,7 @@ public:
 public slots:
     void saveSettings();
     bool removeDir(QString);
-    bool removeFile(QString);
+    bool removeFile(QString, bool = true);
     void setShownManually() { shown_manually = true; }
     bool restoreItem(QListWidgetItem*);
     bool restoreFile(QString, QString, QString);

@@ -390,6 +390,14 @@
         <source>Error removing file %1: %2</source>
         <translation>Chyba pri vymazávaní súboru %1: %2</translation>
     </message>
+    <message>
+        <source>Creating database</source>
+        <translation>Vytváram databázu</translation>
+    </message>
+    <message>
+        <source>Removing database</source>
+        <translation>Odstraňujem databázu</translation>
+    </message>
 </context>
 <context>
     <name>ClientConnection</name>
@@ -450,7 +458,7 @@
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>fínčina</translation>
     </message>
 </context>
 <context>
@@ -1903,11 +1911,11 @@
     </message>
     <message>
         <source>Clone</source>
-        <translation>Klonovať</translation>
+        <translation type="obsolete">Klonovať</translation>
     </message>
     <message>
         <source>Clone folder 1</source>
-        <translation>Klonovať priečinok 1</translation>
+        <translation type="obsolete">Klonovať priečinok 1</translation>
     </message>
     <message>
         <source>%1	Synchronisation failed: Directories with the same path selected</source>
@@ -2234,6 +2242,54 @@
     <message>
         <source>Advanced</source>
         <translation>Rozšírené</translation>
+    </message>
+    <message>
+        <source>Files to copy (%1)</source>
+        <translation>Súbory, ktoré budú skopírované (%1)</translation>
+    </message>
+    <message>
+        <source>Files to update (%1)</source>
+        <translation>Súbory, ktoré budú aktualizované (%1)</translation>
+    </message>
+    <message>
+        <source>Collided files (%1)</source>
+        <translation>Konfliktné súbory (%1)</translation>
+    </message>
+    <message>
+        <source>Files to delete (%1)</source>
+        <translation>Súbory, ktoré budú vymazané (%1)</translation>
+    </message>
+    <message>
+        <source>Folders to create (%1)</source>
+        <translation>Priečinky, ktoré budú vytvorené (%1)</translation>
+    </message>
+    <message>
+        <source>Folders to delete (%1)</source>
+        <translation>Priečinky, ktoré budú vymazané (%1)</translation>
+    </message>
+    <message>
+        <source>From %1 to %2</source>
+        <translation>Z %1 do %2</translation>
+    </message>
+    <message>
+        <source>Sort by action</source>
+        <translation>Roztrieď podľa vykonanej činnosti</translation>
+    </message>
+    <message>
+        <source>There is nothing to be done</source>
+        <translation>Nepotrebuje zmeny</translation>
+    </message>
+    <message>
+        <source>Skipped files (%1)</source>
+        <translation>Vynechané súbory (%1)</translation>
+    </message>
+    <message>
+        <source>Skipped folders (%1)</source>
+        <translation>Vynechané priečinky (%1)</translation>
+    </message>
+    <message>
+        <source>Store database in a text file</source>
+        <translation>Ukladaj databázu do textového súboru</translation>
     </message>
 </context>
 <context>

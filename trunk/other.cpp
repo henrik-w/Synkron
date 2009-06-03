@@ -115,19 +115,19 @@ bool MainWindow::removeDir(QString path)
 	return true;
 }
 
-bool MainWindow::removeFile(QString path)
+bool MainWindow::removeFile(QString path, bool messages)
 {
     QFileInfo file_info (path);
     if (!file_info.exists()) return false;
     else if (file_info.isSymLink() || !file_info.isDir()) {
         if (!QFile(file_info.absoluteFilePath()).remove()) {
-            QMessageBox::critical(this, tr("Synkron"), tr("Error removing file %1").arg(file_info.path()));
+            if (messages) QMessageBox::critical(this, tr("Synkron"), tr("Error removing file %1").arg(file_info.path()));
             return false;
         }
     } else {
         QDir dir (path);
         if (!removeDir(dir.path())) {
-            QMessageBox::critical(this, tr("Synkron"), tr("Error removing directory %1").arg(dir.path()));
+            if (messages) QMessageBox::critical(this, tr("Synkron"), tr("Error removing directory %1").arg(dir.path()));
             return false;
         }
     }
@@ -144,7 +144,7 @@ void MainWindow::globalDelete(QString path)
     MultisyncPage * multi_page;
     QProgressDialog progress (this);
     QFileInfo file_info (path);
- 	
+
  	switch (msgBox.exec()) {
  	case QMessageBox::Yes:
         progress.setLabelText(tr("Removing files..."));
@@ -179,23 +179,10 @@ void MainWindow::globalDelete(QString path)
                     i.value()->addTableItem(tr("File %1 deleted").arg(path3), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
                 }
             }
-	    	/*if (path.startsWith(i.value()->syncFolder1Text())) {
-	    		path2 = path;
-	    		path2.replace(i.value()->syncFolder1Text(), i.value()->syncFolder2Text());
-	    	} else if (path.startsWith(i.value()->syncFolder2Text())) {
-	    		path2 = path;
-	    		path2.replace(i.value()->syncFolder2Text(), i.value()->syncFolder1Text());
-	    	} else {
-	    		continue;
-	    	}
-	    	if (path2 == "" || path2 == ".") continue;
-	    	if (removeFile(path2)) {
-                i.value()->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
-            }*/
 	    	progress.setValue(progress.value()+1);
 	    	qApp->processEvents();
 	    }
-	    
+
         for (int m = 0; m < multi_tabWidget->count(); ++m) {
             multi_page = (MultisyncPage *)multi_tabWidget->widget(m);
             if (path.startsWith(multi_page->destination_multi->text())) {
@@ -206,11 +193,19 @@ void MainWindow::globalDelete(QString path)
                 }
                 for (int s = 0; s < multi_page->list_multi->count(); ++s) {
                     if (path2.startsWith(multi_page->list_multi->item(s)->text())) {
-                        if (path2.startsWith("HOMEPATH", Qt::CaseSensitive)) {
+                        /*if (path2.startsWith("HOMEPATH", Qt::CaseSensitive)) {
                             path2.replace("HOMEPATH", QDir::homePath());
                         } else if (path2.startsWith("ROOTPATH", Qt::CaseSensitive)) {
                             path2.replace("ROOTPATH", QDir::rootPath());
+                        }*/
+                        QMapIterator<QString, QString> iter(multi_page->vars_map);
+                        while (iter.hasNext()) {
+                            iter.next();
+                            if (path2.startsWith(iter.key())) {
+                                path2.replace(0, iter.key().length(), iter.value());
+                            }
                         }
+                        path2.replace("//", "/");
                         if (removeFile(path2)) {
                             multi_page->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
                         }
@@ -220,11 +215,19 @@ void MainWindow::globalDelete(QString path)
             } else {
                 for (int s = 0; s < multi_page->list_multi->count(); ++s) {
                     QString path3 = multi_page->list_multi->item(s)->text();
-                    if (path3.startsWith("HOMEPATH", Qt::CaseSensitive)) {
+                    /*if (path3.startsWith("HOMEPATH", Qt::CaseSensitive)) {
                         path3.replace("HOMEPATH", QDir::homePath());
                     } else if (path3.startsWith("ROOTPATH", Qt::CaseSensitive)) {
                         path3.replace("ROOTPATH", QDir::rootPath());
+                    }*/
+                    QMapIterator<QString, QString> iter(multi_page->vars_map);
+                    while (iter.hasNext()) {
+                        iter.next();
+                        if (path3.startsWith(iter.key())) {
+                            path3.replace(0, iter.key().length(), iter.value());
+                        }
                     }
+                    path3.replace("//", "/");
                     if (path.startsWith(path3)) {
                         QString path2 = QString("%1/%2%3").arg(multi_page->destination_multi->text())
                                                         .arg(multi_page->list_multi->item(s)->text())
@@ -326,12 +329,19 @@ void MainWindow::globalRename(QString path, QString name)
             }
             for (int s = 0; s < multi_page->list_multi->count(); ++s) {
                 if (path2.startsWith(multi_page->list_multi->item(s)->text())) {
-                    if (path2.startsWith("HOMEPATH", Qt::CaseSensitive)) {
+                    /*if (path2.startsWith("HOMEPATH", Qt::CaseSensitive)) {
                         path2.replace("HOMEPATH", QDir::homePath());
                     } else if (path2.startsWith("ROOTPATH", Qt::CaseSensitive)) {
                         path2.replace("ROOTPATH", QDir::rootPath());
+                    }*/
+                    QMapIterator<QString, QString> iter(multi_page->vars_map);
+                    while (iter.hasNext()) {
+                        iter.next();
+                        if (path2.startsWith(iter.key())) {
+                            path2.replace(0, iter.key().length(), iter.value());
+                        }
                     }
-                    
+                    path2.replace("//", "/");
                     if (renameFile(path2, name)) {
                         multi_page->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
                     }
@@ -340,11 +350,19 @@ void MainWindow::globalRename(QString path, QString name)
         } else {
             for (int s = 0; s < multi_page->list_multi->count(); ++s) {
                 QString path3 = multi_page->list_multi->item(s)->text();
-                if (path3.startsWith("HOMEPATH", Qt::CaseSensitive)) {
+                /*if (path3.startsWith("HOMEPATH", Qt::CaseSensitive)) {
                     path3.replace("HOMEPATH", QDir::homePath());
                 } else if (path3.startsWith("ROOTPATH", Qt::CaseSensitive)) {
                     path3.replace("ROOTPATH", QDir::rootPath());
+                }*/
+                QMapIterator<QString, QString> iter(multi_page->vars_map);
+                while (iter.hasNext()) {
+                    iter.next();
+                    if (path3.startsWith(iter.key())) {
+                        path3.replace(0, iter.key().length(), iter.value());
+                    }
                 }
+                path3.replace("//", "/");
                 if (path.startsWith(path3)) {
                     QString path2 = QString("%1/%2%3").arg(multi_page->destination_multi->text())
                                                         .arg(multi_page->list_multi->item(s)->text())

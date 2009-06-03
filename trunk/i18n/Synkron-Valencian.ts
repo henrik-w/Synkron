@@ -390,6 +390,14 @@
         <source>Error removing file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Creating database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removing database</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ClientConnection</name>
@@ -1950,11 +1958,11 @@
     </message>
     <message>
         <source>Clone</source>
-        <translation>Clonar</translation>
+        <translation type="obsolete">Clonar</translation>
     </message>
     <message>
         <source>Clone folder 1</source>
-        <translation>Clonar carpeta 1</translation>
+        <translation type="obsolete">Clonar carpeta 1</translation>
     </message>
     <message>
         <source>&lt;b&gt;Analysis:&lt;/b&gt;</source>
@@ -2205,6 +2213,54 @@
     <message>
         <source>Advanced</source>
         <translation type="unfinished">Alvançada</translation>
+    </message>
+    <message>
+        <source>Files to copy (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files to update (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collided files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folders to create (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folders to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort by action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is nothing to be done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skipped files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skipped folders (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store database in a text file</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

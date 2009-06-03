@@ -57,10 +57,12 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("tab_%1_%2/update_only").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->update_only->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/fast_analyse").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->fast_analyse->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/analyse_special_only").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->analyse_special_only->isChecked() ? "checked" : "unchecked");
-    sync_settings->setValue(QString("tab_%1_%2/alert_collisions").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->alert_collisions->isChecked() ? "checked" : "unchecked");
-    #ifndef Q_WS_WIN
+        sync_settings->setValue(QString("tab_%1_%2/sort_analysis_by_action").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sort_analysis_by_action->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("tab_%1_%2/alert_collisions").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->alert_collisions->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("tab_%1_%2/text_database").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->text_database_action->isChecked() ? "checked" : "unchecked");
+#ifndef Q_WS_WIN
         sync_settings->setValue(QString("tab_%1_%2/symlinks").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->symlinks->isChecked() ? "checked" : "unchecked");
-    #endif
+#endif
         //sync_settings->setValue(QString("tab_%1_%2/filters_gb").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->filters->isChecked() ? "checked" : "unchecked");
         QStringList flist;
         QList<QAction *> actions = tabs.value(tabWidget->widget(i))->filters_menu->actions();
@@ -109,9 +111,9 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("multitab_%1_%2/fast_analyse").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->fast_analyse->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/analyse_special_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->analyse_special_only->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/alert_collisions").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->alert_collisions->isChecked() ? "checked" : "unchecked");
-    #ifndef Q_WS_WIN
+#ifndef Q_WS_WIN
         sync_settings->setValue(QString("multitab_%1_%2/symlinks").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->symlinks->isChecked() ? "checked" : "unchecked");
-    #endif
+#endif
         sync_settings->setValue(QString("multitab_%1_%2/files_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->files_blacklist);
         sync_settings->setValue(QString("multitab_%1_%2/folders_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->folders_blacklist);
         sync_settings->setValue(QString("multitab_%1_%2/exts_blacklist").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->exts_blacklist);
@@ -209,22 +211,7 @@ void MainWindow::readSettings()
                         page->sync_folders->addToFolders(2);
                     }
     				if (i % 12 == 2) page->sync_folders->addFolder()->setPath(recentsyncs.at(i));
-					if (i % 12 == 4) page->sync_hidden->setChecked(recentsyncs.at(i)=="checked");
-					if (i % 12 == 7) {
-                                                //showAdvancedGroupBox((recentsyncs.at(i)=="checked"), page);
-					}
-                                        /*if (i % 12 == 8) {
-						page->backup_folder_1->setChecked((recentsyncs.at(i)=="checked"));
-					}
-					if (i % 12 == 9) {
-						page->backup_folder_2->setChecked((recentsyncs.at(i)=="checked"));
-					}
-                                        if (i % 12 == 10) {
-						page->update_only_1->setChecked((recentsyncs.at(i)=="checked"));
-					}
-					if (i % 12 == 11) {
-						page->update_only_2->setChecked((recentsyncs.at(i)=="checked"));
-                                        }*/
+                    if (i % 12 == 4) page->sync_hidden->setChecked(recentsyncs.at(i)=="checked");
    				}
 			}
 		} else {
@@ -277,7 +264,8 @@ void MainWindow::readSettings()
 		page->sync_nosubdirs->setChecked(sync_settings->value(QString("tab_%1_%2/sync_nosubdirs").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		page->ignore_blacklist->setChecked(sync_settings->value(QString("tab_%1_%2/ignore_blacklist").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
 		page->fast_analyse->setChecked(sync_settings->value(QString("tab_%1_%2/fast_analyse").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
-		page->analyse_special_only->setChecked(sync_settings->value(QString("tab_%1_%2/analyse_special_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+                page->analyse_special_only->setChecked(sync_settings->value(QString("tab_%1_%2/analyse_special_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+                page->sort_analysis_by_action->setChecked(sync_settings->value(QString("tab_%1_%2/sort_analysis_by_action").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         if (sync_settings->value(QString("tab_%1_%2/backup_folder_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") page->setBackupFolder(0, true);
                 if (sync_settings->value(QString("tab_%1_%2/backup_folder_2").arg(tabs_list.at(i)).arg(i)).toString()=="checked") page->setBackupFolder(1, true);
                 if (sync_settings->value(QString("tab_%1_%2/update_only_1").arg(tabs_list.at(i)).arg(i)).toString()=="checked") page->sync_folders->at(0)->update_only_act->setChecked(true);
@@ -290,6 +278,7 @@ void MainWindow::readSettings()
             page->alert_collisions->setChecked(true); }
         page->backup_folders->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         page->update_only->setChecked(sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+        page->text_database_action->setChecked(sync_settings->value(QString("tab_%1_%2/text_database").arg(tabs_list.at(i)).arg(i), "checked").toString()=="checked");
         if (sync_settings->value(QString("tab_%1_%2/periodical").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
 	        SyncSchedule * sync_sched = addSchedule(tabs_list.at(i));
 	        sync_sched->periodical_interval = sync_settings->value(QString("tab_%1_%2/sync_interval").arg(tabs_list.at(i)).arg(i), 1).toInt();
@@ -445,11 +434,11 @@ void MainWindow::readSettings()
 				startSchedule(item_sched_map.key(sync_sched));
 			}
 		}
-        }
+    }
 	tabWidget->setCurrentIndex(sync_settings->value("current_synctab", 0).toInt());
 	multi_tabWidget->setCurrentIndex(sync_settings->value("current_multitab", 0).toInt());
     this->move(sync_settings->value("pos", (settings.value("pos", this->pos()))).toPoint());
 	this->resize(sync_settings->value("size", (settings.value("size", this->size()))).toSize());
 	actionRun_hidden->setChecked(run_hidden);
-        trayIconVisible(!run_hidden);
+    trayIconVisible(!run_hidden);
 }
