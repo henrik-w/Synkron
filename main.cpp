@@ -103,7 +103,7 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
     synkron_i18n.insert(translator.translate("LanguageNames", "Valencian"), "Valencian");
     synkron_i18n.insert(translator.translate("LanguageNames", "Finnish"), "Finnish");
-    
+
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
     connect(actionClose_sync, SIGNAL(triggered()), this, SLOT(closeTab()));

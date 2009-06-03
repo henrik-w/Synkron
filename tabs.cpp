@@ -104,7 +104,8 @@ void AbstractSyncPage::save()
 
 void AbstractSyncPage::saveAs()
 {
-    QString file_name = QFileDialog::getSaveFileName(this,
+    qApp->processEvents();
+    QString file_name = QFileDialog::getSaveFileName(mp_parent,
                 tr("Synkron - Save tab"),
                 QString("%1/%2.slist").arg(QDir::homePath()).arg(tabNameText()),
                 tr("Synkron Tabs (*.slist)"));
@@ -113,6 +114,8 @@ void AbstractSyncPage::saveAs()
 
 void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
 {
+    el_sync.setAttribute("last_sync", last_sync);
+    el_sync.setAttribute("allowed_difference", allowed_difference);
 //*** Blacklist ***
     QDomElement el_blacklist = domdoc.createElement("blacklist");
     el_blacklist.setAttribute("files", files_blacklist.join(";"));
@@ -126,20 +129,11 @@ void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
     QDomElement el_adv_global = domdoc.createElement("global");
     el_adv_global.setAttribute("sync_hidden", sync_hidden->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("propagate_deletions", propagate_deletions->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("alert_collisions", alert_collisions->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("sync_nosubdirs", sync_nosubdirs->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("ignore_blacklist", ignore_blacklist->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("symlinks", symlinks->isChecked() ? QString("1") : QString("0"));
     el_advanced.appendChild(el_adv_global);
-    QDomElement el_adv_folder_1 = domdoc.createElement("folder_1");
-    el_adv_folder_1.setAttribute("backup_folder_1", backupFolder(0) ? QString("1") : QString("0"));
-    el_adv_folder_1.setAttribute("update_only_1", updateOnly(0) ? QString("1") : QString("0"));
-    el_adv_folder_1.setAttribute("move", move->isChecked() ? QString("1") : QString("0"));
-    el_advanced.appendChild(el_adv_folder_1);
-    QDomElement el_adv_folder_2 = domdoc.createElement("folder_2");
-    el_adv_folder_2.setAttribute("backup_folder_2", backupFolder(1) ? QString("1") : QString("0"));
-    el_adv_folder_2.setAttribute("update_only_2", updateOnly(1) ? QString("1") : QString("0"));
-    //el_adv_folder_2.setAttribute("clone_folder1", clone_folder1->isChecked() ? QString("1") : QString("0"));
-    el_advanced.appendChild(el_adv_folder_2);
     QDomElement el_adv_analysis = domdoc.createElement("analysis");
     el_adv_analysis.setAttribute("fast_analyse", fast_analyse->isChecked() ? QString("1") : QString("0"));
     el_adv_analysis.setAttribute("analyse_special_only", analyse_special_only->isChecked() ? QString("1") : QString("0"));
@@ -148,6 +142,9 @@ void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
 
 void AbstractSyncPage::sharedLoad(QDomElement & el_sync)
 {
+    loading = true;
+    allowed_difference = el_sync.attribute("allowed_difference").toInt();
+    last_sync = el_sync.attribute("last_sync").toInt();
 //*** Blacklist ***
     QDomElement el_blacklist = el_sync.firstChildElement("blacklist");
     files_blacklist = el_blacklist.attribute("files").split(";");
@@ -159,22 +156,16 @@ void AbstractSyncPage::sharedLoad(QDomElement & el_sync)
     QDomElement el_adv_global = el_advanced.firstChildElement("global");
     sync_hidden->setChecked(el_adv_global.attribute("sync_hidden").toInt());
     propagate_deletions->setChecked(el_adv_global.attribute("propagate_deletions").toInt());
+    alert_collisions->setChecked(el_adv_global.attribute("alert_collisions").toInt());
     sync_nosubdirs->setChecked(el_adv_global.attribute("sync_nosubdirs").toInt());
     ignore_blacklist->setChecked(el_adv_global.attribute("ignore_blacklist").toInt());
 #ifndef Q_WS_WIN
     symlinks->setChecked(el_adv_global.attribute("symlinks").toInt());
 #endif
-    QDomElement el_adv_folder_1 = el_advanced.firstChildElement("folder_1");
-    setBackupFolder(0, el_adv_folder_1.attribute("backup_folder_1").toInt());
-    setUpdateOnly(0, el_adv_folder_1.attribute("update_only_1").toInt());
-    move->setChecked(el_adv_folder_1.attribute("move").toInt());
-    QDomElement el_adv_folder_2 = el_advanced.firstChildElement("folder_2");
-    setBackupFolder(1, el_adv_folder_2.attribute("backup_folder_2").toInt());
-    setUpdateOnly(0, el_adv_folder_2.attribute("update_only_2").toInt());
-    //clone_folder1->setChecked(el_adv_folder_2.attribute("clone_folder1").toInt());
     QDomElement el_adv_analysis = el_advanced.firstChildElement("analysis");
     fast_analyse->setChecked(el_adv_analysis.attribute("fast_analyse").toInt());
     analyse_special_only->setChecked(el_adv_analysis.attribute("analyse_special_only").toInt());
+    loading = false;
 }
 
 //+++ Sync +++
@@ -186,17 +177,31 @@ void SyncPage::saveAs(QString file_name)
     QDomElement el_sync = domdoc.createElement("sync");
     el_sync.setAttribute("type", "sync");
     domdoc.appendChild(el_sync);
-    QStringList source_list; QString checkstates;
-    QDomElement el_folders = domdoc.createElement("folders");
-    el_folders.setAttribute("paths", syncFoldersList().join(";"));
-    el_sync.appendChild(el_folders);
+//*** Name ***
     QDomElement el_name = domdoc.createElement("name");
     el_name.setAttribute("data", tab_name->text());
     el_sync.appendChild(el_name);
-    el_sync.setAttribute("last_sync", last_sync);
-
+//*** Folders ***
+    QDomElement el_folders = domdoc.createElement("folders");
+    el_folders.setAttribute("paths", syncFoldersList().join(";"));
+    el_sync.appendChild(el_folders);
+    for (int i = 0; i < sync_folders->count(); ++i) {
+        QDomElement el_folder = domdoc.createElement("folder");
+        el_folder.setAttribute("path", sync_folders->at(i)->path());
+        el_folder.setAttribute("label", sync_folders->at(i)->label());
+        QDomElement el_folder_adv = domdoc.createElement("advanced");
+        el_folder_adv.setAttribute("update_only", sync_folders->at(i)->update_only_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("dont_update", sync_folders->at(i)->dont_update_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("backup_folder", sync_folders->at(i)->backup_folder_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("slave", sync_folders->at(i)->slave_act->isChecked() ? QString("1") : QString("0"));
+        el_folder.appendChild(el_folder_adv);
+        el_folders.appendChild(el_folder);
+    }
+//*** Shared ***
     sharedSave(domdoc, el_sync);
+//*** Advanced ***
     QDomElement el_advanced = el_sync.firstChildElement("advanced_options");
+//*** Filters ***
     QDomElement el_adv_filters = domdoc.createElement("filters");
     //el_adv_filters.setAttribute("filters_gb", filters->isChecked() ? QString("1") : QString("0"));
     QStringList checked;
@@ -208,6 +213,14 @@ void SyncPage::saveAs(QString file_name)
     }
     el_adv_filters.setAttribute("checked", checked.join(";"));
     el_advanced.appendChild(el_adv_filters);
+//*** Analysis ***
+    QDomElement el_adv_analysis = el_advanced.firstChildElement("analysis");
+    el_adv_analysis.setAttribute("sort_analysis_by_action", sort_analysis_by_action->isChecked() ? QString("1") : QString("0"));
+//*** Global ***
+    QDomElement el_adv_global = el_advanced.firstChildElement("global");
+    el_adv_global.setAttribute("text_database", text_database_action->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("update_only", update_only->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("backup_folders", backup_folders->isChecked() ? QString("1") : QString("0"));
 
     QFile file(file_name);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
@@ -223,11 +236,23 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
 {
     QDomElement el_sync = domdoc.firstChildElement("sync");
     QDomElement el_folders = el_sync.firstChildElement("folders");
-    QStringList folders = el_folders.attribute("paths").split(";");
+//*** Folders ***
+    QDomNodeList folders = el_folders.elementsByTagName("folder");
     sync_folders->removeAllFolders();
+    SyncFolder * folder;
+    QDomElement e;
     for (int f = 0; f < folders.count(); ++f) {
-        if (folders.at(f) != "")
-            sync_folders->addFolder()->setPath(folders.at(f));
+        if (folders.at(f).isElement()) {
+            e = folders.at(f).toElement();
+            folder = sync_folders->addFolder();
+            folder->setPath(e.attribute("path"));
+            folder->setLabel(e.attribute("label"));
+            QDomElement el_folder_adv = e.firstChildElement("advanced");
+            folder->update_only_act->setChecked(el_folder_adv.attribute("update_only") == "1");
+            folder->dont_update_act->setChecked(el_folder_adv.attribute("dont_update") == "1");
+            folder->backup_folder_act->setChecked(el_folder_adv.attribute("backup_folder") == "1");
+            folder->slave_act->setChecked(el_folder_adv.attribute("slave") == "1");
+        }
     }
     sync_folders->addToFolders(2);
     QDomElement el_name = el_sync.firstChildElement("name");
@@ -240,6 +265,7 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
 
     sharedLoad(el_sync);
     QDomElement el_advanced = el_sync.firstChildElement("advanced_options");
+//*** Filters ***
     QDomElement el_adv_filters = el_advanced.firstChildElement("filters");
     //filters->setChecked(el_adv_filters.attribute("filters_gb").toInt());
     QStringList flist = el_adv_filters.attribute("checked").split(";");
@@ -251,8 +277,14 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
             }
         }
     }
-    //if (update_only_1->isChecked() && update_only_2->isChecked()) update_only->setChecked(true);
-    //if (backupFolder(0) && backupFolder(1)) backup_folders->setChecked(true);
+// *** Global ***
+    QDomElement el_adv_global = el_advanced.firstChildElement("global");
+    text_database_action->setChecked(el_adv_global.attribute("text_database") == "1");
+    update_only->setChecked(el_adv_global.attribute("update_only") == "1");
+    backup_folders->setChecked(el_adv_global.attribute("backup_folders") == "1");
+//*** Analysis ***
+    QDomElement el_adv_analysis = el_advanced.firstChildElement("analysis");
+    sort_analysis_by_action->setChecked(el_adv_analysis.attribute("sort_analysis_by_action") == "1");
 
     slist_path = file_name;
 }
@@ -285,9 +317,20 @@ void MultisyncPage::saveAs(QString file_name)
     QDomElement el_variables = domdoc.createElement("variables");
     el_variables.setAttribute("data", variablesToString());
     el_sync.appendChild(el_variables);
-    el_sync.setAttribute("last_sync", last_sync);
 
     sharedSave(domdoc, el_sync);
+//*** Advanced folder settings ***
+    QDomElement el_advanced = el_sync.firstChildElement("advanced_options");
+    QDomElement el_adv_folder_1 = domdoc.createElement("folder_1");
+    el_adv_folder_1.setAttribute("backup_folder_1", backupFolder(0) ? QString("1") : QString("0"));
+    el_adv_folder_1.setAttribute("update_only_1", updateOnly(0) ? QString("1") : QString("0"));
+    el_adv_folder_1.setAttribute("move", move->isChecked() ? QString("1") : QString("0"));
+    el_advanced.appendChild(el_adv_folder_1);
+    QDomElement el_adv_folder_2 = domdoc.createElement("folder_2");
+    el_adv_folder_2.setAttribute("backup_folder_2", backupFolder(1) ? QString("1") : QString("0"));
+    el_adv_folder_2.setAttribute("update_only_2", updateOnly(1) ? QString("1") : QString("0"));
+    el_adv_folder_2.setAttribute("clone_folder1", clone_folder1->isChecked() ? QString("1") : QString("0"));
+    el_advanced.appendChild(el_adv_folder_2);
 
     QFile file(file_name);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
@@ -329,6 +372,16 @@ void MultisyncPage::load(QDomDocument & domdoc, QString file_name)
     if (!last_sync.isEmpty()) status_table_item->setText(tr("Last synced on %1").arg(last_sync));
 
     sharedLoad(el_sync);
+//*** Advanced folder settings ***
+    QDomElement el_advanced = el_sync.firstChildElement("advanced_options");
+    QDomElement el_adv_folder_1 = el_advanced.firstChildElement("folder_1");
+    setBackupFolder(0, el_adv_folder_1.attribute("backup_folder_1").toInt());
+    setUpdateOnly(0, el_adv_folder_1.attribute("update_only_1").toInt());
+    move->setChecked(el_adv_folder_1.attribute("move").toInt());
+    QDomElement el_adv_folder_2 = el_advanced.firstChildElement("folder_2");
+    setBackupFolder(1, el_adv_folder_2.attribute("backup_folder_2").toInt());
+    setUpdateOnly(1, el_adv_folder_2.attribute("update_only_2").toInt());
+    clone_folder1->setChecked(el_adv_folder_2.attribute("clone_folder1").toInt());
 
     slist_path = file_name;
 }

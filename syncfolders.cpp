@@ -54,7 +54,7 @@ SyncFolders::SyncFolders(QWidget * parent):
 SyncFolder * SyncFolders::addFolder()
 {
     SyncFolder * folder = new SyncFolder(this);
-    connect(folder, SIGNAL(sigremove(SyncFolder *)), this, SLOT(removeFolder(SyncFolder *)));
+    connect(folder, SIGNAL(sigremove(SyncFolder *)), this, SLOT(removeFolderTimer(SyncFolder *)));
     folders_vlayout->addWidget(folder);
     folders_list << folder;
     folder->setLabel(tr("Folder %1").arg(count()));
@@ -112,13 +112,14 @@ void SyncFolders::removeFolder(int i)
     emit sigfoldersedited();
 }
 
-void SyncFolders::removeFolder(SyncFolder * folder)
+void SyncFolders::removeFolder()
 {
-    int i = folders_list.indexOf(folder);
+    qApp->processEvents(QEventLoop::AllEvents);
+    int i = folders_list.indexOf(current_folder);
     if (i >= 0)
         delete folders_list.takeAt(i);
     else
-        delete folder;
+        delete current_folder;
     emit sigfolderschanged();
     emit sigfoldersedited();
 }
@@ -155,6 +156,8 @@ SyncFolder::SyncFolder(QWidget * parent):
     config_btn = new QPushButton(this);
     config_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/configure16.png")));
     config_btn->setFlat(true);
+    config_btn->setMinimumHeight(22);
+    config_btn->setMaximumHeight(22);
     config_menu = new QMenu;
     dont_update_act = new QAction(tr("Do not modify the contents of this folder"), this);
     dont_update_act->setCheckable(true);

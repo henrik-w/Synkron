@@ -35,8 +35,9 @@ class MTFile : public QFile
 public:
 	MTFile(QString);
 	MTFile(QString, QObject *);
-	bool copy(QString);
+    bool copy(QString);
 	bool touch(QApplication *);
+    bool openAndTouch(QString);
 };
 
 class MTEvenDateTime : public QDateTime
@@ -95,8 +96,8 @@ protected:
     void link() {
         QObject::connect(chb1, SIGNAL(stateChanged(int)), this, SLOT(chb1StateChanged(int)));
         QObject::connect(chb2, SIGNAL(stateChanged(int)), this, SLOT(chb2StateChanged(int)));
-        chb1->setChecked(true);
-        chb2->setChecked(true);
+        chb1->setChecked(false);
+        chb2->setChecked(false);
     };
 
 private slots:

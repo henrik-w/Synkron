@@ -361,14 +361,16 @@ int MultisyncPage::sync()
         }
     	sync_folder_1 = syncfolder.path();
     	sync_folder_2 = destination.path();
-        if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
-            folder_prop_list_map.clear();
-            QString sync_folder; //QStringList prop_files_list;
-            for (int i = 0; i < 2; ++i) {
-                if (i == 0) sync_folder = syncfolder.absolutePath();
-                else sync_folder = destination.absolutePath();
-                //prop_files_list = getFolderDatabase(sync_folder);
-                folder_prop_list_map.insert(sync_folder, getFolderDatabase(sync_folder));
+        if (text_database) {
+            if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
+                folder_prop_list_map.clear();
+                QString sync_folder; //QStringList prop_files_list;
+                for (int i = 0; i < 2; ++i) {
+                    if (i == 0) sync_folder = syncfolder.absolutePath();
+                    else sync_folder = destination.absolutePath();
+                    //prop_files_list = getFolderDatabase(sync_folder);
+                    folder_prop_list_map.insert(sync_folder, getFolderDatabase(sync_folder));
+                }
             }
         }
     	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
@@ -464,8 +466,13 @@ void MultisyncPage::moveChecked(bool checked)
     }
 }
 
-void MultisyncPage::cloneChecked(bool checked)
+void MultisyncPage::cloneStateChanged(bool checked)
 {
+    if (checked) {
+        move->setChecked(false);
+    }
+    if (propagate_deletions->isChecked()) return;
+    move->setEnabled(!checked);
     if (checked) {
         sync_multi->setText(tr("Clone sources"));
         sync_multi->setStatusTip(tr("Clone sources"));

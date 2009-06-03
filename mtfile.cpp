@@ -19,6 +19,10 @@
 
 #include "mtfile.h"
 
+#ifdef Q_WS_WIN
+#include <windows.h>
+#endif
+
 MTFile::MTFile(QString s):
 QFile(s)
 {}
@@ -73,4 +77,40 @@ bool MTFile::touch(QApplication *
 		return true;
 	} else { return false; }
 	return false;
+}
+
+bool MTFile::openAndTouch(QString other_path)
+{
+#ifdef Q_WS_WIN
+    //touch.setWorkingDirectory(QFileInfo(app->arguments().at(0)).absolutePath());
+    HANDLE in = CreateFileW(other_path.replace('/', '\\').toStdWString().c_str(),
+                               GENERIC_READ,
+                               FILE_SHARE_READ,
+                               NULL,
+                               OPEN_EXISTING,
+                               FILE_ATTRIBUTE_NORMAL,
+                               NULL);
+    FILETIME time;
+    GetFileTime(in, NULL, NULL, &time);
+    CloseHandle(in);
+    HANDLE out = CreateFileW(fileName().replace('/', '\\').toStdWString().c_str(),
+                               GENERIC_WRITE,
+                               FILE_SHARE_READ,
+                               NULL,
+                               OPEN_ALWAYS,
+                               FILE_ATTRIBUTE_NORMAL,
+                               NULL);
+    SetFileTime(out, NULL, NULL, &time);
+    CloseHandle(out);
+    return true;
+#endif
+    if (!exists()) {
+        if (!open(QIODevice::ReadWrite)) return false;
+    }
+    QStringList arguments; QProcess touch;
+    arguments << "-cf" << "-r" << "\"" + other_path + "\"" << "\"" + fileName() + "\"";
+    if (touch.execute("touch", arguments) == 0) {
+        return true;
+    } else { return false; }
+    return false;
 }

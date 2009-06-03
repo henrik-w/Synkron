@@ -64,37 +64,37 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="495"/>
-        <location filename="../sync.cpp" line="529"/>
-        <location filename="../sync.cpp" line="755"/>
-        <location filename="../sync.cpp" line="759"/>
-        <location filename="../sync.cpp" line="786"/>
-        <location filename="../sync.cpp" line="818"/>
+        <location filename="../sync.cpp" line="510"/>
+        <location filename="../sync.cpp" line="544"/>
+        <location filename="../sync.cpp" line="770"/>
+        <location filename="../sync.cpp" line="774"/>
+        <location filename="../sync.cpp" line="801"/>
+        <location filename="../sync.cpp" line="833"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>تم تجاهل المجلد %1، تم تخصيصه في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="537"/>
-        <location filename="../sync.cpp" line="802"/>
-        <location filename="../sync.cpp" line="826"/>
+        <location filename="../sync.cpp" line="552"/>
+        <location filename="../sync.cpp" line="817"/>
+        <location filename="../sync.cpp" line="841"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>تم تجاهل الملف %1، تم تخصيصه في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="576"/>
-        <location filename="../sync.cpp" line="855"/>
+        <location filename="../sync.cpp" line="591"/>
+        <location filename="../sync.cpp" line="870"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>غير قادر على مزامنة هذه الملفات (%1، %2). بسبب العثور على ملف أو مجلد أو إختصار يحمل نفس الإسم</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="589"/>
-        <location filename="../sync.cpp" line="873"/>
+        <location filename="../sync.cpp" line="604"/>
+        <location filename="../sync.cpp" line="888"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>غير قادر على مزامنة الملفات. المجلد %1 و الملف %2 يحمل نفس التسمية.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="594"/>
-        <location filename="../sync.cpp" line="877"/>
+        <location filename="../sync.cpp" line="609"/>
+        <location filename="../sync.cpp" line="892"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>غير قادر على مزامنة الملفات. الملف %1 و المجلد %2 يحمل نفس التسمية.</translation>
     </message>
@@ -115,7 +115,7 @@
         <translation type="obsolete">مجلد</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="893"/>
+        <location filename="../sync.cpp" line="908"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>تم عمل نسخة إحتياطية من الملف %1 ثم حذف</translation>
     </message>
@@ -125,127 +125,127 @@
     </message>
     <message>
         <location filename="../restore.cpp" line="452"/>
-        <location filename="../sync.cpp" line="842"/>
-        <location filename="../sync.cpp" line="897"/>
-        <location filename="../sync.cpp" line="934"/>
-        <location filename="../sync.cpp" line="944"/>
-        <location filename="../sync.cpp" line="976"/>
-        <location filename="../sync.cpp" line="1000"/>
+        <location filename="../sync.cpp" line="857"/>
+        <location filename="../sync.cpp" line="912"/>
+        <location filename="../sync.cpp" line="949"/>
+        <location filename="../sync.cpp" line="959"/>
+        <location filename="../sync.cpp" line="991"/>
+        <location filename="../sync.cpp" line="1015"/>
         <source>File %1 deleted</source>
         <translation>تم حذف الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="844"/>
-        <location filename="../sync.cpp" line="899"/>
-        <location filename="../sync.cpp" line="936"/>
-        <location filename="../sync.cpp" line="946"/>
-        <location filename="../sync.cpp" line="978"/>
-        <location filename="../sync.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="859"/>
+        <location filename="../sync.cpp" line="914"/>
+        <location filename="../sync.cpp" line="951"/>
+        <location filename="../sync.cpp" line="961"/>
+        <location filename="../sync.cpp" line="993"/>
+        <location filename="../sync.cpp" line="1017"/>
         <source>Error removing file %1</source>
         <translation>حدث خطأ أثناء حذف الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="849"/>
-        <location filename="../sync.cpp" line="866"/>
-        <location filename="../sync.cpp" line="983"/>
+        <location filename="../sync.cpp" line="864"/>
+        <location filename="../sync.cpp" line="881"/>
+        <location filename="../sync.cpp" line="998"/>
         <source>Folder %1 deleted</source>
         <translation>المجلد %1 تم حذفه</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="851"/>
-        <location filename="../sync.cpp" line="868"/>
-        <location filename="../sync.cpp" line="985"/>
+        <location filename="../sync.cpp" line="866"/>
+        <location filename="../sync.cpp" line="883"/>
+        <location filename="../sync.cpp" line="1000"/>
         <source>Error removing directory %1</source>
         <translation>حدث خطأ أثناء حذف المجلد %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="662"/>
-        <location filename="../sync.cpp" line="928"/>
-        <location filename="../sync.cpp" line="1476"/>
+        <location filename="../sync.cpp" line="677"/>
+        <location filename="../sync.cpp" line="943"/>
+        <location filename="../sync.cpp" line="1469"/>
         <source>File %1 restored</source>
         <translation>الملف %1 تم إستعادته</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="283"/>
+        <location filename="../sync.cpp" line="297"/>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;ملفات في القائمة السوداء&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="286"/>
+        <location filename="../sync.cpp" line="300"/>
         <source>List of files in the blacklist</source>
         <translation>قائمة الملفات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="291"/>
-        <location filename="../sync.cpp" line="312"/>
-        <location filename="../sync.cpp" line="333"/>
+        <location filename="../sync.cpp" line="305"/>
+        <location filename="../sync.cpp" line="326"/>
+        <location filename="../sync.cpp" line="347"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="292"/>
+        <location filename="../sync.cpp" line="306"/>
         <source>Add file to black list</source>
         <translation>أضف الملف للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="296"/>
-        <location filename="../sync.cpp" line="317"/>
-        <location filename="../sync.cpp" line="338"/>
+        <location filename="../sync.cpp" line="310"/>
+        <location filename="../sync.cpp" line="331"/>
+        <location filename="../sync.cpp" line="352"/>
         <source>Remove</source>
         <translation>إزالة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="297"/>
+        <location filename="../sync.cpp" line="311"/>
         <source>Remove file from black list</source>
         <translation>إزالة الملف من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="304"/>
+        <location filename="../sync.cpp" line="318"/>
         <source>&lt;b&gt;Folders in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;مجلدات في القائمة السوداء&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="307"/>
+        <location filename="../sync.cpp" line="321"/>
         <source>List of folders in the blacklist</source>
         <translation>قائمة المجلدات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="313"/>
+        <location filename="../sync.cpp" line="327"/>
         <source>Add folder to black list</source>
         <translation>أضف المجلد للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="318"/>
+        <location filename="../sync.cpp" line="332"/>
         <source>Remove folder from black list</source>
         <translation>إزالة المجلد من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="325"/>
+        <location filename="../sync.cpp" line="339"/>
         <source>&lt;b&gt;Extensions in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;إمتدادات في القائمة السوداء&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="328"/>
+        <location filename="../sync.cpp" line="342"/>
         <source>List of extensions in the blacklist</source>
         <translation>قائمة الإمتدادات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="334"/>
+        <location filename="../sync.cpp" line="348"/>
         <source>Add extension to black list</source>
         <translation>أضف إمتداد  للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="339"/>
+        <location filename="../sync.cpp" line="353"/>
         <source>Remove extension from black list</source>
         <translation>إزالة إمتداد من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="348"/>
+        <location filename="../sync.cpp" line="362"/>
         <source>Back</source>
         <translation>للخلف</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="349"/>
+        <location filename="../sync.cpp" line="363"/>
         <source>Go back</source>
         <translation>إذهب للخلف</translation>
     </message>
@@ -317,95 +317,95 @@
         <translation type="obsolete">حدث خطأ غير معروف لدى حذف الملف: %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1251"/>
+        <location filename="../sync.cpp" line="1266"/>
         <source>%1 %2 files skipped</source>
         <translation>%1 %2 ملف تم تخطيه</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="28"/>
-        <location filename="../syncdb.cpp" line="137"/>
+        <location filename="../syncdb.cpp" line="48"/>
+        <location filename="../syncdb.cpp" line="173"/>
         <source>Cannot write file %1: %2</source>
         <translation>غير قادر على كتابة الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="258"/>
+        <location filename="../analyse.cpp" line="271"/>
         <source>DELETED</source>
         <translation>تم حذفه</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="263"/>
+        <location filename="../analyse.cpp" line="276"/>
         <source>NOT FOUND</source>
         <translation>غير موجود</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="364"/>
-        <location filename="../analyse.cpp" line="403"/>
+        <location filename="../analyse.cpp" line="377"/>
+        <location filename="../analyse.cpp" line="683"/>
         <source>Loading...</source>
         <translation>تحميل...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="596"/>
+        <location filename="../analyse.cpp" line="890"/>
         <source>Open</source>
         <translation>فتح</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="605"/>
+        <location filename="../analyse.cpp" line="899"/>
         <source>Sync</source>
         <translation>مزامنة</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="611"/>
+        <location filename="../analyse.cpp" line="905"/>
         <source>Delete</source>
         <translation>حذف</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="615"/>
+        <location filename="../analyse.cpp" line="909"/>
         <source>Rename</source>
         <translation>إعادة تسمية</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="621"/>
+        <location filename="../analyse.cpp" line="915"/>
         <source>Add to blacklist</source>
         <translation>إضافة للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="623"/>
+        <location filename="../analyse.cpp" line="917"/>
         <source>Remove from blacklist</source>
         <translation>إزالة من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="629"/>
+        <location filename="../analyse.cpp" line="923"/>
         <source>Add extension to blacklist</source>
         <translation>أضف إمتداد  للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="713"/>
+        <location filename="../analyse.cpp" line="1011"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>هل أنت متأكد من أنك تريد إزالة &quot;%1&quot; من كل مسار يتم مزامنته؟</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="767"/>
+        <location filename="../analyse.cpp" line="1067"/>
         <source>Synkron - Rename file</source>
         <translation>سينكرون - إعادة تسمية الملف</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="767"/>
+        <location filename="../analyse.cpp" line="1067"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>قم بكتابة تسمية جديدة لـ &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="779"/>
+        <location filename="../analyse.cpp" line="1081"/>
         <source>Error renaming directory %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية المجلد %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="781"/>
-        <location filename="../analyse.cpp" line="788"/>
+        <location filename="../analyse.cpp" line="1083"/>
+        <location filename="../analyse.cpp" line="1090"/>
         <source>File %1 renamed</source>
         <translation>تم إعادة تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="786"/>
+        <location filename="../analyse.cpp" line="1088"/>
         <source>Error renaming file %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية الملف %1</translation>
     </message>
@@ -415,29 +415,29 @@
         <translation>إزالة الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="640"/>
-        <location filename="../sync.cpp" line="1454"/>
+        <location filename="../sync.cpp" line="655"/>
+        <location filename="../sync.cpp" line="1447"/>
         <source>Updating file %1</source>
         <translation> تحديث الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="667"/>
-        <location filename="../sync.cpp" line="735"/>
+        <location filename="../sync.cpp" line="682"/>
+        <location filename="../sync.cpp" line="750"/>
         <source>Searching for changes</source>
         <translation>بحث عن التغييرات</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="727"/>
+        <location filename="../sync.cpp" line="742"/>
         <source>Copying file %1</source>
         <translation>نسخ الملف %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="108"/>
+        <location filename="../tabs.cpp" line="109"/>
         <source>Synkron - Save tab</source>
         <translation>سينكرون - صفحة الحفظ</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="110"/>
+        <location filename="../tabs.cpp" line="111"/>
         <source>Synkron Tabs (*.slist)</source>
         <translation>صفحات سينكرون (*.slist)</translation>
     </message>
@@ -452,74 +452,84 @@
         <translation>إختلافات الوقت المسموح بها (بالثواني):</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="290"/>
+        <location filename="../analyse.cpp" line="303"/>
         <source>OBSOLETE</source>
         <translation>قديم</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="334"/>
-        <location filename="../syncdb.cpp" line="312"/>
+        <location filename="../analyse.cpp" line="347"/>
+        <location filename="../syncdb.cpp" line="433"/>
         <source>OK</source>
         <translation>موافق</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="342"/>
-        <location filename="../analyse.cpp" line="348"/>
+        <location filename="../analyse.cpp" line="355"/>
+        <location filename="../analyse.cpp" line="361"/>
         <source>COLLISION</source>
         <translation>تعارض</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="251"/>
+        <location filename="../syncdb.cpp" line="26"/>
+        <source>Creating database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../syncdb.cpp" line="158"/>
+        <source>Removing database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../syncdb.cpp" line="362"/>
         <source>Collision found between files: %1 and %2</source>
         <translation>تم العثور على تعارض بين الملفين %1 و %2</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="284"/>
+        <location filename="../syncdb.cpp" line="405"/>
         <source>Collisions found</source>
         <translation>تم العثور على تعارضات</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="288"/>
+        <location filename="../syncdb.cpp" line="409"/>
         <source>Collided files:</source>
         <translation>ملفات متعارضة:</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="291"/>
+        <location filename="../syncdb.cpp" line="412"/>
         <source>Newer files</source>
         <translation>الملفات الأحدث</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="291"/>
+        <location filename="../syncdb.cpp" line="412"/>
         <source>Older files</source>
         <translation>الملفات الأقدم</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="315"/>
+        <location filename="../syncdb.cpp" line="436"/>
         <source>Cancel</source>
         <translation>إلغاء الامر</translation>
     </message>
     <message>
-        <location filename="../syncpage.h" line="183"/>
+        <location filename="../syncpage.h" line="186"/>
         <source>Stopping synchronisation, please wait...</source>
         <translation>جاري إيقاف المزامنة، يرجى الإنتظار...</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1307"/>
+        <location filename="../sync.cpp" line="1322"/>
         <source>to temp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1310"/>
+        <location filename="../sync.cpp" line="1325"/>
         <source>Error copying file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1316"/>
+        <location filename="../sync.cpp" line="1331"/>
         <source>Error creating folder %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1322"/>
+        <location filename="../sync.cpp" line="1337"/>
         <source>Error removing file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -670,12 +680,12 @@
         <location filename="../main.cpp" line="333"/>
         <location filename="../main.cpp" line="339"/>
         <location filename="../main.cpp" line="439"/>
-        <location filename="../main_window.ui" line="16"/>
+        <location filename="../main_window.ui" line="17"/>
         <location filename="../multisync.cpp" line="258"/>
         <location filename="../other.cpp" line="124"/>
         <location filename="../other.cpp" line="130"/>
-        <location filename="../other.cpp" line="258"/>
-        <location filename="../other.cpp" line="266"/>
+        <location filename="../other.cpp" line="261"/>
+        <location filename="../other.cpp" line="269"/>
         <location filename="../restore.cpp" line="95"/>
         <location filename="../restore.cpp" line="97"/>
         <location filename="../restore.cpp" line="110"/>
@@ -778,48 +788,48 @@
         <translation>الحالة</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="481"/>
+        <location filename="../other.cpp" line="499"/>
         <source>Quit Synkron</source>
         <translation>الخروج من سينكرون</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="485"/>
+        <location filename="../other.cpp" line="503"/>
         <source>Are you sure you want to quit?</source>
         <translation>هل أنت متأكد من أنك تريد الخروج؟</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="489"/>
+        <location filename="../other.cpp" line="507"/>
         <source>Do not ask me again</source>
         <translation>لا تسألني مرة ثانية</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="448"/>
-        <location filename="../other.cpp" line="495"/>
+        <location filename="../other.cpp" line="466"/>
+        <location filename="../other.cpp" line="513"/>
         <source>&amp;Quit</source>
         <translation>&amp;خروج</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="499"/>
+        <location filename="../other.cpp" line="517"/>
         <source>&amp;Minimise</source>
         <translation>&amp;تصغير</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="434"/>
+        <location filename="../other.cpp" line="452"/>
         <source>&amp;Hide</source>
         <translation>&amp;إخفاء</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="438"/>
+        <location filename="../other.cpp" line="456"/>
         <source>S&amp;how</source>
         <translation>ع&amp;رض</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="442"/>
+        <location filename="../other.cpp" line="460"/>
         <source>Sync &amp;current tab</source>
         <translation>مزامنة ال&amp;صفحة الحالية</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="445"/>
+        <location filename="../other.cpp" line="463"/>
         <source>Sync &amp;all tabs</source>
         <translation>مزامنة &amp;كل الصفحات</translation>
     </message>
@@ -864,472 +874,472 @@
         <translation>من أجل تطبيق التغييرات، أنت بحاجة لإعادة تشغيل البرنامج .</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="531"/>
+        <location filename="../other.cpp" line="549"/>
         <source>Synkron - Save Multisync</source>
         <translation>حفظ المزامنة المتعدّدة</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="533"/>
+        <location filename="../other.cpp" line="551"/>
         <source>Sync logs (*.html)</source>
         <translation>سجلات المزامنة (*.html)</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="538"/>
+        <location filename="../other.cpp" line="556"/>
         <source>Export sync log</source>
         <translation>تصدير سجل المزامنة</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="538"/>
+        <location filename="../other.cpp" line="556"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>غير قادر على كتابة الملف %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="544"/>
+        <location filename="../other.cpp" line="562"/>
         <source>Synkron sync log</source>
         <translation>سجل المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="44"/>
-        <location filename="../main_window.ui" line="51"/>
-        <location filename="../main_window.ui" line="562"/>
-        <location filename="../main_window.ui" line="569"/>
+        <location filename="../main_window.ui" line="49"/>
+        <location filename="../main_window.ui" line="52"/>
+        <location filename="../main_window.ui" line="567"/>
+        <location filename="../main_window.ui" line="570"/>
         <source>Sync #1</source>
         <translation>صفحة المزامنة #1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="68"/>
+        <location filename="../main_window.ui" line="69"/>
         <source>&lt;b&gt;Files available for restoring:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ملفات يمكن إستعادتها:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="99"/>
+        <location filename="../main_window.ui" line="100"/>
         <source>List of files available for restoring</source>
         <translation>قائمة الملفات التي يمكن إستعادتها</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="108"/>
+        <location filename="../main_window.ui" line="109"/>
         <source>Select all temporary files</source>
         <translation>تحديد كل الملفات المؤقتة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="111"/>
+        <location filename="../main_window.ui" line="112"/>
         <source>Select all</source>
         <translation>تحديد الكل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="133"/>
+        <location filename="../main_window.ui" line="134"/>
         <source>Search</source>
         <translation>بحث</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="147"/>
+        <location filename="../main_window.ui" line="148"/>
         <source>Original file path</source>
         <translation>مسار الملف الأصلي</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="157"/>
+        <location filename="../main_window.ui" line="158"/>
         <source>Add file to blacklist</source>
         <translation>أضف الملف للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="160"/>
+        <location filename="../main_window.ui" line="161"/>
         <source>Do not synchronise this file again (add to blacklist)</source>
         <translation>لا تقم بمزامنة هذا الملف ثانية (أضف للقائمة السوداء)</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="167"/>
+        <location filename="../main_window.ui" line="168"/>
         <source>Date and time of synchronisation:</source>
         <translation>تاريخ و وقت المزامنة:</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="174"/>
+        <location filename="../main_window.ui" line="175"/>
         <source>Original file path:</source>
         <translation>مسار الملف الأصلي:</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="181"/>
+        <location filename="../main_window.ui" line="182"/>
         <source>&lt;b&gt;About the selected item:&lt;/b&gt;</source>
         <translation>&lt;b&gt;حول العنصر المحّدد:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="188"/>
+        <location filename="../main_window.ui" line="189"/>
         <source>Date and time of synchronisation</source>
         <translation>تاريخ و وقت المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="194"/>
+        <location filename="../main_window.ui" line="195"/>
         <source>yyyy.MM.dd-hh:mm:ss</source>
         <translation>yyyy.MM.dd-hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="216"/>
+        <location filename="../main_window.ui" line="217"/>
         <source>Restore selected files</source>
         <translation>إستعادة الملفات المحدّدة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="219"/>
-        <location filename="../main_window.ui" line="1444"/>
+        <location filename="../main_window.ui" line="220"/>
+        <location filename="../main_window.ui" line="1453"/>
         <source>Restore</source>
         <translation>إستعادة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="314"/>
+        <location filename="../main_window.ui" line="315"/>
         <source>&lt;b&gt;Files in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ملفات في القائمة السوداء:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="343"/>
+        <location filename="../main_window.ui" line="344"/>
         <source>List of files in the blacklist</source>
         <translation>قائمة الملفات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="365"/>
+        <location filename="../main_window.ui" line="366"/>
         <source>Remove file from blacklist</source>
         <translation>إزالة الملف من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="368"/>
-        <location filename="../main_window.ui" line="458"/>
-        <location filename="../main_window.ui" line="525"/>
-        <location filename="../main_window.ui" line="662"/>
-        <location filename="../main_window.ui" line="899"/>
-        <location filename="../main_window.ui" line="1080"/>
-        <location filename="../main_window.ui" line="1114"/>
+        <location filename="../main_window.ui" line="369"/>
+        <location filename="../main_window.ui" line="459"/>
+        <location filename="../main_window.ui" line="526"/>
+        <location filename="../main_window.ui" line="669"/>
+        <location filename="../main_window.ui" line="908"/>
+        <location filename="../main_window.ui" line="1089"/>
+        <location filename="../main_window.ui" line="1123"/>
         <location filename="../scheduler.cpp" line="536"/>
         <source>Remove</source>
         <translation>إزالة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="379"/>
+        <location filename="../main_window.ui" line="380"/>
         <source>Add file to black list</source>
         <translation>أضف الملف للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="382"/>
-        <location filename="../main_window.ui" line="472"/>
-        <location filename="../main_window.ui" line="511"/>
-        <location filename="../main_window.ui" line="648"/>
-        <location filename="../main_window.ui" line="875"/>
-        <location filename="../main_window.ui" line="1063"/>
-        <location filename="../main_window.ui" line="1097"/>
+        <location filename="../main_window.ui" line="383"/>
+        <location filename="../main_window.ui" line="473"/>
+        <location filename="../main_window.ui" line="512"/>
+        <location filename="../main_window.ui" line="655"/>
+        <location filename="../main_window.ui" line="884"/>
+        <location filename="../main_window.ui" line="1072"/>
+        <location filename="../main_window.ui" line="1106"/>
         <location filename="../scheduler.cpp" line="531"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="417"/>
+        <location filename="../main_window.ui" line="418"/>
         <source>&lt;b&gt;Folders in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;مجلدات في القائمة السوداء:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="433"/>
+        <location filename="../main_window.ui" line="434"/>
         <source>List of folders in the blacklist</source>
         <translation>قائمة المجلدات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="455"/>
+        <location filename="../main_window.ui" line="456"/>
         <source>Remove folder from blacklist</source>
         <translation>إزالة المجلد من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="469"/>
+        <location filename="../main_window.ui" line="470"/>
         <source>Add folder to blacklist</source>
         <translation>أضف المجلد للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="593"/>
+        <location filename="../main_window.ui" line="608"/>
         <source>&lt;b&gt;Schedules:&lt;/b&gt;</source>
         <translation>&lt;b&gt;مهام مجدولة:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="625"/>
+        <location filename="../main_window.ui" line="632"/>
         <source>List of schedules</source>
         <translation>قائمة المهام المجدولة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="645"/>
+        <location filename="../main_window.ui" line="652"/>
         <source>Add a schedule</source>
         <translation>إضافة مهمة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="659"/>
+        <location filename="../main_window.ui" line="666"/>
         <source>Remove the current schedule</source>
         <translation>إزالة المهمة الحالية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="673"/>
+        <location filename="../main_window.ui" line="693"/>
         <source>Start all schedules</source>
         <translation>تشغيل كل المهام</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="676"/>
+        <location filename="../main_window.ui" line="696"/>
         <source>Start all</source>
         <translation>تشغيل الكل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="696"/>
+        <location filename="../main_window.ui" line="703"/>
         <source>Stop all schedules</source>
         <translation>إيقاف كل المهام</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="699"/>
+        <location filename="../main_window.ui" line="706"/>
         <source>Stop all</source>
         <translation>إيقاف الكل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="712"/>
+        <location filename="../main_window.ui" line="721"/>
         <source>Schedule options</source>
         <translation>خيارات المهمة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="723"/>
+        <location filename="../main_window.ui" line="732"/>
         <source>Set schedule name</source>
         <translation>تخصيص إسم المهمة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="796"/>
+        <location filename="../main_window.ui" line="805"/>
         <source>Stop schedule</source>
         <translation>إيقاف المهمة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="799"/>
+        <location filename="../main_window.ui" line="808"/>
         <source>Stop</source>
         <translation>إيقاف</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="806"/>
+        <location filename="../main_window.ui" line="815"/>
         <source>Start schedule</source>
         <translation>تشغيل المهمة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="809"/>
+        <location filename="../main_window.ui" line="818"/>
         <source>Start</source>
         <translation>تشغيل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="850"/>
+        <location filename="../main_window.ui" line="859"/>
         <source>List of sync times</source>
         <translation>قائمة أوقات المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="872"/>
+        <location filename="../main_window.ui" line="881"/>
         <source>Add a sync time</source>
         <translation>إضافة وقت مزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="886"/>
+        <location filename="../main_window.ui" line="895"/>
         <source>Set sync time</source>
         <translation>تخصيص وقت المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="889"/>
+        <location filename="../main_window.ui" line="898"/>
         <source>H:mm</source>
         <translation>H:mm</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="896"/>
+        <location filename="../main_window.ui" line="905"/>
         <source>Remove the selected sync times</source>
         <translation>إزالة أوقات المزامنة المحدّدة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1001"/>
+        <location filename="../main_window.ui" line="1010"/>
         <source>&lt;b&gt;Filters:&lt;/b&gt;</source>
         <translation>&lt;b&gt;مرشحات التصفية:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1023"/>
+        <location filename="../main_window.ui" line="1032"/>
         <source>List of filters</source>
         <translation>قائمة مرشحات التصفية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1030"/>
+        <location filename="../main_window.ui" line="1039"/>
         <source>&lt;b&gt;Extensions in the selected filter:&lt;/b&gt;</source>
         <translation>&lt;b&gt;إمتدادات في مرشح التصفية المحدد:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1037"/>
+        <location filename="../main_window.ui" line="1046"/>
         <source>List of extensions in the selected filter</source>
         <translation>قائمة الإمتدادات في مرشح التصفية المحدد</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1060"/>
+        <location filename="../main_window.ui" line="1069"/>
         <source>Add an extension</source>
         <translation>إضافة إمتداد</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1077"/>
+        <location filename="../main_window.ui" line="1086"/>
         <source>Remove the current extension</source>
         <translation>إزالة الإمتداد الحالي</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1094"/>
+        <location filename="../main_window.ui" line="1103"/>
         <source>Add a filter</source>
         <translation>إضافة مرشح تصفية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1111"/>
+        <location filename="../main_window.ui" line="1120"/>
         <source>Remove the current filter</source>
         <translation>إزالة المرشح الحالي</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1251"/>
+        <location filename="../main_window.ui" line="1260"/>
         <source>File</source>
         <translation>ملف</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1259"/>
+        <location filename="../main_window.ui" line="1268"/>
         <source>Help</source>
         <translation>مساعدة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1266"/>
+        <location filename="../main_window.ui" line="1275"/>
         <source>View</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1277"/>
+        <location filename="../main_window.ui" line="1286"/>
         <source>Options</source>
         <translation>خيارات</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1348"/>
-        <location filename="../main_window.ui" line="1351"/>
+        <location filename="../main_window.ui" line="1357"/>
+        <location filename="../main_window.ui" line="1360"/>
         <source>Quit</source>
         <translation>خروج</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1363"/>
+        <location filename="../main_window.ui" line="1372"/>
         <source>About</source>
         <translation>حول</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1366"/>
+        <location filename="../main_window.ui" line="1375"/>
         <source>View About</source>
         <translation>عرض حول</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1375"/>
+        <location filename="../main_window.ui" line="1384"/>
         <source>Set synchronization folder 1</source>
         <translation>تخصيص مجلد المزامنة الأول</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1384"/>
+        <location filename="../main_window.ui" line="1393"/>
         <source>Set synchronization folder 2</source>
         <translation>تخصيص مجلد المزامنة الثاني</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1393"/>
+        <location filename="../main_window.ui" line="1402"/>
         <source>New tab</source>
         <translation>صفحة جديدة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1396"/>
+        <location filename="../main_window.ui" line="1405"/>
         <source>Open new sync tab</source>
         <translation>فتح صفحة مزامنة جديدة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1408"/>
+        <location filename="../main_window.ui" line="1417"/>
         <source>Close tab</source>
         <translation>إغلاق الصفحة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1411"/>
+        <location filename="../main_window.ui" line="1420"/>
         <source>Close current sync tab</source>
         <translation>إغلاق صفحة المزامنة الحالية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1429"/>
+        <location filename="../main_window.ui" line="1438"/>
         <source>Synchronise</source>
         <translation>مزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1432"/>
+        <location filename="../main_window.ui" line="1441"/>
         <source>Go to Synchronise</source>
         <translation>إذهب إلى قسم مزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1447"/>
+        <location filename="../main_window.ui" line="1456"/>
         <source>Go to Restore</source>
         <translation>إذهب إلى قسم إستعادة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1459"/>
+        <location filename="../main_window.ui" line="1468"/>
         <source>Blacklist</source>
         <translation>القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1462"/>
+        <location filename="../main_window.ui" line="1471"/>
         <source>Go to Blacklist</source>
         <translation>إذهب إلى قسم القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1470"/>
+        <location filename="../main_window.ui" line="1479"/>
         <source>Run hidden</source>
         <translation>تشغيل بشكل نافذة مخفية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1473"/>
+        <location filename="../main_window.ui" line="1482"/>
         <source>Start Synkron hidden</source>
         <translation>تشغيل البرنامج في الوضع المخفي</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1482"/>
-        <location filename="../main_window.ui" line="1485"/>
+        <location filename="../main_window.ui" line="1491"/>
+        <location filename="../main_window.ui" line="1494"/>
         <source>Sync all</source>
         <translation>مزامنة الكل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1494"/>
-        <location filename="../main_window.ui" line="1497"/>
+        <location filename="../main_window.ui" line="1503"/>
+        <location filename="../main_window.ui" line="1506"/>
         <source>Check for updates</source>
         <translation>جلب التحديثات</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1509"/>
+        <location filename="../main_window.ui" line="1518"/>
         <source>Multisync</source>
         <translation>مزامنة متعددة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1512"/>
+        <location filename="../main_window.ui" line="1521"/>
         <source>Go to Multisync</source>
         <translation>إذهب إلى قسم المزامنة المتعددة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1524"/>
+        <location filename="../main_window.ui" line="1533"/>
         <source>Scheduler</source>
         <translation>مهام مجدولة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1527"/>
+        <location filename="../main_window.ui" line="1536"/>
         <source>Go to Scheduler</source>
         <translation>إذهب إلى قسم المهام المجدولة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1536"/>
-        <location filename="../main_window.ui" line="1539"/>
+        <location filename="../main_window.ui" line="1545"/>
+        <location filename="../main_window.ui" line="1548"/>
         <source>Change language</source>
         <translation>تغيير لغة العرض</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1551"/>
+        <location filename="../main_window.ui" line="1560"/>
         <source>Filters</source>
         <translation>مرشحات التصفية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1554"/>
+        <location filename="../main_window.ui" line="1563"/>
         <source>Go to Filters</source>
         <translation>إذهب إلى قسم مرشحات التصفية</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1562"/>
-        <location filename="../main_window.ui" line="1565"/>
+        <location filename="../main_window.ui" line="1571"/>
+        <location filename="../main_window.ui" line="1574"/>
         <source>Disable tray icon messages</source>
         <translation>تعطيل رسالة أيقونة شريط المهام</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1574"/>
+        <location filename="../main_window.ui" line="1583"/>
         <source>Save log</source>
         <translation>حفظ السجل</translation>
     </message>
@@ -1412,7 +1422,7 @@
         <translation>حذف الإصدارات الأقدم من الملفات</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="280"/>
+        <location filename="../main_window.ui" line="281"/>
         <location filename="../restore.cpp" line="246"/>
         <source> latest versions</source>
         <translation> آخر الإصدارات</translation>
@@ -1462,17 +1472,17 @@
         <translation type="obsolete">إستعراض</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="916"/>
+        <location filename="../main_window.ui" line="925"/>
         <source>Synchronise periodically</source>
         <translation>مزامنة دورية</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1263"/>
+        <location filename="../sync.cpp" line="1278"/>
         <source>Synchronisation complete</source>
         <translation>إنتهت عملية المزامنة </translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1263"/>
+        <location filename="../sync.cpp" line="1278"/>
         <source>%1 files synchronised</source>
         <translation>تمت مزامنة %1 ملف</translation>
     </message>
@@ -1482,22 +1492,22 @@
         <translation>RTL</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="451"/>
+        <location filename="../other.cpp" line="469"/>
         <source>&amp;Check/Uncheck</source>
         <translation>&amp;تمكين/إلغاء تمكين</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="454"/>
+        <location filename="../other.cpp" line="472"/>
         <source>&amp;Restore</source>
         <translation>&amp;إستعادة</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="457"/>
+        <location filename="../other.cpp" line="475"/>
         <source>&amp;Remove</source>
         <translation>&amp;إزالة</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="460"/>
+        <location filename="../other.cpp" line="478"/>
         <source>Add to &amp;blacklist</source>
         <translation>إضافة إلى ال&amp;قائمة السوداء</translation>
     </message>
@@ -1537,59 +1547,59 @@
         <translation>جاري إزالة الملفات...</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="258"/>
+        <location filename="../other.cpp" line="261"/>
         <source>Error renaming file %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="266"/>
+        <location filename="../other.cpp" line="269"/>
         <source>Error renaming directory %1</source>
         <translation>حدث خطأ أثناء إعادة تسمية المجلد %1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="764"/>
+        <location filename="../main_window.ui" line="773"/>
         <source>Select multisyncs to use</source>
         <translation>حدد عمليات المزامنة المتعددة ليتم إستعمالها</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="771"/>
+        <location filename="../main_window.ui" line="780"/>
         <source>Select syncs to use</source>
         <translation>حدد عمليات المزامنة ليتم إستعمالها</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="778"/>
+        <location filename="../main_window.ui" line="787"/>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;عمليات المزامنة التي ستستعمل&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="785"/>
+        <location filename="../main_window.ui" line="794"/>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;عمليات المزامنة المتعددة التي ستستعمل:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="837"/>
+        <location filename="../main_window.ui" line="846"/>
         <source>Sync times</source>
         <translation>أوقات المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="843"/>
+        <location filename="../main_window.ui" line="852"/>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
         <translation>&lt;b&gt;الأوقات:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="935"/>
+        <location filename="../main_window.ui" line="944"/>
         <source>Synchronise every</source>
         <translation>مزامنة كل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="955"/>
+        <location filename="../main_window.ui" line="964"/>
         <source>minute(s)</source>
         <translation>دقيقة</translation>
     </message>
     <message>
         <location filename="../other.cpp" line="179"/>
-        <location filename="../other.cpp" line="215"/>
-        <location filename="../other.cpp" line="233"/>
+        <location filename="../other.cpp" line="210"/>
+        <location filename="../other.cpp" line="236"/>
         <source>File %1 deleted</source>
         <translation>تم حذف الملف %1</translation>
     </message>
@@ -1599,9 +1609,9 @@
         <translation>حدث خطأ غير معروف لدى إستعادة الملف: %1</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="298"/>
-        <location filename="../other.cpp" line="336"/>
-        <location filename="../other.cpp" line="354"/>
+        <location filename="../other.cpp" line="301"/>
+        <location filename="../other.cpp" line="346"/>
+        <location filename="../other.cpp" line="372"/>
         <source>File %1 renamed</source>
         <translation>تم إعادة تسمية الملف %1</translation>
     </message>
@@ -1616,52 +1626,52 @@
         <translation>هل أنت متأكد من أنك تريد إزالة الإمتداد المحدّد من القائمة السوداء؟</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="485"/>
+        <location filename="../main_window.ui" line="486"/>
         <source>List of extensions in the blacklist</source>
         <translation>قائمة الإمتدادات في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="508"/>
+        <location filename="../main_window.ui" line="509"/>
         <source>Add extension to blacklist</source>
         <translation>أضف إمتداد  للقائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="522"/>
+        <location filename="../main_window.ui" line="523"/>
         <source>Remove extension from blacklist</source>
         <translation>إزالة إمتداد من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="499"/>
+        <location filename="../main_window.ui" line="500"/>
         <source>&lt;b&gt;Extensions in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;إمتدادات في القائمة السوداء:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1149"/>
+        <location filename="../main_window.ui" line="1158"/>
         <source>&lt;b&gt;Syncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;مزامنات:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1586"/>
+        <location filename="../main_window.ui" line="1595"/>
         <source>SyncView</source>
         <translation>عرض المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1589"/>
+        <location filename="../main_window.ui" line="1598"/>
         <source>Go to SyncView</source>
         <translation>إذهب إلى قسم عرض المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1178"/>
+        <location filename="../main_window.ui" line="1187"/>
         <source>List of syncs</source>
         <translation>قائمة المزامنات</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1224"/>
+        <location filename="../main_window.ui" line="1233"/>
         <source>List of multisyncs</source>
         <translation>قائمة المزامنات المتعددة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1202"/>
+        <location filename="../main_window.ui" line="1211"/>
         <source>&lt;b&gt;Multisyncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;مزامنات متعددة:&lt;/b&gt;</translation>
     </message>
@@ -1737,42 +1747,42 @@
         <translation>تواريخ/أيام</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1354"/>
+        <location filename="../main_window.ui" line="1363"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1399"/>
+        <location filename="../main_window.ui" line="1408"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1414"/>
+        <location filename="../main_window.ui" line="1423"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1597"/>
+        <location filename="../main_window.ui" line="1606"/>
         <source>Sync all at launch</source>
         <translation>مزامنة الكل عند التشغيل</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1608"/>
+        <location filename="../main_window.ui" line="1617"/>
         <source>Shut down after synchronisation</source>
         <translation>إغلاق الحاسب بعد المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1611"/>
+        <location filename="../main_window.ui" line="1620"/>
         <source>Shut down computer after synchronisation finishes</source>
         <translation>إغلاق الحاسب بعد الإنتهاء من المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1619"/>
+        <location filename="../main_window.ui" line="1628"/>
         <source>Quit Synkron after synchronisation</source>
         <translation>إغلاق سينكرون بعد المزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1622"/>
+        <location filename="../main_window.ui" line="1631"/>
         <source>Quit Synkron after synchronisation finishes</source>
         <translation>إغلاق سينكرون بعد الإنتهاء من المزامنة</translation>
     </message>
@@ -1787,7 +1797,7 @@
         <translation>إزالة من القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1600"/>
+        <location filename="../main_window.ui" line="1609"/>
         <source>Sync all tabs at launch</source>
         <translation>مزامنة كل الصفحات عند بدء التشغيل</translation>
     </message>
@@ -1817,28 +1827,28 @@
         <translation>تم حذف %1 ملف.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="271"/>
-        <location filename="../settings.cpp" line="373"/>
+        <location filename="../settings.cpp" line="258"/>
+        <location filename="../settings.cpp" line="362"/>
         <source>Last synced on %1</source>
         <translation>آخر عملية مزامنة على %1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1291"/>
+        <location filename="../main_window.ui" line="1300"/>
         <source>Tab</source>
         <translation>صفحة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1631"/>
+        <location filename="../main_window.ui" line="1640"/>
         <source>Save tab</source>
         <translation>حفظ الصفحة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1640"/>
+        <location filename="../main_window.ui" line="1649"/>
         <source>Load tab</source>
         <translation>فتح صفحة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1649"/>
+        <location filename="../main_window.ui" line="1658"/>
         <source>Save tab as</source>
         <translation>حفظ الصفحة بإسم</translation>
     </message>
@@ -1860,17 +1870,17 @@
 %2.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1654"/>
+        <location filename="../main_window.ui" line="1663"/>
         <source>Change temporary folder path</source>
         <translation>تغيير مسار المجلد المؤقت</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="251"/>
+        <location filename="../main_window.ui" line="252"/>
         <source>Clean temporary files automatically after each sync</source>
         <translation>مسح الملفات المؤقتة تلقائياً بعد كل مزامنة</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="263"/>
+        <location filename="../main_window.ui" line="264"/>
         <source>Keep </source>
         <translation>إحتفاظ</translation>
     </message>
@@ -2054,7 +2064,7 @@
     <message>
         <location filename="../multisync.cpp" line="137"/>
         <location filename="../multisync.cpp" line="139"/>
-        <location filename="../multisync.cpp" line="460"/>
+        <location filename="../multisync.cpp" line="462"/>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>نقل المحتويات للمجلد الثاني، و ترك المجلد الأول فارغاً</translation>
     </message>
@@ -2064,7 +2074,7 @@
     </message>
     <message>
         <location filename="../multisync.cpp" line="295"/>
-        <location filename="../tabs.cpp" line="294"/>
+        <location filename="../tabs.cpp" line="337"/>
         <source>Synkron</source>
         <translation>سينكرون</translation>
     </message>
@@ -2091,29 +2101,29 @@
         <translation>%1	عملية المزامنة فشلت: غير قادر على إنشاء المجلد %2</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="389"/>
+        <location filename="../multisync.cpp" line="391"/>
         <source>%1	%2: %3 file(s) %4</source>
         <translation>%1	%2: %3 ملف %4</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="389"/>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="391"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>moved</source>
         <translation>تم نقله</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="389"/>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="391"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>synchronised</source>
         <translation>تم مزامنته</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>Synchronisation complete</source>
         <translation>إنتهت عملية المزامنة </translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>%1 file(s) %2</source>
         <translation>%1 ملف %2</translation>
     </message>
@@ -2126,7 +2136,7 @@
         <translation type="obsolete">مزامنة متعددة (*.slist)</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="294"/>
+        <location filename="../tabs.cpp" line="337"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>غير قادر على كتابة الملف %1:
@@ -2142,27 +2152,27 @@
         <translation type="obsolete">غير قادر على قراءة الملف %1:%2.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="459"/>
+        <location filename="../multisync.cpp" line="461"/>
         <source>Move contents</source>
         <translation>نقل المحتويات</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="462"/>
-        <location filename="../multisync.cpp" line="473"/>
+        <location filename="../multisync.cpp" line="464"/>
+        <location filename="../multisync.cpp" line="480"/>
         <source>Multisync</source>
         <translation>مزامنة متعددة</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="463"/>
-        <location filename="../multisync.cpp" line="474"/>
+        <location filename="../multisync.cpp" line="465"/>
+        <location filename="../multisync.cpp" line="481"/>
         <source>Start multisync</source>
         <translation>بدء المزامنة المتعددة</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="159"/>
         <location filename="../multisync.cpp" line="161"/>
-        <location filename="../multisync.cpp" line="470"/>
-        <location filename="../multisync.cpp" line="471"/>
+        <location filename="../multisync.cpp" line="477"/>
+        <location filename="../multisync.cpp" line="478"/>
         <source>Clone sources</source>
         <translation>مصادر النسخة المطابقة</translation>
     </message>
@@ -2208,24 +2218,24 @@
         <translation>%1    عملية المزامنة فشلت: قم بإختيار الوجهة أولاً</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="58"/>
+        <location filename="../analyse.cpp" line="60"/>
         <source>File name</source>
         <translation>إسم الملف</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="59"/>
+        <location filename="../analyse.cpp" line="61"/>
         <source>Source</source>
         <translation>المصدر</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="60"/>
+        <location filename="../analyse.cpp" line="62"/>
         <location filename="../multisync.cpp" line="146"/>
         <source>Destination</source>
         <translation>الوجهة</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="76"/>
-        <location filename="../analyse.cpp" line="140"/>
+        <location filename="../analyse.cpp" line="78"/>
+        <location filename="../analyse.cpp" line="144"/>
         <source>Root directory</source>
         <translation>المجلد الجذر</translation>
     </message>
@@ -2246,43 +2256,43 @@
         <translation>قائمة الملفات التي هي بحاجة للمزامنة</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="508"/>
-        <location filename="../multisync.cpp" line="550"/>
+        <location filename="../multisync.cpp" line="515"/>
+        <location filename="../multisync.cpp" line="557"/>
         <source>Variables</source>
         <translation>متحولات</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="515"/>
+        <location filename="../multisync.cpp" line="522"/>
         <source>Variable name</source>
         <translation>إسم المتحول</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="516"/>
+        <location filename="../multisync.cpp" line="523"/>
         <source>Folder</source>
         <translation>مجلد</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="529"/>
+        <location filename="../multisync.cpp" line="536"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="534"/>
+        <location filename="../multisync.cpp" line="541"/>
         <source>Remove</source>
         <translation>إزالة</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="538"/>
+        <location filename="../multisync.cpp" line="545"/>
         <source>Close</source>
         <translation>إغلاق</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="555"/>
+        <location filename="../multisync.cpp" line="562"/>
         <source>Variable name:</source>
         <translation>إسم المتحول:</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="561"/>
+        <location filename="../multisync.cpp" line="568"/>
         <source>Folder:</source>
         <translation>مجلد:</translation>
     </message>
@@ -2292,18 +2302,18 @@
         <translation>قم بالنقر على زر &quot;مزامنة متعددة&quot; لبدء المزامنة</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="376"/>
+        <location filename="../multisync.cpp" line="378"/>
         <source>Moving</source>
         <translation>نقل</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="379"/>
+        <location filename="../multisync.cpp" line="381"/>
         <source>Searching for changes</source>
         <translation>البحث عن التغييرات</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="391"/>
-        <location filename="../tabs.cpp" line="329"/>
+        <location filename="../multisync.cpp" line="393"/>
+        <location filename="../tabs.cpp" line="372"/>
         <source>Last synced on %1</source>
         <translation>آخر عملية مزامنة على %1</translation>
     </message>
@@ -2337,18 +2347,18 @@
         <translation>بدءت المزامنة	%1</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="397"/>
+        <location filename="../multisync.cpp" line="399"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="88"/>
-        <location filename="../analyse.cpp" line="110"/>
+        <location filename="../analyse.cpp" line="90"/>
+        <location filename="../analyse.cpp" line="112"/>
         <source>NOT FOUND</source>
         <translation>غير موجود</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="140"/>
+        <location filename="../analyse.cpp" line="144"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>الملفات و المجلدات التي هي بحاجة للمزامنة %1</translation>
     </message>
@@ -2366,13 +2376,13 @@
 <context>
     <name>SyncFolder</name>
     <message>
-        <location filename="../syncfolders.cpp" line="203"/>
-        <location filename="../syncfolders.cpp" line="204"/>
+        <location filename="../syncfolders.cpp" line="206"/>
+        <location filename="../syncfolders.cpp" line="207"/>
         <source>Browse</source>
         <translation>إستعراض</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="180"/>
+        <location filename="../syncfolders.cpp" line="183"/>
         <source>Remove</source>
         <translation>إزالة</translation>
     </message>
@@ -2381,39 +2391,39 @@
         <translation type="obsolete">مسار</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="159"/>
+        <location filename="../syncfolders.cpp" line="162"/>
         <source>Do not modify the contents of this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="162"/>
+        <location filename="../syncfolders.cpp" line="165"/>
         <source>Update existing files only</source>
         <translation type="unfinished">تحديث الملفات الموجودة فقط</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="165"/>
+        <location filename="../syncfolders.cpp" line="168"/>
         <source>Do not backup updated files</source>
         <translation type="unfinished">لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="169"/>
+        <location filename="../syncfolders.cpp" line="172"/>
         <source>Master</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="173"/>
+        <location filename="../syncfolders.cpp" line="176"/>
         <source>Slave</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="191"/>
-        <location filename="../syncfolders.cpp" line="192"/>
+        <location filename="../syncfolders.cpp" line="194"/>
+        <location filename="../syncfolders.cpp" line="195"/>
         <source>Folder label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="197"/>
-        <location filename="../syncfolders.cpp" line="198"/>
+        <location filename="../syncfolders.cpp" line="200"/>
+        <location filename="../syncfolders.cpp" line="201"/>
         <source>Folder path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2429,106 +2439,123 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="392"/>
+        <location filename="../sync.cpp" line="222"/>
+        <location filename="../sync.cpp" line="223"/>
+        <source>Store database in a text file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="433"/>
+        <source>There is nothing to be done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="436"/>
+        <source>Skipped files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="438"/>
+        <source>Skipped folders (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="406"/>
         <source>%1	Directory %2 created</source>
         <translation>%1	مجلد %2 تم أنشاؤه</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="703"/>
-        <location filename="../sync.cpp" line="464"/>
+        <location filename="../analyse.cpp" line="1001"/>
+        <location filename="../sync.cpp" line="479"/>
         <source>%1	Synchronisation complete: %2 file(s) %3</source>
         <translation>%1	تمت عملية المزامنة: %2 ملف %3</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="464"/>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../sync.cpp" line="479"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>moved</source>
         <translation>تم نقله</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="703"/>
-        <location filename="../analyse.cpp" line="704"/>
-        <location filename="../sync.cpp" line="464"/>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1001"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="479"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>synchronised</source>
         <translation>تم مزامنته</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="704"/>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>Synchronisation complete</source>
         <translation>إنتهت عملية المزامنة </translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="704"/>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>%1 files %2</source>
         <translation>%1 ملف %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1380"/>
+        <location filename="../sync.cpp" line="1396"/>
         <source>Move</source>
         <translation>نقل</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="212"/>
-        <location filename="../sync.cpp" line="214"/>
-        <location filename="../sync.cpp" line="1381"/>
+        <location filename="../sync.cpp" line="196"/>
+        <location filename="../sync.cpp" line="198"/>
+        <location filename="../sync.cpp" line="1397"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>نقل المحتويات للمجلد الثاني، و ترك المجلد الأول فارغاً</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="147"/>
-        <location filename="../sync.cpp" line="1383"/>
-        <location filename="../sync.cpp" line="1405"/>
+        <location filename="../sync.cpp" line="1399"/>
         <source>Sync</source>
         <translation>مزامنة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="148"/>
-        <location filename="../sync.cpp" line="1384"/>
-        <location filename="../sync.cpp" line="1406"/>
+        <location filename="../sync.cpp" line="1400"/>
         <source>Synchronise</source>
         <translation>مزامنة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1402"/>
         <source>Clone</source>
-        <translation>نسخة مطابقة</translation>
+        <translation type="obsolete">نسخة مطابقة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1403"/>
         <source>Clone folder 1</source>
-        <translation>نسخة مطايقة من المجلد 1</translation>
+        <translation type="obsolete">نسخة مطايقة من المجلد 1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="435"/>
+        <location filename="../sync.cpp" line="450"/>
         <source>%1	Synchronisation failed: Directories with the same path selected</source>
         <translation>%1	عملية المزامنة فشلت: تم تحديد مجلدات لنفس المسار</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="390"/>
+        <location filename="../sync.cpp" line="404"/>
         <source>%1	Failed to create directory %2</source>
         <translation>%1	غير قادر على إنشاء المجلد %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="400"/>
+        <location filename="../sync.cpp" line="414"/>
         <source>%1	Synchronisation failed: Not enough valid directories specified</source>
         <translation>%1	عملية المزامنة فشلت: لم يتم تخصيص عدد كافي من المجلدات الصالحة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1061"/>
-        <location filename="../sync.cpp" line="1077"/>
+        <location filename="../sync.cpp" line="1076"/>
+        <location filename="../sync.cpp" line="1092"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>غير قادر على مزامنة الملفات. تم العثور على مجلد و ملف يحملان نفس التسمية (%1).</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1068"/>
+        <location filename="../sync.cpp" line="1083"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>تم تجاهل المجلد %1، تم تخصيصه في القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1084"/>
+        <location filename="../sync.cpp" line="1099"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>تم تجاهل الملف %1، تم تخصيصه في القائمة السوداء</translation>
     </message>
@@ -2549,7 +2576,7 @@
         <translation type="obsolete">  إلى المجلد المؤقت</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1227"/>
+        <location filename="../sync.cpp" line="1242"/>
         <source>File %1 restored</source>
         <translation>الملف %1 تم إستعادته</translation>
     </message>
@@ -2568,19 +2595,19 @@
         <translation type="obsolete">المجلد %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="147"/>
+        <location filename="../analyse.cpp" line="151"/>
         <location filename="../sync.cpp" line="93"/>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
         <translation>&lt;b&gt;سجل المزامنة:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="155"/>
-        <location filename="../analyse.cpp" line="201"/>
+        <location filename="../analyse.cpp" line="192"/>
+        <location filename="../analyse.cpp" line="212"/>
         <source>Root directory</source>
         <translation>المجلد الجذر</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="162"/>
+        <location filename="../analyse.cpp" line="199"/>
         <source>NOT FOUND</source>
         <translation>غير موجود</translation>
     </message>
@@ -2651,8 +2678,8 @@
         <translation>مزامنة الملفات و المجلدات المخفية</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="198"/>
-        <location filename="../sync.cpp" line="199"/>
+        <location filename="../sync.cpp" line="205"/>
+        <location filename="../sync.cpp" line="206"/>
         <source>Propagate deletions</source>
         <translation>حذف المجلدات المختلفة من كلا الوجهتين</translation>
     </message>
@@ -2669,12 +2696,12 @@
         <translation>تجاهل القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="262"/>
+        <location filename="../sync.cpp" line="276"/>
         <source>Edit blacklist</source>
         <translation>تحرير القائمة السوداء</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="263"/>
+        <location filename="../sync.cpp" line="277"/>
         <source>Edit blacklist for this tab</source>
         <translation>تحرير القائمة السوداء لهذه الصفحة</translation>
     </message>
@@ -2691,8 +2718,8 @@
         <translation>تحديث الملفات الموجودة فقط</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="224"/>
-        <location filename="../sync.cpp" line="225"/>
+        <location filename="../sync.cpp" line="233"/>
+        <location filename="../sync.cpp" line="234"/>
         <source>Follow symbolic links</source>
         <translation>تتبع الإختصارات</translation>
     </message>
@@ -2713,8 +2740,8 @@
         <translation type="obsolete">تحديث الملفات الموجودة في المجلد 2 فقط</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="247"/>
-        <location filename="../sync.cpp" line="248"/>
+        <location filename="../sync.cpp" line="261"/>
+        <location filename="../sync.cpp" line="262"/>
         <source>Filters</source>
         <translation>مرشحات التصفية</translation>
     </message>
@@ -2775,14 +2802,14 @@
         <translation type="obsolete">حدث خطأ أثناء إعادة تسمية الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="234"/>
-        <location filename="../sync.cpp" line="236"/>
+        <location filename="../sync.cpp" line="243"/>
+        <location filename="../sync.cpp" line="245"/>
         <source>Fast analysis</source>
         <translation>تحليل سريع</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="239"/>
-        <location filename="../sync.cpp" line="241"/>
+        <location filename="../sync.cpp" line="248"/>
+        <location filename="../sync.cpp" line="250"/>
         <source>List files which need to be synchronised only</source>
         <translation>قائمة الملفات التي هي بحاجة للمزامنة</translation>
     </message>
@@ -2795,19 +2822,19 @@
         <translation type="obsolete">المجلد الثاني</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="231"/>
+        <location filename="../sync.cpp" line="240"/>
         <source>Analysis</source>
         <translation>تحليل</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="668"/>
-        <location filename="../analyse.cpp" line="677"/>
+        <location filename="../analyse.cpp" line="966"/>
+        <location filename="../analyse.cpp" line="975"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1	غير قادر على إنشاء المجلد %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="671"/>
-        <location filename="../analyse.cpp" line="680"/>
+        <location filename="../analyse.cpp" line="969"/>
+        <location filename="../analyse.cpp" line="978"/>
         <source>%1 Directory %2 created</source>
         <translation>%1	مجلد %2 تم إنشاؤه</translation>
     </message>
@@ -2822,78 +2849,78 @@
         <translation>قم بالنقر على زر &quot;مزامنة&quot; لبدء المزامنة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="440"/>
+        <location filename="../sync.cpp" line="455"/>
         <source>Moving</source>
         <translation>نقل</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="443"/>
-        <location filename="../sync.cpp" line="448"/>
-        <location filename="../sync.cpp" line="1192"/>
-        <location filename="../sync.cpp" line="1234"/>
+        <location filename="../sync.cpp" line="458"/>
+        <location filename="../sync.cpp" line="463"/>
+        <location filename="../sync.cpp" line="1207"/>
+        <location filename="../sync.cpp" line="1249"/>
         <source>Searching for changes</source>
         <translation>بحث عن التغييرات</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="468"/>
-        <location filename="../tabs.cpp" line="239"/>
+        <location filename="../sync.cpp" line="483"/>
+        <location filename="../tabs.cpp" line="264"/>
         <source>Last synced on %1</source>
         <translation>آخر عملية مزامنة على %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1183"/>
+        <location filename="../sync.cpp" line="1198"/>
         <source>Copying file %1</source>
         <translation>نسخ الملف %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1206"/>
+        <location filename="../sync.cpp" line="1221"/>
         <source>Updating file %1</source>
         <translation> تحديث الملف %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="214"/>
+        <location filename="../tabs.cpp" line="227"/>
         <source>Synkron</source>
         <translation>سينكرون</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="214"/>
+        <location filename="../tabs.cpp" line="227"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>غير قادر على كتابة الملف %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="269"/>
+        <location filename="../sync.cpp" line="283"/>
         <source>Change allowed time difference</source>
         <translation>تعديل إختلافات الوقت المسموح بها</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="270"/>
+        <location filename="../sync.cpp" line="284"/>
         <source>Change the allowed time difference between synchronised files</source>
         <translation>تعديل إختلافات الوقت المسموح بها بين الملفات التي يتم مزامنتها</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="206"/>
+        <location filename="../sync.cpp" line="213"/>
         <source>Detect collisions</source>
         <translation>العثور على التعارضات</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="207"/>
+        <location filename="../sync.cpp" line="214"/>
         <source>Detect and alert collided files</source>
         <translation>العثور و التنبيه على الملفات المتعارضة</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="431"/>
+        <location filename="../sync.cpp" line="446"/>
         <source>%1	Synchronisation started</source>
         <translation>بدءت المزامنة	%1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="457"/>
+        <location filename="../sync.cpp" line="472"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>تم حذف الملفات المؤقتة المكررة %1</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="201"/>
+        <location filename="../analyse.cpp" line="212"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>الملفات و المجلدات التي هي بحاجة للمزامنة %1</translation>
     </message>
@@ -2902,6 +2929,47 @@
         <location filename="../sync.cpp" line="164"/>
         <source>Advanced</source>
         <translation type="unfinished">متقدم</translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="421"/>
+        <source>Files to copy (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="423"/>
+        <source>Files to update (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="425"/>
+        <source>Collided files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="427"/>
+        <source>Files to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="429"/>
+        <source>Folders to create (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="431"/>
+        <source>Folders to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="477"/>
+        <source>From %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="253"/>
+        <location filename="../sync.cpp" line="255"/>
+        <source>Sort by action</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

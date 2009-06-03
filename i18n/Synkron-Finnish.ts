@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="fi_FI">
-<defaultcodec></defaultcodec>
+<!DOCTYPE TS>
+<TS version="2.0" language="fi_FI">
 <context>
     <name>About</name>
     <message>
+        <location filename="../about.ui" line="77"/>
         <location filename="../about.ui" line="112"/>
         <source>About Synkron</source>
         <translation>Tietoja Synkronista</translation>
     </message>
     <message>
+        <location filename="../about.ui" line="134"/>
         <location filename="../main.cpp" line="378"/>
         <source>About Qt</source>
         <translation>Tietoja Qt:sta</translation>
@@ -62,27 +64,37 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="818"/>
+        <location filename="../sync.cpp" line="510"/>
+        <location filename="../sync.cpp" line="544"/>
+        <location filename="../sync.cpp" line="770"/>
+        <location filename="../sync.cpp" line="774"/>
+        <location filename="../sync.cpp" line="801"/>
+        <location filename="../sync.cpp" line="833"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Kansio %1 mustalla listalla, jätettiin väliin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="826"/>
+        <location filename="../sync.cpp" line="552"/>
+        <location filename="../sync.cpp" line="817"/>
+        <location filename="../sync.cpp" line="841"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Tiedosto %1 mustalla listalla, jätettiin väliin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="855"/>
+        <location filename="../sync.cpp" line="591"/>
+        <location filename="../sync.cpp" line="870"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>Samanniminen tiedosto tai kansio ja symbolinen linkki löydetty. Tiedostoja (%1, %2) ei voi synkronisoida. </translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="873"/>
+        <location filename="../sync.cpp" line="604"/>
+        <location filename="../sync.cpp" line="888"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Kansio (%1) ja tiedosto (%2)  samannimiset. Näitä osia ei voi synkronisoida.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="877"/>
+        <location filename="../sync.cpp" line="609"/>
+        <location filename="../sync.cpp" line="892"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Tiedosto (%1) ja/tai kansio (%2) samannimiset. Näitä osia ei voi synkronisoida.</translation>
     </message>
@@ -103,7 +115,7 @@
         <translation type="obsolete">kansio</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="893"/>
+        <location filename="../sync.cpp" line="908"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>Aikaisempi tiedosto %1 varmuuskopioitu ja poistettu</translation>
     </message>
@@ -112,111 +124,134 @@
         <translation type="obsolete">Tuntematon virhe %1 %2: %3%4</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1000"/>
+        <location filename="../restore.cpp" line="452"/>
+        <location filename="../sync.cpp" line="857"/>
+        <location filename="../sync.cpp" line="912"/>
+        <location filename="../sync.cpp" line="949"/>
+        <location filename="../sync.cpp" line="959"/>
+        <location filename="../sync.cpp" line="991"/>
+        <location filename="../sync.cpp" line="1015"/>
         <source>File %1 deleted</source>
         <translation>Tiedosto %1 poistettu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="859"/>
+        <location filename="../sync.cpp" line="914"/>
+        <location filename="../sync.cpp" line="951"/>
+        <location filename="../sync.cpp" line="961"/>
+        <location filename="../sync.cpp" line="993"/>
+        <location filename="../sync.cpp" line="1017"/>
         <source>Error removing file %1</source>
         <translation>Tiedoston %1  poistamisessa virhe</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="983"/>
+        <location filename="../sync.cpp" line="864"/>
+        <location filename="../sync.cpp" line="881"/>
+        <location filename="../sync.cpp" line="998"/>
         <source>Folder %1 deleted</source>
         <translation>Kansio %1 poistettu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="985"/>
+        <location filename="../sync.cpp" line="866"/>
+        <location filename="../sync.cpp" line="883"/>
+        <location filename="../sync.cpp" line="1000"/>
         <source>Error removing directory %1</source>
         <translation>Hakemiston %1 poistamisessa virhe </translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1476"/>
+        <location filename="../sync.cpp" line="677"/>
+        <location filename="../sync.cpp" line="943"/>
+        <location filename="../sync.cpp" line="1469"/>
         <source>File %1 restored</source>
         <translation>Tiedosto %1 palautettu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="283"/>
+        <location filename="../sync.cpp" line="297"/>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tiedostot mustalla listalla&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="286"/>
+        <location filename="../sync.cpp" line="300"/>
         <source>List of files in the blacklist</source>
         <translation>Tiedostojen musta lista</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="333"/>
+        <location filename="../sync.cpp" line="305"/>
+        <location filename="../sync.cpp" line="326"/>
+        <location filename="../sync.cpp" line="347"/>
         <source>Add</source>
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="292"/>
+        <location filename="../sync.cpp" line="306"/>
         <source>Add file to black list</source>
         <translation>Lisää tiedosto mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="338"/>
+        <location filename="../sync.cpp" line="310"/>
+        <location filename="../sync.cpp" line="331"/>
+        <location filename="../sync.cpp" line="352"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="297"/>
+        <location filename="../sync.cpp" line="311"/>
         <source>Remove file from black list</source>
         <translation>Ota tiedosto pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="304"/>
+        <location filename="../sync.cpp" line="318"/>
         <source>&lt;b&gt;Folders in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kansioiden musta lista&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="307"/>
+        <location filename="../sync.cpp" line="321"/>
         <source>List of folders in the blacklist</source>
         <translation>Kansioiden musta lista</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="313"/>
+        <location filename="../sync.cpp" line="327"/>
         <source>Add folder to black list</source>
         <translation>Lisää kansio mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="318"/>
+        <location filename="../sync.cpp" line="332"/>
         <source>Remove folder from black list</source>
         <translation>Ota kansio pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="325"/>
+        <location filename="../sync.cpp" line="339"/>
         <source>&lt;b&gt;Extensions in the blacklist&lt;/b&gt;</source>
         <translation>Tiedostopäätteet mustalla listalla</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="328"/>
+        <location filename="../sync.cpp" line="342"/>
         <source>List of extensions in the blacklist</source>
         <translation>Tiedostopäätteiden musta lista</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="334"/>
+        <location filename="../sync.cpp" line="348"/>
         <source>Add extension to black list</source>
         <translation>Lisää tiedostopääte mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="339"/>
+        <location filename="../sync.cpp" line="353"/>
         <source>Remove extension from black list</source>
         <translation>Ota tiedostopääte pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="348"/>
+        <location filename="../sync.cpp" line="362"/>
         <source>Back</source>
         <translation>Takaisin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="349"/>
+        <location filename="../sync.cpp" line="363"/>
         <source>Go back</source>
         <translation>Palaa takaisin</translation>
     </message>
     <message>
+        <location filename="../blacklist.cpp" line="216"/>
+        <location filename="../blacklist.cpp" line="261"/>
         <location filename="../blacklist.cpp" line="312"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
@@ -262,6 +297,7 @@
         <translation>Haluatko varmasti ottaa valitun tiedostopäätteen pois mustalta listalta?</translation>
     </message>
     <message>
+        <location filename="../restore.cpp" line="403"/>
         <location filename="../restore.cpp" line="416"/>
         <source>%1 files deleted</source>
         <translation>%1 tiedostoa poistettu</translation>
@@ -281,92 +317,95 @@
         <translation type="obsolete">Tiedoston %1 poistamisessa tuntematon virhe</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1251"/>
+        <location filename="../sync.cpp" line="1266"/>
         <source>%1 %2 files skipped</source>
         <translation>Tiedostot%1 %2 jätetty väliin</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="137"/>
+        <location filename="../syncdb.cpp" line="48"/>
+        <location filename="../syncdb.cpp" line="173"/>
         <source>Cannot write file %1: %2</source>
         <translation>Tiedostoa %1 ei voi tallettaa:%2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="258"/>
+        <location filename="../analyse.cpp" line="271"/>
         <source>DELETED</source>
         <translation>POISTETTU</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="263"/>
+        <location filename="../analyse.cpp" line="276"/>
         <source>NOT FOUND</source>
         <translation>EI LÖYTYNYT</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="403"/>
+        <location filename="../analyse.cpp" line="377"/>
+        <location filename="../analyse.cpp" line="683"/>
         <source>Loading...</source>
         <translation>Ladataan...</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="596"/>
+        <location filename="../analyse.cpp" line="890"/>
         <source>Open</source>
         <translation>Avaa</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="605"/>
+        <location filename="../analyse.cpp" line="899"/>
         <source>Sync</source>
         <translation>Sync</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="611"/>
+        <location filename="../analyse.cpp" line="905"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="615"/>
+        <location filename="../analyse.cpp" line="909"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="621"/>
+        <location filename="../analyse.cpp" line="915"/>
         <source>Add to blacklist</source>
         <translation>Lisää mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="623"/>
+        <location filename="../analyse.cpp" line="917"/>
         <source>Remove from blacklist</source>
         <translation>Ota pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="629"/>
+        <location filename="../analyse.cpp" line="923"/>
         <source>Add extension to blacklist</source>
         <translation>Lisää tiedostopääte mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="713"/>
+        <location filename="../analyse.cpp" line="1011"/>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
         <translation>Haluatko varmasti poistaa &quot;%1&quot; jokaisesta synkronisoidusta kohteesta?</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="767"/>
+        <location filename="../analyse.cpp" line="1067"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Nimeä tiedosto uudelleen</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="767"/>
+        <location filename="../analyse.cpp" line="1067"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Nimeä uudelleen &quot;%1&quot;:</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="779"/>
+        <location filename="../analyse.cpp" line="1081"/>
         <source>Error renaming directory %1</source>
         <translation>Hakemiston %1 uudelleen nimeämisessä virhe </translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="788"/>
+        <location filename="../analyse.cpp" line="1083"/>
+        <location filename="../analyse.cpp" line="1090"/>
         <source>File %1 renamed</source>
         <translation>Tiedosto %1 nimetty uudelleen</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="786"/>
+        <location filename="../analyse.cpp" line="1088"/>
         <source>Error renaming file %1</source>
         <translation>Tiedoston %1 uudelleen nimeämisessä virhe</translation>
     </message>
@@ -376,27 +415,29 @@
         <translation>Poista tiedosto %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1454"/>
+        <location filename="../sync.cpp" line="655"/>
+        <location filename="../sync.cpp" line="1447"/>
         <source>Updating file %1</source>
         <translation>Päivitä tiedosto %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="735"/>
+        <location filename="../sync.cpp" line="682"/>
+        <location filename="../sync.cpp" line="750"/>
         <source>Searching for changes</source>
         <translation>Etsitään muutoksia</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="727"/>
+        <location filename="../sync.cpp" line="742"/>
         <source>Copying file %1</source>
         <translation>Kopioidaan tiedosto %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="108"/>
+        <location filename="../tabs.cpp" line="109"/>
         <source>Synkron - Save tab</source>
         <translation>Synkron - Tallenna välilehti</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="110"/>
+        <location filename="../tabs.cpp" line="111"/>
         <source>Synkron Tabs (*.slist)</source>
         <translation>Synkron välilehdet (*.slist)</translation>
     </message>
@@ -411,72 +452,84 @@
         <translation>Sallittu aikaero (sekunneissa):</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="290"/>
+        <location filename="../analyse.cpp" line="303"/>
         <source>OBSOLETE</source>
         <translation>EI KÄYTÖSSÄ</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="312"/>
+        <location filename="../analyse.cpp" line="347"/>
+        <location filename="../syncdb.cpp" line="433"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="348"/>
+        <location filename="../analyse.cpp" line="355"/>
+        <location filename="../analyse.cpp" line="361"/>
         <source>COLLISION</source>
         <translation>RISTIRIITA</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="251"/>
+        <location filename="../syncdb.cpp" line="26"/>
+        <source>Creating database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../syncdb.cpp" line="158"/>
+        <source>Removing database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../syncdb.cpp" line="362"/>
         <source>Collision found between files: %1 and %2</source>
         <translation>Tiedostojen%1 ja %2  välillä ristiriita</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="284"/>
+        <location filename="../syncdb.cpp" line="405"/>
         <source>Collisions found</source>
         <translation>Löydetty ristiriitoja</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="288"/>
+        <location filename="../syncdb.cpp" line="409"/>
         <source>Collided files:</source>
         <translation>Ristiriitaiset tiedostot:</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="291"/>
+        <location filename="../syncdb.cpp" line="412"/>
         <source>Newer files</source>
         <translation>Uudemmat tiedostot</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="291"/>
+        <location filename="../syncdb.cpp" line="412"/>
         <source>Older files</source>
         <translation>Vanhemmat tiedostot</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="315"/>
+        <location filename="../syncdb.cpp" line="436"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../syncpage.h" line="183"/>
+        <location filename="../syncpage.h" line="186"/>
         <source>Stopping synchronisation, please wait...</source>
         <translation>Synkronisointi lopetetaan, odota...</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1307"/>
+        <location filename="../sync.cpp" line="1322"/>
         <source>to temp</source>
         <translation>väliaikainen</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1310"/>
+        <location filename="../sync.cpp" line="1325"/>
         <source>Error copying file %1: %2</source>
         <translation>Virhe tiedoston kopioinnissa %1: %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1316"/>
+        <location filename="../sync.cpp" line="1331"/>
         <source>Error creating folder %1</source>
         <translation>Virhe kansion %1 luonnissa</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1322"/>
+        <location filename="../sync.cpp" line="1337"/>
         <source>Error removing file %1: %2</source>
         <translation>Virhe tiedoston poistamisessa %1: %2</translation>
     </message>
@@ -560,6 +613,8 @@
 <context>
     <name>MTAdvancedGroupBox</name>
     <message>
+        <location filename="../mtadvancedgroupbox.h" line="37"/>
+        <location filename="../mtadvancedgroupbox.h" line="51"/>
         <location filename="../mtadvancedgroupbox.h" line="56"/>
         <source>Advanced</source>
         <translation>Laajennettu</translation>
@@ -615,6 +670,31 @@
         <translation type="obsolete">Datei auswählen</translation>
     </message>
     <message>
+        <location filename="../blacklist.cpp" line="60"/>
+        <location filename="../blacklist.cpp" line="111"/>
+        <location filename="../blacklist.cpp" line="168"/>
+        <location filename="../filters.cpp" line="31"/>
+        <location filename="../filters.cpp" line="60"/>
+        <location filename="../filters.cpp" line="115"/>
+        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="333"/>
+        <location filename="../main.cpp" line="339"/>
+        <location filename="../main.cpp" line="439"/>
+        <location filename="../main_window.ui" line="17"/>
+        <location filename="../multisync.cpp" line="258"/>
+        <location filename="../other.cpp" line="124"/>
+        <location filename="../other.cpp" line="130"/>
+        <location filename="../other.cpp" line="261"/>
+        <location filename="../other.cpp" line="269"/>
+        <location filename="../restore.cpp" line="95"/>
+        <location filename="../restore.cpp" line="97"/>
+        <location filename="../restore.cpp" line="110"/>
+        <location filename="../restore.cpp" line="271"/>
+        <location filename="../restore.cpp" line="308"/>
+        <location filename="../restore.cpp" line="533"/>
+        <location filename="../scheduler.cpp" line="49"/>
+        <location filename="../scheduler.cpp" line="150"/>
+        <location filename="../scheduler.cpp" line="556"/>
         <location filename="../tabs.cpp" line="76"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
@@ -670,6 +750,7 @@
         <translation>Haluatko varmasti poistaa valitun suodattimen listalta?</translation>
     </message>
     <message>
+        <location filename="../blacklist.cpp" line="143"/>
         <location filename="../filters.cpp" line="98"/>
         <source>Set extension</source>
         <translation>Aseta tiedostopääte</translation>
@@ -680,6 +761,7 @@
         <translation>Suodattimen tiedostopäätteen nimi:</translation>
     </message>
     <message>
+        <location filename="../blacklist.cpp" line="168"/>
         <location filename="../filters.cpp" line="115"/>
         <source>No extension selected.</source>
         <translation>Ei tiedostopäätettä valittuna.</translation>
@@ -690,6 +772,7 @@
         <translation>Haluatko varmasti poistaa valitun tiedostopäätteen listalta?</translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="32"/>
         <location filename="../main.cpp" line="33"/>
         <source>Use the brushed metal style</source>
         <translation>Käytä &quot;brushed metal&quot;  tyyliä</translation>
@@ -705,47 +788,48 @@
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="481"/>
+        <location filename="../other.cpp" line="499"/>
         <source>Quit Synkron</source>
         <translation>Sulje Synkron</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="485"/>
+        <location filename="../other.cpp" line="503"/>
         <source>Are you sure you want to quit?</source>
         <translation>Haluatko varmasti lopettaa?</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="489"/>
+        <location filename="../other.cpp" line="507"/>
         <source>Do not ask me again</source>
         <translation>Älä kysy uudestaan</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="495"/>
+        <location filename="../other.cpp" line="466"/>
+        <location filename="../other.cpp" line="513"/>
         <source>&amp;Quit</source>
         <translation>&amp;Sulje</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="499"/>
+        <location filename="../other.cpp" line="517"/>
         <source>&amp;Minimise</source>
         <translation>&amp;Pienennä</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="434"/>
+        <location filename="../other.cpp" line="452"/>
         <source>&amp;Hide</source>
         <translation>Piilo&amp;ta</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="438"/>
+        <location filename="../other.cpp" line="456"/>
         <source>S&amp;how</source>
         <translation>&amp;Näytä</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="442"/>
+        <location filename="../other.cpp" line="460"/>
         <source>Sync &amp;current tab</source>
         <translation>Synkronisoi &amp;välilehti</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="445"/>
+        <location filename="../other.cpp" line="463"/>
         <source>Sync &amp;all tabs</source>
         <translation>Synkronisoi &amp;kaikki välilehdet</translation>
     </message>
@@ -790,417 +874,440 @@
         <translation>Synkron on käynnistettävä uudelleen, jotta muutokset tulevat voimaan.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="569"/>
+        <location filename="../main_window.ui" line="49"/>
+        <location filename="../main_window.ui" line="52"/>
+        <location filename="../main_window.ui" line="567"/>
+        <location filename="../main_window.ui" line="570"/>
         <source>Sync #1</source>
         <translation>Sync #1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="68"/>
+        <location filename="../main_window.ui" line="69"/>
         <source>&lt;b&gt;Files available for restoring:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Palautettavissa olevat tiedostot:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="99"/>
+        <location filename="../main_window.ui" line="100"/>
         <source>List of files available for restoring</source>
         <translation>Palautettavissa olevien tiedostojen lista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="108"/>
+        <location filename="../main_window.ui" line="109"/>
         <source>Select all temporary files</source>
         <translation>Valitse kaikki väliaikaiset tiedostot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="111"/>
+        <location filename="../main_window.ui" line="112"/>
         <source>Select all</source>
         <translation>Valitse kaikki</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="133"/>
+        <location filename="../main_window.ui" line="134"/>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="147"/>
+        <location filename="../main_window.ui" line="148"/>
         <source>Original file path</source>
         <translation>Alkuperäinen tiedostopolku</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="157"/>
+        <location filename="../main_window.ui" line="158"/>
         <source>Add file to blacklist</source>
         <translation>Lisää tiedosto mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="160"/>
+        <location filename="../main_window.ui" line="161"/>
         <source>Do not synchronise this file again (add to blacklist)</source>
         <translation>Älä synkronisoi tiedostoa uudelleen (lisää mustalle listalle)</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="167"/>
+        <location filename="../main_window.ui" line="168"/>
         <source>Date and time of synchronisation:</source>
         <translation>Synkronisaation päiväys ja aika:</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="174"/>
+        <location filename="../main_window.ui" line="175"/>
         <source>Original file path:</source>
         <translation>Alkuperäinen tiedostopolku:</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="181"/>
+        <location filename="../main_window.ui" line="182"/>
         <source>&lt;b&gt;About the selected item:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tietoja valitusta kohteesta:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="188"/>
+        <location filename="../main_window.ui" line="189"/>
         <source>Date and time of synchronisation</source>
         <translation>Synkronisaation päiväys ja aika</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="194"/>
+        <location filename="../main_window.ui" line="195"/>
         <source>yyyy.MM.dd-hh:mm:ss</source>
         <translation>vvvv.kk.pv-hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="216"/>
+        <location filename="../main_window.ui" line="217"/>
         <source>Restore selected files</source>
         <translation>Palauta valitut tiedostot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1444"/>
+        <location filename="../main_window.ui" line="220"/>
+        <location filename="../main_window.ui" line="1453"/>
         <source>Restore</source>
         <translation>Palauta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="314"/>
+        <location filename="../main_window.ui" line="315"/>
         <source>&lt;b&gt;Files in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tiedostot mustalla listalla:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="343"/>
+        <location filename="../main_window.ui" line="344"/>
         <source>List of files in the blacklist</source>
         <translation>Mustan listan tiedostot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="365"/>
+        <location filename="../main_window.ui" line="366"/>
         <source>Remove file from blacklist</source>
         <translation>Ota tiedosto pois mustaltal listalta</translation>
     </message>
     <message>
+        <location filename="../main_window.ui" line="369"/>
+        <location filename="../main_window.ui" line="459"/>
+        <location filename="../main_window.ui" line="526"/>
+        <location filename="../main_window.ui" line="669"/>
+        <location filename="../main_window.ui" line="908"/>
+        <location filename="../main_window.ui" line="1089"/>
+        <location filename="../main_window.ui" line="1123"/>
         <location filename="../scheduler.cpp" line="536"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="379"/>
+        <location filename="../main_window.ui" line="380"/>
         <source>Add file to black list</source>
         <translation>Lisää tiedosto mustalle listalle</translation>
     </message>
     <message>
+        <location filename="../main_window.ui" line="383"/>
+        <location filename="../main_window.ui" line="473"/>
+        <location filename="../main_window.ui" line="512"/>
+        <location filename="../main_window.ui" line="655"/>
+        <location filename="../main_window.ui" line="884"/>
+        <location filename="../main_window.ui" line="1072"/>
+        <location filename="../main_window.ui" line="1106"/>
         <location filename="../scheduler.cpp" line="531"/>
         <source>Add</source>
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="417"/>
+        <location filename="../main_window.ui" line="418"/>
         <source>&lt;b&gt;Folders in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kansiot mustalla listalla:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="433"/>
+        <location filename="../main_window.ui" line="434"/>
         <source>List of folders in the blacklist</source>
         <translation>Mustan listan kansiot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="455"/>
+        <location filename="../main_window.ui" line="456"/>
         <source>Remove folder from blacklist</source>
         <translation>Ota kansio pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="469"/>
+        <location filename="../main_window.ui" line="470"/>
         <source>Add folder to blacklist</source>
         <translation>Lisää kansio mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="593"/>
+        <location filename="../main_window.ui" line="608"/>
         <source>&lt;b&gt;Schedules:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Aikataulut:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="625"/>
+        <location filename="../main_window.ui" line="632"/>
         <source>List of schedules</source>
         <translation>Aikataululista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="645"/>
+        <location filename="../main_window.ui" line="652"/>
         <source>Add a schedule</source>
         <translation>Lisää aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="659"/>
+        <location filename="../main_window.ui" line="666"/>
         <source>Remove the current schedule</source>
         <translation>Poista nykyinen aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="673"/>
+        <location filename="../main_window.ui" line="693"/>
         <source>Start all schedules</source>
         <translation>Aloita kaikki aikataulut</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="676"/>
+        <location filename="../main_window.ui" line="696"/>
         <source>Start all</source>
         <translation>Aloita kaikki</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="696"/>
+        <location filename="../main_window.ui" line="703"/>
         <source>Stop all schedules</source>
         <translation>Pysäytä kaikki aikataulut</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="699"/>
+        <location filename="../main_window.ui" line="706"/>
         <source>Stop all</source>
         <translation>Pysäytä kaikki</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="712"/>
+        <location filename="../main_window.ui" line="721"/>
         <source>Schedule options</source>
         <translation>Aikataulu-vaihtoehdot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="723"/>
+        <location filename="../main_window.ui" line="732"/>
         <source>Set schedule name</source>
         <translation>Määritä aikataulun nimi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="796"/>
+        <location filename="../main_window.ui" line="805"/>
         <source>Stop schedule</source>
         <translation>Pysäytä aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="799"/>
+        <location filename="../main_window.ui" line="808"/>
         <source>Stop</source>
         <translation>Pysäytä</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="806"/>
+        <location filename="../main_window.ui" line="815"/>
         <source>Start schedule</source>
         <translation>Aloita aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="809"/>
+        <location filename="../main_window.ui" line="818"/>
         <source>Start</source>
         <translation>Aloita</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="850"/>
+        <location filename="../main_window.ui" line="859"/>
         <source>List of sync times</source>
         <translation>Synkronisointi-aikojen lista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="872"/>
+        <location filename="../main_window.ui" line="881"/>
         <source>Add a sync time</source>
         <translation>Lisää synkronisointi-aika</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="886"/>
+        <location filename="../main_window.ui" line="895"/>
         <source>Set sync time</source>
         <translation>Määritä synkronisointi-aika</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="889"/>
+        <location filename="../main_window.ui" line="898"/>
         <source>H:mm</source>
         <translation>H:mm</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="896"/>
+        <location filename="../main_window.ui" line="905"/>
         <source>Remove the selected sync times</source>
         <translation>Poista valitut synkronisointi-ajat</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1001"/>
+        <location filename="../main_window.ui" line="1010"/>
         <source>&lt;b&gt;Filters:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Suodattimet:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1023"/>
+        <location filename="../main_window.ui" line="1032"/>
         <source>List of filters</source>
         <translation>Suodatinlista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1030"/>
+        <location filename="../main_window.ui" line="1039"/>
         <source>&lt;b&gt;Extensions in the selected filter:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Valitun suodattimen tiedostopäätteet:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1037"/>
+        <location filename="../main_window.ui" line="1046"/>
         <source>List of extensions in the selected filter</source>
         <translation>Tiedostopäätteiden lista valitussa suodattimessa</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1060"/>
+        <location filename="../main_window.ui" line="1069"/>
         <source>Add an extension</source>
         <translation>Lisää tiedostopääte</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1077"/>
+        <location filename="../main_window.ui" line="1086"/>
         <source>Remove the current extension</source>
         <translation>Poista nykyinen tiedostopääte</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1094"/>
+        <location filename="../main_window.ui" line="1103"/>
         <source>Add a filter</source>
         <translation>Lisää suodatin</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1111"/>
+        <location filename="../main_window.ui" line="1120"/>
         <source>Remove the current filter</source>
         <translation>Poista nykyinen suodatin</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1251"/>
+        <location filename="../main_window.ui" line="1260"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1259"/>
+        <location filename="../main_window.ui" line="1268"/>
         <source>Help</source>
         <translation>Ohje</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1266"/>
+        <location filename="../main_window.ui" line="1275"/>
         <source>View</source>
         <translation>Näytä</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1277"/>
+        <location filename="../main_window.ui" line="1286"/>
         <source>Options</source>
         <translation>Vaihtoehdot</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1351"/>
+        <location filename="../main_window.ui" line="1357"/>
+        <location filename="../main_window.ui" line="1360"/>
         <source>Quit</source>
         <translation>Lopeta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1363"/>
+        <location filename="../main_window.ui" line="1372"/>
         <source>About</source>
         <translation>Tietoja</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1366"/>
+        <location filename="../main_window.ui" line="1375"/>
         <source>View About</source>
         <translation>Näytä Tietoja</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1375"/>
+        <location filename="../main_window.ui" line="1384"/>
         <source>Set synchronization folder 1</source>
         <translation>Aseta synkronisaatiokansio 1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1384"/>
+        <location filename="../main_window.ui" line="1393"/>
         <source>Set synchronization folder 2</source>
         <translation>Aseta synkronisaatiokansio 2</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1393"/>
+        <location filename="../main_window.ui" line="1402"/>
         <source>New tab</source>
         <translation>Uusi välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1396"/>
+        <location filename="../main_window.ui" line="1405"/>
         <source>Open new sync tab</source>
         <translation>Avaa uusi sync välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1408"/>
+        <location filename="../main_window.ui" line="1417"/>
         <source>Close tab</source>
         <translation>Sulje välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1411"/>
+        <location filename="../main_window.ui" line="1420"/>
         <source>Close current sync tab</source>
         <translation>Sulje nykyinen sync välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1429"/>
+        <location filename="../main_window.ui" line="1438"/>
         <source>Synchronise</source>
         <translation>Synkronisointi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1432"/>
+        <location filename="../main_window.ui" line="1441"/>
         <source>Go to Synchronise</source>
         <translation>Avaa Synkronisointi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1447"/>
+        <location filename="../main_window.ui" line="1456"/>
         <source>Go to Restore</source>
         <translation>Avaa Palauta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1459"/>
+        <location filename="../main_window.ui" line="1468"/>
         <source>Blacklist</source>
         <translation>Musta lista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1462"/>
+        <location filename="../main_window.ui" line="1471"/>
         <source>Go to Blacklist</source>
         <translation>Avaa Musta lista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1470"/>
+        <location filename="../main_window.ui" line="1479"/>
         <source>Run hidden</source>
         <translation>Aja piilotettuna</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1473"/>
+        <location filename="../main_window.ui" line="1482"/>
         <source>Start Synkron hidden</source>
         <translation>Aloita Synkron piilotettuna</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1485"/>
+        <location filename="../main_window.ui" line="1491"/>
+        <location filename="../main_window.ui" line="1494"/>
         <source>Sync all</source>
         <translation>Synkronisoi kaikki</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1497"/>
+        <location filename="../main_window.ui" line="1503"/>
+        <location filename="../main_window.ui" line="1506"/>
         <source>Check for updates</source>
         <translation>Tarkista päivitykset</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1509"/>
+        <location filename="../main_window.ui" line="1518"/>
         <source>Multisync</source>
         <translation>Multisynkronisointi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1512"/>
+        <location filename="../main_window.ui" line="1521"/>
         <source>Go to Multisync</source>
         <translation>Avaa Multisynkronisointi</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1524"/>
+        <location filename="../main_window.ui" line="1533"/>
         <source>Scheduler</source>
         <translation>Aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1527"/>
+        <location filename="../main_window.ui" line="1536"/>
         <source>Go to Scheduler</source>
         <translation>Avaa aikataulu</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1539"/>
+        <location filename="../main_window.ui" line="1545"/>
+        <location filename="../main_window.ui" line="1548"/>
         <source>Change language</source>
         <translation>Vaihda kieli</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1551"/>
+        <location filename="../main_window.ui" line="1560"/>
         <source>Filters</source>
         <translation>Suodattimet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1554"/>
+        <location filename="../main_window.ui" line="1563"/>
         <source>Go to Filters</source>
         <translation>Avaa Suodattimet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1565"/>
+        <location filename="../main_window.ui" line="1571"/>
+        <location filename="../main_window.ui" line="1574"/>
         <source>Disable tray icon messages</source>
         <translation>Kytke ilmoitusalueen viestit pois päältä</translation>
     </message>
@@ -1235,6 +1342,7 @@
         <translation>Haluatko varmasti poistaa valitun lähteen listalta?</translation>
     </message>
     <message>
+        <location filename="../restore.cpp" line="95"/>
         <location filename="../restore.cpp" line="271"/>
         <source>No files selected.</source>
         <translation>Ei tiedostoja valittuna.</translation>
@@ -1279,58 +1387,60 @@
         <translation type="obsolete">Festplatte durchsuchen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="916"/>
+        <location filename="../main_window.ui" line="925"/>
         <source>Synchronise periodically</source>
         <translation>Synkronisoi määräajoin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1263"/>
+        <location filename="../sync.cpp" line="1278"/>
         <source>Synchronisation complete</source>
         <translation>Synkronisointi valmis</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1263"/>
+        <location filename="../sync.cpp" line="1278"/>
         <source>%1 files synchronised</source>
         <translation>%1 kansiota synkronisoitu</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="531"/>
+        <location filename="../other.cpp" line="549"/>
         <source>Synkron - Save Multisync</source>
         <translation>Synkron - Tallenna Multisync</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="533"/>
+        <location filename="../other.cpp" line="551"/>
         <source>Sync logs (*.html)</source>
         <translation>Synkronisointilokit (*.html)</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="538"/>
+        <location filename="../other.cpp" line="556"/>
         <source>Export sync log</source>
         <translation>Tuo synkronisointiloki</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="538"/>
+        <location filename="../other.cpp" line="556"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Ei voi kirjoittaa tiedostoa %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="544"/>
+        <location filename="../other.cpp" line="562"/>
         <source>Synkron sync log</source>
         <translation>Synkron synkronisointiloki</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1574"/>
+        <location filename="../main_window.ui" line="1583"/>
         <source>Save log</source>
         <translation>Tallenna loki</translation>
     </message>
     <message>
+        <location filename="../restore.cpp" line="206"/>
         <location filename="../restore.cpp" line="255"/>
         <source>Clean temporary files</source>
         <translation>Siisti väliaikaiset tiedostot</translation>
     </message>
     <message>
+        <location filename="../restore.cpp" line="209"/>
         <location filename="../restore.cpp" line="210"/>
         <source>Delete selected files only</source>
         <translation>Poista valitut tiedostot</translation>
@@ -1361,6 +1471,7 @@
         <translation>Poista tiedostojen vanhat versiot</translation>
     </message>
     <message>
+        <location filename="../main_window.ui" line="281"/>
         <location filename="../restore.cpp" line="246"/>
         <source> latest versions</source>
         <translation>uusimmat versiot</translation>
@@ -1381,22 +1492,22 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="451"/>
+        <location filename="../other.cpp" line="469"/>
         <source>&amp;Check/Uncheck</source>
         <translation>&amp;Merkitse\Poista merkintä</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="454"/>
+        <location filename="../other.cpp" line="472"/>
         <source>&amp;Restore</source>
         <translation>&amp;Palauta</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="457"/>
+        <location filename="../other.cpp" line="475"/>
         <source>&amp;Remove</source>
         <translation>P&amp;oista</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="460"/>
+        <location filename="../other.cpp" line="478"/>
         <source>Add to &amp;blacklist</source>
         <translation>Lisää mustalle &amp;listalle</translation>
     </message>
@@ -1436,57 +1547,59 @@
         <translation>Tiedostoja poistetaan...</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="258"/>
+        <location filename="../other.cpp" line="261"/>
         <source>Error renaming file %1</source>
         <translation>Tiedoston %1 uudelleen nimeämisessä virhe</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="266"/>
+        <location filename="../other.cpp" line="269"/>
         <source>Error renaming directory %1</source>
         <translation>Hakemiston %1 uudelleen nimeämisessä virhe </translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="764"/>
+        <location filename="../main_window.ui" line="773"/>
         <source>Select multisyncs to use</source>
         <translation>Valitse multisynkronisoinnit käyttöön</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="771"/>
+        <location filename="../main_window.ui" line="780"/>
         <source>Select syncs to use</source>
         <translation>Valitse synkronisoinnit käyttöön</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="778"/>
+        <location filename="../main_window.ui" line="787"/>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Synkronisoinnit:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="785"/>
+        <location filename="../main_window.ui" line="794"/>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Multisynkronisoinnit:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="837"/>
+        <location filename="../main_window.ui" line="846"/>
         <source>Sync times</source>
         <translation>Synkronisointi-ajat</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="843"/>
+        <location filename="../main_window.ui" line="852"/>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ajat:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="935"/>
+        <location filename="../main_window.ui" line="944"/>
         <source>Synchronise every</source>
         <translation>Synkronisoi jokainen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="955"/>
+        <location filename="../main_window.ui" line="964"/>
         <source>minute(s)</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="233"/>
+        <location filename="../other.cpp" line="179"/>
+        <location filename="../other.cpp" line="210"/>
+        <location filename="../other.cpp" line="236"/>
         <source>File %1 deleted</source>
         <translation>Tiedosto %1 poistettu</translation>
     </message>
@@ -1496,7 +1609,9 @@
         <translation>Tuntematon virhe tiedoston %1 palauttamisessa</translation>
     </message>
     <message>
-        <location filename="../other.cpp" line="354"/>
+        <location filename="../other.cpp" line="301"/>
+        <location filename="../other.cpp" line="346"/>
+        <location filename="../other.cpp" line="372"/>
         <source>File %1 renamed</source>
         <translation>Tiedosto %1 nimetty uudelleen</translation>
     </message>
@@ -1511,52 +1626,52 @@
         <translation>Haluatko varmasti ottaa valitun tiedostopäätteen pois mustalta listalta?</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="485"/>
+        <location filename="../main_window.ui" line="486"/>
         <source>List of extensions in the blacklist</source>
         <translation>Tiedostopäätteiden musta lista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="508"/>
+        <location filename="../main_window.ui" line="509"/>
         <source>Add extension to blacklist</source>
         <translation>Lisää tiedostopääte mustalle listalle</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="522"/>
+        <location filename="../main_window.ui" line="523"/>
         <source>Remove extension from blacklist</source>
         <translation>Ota tiedostopääte pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="499"/>
+        <location filename="../main_window.ui" line="500"/>
         <source>&lt;b&gt;Extensions in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tiedostopäätteet mustalla listalla:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1149"/>
+        <location filename="../main_window.ui" line="1158"/>
         <source>&lt;b&gt;Syncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Synkronisoinnit:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1586"/>
+        <location filename="../main_window.ui" line="1595"/>
         <source>SyncView</source>
         <translation>Yleiskatsaus</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1589"/>
+        <location filename="../main_window.ui" line="1598"/>
         <source>Go to SyncView</source>
         <translation>Avaa Yleiskatsaus</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1178"/>
+        <location filename="../main_window.ui" line="1187"/>
         <source>List of syncs</source>
         <translation>Synkronisointilista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1224"/>
+        <location filename="../main_window.ui" line="1233"/>
         <source>List of multisyncs</source>
         <translation>Multisynkronisointilista</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1202"/>
+        <location filename="../main_window.ui" line="1211"/>
         <source>&lt;b&gt;Multisyncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Multisynkronisoinnit:&lt;/b&gt;</translation>
     </message>
@@ -1566,6 +1681,7 @@
         <translation>Laajennettu valinta</translation>
     </message>
     <message>
+        <location filename="../restore.cpp" line="462"/>
         <location filename="../restore.cpp" line="467"/>
         <source>Select files from the last synchronisation</source>
         <translation>Valitse edellisen synkronisoinnin tiedostot</translation>
@@ -1631,42 +1747,42 @@
         <translation>Pvm/Päivät</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1354"/>
+        <location filename="../main_window.ui" line="1363"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1399"/>
+        <location filename="../main_window.ui" line="1408"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1414"/>
+        <location filename="../main_window.ui" line="1423"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1597"/>
+        <location filename="../main_window.ui" line="1606"/>
         <source>Sync all at launch</source>
         <translation>Synkronisoi kaikki käynnistämisen yhteydessä</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1608"/>
+        <location filename="../main_window.ui" line="1617"/>
         <source>Shut down after synchronisation</source>
         <translation>Sulje synkronisoinnin jälkeen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1611"/>
+        <location filename="../main_window.ui" line="1620"/>
         <source>Shut down computer after synchronisation finishes</source>
         <translation>Sulje tietokone synkronisoinnin jälkeen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1619"/>
+        <location filename="../main_window.ui" line="1628"/>
         <source>Quit Synkron after synchronisation</source>
         <translation>Sulje Synkron synkronisoinnin jälkeen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1622"/>
+        <location filename="../main_window.ui" line="1631"/>
         <source>Quit Synkron after synchronisation finishes</source>
         <translation>Sulje Synkron synkronisoinnin valmistuttua</translation>
     </message>
@@ -1681,7 +1797,7 @@
         <translation>Ota pois mustalta listalta</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1600"/>
+        <location filename="../main_window.ui" line="1609"/>
         <source>Sync all tabs at launch</source>
         <translation>Synkronisoi kaikki välilehdet käynnistämisen yhteydessä</translation>
     </message>
@@ -1711,27 +1827,28 @@
         <translation>%1 tiedostoa poistettu.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="373"/>
+        <location filename="../settings.cpp" line="258"/>
+        <location filename="../settings.cpp" line="362"/>
         <source>Last synced on %1</source>
         <translation>Synkronisoitu %1</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1291"/>
+        <location filename="../main_window.ui" line="1300"/>
         <source>Tab</source>
         <translation>Välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1631"/>
+        <location filename="../main_window.ui" line="1640"/>
         <source>Save tab</source>
         <translation>Tallenna välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1640"/>
+        <location filename="../main_window.ui" line="1649"/>
         <source>Load tab</source>
         <translation>Avaa välilehti</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1649"/>
+        <location filename="../main_window.ui" line="1658"/>
         <source>Save tab as</source>
         <translation>Tallenna välilehti nimellä...</translation>
     </message>
@@ -1753,17 +1870,17 @@
 %2.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1654"/>
+        <location filename="../main_window.ui" line="1663"/>
         <source>Change temporary folder path</source>
         <translation>Muuta väliaikainen kansiopolku</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="251"/>
+        <location filename="../main_window.ui" line="252"/>
         <source>Clean temporary files automatically after each sync</source>
         <translation>Siisti väliaikaiset tiedostot automaattisesti jokaisen synkronisoinnin jälkeen</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="263"/>
+        <location filename="../main_window.ui" line="264"/>
         <source>Keep </source>
         <translation>Pidä</translation>
     </message>
@@ -1876,6 +1993,7 @@
         <translation type="obsolete">Speichern als</translation>
     </message>
     <message>
+        <location filename="../multisync_page.ui" line="292"/>
         <location filename="../multisync_page.ui" line="295"/>
         <source>Stop multisync</source>
         <translation>Pysäytä multisynkronisointi</translation>
@@ -1904,16 +2022,19 @@
 <context>
     <name>MultisyncPage</name>
     <message>
+        <location filename="../multisync.cpp" line="63"/>
         <location filename="../multisync.cpp" line="64"/>
         <source>Synchronise hidden files and folders</source>
         <translation>Synkronisoi piilevät tiedostot ja kansiot</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="69"/>
         <location filename="../multisync.cpp" line="70"/>
         <source>Do not synchronise subdirectories</source>
         <translation>ÄLÄ synkronisoi alahakemistoja</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="75"/>
         <location filename="../multisync.cpp" line="76"/>
         <source>Ignore blacklist</source>
         <translation>Jätä musta lista huomioimatta</translation>
@@ -1923,17 +2044,21 @@
         <translation type="obsolete">&lt;b&gt;Lähteet:&lt;/b&gt;</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="127"/>
         <location filename="../multisync.cpp" line="149"/>
         <source>Do not backup updated files</source>
         <translation>Älä varmuuskopioi päivitettyjä tiedostoja</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="132"/>
         <location filename="../multisync.cpp" line="154"/>
         <source>Update existing files only</source>
         <translation>Päivitä vain nykyiset tiedostot</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="460"/>
+        <location filename="../multisync.cpp" line="137"/>
+        <location filename="../multisync.cpp" line="139"/>
+        <location filename="../multisync.cpp" line="462"/>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>Siirrä sisällöt kohteeseen, jätä lähteet tyhjiksi</translation>
     </message>
@@ -1942,7 +2067,8 @@
         <translation type="obsolete">&lt;b&gt;Kohde:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="294"/>
+        <location filename="../multisync.cpp" line="295"/>
+        <location filename="../tabs.cpp" line="337"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
@@ -1953,31 +2079,33 @@
     </message>
     <message>
         <location filename="../multisync.cpp" line="338"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Error creating directory in %2</source>
-        <translation>%1<byte value="x9"/>Synchronisointi epäonnistui: Virhe hakemiston %2 luonnissa</translation>
+        <source>%1	Synchronisation failed: Error creating directory in %2</source>
+        <translation>%1	Synchronisointi epäonnistui: Virhe hakemiston %2 luonnissa</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="389"/>
-        <source>%1<byte value="x9"/>%2: %3 file(s) %4</source>
-        <translation>%1<byte value="x9"/>%2: %3 tiedosto(t) %4</translation>
+        <location filename="../multisync.cpp" line="391"/>
+        <source>%1	%2: %3 file(s) %4</source>
+        <translation>%1	%2: %3 tiedosto(t) %4</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="391"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>moved</source>
         <translation>siirretty</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="391"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>synchronised</source>
         <translation>synkronisoitu</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>Synchronisation complete</source>
         <translation>Synkronisointi valmis</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="403"/>
+        <location filename="../multisync.cpp" line="405"/>
         <source>%1 file(s) %2</source>
         <translation>%1 tiedosto(t) %2</translation>
     </message>
@@ -1990,7 +2118,7 @@
         <translation type="obsolete">Synkron Multisyncs (*.slist)</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="294"/>
+        <location filename="../tabs.cpp" line="337"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Ei voi kirjoittaa tiedostoa%1:
@@ -2007,37 +2135,45 @@
 %2.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="459"/>
+        <location filename="../multisync.cpp" line="461"/>
         <source>Move contents</source>
         <translation>Siirrä sisällöt</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="473"/>
+        <location filename="../multisync.cpp" line="464"/>
+        <location filename="../multisync.cpp" line="480"/>
         <source>Multisync</source>
         <translation>Multisynkronisointi</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="474"/>
+        <location filename="../multisync.cpp" line="465"/>
+        <location filename="../multisync.cpp" line="481"/>
         <source>Start multisync</source>
         <translation>Aloita multisynkronisointi</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="325"/>
         <location filename="../multisync.cpp" line="356"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
-        <translation>%1<byte value="x9"/>Synkronisointi epäonnistui: Hakemiston %2 luonti epäonnistui</translation>
+        <source>%1	Synchronisation failed: Failed to create directory %2</source>
+        <translation>%1	Synkronisointi epäonnistui: Hakemiston %2 luonti epäonnistui</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="328"/>
         <location filename="../multisync.cpp" line="359"/>
-        <source>%1<byte value="x9"/>Directory %2 created</source>
-        <translation>%1<byte value="x9"/>Hakemisto %2 luotu</translation>
+        <source>%1	Directory %2 created</source>
+        <translation>%1	Hakemisto %2 luotu</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="101"/>
         <location filename="../multisync.cpp" line="102"/>
         <source>Follow symbolic links</source>
         <translation>Seuraa symbolisia linkkejä</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="471"/>
+        <location filename="../multisync.cpp" line="159"/>
+        <location filename="../multisync.cpp" line="161"/>
+        <location filename="../multisync.cpp" line="477"/>
+        <location filename="../multisync.cpp" line="478"/>
         <source>Clone sources</source>
         <translation>Kloonaa lähteet</translation>
     </message>
@@ -2052,6 +2188,7 @@
         <translation>Muokkaa tämän välilehden mustaa listaa </translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="81"/>
         <location filename="../multisync.cpp" line="82"/>
         <source>Propagate deletions</source>
         <translation>Lisää poistot kaikkiin</translation>
@@ -2082,22 +2219,24 @@
         <translation>%1    Synkronisointi epäonnistui: valitse ensin kohde</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="58"/>
+        <location filename="../analyse.cpp" line="60"/>
         <source>File name</source>
         <translation>Tiedostonimi</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="59"/>
+        <location filename="../analyse.cpp" line="61"/>
         <source>Source</source>
         <translation>Lähde</translation>
     </message>
     <message>
+        <location filename="../analyse.cpp" line="62"/>
         <location filename="../multisync.cpp" line="146"/>
         <source>Destination</source>
         <translation>Kohde</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="140"/>
+        <location filename="../analyse.cpp" line="78"/>
+        <location filename="../analyse.cpp" line="144"/>
         <source>Root directory</source>
         <translation>Juurihakemisto</translation>
     </message>
@@ -2106,52 +2245,55 @@
         <translation type="obsolete">&lt;b&gt;Analysoi:&lt;/b&gt;</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="111"/>
         <location filename="../multisync.cpp" line="113"/>
         <source>Fast analysis</source>
         <translation>Nopea analysointi</translation>
     </message>
     <message>
+        <location filename="../multisync.cpp" line="116"/>
         <location filename="../multisync.cpp" line="118"/>
         <source>List files which need to be synchronised only</source>
         <translation>Luettele vain synkronisointia tarvitsevat tiedostot</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="550"/>
+        <location filename="../multisync.cpp" line="515"/>
+        <location filename="../multisync.cpp" line="557"/>
         <source>Variables</source>
         <translation>Muuttujat</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="515"/>
+        <location filename="../multisync.cpp" line="522"/>
         <source>Variable name</source>
         <translation>Muuttujan nimi</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="516"/>
+        <location filename="../multisync.cpp" line="523"/>
         <source>Folder</source>
         <translation>Kansio</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="529"/>
+        <location filename="../multisync.cpp" line="536"/>
         <source>Add</source>
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="534"/>
+        <location filename="../multisync.cpp" line="541"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="538"/>
+        <location filename="../multisync.cpp" line="545"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="555"/>
+        <location filename="../multisync.cpp" line="562"/>
         <source>Variable name:</source>
         <translation>Muuttujan nimi:</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="561"/>
+        <location filename="../multisync.cpp" line="568"/>
         <source>Folder:</source>
         <translation>Kansio:</translation>
     </message>
@@ -2161,17 +2303,18 @@
         <translation>Paina &quot;Multisync&quot; nappia aloittaaksesi synkronisoinnin</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="376"/>
+        <location filename="../multisync.cpp" line="378"/>
         <source>Moving</source>
         <translation>Siirretään</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="379"/>
+        <location filename="../multisync.cpp" line="381"/>
         <source>Searching for changes</source>
         <translation>Etsitään muutoksia</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="329"/>
+        <location filename="../multisync.cpp" line="393"/>
+        <location filename="../tabs.cpp" line="372"/>
         <source>Last synced on %1</source>
         <translation>Edellinen synkronisointi %1</translation>
     </message>
@@ -2201,21 +2344,22 @@
     </message>
     <message>
         <location filename="../multisync.cpp" line="317"/>
-        <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation>%1<byte value="x9"/>Synkronisointi aloitettu</translation>
+        <source>%1	Synchronisation started</source>
+        <translation>%1	Synkronisointi aloitettu</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="397"/>
+        <location filename="../multisync.cpp" line="399"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>%1 toistuvat väliaikaiset tiedostot poistettu</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="110"/>
+        <location filename="../analyse.cpp" line="90"/>
+        <location filename="../analyse.cpp" line="112"/>
         <source>NOT FOUND</source>
         <translation>EI LÖYTYNYT</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="140"/>
+        <location filename="../analyse.cpp" line="144"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>%1 tiedostoa ja kansiota synkronisoitava</translation>
     </message>
@@ -2233,12 +2377,13 @@
 <context>
     <name>SyncFolder</name>
     <message>
-        <location filename="../syncfolders.cpp" line="204"/>
+        <location filename="../syncfolders.cpp" line="206"/>
+        <location filename="../syncfolders.cpp" line="207"/>
         <source>Browse</source>
         <translation>Selaa</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="180"/>
+        <location filename="../syncfolders.cpp" line="183"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
@@ -2247,37 +2392,39 @@
         <translation type="obsolete">polku</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="159"/>
+        <location filename="../syncfolders.cpp" line="162"/>
         <source>Do not modify the contents of this folder</source>
         <translation>Älä muuta tämän kansion sisältöä</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="162"/>
+        <location filename="../syncfolders.cpp" line="165"/>
         <source>Update existing files only</source>
         <translation>Päivitä vain nykyiset tiedostot</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="165"/>
+        <location filename="../syncfolders.cpp" line="168"/>
         <source>Do not backup updated files</source>
         <translation>Älä varmuuskopioi päivitettyjä tiedostoja</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="169"/>
+        <location filename="../syncfolders.cpp" line="172"/>
         <source>Master</source>
         <translation>Isäntä</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="173"/>
+        <location filename="../syncfolders.cpp" line="176"/>
         <source>Slave</source>
         <translation>Palvelija</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="192"/>
+        <location filename="../syncfolders.cpp" line="194"/>
+        <location filename="../syncfolders.cpp" line="195"/>
         <source>Folder label</source>
         <translation>Kansion tunnus</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="198"/>
+        <location filename="../syncfolders.cpp" line="200"/>
+        <location filename="../syncfolders.cpp" line="201"/>
         <source>Folder path</source>
         <translation>Kansion polku</translation>
     </message>
@@ -2293,54 +2440,127 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="464"/>
-        <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
-        <translation>%1<byte value="x9"/>Synkronisointi valmis: %2 tiedosto(t) %3</translation>
+        <location filename="../sync.cpp" line="222"/>
+        <location filename="../sync.cpp" line="223"/>
+        <source>Store database in a text file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../sync.cpp" line="253"/>
+        <location filename="../sync.cpp" line="255"/>
+        <source>Sort by action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="421"/>
+        <source>Files to copy (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="423"/>
+        <source>Files to update (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="425"/>
+        <source>Collided files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="427"/>
+        <source>Files to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="429"/>
+        <source>Folders to create (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="431"/>
+        <source>Folders to delete (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="433"/>
+        <source>There is nothing to be done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="436"/>
+        <source>Skipped files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="438"/>
+        <source>Skipped folders (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="477"/>
+        <source>From %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../analyse.cpp" line="1001"/>
+        <location filename="../sync.cpp" line="479"/>
+        <source>%1	Synchronisation complete: %2 file(s) %3</source>
+        <translation>%1	Synkronisointi valmis: %2 tiedosto(t) %3</translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="479"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>moved</source>
         <translation>siirretty</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1001"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="479"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>synchronised</source>
         <translation>synkronisoitu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>Synchronisation complete</source>
         <translation>Synkronisointi valmis</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="466"/>
+        <location filename="../analyse.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>%1 files %2</source>
         <translation>%1 tiedostot %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1380"/>
+        <location filename="../sync.cpp" line="1396"/>
         <source>Move</source>
         <translation>Siirrä</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1381"/>
+        <location filename="../sync.cpp" line="196"/>
+        <location filename="../sync.cpp" line="198"/>
+        <location filename="../sync.cpp" line="1397"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>Siirrä sisältö kansioon 2, jätä kansio 1 tyhjäksi</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1405"/>
+        <location filename="../sync.cpp" line="147"/>
+        <location filename="../sync.cpp" line="1399"/>
         <source>Sync</source>
         <translation>Sync</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1406"/>
+        <location filename="../sync.cpp" line="148"/>
+        <location filename="../sync.cpp" line="1400"/>
         <source>Synchronise</source>
         <translation>Synkronisoi</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="392"/>
-        <source>%1<byte value="x9"/>Directory %2 created</source>
-        <translation>%1<byte value="x9"/>Hakemisto %2 luotu</translation>
+        <location filename="../sync.cpp" line="406"/>
+        <source>%1	Directory %2 created</source>
+        <translation>%1	Hakemisto %2 luotu</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="154"/>
@@ -2348,42 +2568,41 @@
         <translation>Pysäytä synkronisointi</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1402"/>
         <source>Clone</source>
-        <translation>Klooni</translation>
+        <translation type="obsolete">Klooni</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1403"/>
         <source>Clone folder 1</source>
-        <translation>Kloonaa kansio 1</translation>
+        <translation type="obsolete">Kloonaa kansio 1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="435"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Directories with the same path selected</source>
-        <translation>%1<byte value="x9"/>Synkronisointi epäonnistui: Hakemistoilla sama polku</translation>
+        <location filename="../sync.cpp" line="450"/>
+        <source>%1	Synchronisation failed: Directories with the same path selected</source>
+        <translation>%1	Synkronisointi epäonnistui: Hakemistoilla sama polku</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="390"/>
-        <source>%1<byte value="x9"/>Failed to create directory %2</source>
-        <translation>%1<byte value="x9"/>Hakemiston %2 luonti epäonnistui</translation>
+        <location filename="../sync.cpp" line="404"/>
+        <source>%1	Failed to create directory %2</source>
+        <translation>%1	Hakemiston %2 luonti epäonnistui</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="400"/>
-        <source>%1<byte value="x9"/>Synchronisation failed: Not enough valid directories specified</source>
-        <translation>%1<byte value="x9"/>Synkronisointi epäonnistui: Ei tarpeeksi luvallisia hakemistoja</translation>
+        <location filename="../sync.cpp" line="414"/>
+        <source>%1	Synchronisation failed: Not enough valid directories specified</source>
+        <translation>%1	Synkronisointi epäonnistui: Ei tarpeeksi luvallisia hakemistoja</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1077"/>
+        <location filename="../sync.cpp" line="1076"/>
+        <location filename="../sync.cpp" line="1092"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>Tiedosto ja kansio samannimisiä (%1). Näitä osia ei voida synkronisoida.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1068"/>
+        <location filename="../sync.cpp" line="1083"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Kansio %1 mustalla listalla, jätettiin väliin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1084"/>
+        <location filename="../sync.cpp" line="1099"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Tiedosto%1 mustalla listalla, jätettiin väliin</translation>
     </message>
@@ -2404,7 +2623,7 @@
         <translation type="obsolete">väliaikainen</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1227"/>
+        <location filename="../sync.cpp" line="1242"/>
         <source>File %1 restored</source>
         <translation>Tiedosto %1 palautettu</translation>
     </message>
@@ -2423,17 +2642,19 @@
         <translation type="obsolete">Kansio %1</translation>
     </message>
     <message>
+        <location filename="../analyse.cpp" line="151"/>
         <location filename="../sync.cpp" line="93"/>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Synkronisointiloki:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="201"/>
+        <location filename="../analyse.cpp" line="192"/>
+        <location filename="../analyse.cpp" line="212"/>
         <source>Root directory</source>
         <translation>Juurihakemisto</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="162"/>
+        <location filename="../analyse.cpp" line="199"/>
         <source>NOT FOUND</source>
         <translation>EI LÖYTYNYT</translation>
     </message>
@@ -2478,6 +2699,7 @@
         <translation>Synkronisoitujen tiedostojen ja kansioiden lista</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="141"/>
         <location filename="../sync.cpp" line="142"/>
         <source>Analyse</source>
         <translation>Analysoi</translation>
@@ -2492,47 +2714,54 @@
         <translation type="obsolete">Näytä laajennetut vaihtoehdot</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="169"/>
         <location filename="../sync.cpp" line="170"/>
         <source>Synchronise hidden files and folders</source>
         <translation>Synkronisoi piilotetut tiedostot ja kansiot</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="199"/>
+        <location filename="../sync.cpp" line="205"/>
+        <location filename="../sync.cpp" line="206"/>
         <source>Propagate deletions</source>
         <translation>Poista kaikkialta</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="175"/>
         <location filename="../sync.cpp" line="176"/>
         <source>Do not synchronise subdirectories</source>
         <translation>Älä synkronisoi alahakemistoja</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="191"/>
         <location filename="../sync.cpp" line="192"/>
         <source>Ignore blacklist</source>
         <translation>Jätä musta lista huomiotta</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="262"/>
+        <location filename="../sync.cpp" line="276"/>
         <source>Edit blacklist</source>
         <translation>Muokkaa mustaa listaa</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="263"/>
+        <location filename="../sync.cpp" line="277"/>
         <source>Edit blacklist for this tab</source>
         <translation>Muokkaa tämän välilehden mustaa listaa </translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="179"/>
         <location filename="../sync.cpp" line="180"/>
         <source>Do not backup updated files</source>
         <translation>Älä varmuuskopioi päivitettyjä tiedostoja</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="184"/>
         <location filename="../sync.cpp" line="185"/>
         <source>Update existing files only</source>
         <translation>Päivitä vain nykyiset kansiot</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="225"/>
+        <location filename="../sync.cpp" line="233"/>
+        <location filename="../sync.cpp" line="234"/>
         <source>Follow symbolic links</source>
         <translation>Seuraa symbolisia linkkejä</translation>
     </message>
@@ -2553,7 +2782,8 @@
         <translation type="obsolete">Päivitä vain kansion 2 nykyiset tiedostot</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="248"/>
+        <location filename="../sync.cpp" line="261"/>
+        <location filename="../sync.cpp" line="262"/>
         <source>Filters</source>
         <translation>Suodattimet</translation>
     </message>
@@ -2614,12 +2844,14 @@
         <translation type="obsolete">Fehler beim Umbenennen der Datei %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="236"/>
+        <location filename="../sync.cpp" line="243"/>
+        <location filename="../sync.cpp" line="245"/>
         <source>Fast analysis</source>
         <translation>Nopea analysointi</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="241"/>
+        <location filename="../sync.cpp" line="248"/>
+        <location filename="../sync.cpp" line="250"/>
         <source>List files which need to be synchronised only</source>
         <translation>Luettele vain synkronisointia tarvitsevat kansiot</translation>
     </message>
@@ -2632,17 +2864,19 @@
         <translation type="obsolete">Kansio 2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="231"/>
+        <location filename="../sync.cpp" line="240"/>
         <source>Analysis</source>
         <translation>Analysoi</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="677"/>
+        <location filename="../analyse.cpp" line="966"/>
+        <location filename="../analyse.cpp" line="975"/>
         <source>%1 Failed to create directory %2</source>
         <translation>%1 epäonnistui luomaan hakemiston %2</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="680"/>
+        <location filename="../analyse.cpp" line="969"/>
+        <location filename="../analyse.cpp" line="978"/>
         <source>%1 Directory %2 created</source>
         <translation>%1 Hakemisto %2 luotu</translation>
     </message>
@@ -2657,78 +2891,83 @@
         <translation>Paina &quot;Sync&quot; nappia aloittaaksesi synkronisoinnin</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="440"/>
+        <location filename="../sync.cpp" line="455"/>
         <source>Moving</source>
         <translation>Siirretään</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1234"/>
+        <location filename="../sync.cpp" line="458"/>
+        <location filename="../sync.cpp" line="463"/>
+        <location filename="../sync.cpp" line="1207"/>
+        <location filename="../sync.cpp" line="1249"/>
         <source>Searching for changes</source>
         <translation>Etsitään muutoksia</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="239"/>
+        <location filename="../sync.cpp" line="483"/>
+        <location filename="../tabs.cpp" line="264"/>
         <source>Last synced on %1</source>
         <translation>Edellinen synkronisointi %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1183"/>
+        <location filename="../sync.cpp" line="1198"/>
         <source>Copying file %1</source>
         <translation>Kopioidaan tiedosto %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1206"/>
+        <location filename="../sync.cpp" line="1221"/>
         <source>Updating file %1</source>
         <translation>Päivitetään tiedosto %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="214"/>
+        <location filename="../tabs.cpp" line="227"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="214"/>
+        <location filename="../tabs.cpp" line="227"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Tiedostoa %1 ei voi kirjoittaa:
 %2.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="269"/>
+        <location filename="../sync.cpp" line="283"/>
         <source>Change allowed time difference</source>
         <translation>Vaihda sallittu aikaero</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="270"/>
+        <location filename="../sync.cpp" line="284"/>
         <source>Change the allowed time difference between synchronised files</source>
         <translation>Vaihda sallittu aikaero synkronisoitujen tiedostojen välillä</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="206"/>
+        <location filename="../sync.cpp" line="213"/>
         <source>Detect collisions</source>
         <translation>Etsi ristiriidat</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="207"/>
+        <location filename="../sync.cpp" line="214"/>
         <source>Detect and alert collided files</source>
         <translation>Etsi ja varoita ristiriitaisista tiedostoista</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="431"/>
-        <source>%1<byte value="x9"/>Synchronisation started</source>
-        <translation>%1<byte value="x9"/>Synkronisointi aloitettu</translation>
+        <location filename="../sync.cpp" line="446"/>
+        <source>%1	Synchronisation started</source>
+        <translation>%1	Synkronisointi aloitettu</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="457"/>
+        <location filename="../sync.cpp" line="472"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>%1 toistuvat väliaikaiset tiedostot poistettu</translation>
     </message>
     <message>
-        <location filename="../analyse.cpp" line="201"/>
+        <location filename="../analyse.cpp" line="212"/>
         <source>%1 files and folders need to be synchronised</source>
         <translation>%1 tiedostoa ja kansiota synkronisoitava</translation>
     </message>
     <message>
+        <location filename="../sync.cpp" line="136"/>
         <location filename="../sync.cpp" line="164"/>
         <source>Advanced</source>
         <translation>Laajennettu</translation>

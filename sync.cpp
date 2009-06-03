@@ -193,6 +193,13 @@ void SyncPage::setSyncWidget()
     connect(ignore_blacklist, SIGNAL(toggled(bool)), this, SLOT(ignoreBlacklistClicked(bool)));
     advanced_menu->addAction(ignore_blacklist);
 
+    move = new QAction (tr("Move contents to folder 2, leaving folder 1 empty"), tab);
+    move->setCheckable(true);
+    move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
+    connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
+    advanced_menu->addAction(move);
+    advanced_menu->addSeparator();
+
     propagate_deletions = new QAction (tab);
     propagate_deletions->setCheckable(true);
     propagate_deletions->setStatusTip(tr("Propagate deletions"));
@@ -209,11 +216,13 @@ void SyncPage::setSyncWidget()
     connect(alert_collisions, SIGNAL(toggled(bool)), this, SLOT(propagatedClicked(bool)));
     advanced_menu->addAction(alert_collisions);
 
-    move = new QAction (tr("Move contents to folder 2, leaving folder 1 empty"), tab);
-    move->setCheckable(true);
-    move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
-    connect(move, SIGNAL(toggled(bool)), this, SLOT(moveStateChanged(bool)));
-    advanced_menu->addAction(move);
+    text_database_action = new QAction (tab);
+    text_database_action->setCheckable(true);
+    text_database_action->setChecked(true);
+    text_database_action->setText(tr("Store database in a text file"));
+    text_database_action->setStatusTip(tr("Store database in a text file"));
+    connect(text_database_action, SIGNAL(toggled(bool)), this, SLOT(useTextDatabase(bool)));
+    advanced_menu->addAction(text_database_action);
 
     symlinks = new QAction(tab);
     symlinks->setCheckable(true);
@@ -240,6 +249,11 @@ void SyncPage::setSyncWidget()
     analyse_special_only->setCheckable(true);
     analyse_special_only->setStatusTip(tr("List files which need to be synchronised only"));
     adv_analysis_menu->addAction(analyse_special_only);
+
+    sort_analysis_by_action = new QAction (tr("Sort by action"), tab);
+    sort_analysis_by_action->setCheckable(true);
+    sort_analysis_by_action->setStatusTip(tr("Sort by action"));
+    adv_analysis_menu->addAction(sort_analysis_by_action);
 
     advanced_menu->addMenu(adv_analysis_menu);
 
@@ -419,15 +433,16 @@ int SyncPage::sync(MTMap<QString, int> sync_folders_set)
     dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
-    if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
-        folder_prop_list_map.clear();
-        MTDictionary prop_files_list;
-        for (int i = 0; i < sync_folders_set.count(); ++i) {
-            prop_files_list = getFolderDatabase(sync_folders_set.key(i));
-            folder_prop_list_map.insert(sync_folders_set.key(i), prop_files_list);
+    if (text_database) {
+        if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
+            folder_prop_list_map.clear();
+            MTDictionary prop_files_list;
+            for (int i = 0; i < sync_folders_set.count(); ++i) {
+                prop_files_list = getFolderDatabase(sync_folders_set.key(i));
+                folder_prop_list_map.insert(sync_folders_set.key(i), prop_files_list);
+            }
         }
     }
-    
     addTableItem(tr("%1	Synchronisation started").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::yellow));
     if (sync_folders_set.count() == 2) {
         QDir d1 (sync_folders_set.key(0)); QDir d2 (sync_folders_set.key(1));
@@ -512,7 +527,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
     for (int i = 0; i < d1_entries.count(); ++i) {
         bool bl = false;
         if (!syncing) return;
-        if (d1_entries.at(i).fileName() == ".synkron.syncdb") continue;
+        if (d1_entries.at(i).fileName().startsWith(".synkron.sync")) continue;
         if (!ignore_blacklist->isChecked()) {
             for (int e = 0; e < exts_blacklist.count(); ++e) {
                 if (d1_entries.at(i).absoluteFilePath().endsWith(exts_blacklist.at(e))) {
@@ -778,7 +793,7 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
     for (int i = 0; i < d1_entries.count(); ++i) {
 		if (!syncing) return;
         found = false;
-		if (d1_entries.at(i).fileName() == ".synkron.syncdb") continue;
+        if (d1_entries.at(i).fileName().startsWith(".synkron.sync")) continue;
 		if (!ignore_blacklist->isChecked()) {
 		    if (d1_entries.at(i).isDir()) {
 		    	for (int b = 0; b < folders_blacklist.count(); ++b) {
@@ -1033,8 +1048,8 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
     MTFile * file;
 
     for (int i = 0; i < rel_paths.count(); ++i) {
-        if (!syncing) return;
-        if (rel_paths.at(i) == ".synkron.syncdb") continue;
+        if (!syncing) { return; }
+        if (rel_paths.at(i).startsWith(".synkron.sync")) continue;
         if (!ignore_blacklist->isChecked()) {
             bool found_ext = false;
             for (int e = 0; e < exts_blacklist.count(); ++e) {
@@ -1094,7 +1109,7 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
         }
         release(file_info2);
 
-        if (!syncing) return;
+        if (!syncing) { return; }
         if (sync_folders_set2.count() > 1) {
             if (!file_info) { // No masters were found -----------------
                 for (int n = 0; n < sync_folders_set2.count(); ++n) {
@@ -1123,7 +1138,7 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                                 MTFileInfo * file_info3;
                                 release(file_info2);
                                 for (int m = 0; m < sync_folders_set2.count(); ++m) {
-                                    if (!syncing) return;
+                                    if (!syncing) { return; }
                                     file_info3 = new MTFileInfo (sync_folders_set2.key(m));
                                     if (sync_folders->at(sync_folders_set2.value(m))->dont_update_act->isChecked()) continue;
                                     if (file_info3->exists()) backupAndRemoveDir(file_info3->absoluteFilePath(), !backupFolder(sync_folders_set2.value(m)));
@@ -1169,7 +1184,7 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                             if (isInGroupDatabase(file_info2->absoluteFilePath())) {
                                 MTFileInfo * file_info3;
                                 for (int m = 0; m < sync_folders_set2.count(); ++m) {
-                                    if (!syncing) return;
+                                    if (!syncing) { return; }
                                     file_info3 = new MTFileInfo (sync_folders_set2.key(m));
                                     if (sync_folders->at(sync_folders_set2.value(m))->dont_update_act->isChecked()) continue;
                                     if (file_info3->exists()) backupAndRemoveFile(*file_info3, !backupFolder(sync_folders_set2.value(m)));
@@ -1371,6 +1386,7 @@ void SyncPage::setSyncEnabled(bool enable)
 void AbstractSyncPage::moveStateChanged(bool checked)
 {
     propagate_deletions->setEnabled(!checked);
+    alert_collisions->setEnabled(!checked);
     moveChecked(checked);
 }
 
@@ -1383,29 +1399,6 @@ void SyncPage::moveChecked(bool checked)
 		sync_btn->setText(tr("Sync"));
 		sync_btn->setStatusTip(tr("Synchronise"));
 	}
-}
-
-void AbstractSyncPage::cloneStateChanged(bool checked)
-{
-    if (checked) {
-        move->setChecked(false);
-    }
-    if (propagate_deletions->isChecked()) return;
-    move->setEnabled(!checked);
-    cloneChecked(checked);
-}
-
-void SyncPage::cloneChecked(bool checked)
-{
-	if (checked){
-        update_only->setChecked(false);
-		sync_btn->setText(tr("Clone"));
-		sync_btn->setStatusTip(tr("Clone folder 1"));
-	} else {
-		sync_btn->setText(tr("Sync"));
-		sync_btn->setStatusTip(tr("Synchronise"));
-	}
-	update_only->setEnabled(!checked);
 }
 
 void SyncPage::syncFoldersChanged()

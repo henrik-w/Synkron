@@ -73,8 +73,8 @@ class AbstractSyncPage : public QWidget
     Q_OBJECT
 
 public:
-    AbstractSyncPage() { allowed_difference = 2; };
-    AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; allowed_difference = 2; };
+    AbstractSyncPage() { allowed_difference = 2; syncing = false; text_database = true; loading = false; }
+    AbstractSyncPage(MainWindow * parent) { mp_parent = parent; syncing = false; allowed_difference = 2; text_database = true; loading = false; }
 
     virtual QTableWidget * tableWidget() = 0;
     virtual QTreeWidget * analyseTree() = 0;
@@ -95,6 +95,7 @@ public:
     virtual void setUpdateOnly(int, bool) = 0;
     virtual void setBackupFolder(int, bool) = 0;
     virtual bool dontModify(int) { return false; }
+    virtual bool sortAnalysis() { return false; }
 
     void subSync(QDir&, QDir&, bool);
     bool subAnalyse(const MTStringSet &, QTreeWidgetItem */*, int i = 5*/);
@@ -122,9 +123,11 @@ public:
     void copyFile(QString, QString, bool = false);
     void replaceFolderLabelInPath(QString &);
     QString getLabeledPath(QString path);
+    void saveFolderEntries(QString, QString);
 
     QSet<QString> extensions;
     bool syncing;
+    bool text_database;
     QMap<QString, int> exts_bl_map;
     QMap<QString, MTDictionary> folder_prop_list_map;
     QDir::Filters dir_filters;
@@ -159,6 +162,7 @@ public:
     int synced_files;
     int allowed_difference;
     bool is_multisync;
+    bool loading;
     QString update_time;
     QString last_sync;
     QString slist_path;
@@ -169,7 +173,6 @@ public:
 public slots:
     virtual int sync() = 0;
     virtual void moveChecked(bool) = 0;
-    virtual void cloneChecked(bool) = 0;
     virtual void blacklistStwChangeIndex(int) = 0;
     virtual void showThisPage() = 0;
     virtual void leaveAnalyse() = 0;
@@ -180,13 +183,12 @@ public slots:
     //virtual void load(QDomElement &, QString) = 0;
     void sharedSave(QDomDocument &, QDomElement &);
     void sharedLoad(QDomElement &);
-    void stopSync() { status_table_item->setText(tr("Stopping synchronisation, please wait...")); syncing = false; qApp->processEvents(); };
-    void cloneStateChanged(bool);
+    void stopSync() { status_table_item->setText(tr("Stopping synchronisation, please wait...")); syncing = false; qApp->processEvents(); }
     void moveStateChanged(bool);
     void propagatedStateChanged(bool);
     void propagatedClicked(bool);
     void editBlacklist();
-    void backFromBlacklist() { blacklistStwChangeIndex(0); };
+    void backFromBlacklist() { blacklistStwChangeIndex(0); }
     void addFileToBlacklist();
     void addFileToBlacklist(QString);
     void removeFileFromBlacklist();
@@ -229,9 +231,8 @@ signals:
 public slots:
     void syncPage();
     void moveChecked(bool);
-    void cloneChecked(bool);
     void blacklistStwChangeIndex(int i) { tab_stw->setCurrentIndex(i); }
-    int sync() { return sync(MTMap<QString, int>()); };
+    int sync() { return sync(MTMap<QString, int>()); }
     int sync(MTMap<QString, int>);
     void subGroupSync(MTMap<QString, int>, MTStringSet = MTStringSet());
     void syncFoldersChanged();
@@ -240,15 +241,24 @@ public slots:
     void goToAnalyse();
     void leaveAnalyse();
     void analyseFolders();
-    void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); };
+    void ignoreBlacklistClicked(bool) { if (logs_stw->currentIndex() == 1) checkAnalyseTree(); }
     void syncCurrentAnalyseItem();
     void syncFoldersEdited();
+    void subSortedAnalyse(const QString &);
+    void analyseSeparately();
+    void createChildTreeItem(QTreeWidgetItem *, QString, bool, bool);
+    void createChildItemsByFolder(QString, QStringList, QStringList, bool, bool, bool = false);
+    void useTextDatabase(bool);
 
     void saveAs(QString file_name);
     void load(QDomDocument &, QString);
 
 public:
-    SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) { is_multisync = false; };
+    SyncPage(MainWindow *parent = 0) : AbstractSyncPage(parent) {
+        is_multisync = false;
+        files_to_be_copied.allowDuplicateKeys();
+        files_to_be_overwritten.allowDuplicateKeys();
+    };
 
     QTableWidget * tableWidget() { return tw; }
     QTreeWidget * analyseTree() { return analyse_tree; }
@@ -259,7 +269,7 @@ public:
     QString syncFolder2Text() { return sync_folders->syncFolder(1)->path(); }
     QString tabNameText() { return tab_name->text(); }
     void setSyncEnabled(bool);
-    int countSyncFolders() { return sync_folders->count(); };
+    int countSyncFolders() { return sync_folders->count(); }
     QStringList syncFoldersList() { return sync_folders->pathsList(); }
     QStringList currentSyncFoldersList() { return sync_folders->pathsList(); }
     QString searchLeText() { return log_search->text(); }
@@ -274,6 +284,7 @@ public:
     void setUpdateOnly(int i, bool check) { sync_folders->at(i)->update_only_act->setChecked(check); }
     void setBackupFolder(int i, bool check) { sync_folders->at(i)->backup_folder_act->setChecked(check); }
     bool dontModify(int i) { return sync_folders->at(i)->dont_update_act->isChecked(); }
+    bool sortAnalysis() { return sort_analysis_by_action->isChecked(); }
 
     QWidget * tab;
     QWidget * analyse_widget;
@@ -297,6 +308,17 @@ public:
     SyncFolders * sync_folders;
     ExtendedTreeWidget * analyse_tree;
     QMenu * filters_menu;
+    QAction * sort_analysis_by_action;
+    QAction * text_database_action;
+
+    MTDictionary files_to_be_copied;
+    MTDictionary files_to_be_overwritten;
+    QStringList collided_files;
+    QStringList skipped_files;
+    QStringList skipped_folders;
+    QStringList files_to_be_deleted;
+    QStringList folders_to_be_created;
+    QStringList folders_to_be_deleted;
 };
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
@@ -315,7 +337,7 @@ public:
     QString syncFolder2Text() { return sync_folder_2; }
     QString tabNameText() { return tab_name->text(); }
     void setSyncEnabled(bool);
-    int countSyncFolders() { return 2; };
+    int countSyncFolders() { return 2; }
     QStringList syncFoldersList();
     QStringList currentSyncFoldersList() { QStringList l; l << sync_folder_1; l << sync_folder_2; return l; }
     QString searchLeText() { return search_multi->text(); }
@@ -346,7 +368,6 @@ public slots:
     void saveAs(QString file_name);
     void load(QDomDocument &, QString);
     void moveChecked(bool);
-    void cloneChecked(bool);
     void destinationTextChanged() {
         if (destination_multi->text().isEmpty()) return;
         QDir dir(destination_multi->text());
@@ -368,6 +389,7 @@ public slots:
     void leaveAnalyse() { logs_stw->setCurrentIndex(0); }
     void syncCurrentAnalyseItem() {}
     void foldersChanged();
+    void cloneStateChanged(bool);
 
 private:
     QString sync_folder_1;

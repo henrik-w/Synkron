@@ -34,6 +34,7 @@ public:
         dict_values = other.dict_values;
     };
 
+    void allowDuplicateKeys() { allow_duplicate_keys = true; };
     int count() const { return dict_keys.count(); };
     bool isEmpty() const { return dict_keys.isEmpty(); };
     void insert(const QString & key, const QString & value) {
@@ -118,6 +119,7 @@ public:
         dict_values = other.dict_values;
     };
 
+    void allowDuplicateKeys() { allow_duplicate_keys = true; };
     int count() const { return dict_keys.count(); };
     bool isEmpty() const { return dict_keys.isEmpty(); };
     void insert(const Key & key, const T & value) {
