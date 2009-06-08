@@ -159,7 +159,7 @@ MainWindow::MainWindow(QSettings * s)
     setSchedDatesGB();
     tabWidget->removeTab(0);
     multi_tabWidget->removeTab(0);
-    
+
     sync_settings = s;
     readSettings();
     loadTempSettings();

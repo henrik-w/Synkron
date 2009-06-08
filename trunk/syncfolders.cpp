@@ -156,8 +156,13 @@ SyncFolder::SyncFolder(QWidget * parent):
     config_btn = new QPushButton(this);
     config_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/configure16.png")));
     config_btn->setFlat(true);
+#ifdef Q_WS_MAC
+    config_btn->setMinimumSize(22, 22);
+    config_btn->setMaximumSize(22, 22);
+#else
     config_btn->setMinimumHeight(22);
     config_btn->setMaximumHeight(22);
+#endif
     config_menu = new QMenu;
     dont_update_act = new QAction(tr("Do not modify the contents of this folder"), this);
     dont_update_act->setCheckable(true);
