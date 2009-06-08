@@ -488,6 +488,7 @@ void AbstractSyncPage::propagatedClicked(bool checked)
 
 void SyncPage::useTextDatabase(bool use)
 {
+    if (mp_parent->isHidden() || loading) return;
     if (text_database == use) return;
     if (alert_collisions->isChecked() || propagate_deletions->isChecked()) {
         deleteAllFolderDatabases();
