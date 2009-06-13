@@ -1547,6 +1547,18 @@
         <source>Advanced</source>
         <translation>Rozšírené</translation>
     </message>
+    <message>
+        <source>Modify source path variables</source>
+        <translation>Upraviť premenné ciest zdrojov</translation>
+    </message>
+    <message>
+        <source>Search sync log</source>
+        <translation>Hľadať v zázname</translation>
+    </message>
+    <message>
+        <source>Show advanced options of configuration</source>
+        <translation>Zobraziť rozšírené možnosti konfigurácie</translation>
+    </message>
 </context>
 <context>
     <name>MultisyncPage</name>
@@ -1816,6 +1828,18 @@
         <source>Sources</source>
         <translation>Zdroje</translation>
     </message>
+    <message>
+        <source>Advanced options for the analysis</source>
+        <translation>Rozšírené možnosti analýzy</translation>
+    </message>
+    <message>
+        <source>Advanced options for the sources</source>
+        <translation>Rozšírené možnosti zdrojov</translation>
+    </message>
+    <message>
+        <source>Advanced options for the destination</source>
+        <translation>Rozšírené možnosti cieľa</translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -1858,6 +1882,26 @@
     <message>
         <source>Folder path</source>
         <translation>Cesta priečinka</translation>
+    </message>
+    <message>
+        <source>Configure folder</source>
+        <translation>Konfigurovať priečinok</translation>
+    </message>
+    <message>
+        <source>Do not make any changes to this folder</source>
+        <translation>Nerob žiadne zmeny v tomto priečinku</translation>
+    </message>
+    <message>
+        <source>Use this folder as master</source>
+        <translation>Použiť priečinok ako nadriadený</translation>
+    </message>
+    <message>
+        <source>Use this folder as slave</source>
+        <translation>Použiť priečinok ako podriadený</translation>
+    </message>
+    <message>
+        <source>Remove this folder</source>
+        <translation>Odstrániť priečinok</translation>
     </message>
 </context>
 <context>
@@ -2290,6 +2334,18 @@
     <message>
         <source>Store database in a text file</source>
         <translation>Ukladaj databázu do textového súboru</translation>
+    </message>
+    <message>
+        <source>Show advanced options of configuration</source>
+        <translation>Zobraziť rozšírené možnosti konfigurácie</translation>
+    </message>
+    <message>
+        <source>Advanced options for the analysis</source>
+        <translation>Rozšírené možnosti analýzy</translation>
+    </message>
+    <message>
+        <source>Choose filters to be used</source>
+        <translation>Vyber filtre, ktoré budú použité</translation>
     </message>
 </context>
 <context>

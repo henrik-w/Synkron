@@ -1500,6 +1500,18 @@
         <source>Advanced</source>
         <translation>Больше</translation>
     </message>
+    <message>
+        <source>Modify source path variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search sync log</source>
+        <translation type="unfinished">Найти отчет</translation>
+    </message>
+    <message>
+        <source>Show advanced options of configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultisyncPage</name>
@@ -1753,6 +1765,18 @@
         <source>Sources</source>
         <translation>Источники</translation>
     </message>
+    <message>
+        <source>Advanced options for the analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced options for the sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced options for the destination</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -1795,6 +1819,26 @@
     <message>
         <source>Folder path</source>
         <translation>Путь каталога</translation>
+    </message>
+    <message>
+        <source>Configure folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not make any changes to this folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this folder as master</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this folder as slave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove this folder</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2170,6 +2214,18 @@
     </message>
     <message>
         <source>Sort by action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show advanced options of configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced options for the analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose filters to be used</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

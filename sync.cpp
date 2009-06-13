@@ -63,7 +63,7 @@ void SyncPage::setSyncWidget()
     hlayout0->addItem(spacerItem, 0, 2);
     mainglayout->addLayout(hlayout0, 0, 0);
     QHBoxLayout * folders_hlayout = new QHBoxLayout;
-    QPushButton * add_folder_btn = new QPushButton (this);
+    add_folder_btn = new QPushButton (this);
     add_folder_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/add.png")));
     add_folder_btn->setStatusTip(tr("Add"));
     add_folder_btn->setFlat(true);
@@ -133,7 +133,8 @@ void SyncPage::setSyncWidget()
     mainglayout->addWidget(logs_stw, 5, 0); // ###################################
 
     QHBoxLayout * hlayout4 = new QHBoxLayout;
-    QPushButton * show_advanced = new QPushButton(tr("Advanced") + "  ", tab);
+    show_advanced = new QPushButton(tr("Advanced") + "  ", tab);
+    show_advanced->setStatusTip(tr("Show advanced options of configuration"));
     show_advanced->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/configure16.png")));
     hlayout4->addWidget(show_advanced);
     hlayout4->addStretch(); // ###################################
@@ -238,6 +239,7 @@ void SyncPage::setSyncWidget()
     advanced_menu->addSeparator();
     QMenu * adv_analysis_menu = new QMenu;
     adv_analysis_menu->setTitle(tr("Analysis"));
+    adv_analysis_menu->setStatusTip(tr("Advanced options for the analysis"));
     adv_analysis_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/analyse_16.png")));
 
     fast_analyse = new QAction (tr("Fast analysis"), tab);
@@ -260,6 +262,7 @@ void SyncPage::setSyncWidget()
     filters_menu = new QMenu;
     filters_menu->setWindowTitle(tr("Filters"));
     filters_menu->setTitle(tr("Filters"));
+    filters_menu->setStatusTip(tr("Choose filters to be used"));
     filters_menu->setTearOffEnabled(true);
     filters_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/filter16.png")));
     QAction * action;
@@ -1368,10 +1371,12 @@ void SyncPage::setSyncEnabled(bool enable)
     log_search->setEnabled(enable);
     tab_name->setEnabled(enable);
     advanced_menu->setEnabled(enable);
+    show_advanced->setEnabled(enable);
     syncing = !enable;
     stop_sync_btn->setVisible(!enable);
     sync_btn->setVisible(enable);
     go_to_analyse->setEnabled(enable);
+    add_folder_btn->setEnabled(enable);
     mp_parent->actionClose_sync->setEnabled(enable);
     if (!enable) {
         synced_files = 0;

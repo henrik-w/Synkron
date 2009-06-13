@@ -106,6 +106,7 @@ void MultisyncPage::setAdvancedGB()
     advanced_menu->addSeparator();
     QMenu * adv_analysis_menu = new QMenu;
     adv_analysis_menu->setTitle(tr("Analysis"));
+    adv_analysis_menu->setStatusTip(tr("Advanced options for the analysis"));
     adv_analysis_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/analyse_16.png")));
 
     fast_analyse = new QAction (tr("Fast analysis"), advanced_menu);
@@ -122,6 +123,7 @@ void MultisyncPage::setAdvancedGB()
 
     QMenu * adv_sources_menu = new QMenu;
     adv_sources_menu->setTitle(tr("Sources"));
+    adv_sources_menu->setStatusTip(tr("Advanced options for the sources"));
     adv_sources_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/sources.png")));
 
     backup_folder_1 = new QAction (tr("Do not backup updated files"), advanced_menu);
@@ -144,6 +146,7 @@ void MultisyncPage::setAdvancedGB()
 
     QMenu * adv_destination_menu = new QMenu;
     adv_destination_menu->setTitle(tr("Destination"));
+    adv_destination_menu->setStatusTip(tr("Advanced options for the destination"));
     adv_destination_menu->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/Synkron16.png")));
 
     backup_folder_2 = new QAction (tr("Do not backup updated files"), advanced_menu);
@@ -424,12 +427,11 @@ void MultisyncPage::setSyncEnabled(bool enable)
     remove_multi->setEnabled(enable);
     destination_multi->setEnabled(enable);
     browse_multi->setEnabled(enable);
-    /*load_multi->setEnabled(enable);
-    saveas_multi->setEnabled(enable);
-    save_multi->setEnabled(enable);*/
     search_multi->setEnabled(enable);
     vars_multi->setEnabled(enable);
     advanced_menu->setEnabled(enable);
+    show_advanced->setEnabled(enable);
+    go_to_analyse->setEnabled(enable);
     syncing = !enable;
     stop_sync_btn->setVisible(!enable);
     sync_multi->setVisible(enable);
