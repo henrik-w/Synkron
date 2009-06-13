@@ -9,26 +9,26 @@ You now have two options:
 	-----------------------------------
 	Download and install Squirrel Shell:
 		http://sourceforge.net/projects/squirrelsh/
-	Under WINDOWS, open the "Qt 4.3.x Command Prompt"
+	Under WINDOWS, open the "Qt Command Prompt"
 	from the Start menu, change directory to that of
 	the Synkron source code and type:
-		build.nut
+		squirrelsh build.nut
 	Under UNIX/LINUX, change directory to that of the
 	Synkron source code and type:
-		./build.nut
+		squirrelsh build.nut
 
 	2. Compiling manually
 	---------------------
 	Regardless of your platform, type in the following
 	commands (it is assumed that you have already changed
 	directory to that of the Synkron source code):
-		qmake -config release
 		lrelease Synkron.pro
+		qmake -config release
 		make
-	(you can also use any other maketool, such as
+	(under Windows, you'll probably need to use
 	mingw32-make or nmake)
 
-When all is done, you may run the programme:
+When all is done, you may run the program:
 Linux/Unix: ./Synkron
 Mac OS X: open Synkron.app
 Windows: Synkron
