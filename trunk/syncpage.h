@@ -300,6 +300,8 @@ public:
     QPushButton * resync;
     QPushButton * go_to_analyse;
     QPushButton * analyse_back;
+    QPushButton * show_advanced;
+    QPushButton * add_folder_btn;
     QCheckBox * show_sync_folders;
     QAction * backup_folders;
     QAction * update_only;

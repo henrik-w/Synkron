@@ -154,6 +154,7 @@ SyncFolder::SyncFolder(QWidget * parent):
     hlayout->setMargin(0); hlayout->setSpacing(6);
 
     config_btn = new QPushButton(this);
+    config_btn->setStatusTip(tr("Configure folder"));
     config_btn->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/configure16.png")));
     config_btn->setFlat(true);
 #ifdef Q_WS_MAC
@@ -166,19 +167,24 @@ SyncFolder::SyncFolder(QWidget * parent):
     config_menu = new QMenu;
     dont_update_act = new QAction(tr("Do not modify the contents of this folder"), this);
     dont_update_act->setCheckable(true);
+    dont_update_act->setStatusTip(tr("Do not make any changes to this folder"));
     config_menu->addAction(dont_update_act);
     update_only_act = new QAction(tr("Update existing files only"), this);
     update_only_act->setCheckable(true);
+    update_only_act->setStatusTip(tr("Update existing files only"));
     config_menu->addAction(update_only_act);
     backup_folder_act = new QAction(tr("Do not backup updated files"), this);
+    backup_folder_act->setStatusTip(tr("Do not backup updated files"));
     backup_folder_act->setCheckable(true);
     config_menu->addAction(backup_folder_act);
     config_menu->addSeparator();
     master_act = new QAction(tr("Master"), this);
+    master_act->setStatusTip(tr("Use this folder as master"));
     master_act->setCheckable(true);
     master_act->setChecked(true);
     config_menu->addAction(master_act);
     slave_act = new QAction(tr("Slave"), this);
+    slave_act->setStatusTip(tr("Use this folder as slave"));
     slave_act->setCheckable(true);
     config_menu->addAction(slave_act);
     QActionGroup * master_slave_actgrp = new QActionGroup(config_menu);
@@ -186,6 +192,7 @@ SyncFolder::SyncFolder(QWidget * parent):
     master_slave_actgrp->addAction(slave_act);
     master_slave_actgrp->setExclusive(true);
     remove_act = new QAction(tr("Remove"), this);
+    remove_act->setStatusTip(tr("Remove this folder"));
     remove_act->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/remove.png")));
     connect(remove_act, SIGNAL(triggered()), this, SLOT(removeFolder()));
     config_menu->addSeparator();

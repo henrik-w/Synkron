@@ -146,6 +146,9 @@
                  </item>
                  <item>
                   <widget class="QPushButton" name="vars_multi">
+                   <property name="statusTip">
+                    <string extracomment="Modify the variables for the paths of Multisync sources">Modify source path variables</string>
+                   </property>
                    <property name="text">
                     <string>Variables</string>
                    </property>
@@ -214,6 +217,9 @@
            </property>
            <item>
             <widget class="ExtendedLineEdit" name="search_multi">
+             <property name="statusTip">
+              <string>Search sync log</string>
+             </property>
              <property name="text">
               <string>Search</string>
              </property>
@@ -307,10 +313,17 @@
            <property name="text">
             <string>Stop multisync</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/new/prefix1/images/stop_sync22.png</normaloff>:/new/prefix1/images/stop_sync22.png</iconset>
+           </property>
           </widget>
          </item>
          <item row="0" column="2">
           <widget class="QPushButton" name="go_to_analyse">
+           <property name="statusTip">
+            <string>Analyse</string>
+           </property>
            <property name="text">
             <string>Analyse</string>
            </property>
@@ -322,6 +335,9 @@
          </item>
          <item row="0" column="0">
           <widget class="QPushButton" name="show_advanced">
+           <property name="statusTip">
+            <string>Show advanced options of configuration</string>
+           </property>
            <property name="text">
             <string>Advanced</string>
            </property>
