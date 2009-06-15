@@ -139,6 +139,9 @@ public slots:
     bool restoreItem(QListWidgetItem*);
     bool restoreFile(QString, QString, QString);
     void shutDownComputer();
+    void syncCurrentTab();
+    void analyseCurrentTab();
+    void aboutToShowTabMenu();
     //void showToolbarContextMenu(const QPoint &);
 
 private slots:

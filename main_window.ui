@@ -1279,7 +1279,7 @@
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1334,6 +1334,10 @@
     <addaction name="actionSave_tab_as"/>
     <addaction name="separator"/>
     <addaction name="actionSave_log"/>
+    <addaction name="separator"/>
+    <addaction name="actionSync"/>
+    <addaction name="actionAnalyse"/>
+    <addaction name="actionAdvanced"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTab"/>
@@ -1688,6 +1692,33 @@
   <action name="actionChange_temp">
    <property name="text">
     <string>Change temporary folder path</string>
+   </property>
+  </action>
+  <action name="actionSync">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/images/sync22.png</normaloff>:/new/prefix1/images/sync22.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sync</string>
+   </property>
+  </action>
+  <action name="actionAnalyse">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/images/analyse_16.png</normaloff>:/new/prefix1/images/analyse_16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Analyse</string>
+   </property>
+  </action>
+  <action name="actionAdvanced">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/images/configure16.png</normaloff>:/new/prefix1/images/configure16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Advanced</string>
    </property>
   </action>
  </widget>
