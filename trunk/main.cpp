@@ -153,6 +153,9 @@ MainWindow::MainWindow(QSettings * s)
     connect(actionLoad_tab, SIGNAL(triggered()), this, SLOT(loadTab()));
     connect(actionChange_temp, SIGNAL(triggered()), this, SLOT(changeTemp()));
     connect(actionShow_icons_only, SIGNAL(toggled(bool)), this, SLOT(showIconsOnly(bool)));
+    connect(actionSync, SIGNAL(triggered()), this, SLOT(syncCurrentTab()));
+    connect(actionAnalyse, SIGNAL(triggered()), this, SLOT(analyseCurrentTab()));
+    connect(menuTab, SIGNAL(aboutToShow()), this, SLOT(aboutToShowTabMenu()));
     
     setCleanGB();
     setSelectGB();

@@ -385,3 +385,30 @@ void MultisyncPage::load(QDomDocument & domdoc, QString file_name)
 
     slist_path = file_name;
 }
+
+void MainWindow::syncCurrentTab()
+{
+    if (mainStackedWidget->currentIndex() == 0) { //Sync
+        ((AbstractSyncPage *) tabs.value(tabWidget->currentWidget()))->sync();
+    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
+        ((AbstractSyncPage *) multi_tabWidget->currentWidget())->sync();
+    }
+}
+
+void MainWindow::analyseCurrentTab()
+{
+    if (mainStackedWidget->currentIndex() == 0) { //Sync
+        tabs.value(tabWidget->currentWidget())->goToAnalyse();
+    }
+}
+
+void MainWindow::aboutToShowTabMenu()
+{
+    if (mainStackedWidget->currentIndex() == 0) { //Sync
+        actionAdvanced->setMenu(((AbstractSyncPage *) tabs.value(tabWidget->currentWidget()))->advanced_menu);
+        actionAnalyse->setMenu(0);
+    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
+        actionAdvanced->setMenu(((AbstractSyncPage *) multi_tabWidget->currentWidget())->advanced_menu);
+        actionAnalyse->setMenu(((MultisyncPage *) multi_tabWidget->currentWidget())->analyse_con_menu);
+    }
+}
