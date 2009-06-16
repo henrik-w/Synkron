@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ru">
+<!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -392,11 +392,11 @@
     </message>
     <message>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Создание базы данных</translation>
     </message>
     <message>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Удаление базы данных</translation>
     </message>
 </context>
 <context>
@@ -1502,15 +1502,15 @@
     </message>
     <message>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить переменную исходящего пути</translation>
     </message>
     <message>
         <source>Search sync log</source>
-        <translation type="unfinished">Найти отчет</translation>
+        <translation>Найти отчет</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать расширенные опции конфигурации</translation>
     </message>
 </context>
 <context>
@@ -1564,20 +1564,20 @@
         <translation>Источники не выбраны.</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Failed to create directory %2</source>
-        <translation>%1	Ошибка синхронизации: ошибка создания каталога %2</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1	Directory %2 created</source>
-        <translation>%1	Каталог %2 создан</translation>
+        <source>%1<byte value="x9"/>Directory %2 created</source>
+        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Error creating directory in %2</source>
-        <translation>%1	Ошибка синхронизации: ошибка создания каталога в %2</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Error creating directory in %2</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога в %2</translation>
     </message>
     <message>
-        <source>%1	%2: %3 file(s) %4</source>
-        <translation>%1	%2: %3 файл(ы) %4</translation>
+        <source>%1<byte value="x9"/>%2: %3 file(s) %4</source>
+        <translation>%1<byte value="x9"/>%2: %3 файл(ы) %4</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1742,7 +1742,7 @@
         <translation type="obsolete">&lt;b&gt;Другое:&lt;/b</translation>
     </message>
     <message>
-        <source>%1	Synchronisation started</source>
+        <source>%1<byte value="x9"/>Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
@@ -1767,15 +1767,15 @@
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенные опции для анализа</translation>
     </message>
     <message>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенные опции для исходящего</translation>
     </message>
     <message>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенные опции для назначения</translation>
     </message>
 </context>
 <context>
@@ -1822,23 +1822,23 @@
     </message>
     <message>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Настроить каталог</translation>
     </message>
     <message>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Никаких изменений в этом каталоге</translation>
     </message>
     <message>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать этот каталог как основной</translation>
     </message>
     <message>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать этот каталог как вторичный</translation>
     </message>
     <message>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить этот каталог</translation>
     </message>
 </context>
 <context>
@@ -1851,12 +1851,12 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <source>%1	Directory %2 created</source>
-        <translation>%1	Каталог %2 создан</translation>
+        <source>%1<byte value="x9"/>Directory %2 created</source>
+        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1	Synchronisation complete: %2 file(s) %3</source>
-        <translation>%1	Синхронизация выполнена: %2 файл(ов) %3</translation>
+        <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
+        <translation>%1<byte value="x9"/>Синхронизация выполнена: %2 файл(ов) %3</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1899,16 +1899,16 @@
         <translation type="obsolete">Клонировать каталог 1</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Directories with the same path selected</source>
-        <translation>%1	Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Directories with the same path selected</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
     </message>
     <message>
-        <source>%1	Failed to create directory %2</source>
-        <translation>%1	Ошибка создания каталога %2</translation>
+        <source>%1<byte value="x9"/>Failed to create directory %2</source>
+        <translation>%1<byte value="x9"/>Ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Not enough valid directories specified</source>
-        <translation>%1	Ошибка синхронизации: Не определены доступные каталоги</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Not enough valid directories specified</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: Не определены доступные каталоги</translation>
     </message>
     <message>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
@@ -2149,7 +2149,7 @@
         <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
-        <source>%1	Synchronisation started</source>
+        <source>%1<byte value="x9"/>Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
@@ -2170,63 +2170,63 @@
     </message>
     <message>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлов для копирования %1</translation>
     </message>
     <message>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлов для обновления %1</translation>
     </message>
     <message>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Коллизирующие файлы (%1)</translation>
     </message>
     <message>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлов для удаления %1</translation>
     </message>
     <message>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталогов для создания %1</translation>
     </message>
     <message>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталогов для удаления %1</translation>
     </message>
     <message>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>Нечего выполнять</translation>
     </message>
     <message>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропущеные файлы (%1)</translation>
     </message>
     <message>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропущеные каталоги (%1)</translation>
     </message>
     <message>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Из %1 в %2</translation>
     </message>
     <message>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить базу данных в текстовый файл</translation>
     </message>
     <message>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Упорядочить по действию</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать расширенные опции конфигурации</translation>
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенные опции для анализа</translation>
     </message>
     <message>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать используемые фильтры</translation>
     </message>
 </context>
 <context>
