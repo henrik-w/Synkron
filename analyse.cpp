@@ -219,19 +219,19 @@ void SyncPage::analyseFolders()
 bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetItem * parent_item/*, int num*/)
 {
     MTStringSet file_names;
-    QFileInfoList entries;
+    QStringList entries;
     QDir dir;
     for (int i = 0; i < folders_set.count(); ++i) {
         dir = folders_set.at(i);
         if (!dir.exists()) continue;
         if (extensions.count()==0) {
-            entries = dir.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+            entries = dir.entryList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
         } else {
-            entries = dir.entryInfoList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+            entries = dir.entryList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
         }
         for (int n = 0; n < entries.count(); ++n) {
             //if (!entries.at(n).absoluteFilePath().startsWith(sync_folders_set.at(i))) continue;
-            file_names << entries.at(n).fileName();
+            file_names << entries.at(n);
         }
     }
 
@@ -494,7 +494,7 @@ void SyncPage::createChildItemsByFolder(QString name, QStringList keys, QStringL
 void SyncPage::subSortedAnalyse(const QString & rel_path)
 {
     MTStringSet file_names;
-    QFileInfoList entries;
+    QStringList entries;
     QDir dir;
     MTMap<QString, int> folders_set;
     for (int i = 0; i < sync_folders->count(); ++i) {
@@ -504,12 +504,12 @@ void SyncPage::subSortedAnalyse(const QString & rel_path)
         dir = folders_set.key(i);
         if (!dir.exists()) continue;
         if (extensions.count()==0) {
-            entries = dir.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+            entries = dir.entryList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
         } else {
-            entries = dir.entryInfoList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+            entries = dir.entryList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
         }
         for (int n = 0; n < entries.count(); ++n) {
-            file_names << entries.at(n).fileName();
+            file_names << entries.at(n);
         }
     }
 

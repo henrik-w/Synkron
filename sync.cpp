@@ -1032,14 +1032,14 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
             //Creating a set of all file names ---------------------------------
             QDir sync_dir = sync_folders_set.key(i);
             if (!sync_dir.exists()) continue;
-            QFileInfoList entries;
+            QStringList entries;
             if (extensions.count()==0) {
-                entries = sync_dir.entryInfoList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+                entries = sync_dir.entryList(dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
             } else {
-                entries = sync_dir.entryInfoList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
+                entries = sync_dir.entryList(extensions.toList(), dir_filters, (QDir::Name | QDir::DirsFirst | QDir::IgnoreCase));
             }
             for (int n = 0; n < entries.count(); ++n) {
-                rel_paths << entries.at(n).fileName();
+                rel_paths << entries.at(n);
             }
         }
     }

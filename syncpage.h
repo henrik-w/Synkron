@@ -55,6 +55,10 @@
 #include <Carbon/Carbon.h>
 #endif
 
+#ifdef Q_WS_WIN
+#include <windows.h>
+#endif
+
 #include "ui_main_window.h"
 #include "ui_multisync_page.h"
 #include "mtfile.h"
@@ -124,6 +128,7 @@ public:
     void replaceFolderLabelInPath(QString &);
     QString getLabeledPath(QString path);
     void saveFolderEntries(QString, QString);
+    QStringList getFolderEntries(QString);
 
     QSet<QString> extensions;
     bool syncing;
