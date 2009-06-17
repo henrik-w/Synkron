@@ -197,19 +197,48 @@ void AbstractSyncPage::deleteAllFolderDatabases()
 
 MTDictionary AbstractSyncPage::getEntryList(QString dir_path, QString parent_dir)
 {
-    QFileInfoList entries = QDir(dir_path).entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
     MTDictionary entry_list;
     QDir dir (parent_dir);
+    QFileInfo fi;
+    QStringList entries = getFolderEntries(dir_path);
+
     for (int i = 0; i < entries.count(); ++i) {
-        if (entries.at(i).fileName() == ".synkron.syncdb") continue;
-        if (!entries.at(i).isDir() || entries.at(i).isSymLink()) {
-            entry_list.setValue(dir.relativeFilePath(entries.at(i).absoluteFilePath()), entries.at(i).lastModified().toString(Qt::ISODate));
+        fi.setFile(QString("%1/%2").arg(dir_path).arg(entries.at(i)));
+        if (fi.fileName().startsWith(".synkron.sync")) continue;
+        if (!fi.isDir() || fi.isSymLink()) {
+            entry_list.setValue(dir.relativeFilePath(fi.absoluteFilePath()), fi.lastModified().toString(Qt::ISODate));
         } else {
-            entry_list.setValue(dir.relativeFilePath(entries.at(i).absoluteFilePath()), "");
-            entry_list << getEntryList(entries.at(i).absoluteFilePath(), parent_dir);
+            entry_list.setValue(dir.relativeFilePath(fi.absoluteFilePath()), "");
+            entry_list << getEntryList(fi.absoluteFilePath(), parent_dir);
         }
     }
     return entry_list;
+}
+
+QStringList AbstractSyncPage::getFolderEntries(QString dir_path)
+{
+    QStringList entries;
+#ifdef Q_WS_WIN
+    WIN32_FIND_DATA FindFileData;
+    HANDLE hFind;
+    hFind = FindFirstFile(QString("%1/*").arg(dir_path).replace('/', '\\').toStdWString().c_str(), &FindFileData);
+    QString file_name;
+    if (hFind != INVALID_HANDLE_VALUE) {
+        do {
+#ifdef UNICODE
+            file_name = QString::fromUtf16((ushort*) FindFileData.cFileName);
+#else
+            file_name = QString::fromLocal8Bit(FindFileData.cFileName);
+#endif
+            if (file_name == "." || file_name == "..") continue;
+            entries << file_name;
+        } while (FindNextFile(hFind, &FindFileData) != 0);
+    }
+    FindClose(hFind);
+#else
+    entries = QDir(dir_path).entryList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+#endif
+    return entries;
 }
 
 void AbstractSyncPage::saveFolderEntries(QString db_dir_path, QString sync_dir_path)
@@ -217,13 +246,14 @@ void AbstractSyncPage::saveFolderEntries(QString db_dir_path, QString sync_dir_p
     QDir db_dir(db_dir_path);
     QDir sync_dir(sync_dir_path);
     MTStringSet file_names;
-    QFileInfoList entries = sync_dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+    /*QStringList entries = sync_dir.entryList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);*/
+    QStringList entries = getFolderEntries(sync_dir.absolutePath());
     for (int n = 0; n < entries.count(); ++n) {
-        file_names << entries.at(n).fileName();
+        file_names << entries.at(n);
     }
-    entries = db_dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
+    entries = db_dir.entryList(QDir::NoDotAndDotDot | QDir::Hidden | QDir::Files | QDir::AllDirs, QDir::Name | QDir::DirsFirst | QDir::IgnoreCase);
     for (int n = 0; n < entries.count(); ++n) {
-        file_names << entries.at(n).fileName();
+        file_names << entries.at(n);
     }
     MTFile * file;
     QFileInfo * db_fi = new QFileInfo;
