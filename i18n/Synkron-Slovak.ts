@@ -527,7 +527,7 @@
     </message>
     <message>
         <source>Sync #%1</source>
-        <translation>Sync #%1</translation>
+        <translation>Sinc #%1</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>Sync #1</source>
-        <translation>Sync #1</translation>
+        <translation>Sinc #1</translation>
     </message>
     <message>
         <source>Original file path</source>
@@ -1021,7 +1021,7 @@
     </message>
     <message>
         <source>Multisync #%1</source>
-        <translation>Multisync #%1</translation>
+        <translation>Multi-Sinc #%1</translation>
     </message>
     <message>
         <source>No source selected.</source>

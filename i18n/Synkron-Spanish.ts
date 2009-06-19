@@ -256,7 +256,7 @@
     </message>
     <message>
         <source>Sync</source>
-        <translation>Sinc</translation>
+        <translation>Sincronizar</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -328,7 +328,7 @@
     </message>
     <message>
         <source>Enter allowed time difference</source>
-        <translation>Introduzca diferencia de tiempo permitido</translation>
+        <translation>Introduzca la diferencia de tiempo permitida</translation>
     </message>
     <message>
         <source>Allowed time difference (in seconds):</source>
@@ -372,7 +372,7 @@
     </message>
     <message>
         <source>Stopping synchronisation, please wait...</source>
-        <translation>Deteniedo sincronización, por favor, espere ...</translation>
+        <translation>Deteniendo la sincronización, por favor, espere ...</translation>
     </message>
     <message>
         <source>to temp</source>
@@ -392,11 +392,11 @@
     </message>
     <message>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Creando base de datos</translation>
     </message>
     <message>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminando base de datos</translation>
     </message>
 </context>
 <context>
@@ -472,19 +472,19 @@
     <name>MTPathDialogue</name>
     <message>
         <source>Enter folder path</source>
-        <translation>Introduzca ruta de la carpeta</translation>
+        <translation>Introduzca la ruta de la carpeta</translation>
     </message>
     <message>
         <source>Enter file path</source>
-        <translation>Introduzca ruta de archivo</translation>
+        <translation>Introduzca la ruta de archivo</translation>
     </message>
     <message>
         <source>Enter folder path:</source>
-        <translation>Introduzca ruta de la carpeta:</translation>
+        <translation>Introduzca la ruta de la carpeta:</translation>
     </message>
     <message>
         <source>Enter file path:</source>
-        <translation>Introduzca ruta de archivo:</translation>
+        <translation>Introduzca la ruta de archivo:</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -631,11 +631,11 @@
     </message>
     <message>
         <source>Sync &amp;current tab</source>
-        <translation>Sinc &amp;pestaña actual</translation>
+        <translation>Sincronizar &amp;pestaña actual</translation>
     </message>
     <message>
         <source>Sync &amp;all tabs</source>
-        <translation>Sinc &amp;todas las pestañas</translation>
+        <translation>Sincronizar &amp;todas las pestañas</translation>
     </message>
     <message>
         <source>&amp;Check/Uncheck</source>
@@ -687,15 +687,15 @@
     </message>
     <message>
         <source>Synkron - Save Multisync</source>
-        <translation>Synkron - Guardar Multi-Sincronización</translation>
+        <translation>Synkron - Guardar sincronización múltiple</translation>
     </message>
     <message>
         <source>Sync logs (*.html)</source>
-        <translation>Registro sinc (*.html)</translation>
+        <translation>Registro de sincronización (*.html)</translation>
     </message>
     <message>
         <source>Export sync log</source>
-        <translation>Exportar registro sinc</translation>
+        <translation>Exportar registro de sincronización</translation>
     </message>
     <message>
         <source>Cannot write file %1:
@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Synkron sync log</source>
-        <translation>Synkron registro sinc</translation>
+        <translation>Synkron registro de sincronización</translation>
     </message>
     <message>
         <source>Error removing file %1</source>
@@ -717,7 +717,7 @@
     </message>
     <message>
         <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation>¿Está seguro de que desea eliminar &quot;%1&quot; de cada ubicación sincronizada?</translation>
+        <translation>¿Está seguro que desea eliminar &quot;%1&quot; de cada ubicación sincronizada?</translation>
     </message>
     <message>
         <source>Removing files...</source>
@@ -765,7 +765,7 @@
     </message>
     <message>
         <source>Original file path</source>
-        <translation>Ruta de archivo Original</translation>
+        <translation>Ruta de archivo original</translation>
     </message>
     <message>
         <source>Add file to blacklist</source>
@@ -773,7 +773,7 @@
     </message>
     <message>
         <source>Do not synchronise this file again (add to blacklist)</source>
-        <translation>No sincronizar éste archivo de nuevo (añadir a la lista negra)</translation>
+        <translation>No sincronizar este archivo de nuevo (añadir a la lista negra)</translation>
     </message>
     <message>
         <source>Date and time of synchronisation:</source>
@@ -865,7 +865,7 @@
     </message>
     <message>
         <source>List of schedules</source>
-        <translation>Lista de Tareas Programadas</translation>
+        <translation>Lista de tareas programadas</translation>
     </message>
     <message>
         <source>Add a schedule</source>
@@ -901,19 +901,19 @@
     </message>
     <message>
         <source>Select multisyncs to use</source>
-        <translation>Seleccionar Multi-Sincronización a utilizar</translation>
+        <translation>Seleccionar sincronizaciones múltiples a utilizar</translation>
     </message>
     <message>
         <source>Select syncs to use</source>
-        <translation>Seleccionar Sincs a utilizar</translation>
+        <translation>Seleccionar sincronizaciones a utilizar</translation>
     </message>
     <message>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Sincs a utilizar:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Sincronizaciones a utilizar:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Multi-Sincronización a utilizar:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Sincronizaciones múltiples a utilizar:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Stop schedule</source>
@@ -933,7 +933,7 @@
     </message>
     <message>
         <source>Sync times</source>
-        <translation>Tiempos sinc</translation>
+        <translation>Tiempos de sincronización</translation>
     </message>
     <message>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
@@ -941,15 +941,15 @@
     </message>
     <message>
         <source>List of sync times</source>
-        <translation>Lista de tiempos sinc</translation>
+        <translation>Lista de tiempos de sincronización</translation>
     </message>
     <message>
         <source>Add a sync time</source>
-        <translation>Añadir tiempo sinc</translation>
+        <translation>Añadir tiempo de sincronización</translation>
     </message>
     <message>
         <source>Set sync time</source>
-        <translation>Fijar tiempo sinc</translation>
+        <translation>Fijar tiempo de sincronización</translation>
     </message>
     <message>
         <source>H:mm</source>
@@ -957,11 +957,11 @@
     </message>
     <message>
         <source>Remove the selected sync times</source>
-        <translation>Eliminar los tiempos sinc seleccionados</translation>
+        <translation>Eliminar los tiempos de sincronización seleccionados</translation>
     </message>
     <message>
         <source>Synchronise periodically</source>
-        <translation>Sincronizar periódicamente</translation>
+        <translation>Sincronización periódica</translation>
     </message>
     <message>
         <source>Synchronise every</source>
@@ -981,7 +981,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Extensions in the selected filter:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Extensiones seleccionados en el filtro:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Extensiones seleccionadas en el filtro:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>List of extensions in the selected filter</source>
@@ -1005,15 +1005,15 @@
     </message>
     <message>
         <source>&lt;b&gt;Syncs:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Sincs:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Sincronizaciones:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>List of syncs</source>
-        <translation>Lista de sincs</translation>
+        <translation>Lista de sincronizaciones</translation>
     </message>
     <message>
         <source>List of multisyncs</source>
-        <translation>Lista de Multi-Sincronización</translation>
+        <translation>Lista de sincronizaciones múltiples</translation>
     </message>
     <message>
         <source>File</source>
@@ -1057,7 +1057,7 @@
     </message>
     <message>
         <source>Open new sync tab</source>
-        <translation>Abrir nueva pestaña sinc</translation>
+        <translation>Abrir una nueva pestaña de sincronización</translation>
     </message>
     <message>
         <source>Close tab</source>
@@ -1065,7 +1065,7 @@
     </message>
     <message>
         <source>Close current sync tab</source>
-        <translation>Cerrar pestaña sinc actual</translation>
+        <translation>Cerrar la pestaña de sincronización actual</translation>
     </message>
     <message>
         <source>Synchronise</source>
@@ -1073,11 +1073,11 @@
     </message>
     <message>
         <source>Go to Synchronise</source>
-        <translation>Ir a Sincronizar</translation>
+        <translation>Ir a sincronizar</translation>
     </message>
     <message>
         <source>Go to Restore</source>
-        <translation>Ir a Restaurar</translation>
+        <translation>Ir a restaurar</translation>
     </message>
     <message>
         <source>Blacklist</source>
@@ -1085,7 +1085,7 @@
     </message>
     <message>
         <source>Go to Blacklist</source>
-        <translation>Ir a Lista Negra</translation>
+        <translation>Ir a lista negra</translation>
     </message>
     <message>
         <source>Run hidden</source>
@@ -1097,7 +1097,7 @@
     </message>
     <message>
         <source>Sync all</source>
-        <translation>Sinc todo</translation>
+        <translation>Sincronizar todo</translation>
     </message>
     <message>
         <source>Check for updates</source>
@@ -1105,11 +1105,11 @@
     </message>
     <message>
         <source>Multisync</source>
-        <translation>Multi-Sincronización</translation>
+        <translation type="unfinished">Multisinc</translation>
     </message>
     <message>
         <source>Go to Multisync</source>
-        <translation>Ir a Multi-Sincronización</translation>
+        <translation>Ir a sincronización múltiple</translation>
     </message>
     <message>
         <source>Scheduler</source>
@@ -1117,7 +1117,7 @@
     </message>
     <message>
         <source>Go to Scheduler</source>
-        <translation>Ir al Planificador</translation>
+        <translation>Ir al planificador</translation>
     </message>
     <message>
         <source>Change language</source>
@@ -1129,11 +1129,11 @@
     </message>
     <message>
         <source>Go to Filters</source>
-        <translation>Ir a Filtros</translation>
+        <translation>Ir a filtros</translation>
     </message>
     <message>
         <source>Disable tray icon messages</source>
-        <translation>Desactivar icono de la bandeja de mensajes</translation>
+        <translation>Desactivar ícono de la bandeja de mensajes</translation>
     </message>
     <message>
         <source>Save log</source>
@@ -1141,15 +1141,15 @@
     </message>
     <message>
         <source>SyncView</source>
-        <translation>Vista Sinc</translation>
+        <translation>Ver sinc</translation>
     </message>
     <message>
         <source>Go to SyncView</source>
-        <translation>Ir a vista Sinc</translation>
+        <translation>Ir a ver sincronizaciones</translation>
     </message>
     <message>
         <source>Multisync #%1</source>
-        <translation>Multi-Sincronización #%1</translation>
+        <translation>Multi-Sinc #%1</translation>
     </message>
     <message>
         <source>Source</source>
@@ -1233,11 +1233,11 @@
     </message>
     <message>
         <source>Are you sure you want to remove the selected schedule from the list?</source>
-        <translation>¿Está seguro de eliminar la tarea programada seleccionada de la lista?</translation>
+        <translation>¿Está seguro que desea eliminar de la lista la tarea programada seleccionada?</translation>
     </message>
     <message>
         <source>No sync time selected.</source>
-        <translation>Ningún tiempo sinc seleccionado.</translation>
+        <translation>Ningún tiempo de sincronización seleccionado.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -1257,11 +1257,11 @@
     </message>
     <message>
         <source>%1 files synchronised</source>
-        <translation>%1 archivs sincronizados</translation>
+        <translation>%1 archivos sincronizados</translation>
     </message>
     <message>
         <source>&lt;b&gt;Multisyncs:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Multi-Sincronización:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Sincronizaciones múltiples:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Advanced selection</source>
@@ -1277,7 +1277,7 @@
     </message>
     <message>
         <source>Select files synchronised on </source>
-        <translation>Seleccionar los archivos sincronizados en</translation>
+        <translation>Seleccionar los archivos sincronizados el</translation>
     </message>
     <message>
         <source>Cannot write file %1: %2</source>
@@ -1293,7 +1293,7 @@
     </message>
     <message>
         <source>Wednesday</source>
-        <translation>Miercoles</translation>
+        <translation>Miércoles</translation>
     </message>
     <message>
         <source>Thursday</source>
@@ -1333,7 +1333,7 @@
     </message>
     <message>
         <source>Sync all at launch</source>
-        <translation>Sinc todo al inicio</translation>
+        <translation>Sincronizar todo al inicio</translation>
     </message>
     <message>
         <source>Shut down after synchronisation</source>
@@ -1341,7 +1341,7 @@
     </message>
     <message>
         <source>Shut down computer after synchronisation finishes</source>
-        <translation>Apagar pc después de la sincronización</translation>
+        <translation>Apagar el equipo después de la sincronización</translation>
     </message>
     <message>
         <source>Quit Synkron after synchronisation</source>
@@ -1361,7 +1361,7 @@
     </message>
     <message>
         <source>Sync all tabs at launch</source>
-        <translation>Sinc todas las pestañas al inicio</translation>
+        <translation>Sincronizar todas las pestañas al inicio</translation>
     </message>
     <message>
         <source>Enter file path</source>
@@ -1450,7 +1450,7 @@
     </message>
     <message>
         <source>Set multisync name</source>
-        <translation>Fijar nombre de Multi-Sincronización</translation>
+        <translation>Establecer nombre para la sincronización múltiple</translation>
     </message>
     <message>
         <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
@@ -1458,7 +1458,7 @@
     </message>
     <message>
         <source>List of multisync sources</source>
-        <translation>Lista de fuentes Multi-Sincronización</translation>
+        <translation>Lista de fuentes de sincronización múltiple</translation>
     </message>
     <message>
         <source>Add source</source>
@@ -1498,15 +1498,15 @@
     </message>
     <message>
         <source>Multisync log</source>
-        <translation>Registro de Multi-Sincronización</translation>
+        <translation>Registro de sincronización múltiple</translation>
     </message>
     <message>
         <source>Start multisync</source>
-        <translation>Iniciar Multi-Sincronización</translation>
+        <translation>Iniciar sincronización múltiple</translation>
     </message>
     <message>
         <source>Multisync</source>
-        <translation>Multi-Sincronización</translation>
+        <translation>Sincronizar</translation>
     </message>
     <message>
         <source>Load a multisync</source>
@@ -1530,7 +1530,7 @@
     </message>
     <message>
         <source>Stop multisync</source>
-        <translation>Detener Multi-Sincronización</translation>
+        <translation>Detener sincronización múltiple</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -1550,15 +1550,16 @@
     </message>
     <message>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificar variables de la ruta de origen</translation>
     </message>
     <message>
         <source>Search sync log</source>
-        <translation type="unfinished">Buscar registro sinc</translation>
+        <translatorcomment>Buscar registro sinc </translatorcomment>
+        <translation>Buscar registro de sincronización</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar opciones avanzadas de configuración</translation>
     </message>
 </context>
 <context>
@@ -1573,11 +1574,11 @@
     </message>
     <message>
         <source>Do not synchronise subdirectories</source>
-        <translation>No sincronizar subdirectorios</translation>
+        <translation>No sincronizar los subdirectorios</translation>
     </message>
     <message>
         <source>Ignore blacklist</source>
-        <translation>Ignorar lista negra</translation>
+        <translation>Ignorar la lista negra</translation>
     </message>
     <message>
         <source>Edit blacklist</source>
@@ -1597,7 +1598,7 @@
     </message>
     <message>
         <source>Do not backup updated files</source>
-        <translation>No realizar backup de los archivos actualizados</translation>
+        <translation>No realizar copia de seguridad de los archivos actualizados</translation>
     </message>
     <message>
         <source>Do not backup updated files from sources</source>
@@ -1633,7 +1634,7 @@
     </message>
     <message>
         <source>%1    Synchronisation failed: Choose a destination first</source>
-        <translation>%1    Sincronización fallida: Primero elija un destino</translation>
+        <translation>%1    Sincronización fallida: Primero seleccione un destino</translation>
     </message>
     <message>
         <source>Synkron</source>
@@ -1705,11 +1706,11 @@
     </message>
     <message>
         <source>Multisync</source>
-        <translation>Multi-Sincronización</translation>
+        <translation>Sincronización múltiple</translation>
     </message>
     <message>
         <source>Start multisync</source>
-        <translation>Iniciar Multi-Sincronización</translation>
+        <translation>Iniciar sincronización múltiple</translation>
     </message>
     <message>
         <source>File name</source>
@@ -1737,7 +1738,7 @@
     </message>
     <message>
         <source>List files which need to be synchronised only</source>
-        <translation>Lista de archivos que necesitan sólo ser sincronizados</translation>
+        <translation>Lista de archivos que sólo necesitan ser sincronizados</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -1773,7 +1774,7 @@
     </message>
     <message>
         <source>Press the &quot;Multisync&quot; button to start synchronisation</source>
-        <translation>Presione el botón &quot;Multisync&quot; para iniciar sincronización</translation>
+        <translation>Presione el botón &quot;Sincronizar&quot; para iniciar la sincronización múltiple</translation>
     </message>
     <message>
         <source>Moving</source>
@@ -1809,7 +1810,7 @@
     </message>
     <message>
         <source>%1	Synchronisation started</source>
-        <translation>%1(tab)comenzó la Sincronización</translation>
+        <translation>%1	comenzó la sincronización</translation>
     </message>
     <message>
         <source>%1 repeated temporary files deleted</source>
@@ -1833,15 +1834,15 @@
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones avanzadas para el análisis</translation>
     </message>
     <message>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones avanzadas para las fuentes</translation>
     </message>
     <message>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones avanzadas para el destino</translation>
     </message>
 </context>
 <context>
@@ -1872,11 +1873,11 @@
     </message>
     <message>
         <source>Master</source>
-        <translation>Maestro</translation>
+        <translation>Maestro (Principal)</translation>
     </message>
     <message>
         <source>Slave</source>
-        <translation>Esclavo</translation>
+        <translation>Esclavo (Secundario)</translation>
     </message>
     <message>
         <source>Folder label</source>
@@ -1888,23 +1889,23 @@
     </message>
     <message>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar la carpeta</translation>
     </message>
     <message>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>No realice ningún cambio a esta carpeta</translation>
     </message>
     <message>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Use esta carpeta como principal</translation>
     </message>
     <message>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Use esta carpeta como esclavo</translation>
     </message>
     <message>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar esta carpeta</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1943,7 @@
     </message>
     <message>
         <source>synchronised</source>
-        <translation>sincronizado</translation>
+        <translation>sincronizados</translation>
     </message>
     <message>
         <source>Synchronisation complete</source>
@@ -1954,7 +1955,7 @@
     </message>
     <message>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
-        <translation>Se han encontrado un archivo y una carpeta con el mismo nombre (%1). No se puede sincronizar estos archivos.</translation>
+        <translation>Se ha encontrado un archivo y una carpeta con el mismo nombre (%1). No se puede sincronizar éstos archivos.</translation>
     </message>
     <message>
         <source>Folder %1 blacklisted, skipped</source>
@@ -1994,7 +1995,7 @@
     </message>
     <message>
         <source>Sync</source>
-        <translation>Sinc</translation>
+        <translation>Sincronizar</translation>
     </message>
     <message>
         <source>Synchronise</source>
@@ -2022,7 +2023,7 @@
     </message>
     <message>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Registro Sinc:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Registro de sincronización:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Root directory</source>
@@ -2034,15 +2035,15 @@
     </message>
     <message>
         <source>Show/hide sync folders</source>
-        <translation>Mostrar/Ocultar Carpetas Sinc</translation>
+        <translation>Mostrar/Ocultar sincronizar carpetas</translation>
     </message>
     <message>
         <source>&lt;b&gt;Sync folders:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Carpetas Sinc:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Sincronizar carpetas:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Search sync log</source>
-        <translation>Buscar registro sinc</translation>
+        <translation>Buscar en el registro de sincronización</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2078,7 +2079,7 @@
     </message>
     <message>
         <source>Synchronise hidden files and folders</source>
-        <translation>Sincronizar los archivos y carpetas ocultas</translation>
+        <translation>Sincronizar archivos y carpetas ocultas</translation>
     </message>
     <message>
         <source>Propagate deletions</source>
@@ -2086,11 +2087,11 @@
     </message>
     <message>
         <source>Do not synchronise subdirectories</source>
-        <translation>No sincronizar subdirectorios</translation>
+        <translation>No sincronizar los subdirectorios</translation>
     </message>
     <message>
         <source>Ignore blacklist</source>
-        <translation>Ignorar lista negra</translation>
+        <translation>Ignorar la lista negra</translation>
     </message>
     <message>
         <source>Edit blacklist</source>
@@ -2162,7 +2163,7 @@
     </message>
     <message>
         <source>List files which need to be synchronised only</source>
-        <translation>Lista de archivos que necesitan ser sólo sincronizados</translation>
+        <translation>Lista de archivos que sólo necesitan ser sincronizados</translation>
     </message>
     <message>
         <source>Folder 1</source>
@@ -2190,7 +2191,7 @@
     </message>
     <message>
         <source>Press the &quot;Sync&quot; button to start synchronisation</source>
-        <translation>Presione el botón &quot;Sync&quot; para iniciar sincronización</translation>
+        <translation>Presione el botón &quot;Sincronizar&quot; para iniciar la sincronización</translation>
     </message>
     <message>
         <source>Moving</source>
@@ -2240,7 +2241,7 @@
     </message>
     <message>
         <source>%1	Synchronisation started</source>
-        <translation>%1(tab)comenzó la Sincronización</translation>
+        <translation>%1	comenzó la Sincronización</translation>
     </message>
     <message>
         <source>%1 repeated temporary files deleted</source>
@@ -2260,63 +2261,63 @@
     </message>
     <message>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos a copiar (%1)</translation>
     </message>
     <message>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos para actualizar (%1)</translation>
     </message>
     <message>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos colisionados (%1)</translation>
     </message>
     <message>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos a eliminar (%1)</translation>
     </message>
     <message>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetas a crear (%1)</translation>
     </message>
     <message>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetas a eliminar (%1)</translation>
     </message>
     <message>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>No hay nada que hacer</translation>
     </message>
     <message>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos omitidos (%1)</translation>
     </message>
     <message>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetas omitidas (%1)</translation>
     </message>
     <message>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Desde %1 a %2</translation>
     </message>
     <message>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Almacenar la base de datos en un archivo de texto</translation>
     </message>
     <message>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordenar por acción</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar opciones avanzadas de configuración</translation>
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones avanzadas para el análisis</translation>
     </message>
     <message>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Elija los filtros a utilizar</translation>
     </message>
 </context>
 <context>
