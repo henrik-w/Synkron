@@ -471,12 +471,12 @@
     <message>
         <location filename="../syncdb.cpp" line="26"/>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>إنشاء قاعدة البيانات</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="158"/>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة قاعدة البيانات</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="362"/>
@@ -516,22 +516,22 @@
     <message>
         <location filename="../sync.cpp" line="1325"/>
         <source>to temp</source>
-        <translation type="unfinished"></translation>
+        <translation>إلى المجلد المؤقت</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1328"/>
         <source>Error copying file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>‏حدث خطأ أثناء نسخ الملف %1: %2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1334"/>
         <source>Error creating folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>حدث خطأ أثناء إنشاء المجلد %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1340"/>
         <source>Error removing file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>‏حدث خطأ أثناء حذف الملف %1: %2</translation>
     </message>
 </context>
 <context>
@@ -607,7 +607,7 @@
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>إنهاء</translation>
     </message>
 </context>
 <context>
@@ -1887,7 +1887,7 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Show icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الأيقونات فقط</translation>
     </message>
 </context>
 <context>
@@ -1935,7 +1935,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <translation>تعديل متغيرات مسار المصدر</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="184"/>
@@ -1960,7 +1960,7 @@
     <message>
         <location filename="../multisync_page.ui" line="221"/>
         <source>Search sync log</source>
-        <translation type="unfinished">البحث عن سجل المزامنة</translation>
+        <translation>بحث في سجل المزامنة</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="224"/>
@@ -2027,12 +2027,12 @@
     <message>
         <location filename="../multisync_page.ui" line="339"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="342"/>
         <source>Advanced</source>
-        <translation type="unfinished">متقدم</translation>
+        <translation>متقدم</translation>
     </message>
 </context>
 <context>
@@ -2211,7 +2211,7 @@
     <message>
         <location filename="../multisync.cpp" line="109"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة للتحليل</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="131"/>
@@ -2279,12 +2279,12 @@
     <message>
         <location filename="../multisync.cpp" line="126"/>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة للمصادر</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="149"/>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة للهدف</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="517"/>
@@ -2396,12 +2396,12 @@
     <message>
         <location filename="../multisync.cpp" line="108"/>
         <source>Analysis</source>
-        <translation type="unfinished">تحليل</translation>
+        <translation>تحليل</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="125"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>مصادر</translation>
     </message>
 </context>
 <context>
@@ -2424,66 +2424,70 @@
     <message>
         <location filename="../syncfolders.cpp" line="157"/>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلد الإعداد</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="168"/>
         <source>Do not modify the contents of this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تقم بتعديل محتوى هذا المجلد</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="170"/>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تقم بأية تعديل على هذا المجلد</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="172"/>
         <location filename="../syncfolders.cpp" line="174"/>
         <source>Update existing files only</source>
-        <translation type="unfinished">تحديث الملفات الموجودة فقط</translation>
+        <translation>تحديث الملفات الموجودة فقط</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="176"/>
         <location filename="../syncfolders.cpp" line="177"/>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها</translation>
+        <translation>لا تقم بعمل نسخ إحتياطي للملفات التي تم تحديثها</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="181"/>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>غير متأكد من التعريب</translatorcomment>
+        <translation>الأصل</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="182"/>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>غير متأكد من التعريب</translatorcomment>
+        <translation>إستعمال هذا المجلد كأصل</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="186"/>
         <source>Slave</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>غير متأكد من التعريب</translatorcomment>
+        <translation>تابع</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="187"/>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>غير متأكد من التعريب</translatorcomment>
+        <translation>إستعمال هذا المجلد كتابع</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="195"/>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة هذا المجلد</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="206"/>
         <location filename="../syncfolders.cpp" line="207"/>
         <source>Folder label</source>
-        <translation type="unfinished"></translation>
+        <translation>تسمية المجلد</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="212"/>
         <location filename="../syncfolders.cpp" line="213"/>
         <source>Folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>مسار المجلد</translation>
     </message>
 </context>
 <context>
@@ -2499,38 +2503,38 @@
     <message>
         <location filename="../sync.cpp" line="137"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="242"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض الخيارات المتقدمة للتحليل</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="265"/>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>إختيار المرشح الذي سيتم إستعماله</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="223"/>
         <location filename="../sync.cpp" line="224"/>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>تخزين قاعدة البينات ضمن ملف نصي</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="433"/>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يوجد شيء بحاجة للتنفيذ</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="436"/>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات تم تخطيها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="438"/>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلدات تم تخطيها (%1)</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="409"/>
@@ -3001,48 +3005,49 @@
         <location filename="../sync.cpp" line="136"/>
         <location filename="../sync.cpp" line="165"/>
         <source>Advanced</source>
-        <translation type="unfinished">متقدم</translation>
+        <translation>متقدم</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="421"/>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات سيتم نسخها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="423"/>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات سيتم تحديثها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="425"/>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات متعارضة (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="427"/>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات سيتم حذفها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="429"/>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلدات سيتم إنشاؤها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="431"/>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>مجلدات سيتم حذفها (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="477"/>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>من %1 إلى %2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="255"/>
         <location filename="../sync.cpp" line="257"/>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>غير متأكد</translatorcomment>
+        <translation>ترتيب حسب المهمة</translation>
     </message>
 </context>
 <context>
