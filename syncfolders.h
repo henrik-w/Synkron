@@ -103,6 +103,7 @@ public:
     QAction * update_only_act;
     QAction * dont_update_act;
     QAction * backup_folder_act;
+    QAction * no_empty_folders_act;
     QAction * remove_act;
     QAction * master_act;
     QAction * slave_act;

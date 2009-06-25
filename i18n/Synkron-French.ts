@@ -11,7 +11,7 @@
     </message>
     <message>
         <location filename="../about.ui" line="134"/>
-        <location filename="../main.cpp" line="378"/>
+        <location filename="../main.cpp" line="381"/>
         <source>About Qt</source>
         <translation>A propos de Qt</translation>
     </message>
@@ -21,42 +21,42 @@
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="358"/>
+        <location filename="../main.cpp" line="361"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="362"/>
+        <location filename="../main.cpp" line="365"/>
         <source>Synkron is a simple Qt application designed for easy folder synchronisation.</source>
         <translation>Synkron est une application Qt conçue pour synchroniser facilement des dossiers.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="365"/>
+        <location filename="../main.cpp" line="368"/>
         <source>This programme is distributed under the terms of the GPL v2.</source>
         <translation>Ce programme est distribué sous les termes de la GPL v2.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="369"/>
+        <location filename="../main.cpp" line="372"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
         <translation>Le programme est founi TEL QUEL avec ABSOLUMENT AUCUNE GARANTIE D&apos;AUCUNE SORTE, EN INCLUANT LA GARANTIE DE DESIGN, VALEUR MARCHANDE ET SANTÉ PHYSIQUE POUR UN BUT PARTICULIER. </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="380"/>
+        <location filename="../main.cpp" line="383"/>
         <source>This programme uses Qt Open Source Edition version %1.</source>
         <translation>Ce programme utilise la version %1 de Qt Open Source Edition.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="382"/>
+        <location filename="../main.cpp" line="385"/>
         <source>Qt is a C++ toolkit for cross-platform application development.</source>
         <translation>QT est une boite à outils C++ pour le développement d&apos;applications multiplateformes.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="384"/>
+        <location filename="../main.cpp" line="387"/>
         <source>Qt provides single-source portability across MS Windows, Mac OS X, Linux and all major commercial Unix variants. Qt is also available for embedded devices as Qtopia Core.</source>
         <translation>QT founit la portabilité d&apos;une seule source sur des systèmes tels que MS Windows, Mac OS X, Linux et les plus importantes variantes d&apos;Unix commercialisées. Qt est egalement disponibles sur des systèmes embarqués tel que Qtopia Core.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="386"/>
+        <location filename="../main.cpp" line="389"/>
         <source>Qt is a Trolltech product. See &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; for more information.</source>
         <translation>Qt est un produit Trolltech.Visitez &lt;span style=&quot;font-style:italic;&quot;&gt;http://www.trolltech.com/qt/&lt;/span&gt; pour plus d&apos;informations.</translation>
     </message>
@@ -64,37 +64,37 @@
 <context>
     <name>AbstractSyncPage</name>
     <message>
-        <location filename="../sync.cpp" line="513"/>
-        <location filename="../sync.cpp" line="547"/>
-        <location filename="../sync.cpp" line="773"/>
-        <location filename="../sync.cpp" line="777"/>
-        <location filename="../sync.cpp" line="804"/>
-        <location filename="../sync.cpp" line="836"/>
+        <location filename="../sync.cpp" line="519"/>
+        <location filename="../sync.cpp" line="553"/>
+        <location filename="../sync.cpp" line="781"/>
+        <location filename="../sync.cpp" line="785"/>
+        <location filename="../sync.cpp" line="812"/>
+        <location filename="../sync.cpp" line="844"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Dossier %1 sur liste noire, évité</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="555"/>
-        <location filename="../sync.cpp" line="820"/>
-        <location filename="../sync.cpp" line="844"/>
+        <location filename="../sync.cpp" line="561"/>
+        <location filename="../sync.cpp" line="828"/>
+        <location filename="../sync.cpp" line="852"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Fichier %1 sur liste noire, évité</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="594"/>
-        <location filename="../sync.cpp" line="873"/>
+        <location filename="../sync.cpp" line="600"/>
+        <location filename="../sync.cpp" line="881"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>Un fichier ou un dossier et un lien symbolique avec le même nom ont été trouvés. Impossible de synchroniser ces fichiers (%1, %2)</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="607"/>
-        <location filename="../sync.cpp" line="891"/>
+        <location filename="../sync.cpp" line="613"/>
+        <location filename="../sync.cpp" line="899"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Un dossier (%1) et un fichier (%2) portant le même nom ont été trouvés. Impossible de synchroniser ces fichiers.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="612"/>
-        <location filename="../sync.cpp" line="895"/>
+        <location filename="../sync.cpp" line="618"/>
+        <location filename="../sync.cpp" line="903"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>Un fichier (%1) et un dossier (%2) portant le même nom ont été trouvés. Impossible de synchroniser ces fichiers.</translation>
     </message>
@@ -115,7 +115,7 @@
         <translation type="obsolete">dossier</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="911"/>
+        <location filename="../sync.cpp" line="919"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>Ancien fichier %1 sauvegardé et supprimé</translation>
     </message>
@@ -192,132 +192,132 @@
     </message>
     <message>
         <location filename="../restore.cpp" line="452"/>
-        <location filename="../sync.cpp" line="860"/>
-        <location filename="../sync.cpp" line="915"/>
-        <location filename="../sync.cpp" line="952"/>
-        <location filename="../sync.cpp" line="962"/>
-        <location filename="../sync.cpp" line="994"/>
-        <location filename="../sync.cpp" line="1018"/>
+        <location filename="../sync.cpp" line="868"/>
+        <location filename="../sync.cpp" line="923"/>
+        <location filename="../sync.cpp" line="960"/>
+        <location filename="../sync.cpp" line="970"/>
+        <location filename="../sync.cpp" line="1002"/>
+        <location filename="../sync.cpp" line="1026"/>
         <source>File %1 deleted</source>
         <translation>Fichier %1 supprimé</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="300"/>
+        <location filename="../sync.cpp" line="306"/>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Fichiers dans la liste noire&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="303"/>
+        <location filename="../sync.cpp" line="309"/>
         <source>List of files in the blacklist</source>
         <translation>Liste des fichiers de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="308"/>
-        <location filename="../sync.cpp" line="329"/>
-        <location filename="../sync.cpp" line="350"/>
+        <location filename="../sync.cpp" line="314"/>
+        <location filename="../sync.cpp" line="335"/>
+        <location filename="../sync.cpp" line="356"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="309"/>
+        <location filename="../sync.cpp" line="315"/>
         <source>Add file to black list</source>
         <translation>Ajouter un fichier à la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="313"/>
-        <location filename="../sync.cpp" line="334"/>
-        <location filename="../sync.cpp" line="355"/>
+        <location filename="../sync.cpp" line="319"/>
+        <location filename="../sync.cpp" line="340"/>
+        <location filename="../sync.cpp" line="361"/>
         <source>Remove</source>
         <translation>Enlever</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="314"/>
+        <location filename="../sync.cpp" line="320"/>
         <source>Remove file from black list</source>
         <translation>Enlever un fichier de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="321"/>
+        <location filename="../sync.cpp" line="327"/>
         <source>&lt;b&gt;Folders in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Dossiers dans la liste noire&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="324"/>
+        <location filename="../sync.cpp" line="330"/>
         <source>List of folders in the blacklist</source>
         <translation>Liste des dossiers de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="330"/>
+        <location filename="../sync.cpp" line="336"/>
         <source>Add folder to black list</source>
         <translation>Ajouter un dossier à la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="335"/>
+        <location filename="../sync.cpp" line="341"/>
         <source>Remove folder from black list</source>
         <translation>Enlever un dossier de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="342"/>
+        <location filename="../sync.cpp" line="348"/>
         <source>&lt;b&gt;Extensions in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Extensions dans la liste noire&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="345"/>
+        <location filename="../sync.cpp" line="351"/>
         <source>List of extensions in the blacklist</source>
         <translation>Liste des extensions de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="351"/>
+        <location filename="../sync.cpp" line="357"/>
         <source>Add extension to black list</source>
         <translation>Ajouter une extension à la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="356"/>
+        <location filename="../sync.cpp" line="362"/>
         <source>Remove extension from black list</source>
         <translation>Enlever une extension de la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="365"/>
+        <location filename="../sync.cpp" line="371"/>
         <source>Back</source>
         <translation>Précédent</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="366"/>
+        <location filename="../sync.cpp" line="372"/>
         <source>Go back</source>
         <translation>Revenir</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="680"/>
-        <location filename="../sync.cpp" line="946"/>
-        <location filename="../sync.cpp" line="1474"/>
+        <location filename="../sync.cpp" line="686"/>
+        <location filename="../sync.cpp" line="954"/>
+        <location filename="../sync.cpp" line="1484"/>
         <source>File %1 restored</source>
         <translation>Fichier %1 restauré</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="862"/>
-        <location filename="../sync.cpp" line="917"/>
-        <location filename="../sync.cpp" line="954"/>
-        <location filename="../sync.cpp" line="964"/>
-        <location filename="../sync.cpp" line="996"/>
-        <location filename="../sync.cpp" line="1020"/>
+        <location filename="../sync.cpp" line="870"/>
+        <location filename="../sync.cpp" line="925"/>
+        <location filename="../sync.cpp" line="962"/>
+        <location filename="../sync.cpp" line="972"/>
+        <location filename="../sync.cpp" line="1004"/>
+        <location filename="../sync.cpp" line="1028"/>
         <source>Error removing file %1</source>
         <translation>Erreur en enlevant le fichier %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="867"/>
-        <location filename="../sync.cpp" line="884"/>
-        <location filename="../sync.cpp" line="1001"/>
+        <location filename="../sync.cpp" line="875"/>
+        <location filename="../sync.cpp" line="892"/>
+        <location filename="../sync.cpp" line="1009"/>
         <source>Folder %1 deleted</source>
         <translation>Dossier %1 supprimé</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="869"/>
-        <location filename="../sync.cpp" line="886"/>
-        <location filename="../sync.cpp" line="1003"/>
+        <location filename="../sync.cpp" line="877"/>
+        <location filename="../sync.cpp" line="894"/>
+        <location filename="../sync.cpp" line="1011"/>
         <source>Error removing directory %1</source>
         <translation>Erreur en enlevant le répertoire %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1269"/>
+        <location filename="../sync.cpp" line="1279"/>
         <source>%1 %2 files skipped</source>
         <translation>%1 %2 fichiers évités</translation>
     </message>
@@ -415,29 +415,29 @@
         <translation>Enlève le fichier %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="658"/>
-        <location filename="../sync.cpp" line="1452"/>
+        <location filename="../sync.cpp" line="664"/>
+        <location filename="../sync.cpp" line="1462"/>
         <source>Updating file %1</source>
         <translation>Mise à jour du fichier %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="685"/>
-        <location filename="../sync.cpp" line="753"/>
+        <location filename="../sync.cpp" line="691"/>
+        <location filename="../sync.cpp" line="761"/>
         <source>Searching for changes</source>
         <translation>Recherche des modifications</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="745"/>
+        <location filename="../sync.cpp" line="753"/>
         <source>Copying file %1</source>
         <translation>Copie du fichier %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="109"/>
+        <location filename="../tabs.cpp" line="123"/>
         <source>Synkron - Save tab</source>
         <translation>Synkron - Sauvegarde d&apos;onglet</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="111"/>
+        <location filename="../tabs.cpp" line="125"/>
         <source>Synkron Tabs (*.slist)</source>
         <translation>Onglets de Synkron (*.slist)</translation>
     </message>
@@ -458,7 +458,7 @@
     </message>
     <message>
         <location filename="../analyse.cpp" line="347"/>
-        <location filename="../syncdb.cpp" line="433"/>
+        <location filename="../syncdb.cpp" line="463"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -479,57 +479,57 @@
         <translation>Suppression de la base de données</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="362"/>
+        <location filename="../syncdb.cpp" line="392"/>
         <source>Collision found between files: %1 and %2</source>
         <translation>Collision trouvée en tre les fichiers : %1 et %2</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="405"/>
+        <location filename="../syncdb.cpp" line="435"/>
         <source>Collisions found</source>
         <translation>Collisions trouvées</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="409"/>
+        <location filename="../syncdb.cpp" line="439"/>
         <source>Collided files:</source>
         <translation>Fichiers en collision :</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="412"/>
+        <location filename="../syncdb.cpp" line="442"/>
         <source>Newer files</source>
         <translation>Nouveaux fichiers</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="412"/>
+        <location filename="../syncdb.cpp" line="442"/>
         <source>Older files</source>
         <translation>Anciens fichiers</translation>
     </message>
     <message>
-        <location filename="../syncdb.cpp" line="436"/>
+        <location filename="../syncdb.cpp" line="466"/>
         <source>Cancel</source>
         <translation>Abandonner</translation>
     </message>
     <message>
-        <location filename="../syncpage.h" line="186"/>
+        <location filename="../syncpage.h" line="193"/>
         <source>Stopping synchronisation, please wait...</source>
         <translation>Arrêt de la synchronisations, attendez s&apos;il vous plait...</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1325"/>
+        <location filename="../sync.cpp" line="1335"/>
         <source>to temp</source>
         <translation>vers répertoire temporaire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1328"/>
+        <location filename="../sync.cpp" line="1338"/>
         <source>Error copying file %1: %2</source>
         <translation>Erreur en copiant le fichier %1 : %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1334"/>
+        <location filename="../sync.cpp" line="1344"/>
         <source>Error creating folder %1</source>
         <translation>Erreur en créant le répertoire %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1340"/>
+        <location filename="../sync.cpp" line="1350"/>
         <source>Error removing file %1: %2</source>
         <translation>Erreur en enlevant le fichier %1 : %2</translation>
     </message>
@@ -537,12 +537,12 @@
 <context>
     <name>ClientConnection</name>
     <message>
-        <location filename="../main.cpp" line="298"/>
+        <location filename="../main.cpp" line="301"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - Renommage de fichier</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="298"/>
+        <location filename="../main.cpp" line="301"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Entrez un nouveau nom pour &quot;%1&quot; : </translation>
     </message>
@@ -680,12 +680,12 @@
         <location filename="../filters.cpp" line="31"/>
         <location filename="../filters.cpp" line="60"/>
         <location filename="../filters.cpp" line="115"/>
-        <location filename="../main.cpp" line="317"/>
-        <location filename="../main.cpp" line="333"/>
-        <location filename="../main.cpp" line="339"/>
-        <location filename="../main.cpp" line="439"/>
+        <location filename="../main.cpp" line="320"/>
+        <location filename="../main.cpp" line="336"/>
+        <location filename="../main.cpp" line="342"/>
+        <location filename="../main.cpp" line="442"/>
         <location filename="../main_window.ui" line="17"/>
-        <location filename="../multisync.cpp" line="261"/>
+        <location filename="../multisync.cpp" line="267"/>
         <location filename="../other.cpp" line="124"/>
         <location filename="../other.cpp" line="130"/>
         <location filename="../other.cpp" line="261"/>
@@ -699,7 +699,7 @@
         <location filename="../scheduler.cpp" line="49"/>
         <location filename="../scheduler.cpp" line="150"/>
         <location filename="../scheduler.cpp" line="556"/>
-        <location filename="../tabs.cpp" line="76"/>
+        <location filename="../tabs.cpp" line="90"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
@@ -838,42 +838,42 @@
         <translation>Synchroniser &amp;tous les onglets</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="320"/>
         <source>Failed to check for updates.</source>
         <translation>N&apos;a pas réussi à vérifier les mises à jour.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="320"/>
         <source>&amp;Try again</source>
         <translation>&amp;Ré-essayer</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="320"/>
         <source>Cancel</source>
         <translation>Abandonner</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="333"/>
+        <location filename="../main.cpp" line="336"/>
         <source>Your Synkron is up-to-date.</source>
         <translation>Votre Synkron est à jour.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="337"/>
+        <location filename="../main.cpp" line="340"/>
         <source>Synkron %1 is available now.</source>
         <translation>Synkron %1 est disponible.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="412"/>
+        <location filename="../main.cpp" line="415"/>
         <source>Change language - Synkron</source>
         <translation>Changer de langue - Synkron</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="416"/>
+        <location filename="../main.cpp" line="419"/>
         <source>Select your preferred language</source>
         <translation>Choisissez votre langue préférée</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="439"/>
+        <location filename="../main.cpp" line="442"/>
         <source>You need to restart Synkron for the changes to apply.</source>
         <translation>Vous devez redémarrer Synkron pour appliquer les changements.</translation>
     </message>
@@ -957,7 +957,7 @@
     </message>
     <message>
         <location filename="../main_window.ui" line="220"/>
-        <location filename="../main_window.ui" line="1480"/>
+        <location filename="../main_window.ui" line="1484"/>
         <source>Restore</source>
         <translation>Restaurer</translation>
     </message>
@@ -1181,167 +1181,182 @@
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1384"/>
-        <location filename="../main_window.ui" line="1387"/>
+        <location filename="../main_window.ui" line="1388"/>
+        <location filename="../main_window.ui" line="1391"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1399"/>
+        <location filename="../main_window.ui" line="1403"/>
         <source>About</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1402"/>
+        <location filename="../main_window.ui" line="1406"/>
         <source>View About</source>
         <translation>Voir A propos</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1411"/>
+        <location filename="../main_window.ui" line="1415"/>
         <source>Set synchronization folder 1</source>
         <translation>Définir le dossier 1 de synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1420"/>
+        <location filename="../main_window.ui" line="1424"/>
         <source>Set synchronization folder 2</source>
         <translation>Définir le dossier 2 de synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1429"/>
+        <location filename="../main_window.ui" line="1433"/>
         <source>New tab</source>
         <translation>Nouvel onglet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1432"/>
+        <location filename="../main_window.ui" line="1436"/>
         <source>Open new sync tab</source>
         <translation>Ouvrir un nouvel onglet de synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1444"/>
+        <location filename="../main_window.ui" line="1448"/>
         <source>Close tab</source>
         <translation>Fermer l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1447"/>
+        <location filename="../main_window.ui" line="1451"/>
         <source>Close current sync tab</source>
         <translation>Fermer l&apos;onglet de synchronisation actuel</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1465"/>
+        <location filename="../main_window.ui" line="1469"/>
         <source>Synchronise</source>
         <translation>Synchroniser</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1468"/>
+        <location filename="../main_window.ui" line="1472"/>
         <source>Go to Synchronise</source>
         <translation>Aller à la Synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1483"/>
+        <location filename="../main_window.ui" line="1487"/>
         <source>Go to Restore</source>
         <translation>Aller à la restauration</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1495"/>
+        <location filename="../main_window.ui" line="1499"/>
         <source>Blacklist</source>
         <translation>Liste noire</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1498"/>
+        <location filename="../main_window.ui" line="1502"/>
         <source>Go to Blacklist</source>
         <translation>Aller à la liste noire</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1506"/>
+        <location filename="../main_window.ui" line="1510"/>
         <source>Run hidden</source>
         <translation>Lancer caché</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1509"/>
+        <location filename="../main_window.ui" line="1513"/>
         <source>Start Synkron hidden</source>
         <translation>Démarrer Synkron caché</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1518"/>
-        <location filename="../main_window.ui" line="1521"/>
+        <location filename="../main_window.ui" line="1522"/>
+        <location filename="../main_window.ui" line="1525"/>
         <source>Sync all</source>
         <translation>Tout synchroniser</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1530"/>
-        <location filename="../main_window.ui" line="1533"/>
+        <location filename="../main_window.ui" line="1534"/>
+        <location filename="../main_window.ui" line="1537"/>
         <source>Check for updates</source>
         <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1545"/>
+        <location filename="../main_window.ui" line="1549"/>
         <source>Multisync</source>
         <translation>Multisynchroniser</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1548"/>
+        <location filename="../main_window.ui" line="1552"/>
         <source>Go to Multisync</source>
         <translation>Aller aux Multisynchronisations</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1560"/>
+        <location filename="../main_window.ui" line="1564"/>
         <source>Scheduler</source>
         <translation>Programmateur</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1563"/>
+        <location filename="../main_window.ui" line="1567"/>
         <source>Go to Scheduler</source>
         <translation>Aller au programmateur</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1572"/>
-        <location filename="../main_window.ui" line="1575"/>
+        <location filename="../main_window.ui" line="1576"/>
+        <location filename="../main_window.ui" line="1579"/>
         <source>Change language</source>
         <translation>Changer de langue</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1587"/>
+        <location filename="../main_window.ui" line="1591"/>
         <source>Filters</source>
         <translation>Filtres</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1590"/>
+        <location filename="../main_window.ui" line="1594"/>
         <source>Go to Filters</source>
         <translation>Aller aux filtres</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1598"/>
-        <location filename="../main_window.ui" line="1601"/>
+        <location filename="../main_window.ui" line="1602"/>
+        <location filename="../main_window.ui" line="1605"/>
         <source>Disable tray icon messages</source>
         <translation>Désactiver les messages de la barre d&apos;état</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="197"/>
+        <location filename="../main_window.ui" line="1703"/>
+        <source>Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main_window.ui" line="1712"/>
+        <source>Analyse</source>
+        <translation type="unfinished">Analyser</translation>
+    </message>
+    <message>
+        <location filename="../main_window.ui" line="1721"/>
+        <source>Advanced</source>
+        <translation type="unfinished">Avancé</translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="203"/>
         <source>Multisync #%1</source>
         <translation>Multisynchronisation n°%1</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="204"/>
+        <location filename="../multisync.cpp" line="210"/>
         <source>Source</source>
         <translation>Source</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="204"/>
+        <location filename="../multisync.cpp" line="210"/>
         <source>Destination</source>
         <translation>Destination</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="207"/>
+        <location filename="../multisync.cpp" line="213"/>
         <source>List of synchronised files and folders</source>
         <translation>Liste des fichiers et dossiers synchronisés</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="261"/>
+        <location filename="../multisync.cpp" line="267"/>
         <source>No source selected.</source>
         <translation>Pas de source sélectionnée.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="263"/>
+        <location filename="../multisync.cpp" line="269"/>
         <source>Are you sure you want to remove the selected source from the list?</source>
         <translation>Etes-vous sûr de vouloir enlever la source sélectionnée de la liste ?</translation>
     </message>
@@ -1396,12 +1411,12 @@
         <translation>Synchroniser périodiquement</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1281"/>
+        <location filename="../sync.cpp" line="1291"/>
         <source>Synchronisation complete</source>
         <translation>Synchronisation terminée</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1281"/>
+        <location filename="../sync.cpp" line="1291"/>
         <source>%1 files synchronised</source>
         <translation>%1 fichiers synchronisés</translation>
     </message>
@@ -1433,7 +1448,7 @@
         <translation>Journaux de synchronisation de Synkron</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1610"/>
+        <location filename="../main_window.ui" line="1614"/>
         <source>Save log</source>
         <translation>Enregistrer le journal</translation>
     </message>
@@ -1526,12 +1541,12 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="206"/>
+        <location filename="../main.cpp" line="209"/>
         <source>Synkron - Rename file</source>
         <translation>Synchron - Renommer un fichier</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="206"/>
+        <location filename="../main.cpp" line="209"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>Entrez un nouveau nom pour &quot;%1&quot; : </translation>
     </message>
@@ -1680,57 +1695,57 @@
         <translation>Liste des Multisynchronisations</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1390"/>
+        <location filename="../main_window.ui" line="1394"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1435"/>
+        <location filename="../main_window.ui" line="1439"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1450"/>
+        <location filename="../main_window.ui" line="1454"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1622"/>
+        <location filename="../main_window.ui" line="1626"/>
         <source>SyncView</source>
         <translation>Vue des synchronisations</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1625"/>
+        <location filename="../main_window.ui" line="1629"/>
         <source>Go to SyncView</source>
         <translation>Aller à la vue des synchronisations</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1633"/>
+        <location filename="../main_window.ui" line="1637"/>
         <source>Sync all at launch</source>
         <translation>Tout synchroniser au lancement</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1636"/>
+        <location filename="../main_window.ui" line="1640"/>
         <source>Sync all tabs at launch</source>
         <translation>Synchroniser tous les onglets au lancement</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1644"/>
+        <location filename="../main_window.ui" line="1648"/>
         <source>Shut down after synchronisation</source>
         <translation>Eteindre après synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1647"/>
+        <location filename="../main_window.ui" line="1651"/>
         <source>Shut down computer after synchronisation finishes</source>
         <translation>Eteindre l&apos;ordinateur après la fin de la synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1655"/>
+        <location filename="../main_window.ui" line="1659"/>
         <source>Quit Synkron after synchronisation</source>
         <translation>Quitter Synkron après synchronisation</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1658"/>
+        <location filename="../main_window.ui" line="1662"/>
         <source>Quit Synkron after synchronisation finishes</source>
         <translation>Quitter Synkron après la fin de la synchronisation</translation>
     </message>
@@ -1831,8 +1846,8 @@
         <translation>Pas de date de synchronisation sélectionnée.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="259"/>
-        <location filename="../settings.cpp" line="364"/>
+        <location filename="../settings.cpp" line="263"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Last synced on %1</source>
         <translation>Dernière synchronisation le %1</translation>
     </message>
@@ -1842,39 +1857,44 @@
         <translation>Onglet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1667"/>
+        <location filename="../main_window.ui" line="1671"/>
         <source>Save tab</source>
         <translation>Enregistrer l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1676"/>
+        <location filename="../main_window.ui" line="1680"/>
         <source>Load tab</source>
         <translation>Charger un onglet</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1685"/>
+        <location filename="../main_window.ui" line="1689"/>
         <source>Save tab as</source>
         <translation>Enregistrer l&apos;onglet sous</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="69"/>
+        <location filename="../tabs.cpp" line="37"/>
+        <source>Are you sure you want to close this tab?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabs.cpp" line="83"/>
         <source>Open File</source>
         <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="71"/>
+        <location filename="../tabs.cpp" line="85"/>
         <source>Synkron Tabs (*.slist)</source>
         <translation>Onglets de Synkron (*slist)</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="76"/>
+        <location filename="../tabs.cpp" line="90"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Impossible de lire le fichier %1 :
 %2.</translation>
     </message>
     <message>
-        <location filename="../main_window.ui" line="1690"/>
+        <location filename="../main_window.ui" line="1694"/>
         <source>Change temporary folder path</source>
         <translation>Changement du chemin de dossier temporaire</translation>
     </message>
@@ -2048,14 +2068,14 @@
         <translation>Synchroniser les fichiers et dossiers cachés</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="69"/>
-        <location filename="../multisync.cpp" line="70"/>
+        <location filename="../multisync.cpp" line="75"/>
+        <location filename="../multisync.cpp" line="76"/>
         <source>Do not synchronise subdirectories</source>
         <translation>Ne pas synchroniser les sous-répertoires</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="75"/>
-        <location filename="../multisync.cpp" line="76"/>
+        <location filename="../multisync.cpp" line="81"/>
+        <location filename="../multisync.cpp" line="82"/>
         <source>Ignore blacklist</source>
         <translation>Ignorer la liste noire</translation>
     </message>
@@ -2064,21 +2084,21 @@
         <translation type="obsolete">&lt;b&gt;Sources :&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="129"/>
-        <location filename="../multisync.cpp" line="152"/>
+        <location filename="../multisync.cpp" line="135"/>
+        <location filename="../multisync.cpp" line="158"/>
         <source>Do not backup updated files</source>
         <translation>Ne pas faire de backup des fichiers mis à jour</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="134"/>
-        <location filename="../multisync.cpp" line="157"/>
+        <location filename="../multisync.cpp" line="140"/>
+        <location filename="../multisync.cpp" line="163"/>
         <source>Update existing files only</source>
         <translation>Mettre à jour seulement les fichiers déjà existants</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="139"/>
-        <location filename="../multisync.cpp" line="141"/>
-        <location filename="../multisync.cpp" line="464"/>
+        <location filename="../multisync.cpp" line="145"/>
+        <location filename="../multisync.cpp" line="147"/>
+        <location filename="../multisync.cpp" line="470"/>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>Déplacer le contenu vers la destination, en laissant la source vide</translation>
     </message>
@@ -2087,140 +2107,146 @@
         <translation type="obsolete">&lt;b&gt;Destination :&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="298"/>
-        <location filename="../tabs.cpp" line="337"/>
+        <location filename="../multisync.cpp" line="304"/>
+        <location filename="../tabs.cpp" line="355"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="298"/>
+        <location filename="../multisync.cpp" line="304"/>
         <source>No sources selected.</source>
         <translation>Pas de sources sélectionnées.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="341"/>
+        <location filename="../multisync.cpp" line="347"/>
         <source>%1	Synchronisation failed: Error creating directory in %2</source>
         <translation>Synchronisation	%1 échouée : Erreur en créant le répertoire %2</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="394"/>
+        <location filename="../multisync.cpp" line="400"/>
         <source>%1	%2: %3 file(s) %4</source>
         <translation>%1	%2: %3 fichier(s) %4</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="394"/>
-        <location filename="../multisync.cpp" line="408"/>
+        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="414"/>
         <source>moved</source>
         <translation>déplacé</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="394"/>
-        <location filename="../multisync.cpp" line="408"/>
+        <location filename="../multisync.cpp" line="400"/>
+        <location filename="../multisync.cpp" line="414"/>
         <source>synchronised</source>
         <translation>synchronisé</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="408"/>
+        <location filename="../multisync.cpp" line="414"/>
         <source>Synchronisation complete</source>
         <translation>Synchronisation terminée</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="408"/>
+        <location filename="../multisync.cpp" line="414"/>
         <source>%1 file(s) %2</source>
         <translation>%1 fichier(s) %2</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="337"/>
+        <location filename="../tabs.cpp" line="355"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Impossible d&apos;écrire le fichier %1 :%2.</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="463"/>
+        <location filename="../multisync.cpp" line="469"/>
         <source>Move contents</source>
         <translation>Déplacer les contenus</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="466"/>
-        <location filename="../multisync.cpp" line="482"/>
+        <location filename="../multisync.cpp" line="472"/>
+        <location filename="../multisync.cpp" line="488"/>
         <source>Multisync</source>
         <translation>Multisynchronisation</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="467"/>
-        <location filename="../multisync.cpp" line="483"/>
+        <location filename="../multisync.cpp" line="473"/>
+        <location filename="../multisync.cpp" line="489"/>
         <source>Start multisync</source>
         <translation>Démarrer la multisynchronisation</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="328"/>
-        <location filename="../multisync.cpp" line="359"/>
+        <location filename="../multisync.cpp" line="334"/>
+        <location filename="../multisync.cpp" line="365"/>
         <source>%1	Synchronisation failed: Failed to create directory %2</source>
         <translation>Synchronisation	%1 échouée : Erreur en créant le répertoire %2</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="331"/>
-        <location filename="../multisync.cpp" line="362"/>
+        <location filename="../multisync.cpp" line="337"/>
+        <location filename="../multisync.cpp" line="368"/>
         <source>%1	Directory %2 created</source>
         <translation>%1	Répertoire %2 créé</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="101"/>
-        <location filename="../multisync.cpp" line="102"/>
+        <location filename="../multisync.cpp" line="107"/>
+        <location filename="../multisync.cpp" line="108"/>
         <source>Follow symbolic links</source>
         <translation>Suivre les liens symboliques</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="81"/>
-        <location filename="../multisync.cpp" line="82"/>
+        <location filename="../multisync.cpp" line="87"/>
+        <location filename="../multisync.cpp" line="88"/>
         <source>Propagate deletions</source>
         <translation>Propager les suppressions</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="172"/>
+        <location filename="../multisync.cpp" line="178"/>
         <source>Edit blacklist</source>
         <translation>Editer la liste noire</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="173"/>
+        <location filename="../multisync.cpp" line="179"/>
         <source>Edit blacklist for this tab</source>
         <translation>Editer la liste noire de cet onglet</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="131"/>
+        <location filename="../multisync.cpp" line="137"/>
         <source>Do not backup updated files from sources</source>
         <translation>Ne pas faire de backup des fichiers mis à jour à partir des sources</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="109"/>
+        <location filename="../multisync.cpp" line="69"/>
+        <location filename="../multisync.cpp" line="70"/>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../multisync.cpp" line="115"/>
         <source>Advanced options for the analysis</source>
         <translation>Options avancées pour analyses</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="136"/>
+        <location filename="../multisync.cpp" line="142"/>
         <source>Update existing files in sources only</source>
         <translation>Mettre à jour seulement les fichiers déjà existants dans les sources</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="154"/>
+        <location filename="../multisync.cpp" line="160"/>
         <source>Do not backup updated files from destination</source>
         <translation>Ne pas faire de backup des fichiers mis à jour dans la destination</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="159"/>
+        <location filename="../multisync.cpp" line="165"/>
         <source>Update existing files in destination only</source>
         <translation>Mettre à jour seulement les fichiers déjà existants dans la destination</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="162"/>
-        <location filename="../multisync.cpp" line="164"/>
-        <location filename="../multisync.cpp" line="479"/>
-        <location filename="../multisync.cpp" line="480"/>
+        <location filename="../multisync.cpp" line="168"/>
+        <location filename="../multisync.cpp" line="170"/>
+        <location filename="../multisync.cpp" line="485"/>
+        <location filename="../multisync.cpp" line="486"/>
         <source>Clone sources</source>
         <translation>Cloner les sources</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="291"/>
+        <location filename="../multisync.cpp" line="297"/>
         <source>%1    Synchronisation failed: Choose a destination first</source>
         <translation>Synchronisation    %1 échouée : Choissez d&apos;abord une destination</translation>
     </message>
@@ -2236,7 +2262,7 @@
     </message>
     <message>
         <location filename="../analyse.cpp" line="62"/>
-        <location filename="../multisync.cpp" line="148"/>
+        <location filename="../multisync.cpp" line="154"/>
         <source>Destination</source>
         <translation>Destination</translation>
     </message>
@@ -2251,65 +2277,65 @@
         <translation type="obsolete">&lt;b&gt;Analyse :&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="112"/>
-        <location filename="../multisync.cpp" line="114"/>
+        <location filename="../multisync.cpp" line="118"/>
+        <location filename="../multisync.cpp" line="120"/>
         <source>Fast analysis</source>
         <translation>Analyse rapide</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="117"/>
-        <location filename="../multisync.cpp" line="119"/>
+        <location filename="../multisync.cpp" line="123"/>
+        <location filename="../multisync.cpp" line="125"/>
         <source>List files which need to be synchronised only</source>
         <translation>Lister uniquement les fichiers qui ont besoin d&apos;être synchronisés</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="126"/>
+        <location filename="../multisync.cpp" line="132"/>
         <source>Advanced options for the sources</source>
         <translation>Options avancées pour les sources</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="149"/>
+        <location filename="../multisync.cpp" line="155"/>
         <source>Advanced options for the destination</source>
         <translation>Options avancées pour la destination</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="517"/>
-        <location filename="../multisync.cpp" line="559"/>
+        <location filename="../multisync.cpp" line="523"/>
+        <location filename="../multisync.cpp" line="565"/>
         <source>Variables</source>
         <translation>Variables</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="524"/>
+        <location filename="../multisync.cpp" line="530"/>
         <source>Variable name</source>
         <translation>Nom de la variable</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="525"/>
+        <location filename="../multisync.cpp" line="531"/>
         <source>Folder</source>
         <translation>Dossier</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="538"/>
+        <location filename="../multisync.cpp" line="544"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="543"/>
+        <location filename="../multisync.cpp" line="549"/>
         <source>Remove</source>
         <translation>Enlever</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="547"/>
+        <location filename="../multisync.cpp" line="553"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="564"/>
+        <location filename="../multisync.cpp" line="570"/>
         <source>Variable name:</source>
         <translation>Nom de la variable :</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="570"/>
+        <location filename="../multisync.cpp" line="576"/>
         <source>Folder:</source>
         <translation>Dossier :</translation>
     </message>
@@ -2319,38 +2345,38 @@
         <translation>Appuyez sur le bouton &quot;Multisynchroniser&quot; pour démarrer la synchronisation</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="381"/>
+        <location filename="../multisync.cpp" line="387"/>
         <source>Moving</source>
         <translation>Déplacement</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="384"/>
+        <location filename="../multisync.cpp" line="390"/>
         <source>Searching for changes</source>
         <translation>Recherche des modifications</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="396"/>
-        <location filename="../tabs.cpp" line="372"/>
+        <location filename="../multisync.cpp" line="402"/>
+        <location filename="../tabs.cpp" line="390"/>
         <source>Last synced on %1</source>
         <translation>Dernière synchronisation le %1</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="179"/>
+        <location filename="../multisync.cpp" line="185"/>
         <source>Change allowed time difference</source>
         <translation>Modifier la différence de temps autorisée</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="180"/>
+        <location filename="../multisync.cpp" line="186"/>
         <source>Change the allowed time difference between synchronised files</source>
         <translation>Modifier la différence de temps autorisée entre les fichiers synchronisés</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="89"/>
+        <location filename="../multisync.cpp" line="95"/>
         <source>Detect collisions</source>
         <translation>Détecter les collisions</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="90"/>
+        <location filename="../multisync.cpp" line="96"/>
         <source>Detect and alert collided files</source>
         <translation>Détecter et prévenir pour les fichiers en collision</translation>
     </message>
@@ -2359,12 +2385,12 @@
         <translation type="obsolete">&lt;b&gt;Autres : &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="320"/>
+        <location filename="../multisync.cpp" line="326"/>
         <source>%1	Synchronisation started</source>
         <translation>Synchronisation %1 démarée</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="402"/>
+        <location filename="../multisync.cpp" line="408"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>Fichier temporaire répété %1 effacé</translation>
     </message>
@@ -2380,12 +2406,12 @@
         <translation>%1 fichiers et dossiers ont besoin d&apos;être synchronisés</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="108"/>
+        <location filename="../multisync.cpp" line="114"/>
         <source>Analysis</source>
         <translation>Analyse</translation>
     </message>
     <message>
-        <location filename="../multisync.cpp" line="125"/>
+        <location filename="../multisync.cpp" line="131"/>
         <source>Sources</source>
         <translation></translation>
     </message>
@@ -2393,7 +2419,7 @@
 <context>
     <name>SyncFolder</name>
     <message>
-        <location filename="../syncfolders.cpp" line="194"/>
+        <location filename="../syncfolders.cpp" line="198"/>
         <source>Remove</source>
         <translation>Enlever</translation>
     </message>
@@ -2402,13 +2428,13 @@
         <translation type="obsolete">Emplacement</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="218"/>
-        <location filename="../syncfolders.cpp" line="219"/>
+        <location filename="../syncfolders.cpp" line="222"/>
+        <location filename="../syncfolders.cpp" line="223"/>
         <source>Browse</source>
         <translation>Parcourir</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="168"/>
+        <location filename="../syncfolders.cpp" line="172"/>
         <source>Do not modify the contents of this folder</source>
         <translation>Ne pas modifier le contenu de ce dossier</translation>
     </message>
@@ -2418,56 +2444,62 @@
         <translation>Configuration du dossier</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="170"/>
+        <location filename="../syncfolders.cpp" line="168"/>
+        <location filename="../syncfolders.cpp" line="169"/>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../syncfolders.cpp" line="174"/>
         <source>Do not make any changes to this folder</source>
         <translation>Ne faire aucune modification à ce dossier</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="172"/>
-        <location filename="../syncfolders.cpp" line="174"/>
+        <location filename="../syncfolders.cpp" line="176"/>
+        <location filename="../syncfolders.cpp" line="178"/>
         <source>Update existing files only</source>
         <translation>Mettre à jour seulement les fichiers déjà existants</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="176"/>
-        <location filename="../syncfolders.cpp" line="177"/>
+        <location filename="../syncfolders.cpp" line="180"/>
+        <location filename="../syncfolders.cpp" line="181"/>
         <source>Do not backup updated files</source>
         <translation>Ne pas faire de backup des fichiers mis à jour</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="181"/>
+        <location filename="../syncfolders.cpp" line="185"/>
         <source>Master</source>
         <translation>Maitre</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="182"/>
+        <location filename="../syncfolders.cpp" line="186"/>
         <source>Use this folder as master</source>
         <translation>Utiliser ce dossier comme Maitre</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="186"/>
+        <location filename="../syncfolders.cpp" line="190"/>
         <source>Slave</source>
         <translation>Esclave</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="187"/>
+        <location filename="../syncfolders.cpp" line="191"/>
         <source>Use this folder as slave</source>
         <translation>Utiliser ce dossier comme esclave</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="195"/>
+        <location filename="../syncfolders.cpp" line="199"/>
         <source>Remove this folder</source>
         <translation>supprimer ce dossier</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="206"/>
-        <location filename="../syncfolders.cpp" line="207"/>
+        <location filename="../syncfolders.cpp" line="210"/>
+        <location filename="../syncfolders.cpp" line="211"/>
         <source>Folder label</source>
         <translation>Etiquette du dossier</translation>
     </message>
     <message>
-        <location filename="../syncfolders.cpp" line="212"/>
-        <location filename="../syncfolders.cpp" line="213"/>
+        <location filename="../syncfolders.cpp" line="216"/>
+        <location filename="../syncfolders.cpp" line="217"/>
         <source>Folder path</source>
         <translation>Chemin du dossier</translation>
     </message>
@@ -2499,62 +2531,62 @@
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
-        <location filename="../sync.cpp" line="482"/>
+        <location filename="../sync.cpp" line="488"/>
         <source>%1	Synchronisation complete: %2 file(s) %3</source>
         <translation>Synchronisation	%1 terminée : %2 fichier(s) %3</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="482"/>
-        <location filename="../sync.cpp" line="484"/>
+        <location filename="../sync.cpp" line="488"/>
+        <location filename="../sync.cpp" line="490"/>
         <source>moved</source>
         <translation>déplacé</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="482"/>
-        <location filename="../sync.cpp" line="484"/>
+        <location filename="../sync.cpp" line="488"/>
+        <location filename="../sync.cpp" line="490"/>
         <source>synchronised</source>
         <translation>synchronisé</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="484"/>
+        <location filename="../sync.cpp" line="490"/>
         <source>Synchronisation complete</source>
         <translation>Synchronisation terminée</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="484"/>
+        <location filename="../sync.cpp" line="490"/>
         <source>%1 files %2</source>
         <translation>%1 fichiers %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1401"/>
+        <location filename="../sync.cpp" line="1411"/>
         <source>Move</source>
         <translation>Déplacer</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="197"/>
-        <location filename="../sync.cpp" line="199"/>
-        <location filename="../sync.cpp" line="1402"/>
+        <location filename="../sync.cpp" line="203"/>
+        <location filename="../sync.cpp" line="205"/>
+        <location filename="../sync.cpp" line="1412"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>Déplacer les contenus vers le dossier 2, en laissant vide le dossier 1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="148"/>
-        <location filename="../sync.cpp" line="1404"/>
+        <location filename="../sync.cpp" line="1414"/>
         <source>Sync</source>
         <translation>Synchronisation</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="149"/>
-        <location filename="../sync.cpp" line="1405"/>
+        <location filename="../sync.cpp" line="1415"/>
         <source>Synchronise</source>
         <translation>Synchroniser</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="409"/>
+        <location filename="../sync.cpp" line="415"/>
         <source>%1	Directory %2 created</source>
         <translation>%1	Répertoire %2 créé</translation>
     </message>
@@ -2673,54 +2705,54 @@
         <translation>Synchroniser les fichiers et dossiers cachés</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="206"/>
-        <location filename="../sync.cpp" line="207"/>
+        <location filename="../sync.cpp" line="212"/>
+        <location filename="../sync.cpp" line="213"/>
         <source>Propagate deletions</source>
         <translation>Propager les suppressions</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="176"/>
-        <location filename="../sync.cpp" line="177"/>
+        <location filename="../sync.cpp" line="182"/>
+        <location filename="../sync.cpp" line="183"/>
         <source>Do not synchronise subdirectories</source>
         <translation>Ne pas synchroniser les sous-répertoires</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="192"/>
-        <location filename="../sync.cpp" line="193"/>
+        <location filename="../sync.cpp" line="198"/>
+        <location filename="../sync.cpp" line="199"/>
         <source>Ignore blacklist</source>
         <translation>Ignorer la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="279"/>
+        <location filename="../sync.cpp" line="285"/>
         <source>Edit blacklist</source>
         <translation>Editer la liste noire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="280"/>
+        <location filename="../sync.cpp" line="286"/>
         <source>Edit blacklist for this tab</source>
         <translation>Editer la liste noire de cet onglet</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="180"/>
-        <location filename="../sync.cpp" line="181"/>
+        <location filename="../sync.cpp" line="186"/>
+        <location filename="../sync.cpp" line="187"/>
         <source>Do not backup updated files</source>
         <translation>Ne pas faire de backup des fichiers mis à jour</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="185"/>
-        <location filename="../sync.cpp" line="186"/>
+        <location filename="../sync.cpp" line="191"/>
+        <location filename="../sync.cpp" line="192"/>
         <source>Update existing files only</source>
         <translation>Mettre à jour seulement les fichiers déjà existants</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="234"/>
-        <location filename="../sync.cpp" line="235"/>
+        <location filename="../sync.cpp" line="240"/>
+        <location filename="../sync.cpp" line="241"/>
         <source>Follow symbolic links</source>
         <translation>Suivre les liens symboliques</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="263"/>
-        <location filename="../sync.cpp" line="264"/>
+        <location filename="../sync.cpp" line="269"/>
+        <location filename="../sync.cpp" line="270"/>
         <source>Filters</source>
         <translation>Filtres</translation>
     </message>
@@ -2753,60 +2785,60 @@
         <translation type="obsolete">Cloner le dossier 1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="241"/>
+        <location filename="../sync.cpp" line="247"/>
         <source>Analysis</source>
         <translation>Analyse</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="242"/>
+        <location filename="../sync.cpp" line="248"/>
         <source>Advanced options for the analysis</source>
         <translation>Options avancées pour analyses</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="245"/>
-        <location filename="../sync.cpp" line="247"/>
+        <location filename="../sync.cpp" line="251"/>
+        <location filename="../sync.cpp" line="253"/>
         <source>Fast analysis</source>
         <translation>Analyse rapide</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="250"/>
-        <location filename="../sync.cpp" line="252"/>
+        <location filename="../sync.cpp" line="256"/>
+        <location filename="../sync.cpp" line="258"/>
         <source>List files which need to be synchronised only</source>
         <translation>Lister uniquement les fichiers qui ont besoin d&apos;être synchronisés</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="265"/>
+        <location filename="../sync.cpp" line="271"/>
         <source>Choose filters to be used</source>
         <translation>Choisir les filtres à utiliser</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="407"/>
+        <location filename="../sync.cpp" line="413"/>
         <source>%1	Failed to create directory %2</source>
         <translation>%1 n&apos;a pas réussi à créer le répertoire %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="417"/>
+        <location filename="../sync.cpp" line="423"/>
         <source>%1	Synchronisation failed: Not enough valid directories specified</source>
         <translation>Synchronisation	%1 échouée : Pas de répertoire valide spécifié</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="453"/>
+        <location filename="../sync.cpp" line="459"/>
         <source>%1	Synchronisation failed: Directories with the same path selected</source>
         <translation>Synchronisation	%1 échouée : Répertoires ayant le même emplacement sélectionnés</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1079"/>
-        <location filename="../sync.cpp" line="1095"/>
+        <location filename="../sync.cpp" line="1087"/>
+        <location filename="../sync.cpp" line="1103"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>Un fichier et un dossier ayant le même nom (%1) ont été trouvés. Incapable de synchroniser ces fichiers.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1086"/>
+        <location filename="../sync.cpp" line="1094"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>Dossier %1 sur liste noire, évité</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1102"/>
+        <location filename="../sync.cpp" line="1110"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>Fichier %1 sur liste noire, évité</translation>
     </message>
@@ -2827,7 +2859,7 @@
         <translation type="obsolete"> vers répertoire temporaire</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1245"/>
+        <location filename="../sync.cpp" line="1255"/>
         <source>File %1 restored</source>
         <translation>Fichier %1 restauré</translation>
     </message>
@@ -2841,78 +2873,84 @@
         <translation>Appuyez sur le bouton &quot;Synchronisation&quot; pour démarrer la synchronisation</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="223"/>
-        <location filename="../sync.cpp" line="224"/>
+        <location filename="../sync.cpp" line="176"/>
+        <location filename="../sync.cpp" line="177"/>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="229"/>
+        <location filename="../sync.cpp" line="230"/>
         <source>Store database in a text file</source>
         <translation>Enregistrer la base de donnée dans un fichier texte</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="458"/>
+        <location filename="../sync.cpp" line="464"/>
         <source>Moving</source>
         <translation>Déplacement</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="461"/>
-        <location filename="../sync.cpp" line="466"/>
-        <location filename="../sync.cpp" line="1210"/>
-        <location filename="../sync.cpp" line="1252"/>
+        <location filename="../sync.cpp" line="467"/>
+        <location filename="../sync.cpp" line="472"/>
+        <location filename="../sync.cpp" line="1220"/>
+        <location filename="../sync.cpp" line="1262"/>
         <source>Searching for changes</source>
         <translation>Recherche des modifications</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="486"/>
-        <location filename="../tabs.cpp" line="264"/>
+        <location filename="../sync.cpp" line="492"/>
+        <location filename="../tabs.cpp" line="282"/>
         <source>Last synced on %1</source>
         <translation>Dernière synchronisation le %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1201"/>
+        <location filename="../sync.cpp" line="1211"/>
         <source>Copying file %1</source>
         <translation>Copie du fichier %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1224"/>
+        <location filename="../sync.cpp" line="1234"/>
         <source>Updating file %1</source>
         <translation>Mise à jour du fichier %1</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="227"/>
+        <location filename="../tabs.cpp" line="244"/>
         <source>Synkron</source>
         <translation>Synkron</translation>
     </message>
     <message>
-        <location filename="../tabs.cpp" line="227"/>
+        <location filename="../tabs.cpp" line="244"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Impossible d&apos;écrire le fichier %1 :%2.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="286"/>
+        <location filename="../sync.cpp" line="292"/>
         <source>Change allowed time difference</source>
         <translation>Modifier la différence de temps autorisée</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="287"/>
+        <location filename="../sync.cpp" line="293"/>
         <source>Change the allowed time difference between synchronised files</source>
         <translation>Modifier la différence de temps autorisée entre les fichiers synchronisés</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="214"/>
+        <location filename="../sync.cpp" line="220"/>
         <source>Detect collisions</source>
         <translation>Détecter les collisions</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="215"/>
+        <location filename="../sync.cpp" line="221"/>
         <source>Detect and alert collided files</source>
         <translation>Détecter et prévenir pour les fichiers en collision</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="449"/>
+        <location filename="../sync.cpp" line="455"/>
         <source>%1	Synchronisation started</source>
         <translation>Synchronisation %1 démarée</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="475"/>
+        <location filename="../sync.cpp" line="481"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>Fichier temporaire répété %1 effacé</translation>
     </message>
@@ -2968,8 +3006,8 @@
         <translation>De %1 à %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="255"/>
-        <location filename="../sync.cpp" line="257"/>
+        <location filename="../sync.cpp" line="261"/>
+        <location filename="../sync.cpp" line="263"/>
         <source>Sort by action</source>
         <translation>Trier par type d&apos;action</translation>
     </message>

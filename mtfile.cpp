@@ -31,19 +31,20 @@ MTFile::MTFile(QString s, QObject * o):
 QFile(s, o)
 {}
 
+bool MTFile::copy(QString dest)
+{
+    QFileInfo dest_fi(dest);
+    if (!dest_fi.dir().exists()) {
+        QDir().mkpath(dest_fi.dir().absolutePath());
+    }
 #ifndef USE_UNIX_TOUCH_COMMAND
 #ifndef Q_WS_MAC
 
-bool MTFile::copy(QString dest)
-{
     return this->QFile::copy(dest);
-}
 
 #endif
 #else
 
-bool MTFile::copy(QString dest)
-{
 	bool ok = false;
 	if (QFile::symLinkTarget(fileName()).isEmpty()) { ok = this->QFile::copy(dest); }
 	else {
@@ -55,12 +56,12 @@ bool MTFile::copy(QString dest)
 		QStringList arguments; QProcess touch;
 		arguments << "-cf" << "-r" << fileName() << dest;
 		if (touch.execute("touch", arguments) != 0) { return false; }
-		return QFileInfo(fileName()).lastModified() == QFileInfo(dest).lastModified();
+        return QFileInfo(fileName()).lastModified() == dest_fi.lastModified();
 	} else { return false; }
 	return false;
-}
 
 #endif
+}
 
 bool MTFile::touch(QApplication *
 #ifdef Q_WS_WIN

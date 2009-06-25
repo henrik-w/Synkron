@@ -171,6 +171,12 @@ void SyncPage::setSyncWidget()
     sync_hidden->setText(tr("Synchronise hidden files and folders"));
     advanced_menu->addAction(sync_hidden);
 
+    no_empty_folders = new QAction (tab);
+    no_empty_folders->setCheckable(true);
+    no_empty_folders->setStatusTip(tr("Do not create empty folders"));
+    no_empty_folders->setText(tr("Do not create empty folders"));
+    advanced_menu->addAction(no_empty_folders);
+
     sync_nosubdirs = new QAction (tab);
     sync_nosubdirs->setCheckable(true);
     sync_nosubdirs->setStatusTip(tr("Do not synchronise subdirectories"));
@@ -730,13 +736,15 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             file = new MTFile (d1_entries.at(i).absoluteFilePath());
             if (d1_entries.at(i).isDir()) {
                 if (!d1_entries.at(i).isSymLink() || (d1_entries.at(i).isSymLink() && followSymlinks())) {
+                    if (createEmptyFolders(d1_is_d1 ? 1 : 0)) {
                         if (!(d2.mkdir(d1_entries.at(i).fileName()))) {
                             errorCopyingFolder(d1_entries.at(i).absoluteFilePath());
                             delete file; continue;
-                	}
+                        }
+                        addTableItem(d1_entries.at(i).absoluteFilePath(), d2_file_path, QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
+                    }
                 	QDir subDir1 (d1_entries.at(i).isSymLink() ? d1_entries.at(i).symLinkTarget() : d1_entries.at(i).absoluteFilePath());
                 	QDir subDir2 (QString("%1/%2").arg(d2.absolutePath()).arg(d1_entries.at(i).fileName()));
-                	addTableItem(d1_entries.at(i).absoluteFilePath(), d2_file_path, QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
 					subSync(subDir1, subDir2, true);
 				} else if (d1_entries.at(i).isSymLink() && !followSymlinks()) symfound = true;
 			}
@@ -1152,7 +1160,9 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                         }
                         //Creating folder --------------------------------------
                         if (!updateOnly(sync_folders_set2.value(n)) && !sync_folders->at(sync_folders_set2.value(n))->dont_update_act->isChecked()) {
-                            if (QDir().mkpath(file_info2->absoluteFilePath())) {
+                            if (!createEmptyFolders(sync_folders_set2.value(n))) {
+                                sync_folders_set3.setValue(file_info2->absoluteFilePath(), sync_folders_set2.value(n));
+                            } else if (QDir().mkpath(file_info2->absoluteFilePath())) {
                                 addTableItem(file_info->absoluteFilePath(), file_info2->absoluteFilePath(), QString::fromUtf8(":/new/prefix1/images/folder_16.png"));
                                 sync_folders_set3.setValue(file_info2->absoluteFilePath(), sync_folders_set2.value(n));
                                 synced_files++;

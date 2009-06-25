@@ -32,16 +32,30 @@ void MainWindow::addTab()
 
 void MainWindow::closeTab()
 {
-    if (mainStackedWidget->currentIndex()==0) {
-    if (tabWidget->count() == 0) return;
-        tabs.value(tabWidget->currentWidget())->deleteAllFolderDatabases();
-        //tabs.value(tabWidget->currentWidget())->advanced->setChecked(false);
-        tabs.remove(tabWidget->currentWidget());
-        tabWidget->removeTab(tabWidget->currentIndex());
-    } else if (mainStackedWidget->currentIndex()==3) {
-        if (multi_tabWidget->count() == 0) return;
-        ((MultisyncPage *) multi_tabWidget->currentWidget())->deleteAllFolderDatabases();
-        multi_tabWidget->removeTab(multi_tabWidget->currentIndex());
+    int stack_index = mainStackedWidget->currentIndex();
+    if (stack_index != 0 && stack_index != 3) return;
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to close this tab?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    QMapIterator<QWidget *, SyncPage *> i(tabs);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        if (stack_index == 0) {
+            if (tabWidget->count() == 0) return;
+            tabs.value(tabWidget->currentWidget())->deleteAllFolderDatabases();
+            //tabs.value(tabWidget->currentWidget())->advanced->setChecked(false);
+            tabs.remove(tabWidget->currentWidget());
+            tabWidget->removeTab(tabWidget->currentIndex());
+        } else if (stack_index == 3) {
+            if (multi_tabWidget->count() == 0) return;
+            ((MultisyncPage *) multi_tabWidget->currentWidget())->deleteAllFolderDatabases();
+            multi_tabWidget->removeTab(multi_tabWidget->currentIndex());
+        }
+        break;
+    case QMessageBox::No:
+        break;
+    default:
+        break;
     }
 }
 
@@ -133,6 +147,7 @@ void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
     el_adv_global.setAttribute("sync_nosubdirs", sync_nosubdirs->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("ignore_blacklist", ignore_blacklist->isChecked() ? QString("1") : QString("0"));
     el_adv_global.setAttribute("symlinks", symlinks->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("no_empty_folders", no_empty_folders->isChecked() ? QString("1") : QString("0"));
     el_advanced.appendChild(el_adv_global);
     QDomElement el_adv_analysis = domdoc.createElement("analysis");
     el_adv_analysis.setAttribute("fast_analyse", fast_analyse->isChecked() ? QString("1") : QString("0"));
@@ -159,6 +174,7 @@ void AbstractSyncPage::sharedLoad(QDomElement & el_sync)
     alert_collisions->setChecked(el_adv_global.attribute("alert_collisions").toInt());
     sync_nosubdirs->setChecked(el_adv_global.attribute("sync_nosubdirs").toInt());
     ignore_blacklist->setChecked(el_adv_global.attribute("ignore_blacklist").toInt());
+    no_empty_folders->setChecked(el_adv_global.attribute("no_empty_folders").toInt());
 #ifndef Q_WS_WIN
     symlinks->setChecked(el_adv_global.attribute("symlinks").toInt());
 #endif
@@ -194,6 +210,7 @@ void SyncPage::saveAs(QString file_name)
         el_folder_adv.setAttribute("dont_update", sync_folders->at(i)->dont_update_act->isChecked() ? QString("1") : QString("0"));
         el_folder_adv.setAttribute("backup_folder", sync_folders->at(i)->backup_folder_act->isChecked() ? QString("1") : QString("0"));
         el_folder_adv.setAttribute("slave", sync_folders->at(i)->slave_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("no_empty_folders", sync_folders->at(i)->no_empty_folders_act->isChecked() ? QString("1") : QString("0"));
         el_folder.appendChild(el_folder_adv);
         el_folders.appendChild(el_folder);
     }
@@ -252,6 +269,7 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
             folder->dont_update_act->setChecked(el_folder_adv.attribute("dont_update") == "1");
             folder->backup_folder_act->setChecked(el_folder_adv.attribute("backup_folder") == "1");
             folder->slave_act->setChecked(el_folder_adv.attribute("slave") == "1");
+            folder->no_empty_folders_act->setChecked(el_folder_adv.attribute("no_empty_folders") == "1");
         }
     }
     sync_folders->addToFolders(2);

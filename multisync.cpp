@@ -63,6 +63,12 @@ void MultisyncPage::setAdvancedGB()
     sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
     sync_hidden->setText(tr("Synchronise hidden files and folders"));
     advanced_menu->addAction(sync_hidden);
+    
+    no_empty_folders = new QAction (advanced_menu);
+    no_empty_folders->setCheckable(true);
+    no_empty_folders->setStatusTip(tr("Do not create empty folders"));
+    no_empty_folders->setText(tr("Do not create empty folders"));
+    advanced_menu->addAction(no_empty_folders);
 
     sync_nosubdirs = new QAction (advanced_menu);
     sync_nosubdirs->setCheckable(true);

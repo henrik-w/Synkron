@@ -165,6 +165,10 @@ SyncFolder::SyncFolder(QWidget * parent):
     config_btn->setMaximumHeight(22);
 #endif
     config_menu = new QMenu;
+    no_empty_folders_act = new QAction(tr("Do not create empty folders"), this);
+    no_empty_folders_act->setStatusTip(tr("Do not create empty folders"));
+    no_empty_folders_act->setCheckable(true);
+    config_menu->addAction(no_empty_folders_act);
     dont_update_act = new QAction(tr("Do not modify the contents of this folder"), this);
     dont_update_act->setCheckable(true);
     dont_update_act->setStatusTip(tr("Do not make any changes to this folder"));

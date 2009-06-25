@@ -42,6 +42,7 @@ void MainWindow::saveSettings()
             sync_settings->setValue(QString("tab_%1_%2/folder_%3/dont_update").arg(tabWidget->tabText(i)).arg(i).arg(path), page->sync_folders->at(n)->dont_update_act->isChecked() ? "checked" : "unchecked");
             sync_settings->setValue(QString("tab_%1_%2/folder_%3/update_only").arg(tabWidget->tabText(i)).arg(i).arg(path), page->sync_folders->at(n)->update_only_act->isChecked() ? "checked" : "unchecked");
             sync_settings->setValue(QString("tab_%1_%2/folder_%3/backup_folder").arg(tabWidget->tabText(i)).arg(i).arg(path), page->sync_folders->at(n)->backup_folder_act->isChecked() ? "checked" : "unchecked");
+            sync_settings->setValue(QString("tab_%1_%2/folder_%3/no_empty_folders").arg(tabWidget->tabText(i)).arg(i).arg(path), page->sync_folders->at(n)->no_empty_folders_act->isChecked() ? "checked" : "unchecked");
             sync_settings->setValue(QString("tab_%1_%2/folder_%3/slave").arg(tabWidget->tabText(i)).arg(i).arg(path), page->sync_folders->at(n)->slave_act->isChecked() ? "checked" : "unchecked");
         }
         sync_settings->setValue(QString("tab_%1_%2/folders").arg(tabWidget->tabText(i)).arg(i), paths_list);
@@ -60,6 +61,7 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("tab_%1_%2/sort_analysis_by_action").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->sort_analysis_by_action->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/alert_collisions").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->alert_collisions->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/text_database").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->text_database_action->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("tab_%1_%2/no_empty_folders").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->no_empty_folders->isChecked() ? "checked" : "unchecked");
 #ifndef Q_WS_WIN
         sync_settings->setValue(QString("tab_%1_%2/symlinks").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->symlinks->isChecked() ? "checked" : "unchecked");
 #endif
@@ -111,6 +113,7 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("multitab_%1_%2/fast_analyse").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->fast_analyse->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/analyse_special_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->analyse_special_only->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/alert_collisions").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->alert_collisions->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("multitab_%1_%2/no_empty_folders").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->no_empty_folders->isChecked() ? "checked" : "unchecked");
 #ifndef Q_WS_WIN
         sync_settings->setValue(QString("multitab_%1_%2/symlinks").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->symlinks->isChecked() ? "checked" : "unchecked");
 #endif
@@ -252,6 +255,7 @@ void MainWindow::readSettings()
             folder->dont_update_act->setChecked(sync_settings->value(QString("tab_%1_%2/folder_%3/dont_update").arg(tabs_list.at(i)).arg(i).arg(folders.at(n))).toString() == "checked");
             folder->update_only_act->setChecked(sync_settings->value(QString("tab_%1_%2/folder_%3/update_only").arg(tabs_list.at(i)).arg(i).arg(folders.at(n))).toString() == "checked");
             folder->backup_folder_act->setChecked(sync_settings->value(QString("tab_%1_%2/folder_%3/backup_folder").arg(tabs_list.at(i)).arg(i).arg(folders.at(n))).toString() == "checked");
+            folder->no_empty_folders_act->setChecked(sync_settings->value(QString("tab_%1_%2/folder_%3/no_empty_folders").arg(tabs_list.at(i)).arg(i).arg(folders.at(n))).toString() == "checked");
             folder->slave_act->setChecked(sync_settings->value(QString("tab_%1_%2/folder_%3/slave").arg(tabs_list.at(i)).arg(i).arg(folders.at(n))).toString() == "checked");
         }
         page->syncFoldersEdited();
@@ -280,6 +284,7 @@ void MainWindow::readSettings()
         page->backup_folders->setChecked(sync_settings->value(QString("tab_%1_%2/backup_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         page->update_only->setChecked(sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         page->text_database_action->setChecked(sync_settings->value(QString("tab_%1_%2/text_database").arg(tabs_list.at(i)).arg(i), "checked").toString()=="checked");
+        page->no_empty_folders->setChecked(sync_settings->value(QString("tab_%1_%2/no_empty_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         if (sync_settings->value(QString("tab_%1_%2/periodical").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
             SyncSchedule * sync_sched = addSchedule(tabs_list.at(i));
             sync_sched->periodical_interval = sync_settings->value(QString("tab_%1_%2/sync_interval").arg(tabs_list.at(i)).arg(i), 1).toInt();
@@ -377,6 +382,7 @@ void MainWindow::readSettings()
         multi_page->fast_analyse->setChecked(sync_settings->value(QString("multitab_%1_%2/fast_analyse").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         multi_page->analyse_special_only->setChecked(sync_settings->value(QString("multitab_%1_%2/analyse_special_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         multi_page->alert_collisions->setChecked(sync_settings->value(QString("multitab_%1_%2/alert_collisions").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+        multi_page->no_empty_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/no_empty_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         //multi_page->backup_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/backup_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         //multi_page->update_only->setChecked(sync_settings->value(QString("multitab_%1_%2/update_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 #ifndef Q_WS_WIN
