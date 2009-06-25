@@ -471,12 +471,12 @@
     <message>
         <location filename="../syncdb.cpp" line="26"/>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Création de la base de données</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="158"/>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression de la base de données</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="362"/>
@@ -516,22 +516,22 @@
     <message>
         <location filename="../sync.cpp" line="1325"/>
         <source>to temp</source>
-        <translation type="unfinished"></translation>
+        <translation>vers répertoire temporaire</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1328"/>
         <source>Error copying file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur en copiant le fichier %1 : %2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1334"/>
         <source>Error creating folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur en créant le répertoire %1</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="1340"/>
         <source>Error removing file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur en enlevant le fichier %1 : %2</translation>
     </message>
 </context>
 <context>
@@ -611,7 +611,7 @@
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Finlandais</translation>
     </message>
 </context>
 <context>
@@ -1891,7 +1891,7 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Show icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Montrer uniquement des icones</translation>
     </message>
 </context>
 <context>
@@ -1939,7 +1939,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Modification des variables contenant les chemins d&apos;origine</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="184"/>
@@ -1964,7 +1964,7 @@
     <message>
         <location filename="../multisync_page.ui" line="221"/>
         <source>Search sync log</source>
-        <translation type="unfinished">Chercher dans les journaux de synchronisation</translation>
+        <translation>Chercher dans les journaux de synchronisation</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="224"/>
@@ -2031,12 +2031,12 @@
     <message>
         <location filename="../multisync_page.ui" line="339"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les options de configuration avancées</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="342"/>
         <source>Advanced</source>
-        <translation type="unfinished">Avancé</translation>
+        <translation>Avancé</translation>
     </message>
 </context>
 <context>
@@ -2194,7 +2194,7 @@
     <message>
         <location filename="../multisync.cpp" line="109"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Options avancées pour analyses</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="136"/>
@@ -2265,12 +2265,12 @@
     <message>
         <location filename="../multisync.cpp" line="126"/>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Options avancées pour les sources</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="149"/>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Options avancées pour la destination</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="517"/>
@@ -2382,12 +2382,12 @@
     <message>
         <location filename="../multisync.cpp" line="108"/>
         <source>Analysis</source>
-        <translation type="unfinished">Analyse</translation>
+        <translation>Analyse</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="125"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2410,66 +2410,66 @@
     <message>
         <location filename="../syncfolders.cpp" line="168"/>
         <source>Do not modify the contents of this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas modifier le contenu de ce dossier</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="157"/>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration du dossier</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="170"/>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne faire aucune modification à ce dossier</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="172"/>
         <location filename="../syncfolders.cpp" line="174"/>
         <source>Update existing files only</source>
-        <translation type="unfinished">Mettre à jour seulement les fichiers déjà existants</translation>
+        <translation>Mettre à jour seulement les fichiers déjà existants</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="176"/>
         <location filename="../syncfolders.cpp" line="177"/>
         <source>Do not backup updated files</source>
-        <translation type="unfinished">Ne pas faire de backup des fichiers mis à jour</translation>
+        <translation>Ne pas faire de backup des fichiers mis à jour</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="181"/>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translation>Maitre</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="182"/>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser ce dossier comme Maitre</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="186"/>
         <source>Slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Esclave</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="187"/>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser ce dossier comme esclave</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="195"/>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>supprimer ce dossier</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="206"/>
         <location filename="../syncfolders.cpp" line="207"/>
         <source>Folder label</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquette du dossier</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="212"/>
         <location filename="../syncfolders.cpp" line="213"/>
         <source>Folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin du dossier</translation>
     </message>
 </context>
 <context>
@@ -2485,17 +2485,17 @@
     <message>
         <location filename="../analyse.cpp" line="433"/>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>Il n&apos;y a rien à faire</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="436"/>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers évités (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="438"/>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Dossiers évités (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
@@ -2644,7 +2644,7 @@
     <message>
         <location filename="../sync.cpp" line="137"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les options de configuration avancées</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="142"/>
@@ -2760,7 +2760,7 @@
     <message>
         <location filename="../sync.cpp" line="242"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Options avancées pour analyses</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="245"/>
@@ -2777,7 +2777,7 @@
     <message>
         <location filename="../sync.cpp" line="265"/>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir les filtres à utiliser</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="407"/>
@@ -2844,7 +2844,7 @@
         <location filename="../sync.cpp" line="223"/>
         <location filename="../sync.cpp" line="224"/>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer la base de donnée dans un fichier texte</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="458"/>
@@ -2930,48 +2930,48 @@
         <location filename="../sync.cpp" line="136"/>
         <location filename="../sync.cpp" line="165"/>
         <source>Advanced</source>
-        <translation type="unfinished">Avancé</translation>
+        <translation>Avancé</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="421"/>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers à copier (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="423"/>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers à mettre à jour (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="425"/>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers en collision (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="427"/>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers à supprimer (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="429"/>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Dossiers à créer (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="431"/>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Dossiers à supprimer (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="477"/>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>De %1 à %2</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="255"/>
         <location filename="../sync.cpp" line="257"/>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Trier par type d&apos;action</translation>
     </message>
 </context>
 <context>
