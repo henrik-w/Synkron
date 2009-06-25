@@ -22,6 +22,7 @@
 
 #include <QFile>
 #include <QFileInfo>
+#include <QDir>
 #include <QString>
 #include <QStringList>
 #include <QByteArray>

@@ -1105,7 +1105,7 @@
     </message>
     <message>
         <source>Multisync</source>
-        <translation type="unfinished">Multisinc</translation>
+        <translation>Multisinc</translation>
     </message>
     <message>
         <source>Go to Multisync</source>
@@ -1440,6 +1440,22 @@
     <message>
         <source>Show icons only</source>
         <translation>Mostrar sólo los íconos</translation>
+    </message>
+    <message>
+        <source>Sync</source>
+        <translation type="unfinished">Sincronizar</translation>
+    </message>
+    <message>
+        <source>Analyse</source>
+        <translation type="unfinished">Analizar</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Avanzado</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to close this tab?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1844,6 +1860,10 @@
         <source>Advanced options for the destination</source>
         <translation>Opciones avanzadas para el destino</translation>
     </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -1906,6 +1926,10 @@
     <message>
         <source>Remove this folder</source>
         <translation>Eliminar esta carpeta</translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2318,6 +2342,10 @@
     <message>
         <source>Choose filters to be used</source>
         <translation>Elija los filtros a utilizar</translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

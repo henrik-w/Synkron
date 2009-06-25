@@ -100,6 +100,7 @@ public:
     virtual void setBackupFolder(int, bool) = 0;
     virtual bool dontModify(int) { return false; }
     virtual bool sortAnalysis() { return false; }
+    virtual bool createEmptyFolders(int) = 0;
 
     void subSync(QDir&, QDir&, bool);
     bool subAnalyse(const MTStringSet &, QTreeWidgetItem */*, int i = 5*/);
@@ -149,6 +150,7 @@ public:
     QAction * fast_analyse;
     QAction * analyse_special_only;
     QAction * alert_collisions;
+    QAction * no_empty_folders;
     QListWidget * blacklist_fileslist;
     QListWidget * blacklist_folderslist;
     QListWidget * blacklist_extslist;
@@ -289,6 +291,10 @@ public:
     void setUpdateOnly(int i, bool check) { sync_folders->at(i)->update_only_act->setChecked(check); }
     void setBackupFolder(int i, bool check) { sync_folders->at(i)->backup_folder_act->setChecked(check); }
     bool dontModify(int i) { return sync_folders->at(i)->dont_update_act->isChecked(); }
+    bool createEmptyFolders(int i) {
+        if (no_empty_folders->isChecked()) { return false; }
+        return !sync_folders->at(i)->no_empty_folders_act->isChecked();
+    }
     bool sortAnalysis() { return sort_analysis_by_action->isChecked(); }
 
     QWidget * tab;
@@ -359,6 +365,7 @@ public:
     bool backupFolder(int i) {
         return (i == 0 && backup_folder_1->isChecked()) || (i == 1 && backup_folder_2->isChecked());
     }
+    bool createEmptyFolders(int) { return !no_empty_folders->isChecked(); }
     void setUpdateOnly(int i, bool check) {
         if (i == 0) update_only_1->setChecked(check);
         if (i == 1) update_only_2->setChecked(check);

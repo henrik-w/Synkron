@@ -1445,6 +1445,22 @@
         <source>Show icons only</source>
         <translation>Pokaż tylko ikony</translation>
     </message>
+    <message>
+        <source>Sync</source>
+        <translation type="unfinished">Synchronizuj</translation>
+    </message>
+    <message>
+        <source>Analyse</source>
+        <translation type="unfinished">Analiza</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Zaawansowane</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to close this tab?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultisyncForm</name>
@@ -1847,6 +1863,10 @@
         <source>Advanced options for the destination</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -1908,6 +1928,10 @@
     </message>
     <message>
         <source>Remove this folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2352,6 +2376,10 @@
     </message>
     <message>
         <source>Choose filters to be used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

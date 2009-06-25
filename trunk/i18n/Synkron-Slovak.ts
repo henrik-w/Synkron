@@ -527,7 +527,7 @@
     </message>
     <message>
         <source>Sync #%1</source>
-        <translation>Sinc #%1</translation>
+        <translation>Sync #%1</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>Sync #1</source>
-        <translation>Sinc #1</translation>
+        <translation>Sync #1</translation>
     </message>
     <message>
         <source>Original file path</source>
@@ -1021,7 +1021,7 @@
     </message>
     <message>
         <source>Multisync #%1</source>
-        <translation>Multi-Sinc #%1</translation>
+        <translation>Multisync #%1</translation>
     </message>
     <message>
         <source>No source selected.</source>
@@ -1440,6 +1440,22 @@
         <source>Show icons only</source>
         <translation>Zobraziť iba ikony</translation>
     </message>
+    <message>
+        <source>Sync</source>
+        <translation>Synchronizovať</translation>
+    </message>
+    <message>
+        <source>Analyse</source>
+        <translation>Analyzovať</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Rozšírené</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to close this tab?</source>
+        <translation>Naozaj chcete zatvoriť túto kartu?</translation>
+    </message>
 </context>
 <context>
     <name>MultisyncForm</name>
@@ -1840,6 +1856,10 @@
         <source>Advanced options for the destination</source>
         <translation>Rozšírené možnosti cieľa</translation>
     </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation>Nevytvárať prázdne priečinky</translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -1902,6 +1922,10 @@
     <message>
         <source>Remove this folder</source>
         <translation>Odstrániť priečinok</translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation>Nevytvárať prázdne priečinky</translation>
     </message>
 </context>
 <context>
@@ -2346,6 +2370,10 @@
     <message>
         <source>Choose filters to be used</source>
         <translation>Vyber filtre, ktoré budú použité</translation>
+    </message>
+    <message>
+        <source>Do not create empty folders</source>
+        <translation>Nevytvárať prázdne priečinky</translation>
     </message>
 </context>
 <context>
