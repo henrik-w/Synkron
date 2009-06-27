@@ -471,12 +471,12 @@
     <message>
         <location filename="../syncdb.cpp" line="26"/>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Luodaan tietokanta</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="158"/>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistetaan tietokanta</translation>
     </message>
     <message>
         <location filename="../syncdb.cpp" line="392"/>
@@ -1314,17 +1314,17 @@
     <message>
         <location filename="../main_window.ui" line="1703"/>
         <source>Sync</source>
-        <translation type="unfinished">Sync</translation>
+        <translation>Sync</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1712"/>
         <source>Analyse</source>
-        <translation type="unfinished">Analysoi</translation>
+        <translation>Analysoi</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1721"/>
         <source>Advanced</source>
-        <translation type="unfinished">Laajennettu</translation>
+        <translation>Laajennettu</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="203"/>
@@ -1870,7 +1870,7 @@
     <message>
         <location filename="../tabs.cpp" line="37"/>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>Haluatko varmasti sulkea tämän välilehden?</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="83"/>
@@ -1955,7 +1955,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Muunna lähdepolun muuttujat</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="184"/>
@@ -1980,7 +1980,7 @@
     <message>
         <location filename="../multisync_page.ui" line="221"/>
         <source>Search sync log</source>
-        <translation type="unfinished">Etsi synkronisointiloki</translation>
+        <translation>Etsi synkronisointiloki</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="224"/>
@@ -2047,7 +2047,7 @@
     <message>
         <location filename="../multisync_page.ui" line="339"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä asetuksien laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../multisync_page.ui" line="342"/>
@@ -2067,7 +2067,7 @@
         <location filename="../multisync.cpp" line="75"/>
         <location filename="../multisync.cpp" line="76"/>
         <source>Do not synchronise subdirectories</source>
-        <translation>ÄLÄ synkronisoi alahakemistoja</translation>
+        <translation type="unfinished">Älä synkronisoi alahakemistoja</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="81"/>
@@ -2233,12 +2233,12 @@
         <location filename="../multisync.cpp" line="69"/>
         <location filename="../multisync.cpp" line="70"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä luo tyhjiä kansioita</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="115"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyysin laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="137"/>
@@ -2306,12 +2306,12 @@
     <message>
         <location filename="../multisync.cpp" line="132"/>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Lähteiden laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="155"/>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Kohteen laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="523"/>
@@ -2451,13 +2451,13 @@
     <message>
         <location filename="../syncfolders.cpp" line="157"/>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Anna kansion asetukset</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="168"/>
         <location filename="../syncfolders.cpp" line="169"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä luo tyhjiä kansioita</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="172"/>
@@ -2467,7 +2467,7 @@
     <message>
         <location filename="../syncfolders.cpp" line="174"/>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä tee muutoksia tähän kansioon</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="176"/>
@@ -2489,7 +2489,7 @@
     <message>
         <location filename="../syncfolders.cpp" line="186"/>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä tätä kansiota isäntänä</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="190"/>
@@ -2499,12 +2499,12 @@
     <message>
         <location filename="../syncfolders.cpp" line="191"/>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä tätä kansiota orjana</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="199"/>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista tämä kansio</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="210"/>
@@ -2533,84 +2533,84 @@
         <location filename="../sync.cpp" line="176"/>
         <location filename="../sync.cpp" line="177"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Älä luo tyhjiä kansioita</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="137"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä asetuksien laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="248"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Analyysin laajennetut vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="271"/>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse käytettävät suodattimet</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="229"/>
         <location filename="../sync.cpp" line="230"/>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Säilytä tietokanta tekstitiedostoon</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="261"/>
         <location filename="../sync.cpp" line="263"/>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Lajittele toiminnan mukaan</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="421"/>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopioitavat tiedostot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="423"/>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Päivitettävät tiedostot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="425"/>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ristiriitaiset tiedostot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="427"/>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistettavat tiedostot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="429"/>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Luotavat kansiot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="431"/>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistettavat kansiot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="433"/>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei mitään tehtävissä</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="436"/>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohitetut tiedostot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="438"/>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohitetut kansiot (%1)</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="477"/>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1:sta %2:een</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
