@@ -1346,17 +1346,17 @@
     <message>
         <location filename="../main_window.ui" line="1703"/>
         <source>Sync</source>
-        <translation type="unfinished">مزامنة</translation>
+        <translation>مزامنة</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1712"/>
         <source>Analyse</source>
-        <translation type="unfinished">تحليل</translation>
+        <translation>تحليل</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1721"/>
         <source>Advanced</source>
-        <translation type="unfinished">متقدم</translation>
+        <translation>متقدم</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="203"/>
@@ -1870,7 +1870,7 @@
     <message>
         <location filename="../tabs.cpp" line="37"/>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>هل ترغب بإغلاق هذه الصفحة؟</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="83"/>
@@ -2232,7 +2232,7 @@
         <location filename="../multisync.cpp" line="69"/>
         <location filename="../multisync.cpp" line="70"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تقم بإنشاء مجلدات فارغة</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="115"/>
@@ -2456,7 +2456,7 @@
         <location filename="../syncfolders.cpp" line="168"/>
         <location filename="../syncfolders.cpp" line="169"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تقم بإنشاء مجلدات فارغة</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="172"/>
@@ -2536,7 +2536,7 @@
         <location filename="../sync.cpp" line="176"/>
         <location filename="../sync.cpp" line="177"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تقم بإنشاء مجلدات فارغة</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="137"/>
