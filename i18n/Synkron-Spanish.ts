@@ -1443,19 +1443,19 @@
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished">Sincronizar</translation>
+        <translation>Sincronizar</translation>
     </message>
     <message>
         <source>Analyse</source>
-        <translation type="unfinished">Analizar</translation>
+        <translation>Analizar</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzado</translation>
+        <translation>Avanzado</translation>
     </message>
     <message>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Esta seguro de que desea cerrar esta pestaña?</translation>
     </message>
 </context>
 <context>
@@ -1862,7 +1862,7 @@
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetas vacías</translation>
     </message>
 </context>
 <context>
@@ -1929,7 +1929,7 @@
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetas vacías</translation>
     </message>
 </context>
 <context>
@@ -2345,7 +2345,7 @@
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetas vacías</translation>
     </message>
 </context>
 <context>
