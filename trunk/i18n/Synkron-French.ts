@@ -1959,6 +1959,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Modification des variables contenant les chemins d&apos;origine</translation>
     </message>
     <message>

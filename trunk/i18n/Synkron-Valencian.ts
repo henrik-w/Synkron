@@ -376,27 +376,27 @@
     </message>
     <message>
         <source>to temp</source>
-        <translation type="unfinished"></translation>
+        <translation>a temporal</translation>
     </message>
     <message>
         <source>Error copying file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro copiant archiu %1: %2</translation>
     </message>
     <message>
         <source>Error creating folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro creant carpeta %1</translation>
     </message>
     <message>
         <source>Error removing file %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro borrant archiu %1: %2</translation>
     </message>
     <message>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Creant base de senyes</translation>
     </message>
     <message>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminant base de senyes</translation>
     </message>
 </context>
 <context>
@@ -458,7 +458,7 @@
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Finalisar</translation>
     </message>
 </context>
 <context>
@@ -1439,23 +1439,23 @@
     </message>
     <message>
         <source>Show icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar nomes els icons</translation>
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished">Sincronisar</translation>
+        <translation>Sincronisar</translation>
     </message>
     <message>
         <source>Analyse</source>
-        <translation type="unfinished">Analisar</translation>
+        <translation>Analisar</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Alvançada</translation>
+        <translation>Alvançada</translation>
     </message>
     <message>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Està segur de que vol tancar esta pestanya?</translation>
     </message>
 </context>
 <context>
@@ -1562,19 +1562,20 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Alvançada</translation>
+        <translation>Alvançada</translation>
     </message>
     <message>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
+        <translation>Modificar variables de la ruta orige</translation>
     </message>
     <message>
         <source>Search sync log</source>
-        <translation type="unfinished">Buscar registre sinc</translation>
+        <translation>Buscar registre de sincronisació</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar opcions alvançades de configuració</translation>
     </message>
 </context>
 <context>
@@ -1841,27 +1842,27 @@
     </message>
     <message>
         <source>Analysis</source>
-        <translation type="unfinished">Anàlisis</translation>
+        <translation>Anàlisis</translation>
     </message>
     <message>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Origens</translation>
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcions alvançades per a l&apos;anàlisis</translation>
     </message>
     <message>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcions alvançades per als origens</translation>
     </message>
     <message>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcions alvançades per als destins</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetes temporals</translation>
     </message>
 </context>
 <context>
@@ -1876,59 +1877,59 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="obsolete">Orige</translation>
+        <translation type="obsolete">Ruta</translation>
     </message>
     <message>
         <source>Do not modify the contents of this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>No modificar els configuts d&apos;esta carpeta</translation>
     </message>
     <message>
         <source>Update existing files only</source>
-        <translation type="unfinished">Actualisar nomes els archius existents</translation>
+        <translation>Actualisar nomes els archius existents</translation>
     </message>
     <message>
         <source>Do not backup updated files</source>
-        <translation type="unfinished"></translation>
+        <translation>No per copia de seguritat dels archius actualisats</translation>
     </message>
     <message>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translation>Mestra</translation>
     </message>
     <message>
         <source>Slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Esclava</translation>
     </message>
     <message>
         <source>Folder label</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiqueta de la carpeta</translation>
     </message>
     <message>
         <source>Folder path</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta de la carpeta</translation>
     </message>
     <message>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar la carpeta</translation>
     </message>
     <message>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>No fer cap canvi a esta carpeta</translation>
     </message>
     <message>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisar esta carpeta com mestra</translation>
     </message>
     <message>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisar esta carpeta com esclava</translation>
     </message>
     <message>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar esta carpeta</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetes temporals</translation>
     </message>
 </context>
 <context>
@@ -2280,71 +2281,71 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Alvançada</translation>
+        <translation>Alvançada</translation>
     </message>
     <message>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>archius a copiar (%1)</translation>
     </message>
     <message>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archius a actualisar (%1)</translation>
     </message>
     <message>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Colisions d&apos;archius (%1)</translation>
     </message>
     <message>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archius a borrar (%1)</translation>
     </message>
     <message>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetes a crear (%1)</translation>
     </message>
     <message>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetes a borrar (%1)</translation>
     </message>
     <message>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>De %1 a %2</translation>
     </message>
     <message>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordenar per acció</translation>
     </message>
     <message>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>No n&apos;hi ha res que fer</translation>
     </message>
     <message>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archius descartats (%1)</translation>
     </message>
     <message>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Carpetes descartades (%1)</translation>
     </message>
     <message>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar base de senyes en un archiu de text</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar opcions alvançades de configuració</translation>
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcions Alvançades per a l&apos;anàlisis</translation>
     </message>
     <message>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Escullga els filtres a utilisar</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>No crear carpetes temporals</translation>
     </message>
 </context>
 <context>

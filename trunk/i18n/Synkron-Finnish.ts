@@ -84,7 +84,7 @@
         <location filename="../sync.cpp" line="600"/>
         <location filename="../sync.cpp" line="881"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
-        <translation>Samanniminen tiedosto tai kansio ja symbolinen linkki löydetty. Tiedostoja (%1, %2) ei voi synkronisoida. </translation>
+        <translation>Samanniminen tiedosto tai kansio ja symbolinen linkki löydetty. Tiedostoja (%1, %2) ei voi synkronisoida</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="613"/>
@@ -1955,6 +1955,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Muunna lähdepolun muuttujat</translation>
     </message>
     <message>
@@ -2067,7 +2068,7 @@
         <location filename="../multisync.cpp" line="75"/>
         <location filename="../multisync.cpp" line="76"/>
         <source>Do not synchronise subdirectories</source>
-        <translation type="unfinished">Älä synkronisoi alahakemistoja</translation>
+        <translation>Älä synkronisoi alahakemistoja</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="81"/>

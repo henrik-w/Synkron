@@ -1565,6 +1565,7 @@
     </message>
     <message>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Upraviť premenné ciest zdrojov</translation>
     </message>
     <message>

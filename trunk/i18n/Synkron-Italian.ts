@@ -1603,17 +1603,17 @@
     <message>
         <location filename="../main_window.ui" line="1703"/>
         <source>Sync</source>
-        <translation type="unfinished"></translation>
+        <translation>Sincronizza</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1712"/>
         <source>Analyse</source>
-        <translation type="unfinished">Analizza</translation>
+        <translation>Analizza</translation>
     </message>
     <message>
         <location filename="../main_window.ui" line="1721"/>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzato</translation>
+        <translation>Avanzato</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="203"/>
@@ -1874,7 +1874,7 @@
     <message>
         <location filename="../tabs.cpp" line="37"/>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>Sei sicuro di voler chiudere questa scheda?</translation>
     </message>
     <message>
         <location filename="../tabs.cpp" line="83"/>
@@ -1969,6 +1969,7 @@
     <message>
         <location filename="../multisync_page.ui" line="150"/>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Modifica del path sorgente delle variabili</translation>
     </message>
     <message>
@@ -2105,7 +2106,7 @@
         <location filename="../multisync.cpp" line="69"/>
         <location filename="../multisync.cpp" line="70"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Non creare cartelle vuote</translation>
     </message>
     <message>
         <location filename="../multisync.cpp" line="81"/>
@@ -2466,7 +2467,7 @@
         <location filename="../syncfolders.cpp" line="168"/>
         <location filename="../syncfolders.cpp" line="169"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Non creare cartelle vuote</translation>
     </message>
     <message>
         <location filename="../syncfolders.cpp" line="174"/>
@@ -2895,7 +2896,7 @@
         <location filename="../sync.cpp" line="176"/>
         <location filename="../sync.cpp" line="177"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Non creare cartelle vuote</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="229"/>
