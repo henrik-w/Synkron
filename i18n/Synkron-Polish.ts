@@ -392,11 +392,11 @@
     </message>
     <message>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Tworzenie bazy danych</translation>
     </message>
     <message>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie bazy danych</translation>
     </message>
 </context>
 <context>
@@ -462,7 +462,7 @@
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Fiński</translation>
     </message>
 </context>
 <context>
@@ -1447,19 +1447,19 @@
     </message>
     <message>
         <source>Sync</source>
-        <translation type="unfinished">Synchronizuj</translation>
+        <translation>Synchronizuj</translation>
     </message>
     <message>
         <source>Analyse</source>
-        <translation type="unfinished">Analiza</translation>
+        <translation>Analiza</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Zaawansowane</translation>
+        <translation>Zaawansowane</translation>
     </message>
     <message>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>Czy na pewno chcesz zamknąć tę kartę?</translation>
     </message>
 </context>
 <context>
@@ -1570,15 +1570,16 @@
     </message>
     <message>
         <source>Modify source path variables</source>
-        <translation type="unfinished"></translation>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
+        <translation>Zmodyfikuj ścieżkę źródła zmiennych</translation>
     </message>
     <message>
         <source>Search sync log</source>
-        <translation type="unfinished">Szukaj dziennik synchronizacji</translation>
+        <translation>Szukaj dziennik synchronizacji</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż zaawansowane opcje konfiguracji</translation>
     </message>
 </context>
 <context>
@@ -1853,19 +1854,19 @@
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaawansowane opcje analizy</translation>
     </message>
     <message>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaawansowane opcje źródeł</translation>
     </message>
     <message>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaawansowane opcje celu</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie twórz pustych folderów</translation>
     </message>
 </context>
 <context>
@@ -1912,27 +1913,27 @@
     </message>
     <message>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguruj folder</translation>
     </message>
     <message>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie wolno dokonywać żadnych zmian w tym folderze</translation>
     </message>
     <message>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj ten folder jako master</translation>
     </message>
     <message>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj ten folder jako slave</translation>
     </message>
     <message>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń ten folder</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie twórz pustych folderów</translation>
     </message>
 </context>
 <context>
@@ -2320,67 +2321,67 @@
     </message>
     <message>
         <source>Files to copy (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki do kopiowania (%1)</translation>
     </message>
     <message>
         <source>Files to update (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki do aktualizacji (%1)</translation>
     </message>
     <message>
         <source>Collided files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki kolizji (%1)</translation>
     </message>
     <message>
         <source>Files to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki do usunięcia (%1)</translation>
     </message>
     <message>
         <source>Folders to create (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Foldery do utworzenia (%1)</translation>
     </message>
     <message>
         <source>Folders to delete (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Foldery do usunięcia (%1)</translation>
     </message>
     <message>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie ma nic do zrobienia</translation>
     </message>
     <message>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pominięte pliki (%1)</translation>
     </message>
     <message>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pominięte foldery (%1)</translation>
     </message>
     <message>
         <source>From %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Z %1 do %2</translation>
     </message>
     <message>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz bazę danych do pliku tekstowego</translation>
     </message>
     <message>
         <source>Sort by action</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortuj według działań</translation>
     </message>
     <message>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż zaawansowane opcje konfiguracji</translation>
     </message>
     <message>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaawansowane opcje analizy</translation>
     </message>
     <message>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz używane filtry</translation>
     </message>
     <message>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie twórz pustych folderów</translation>
     </message>
 </context>
 <context>

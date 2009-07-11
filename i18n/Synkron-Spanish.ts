@@ -1566,6 +1566,7 @@
     </message>
     <message>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Modificar variables de la ruta de origen</translation>
     </message>
     <message>
