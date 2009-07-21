@@ -90,6 +90,7 @@ MainWindow::MainWindow(QSettings * s)
 
     QTranslator translator; translator.load(":/i18n/Synkron-i18n.qm");
     synkron_i18n.insert("English", "English");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Czech"), "Czech");
     synkron_i18n.insert(translator.translate("LanguageNames", "Slovak"), "Slovak");
     synkron_i18n.insert(translator.translate("LanguageNames", "German"), "German");
     synkron_i18n.insert(translator.translate("LanguageNames", "Japanese"), "Japanese");

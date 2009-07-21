@@ -2,6 +2,7 @@
     <qresource prefix="/" >
         <file>i18n/Synkron-Arabic.qm</file>
         <file>i18n/Synkron-Brazilian_Portuguese.qm</file>
+        <file>i18n/Synkron-Czech.qm</file>
         <file>i18n/Synkron-French.qm</file>
         <file>i18n/Synkron-German.qm</file>
         <file>i18n/Synkron-Italian.qm</file>

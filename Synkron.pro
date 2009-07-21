@@ -62,15 +62,16 @@ win32 {
     MOC_DIR = .tmp.win32/
     RCC_DIR = .tmp.win32/
 }
-TRANSLATIONS += i18n/Synkron-Slovak.ts \
-    i18n/Synkron-German.ts \
-    i18n/Synkron-Japanese.ts \
-    i18n/Synkron-Arabic.ts \
-    i18n/Synkron-Russian.ts \
-    i18n/Synkron-Spanish.ts \
+TRANSLATIONS += i18n/Synkron-Arabic.ts \
     i18n/Synkron-Brazilian_Portuguese.ts \
-    i18n/Synkron-Polish.ts \
-    i18n/Synkron-Italian.ts \
+    i18n/Synkron-Czech.ts \
+    i18n/Synkron-Finnish.ts \
     i18n/Synkron-French.ts \
-    i18n/Synkron-Valencian.ts \
-    i18n/Synkron-Finnish.ts
+    i18n/Synkron-German.ts \
+    i18n/Synkron-Italian.ts \
+    i18n/Synkron-Japanese.ts \
+    i18n/Synkron-Polish.ts \
+    i18n/Synkron-Russian.ts \
+    i18n/Synkron-Slovak.ts \
+    i18n/Synkron-Spanish.ts \
+    i18n/Synkron-Valencian.ts
