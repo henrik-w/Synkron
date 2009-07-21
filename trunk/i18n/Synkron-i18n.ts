@@ -8,6 +8,10 @@
         <translation>slovenčina</translation>
     </message>
     <message>
+        <source>Czech</source>
+        <translation>Čeština</translation>
+    </message>
+    <message>
         <source>German</source>
         <translation>Deutsch</translation>
     </message>
