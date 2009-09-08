@@ -90,7 +90,6 @@ MainWindow::MainWindow(QSettings * s)
 
     QTranslator translator; translator.load(":/i18n/Synkron-i18n.qm");
     synkron_i18n.insert("English", "English");
-    synkron_i18n.insert(translator.translate("LanguageNames", "Czech"), "Czech");
     synkron_i18n.insert(translator.translate("LanguageNames", "Slovak"), "Slovak");
     synkron_i18n.insert(translator.translate("LanguageNames", "German"), "German");
     synkron_i18n.insert(translator.translate("LanguageNames", "Japanese"), "Japanese");
@@ -99,11 +98,13 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Spanish"), "Spanish");
     synkron_i18n.insert(translator.translate("LanguageNames", "Brazilian Portuguese"), "Brazilian Portuguese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Polish"), "Polish");
-    //synkron_i18n.insert(translator.translate("LanguageNames", "Chinese"), "Chinese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Italian"), "Italian");
     synkron_i18n.insert(translator.translate("LanguageNames", "French"), "French");
     synkron_i18n.insert(translator.translate("LanguageNames", "Valencian"), "Valencian");
     synkron_i18n.insert(translator.translate("LanguageNames", "Finnish"), "Finnish");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Czech"), "Czech");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Chinese"), "Chinese");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Dutch"), "Dutch");
 
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));
