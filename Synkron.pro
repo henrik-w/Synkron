@@ -32,14 +32,15 @@ SOURCES += main.cpp \
     syncdb.cpp
 RESOURCES += resources.qrc \
     i18n.qrc
-win32:RC_FILE = Synkron.rc
 DESTDIR = ./
+unix {
+    OBJECTS_DIR = .build.unix/
+    MOC_DIR = .build.unix/
+    RCC_DIR = .build.unix/
+}
 unix:!macx {
     DEFINES += USE_UNIX_TOUCH_COMMAND
     TARGET = synkron
-    OBJECTS_DIR = .tmp.unix/
-    MOC_DIR = .tmp.unix/
-    RCC_DIR = .tmp.unix/
 }
 macx {
     # Comment the following line to use the NSFileManager class
@@ -58,13 +59,16 @@ win32 {
     # If not commented, the following line ensures that Synkron is compiled
     # as a portable app. More info at portableapps.com
     # DEFINES += PORTABLE_APP
-    OBJECTS_DIR = .tmp.win32/
-    MOC_DIR = .tmp.win32/
-    RCC_DIR = .tmp.win32/
+    OBJECTS_DIR = .build.win32/
+    MOC_DIR = .build.win32/
+    RCC_DIR = .build.win32/
+    RC_FILE = Synkron.rc
 }
 TRANSLATIONS += i18n/Synkron-Arabic.ts \
     i18n/Synkron-Brazilian_Portuguese.ts \
+    i18n/Synkron-Chinese.ts \
     i18n/Synkron-Czech.ts \
+    i18n/Synkron-Dutch.ts \
     i18n/Synkron-Finnish.ts \
     i18n/Synkron-French.ts \
     i18n/Synkron-German.ts \

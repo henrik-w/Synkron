@@ -8,10 +8,6 @@
         <translation>slovenčina</translation>
     </message>
     <message>
-        <source>Czech</source>
-        <translation>Čeština</translation>
-    </message>
-    <message>
         <source>German</source>
         <translation>Deutsch</translation>
     </message>
@@ -49,15 +45,23 @@
     </message>
     <message>
         <source>Chinese</source>
-        <translation>Chinese</translation>
+        <translation>中文</translation>
     </message>
-	<message>
+	  <message>
         <source>Valencian</source>
         <translation>valencià</translation>
     </message>
-	<message>
-	<source>Finnish</source>
-	<translation>suomi</translation>
+    <message>
+	      <source>Finnish</source>
+	      <translation>suomi</translation>
+    </message>
+    <message>
+	      <source>Czech</source>
+	      <translation>Čeština</translation>
+    </message>
+    <message>
+	      <source>Dutch</source>
+	      <translation>Nederlands</translation>
     </message>
 </context>
 </TS>
