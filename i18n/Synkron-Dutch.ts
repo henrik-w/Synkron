@@ -446,7 +446,7 @@
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederlands</translation>
     </message>
 </context>
 <context>
