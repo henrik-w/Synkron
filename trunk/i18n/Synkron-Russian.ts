@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="ru">
+<!DOCTYPE TS><TS version="1.1" language="ru">
+<defaultcodec></defaultcodec>
 <context>
     <name>About</name>
     <message>
@@ -1427,7 +1427,7 @@
     </message>
     <message>
         <source>Are you sure you want to close this tab?</source>
-        <translation>И точно хотите такрыть эту вкладку?</translation>
+        <translation>Вы точно хотите закрыть эту вкладку?</translation>
     </message>
 </context>
 <context>
@@ -1518,7 +1518,6 @@
     </message>
     <message>
         <source>Modify source path variables</source>
-        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Изменить переменную исходящего пути</translation>
     </message>
     <message>
@@ -1581,20 +1580,20 @@
         <translation>Источники не выбраны.</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Failed to create directory %2</source>
-        <translation>%1	Ошибка синхронизации: ошибка создания каталога %2</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1	Directory %2 created</source>
-        <translation>%1	Каталог %2 создан</translation>
+        <source>%1<byte value="x9"/>Directory %2 created</source>
+        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Error creating directory in %2</source>
-        <translation>%1	Ошибка синхронизации: ошибка создания каталога в %2</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Error creating directory in %2</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога в %2</translation>
     </message>
     <message>
-        <source>%1	%2: %3 file(s) %4</source>
-        <translation>%1	%2: %3 файл(ы) %4</translation>
+        <source>%1<byte value="x9"/>%2: %3 file(s) %4</source>
+        <translation>%1<byte value="x9"/>%2: %3 файл(ы) %4</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1759,7 +1758,7 @@
         <translation type="obsolete">&lt;b&gt;Другое:&lt;/b</translation>
     </message>
     <message>
-        <source>%1	Synchronisation started</source>
+        <source>%1<byte value="x9"/>Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
@@ -1876,12 +1875,12 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <source>%1	Directory %2 created</source>
-        <translation>%1	Каталог %2 создан</translation>
+        <source>%1<byte value="x9"/>Directory %2 created</source>
+        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1	Synchronisation complete: %2 file(s) %3</source>
-        <translation>%1	Синхронизация выполнена: %2 файл(ов) %3</translation>
+        <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
+        <translation>%1<byte value="x9"/>Синхронизация выполнена: %2 файл(ов) %3</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1924,16 +1923,16 @@
         <translation type="obsolete">Клонировать каталог 1</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Directories with the same path selected</source>
-        <translation>%1	Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Directories with the same path selected</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
     </message>
     <message>
-        <source>%1	Failed to create directory %2</source>
-        <translation>%1	Ошибка создания каталога %2</translation>
+        <source>%1<byte value="x9"/>Failed to create directory %2</source>
+        <translation>%1<byte value="x9"/>Ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1	Synchronisation failed: Not enough valid directories specified</source>
-        <translation>%1	Ошибка синхронизации: Не определены доступные каталоги</translation>
+        <source>%1<byte value="x9"/>Synchronisation failed: Not enough valid directories specified</source>
+        <translation>%1<byte value="x9"/>Ошибка синхронизации: Не определены доступные каталоги</translation>
     </message>
     <message>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
@@ -2174,7 +2173,7 @@
         <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
-        <source>%1	Synchronisation started</source>
+        <source>%1<byte value="x9"/>Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
