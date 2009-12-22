@@ -839,7 +839,7 @@
     </message>
     <message>
         <source>Change language</source>
-        <translation>Zmenit jazyk</translation>
+        <translation>Změnit jazyk</translation>
     </message>
     <message>
         <source>Synkron - Save Multisync</source>
@@ -1810,11 +1810,11 @@
     </message>
     <message>
         <source>Change allowed time difference</source>
-        <translation>Zmenit povolený časový rozdíl</translation>
+        <translation>Změnit povolený časový rozdíl</translation>
     </message>
     <message>
         <source>Change the allowed time difference between synchronised files</source>
-        <translation>Zmenit povolený časový rozdíl mezi synchronizovanými soubory</translation>
+        <translation>Změnit povolený časový rozdíl mezi synchronizovanými soubory</translation>
     </message>
     <message>
         <source>Detect collisions</source>
