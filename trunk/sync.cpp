@@ -200,6 +200,12 @@ void SyncPage::setSyncWidget()
     connect(ignore_blacklist, SIGNAL(toggled(bool)), this, SLOT(ignoreBlacklistClicked(bool)));
     advanced_menu->addAction(ignore_blacklist);
 
+    allow_DST = new QAction (tab);
+    allow_DST->setCheckable(true);
+    allow_DST->setText(tr("Ignore 1 hour difference"));
+    allow_DST->setStatusTip(tr("Due to Daylight Saving Time (DST), files may have 1 hour delta"));
+    advanced_menu->addAction(allow_DST);
+
     move = new QAction (tr("Move contents to folder 2, leaving folder 1 empty"), tab);
     move->setCheckable(true);
     move->setStatusTip(tr("Move contents to folder 2, leaving folder 1 empty"));
@@ -620,7 +626,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                 continue;
             }
             else {
-                int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(d2_info.lastModified(), allowed_difference);
+                int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(d2_info.lastModified(), allowed_difference, allow_DST->isChecked());
                 if (compared_dates != 0) { // d1_entries.at(i) is different than d2_info
                     MTFileInfo old_fi; MTFileInfo new_fi;
                     int modified_folder = 0;
@@ -903,7 +909,7 @@ void AbstractSyncPage::moveContents(QDir& d1, QDir& d2)
 					addTableItem(tr("A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.").arg(d1_entries.at(i).fileName()).arg(d2_entries.at(n).fileName()), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::red), QBrush(Qt::white));
                     continue;
             	} else {
-                    int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(MTFileInfo(d2_entries.at(n)).lastModified(), allowed_difference);
+                    int compared_dates = MTFileInfo(d1_entries.at(i)).lastModified().compareWith(MTFileInfo(d2_entries.at(n)).lastModified(), allowed_difference, allow_DST->isChecked());
                 	if (compared_dates < 0) { // d1_entries.at(i) is older than d2_entries.at(n)
                         file = new MTFile (d1_entries.at(i).absoluteFilePath());
                                         if (d1.path().startsWith(syncFolder1Text(), Qt::CaseInsensitive) && backupFolder(0)) { goto copying1; }
@@ -1222,7 +1228,7 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                     } else {
                         if (sync_folders->at(sync_folders_set2.value(n))->dont_update_act->isChecked())
                             continue;
-                        int compared_dates = file_info->lastModified().compareWith(file_info2->lastModified(), allowed_difference);
+                        int compared_dates = file_info->lastModified().compareWith(file_info2->lastModified(), allowed_difference, allow_DST->isChecked());
                         if (compared_dates > 0 || (isSlave(sync_folders_set2.value(n)) && compared_dates != 0)) { // file_info is newer than file_info2
                             //Overwriting older file -------------------------------
                             if (alert_collisions->isChecked() && !isSlave(sync_folders_set2.value(n))) {

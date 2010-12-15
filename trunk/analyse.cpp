@@ -302,7 +302,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                 }
                 child_item->setText(i+1, tr("OBSOLETE"));
                 child_item->setForeground(i+1, QBrush(Qt::darkRed));
-                int compared_dates = file_info->lastModified().compareWith(newest_datetime, allowed_difference);
+                int compared_dates = file_info->lastModified().compareWith(newest_datetime, allowed_difference, allow_DST->isChecked());
                 if (compared_dates == 0) { // has the same date as the newest_datetime
                     newest_indices << i+1;
                 } else if (compared_dates > 0) { // is newer than the newest_datetime
@@ -565,7 +565,7 @@ void SyncPage::subSortedAnalyse(const QString & rel_path)
                         }
                     }
                 }
-                int compared_dates = file_info->lastModified().compareWith(newest_datetime, allowed_difference);
+                int compared_dates = file_info->lastModified().compareWith(newest_datetime, allowed_difference, allow_DST->isChecked());
                 if (compared_dates == 0) { // has the same date as the newest_datetime
                     newest_indices << i;
                 } else if (compared_dates > 0) { // is newer than the newest_datetime
@@ -601,7 +601,7 @@ void SyncPage::subSortedAnalyse(const QString & rel_path)
                 collided_files << sub_rel_path;
             } else if (newest_indices.count() != sync_folders->count()) {
                 for (int s = newest_slave_dates.count() - 1; s >= 0; --s) {
-                    if (newest_slave_dates.key(s).compareWith(newest_datetime, allowed_difference) != 0) {
+                    if (newest_slave_dates.key(s).compareWith(newest_datetime, allowed_difference, allow_DST->isChecked()) != 0) {
                         newest_slave_dates.removeAt(s);
                     }
                 }

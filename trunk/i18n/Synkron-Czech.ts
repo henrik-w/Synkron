@@ -71,28 +71,8 @@
         <translation>Byl nalezen soubor (%1) a složka (%2) se stejným názvem. Nelze synchronizovat tyto soubory.</translation>
     </message>
     <message>
-        <source>file</source>
-        <translation type="obsolete">souboru</translation>
-    </message>
-    <message>
-        <source>copy</source>
-        <translation type="obsolete">kopírování</translation>
-    </message>
-    <message>
-        <source> to temp</source>
-        <translation type="obsolete"> do tempu</translation>
-    </message>
-    <message>
-        <source>folder</source>
-        <translation type="obsolete">složka</translation>
-    </message>
-    <message>
         <source>Older file %1 backed up and deleted</source>
         <translation>Starší soubor %1 byl zálohován a smazán</translation>
-    </message>
-    <message>
-        <source>Unknown error %1ing %2: %3%4</source>
-        <translation type="obsolete">Neznámá chyba při %1 %2: %3%4</translation>
     </message>
     <message>
         <source>File %1 deleted</source>
@@ -225,10 +205,6 @@
     <message>
         <source>Unknown error removing folder: %1</source>
         <translation>Neznámá chyba při odstraňování složky: %1</translation>
-    </message>
-    <message>
-        <source>Unknown error removing file: %1</source>
-        <translation type="obsolete">Neznámá chyba při odstraňování souboru: %1</translation>
     </message>
     <message>
         <source>%1 %2 files skipped</source>
@@ -464,6 +440,14 @@
         <source>Finnish</source>
         <translation>Finština</translation>
     </message>
+    <message>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dutch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MTAdvancedGroupBox</name>
@@ -534,10 +518,6 @@
         <translation>Synchronizace #%1</translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="obsolete">Procházet</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Hledat</translation>
     </message>
@@ -592,10 +572,6 @@
     <message>
         <source>%1 files restored.</source>
         <translation>%1 souborů obnovených.</translation>
-    </message>
-    <message>
-        <source>Choose a file</source>
-        <translation type="obsolete">Vyberte soubor</translation>
     </message>
     <message>
         <source>Failed to check for updates.</source>
@@ -1372,26 +1348,6 @@
         <translation>Synchronizovat všechny karty při spuštění</translation>
     </message>
     <message>
-        <source>Enter file path</source>
-        <translation type="obsolete">Zadejte cestu k souboru</translation>
-    </message>
-    <message>
-        <source>Enter folder path</source>
-        <translation type="obsolete">Zadejte cestu ke složce</translation>
-    </message>
-    <message>
-        <source>Enter file path:</source>
-        <translation type="obsolete">Zadejte cestu k souboru:</translation>
-    </message>
-    <message>
-        <source>Enter folder path:</source>
-        <translation type="obsolete">Zadejte cestu ke složce:</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="obsolete">OK</translation>
-    </message>
-    <message>
         <source>%1 files deleted.</source>
         <translation>%1 souborů smazáno.</translation>
     </message>
@@ -1529,26 +1485,6 @@
         <translation>Multisynchronizace</translation>
     </message>
     <message>
-        <source>Load a multisync</source>
-        <translation type="obsolete">Načíst multisynchronizaci</translation>
-    </message>
-    <message>
-        <source>Load</source>
-        <translation type="obsolete">Načíst</translation>
-    </message>
-    <message>
-        <source>Save the current multisync</source>
-        <translation type="obsolete">Uložit aktuální multisynchronizaci</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="obsolete">Uložit</translation>
-    </message>
-    <message>
-        <source>Save as</source>
-        <translation type="obsolete">Uložit jako</translation>
-    </message>
-    <message>
         <source>Stop multisync</source>
         <translation>Zastavit multisynchronizaci</translation>
     </message>
@@ -1597,10 +1533,6 @@
         <translation>Ignorovat blacklist</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Zdroje:&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Do not backup updated files</source>
         <translation>Nezálohovat aktualizované soubory</translation>
     </message>
@@ -1609,20 +1541,8 @@
         <translation>Aktualizovat jen existující soubory</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Destination:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Cíl:&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>Přemístit obsah do cíle a vyprázdnit zdroje</translation>
-    </message>
-    <message>
-        <source>Synkron - Save Multisync</source>
-        <translation type="obsolete">Synkron - Uložit multisynchronizaci</translation>
-    </message>
-    <message>
-        <source>Synkron Multisyncs (*.slist)</source>
-        <translation type="obsolete">Multisynchronizace Synkronu (*.slist)</translation>
     </message>
     <message>
         <source>Synkron</source>
@@ -1632,16 +1552,6 @@
         <source>Cannot write file %1:
 %2.</source>
         <translation>Nelze zapsat do souboru %1:
-%2.</translation>
-    </message>
-    <message>
-        <source>Open File</source>
-        <translation type="obsolete">Otevřít soubor</translation>
-    </message>
-    <message>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="obsolete">Soubor %1 nelze přečíst:
 %2.</translation>
     </message>
     <message>
@@ -1749,10 +1659,6 @@
         <translation>Kořenový adresář</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Analýza:&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Fast analysis</source>
         <translation>Rýchlá analýza</translation>
     </message>
@@ -1825,10 +1731,6 @@
         <translation>Hledat a upozornit na konfliktní soubory</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Jiné:&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>%1	Synchronisation started</source>
         <translation>%1	Synchronizace spuštěna</translation>
     </message>
@@ -1878,10 +1780,6 @@
     <message>
         <source>Remove</source>
         <translation>Odstranit</translation>
-    </message>
-    <message>
-        <source>Path</source>
-        <translation type="obsolete">Cesta</translation>
     </message>
     <message>
         <source>Do not modify the contents of this folder</source>
@@ -1986,14 +1884,6 @@
         <translation>%1	Složka %2 vytvořena</translation>
     </message>
     <message>
-        <source>Clone</source>
-        <translation type="obsolete">Klonovat</translation>
-    </message>
-    <message>
-        <source>Clone folder 1</source>
-        <translation type="obsolete">Klonovat složku 1</translation>
-    </message>
-    <message>
         <source>%1	Synchronisation failed: Directories with the same path selected</source>
         <translation>%1	Synchronizace neúspěšná: Byly vybrány složky se stejnou cestou</translation>
     </message>
@@ -2018,22 +1908,6 @@
         <translation>Soubor %1 se nachází v blacklistu, přeskočen</translation>
     </message>
     <message>
-        <source>Unknown error creating folder: %1</source>
-        <translation type="obsolete">Neznámá chyba při vytváření složky: %1</translation>
-    </message>
-    <message>
-        <source>file</source>
-        <translation type="obsolete">souboru</translation>
-    </message>
-    <message>
-        <source>copy</source>
-        <translation type="obsolete">kopírování</translation>
-    </message>
-    <message>
-        <source> to temp</source>
-        <translation type="obsolete"> do tempu</translation>
-    </message>
-    <message>
         <source>File %1 restored</source>
         <translation>Soubor %1 obnoven</translation>
     </message>
@@ -2044,10 +1918,6 @@
     <message>
         <source>File name</source>
         <translation>Jméno souboru</translation>
-    </message>
-    <message>
-        <source>Folder %1</source>
-        <translation type="obsolete">Složka %1</translation>
     </message>
     <message>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
@@ -2106,10 +1976,6 @@
         <translation>Zastavit synchronizaci</translation>
     </message>
     <message>
-        <source>Show advanced options</source>
-        <translation type="obsolete">Zobrazit rozšířené možnosti</translation>
-    </message>
-    <message>
         <source>Synchronise hidden files and folders</source>
         <translation>Synchronizovat skryté soubory a složky</translation>
     </message>
@@ -2146,80 +2012,8 @@
         <translation>Následovat symbolické odkazy</translation>
     </message>
     <message>
-        <source>Do not backup updated files from Folder 1</source>
-        <translation type="obsolete">Nezálohovat aktualizované soubory ze složky 1</translation>
-    </message>
-    <message>
-        <source>Update existing files in Folder 1 only</source>
-        <translation type="obsolete">Pouze aktualizovat existující soubory ve složce 1</translation>
-    </message>
-    <message>
-        <source>Do not backup updated files from Folder 2</source>
-        <translation type="obsolete">Nezálohovat aktualizované soubory ze složky 2</translation>
-    </message>
-    <message>
-        <source>Update existing files in Folder 2 only</source>
-        <translation type="obsolete">Pouze aktualizovat existující soubory ve složce 2</translation>
-    </message>
-    <message>
         <source>Filters</source>
         <translation>Filtry</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation type="obsolete">Otevřít</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove &quot;%1&quot; from every synced location?</source>
-        <translation type="obsolete">Opravdu chcete odstranit &quot;%1&quot; z každé synchronizované složky?</translation>
-    </message>
-    <message>
-        <source>DELETED</source>
-        <translation type="obsolete">VYMAZÁNO</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="obsolete">Vymazat</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="obsolete">Načítám...</translation>
-    </message>
-    <message>
-        <source>Rename</source>
-        <translation type="obsolete">Přejmenovat</translation>
-    </message>
-    <message>
-        <source>Add to blacklist</source>
-        <translation type="obsolete">Přidat do blacklistu</translation>
-    </message>
-    <message>
-        <source>Remove from blacklist</source>
-        <translation type="obsolete">Odstranit z blacklistu</translation>
-    </message>
-    <message>
-        <source>Add extension to blacklist</source>
-        <translation type="obsolete">Přidat příponu do blacklistu</translation>
-    </message>
-    <message>
-        <source>Synkron - Rename file</source>
-        <translation type="obsolete">Synkron - Přejmenovat soubor</translation>
-    </message>
-    <message>
-        <source>Type a new name for &quot;%1&quot;:</source>
-        <translation type="obsolete">Zadejte nové jméno pro &quot;%1&quot;:</translation>
-    </message>
-    <message>
-        <source>Error renaming directory %1</source>
-        <translation type="obsolete">Chyba při přejmenovávání složky %1</translation>
-    </message>
-    <message>
-        <source>File %1 renamed</source>
-        <translation type="obsolete">Soubor %1 byl přejmenován</translation>
-    </message>
-    <message>
-        <source>Error renaming file %1</source>
-        <translation type="obsolete">Chyba při přejmenovávání souboru %1</translation>
     </message>
     <message>
         <source>Fast analysis</source>
@@ -2228,14 +2022,6 @@
     <message>
         <source>List files which need to be synchronised only</source>
         <translation>Zobrazit jen soubory, které je potřeba synchronizovat</translation>
-    </message>
-    <message>
-        <source>Folder 1</source>
-        <translation type="obsolete">Složka 1</translation>
-    </message>
-    <message>
-        <source>Folder 2</source>
-        <translation type="obsolete">Složka 2</translation>
     </message>
     <message>
         <source>Analysis</source>
@@ -2382,6 +2168,14 @@
     <message>
         <source>Do not create empty folders</source>
         <translation>Nevytvářet prázdné složky</translation>
+    </message>
+    <message>
+        <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore 1 hour difference (DST workaround)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

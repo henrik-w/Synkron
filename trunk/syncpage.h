@@ -151,6 +151,7 @@ public:
     QAction * analyse_special_only;
     QAction * alert_collisions;
     QAction * no_empty_folders;
+    QAction * allow_DST;
     QListWidget * blacklist_fileslist;
     QListWidget * blacklist_folderslist;
     QListWidget * blacklist_extslist;

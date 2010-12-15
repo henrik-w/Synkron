@@ -82,6 +82,12 @@ void MultisyncPage::setAdvancedGB()
     ignore_blacklist->setText(tr("Ignore blacklist"));
     advanced_menu->addAction(ignore_blacklist);
 
+    allow_DST = new QAction (advanced_menu);
+    allow_DST->setCheckable(true);
+    allow_DST->setText(tr("Ignore 1 hour difference"));
+    allow_DST->setStatusTip(tr("Due to Daylight Saving Time (DST), files may have 1 hour delta"));
+    advanced_menu->addAction(allow_DST);
+
     propagate_deletions = new QAction (advanced_menu);
     propagate_deletions->setCheckable(true);
     propagate_deletions->setStatusTip(tr("Propagate deletions"));
