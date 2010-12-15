@@ -51,10 +51,15 @@ public:
 
     void setTime(const QTime & time) { QDateTime::setTime(time); /*makeEven();*/ };
     void setTime_t(uint seconds) { QDateTime::setTime_t(seconds); /*makeEven();*/ };
-    int compareWith(MTEvenDateTime other, int ignored_secs = 1) {
+    int compareWith(MTEvenDateTime other, int ignored_secs = 1, bool DST = TRUE) {
         QString this_str = QDateTime::toString("yyyyMMddhhmmss");
         QString other_str = other.toString("yyyyMMddhhmmss");
         if (this_str == other_str) {
+            return 0;
+        } else if ((DST) &&
+                   ((QDateTime::addSecs(0 - 3600).toString("yyyyMMddhhmmss") > other_str) ||
+                    (QDateTime::addSecs(3600).toString("yyyyMMddhhmmss") > other_str))) {
+            // Ignore Daylight Saving Time (DST), which means time could be shifted by exactly 1 hour
             return 0;
         } else if (this_str > other_str) {
             if (QDateTime::addSecs(0 - ignored_secs).toString("yyyyMMddhhmmss") > other_str) {

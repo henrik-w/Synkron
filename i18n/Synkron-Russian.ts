@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="ru">
-<defaultcodec></defaultcodec>
+<!DOCTYPE TS>
+<TS version="2.0" language="ru">
 <context>
     <name>About</name>
     <message>
@@ -71,18 +71,6 @@
         <translation>Найдены файл (%1) и каталог (%2) с таким же именем. Не могу их синхронизировать.</translation>
     </message>
     <message>
-        <source>file</source>
-        <translation type="obsolete">файл</translation>
-    </message>
-    <message>
-        <source>copy</source>
-        <translation type="obsolete">копировать</translation>
-    </message>
-    <message>
-        <source> to temp</source>
-        <translation type="obsolete"> в temp</translation>
-    </message>
-    <message>
         <source>File %1 restored</source>
         <translation>Файл %1 восстановлен</translation>
     </message>
@@ -103,16 +91,8 @@
         <translation>Ошибка удаления каталога %1</translation>
     </message>
     <message>
-        <source>folder</source>
-        <translation type="obsolete">каталог</translation>
-    </message>
-    <message>
         <source>Older file %1 backed up and deleted</source>
         <translation>Создана резервная копия более старого файла %1, сам он удалён</translation>
-    </message>
-    <message>
-        <source>Unknown error %1ing %2: %3%4</source>
-        <translation type="obsolete">Неизвестная ошибка %1 %2: %3%4</translation>
     </message>
     <message>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
@@ -225,10 +205,6 @@
     <message>
         <source>Unknown error removing folder: %1</source>
         <translation>Ошибка удаления каталога: %1</translation>
-    </message>
-    <message>
-        <source>Unknown error removing file: %1</source>
-        <translation type="obsolete">Ошибка удаления файла: %1</translation>
     </message>
     <message>
         <source>%1 %2 files skipped</source>
@@ -459,6 +435,18 @@
     <message>
         <source>Finnish</source>
         <translation>Финский</translation>
+    </message>
+    <message>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dutch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1518,6 +1506,7 @@
     </message>
     <message>
         <source>Modify source path variables</source>
+        <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>Изменить переменную исходящего пути</translation>
     </message>
     <message>
@@ -1548,10 +1537,6 @@
         <translation>Следовать симлинкам</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Источник:&lt;/b&gt;</translation>
-    </message>
-    <message>
         <source>Do not backup updated files</source>
         <translation>Не делать копию обновленных файлов</translation>
     </message>
@@ -1562,10 +1547,6 @@
     <message>
         <source>Move contents to destination, leaving sources empty</source>
         <translation>Переместить содержимое в приемник, очистив источник</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Destination:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Приемник:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Clone sources</source>
@@ -1580,20 +1561,20 @@
         <translation>Источники не выбраны.</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Synchronisation failed: Failed to create directory %2</source>
-        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога %2</translation>
+        <source>%1	Synchronisation failed: Failed to create directory %2</source>
+        <translation>%1	Ошибка синхронизации: ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Directory %2 created</source>
-        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
+        <source>%1	Directory %2 created</source>
+        <translation>%1	Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Synchronisation failed: Error creating directory in %2</source>
-        <translation>%1<byte value="x9"/>Ошибка синхронизации: ошибка создания каталога в %2</translation>
+        <source>%1	Synchronisation failed: Error creating directory in %2</source>
+        <translation>%1	Ошибка синхронизации: ошибка создания каталога в %2</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>%2: %3 file(s) %4</source>
-        <translation>%1<byte value="x9"/>%2: %3 файл(ы) %4</translation>
+        <source>%1	%2: %3 file(s) %4</source>
+        <translation>%1	%2: %3 файл(ы) %4</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1678,10 +1659,6 @@
         <translation>Корневой каталог</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Analyse:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Анализ:&lt;/b</translation>
-    </message>
-    <message>
         <source>Fast analysis</source>
         <translation>Быстрый анализ</translation>
     </message>
@@ -1754,11 +1731,7 @@
         <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Other:&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Другое:&lt;/b</translation>
-    </message>
-    <message>
-        <source>%1<byte value="x9"/>Synchronisation started</source>
+        <source>%1	Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
@@ -1807,10 +1780,6 @@
     <message>
         <source>Remove</source>
         <translation>Удалить</translation>
-    </message>
-    <message>
-        <source>Path</source>
-        <translation type="obsolete">Путь</translation>
     </message>
     <message>
         <source>Do not modify the contents of this folder</source>
@@ -1875,12 +1844,12 @@
 <context>
     <name>SyncPage</name>
     <message>
-        <source>%1<byte value="x9"/>Directory %2 created</source>
-        <translation>%1<byte value="x9"/>Каталог %2 создан</translation>
+        <source>%1	Directory %2 created</source>
+        <translation>%1	Каталог %2 создан</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Synchronisation complete: %2 file(s) %3</source>
-        <translation>%1<byte value="x9"/>Синхронизация выполнена: %2 файл(ов) %3</translation>
+        <source>%1	Synchronisation complete: %2 file(s) %3</source>
+        <translation>%1	Синхронизация выполнена: %2 файл(ов) %3</translation>
     </message>
     <message>
         <source>moved</source>
@@ -1915,24 +1884,16 @@
         <translation>Синхронизация</translation>
     </message>
     <message>
-        <source>Clone</source>
-        <translation type="obsolete">Слонирование</translation>
+        <source>%1	Synchronisation failed: Directories with the same path selected</source>
+        <translation>%1	Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
     </message>
     <message>
-        <source>Clone folder 1</source>
-        <translation type="obsolete">Клонировать каталог 1</translation>
+        <source>%1	Failed to create directory %2</source>
+        <translation>%1	Ошибка создания каталога %2</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Synchronisation failed: Directories with the same path selected</source>
-        <translation>%1<byte value="x9"/>Ошибка синхронизации: выбраны каталоги с одинаковым путем</translation>
-    </message>
-    <message>
-        <source>%1<byte value="x9"/>Failed to create directory %2</source>
-        <translation>%1<byte value="x9"/>Ошибка создания каталога %2</translation>
-    </message>
-    <message>
-        <source>%1<byte value="x9"/>Synchronisation failed: Not enough valid directories specified</source>
-        <translation>%1<byte value="x9"/>Ошибка синхронизации: Не определены доступные каталоги</translation>
+        <source>%1	Synchronisation failed: Not enough valid directories specified</source>
+        <translation>%1	Ошибка синхронизации: Не определены доступные каталоги</translation>
     </message>
     <message>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
@@ -1947,22 +1908,6 @@
         <translation>Файл %1 в исключениях, пропущен</translation>
     </message>
     <message>
-        <source>Unknown error creating folder: %1</source>
-        <translation type="obsolete">Неизвестная ошибка создания каталога: %1</translation>
-    </message>
-    <message>
-        <source>file</source>
-        <translation type="obsolete">файл</translation>
-    </message>
-    <message>
-        <source>copy</source>
-        <translation type="obsolete">копировать</translation>
-    </message>
-    <message>
-        <source> to temp</source>
-        <translation type="obsolete"> в temp</translation>
-    </message>
-    <message>
         <source>File %1 restored</source>
         <translation>Файл %1 восстановлен</translation>
     </message>
@@ -1973,10 +1918,6 @@
     <message>
         <source>File name</source>
         <translation>Имя файла</translation>
-    </message>
-    <message>
-        <source>Folder %1</source>
-        <translation type="obsolete">Каталог %1</translation>
     </message>
     <message>
         <source>&lt;b&gt;Sync log:&lt;/b&gt;</source>
@@ -2031,10 +1972,6 @@
         <translation>Остановить синхронизацию</translation>
     </message>
     <message>
-        <source>Show advanced options</source>
-        <translation type="obsolete">Расширенные опции</translation>
-    </message>
-    <message>
         <source>Synchronise hidden files and folders</source>
         <translation>Синхронизировать скрытые файлы и каталоги</translation>
     </message>
@@ -2071,22 +2008,6 @@
         <translation>Следовать симлинкам</translation>
     </message>
     <message>
-        <source>Do not backup updated files from Folder 1</source>
-        <translation type="obsolete">Не делать копию обновленных файлов из Каталога 1</translation>
-    </message>
-    <message>
-        <source>Update existing files in Folder 1 only</source>
-        <translation type="obsolete">Обновить существующие файлы только в Каталоге 1</translation>
-    </message>
-    <message>
-        <source>Do not backup updated files from Folder 2</source>
-        <translation type="obsolete">Не делать копию обновленных файлов из Каталога 2</translation>
-    </message>
-    <message>
-        <source>Update existing files in Folder 2 only</source>
-        <translation type="obsolete">Обновить существующие файлы только в Каталоге 2</translation>
-    </message>
-    <message>
         <source>Filters</source>
         <translation>Фильтры</translation>
     </message>
@@ -2097,14 +2018,6 @@
     <message>
         <source>List files which need to be synchronised only</source>
         <translation>Только файлы, требующие синхронизации</translation>
-    </message>
-    <message>
-        <source>Folder 1</source>
-        <translation type="obsolete">Каталог 1</translation>
-    </message>
-    <message>
-        <source>Folder 2</source>
-        <translation type="obsolete">Каталог 2</translation>
     </message>
     <message>
         <source>Analysis</source>
@@ -2173,7 +2086,7 @@
         <translation>Находить и предупреждать о коллизиях</translation>
     </message>
     <message>
-        <source>%1<byte value="x9"/>Synchronisation started</source>
+        <source>%1	Synchronisation started</source>
         <translation>Запущено синхронизаций: %1</translation>
     </message>
     <message>
@@ -2255,6 +2168,14 @@
     <message>
         <source>Do not create empty folders</source>
         <translation>Не создавать пустые каталоги</translation>
+    </message>
+    <message>
+        <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore 1 hour difference (DST workaround)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

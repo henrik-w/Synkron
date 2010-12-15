@@ -242,210 +242,210 @@
     </message>
     <message>
         <location filename="../restore.cpp" line="452"/>
-        <location filename="../sync.cpp" line="868"/>
-        <location filename="../sync.cpp" line="923"/>
-        <location filename="../sync.cpp" line="960"/>
-        <location filename="../sync.cpp" line="970"/>
-        <location filename="../sync.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="1026"/>
+        <location filename="../sync.cpp" line="876"/>
+        <location filename="../sync.cpp" line="931"/>
+        <location filename="../sync.cpp" line="968"/>
+        <location filename="../sync.cpp" line="978"/>
+        <location filename="../sync.cpp" line="1010"/>
+        <location filename="../sync.cpp" line="1034"/>
         <source>File %1 deleted</source>
         <translation>文件 %1 成功清除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="306"/>
+        <location filename="../sync.cpp" line="314"/>
         <source>&lt;b&gt;Files in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;文件存在于黑名单中&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="309"/>
+        <location filename="../sync.cpp" line="317"/>
         <source>List of files in the blacklist</source>
         <translation>黑名单中的文件列表</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="314"/>
-        <location filename="../sync.cpp" line="335"/>
-        <location filename="../sync.cpp" line="356"/>
+        <location filename="../sync.cpp" line="322"/>
+        <location filename="../sync.cpp" line="343"/>
+        <location filename="../sync.cpp" line="364"/>
         <source>Add</source>
         <translation>新增</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="315"/>
+        <location filename="../sync.cpp" line="323"/>
         <source>Add file to black list</source>
         <translation>新增文件到黑名单</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="319"/>
-        <location filename="../sync.cpp" line="340"/>
-        <location filename="../sync.cpp" line="361"/>
+        <location filename="../sync.cpp" line="327"/>
+        <location filename="../sync.cpp" line="348"/>
+        <location filename="../sync.cpp" line="369"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="320"/>
+        <location filename="../sync.cpp" line="328"/>
         <source>Remove file from black list</source>
         <translation>从黑名单中移除文件</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="327"/>
+        <location filename="../sync.cpp" line="335"/>
         <source>&lt;b&gt;Folders in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;文件夹包含在黑名单中&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="330"/>
+        <location filename="../sync.cpp" line="338"/>
         <source>List of folders in the blacklist</source>
         <translation>黑名单中的文件夹列表</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="336"/>
+        <location filename="../sync.cpp" line="344"/>
         <source>Add folder to black list</source>
         <translation>新增文件夹到黑名单</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="341"/>
+        <location filename="../sync.cpp" line="349"/>
         <source>Remove folder from black list</source>
         <translation>从黑名单中移除文件夹</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="348"/>
+        <location filename="../sync.cpp" line="356"/>
         <source>&lt;b&gt;Extensions in the blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;扩展名包含在黑名单中&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="351"/>
+        <location filename="../sync.cpp" line="359"/>
         <source>List of extensions in the blacklist</source>
         <translation>黑名单中的扩展名列表</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="357"/>
+        <location filename="../sync.cpp" line="365"/>
         <source>Add extension to black list</source>
         <translation>新增扩展名到黑名单</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="362"/>
+        <location filename="../sync.cpp" line="370"/>
         <source>Remove extension from black list</source>
         <translation>从黑名单中删除扩展名</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="371"/>
+        <location filename="../sync.cpp" line="379"/>
         <source>Back</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="372"/>
+        <location filename="../sync.cpp" line="380"/>
         <source>Go back</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="519"/>
-        <location filename="../sync.cpp" line="553"/>
-        <location filename="../sync.cpp" line="781"/>
-        <location filename="../sync.cpp" line="785"/>
-        <location filename="../sync.cpp" line="812"/>
-        <location filename="../sync.cpp" line="844"/>
+        <location filename="../sync.cpp" line="527"/>
+        <location filename="../sync.cpp" line="561"/>
+        <location filename="../sync.cpp" line="789"/>
+        <location filename="../sync.cpp" line="793"/>
+        <location filename="../sync.cpp" line="820"/>
+        <location filename="../sync.cpp" line="852"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>文件夹 %1 列在黑名单中, 略过</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="561"/>
-        <location filename="../sync.cpp" line="828"/>
-        <location filename="../sync.cpp" line="852"/>
+        <location filename="../sync.cpp" line="569"/>
+        <location filename="../sync.cpp" line="836"/>
+        <location filename="../sync.cpp" line="860"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>文件 %1 列在黑名单中, 略过</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="600"/>
-        <location filename="../sync.cpp" line="881"/>
+        <location filename="../sync.cpp" line="608"/>
+        <location filename="../sync.cpp" line="889"/>
         <source>A file or a folder and a symbolic link with the same name have been found. Unable to synchronise these files. (%1, %2)</source>
         <translation>发现重名文件 / 重名文件夹/ 重名符号链接. 无法同步这些文件( %1, %2)</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="613"/>
-        <location filename="../sync.cpp" line="899"/>
+        <location filename="../sync.cpp" line="621"/>
+        <location filename="../sync.cpp" line="907"/>
         <source>A folder (%1) and a file (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>文件夹( %1 ) 与文件( %2) 重名. 无法同步这些文件.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="618"/>
-        <location filename="../sync.cpp" line="903"/>
+        <location filename="../sync.cpp" line="626"/>
+        <location filename="../sync.cpp" line="911"/>
         <source>A file (%1) and a folder (%2) with the same name have been found. Unable to synchronise these files.</source>
         <translation>文件( %1 ) 与文件夹( %2) 重名. 无法同步这些文件.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="664"/>
-        <location filename="../sync.cpp" line="1462"/>
+        <location filename="../sync.cpp" line="672"/>
+        <location filename="../sync.cpp" line="1470"/>
         <source>Updating file %1</source>
         <translation>正在更新文件 %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="686"/>
-        <location filename="../sync.cpp" line="954"/>
-        <location filename="../sync.cpp" line="1484"/>
+        <location filename="../sync.cpp" line="694"/>
+        <location filename="../sync.cpp" line="962"/>
+        <location filename="../sync.cpp" line="1492"/>
         <source>File %1 restored</source>
         <translation>文件 %1 已成功恢复</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="691"/>
-        <location filename="../sync.cpp" line="761"/>
+        <location filename="../sync.cpp" line="699"/>
+        <location filename="../sync.cpp" line="769"/>
         <source>Searching for changes</source>
         <translation>正在搜索变更</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="753"/>
+        <location filename="../sync.cpp" line="761"/>
         <source>Copying file %1</source>
         <translation>正在复制文件 %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="870"/>
-        <location filename="../sync.cpp" line="925"/>
-        <location filename="../sync.cpp" line="962"/>
-        <location filename="../sync.cpp" line="972"/>
-        <location filename="../sync.cpp" line="1004"/>
-        <location filename="../sync.cpp" line="1028"/>
+        <location filename="../sync.cpp" line="878"/>
+        <location filename="../sync.cpp" line="933"/>
+        <location filename="../sync.cpp" line="970"/>
+        <location filename="../sync.cpp" line="980"/>
+        <location filename="../sync.cpp" line="1012"/>
+        <location filename="../sync.cpp" line="1036"/>
         <source>Error removing file %1</source>
         <translation>移除文件 %1 过程中发生错误</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="875"/>
-        <location filename="../sync.cpp" line="892"/>
-        <location filename="../sync.cpp" line="1009"/>
+        <location filename="../sync.cpp" line="883"/>
+        <location filename="../sync.cpp" line="900"/>
+        <location filename="../sync.cpp" line="1017"/>
         <source>Folder %1 deleted</source>
         <translation>文件夹%1 已成功删除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="877"/>
-        <location filename="../sync.cpp" line="894"/>
-        <location filename="../sync.cpp" line="1011"/>
+        <location filename="../sync.cpp" line="885"/>
+        <location filename="../sync.cpp" line="902"/>
+        <location filename="../sync.cpp" line="1019"/>
         <source>Error removing directory %1</source>
         <translation>清除文件目录 %1 时发生错误</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="919"/>
+        <location filename="../sync.cpp" line="927"/>
         <source>Older file %1 backed up and deleted</source>
         <translation>更旧的文件 %1 已成功备份并删除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1279"/>
+        <location filename="../sync.cpp" line="1287"/>
         <source>%1 %2 files skipped</source>
         <translation>%1 %2 文件被略过</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1335"/>
+        <location filename="../sync.cpp" line="1343"/>
         <source>to temp</source>
         <translatorcomment>need clarify</translatorcomment>
         <translation>到临时文件</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1338"/>
+        <location filename="../sync.cpp" line="1346"/>
         <source>Error copying file %1: %2</source>
         <translation>复制文件 %1 过程中发生错误: %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1344"/>
+        <location filename="../sync.cpp" line="1352"/>
         <source>Error creating folder %1</source>
         <translation>创建文件夹 %1 过程中发生错误</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1350"/>
+        <location filename="../sync.cpp" line="1358"/>
         <source>Error removing file %1: %2</source>
         <translation>移除文件 %1 过程中发生错误: %2</translation>
     </message>
@@ -496,7 +496,7 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../syncpage.h" line="193"/>
+        <location filename="../syncpage.h" line="194"/>
         <source>Stopping synchronisation, please wait...</source>
         <translation>正在停止同步操作,请等待...</translation>
     </message>
@@ -658,6 +658,7 @@
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../main_window.ui" line="17"/>
         <location filename="../blacklist.cpp" line="60"/>
         <location filename="../blacklist.cpp" line="111"/>
         <location filename="../blacklist.cpp" line="168"/>
@@ -668,7 +669,6 @@
         <location filename="../main.cpp" line="338"/>
         <location filename="../main.cpp" line="344"/>
         <location filename="../main.cpp" line="444"/>
-        <location filename="../main_window.ui" line="17"/>
         <location filename="../multisync.cpp" line="267"/>
         <location filename="../other.cpp" line="124"/>
         <location filename="../other.cpp" line="130"/>
@@ -1842,12 +1842,12 @@
         <translation>同步 #%1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1291"/>
+        <location filename="../sync.cpp" line="1299"/>
         <source>Synchronisation complete</source>
         <translation>同步操作完成</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1291"/>
+        <location filename="../sync.cpp" line="1299"/>
         <source>%1 files synchronised</source>
         <translation>%1 文件同步完毕</translation>
     </message>
@@ -2535,27 +2535,27 @@
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
-        <location filename="../sync.cpp" line="488"/>
+        <location filename="../sync.cpp" line="496"/>
         <source>%1	Synchronisation complete: %2 file(s) %3</source>
         <translation>%1 同步完成: %2 文件 %3</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1001"/>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="488"/>
-        <location filename="../sync.cpp" line="490"/>
+        <location filename="../sync.cpp" line="496"/>
+        <location filename="../sync.cpp" line="498"/>
         <source>synchronised</source>
         <translation>已成功同步</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="490"/>
+        <location filename="../sync.cpp" line="498"/>
         <source>Synchronisation complete</source>
         <translation>同步操作完成</translation>
     </message>
     <message>
         <location filename="../analyse.cpp" line="1002"/>
-        <location filename="../sync.cpp" line="490"/>
+        <location filename="../sync.cpp" line="498"/>
         <source>%1 files %2</source>
         <translation>%1 文件 %2</translation>
     </message>
@@ -2628,13 +2628,13 @@
     </message>
     <message>
         <location filename="../sync.cpp" line="148"/>
-        <location filename="../sync.cpp" line="1414"/>
+        <location filename="../sync.cpp" line="1422"/>
         <source>Sync</source>
         <translation>文件同步</translation>
     </message>
     <message>
         <location filename="../sync.cpp" line="149"/>
-        <location filename="../sync.cpp" line="1415"/>
+        <location filename="../sync.cpp" line="1423"/>
         <source>Synchronise</source>
         <translation>同步</translation>
     </message>
@@ -2687,7 +2687,7 @@
     <message>
         <location filename="../sync.cpp" line="203"/>
         <location filename="../sync.cpp" line="205"/>
-        <location filename="../sync.cpp" line="1412"/>
+        <location filename="../sync.cpp" line="1420"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
         <translation>移动内容到文件夹2, 保持文件夹1为空</translation>
     </message>
@@ -2779,93 +2779,103 @@
         <translation>修改同步文件之间的允许时间差</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="413"/>
+        <location filename="../sync.cpp" line="300"/>
+        <source>Ignore 1 hour difference (DST workaround)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="301"/>
+        <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sync.cpp" line="421"/>
         <source>%1	Failed to create directory %2</source>
         <translation>%1	创建文件夹失败 %2</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="415"/>
+        <location filename="../sync.cpp" line="423"/>
         <source>%1	Directory %2 created</source>
         <translation>%1	文件夹 %2 成功创建</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="423"/>
+        <location filename="../sync.cpp" line="431"/>
         <source>%1	Synchronisation failed: Not enough valid directories specified</source>
         <translation>%1	同步失败：没有指定足够的有效目录</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="455"/>
+        <location filename="../sync.cpp" line="463"/>
         <source>%1	Synchronisation started</source>
         <translation>%1	已开始的同步操作</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="459"/>
+        <location filename="../sync.cpp" line="467"/>
         <source>%1	Synchronisation failed: Directories with the same path selected</source>
         <translation>%1	同步操作失败: 选中文件夹路径雷同</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="464"/>
+        <location filename="../sync.cpp" line="472"/>
         <source>Moving</source>
         <translation>正在移动</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="467"/>
-        <location filename="../sync.cpp" line="472"/>
-        <location filename="../sync.cpp" line="1220"/>
-        <location filename="../sync.cpp" line="1262"/>
+        <location filename="../sync.cpp" line="475"/>
+        <location filename="../sync.cpp" line="480"/>
+        <location filename="../sync.cpp" line="1228"/>
+        <location filename="../sync.cpp" line="1270"/>
         <source>Searching for changes</source>
         <translation>正在搜索变更</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="481"/>
+        <location filename="../sync.cpp" line="489"/>
         <source>%1 repeated temporary files deleted</source>
         <translation>%1 重复临时文件已删除</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="488"/>
-        <location filename="../sync.cpp" line="490"/>
+        <location filename="../sync.cpp" line="496"/>
+        <location filename="../sync.cpp" line="498"/>
         <source>moved</source>
         <translation>已成功移动</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="492"/>
+        <location filename="../sync.cpp" line="500"/>
         <location filename="../tabs.cpp" line="282"/>
         <source>Last synced on %1</source>
         <translation>最近同步操作时间是 %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1087"/>
-        <location filename="../sync.cpp" line="1103"/>
+        <location filename="../sync.cpp" line="1095"/>
+        <location filename="../sync.cpp" line="1111"/>
         <source>A file and a folder with the same name (%1) have been found. Unable to synchronise these files.</source>
         <translation>文件与文件夹重名( %1 ). 无法同步这些文件.</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1094"/>
+        <location filename="../sync.cpp" line="1102"/>
         <source>Folder %1 blacklisted, skipped</source>
         <translation>文件夹 %1 列在黑名单中, 略过</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1110"/>
+        <location filename="../sync.cpp" line="1118"/>
         <source>File %1 blacklisted, skipped</source>
         <translation>文件 %1 列在黑名单中, 略过</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1211"/>
+        <location filename="../sync.cpp" line="1219"/>
         <source>Copying file %1</source>
         <translation>正在复制文件 %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1234"/>
+        <location filename="../sync.cpp" line="1242"/>
         <source>Updating file %1</source>
         <translation>正在更新文件 %1</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1255"/>
+        <location filename="../sync.cpp" line="1263"/>
         <source>File %1 restored</source>
         <translation>文件 %1 成功恢复</translation>
     </message>
     <message>
-        <location filename="../sync.cpp" line="1411"/>
+        <location filename="../sync.cpp" line="1419"/>
         <source>Move</source>
         <translation>移动</translation>
     </message>

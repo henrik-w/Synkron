@@ -62,6 +62,7 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("tab_%1_%2/alert_collisions").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->alert_collisions->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/text_database").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->text_database_action->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("tab_%1_%2/no_empty_folders").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->no_empty_folders->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("tab_%1_%2/allow_dst").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->allow_DST->isChecked() ? "checked" : "unchecked");
 #ifndef Q_WS_WIN
         sync_settings->setValue(QString("tab_%1_%2/symlinks").arg(tabWidget->tabText(i)).arg(i), tabs.value(tabWidget->widget(i))->symlinks->isChecked() ? "checked" : "unchecked");
 #endif
@@ -114,6 +115,7 @@ void MainWindow::saveSettings()
         sync_settings->setValue(QString("multitab_%1_%2/analyse_special_only").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->analyse_special_only->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/alert_collisions").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->alert_collisions->isChecked() ? "checked" : "unchecked");
         sync_settings->setValue(QString("multitab_%1_%2/no_empty_folders").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->no_empty_folders->isChecked() ? "checked" : "unchecked");
+        sync_settings->setValue(QString("multitab_%1_%2/allow_dst").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->allow_DST->isChecked() ? "checked" : "unchecked");
 #ifndef Q_WS_WIN
         sync_settings->setValue(QString("multitab_%1_%2/symlinks").arg(multi_tabWidget->tabText(i)).arg(i), multi_page->symlinks->isChecked() ? "checked" : "unchecked");
 #endif
@@ -285,6 +287,7 @@ void MainWindow::readSettings()
         page->update_only->setChecked(sync_settings->value(QString("tab_%1_%2/update_only").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         page->text_database_action->setChecked(sync_settings->value(QString("tab_%1_%2/text_database").arg(tabs_list.at(i)).arg(i), "checked").toString()=="checked");
         page->no_empty_folders->setChecked(sync_settings->value(QString("tab_%1_%2/no_empty_folders").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
+        page->allow_DST->setChecked(sync_settings->value(QString("tab_%1_%2/allow_dst").arg(tabs_list.at(i)).arg(i)).toString()=="checked");
         if (sync_settings->value(QString("tab_%1_%2/periodical").arg(tabs_list.at(i)).arg(i)).toString()=="checked") {
             SyncSchedule * sync_sched = addSchedule(tabs_list.at(i));
             sync_sched->periodical_interval = sync_settings->value(QString("tab_%1_%2/sync_interval").arg(tabs_list.at(i)).arg(i), 1).toInt();
@@ -383,6 +386,7 @@ void MainWindow::readSettings()
         multi_page->analyse_special_only->setChecked(sync_settings->value(QString("multitab_%1_%2/analyse_special_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         multi_page->alert_collisions->setChecked(sync_settings->value(QString("multitab_%1_%2/alert_collisions").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         multi_page->no_empty_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/no_empty_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
+        multi_page->allow_DST->setChecked(!(sync_settings->value(QString("multitab_%1_%2/allow_dst").arg(multitabs_list.at(i)).arg(i)).toString()=="unchecked"));
         //multi_page->backup_folders->setChecked(sync_settings->value(QString("multitab_%1_%2/backup_folders").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
         //multi_page->update_only->setChecked(sync_settings->value(QString("multitab_%1_%2/update_only").arg(multitabs_list.at(i)).arg(i)).toString()=="checked");
 #ifndef Q_WS_WIN
