@@ -17,18 +17,18 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 void MainWindow::toRestorePage()
 {
-	date_of_sync->setDateTime(QDateTime(QDate(2000, 01, 01), QTime(00, 00, 00)));
-	path_of_syncfile->clear();
- 	QListWidgetItem * item;
- 	restore_list->clear();
- 	//QString last_time = "";
- 	//QString last_colour = "grey";
- 	QStringList time_groups = temp_settings->childGroups();
- 	for (int i = 0; i < time_groups.count(); ++i) {
+    date_of_sync->setDateTime(QDateTime(QDate(2000, 01, 01), QTime(00, 00, 00)));
+    path_of_syncfile->clear();
+    QListWidgetItem * item;
+    restore_list->clear();
+    //QString last_time = "";
+    //QString last_colour = "grey";
+    QStringList time_groups = temp_settings->childGroups();
+    for (int i = 0; i < time_groups.count(); ++i) {
         temp_settings->beginGroup(time_groups.at(i));
         QStringList file_groups = temp_settings->childGroups();
         for (int n = 0; n < file_groups.count(); ++n) {
@@ -59,48 +59,48 @@ void MainWindow::restoreItemChanged(QListWidgetItem * item, QListWidgetItem *) /
      QStringList item_list = item->data(Qt::UserRole).toStringList();
      bool found = false;
      for (int i = 0; i < files_blacklist.count(); ++i) {
-		if (files_blacklist.at(i) == item_list.at(2)) {
-			to_black_list->setCheckState(Qt::Checked); found = true;
-		}
-	 }
-	 if (!found) {
-			to_black_list->setCheckState(Qt::Unchecked);
-		}
-	 QStringList date_time = item_list.at(1).split("-");
-	 QStringList date_str = date_time.at(0).split(".");
-	 QStringList time_str = date_time.at(1).split(".");
+        if (files_blacklist.at(i) == item_list.at(2)) {
+            to_black_list->setCheckState(Qt::Checked); found = true;
+        }
+     }
+     if (!found) {
+            to_black_list->setCheckState(Qt::Unchecked);
+        }
+     QStringList date_time = item_list.at(1).split("-");
+     QStringList date_str = date_time.at(0).split(".");
+     QStringList time_str = date_time.at(1).split(".");
      QDate date (date_str.at(0).toInt(), date_str.at(1).toInt(), date_str.at(2).toInt());
      QTime time (time_str.at(0).toInt(), time_str.at(1).toInt(), time_str.at(2).toInt());
-	 date_of_sync->setDate(date);
-	 date_of_sync->setTime(time);
+     date_of_sync->setDate(date);
+     date_of_sync->setTime(time);
      restore_select_dt_edit->setDate(date);
      restore_select_dt_edit->setTime(time);
-	 path_of_syncfile->setText(item_list.at(2));
+     path_of_syncfile->setText(item_list.at(2));
 }
 
 void MainWindow::restoreFiles()
 {
-	//MTFile * file; MTFile * old_file;
-	int restored_items = 0; int errors = 0;// int restored [restore_list->count()];
-	for (int c = restore_list->count()-1; c >= 0; --c) {
-		if (restore_list->item(c)->checkState() == Qt::Checked) {
-			if (restoreItem(restore_list->item(c))) restored_items++;
-			else errors++;
-		}
-	}
-	/*for (int l = restored_items; l > 0; --l) {
-		delete restore_list->item(restored[l-1]);
-	}*/
-	if (restored_items == 0 && errors == 0) {
-		QMessageBox::warning(this, tr("Synkron"), tr("No files selected."));
-	} else {
-		QMessageBox::information(this, tr("Synkron"), tr("%1 files restored.").arg(restored_items));
-	}
+    //MTFile * file; MTFile * old_file;
+    int restored_items = 0; int errors = 0;// int restored [restore_list->count()];
+    for (int c = restore_list->count()-1; c >= 0; --c) {
+        if (restore_list->item(c)->checkState() == Qt::Checked) {
+            if (restoreItem(restore_list->item(c))) restored_items++;
+            else errors++;
+        }
+    }
+    /*for (int l = restored_items; l > 0; --l) {
+        delete restore_list->item(restored[l-1]);
+    }*/
+    if (restored_items == 0 && errors == 0) {
+        QMessageBox::warning(this, tr("Synkron"), tr("No files selected."));
+    } else {
+        QMessageBox::information(this, tr("Synkron"), tr("%1 files restored.").arg(restored_items));
+    }
 }
 
 void MainWindow::restoreCurrentItem()
 {
-	if (restore_list->currentItem()!=0) restoreItem(restore_list->currentItem());
+    if (restore_list->currentItem()!=0) restoreItem(restore_list->currentItem());
 }
 
 bool MainWindow::restoreItem(QListWidgetItem * item)
@@ -117,88 +117,88 @@ bool MainWindow::restoreItem(QListWidgetItem * item)
 //file_path - temp-file path, old_file_path - destination path
 bool MainWindow::restoreFile(QString file_path, QString old_file_path, QString group_name)
 {
-	MTFile * file = new MTFile (file_path);
+    MTFile * file = new MTFile (file_path);
     if (!file->exists()) { delete file; return false; }
-	MTFile * old_file = new MTFile (old_file_path);
-	if (old_file->exists()) {
-		if (!file->copy(QString("%1.res").arg(old_file_path))) { delete file; delete old_file; return false; }
-		QString file_name = old_file->fileName();
-		if (!old_file->remove()) { delete file; delete old_file; return false; }
-		delete file; file = new MTFile (QString("%1.res").arg(old_file_path));
-		if (!file->rename(file_name)) { delete file; delete old_file; return false; }
-		delete file; file = new MTFile (file_path);
-	} else if (!QFileInfo(old_file_path).dir().exists()) {
+    MTFile * old_file = new MTFile (old_file_path);
+    if (old_file->exists()) {
+        if (!file->copy(QString("%1.res").arg(old_file_path))) { delete file; delete old_file; return false; }
+        QString file_name = old_file->fileName();
+        if (!old_file->remove()) { delete file; delete old_file; return false; }
+        delete file; file = new MTFile (QString("%1.res").arg(old_file_path));
+        if (!file->rename(file_name)) { delete file; delete old_file; return false; }
+        delete file; file = new MTFile (file_path);
+    } else if (!QFileInfo(old_file_path).dir().exists()) {
         if (QDir().mkpath(QFileInfo(old_file_path).dir().path())) {
             if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
         } else {
             delete file; delete old_file; return false;
         }
      } else {
-		if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
-	}
-	file->remove(); delete file;
-	file = new MTFile (old_file_path);
+        if (!file->copy(old_file_path)) { delete file; delete old_file; return false; }
+    }
+    file->remove(); delete file;
+    file = new MTFile (old_file_path);
     if (mainStackedWidget->currentIndex() == 1) {
-    	file->touch(qApp);
-	}
+        file->touch(qApp);
+    }
     delete file; delete old_file;
     QFileInfo info(file_path);
         QDir dir = info.dir();
         QString dirname = dir.dirName();
-	dir.cdUp();
-	dir.rmdir(dirname);
-	//restored[restored_items] = restore_list->row(item);
-	temp_settings->beginGroup(group_name);
-	temp_settings->remove(file_path.split("/").last());
-	if (temp_settings->childGroups().count() == 0) {
+    dir.cdUp();
+    dir.rmdir(dirname);
+    //restored[restored_items] = restore_list->row(item);
+    temp_settings->beginGroup(group_name);
+    temp_settings->remove(file_path.split("/").last());
+    if (temp_settings->childGroups().count() == 0) {
         temp_settings->remove("");
     }
     temp_settings->endGroup();
-	/*for (int o = 0; o < synchronised.count(); ++o) {
-		if (synchronised.at(o) == file_path) {
-			synchronised.removeAt(o);
-			synchronised.removeAt(o-1);
-			synchronised.removeAt(o-2);
-			synchronised.removeAt(o-3);
-			break;
-		}
-	}*/
-	return true;
+    /*for (int o = 0; o < synchronised.count(); ++o) {
+        if (synchronised.at(o) == file_path) {
+            synchronised.removeAt(o);
+            synchronised.removeAt(o-1);
+            synchronised.removeAt(o-2);
+            synchronised.removeAt(o-3);
+            break;
+        }
+    }*/
+    return true;
 }
 
 void MainWindow::addToBlackList(int state)
 {
-	if (!restore_list->currentItem()) { to_black_list->setCheckState(Qt::Unchecked); return; }
-	QStringList item_list = restore_list->currentItem()->data(Qt::UserRole).toStringList();
-	if (item_list.count() != 0) {
-		if (state ==  Qt::Checked) {
-			bool found = false;
-			for (int i = 0; i < files_blacklist.count(); ++i) {
-				if (files_blacklist.at(i) == item_list.at(2)) {
-					found = true;
-				}
-			}
-			if (!found) {
-				files_blacklist << item_list.at(2);
-			}
-		}
-		else if (state == Qt::Unchecked) {
-			for (int i = files_blacklist.count(); i > 0; --i) {
-				if (files_blacklist.at(i-1) == item_list.at(2)) {
-					files_blacklist.removeAt(i-1);
-				}
-			}
-		}
-	}
+    if (!restore_list->currentItem()) { to_black_list->setCheckState(Qt::Unchecked); return; }
+    QStringList item_list = restore_list->currentItem()->data(Qt::UserRole).toStringList();
+    if (item_list.count() != 0) {
+        if (state ==  Qt::Checked) {
+            bool found = false;
+            for (int i = 0; i < files_blacklist.count(); ++i) {
+                if (files_blacklist.at(i) == item_list.at(2)) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                files_blacklist << item_list.at(2);
+            }
+        }
+        else if (state == Qt::Unchecked) {
+            for (int i = files_blacklist.count(); i > 0; --i) {
+                if (files_blacklist.at(i-1) == item_list.at(2)) {
+                    files_blacklist.removeAt(i-1);
+                }
+            }
+        }
+    }
 }
 
 void MainWindow::selTmpAll()
 {
-	for (int i = 0; i < restore_list->count(); ++i) {
-		if (!restore_list->item(i)->isHidden()) {
-		    restore_list->item(i)->setCheckState(Qt::Checked);
-		}
-	}
+    for (int i = 0; i < restore_list->count(); ++i) {
+        if (!restore_list->item(i)->isHidden()) {
+            restore_list->item(i)->setCheckState(Qt::Checked);
+        }
+    }
 }
 
 void MainWindow::setCleanGB()
@@ -209,7 +209,7 @@ void MainWindow::setCleanGB()
     restore_clean_selected->setText(tr("Delete selected files only"));
     restore_clean_selected->setStatusTip(tr("Delete selected files only"));
     restore_clean_gb->addWidget(restore_clean_selected, 0, 0);
-    
+
     QHBoxLayout * clean_date_layout = new QHBoxLayout;
     restore_clean_by_date = new QCheckBox(restore_clean_gb);
     restore_clean_by_date->setChecked(false);
@@ -228,7 +228,7 @@ void MainWindow::setCleanGB()
     clean_date_layout->addWidget(days_lbl);
     clean_date_layout->addStretch();
     restore_clean_gb->addLayout(clean_date_layout, 1, 0);
-    
+
     QHBoxLayout * clean_repeated_layout = new QHBoxLayout;
     restore_clean_repeated = new QCheckBox(restore_clean_gb);
     restore_clean_repeated->setChecked(false);
@@ -247,7 +247,7 @@ void MainWindow::setCleanGB()
     clean_repeated_layout->addWidget(versions_lbl);
     clean_repeated_layout->addStretch();
     restore_clean_gb->addLayout(clean_repeated_layout, 2, 0);
-    
+
     QHBoxLayout * clean_layout = new QHBoxLayout;
     clean_layout->addStretch();
     restore_clean = new QPushButton(restore_clean_gb);
@@ -263,21 +263,21 @@ void MainWindow::cleanTemporary()
 {
     if (restore_clean_selected->isChecked()) {
         bool a = false;
-	    for (int i = restore_list->count()-1; i>=0; --i) {
-	    	if (restore_list->item(i)->checkState() == Qt::Checked) {
-	    		a = true;
-	    	}
-	    }
-	    if (!a) { QMessageBox::information(this, tr("Synkron"), tr("No files selected.")); return; }
+        for (int i = restore_list->count()-1; i>=0; --i) {
+            if (restore_list->item(i)->checkState() == Qt::Checked) {
+                a = true;
+            }
+        }
+        if (!a) { QMessageBox::information(this, tr("Synkron"), tr("No files selected.")); return; }
     }
     QMap<QString, int> repeated_map; int deleted_files = 0;
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete temporary files?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No); 
- 	switch (msgBox.exec()) {
- 	case QMessageBox::Yes:
- 	    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-   		for (int i = restore_list->count()-1; i>=0; --i) {
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete temporary files?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+        for (int i = restore_list->count()-1; i>=0; --i) {
             if (restore_clean_selected->isChecked() && restore_list->item(i)->checkState() == Qt::Unchecked) continue;
             bool straight_delete = false; bool repeated_only = false;
             if (restore_clean_by_date->isChecked()) {
@@ -303,87 +303,87 @@ void MainWindow::cleanTemporary()
                 delete restore_list->item(i);
                 deleted_files++;
             }
-		}
+        }
         QApplication::restoreOverrideCursor();
         QMessageBox::information(this, tr("Synkron"), tr("%1 files deleted.").arg(deleted_files));
-   		break;
- 	case QMessageBox::No:
-     	return;
-	default:
-   		break;
- 	}
+        break;
+    case QMessageBox::No:
+        return;
+    default:
+        break;
+    }
 }
 
 void MainWindow::deleteTempFile(QString path)
 {
-	MTFile * file = new MTFile (path);
+    MTFile * file = new MTFile (path);
     if (file->exists()) {
-		file->remove();
-		QFileInfo info(path);
-		QDir dir = info.dir();
-		QString dirname = dir.dirName();
-		dir.cdUp();
-		dir.rmdir(dirname);
+        file->remove();
+        QFileInfo info(path);
+        QDir dir = info.dir();
+        QString dirname = dir.dirName();
+        dir.cdUp();
+        dir.rmdir(dirname);
     }
     QStringList path_split = path.split("/");
     QString time = path_split.at(path_split.count()-2);
     temp_settings->beginGroup(time);
-	temp_settings->remove(path_split.last());
-	if (temp_settings->childGroups().count() == 0) {
+    temp_settings->remove(path_split.last());
+    if (temp_settings->childGroups().count() == 0) {
         temp_settings->remove("");
     }
     temp_settings->endGroup();
     /*if (synchronised.contains(path)) {
-		int n = synchronised.indexOf(path);
-		synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
+        int n = synchronised.indexOf(path);
+        synchronised.removeAt(n); synchronised.removeAt(n-1); synchronised.removeAt(n-2); synchronised.removeAt(n-3);
     }*/
 }
 
 void MainWindow::deleteRestoreItem()
 {
-	if (restore_list->currentItem()==0) return;
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete the selected temporary file?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
- 	switch (msgBox.exec()) {
- 	case QMessageBox::Yes:
- 	    deleteTempFile(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(3));
-    	delete restore_list->currentItem();
-   		break;
- 	case QMessageBox::No:
-     	return;
-	default:
-   		break;
- 	}
+    if (restore_list->currentItem()==0) return;
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to delete the selected temporary file?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        deleteTempFile(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(3));
+        delete restore_list->currentItem();
+        break;
+    case QMessageBox::No:
+        return;
+    default:
+        break;
+    }
 }
 
 void MainWindow::checkRestoreItem()
 {
-	if (restore_list->currentItem()==0) return;
-	restore_list->currentItem()->setCheckState(restore_list->currentItem()->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+    if (restore_list->currentItem()==0) return;
+    restore_list->currentItem()->setCheckState(restore_list->currentItem()->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
 }
 
 void MainWindow::blacklistRestoreItem()
 {
-	if (restore_list->currentItem()==0) return;
-	to_black_list->setCheckState(to_black_list->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+    if (restore_list->currentItem()==0) return;
+    to_black_list->setCheckState(to_black_list->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
 }
 
 void MainWindow::restoreListConMenu(QPoint pos)
 {
     if (restore_list->currentItem()==0) return;
-	QMenu * contextMenu = new QMenu(this);
-	contextMenu->addAction(checkRestoreItemAction);
-	contextMenu->addAction(restoreAction);
-	contextMenu->addAction(deleteRestoreItemAction);
-	if (!files_blacklist.contains(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(2))) {
+    QMenu * contextMenu = new QMenu(this);
+    contextMenu->addAction(checkRestoreItemAction);
+    contextMenu->addAction(restoreAction);
+    contextMenu->addAction(deleteRestoreItemAction);
+    if (!files_blacklist.contains(restore_list->currentItem()->data(Qt::UserRole).toStringList().at(2))) {
         blacklistRestoreItemAction->setText(tr("Add to blacklist"));
     } else {
         blacklistRestoreItemAction->setText(tr("Remove from blacklist"));
     }
-	contextMenu->addAction(blacklistRestoreItemAction);
-	contextMenu->move(pos);
-	contextMenu->show();
+    contextMenu->addAction(blacklistRestoreItemAction);
+    contextMenu->move(pos);
+    contextMenu->show();
 }
 
 void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool add_table_item)
@@ -417,9 +417,9 @@ void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool ad
         }
         return;
     }
-	QString dirname = dir.dirName();
-	dir.cdUp();
-	if (dir.rmdir(dirname)) {
+    QString dirname = dir.dirName();
+    dir.cdUp();
+    if (dir.rmdir(dirname)) {
         if (add_table_item) addTableItem(tr("Folder %1 with %2 files deleted").arg(getLabeledPath(dir_path)).arg(synced_files - former_files), "", QString::fromUtf8(":/new/prefix1/images/folder_16.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
         synced_files++;
     } else {
@@ -457,7 +457,7 @@ void AbstractSyncPage::backupAndRemoveFile(QFileInfo file_info, bool backup, boo
 void MainWindow::setSelectGB()
 {
     restore_select_gb->setTitle(tr("Advanced selection"));
-    
+
     restore_select_last_sync = new QToolButton (restore_select_gb);
     restore_select_last_sync->setStatusTip(tr("Select files from the last synchronisation"));
     restore_select_last_sync->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/ok_16.png")));
@@ -466,7 +466,7 @@ void MainWindow::setSelectGB()
     QLabel * sel_last_sync_lbl = new QLabel (restore_select_gb);
     sel_last_sync_lbl->setText(tr("Select files from the last synchronisation"));
     restore_select_gb->addWidget(sel_last_sync_lbl, 0, 1);
-    
+
     restore_select_common_date = new QToolButton (restore_select_gb);
     restore_select_common_date->setStatusTip(tr("Select files with common date and time of synchronisation"));
     restore_select_common_date->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/ok_16.png")));
@@ -511,10 +511,10 @@ void MainWindow::convertOldTempSettings(QStringList old_settings)
         //at(i+1) - sync time
         //at(i+2) - old file path
         //at(i+3) - temp file path
-		temp_settings->beginGroup(old_settings.at(i+1));
-		temp_file_name = old_settings.at(i+3).split("/").last();
-		temp_settings->beginGroup(temp_file_name);
-		temp_settings->setValue("file_name", old_settings.at(i));
+        temp_settings->beginGroup(old_settings.at(i+1));
+        temp_file_name = old_settings.at(i+3).split("/").last();
+        temp_settings->beginGroup(temp_file_name);
+        temp_settings->setValue("file_name", old_settings.at(i));
         temp_settings->setValue("old_file_path", old_settings.at(i+2));
         temp_settings->setValue("temp_file_path", old_settings.at(i+3));
         temp_settings->endGroup();
@@ -530,7 +530,7 @@ void MainWindow::loadTempSettings()
     dir.cd(".Synkron");*/
     QFile file(QString("%1/%2").arg(dir.absolutePath()).arg(".backup.syncdb"));
     if (!file.open(QFile::Append | QFile::Text)) {
-		QMessageBox::critical(this, tr("Synkron"), tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()));
+        QMessageBox::critical(this, tr("Synkron"), tr("Cannot write file %1: %2").arg(file.fileName()).arg(file.errorString()));
         return;
     }
     temp_settings = new QSettings (dir.absoluteFilePath(".backup.syncdb"), QSettings::IniFormat);
@@ -538,7 +538,7 @@ void MainWindow::loadTempSettings()
 
 void MainWindow::readTempSettings()
 {
-    
+
 }
 
 int MainWindow::autoCleanTemp()
@@ -547,7 +547,7 @@ int MainWindow::autoCleanTemp()
     //int deleted_files = 0;
     QStringList to_be_deleted;
     QStringList time_groups = temp_settings->childGroups();
- 	for (int i = time_groups.count() - 1; i >= 0; --i) {
+    for (int i = time_groups.count() - 1; i >= 0; --i) {
         temp_settings->beginGroup(time_groups.at(i));
         QStringList file_groups = temp_settings->childGroups();
         for (int n = 0; n < file_groups.count(); ++n) {

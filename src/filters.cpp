@@ -17,23 +17,23 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 void MainWindow::addFilter()
 {
-	bool ok;
+    bool ok;
     QString text = QInputDialog::getText(this, tr("Set filter name"),
                                         tr("Filter name:"), QLineEdit::Normal,
                                         tr("filter_%1").arg(filter_list->count()+1), &ok);
     if (ok && !text.isEmpty()) {
-		for (int i = 0; i < filter_list->count(); ++i) {
-			if (filter_list->item(i)->text()==text) {
-				QMessageBox::information(this, tr("Synkron"), tr("A filter with the same name is already in the list")); return;
-			}
-		}
-		addFilter(text, QStringList());
-		filter_list->setCurrentRow(filter_list->count()-1);
-	}
+        for (int i = 0; i < filter_list->count(); ++i) {
+            if (filter_list->item(i)->text()==text) {
+                QMessageBox::information(this, tr("Synkron"), tr("A filter with the same name is already in the list")); return;
+            }
+        }
+        addFilter(text, QStringList());
+        filter_list->setCurrentRow(filter_list->count()-1);
+    }
 }
 
 void MainWindow::addFilter(QString text, QStringList exts)
@@ -94,57 +94,57 @@ void MainWindow::removeFilter()
 
 void MainWindow::addFilterExtension()
 {
-	bool ok;
+    bool ok;
     QString text = QInputDialog::getText(this, tr("Set extension"),
                                         tr("Filter extension name:"), QLineEdit::Normal,
                                         ".ext", &ok);
     if (ok && !text.isEmpty()) {
-		text.remove(" ");
-		QStringList exts = text.split(",");
-		Filter * filter = (Filter *) filter_list->currentItem();
-		for (int i = 0; i < exts.count(); ++i) {
-			if (filter->extensions.contains(exts.at(i))) continue;
-			filter->extensions << exts.at(i);
-			filter_extensions_list->addItem(exts.at(i));
-		}
-	}
+        text.remove(" ");
+        QStringList exts = text.split(",");
+        Filter * filter = (Filter *) filter_list->currentItem();
+        for (int i = 0; i < exts.count(); ++i) {
+            if (filter->extensions.contains(exts.at(i))) continue;
+            filter->extensions << exts.at(i);
+            filter_extensions_list->addItem(exts.at(i));
+        }
+    }
 }
 
 void MainWindow::removeFilterExtension()
 {
-	if (filter_extensions_list->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No extension selected.")); return; }
-	Filter * filter = (Filter *) filter_list->currentItem();
-	QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected extension from the list?"));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
- 	switch (msgBox.exec()) {
- 	case QMessageBox::Yes:
-		if (filter->extensions.indexOf(filter_extensions_list->currentItem()->text())!=-1) {
-			filter->extensions.removeAt(filter->extensions.indexOf(filter_extensions_list->currentItem()->text()));
-		}
-		delete filter_extensions_list->currentItem();
-   		break;
- 	case QMessageBox::No:
-		break;
-	default:
-   		break;
- 	}
+    if (filter_extensions_list->currentItem()==0) { QMessageBox::warning(this, tr("Synkron"), tr("No extension selected.")); return; }
+    Filter * filter = (Filter *) filter_list->currentItem();
+    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove the selected extension from the list?"));
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
+        if (filter->extensions.indexOf(filter_extensions_list->currentItem()->text())!=-1) {
+            filter->extensions.removeAt(filter->extensions.indexOf(filter_extensions_list->currentItem()->text()));
+        }
+        delete filter_extensions_list->currentItem();
+        break;
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
 }
 
 void MainWindow::filterChanged()
 {
-	if (filter_list->currentItem()==0) return;
-	setFiltersEnabled(true);
-	Filter * filter = (Filter *) filter_list->currentItem();
-	filter_extensions_list->clear();
-	for (int i = 0; i < filter->extensions.count(); ++i) {
-		filter_extensions_list->addItem(filter->extensions.at(i));
-	}
+    if (filter_list->currentItem()==0) return;
+    setFiltersEnabled(true);
+    Filter * filter = (Filter *) filter_list->currentItem();
+    filter_extensions_list->clear();
+    for (int i = 0; i < filter->extensions.count(); ++i) {
+        filter_extensions_list->addItem(filter->extensions.at(i));
+    }
 }
 
 void MainWindow::setFiltersEnabled(bool enable)
 {
-	filter_remove->setEnabled(enable);
-	filter_add_extension->setEnabled(enable);
-	filter_remove_extension->setEnabled(enable);
+    filter_remove->setEnabled(enable);
+    filter_add_extension->setEnabled(enable);
+    filter_remove_extension->setEnabled(enable);
 }

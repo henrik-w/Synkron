@@ -17,7 +17,7 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 // QDesktopServices::openUrl(string);
 
@@ -39,7 +39,7 @@ void SyncPage::goToAnalyse()
     for (int i = 1; i < labels.count(); ++i) {
         analyse_tree->header()->setResizeMode(i, QHeaderView::ResizeToContents);
     }
-    
+
     logs_stw->setCurrentIndex(1);
     analyseFolders();
 }
@@ -84,7 +84,7 @@ void MultisyncPage::analyse(QAction * action)
     parent_item->setExpanded(true);
 
     bool do_return = false;
-    MTStringSet folders_set;    
+    MTStringSet folders_set;
     QDir destination(destination_multi->text());
     if (!destination.exists()) {
         parent_item->setText(2, tr("NOT FOUND"));
@@ -280,7 +280,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
             if (file_info->isDir() && !file_info->isSymLink()) {
                 if (!ignore_blacklist->isChecked()) {
                     /*if (folders_blacklist.contains(file_info->absoluteFilePath(), Qt::CaseInsensitive)) {
-			    	    blacklisted = true;
+                        blacklisted = true;
                     }*/
                     for (int b = 0; b < folders_blacklist.count(); ++b) {
                         if (QRegExp(folders_blacklist.at(b), Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(file_info->absoluteFilePath())) {
@@ -321,7 +321,7 @@ bool AbstractSyncPage::subAnalyse(const MTStringSet & folders_set, QTreeWidgetIt
                 child_item->setToolTip(i+1, file_info->lastModified().toString(Qt::ISODate));
             }
             child_item->setData(i+1, Qt::UserRole, QVariant(file_info->absoluteFilePath()));
-            
+
             if (child_item->text(0).isEmpty()) {
                 if (file_info->isDir() && !file_info->isSymLink()) {
                     child_item->setIcon(0, QIcon(":/new/prefix1/images/folder_16.png"));
@@ -892,7 +892,7 @@ void AbstractSyncPage::analyseTreeConMenu(QPoint pos)
         contextMenu->addAction(open_analyse_action);
         contextMenu->addSeparator();
     }
-    
+
     if (!is_multisync) {
         QAction * sync_analyse_action;
         if (analyseTree()->currentItem()->checkState(0) == Qt::Checked) {
@@ -901,15 +901,15 @@ void AbstractSyncPage::analyseTreeConMenu(QPoint pos)
             contextMenu->addAction(sync_analyse_action);
         }
     }
-    
+
     QAction * del_analyse_action = new QAction (tr("Delete"), this);
     connect(del_analyse_action, SIGNAL(triggered()), this, SLOT(deleteCurrentAnalyseItem()));
     contextMenu->addAction(del_analyse_action);
-    
+
     QAction * rename_analyse_action = new QAction (tr("Rename"), this);
     connect(rename_analyse_action, SIGNAL(triggered()), this, SLOT(renameCurrentAnalyseItem()));
     contextMenu->addAction(rename_analyse_action);
-    
+
     QAction * bl_analyse_action = new QAction (this);
     if (analyseTree()->currentItem()->checkState(0) == Qt::Checked) {
         bl_analyse_action->setText(tr("Add to blacklist"));
@@ -918,15 +918,15 @@ void AbstractSyncPage::analyseTreeConMenu(QPoint pos)
     }
     connect(bl_analyse_action, SIGNAL(triggered()), this, SLOT(blacklistCurrentAnalyseItem()));
     contextMenu->addAction(bl_analyse_action);
-    
+
     if (analyseTree()->currentItem()->checkState(0) == Qt::Checked) {
         QAction * bl_ext_analyse_action = new QAction (tr("Add extension to blacklist"), this);
         connect(bl_ext_analyse_action, SIGNAL(triggered()), this, SLOT(blExtCurrentAnalyseItem()));
         contextMenu->addAction(bl_ext_analyse_action);
     }
-    
-	contextMenu->move(pos);
-	contextMenu->show();
+
+    contextMenu->move(pos);
+    contextMenu->show();
 }
 
 void AbstractSyncPage::openAnalyseTreeItem()
@@ -999,7 +999,7 @@ void SyncPage::syncCurrentAnalyseItem()
             setSyncEnabled(true);
             if (propagate_deletions->isChecked()) saveAllFolderDatabases();
             addTableItem(tr("%1	Synchronisation complete: %2 file(s) %3").arg(QTime().currentTime().toString("hh:mm:ss")).arg(synced_files).arg(tr("synchronised")), "", "", QBrush(Qt::green));
-		    mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(tr("synchronised")));
+            mp_parent->showTrayMessage(tr("Synchronisation complete"), tr("%1 files %2").arg(synced_files).arg(tr("synchronised")));
             synced_files = 0;
         }
     }
@@ -1009,16 +1009,16 @@ void AbstractSyncPage::deleteCurrentAnalyseItem()
 {
     QTreeWidgetItem * item = analyseTree()->currentItem();
     QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to remove \"%1\" from every synced location?").arg(item->text(0)));
-	msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
- 	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     QFileInfo * file_info = 0;
     bool backup = true;
     bool sub_backup = true;
     QStringList s_folders_list = currentSyncFoldersList();
     QString rel_path = item->data(0, Qt::UserRole).toStringList().first();
- 	
- 	switch (msgBox.exec()) {
- 	case QMessageBox::Yes:
+
+    switch (msgBox.exec()) {
+    case QMessageBox::Yes:
         leaveAnalyse();
         update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
         if (backupFolders()) backup = false;
@@ -1043,11 +1043,11 @@ void AbstractSyncPage::deleteCurrentAnalyseItem()
         }
         release(file_info);
         break;
- 	case QMessageBox::No:
-     	break;
-	default:
-   		break;
- 	}
+    case QMessageBox::No:
+        break;
+    default:
+        break;
+    }
 }
 
 void AbstractSyncPage::renameCurrentAnalyseItem()
@@ -1090,7 +1090,7 @@ void AbstractSyncPage::renameCurrentAnalyseItem()
                 addTableItem(tr("File %1 renamed").arg(file_info->absoluteFilePath()), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
             }
         }
-	}
+    }
     release(file_info);
 }
 
