@@ -31,35 +31,35 @@ inline void release(QList<T> *& l) { if (l) { delete l; l = NULL; } }
 class SyncSchedule : public QObject
 {
     Q_OBJECT
-    
+
 public:
     SyncSchedule(MainWindow *);
     QList<QTimer*> timers;
-    
-	QStringList sched_tab_list;
-	QStringList sched_multitab_list;
-	QStringList sched_time_list;
-	QStringList sched_checked_time_list;
+
+    QStringList sched_tab_list;
+    QStringList sched_multitab_list;
+    QStringList sched_time_list;
+    QStringList sched_checked_time_list;
     QStringList sched_date_list;
-	QStringList sched_checked_date_list;
-	QStringList sched_unchecked_days_list;
-	
-	int periodical_interval;
-	int timing_tab_index;
-	bool scheduling;
-    
+    QStringList sched_checked_date_list;
+    QStringList sched_unchecked_days_list;
+
+    int periodical_interval;
+    int timing_tab_index;
+    bool scheduling;
+
 signals:
     void sigsched(QWidget *);
-    
+
 public slots:
-	void syncSchedule();
-	void checkSchedStatus();
+    void syncSchedule();
+    void checkSchedStatus();
     void startSchedule();
-	
+
 private:
-	MainWindow * sched_parent;
-	QTableWidgetItem * parent_item;
-    
+    MainWindow * sched_parent;
+    QTableWidgetItem * parent_item;
+
     friend class MainWindow;
 };
 
@@ -92,14 +92,14 @@ private:
 
 class SyncViewItem : public QWidget, private Ui::SyncViewItem
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     SyncViewItem(AbstractSyncPage *);
     AbstractSyncPage * parent_page;
 
     void setName(QString name) { sync_name_lbl->setText(name); }
-	
+
 public slots:
     void startSync();
 
@@ -113,14 +113,14 @@ class MainWindow : public QMainWindow, private Ui::MainWindow
 
 public:
     MainWindow(QSettings *);
-    
+
     //QStringList synchronised;
     QStringList files_blacklist;
     QStringList folders_blacklist;
     QStringList exts_blacklist;
     QString temp_path;
     QString raw_temp_path;
-    
+
     bool syncingAll;
     bool skip_close_event;
     bool runHidden() { return run_hidden; }
@@ -153,7 +153,7 @@ private slots:
     void tabNameChanged();
     SyncPage * addSyncTab();
     //void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
-	
+
 // Restore
     void toRestorePage();
     void restoreItemChanged(QListWidgetItem *, QListWidgetItem *);
@@ -175,7 +175,7 @@ private slots:
     void readTempSettings();
     void convertOldTempSettings(QStringList);
     int autoCleanTemp();
-    
+
 // Blacklist
     void addToBlackList(int);
     void addFileToBlacklist();
@@ -184,13 +184,13 @@ private slots:
     void removeFolderFromBlacklist();
     void addExtToBlacklist();
     void removeExtFromBlacklist();
-    
+
 // Multisync
     MultisyncPage * addMultiTab();
     void addSource();
     void removeSource();
     void browseMultiDestination();
-    
+
 // Scheduler
     void addSchedule();
     SyncSchedule * addSchedule(QString);
@@ -223,7 +223,7 @@ private slots:
     void removeSchedDate();
     void schedDateClicked(QListWidgetItem *);
     void schedDayClicked(QListWidgetItem *);
-    
+
 // Filters
     void addFilter();
     void addFilter(QString, QStringList);
@@ -232,12 +232,12 @@ private slots:
     void removeFilterExtension();
     void filterChanged();
     void setFiltersEnabled(bool);
-    
+
 //SyncView
     void refreshSyncs();
     void refreshMultisyncs();
     void toSyncView();
-    
+
 // Other
     void changeLanguage(); void langChanged();
     void checkForUpdates(); void httpRequestFinished(bool);
@@ -265,6 +265,7 @@ private slots:
     void saveTab();
     void saveTabAs();
     void loadTab(QString = QString());
+    void updateActionsEnabling(int widgetIndex);
 
 private:
     float f_ver;
@@ -274,7 +275,7 @@ private:
     bool no_closedialogue;
     QHttp * http; QBuffer * http_buffer;
     QTcpServer * tcp_server; QTcpSocket * tcp_socket;
-    
+
     void closeEvent(QCloseEvent*);
     void readSettings();
     void createTrayIcon();
@@ -282,14 +283,14 @@ private:
     void toBlacklist();
 
     //QMenu * createPopupMenu();
-    
+
     QButtonGroup * btngrpBrowse;
     QActionGroup * actgrpView;
     QComboBox * langComboBox;
     QMap<QWidget *, SyncPage *> tabs;
     QMap<QTableWidgetItem*, SyncSchedule*> item_sched_map;
     QMap<QString, QString> synkron_i18n;
-    
+
     QCheckBox * restore_clean_selected;
     QCheckBox * restore_clean_by_date;
     QCheckBox * restore_clean_repeated;
@@ -306,7 +307,7 @@ private:
     QDateEdit * sched_date_edit;
     QPushButton * add_date_btn;
     QPushButton * rem_date_btn;
-    
+
     QAction * minimizeAction;
     QAction * maximizeAction;
     QAction * syncAction;
@@ -337,7 +338,7 @@ protected:
 class About : public QDialog, private Ui::About
 {
     Q_OBJECT
-    
+
 public:
     About(QString, QString);
 };

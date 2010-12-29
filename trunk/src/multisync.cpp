@@ -17,7 +17,7 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 MultisyncPage::MultisyncPage(MainWindow *parent) : AbstractSyncPage(parent)
 {
@@ -63,7 +63,7 @@ void MultisyncPage::setAdvancedGB()
     sync_hidden->setStatusTip(tr("Synchronise hidden files and folders"));
     sync_hidden->setText(tr("Synchronise hidden files and folders"));
     advanced_menu->addAction(sync_hidden);
-    
+
     no_empty_folders = new QAction (advanced_menu);
     no_empty_folders->setCheckable(true);
     no_empty_folders->setStatusTip(tr("Do not create empty folders"));
@@ -199,12 +199,12 @@ void MultisyncPage::setAdvancedGB()
 
 MultisyncPage * MainWindow::addMultiTab()
 {
-	MultisyncPage * multi_page = new MultisyncPage(this);
+    MultisyncPage * multi_page = new MultisyncPage(this);
     multi_page->blacklist = new QWidget ();
     multi_page->tab_stw->addWidget(multi_page->blacklist);
     multi_page->setBlacklistWidget();
-    
-	QString title;
+
+    QString title;
     int n = 1; gen_title:
     title = tr("Multisync #%1").arg(n); bool ok = true;
     for (int i = 0; i < multi_tabWidget->count(); ++i) {
@@ -219,7 +219,7 @@ MultisyncPage * MainWindow::addMultiTab()
     multi_page->tw_multi->setStatusTip(tr("List of synchronised files and folders"));
     multi_page->tw_multi->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     multi_page->tw_multi->setLayoutDirection(Qt::LeftToRight);
-	
+
     connect(multi_page->add_multi, SIGNAL(released()), this, SLOT(addSource()));
     connect(multi_page->remove_multi, SIGNAL(released()), this, SLOT(removeSource()));
     connect(multi_page->browse_multi, SIGNAL(released()), this, SLOT(browseMultiDestination()));
@@ -289,7 +289,7 @@ void MainWindow::removeSource()
 
 void MainWindow::browseMultiDestination()
 {
-	((MultisyncPage *)multi_tabWidget->currentWidget())->destination_multi->setText(QFileDialog::getExistingDirectory(
+    ((MultisyncPage *)multi_tabWidget->currentWidget())->destination_multi->setText(QFileDialog::getExistingDirectory(
                 this,
                 "Choose a directory",
                 QDir::homePath(),
@@ -311,31 +311,31 @@ int MultisyncPage::sync()
     setSyncEnabled(false); QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     syncing = true;
     extensions.clear();
-	/*if (filters->isChecked()) {
-		for (int f = 0; f < lw_filters->count(); ++f) {
-			if (lw_filters->item(f)->checkState()==Qt::Checked) {
-				for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
-					if (mp_parent->filter_list->item(l)->text() == lw_filters->item(f)->text()) {
-						for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
-							extensions << ((Filter *)mp_parent->filter_list->item(l))->extensions.at(e);
-						} break;
-					}
-				}
-			}
-		}
-	}*/
+    /*if (filters->isChecked()) {
+        for (int f = 0; f < lw_filters->count(); ++f) {
+            if (lw_filters->item(f)->checkState()==Qt::Checked) {
+                for (int l = 0; l < mp_parent->filter_list->count(); ++l) {
+                    if (mp_parent->filter_list->item(l)->text() == lw_filters->item(f)->text()) {
+                        for (int e = 0; e < ((Filter *)mp_parent->filter_list->item(l))->extensions.count(); ++e) {
+                            extensions << ((Filter *)mp_parent->filter_list->item(l))->extensions.at(e);
+                        } break;
+                    }
+                }
+            }
+        }
+    }*/
     collided.clear();
     dir_filters = QDir::NoDotAndDotDot | QDir::Files;
     if (sync_hidden->isChecked()) { dir_filters |= QDir::Hidden; }
     if (!sync_nosubdirs->isChecked()) { dir_filters |= QDir::AllDirs; }
 
     addTableItem(tr("%1	Synchronisation started").arg(QTime().currentTime().toString("hh:mm:ss")), "", "", QBrush(Qt::yellow));
-	QStringList pathlist; QString path;
-	QDir destination; QDir syncfolder; int all_synced_files = 0;
-	for (int i = 0; i < list_multi->count(); ++i) {
-		if (list_multi->item(i)->checkState()==Qt::Unchecked) continue;
-		destination.setPath(destination_multi->text());
-		if (!destination.exists()) {
+    QStringList pathlist; QString path;
+    QDir destination; QDir syncfolder; int all_synced_files = 0;
+    for (int i = 0; i < list_multi->count(); ++i) {
+        if (list_multi->item(i)->checkState()==Qt::Unchecked) continue;
+        destination.setPath(destination_multi->text());
+        if (!destination.exists()) {
             if (!QDir().mkpath(destination.path())) {
                 addTableItem(tr("%1	Synchronisation failed: Failed to create directory %2").arg(QTime().currentTime().toString("hh:mm:ss")).arg(destination.path()), "", "", QBrush(Qt::red), QBrush(Qt::white));
                 setSyncEnabled(true); QApplication::restoreOverrideCursor(); return 0;
@@ -374,8 +374,8 @@ int MultisyncPage::sync()
                 addTableItem(tr("%1	Directory %2 created").arg(QTime().currentTime().toString("hh:mm:ss")).arg(syncfolder.path()), "", "", QBrush(Qt::darkBlue), QBrush(Qt::white));
             }
         }
-    	sync_folder_1 = syncfolder.path();
-    	sync_folder_2 = destination.path();
+        sync_folder_1 = syncfolder.path();
+        sync_folder_2 = destination.path();
         if (text_database) {
             if (propagate_deletions->isChecked() || alert_collisions->isChecked()) {
                 folder_prop_list_map.clear();
@@ -388,7 +388,7 @@ int MultisyncPage::sync()
                 }
             }
         }
-    	update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
+        update_time = (QDateTime::currentDateTime()).toString("yyyy.MM.dd-hh.mm.ss");
         if (move->isChecked()) {
             status_table_item->setText(tr("Moving")); qApp->processEvents();
             moveContents(syncfolder, destination);
@@ -403,7 +403,7 @@ int MultisyncPage::sync()
             saveFolderDatabase(destination.absolutePath());
         }
         all_synced_files += synced_files;
-		addTableItem(tr("%1	%2: %3 file(s) %4").arg(QTime().currentTime().toString("hh:mm:ss")).arg(list_multi->item(i)->text()).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
+        addTableItem(tr("%1	%2: %3 file(s) %4").arg(QTime().currentTime().toString("hh:mm:ss")).arg(list_multi->item(i)->text()).arg(synced_files).arg(move->isChecked() ? tr("moved") : tr("synchronised")), "", "", QBrush(Qt::green));
         last_sync = QDateTime::currentDateTime().toString(Qt::SystemLocaleShortDate);
         status_table_item->setText(tr("Last synced on %1").arg(last_sync)); qApp->processEvents();
         collided.clear();
@@ -454,16 +454,16 @@ void MultisyncPage::setSyncEnabled(bool enable)
 void MultisyncPage::multitabNameChanged()
 {
     if (tab_name->text() == mp_parent->multi_tabWidget->tabText(mp_parent->multi_tabWidget->indexOf(this))) return;
-	QMapIterator<QTableWidgetItem*, SyncSchedule*>  i(mp_parent->item_sched_map);
+    QMapIterator<QTableWidgetItem*, SyncSchedule*>  i(mp_parent->item_sched_map);
     while (i.hasNext()) {
-		i.next();
-		for (int n = 0; n < i.value()->sched_multitab_list.count(); ++n) {
-			if (mp_parent->multi_tabWidget->tabText(mp_parent->multi_tabWidget->indexOf(this))==i.value()->sched_multitab_list.at(n)) {
-				i.value()->sched_multitab_list[n] = tab_name->text();
-			}
-		}
-	}
-	if (propagate_deletions->isChecked()) {
+        i.next();
+        for (int n = 0; n < i.value()->sched_multitab_list.count(); ++n) {
+            if (mp_parent->multi_tabWidget->tabText(mp_parent->multi_tabWidget->indexOf(this))==i.value()->sched_multitab_list.at(n)) {
+                i.value()->sched_multitab_list[n] = tab_name->text();
+            }
+        }
+    }
+    if (propagate_deletions->isChecked()) {
         changeTabNameInDatabase(tab_name->text(), mp_parent->multi_tabWidget->tabText(mp_parent->multi_tabWidget->indexOf(this)));
     }
     mp_parent->multi_tabWidget->setTabText(mp_parent->multi_tabWidget->indexOf(this), tab_name->text());
@@ -515,9 +515,9 @@ QStringList MultisyncPage::syncFoldersList()
                 path.replace(0, iter.key().length(), iter.value());
             }
         }
-		path.replace("//", "/");
-		paths << path;
-		paths << QString("%1/%2").arg(destination).arg(list_multi->item(i)->text().remove(":"));
+        path.replace("//", "/");
+        paths << path;
+        paths << QString("%1/%2").arg(destination).arg(list_multi->item(i)->text().remove(":"));
     }
     return paths;
 }
@@ -582,14 +582,14 @@ void MultisyncPage::addVariable()
     QLabel * path_lbl = new QLabel(tr("Folder:"));
     add_var_hlayout->addWidget(path_lbl);
     QLineEdit * path_le = new QLineEdit(add_var_dialogue);
-	add_var_hlayout->addWidget(path_le);
+    add_var_hlayout->addWidget(path_le);
 
     QDialogButtonBox * bb = new QDialogButtonBox(add_var_dialogue);
     bb->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QObject::connect(bb, SIGNAL(accepted()), add_var_dialogue, SLOT(accept()));
     QObject::connect(bb, SIGNAL(rejected()), add_var_dialogue, SLOT(reject()));
     add_var_hlayout->addWidget(bb);
-    
+
     add_var_dialogue->show();
     QString path = QFileDialog::getExistingDirectory(
                     add_var_dialogue,
@@ -602,15 +602,15 @@ void MultisyncPage::addVariable()
 
     QMap<QString, QString> old_vars_map = vars_map;
     switch (add_var_dialogue->exec()) {
-		case 0: // Cancel
-			break;	
-		case 1: // OK
-			if (name_le->text().isEmpty() || path_le->text().isEmpty()) break;
-			vars_map.insert(name_le->text(), path_le->text());
-			break;
-	}
-	resetSourcePaths(old_vars_map);
-	varsDialogue();
+        case 0: // Cancel
+            break;
+        case 1: // OK
+            if (name_le->text().isEmpty() || path_le->text().isEmpty()) break;
+            vars_map.insert(name_le->text(), path_le->text());
+            break;
+    }
+    resetSourcePaths(old_vars_map);
+    varsDialogue();
 }
 
 void MultisyncPage::removeVariable()
@@ -645,7 +645,7 @@ void MultisyncPage::resetSourcePaths(QMap<QString, QString> old_vars_map)
                 path.replace(0, iter.value().length(), iter.key() + "/");
             }
         }
-	    path.replace("\\", "/");
+        path.replace("\\", "/");
         path.replace("//", "/");
         list_multi->item(i)->setText(path);
     }

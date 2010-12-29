@@ -17,7 +17,7 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 void AbstractSyncPage::saveFolderDatabase(QString dir_path)
 {
@@ -74,8 +74,8 @@ MTDictionary AbstractSyncPage::getFolderDatabase(QString dir_path)
     QFile file(QString("%1/%2").arg(dir_path).arg(".synkron.syncdb"));
     if (!file.exists()) return prop_files_list;
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
-		//QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
-		return prop_files_list;
+        //QMessageBox::critical(this, tr("Save database"), tr("Cannot write file %1:\n%2.").arg(db_file_name).arg(file.errorString()));
+        return prop_files_list;
     }
     QTextStream read_sfile(&file);
     read_sfile.setCodec("UTF-8");
@@ -485,7 +485,7 @@ void AbstractSyncPage::displayCollisions()
             }
         default:
             break;
-	}
+    }
     QApplication::setOverrideCursor(Qt::WaitCursor);
 }
 

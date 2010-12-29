@@ -17,101 +17,16 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
-
-//+++ Main Window +++
-
-void MainWindow::addTab()
-{
-    if (mainStackedWidget->currentIndex()==0) {
-        addSyncTab();
-    } else if (mainStackedWidget->currentIndex()==3) {
-        addMultiTab();
-    }
-}
-
-void MainWindow::closeTab()
-{
-    int stack_index = mainStackedWidget->currentIndex();
-    if (stack_index != 0 && stack_index != 3) return;
-    QMessageBox msgBox; msgBox.setText(tr("Are you sure you want to close this tab?"));
-    msgBox.setWindowTitle(QString("Synkron")); msgBox.setIcon(QMessageBox::Question);
-    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    QMapIterator<QWidget *, SyncPage *> i(tabs);
-    switch (msgBox.exec()) {
-    case QMessageBox::Yes:
-        if (stack_index == 0) {
-            if (tabWidget->count() == 0) return;
-            tabs.value(tabWidget->currentWidget())->deleteAllFolderDatabases();
-            //tabs.value(tabWidget->currentWidget())->advanced->setChecked(false);
-            tabs.remove(tabWidget->currentWidget());
-            tabWidget->removeTab(tabWidget->currentIndex());
-        } else if (stack_index == 3) {
-            if (multi_tabWidget->count() == 0) return;
-            ((MultisyncPage *) multi_tabWidget->currentWidget())->deleteAllFolderDatabases();
-            multi_tabWidget->removeTab(multi_tabWidget->currentIndex());
-        }
-        break;
-    case QMessageBox::No:
-        break;
-    default:
-        break;
-    }
-}
-
-void MainWindow::saveTab()
-{
-    if (mainStackedWidget->currentIndex() == 0) { //Sync
-        tabs.value(tabWidget->currentWidget())->save();
-    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
-        ((MultisyncPage *) multi_tabWidget->currentWidget())->save();
-    }
-}
-
-void MainWindow::saveTabAs()
-{
-    if (mainStackedWidget->currentIndex() == 0) { //Sync
-        ((AbstractSyncPage *) tabs.value(tabWidget->currentWidget()))->saveAs();
-    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
-        ((AbstractSyncPage *) multi_tabWidget->currentWidget())->saveAs();
-    }
-}
-
-void MainWindow::loadTab(QString file_name)
-{
-    if (file_name.isEmpty()) {
-        file_name = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    QDir::homePath(),
-                                                    tr("Synkron Tabs (*.slist)"));
-        if (file_name.isEmpty()) { return; }
-    }
-	QFile file(file_name);
-    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        QMessageBox::critical(this, tr("Synkron"), tr("Cannot read file %1:\n%2.").arg(file_name).arg(file.errorString()));
-        return;
-    }
-    QTextStream in(&file);
-    QDomDocument domdoc;
-    domdoc.setContent(in.readAll());
-    QDomElement el_sync = domdoc.firstChildElement("sync");
-    if (el_sync.attribute("type") == "sync") {
-        SyncPage * page = addSyncTab();
-        page->load(domdoc, file_name);
-        actionSynchronise->trigger();
-    } else { //Multisync
-        MultisyncPage * multi_page = addMultiTab();
-        multi_page->load(domdoc, file_name);
-        mainStackedWidget->setCurrentIndex(3);
-        actionMultisync->trigger();
-    }
-}
+#include "MainWindow.h"
 
 //+++ Shared +++
 
 void AbstractSyncPage::save()
 {
-    if (slist_path == "") {
-        saveAs(); return;
+    if (slist_path == "")
+    {
+        saveAs();
+        return;
     }
     saveAs(slist_path);
 }
@@ -128,6 +43,8 @@ void AbstractSyncPage::saveAs()
 
 void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
 {
+    //TODO: I think it need to write unit tests to save function
+
     el_sync.setAttribute("last_sync", last_sync);
     el_sync.setAttribute("allowed_difference", allowed_difference);
 //*** Blacklist ***
@@ -141,22 +58,32 @@ void AbstractSyncPage::sharedSave(QDomDocument & domdoc, QDomElement & el_sync)
     QDomElement el_advanced = domdoc.createElement("advanced_options");
     el_sync.appendChild(el_advanced);
     QDomElement el_adv_global = domdoc.createElement("global");
-    el_adv_global.setAttribute("sync_hidden", sync_hidden->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("propagate_deletions", propagate_deletions->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("alert_collisions", alert_collisions->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("sync_nosubdirs", sync_nosubdirs->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("ignore_blacklist", ignore_blacklist->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("symlinks", symlinks->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("no_empty_folders", no_empty_folders->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("sync_hidden",
+        sync_hidden->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("propagate_deletions",
+        propagate_deletions->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("alert_collisions",
+        alert_collisions->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("sync_nosubdirs",
+        sync_nosubdirs->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("ignore_blacklist",
+        ignore_blacklist->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("symlinks",
+        symlinks->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("no_empty_folders",
+        no_empty_folders->isChecked() ? QString("1") : QString("0"));
     el_advanced.appendChild(el_adv_global);
     QDomElement el_adv_analysis = domdoc.createElement("analysis");
-    el_adv_analysis.setAttribute("fast_analyse", fast_analyse->isChecked() ? QString("1") : QString("0"));
-    el_adv_analysis.setAttribute("analyse_special_only", analyse_special_only->isChecked() ? QString("1") : QString("0"));
+    el_adv_analysis.setAttribute("fast_analyse",
+        fast_analyse->isChecked() ? QString("1") : QString("0"));
+    el_adv_analysis.setAttribute("analyse_special_only",
+        analyse_special_only->isChecked() ? QString("1") : QString("0"));
     el_advanced.appendChild(el_adv_analysis);
 }
 
 void AbstractSyncPage::sharedLoad(QDomElement & el_sync)
 {
+    //TODO: I think it need to write unit tests to load function
     loading = true;
     allowed_difference = el_sync.attribute("allowed_difference").toInt();
     last_sync = el_sync.attribute("last_sync").toInt();
@@ -201,16 +128,22 @@ void SyncPage::saveAs(QString file_name)
     QDomElement el_folders = domdoc.createElement("folders");
     el_folders.setAttribute("paths", syncFoldersList().join(";"));
     el_sync.appendChild(el_folders);
-    for (int i = 0; i < sync_folders->count(); ++i) {
+    for (int i = 0; i < sync_folders->count(); ++i)
+    {
         QDomElement el_folder = domdoc.createElement("folder");
         el_folder.setAttribute("path", sync_folders->at(i)->path());
         el_folder.setAttribute("label", sync_folders->at(i)->label());
         QDomElement el_folder_adv = domdoc.createElement("advanced");
-        el_folder_adv.setAttribute("update_only", sync_folders->at(i)->update_only_act->isChecked() ? QString("1") : QString("0"));
-        el_folder_adv.setAttribute("dont_update", sync_folders->at(i)->dont_update_act->isChecked() ? QString("1") : QString("0"));
-        el_folder_adv.setAttribute("backup_folder", sync_folders->at(i)->backup_folder_act->isChecked() ? QString("1") : QString("0"));
-        el_folder_adv.setAttribute("slave", sync_folders->at(i)->slave_act->isChecked() ? QString("1") : QString("0"));
-        el_folder_adv.setAttribute("no_empty_folders", sync_folders->at(i)->no_empty_folders_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("update_only",
+            sync_folders->at(i)->update_only_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("dont_update",
+            sync_folders->at(i)->dont_update_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("backup_folder",
+            sync_folders->at(i)->backup_folder_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("slave",
+            sync_folders->at(i)->slave_act->isChecked() ? QString("1") : QString("0"));
+        el_folder_adv.setAttribute("no_empty_folders",
+            sync_folders->at(i)->no_empty_folders_act->isChecked() ? QString("1") : QString("0"));
         el_folder.appendChild(el_folder_adv);
         el_folders.appendChild(el_folder);
     }
@@ -232,12 +165,16 @@ void SyncPage::saveAs(QString file_name)
     el_advanced.appendChild(el_adv_filters);
 //*** Analysis ***
     QDomElement el_adv_analysis = el_advanced.firstChildElement("analysis");
-    el_adv_analysis.setAttribute("sort_analysis_by_action", sort_analysis_by_action->isChecked() ? QString("1") : QString("0"));
+    el_adv_analysis.setAttribute("sort_analysis_by_action",
+        sort_analysis_by_action->isChecked() ? QString("1") : QString("0"));
 //*** Global ***
     QDomElement el_adv_global = el_advanced.firstChildElement("global");
-    el_adv_global.setAttribute("text_database", text_database_action->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("update_only", update_only->isChecked() ? QString("1") : QString("0"));
-    el_adv_global.setAttribute("backup_folders", backup_folders->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("text_database",
+        text_database_action->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("update_only",
+        update_only->isChecked() ? QString("1") : QString("0"));
+    el_adv_global.setAttribute("backup_folders",
+        backup_folders->isChecked() ? QString("1") : QString("0"));
 
     QFile file(file_name);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
@@ -258,8 +195,10 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
     sync_folders->removeAllFolders();
     SyncFolder * folder;
     QDomElement e;
-    for (int f = 0; f < folders.count(); ++f) {
-        if (folders.at(f).isElement()) {
+    for (int f = 0; f < folders.count(); ++f)
+    {
+        if (folders.at(f).isElement())
+        {
             e = folders.at(f).toElement();
             folder = sync_folders->addFolder();
             folder->setPath(e.attribute("path"));
@@ -274,7 +213,8 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
     }
     sync_folders->addToFolders(2);
     QDomElement el_name = el_sync.firstChildElement("name");
-    if (el_name.attribute("data")!="") {
+    if (el_name.attribute("data")!="")
+    {
         tab_name->setText(el_name.attribute("data"));
         mp_parent->tabNameChanged();
     }
@@ -288,9 +228,12 @@ void SyncPage::load(QDomDocument & domdoc, QString file_name)
     //filters->setChecked(el_adv_filters.attribute("filters_gb").toInt());
     QStringList flist = el_adv_filters.attribute("checked").split(";");
     QList<QAction *> actions = filters_menu->actions();
-    for (int n = 0; n < flist.count(); ++n) {
-        for (int f = 0; f < actions.count(); ++f) {
-            if (actions.at(f)->text() == flist.at(n)) {
+    for (int n = 0; n < flist.count(); ++n)
+    {
+        for (int f = 0; f < actions.count(); ++f)
+        {
+            if (actions.at(f)->text() == flist.at(n))
+            {
                 actions.at(f)->setChecked(true);
             }
         }
@@ -404,29 +347,3 @@ void MultisyncPage::load(QDomDocument & domdoc, QString file_name)
     slist_path = file_name;
 }
 
-void MainWindow::syncCurrentTab()
-{
-    if (mainStackedWidget->currentIndex() == 0) { //Sync
-        ((AbstractSyncPage *) tabs.value(tabWidget->currentWidget()))->sync();
-    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
-        ((AbstractSyncPage *) multi_tabWidget->currentWidget())->sync();
-    }
-}
-
-void MainWindow::analyseCurrentTab()
-{
-    if (mainStackedWidget->currentIndex() == 0) { //Sync
-        tabs.value(tabWidget->currentWidget())->goToAnalyse();
-    }
-}
-
-void MainWindow::aboutToShowTabMenu()
-{
-    if (mainStackedWidget->currentIndex() == 0) { //Sync
-        actionAdvanced->setMenu(((AbstractSyncPage *) tabs.value(tabWidget->currentWidget()))->advanced_menu);
-        actionAnalyse->setMenu(0);
-    } else if (mainStackedWidget->currentIndex() == 3) { //Multisync
-        actionAdvanced->setMenu(((AbstractSyncPage *) multi_tabWidget->currentWidget())->advanced_menu);
-        actionAnalyse->setMenu(((MultisyncPage *) multi_tabWidget->currentWidget())->analyse_con_menu);
-    }
-}

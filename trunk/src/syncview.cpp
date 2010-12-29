@@ -17,18 +17,18 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "main_window.h"
+#include "MainWindow.h"
 
 SyncViewItem::SyncViewItem(AbstractSyncPage * page)
 {
-	setupUi(this);
-	
-	connect(start_btn, SIGNAL(released()), this, SLOT(startSync()));
+    setupUi(this);
+
+    connect(start_btn, SIGNAL(released()), this, SLOT(startSync()));
     connect(stop_btn, SIGNAL(released()), page, SLOT(stopSync()));
     connect(edit_btn, SIGNAL(released()), page, SLOT(showThisPage()));
-    
+
     stop_btn->setEnabled(false);
-    
+
     parent_page = page;
 }
 
@@ -44,7 +44,7 @@ void MainWindow::refreshSyncs()
         delete syncs_syncview->takeItem(i, 0);
         syncs_syncview->removeRow(i);
     }
-    
+
     SyncViewItem * item;
     SyncPage * page;
     for (int m = 0; m < tabWidget->count(); ++m) {
@@ -63,7 +63,7 @@ void MainWindow::refreshMultisyncs()
         delete multisyncs_syncview->takeItem(i, 0);
         multisyncs_syncview->removeRow(i);
     }
-    
+
     SyncViewItem * item;
     MultisyncPage * page;
     for (int m = 0; m < multi_tabWidget->count(); ++m) {
@@ -80,11 +80,11 @@ void SyncViewItem::startSync()
 {
     start_btn->setEnabled(false);
     stop_btn->setEnabled(true);
-    
+
     int synced_files = parent_page->sync();
     sync_info_lbl->setText(QString("<span style=\"color: rgb(128, 128, 128)\">&nbsp;%1 %2</span>")
                 .arg(synced_files).arg(tr("file(s) synchronised")));
-    
+
     start_btn->setEnabled(true);
     stop_btn->setEnabled(false);
     parent_page->mp_parent->actionClose_sync->setEnabled(false);

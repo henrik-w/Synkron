@@ -17,7 +17,7 @@
    <string>Synkron</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../resources.qrc">
     <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -42,7 +42,7 @@
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="icon">
-            <iconset resource="resources.qrc">
+            <iconset resource="../resources.qrc">
              <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
            </attribute>
            <attribute name="title">
@@ -73,7 +73,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
             <property name="pixmap">
-             <pixmap resource="resources.qrc">:/new/prefix1/images/Restore16.png</pixmap>
+             <pixmap resource="../resources.qrc">:/new/prefix1/images/Restore16.png</pixmap>
             </property>
            </widget>
           </item>
@@ -220,7 +220,7 @@
                <string>Restore</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../resources.qrc">
                 <normaloff>:/new/prefix1/images/Restore.png</normaloff>:/new/prefix1/images/Restore.png</iconset>
               </property>
              </widget>
@@ -332,7 +332,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_8">
             <property name="pixmap">
-             <pixmap resource="resources.qrc">:/new/prefix1/images/file.png</pixmap>
+             <pixmap resource="../resources.qrc">:/new/prefix1/images/file.png</pixmap>
             </property>
            </widget>
           </item>
@@ -369,7 +369,7 @@
              <string>Remove</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
@@ -383,7 +383,7 @@
              <string>Add</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
@@ -422,7 +422,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_9">
             <property name="pixmap">
-             <pixmap resource="resources.qrc">:/new/prefix1/images/folder_16.png</pixmap>
+             <pixmap resource="../resources.qrc">:/new/prefix1/images/folder_16.png</pixmap>
             </property>
            </widget>
           </item>
@@ -459,7 +459,7 @@
              <string>Remove</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
@@ -473,7 +473,7 @@
              <string>Add</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
@@ -512,7 +512,7 @@
              <string>Add</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
             </property>
            </widget>
@@ -526,7 +526,7 @@
              <string>Remove</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../resources.qrc">
               <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
             </property>
            </widget>
@@ -560,7 +560,7 @@
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="icon">
-            <iconset resource="resources.qrc">
+            <iconset resource="../resources.qrc">
              <normaloff>:/new/prefix1/images/multisync.png</normaloff>:/new/prefix1/images/multisync.png</iconset>
            </attribute>
            <attribute name="title">
@@ -601,7 +601,7 @@
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap resource="resources.qrc">:/new/prefix1/images/scheduler16.png</pixmap>
+                     <pixmap resource="../resources.qrc">:/new/prefix1/images/scheduler16.png</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -661,7 +661,7 @@
                    <string>Add</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
+                   <iconset resource="../resources.qrc">
                     <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
                   </property>
                  </widget>
@@ -675,7 +675,7 @@
                    <string>Remove</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="resources.qrc">
+                   <iconset resource="../resources.qrc">
                     <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
                   </property>
                  </widget>
@@ -911,7 +911,7 @@
                        <string>Add</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset resource="../resources.qrc">
                         <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
                       </property>
                      </widget>
@@ -935,7 +935,7 @@
                        <string>Remove</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset resource="../resources.qrc">
                         <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
                       </property>
                      </widget>
@@ -1027,7 +1027,7 @@
           <item>
            <widget class="QLabel" name="label_18">
             <property name="pixmap">
-             <pixmap resource="resources.qrc">:/new/prefix1/images/filter16.png</pixmap>
+             <pixmap resource="../resources.qrc">:/new/prefix1/images/filter16.png</pixmap>
             </property>
            </widget>
           </item>
@@ -1099,7 +1099,7 @@
            <string>Add</string>
           </property>
           <property name="icon">
-           <iconset resource="resources.qrc">
+           <iconset resource="../resources.qrc">
             <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
           </property>
          </widget>
@@ -1116,7 +1116,7 @@
            <string>Remove</string>
           </property>
           <property name="icon">
-           <iconset resource="resources.qrc">
+           <iconset resource="../resources.qrc">
             <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
           </property>
          </widget>
@@ -1133,7 +1133,7 @@
            <string>Add</string>
           </property>
           <property name="icon">
-           <iconset resource="resources.qrc">
+           <iconset resource="../resources.qrc">
             <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
           </property>
          </widget>
@@ -1150,7 +1150,7 @@
            <string>Remove</string>
           </property>
           <property name="icon">
-           <iconset resource="resources.qrc">
+           <iconset resource="../resources.qrc">
             <normaloff>:/new/prefix1/images/remove.png</normaloff>:/new/prefix1/images/remove.png</iconset>
           </property>
          </widget>
@@ -1202,7 +1202,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="label_24">
               <property name="pixmap">
-               <pixmap resource="resources.qrc">:/new/prefix1/images/Synkron16.png</pixmap>
+               <pixmap resource="../resources.qrc">:/new/prefix1/images/Synkron16.png</pixmap>
               </property>
              </widget>
             </item>
@@ -1228,7 +1228,7 @@
             <item>
              <widget class="QLabel" name="label_23">
               <property name="pixmap">
-               <pixmap resource="resources.qrc">:/new/prefix1/images/multisync_16.png</pixmap>
+               <pixmap resource="../resources.qrc">:/new/prefix1/images/multisync_16.png</pixmap>
               </property>
              </widget>
             </item>
@@ -1279,7 +1279,7 @@
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1381,7 +1381,7 @@
   </widget>
   <action name="actionQuit">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/quit.png</normaloff>:/new/prefix1/images/quit.png</iconset>
    </property>
    <property name="text">
@@ -1396,7 +1396,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/Synkron128.png</normaloff>:/new/prefix1/images/Synkron128.png</iconset>
    </property>
    <property name="text">
@@ -1408,7 +1408,7 @@
   </action>
   <action name="actionFolder_1">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/folder.png</normaloff>:/new/prefix1/images/folder.png</iconset>
    </property>
    <property name="text">
@@ -1417,7 +1417,7 @@
   </action>
   <action name="actionFolder_2">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/folder.png</normaloff>:/new/prefix1/images/folder.png</iconset>
    </property>
    <property name="text">
@@ -1426,7 +1426,7 @@
   </action>
   <action name="actionNew_sync">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/tab-new_32.png</normaloff>:/new/prefix1/images/tab-new_32.png</iconset>
    </property>
    <property name="text">
@@ -1441,7 +1441,7 @@
   </action>
   <action name="actionClose_sync">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/tab-remove_32.png</normaloff>:/new/prefix1/images/tab-remove_32.png</iconset>
    </property>
    <property name="text">
@@ -1462,7 +1462,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/Synchronise.png</normaloff>:/new/prefix1/images/Synchronise.png</iconset>
    </property>
    <property name="text">
@@ -1477,7 +1477,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/Restore.png</normaloff>:/new/prefix1/images/Restore.png</iconset>
    </property>
    <property name="text">
@@ -1492,7 +1492,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/blacklist.png</normaloff>:/new/prefix1/images/blacklist.png</iconset>
    </property>
    <property name="text">
@@ -1515,7 +1515,7 @@
   </action>
   <action name="actionSync_all">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/sync_all.png</normaloff>:/new/prefix1/images/sync_all.png</iconset>
    </property>
    <property name="text">
@@ -1527,7 +1527,7 @@
   </action>
   <action name="actionCheck_for_updates">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/reload.png</normaloff>:/new/prefix1/images/reload.png</iconset>
    </property>
    <property name="text">
@@ -1542,7 +1542,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/multisync.png</normaloff>:/new/prefix1/images/multisync.png</iconset>
    </property>
    <property name="text">
@@ -1557,7 +1557,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/scheduler64.png</normaloff>:/new/prefix1/images/scheduler64.png</iconset>
    </property>
    <property name="text">
@@ -1569,7 +1569,7 @@
   </action>
   <action name="actionChange_language">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/locale.png</normaloff>:/new/prefix1/images/locale.png</iconset>
    </property>
    <property name="text">
@@ -1584,7 +1584,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/filter32.png</normaloff>:/new/prefix1/images/filter32.png</iconset>
    </property>
    <property name="text">
@@ -1607,7 +1607,7 @@
   </action>
   <action name="actionSave_log">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/save.png</normaloff>:/new/prefix1/images/save.png</iconset>
    </property>
    <property name="text">
@@ -1619,7 +1619,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/syncview_48.png</normaloff>:/new/prefix1/images/syncview_48.png</iconset>
    </property>
    <property name="text">
@@ -1664,7 +1664,7 @@
   </action>
   <action name="actionSave_tab">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/save.png</normaloff>:/new/prefix1/images/save.png</iconset>
    </property>
    <property name="text">
@@ -1673,7 +1673,7 @@
   </action>
   <action name="actionLoad_tab">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/open.png</normaloff>:/new/prefix1/images/open.png</iconset>
    </property>
    <property name="text">
@@ -1682,7 +1682,7 @@
   </action>
   <action name="actionSave_tab_as">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/save-as.png</normaloff>:/new/prefix1/images/save-as.png</iconset>
    </property>
    <property name="text">
@@ -1696,7 +1696,7 @@
   </action>
   <action name="actionSync">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/sync22.png</normaloff>:/new/prefix1/images/sync22.png</iconset>
    </property>
    <property name="text">
@@ -1705,7 +1705,7 @@
   </action>
   <action name="actionAnalyse">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/analyse_16.png</normaloff>:/new/prefix1/images/analyse_16.png</iconset>
    </property>
    <property name="text">
@@ -1714,7 +1714,7 @@
   </action>
   <action name="actionAdvanced">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset resource="../resources.qrc">
      <normaloff>:/new/prefix1/images/configure16.png</normaloff>:/new/prefix1/images/configure16.png</iconset>
    </property>
    <property name="text">
@@ -1741,7 +1741,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>
