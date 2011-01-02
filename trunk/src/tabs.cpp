@@ -92,6 +92,9 @@ void AbstractSyncPage::sharedLoad(QDomElement & el_sync)
     files_blacklist = el_blacklist.attribute("files").split(";");
     folders_blacklist = el_blacklist.attribute("folders").split(";");
     exts_blacklist = el_blacklist.attribute("extensions").split(";");
+    files_blacklist.removeAll("");
+    folders_blacklist.removeAll("");
+    exts_blacklist.removeAll("");
 
 //*** Advanced ***
     QDomElement el_advanced = el_sync.firstChildElement("advanced_options");
