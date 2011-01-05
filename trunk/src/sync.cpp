@@ -700,23 +700,13 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             }
         }
         else { // *** does not exist in D2 ***
+            if (!d2_info.dir().exists())
+                return;
+
             bool symfound = false;
             if (propagate_deletions->isChecked() && !((d1_is_d1 && dontModify(0)) || (!d1_is_d1 && dontModify(1)))) {
                 if (isInDatabase(d2_file_path)) {
                     backupAndRemove(&(d1_entries.at(i)), &d2_info, (d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1)));
-                    /*if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
-                        if ((d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1))) {
-                            backupAndRemoveDir(d1_entries.at(i).absoluteFilePath(), false);
-                        } else {
-                            backupAndRemoveDir(d1_entries.at(i).absoluteFilePath());
-                        }
-                    } else {
-                        if ((backupFolder(0) && d1_is_d1) || (backupFolder(1) && !d1_is_d1)) {
-                            backupAndRemoveFile(d1_entries.at(i), false);
-                        } else {
-                            backupAndRemoveFile(d1_entries.at(i));
-                        }
-                    }*/
                     continue;
                 }
             }
@@ -724,19 +714,6 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                 //QString cloned_file = d1_entries.at(i).absoluteFilePath();
                 if ((d1_is_d1 && dontModify(0)) || (!d1_is_d1 && dontModify(1))) continue;
                 backupAndRemove(&(d1_entries.at(i)), &d2_info, (d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1)));
-                /*if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
-                    if ((backupFolder(0) && d1_is_d1) || (backupFolder(1) && !d1_is_d1)) {
-                        backupAndRemoveDir(d1_entries.at(i).absoluteFilePath(), false);
-                    } else {
-                        backupAndRemoveDir(d1_entries.at(i).absoluteFilePath());
-                    }
-                } else {
-                    if ((backupFolder(0) && d1_is_d1) || (backupFolder(1) && !d1_is_d1)) {
-                        backupAndRemoveFile(d1_entries.at(i), false);
-                    } else {
-                        backupAndRemoveFile(d1_entries.at(i));
-                    }
-                }*/
                 continue;
             }
             if (!d1_is_d1 && (updateOnly(0) || dontModify(0))) goto end;
