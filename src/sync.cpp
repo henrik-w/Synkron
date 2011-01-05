@@ -703,7 +703,8 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
             bool symfound = false;
             if (propagate_deletions->isChecked() && !((d1_is_d1 && dontModify(0)) || (!d1_is_d1 && dontModify(1)))) {
                 if (isInDatabase(d2_file_path)) {
-                    if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
+                    backupAndRemove(&(d1_entries.at(i)), &d2_info, (d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1)));
+                    /*if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
                         if ((d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1))) {
                             backupAndRemoveDir(d1_entries.at(i).absoluteFilePath(), false);
                         } else {
@@ -715,14 +716,15 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                         } else {
                             backupAndRemoveFile(d1_entries.at(i));
                         }
-                    }
+                    }*/
                     continue;
                 }
             }
             if ((cloneFolder(0) && !d1_is_d1) || (cloneFolder(1) && d1_is_d1)) {
                 //QString cloned_file = d1_entries.at(i).absoluteFilePath();
                 if ((d1_is_d1 && dontModify(0)) || (!d1_is_d1 && dontModify(1))) continue;
-                if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
+                backupAndRemove(&(d1_entries.at(i)), &d2_info, (d1_is_d1 && backupFolder(0)) || (!d1_is_d1 && backupFolder(1)));
+                /*if (d1_entries.at(i).isDir() && !d1_entries.at(i).isSymLink()) {
                     if ((backupFolder(0) && d1_is_d1) || (backupFolder(1) && !d1_is_d1)) {
                         backupAndRemoveDir(d1_entries.at(i).absoluteFilePath(), false);
                     } else {
@@ -734,7 +736,7 @@ void AbstractSyncPage::subSync(QDir& d1, QDir& d2, bool repeated)
                     } else {
                         backupAndRemoveFile(d1_entries.at(i));
                     }
-                }
+                }*/
                 continue;
             }
             if (!d1_is_d1 && (updateOnly(0) || dontModify(0))) goto end;
@@ -1085,6 +1087,9 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
             release(file_info2);
             file_info2 = new MTFileInfo (QString("%1/%2").arg(sync_folders_set.key(n)).arg(rel_paths.at(i)));
             if (!file_info2->exists()) {
+                if (!file_info2->dir().exists())
+                    return;
+
                 sync_folders_set2.setValue(file_info2->absoluteFilePath(), sync_folders_set.value(n));
                 continue;
             }
@@ -1149,6 +1154,8 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                     // Obtaining a set of available dirs -----------------------
                     file_info2 = new MTFileInfo (sync_folders_set2.key(n));
                     if (!file_info2->exists()) {
+                        if (!file_info2->dir().exists())
+                            return;
                         if (propagate_deletions->isChecked() && !isSlave(sync_folders_set2.value(n))) {
                             //Propagated deletions -----------------------------
                             if (isInGroupDatabase(file_info2->absoluteFilePath())) {
@@ -1198,6 +1205,8 @@ void SyncPage::subGroupSync(MTMap<QString, int> sync_folders_set, MTStringSet re
                     release(file_info2);
                     file_info2 = new MTFileInfo (sync_folders_set2.key(n));
                     if (!file_info2->exists()) {
+                        if (!file_info2->dir().exists())
+                            return;
                         if (propagate_deletions->isChecked() && !isSlave(sync_folders_set2.value(n))) {
                             //Propagated deletions -----------------------------
                             if (isInGroupDatabase(file_info2->absoluteFilePath())) {

@@ -115,8 +115,11 @@ public:
     MTDictionary getFolderDatabaseOfOtherTabs(QFile &);
     void deleteFolderDatabase(QString);
     MTDictionary getEntryList(QString, QString);
+
     void backupAndRemoveDir(QString, bool = true, bool = true);
     void backupAndRemoveFile(QFileInfo, bool = true, bool = true);
+    void backupAndRemove(const QFileInfo *, const QFileInfo *, bool);
+
     bool isInDatabase(QString);
     bool isInGroupDatabase(QString);
     void changeTabNameInDatabase(QString, QString);

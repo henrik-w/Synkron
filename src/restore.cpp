@@ -386,6 +386,18 @@ void MainWindow::restoreListConMenu(QPoint pos)
     contextMenu->show();
 }
 
+void AbstractSyncPage::backupAndRemove(const QFileInfo * fi1, const QFileInfo * fi2, bool dont_backup)
+{
+    if (!fi2->absoluteDir().exists())
+        return;
+
+    if (fi1->isDir() && !fi1->isSymLink()) {
+        backupAndRemoveDir(fi1->absoluteFilePath(), !dont_backup);
+    } else {
+        backupAndRemoveFile(*fi1, !dont_backup);
+    }
+}
+
 void AbstractSyncPage::backupAndRemoveDir(QString dir_path, bool backup, bool add_table_item)
 {
     int former_files = synced_files;
