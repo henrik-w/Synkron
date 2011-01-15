@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/" >
+    <qresource prefix="/">
         <file>i18n/Synkron-Arabic.qm</file>
         <file>i18n/Synkron-Brazilian_Portuguese.qm</file>
         <file>i18n/Synkron-French.qm</file>
@@ -16,5 +16,6 @@
         <file>i18n/Synkron-Czech.qm</file>
         <file>i18n/Synkron-Chinese.qm</file>
         <file>i18n/Synkron-Dutch.qm</file>
+        <file>i18n/Synkron-Romanian.qm</file>
     </qresource>
 </RCC>
