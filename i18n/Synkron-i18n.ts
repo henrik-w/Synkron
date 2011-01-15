@@ -63,5 +63,9 @@
         <source>Dutch</source>
         <translation>Nederlands</translation>
     </message>
+    <message>
+        <source>Romanian</source>
+        <translation>Română</translation>
+    </message>
 </context>
 </TS>

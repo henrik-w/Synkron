@@ -448,6 +448,10 @@
         <source>Dutch</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Romanian</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MTAdvancedGroupBox</name>
@@ -1771,6 +1775,14 @@
         <source>Do not create empty folders</source>
         <translation>No crear carpetas vacías</translation>
     </message>
+    <message>
+        <source>Ignore 1 hour difference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SyncFolder</name>
@@ -2175,7 +2187,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ignore 1 hour difference (DST workaround)</source>
+        <source>Ignore 1 hour difference</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
