@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished">Chiński</translation>
+        <translation>Chiński</translation>
     </message>
     <message>
         <source>Italian</source>
@@ -442,15 +442,15 @@
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Czeski</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Holenderski</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumuński</translation>
     </message>
 </context>
 <context>
@@ -1776,11 +1776,11 @@
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignoruj różnicę 1 godziny</translation>
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Ze względu na zmianę czasu letniego (DST), pliki mogą mieć różnicę 1 godziny w czasie</translation>
     </message>
 </context>
 <context>
@@ -2183,11 +2183,11 @@
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Ze względu na zmianę czasu letniego (DST), pliki mogą mieć różnicę 1 godziny w czasie</translation>
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignoruj różnicę 1 godziny</translation>
     </message>
 </context>
 <context>

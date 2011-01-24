@@ -588,22 +588,22 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="114"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Tschechisch</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="115"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinesisch</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="116"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Niederländisch</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="117"/>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumänisch</translation>
     </message>
 </context>
 <context>
