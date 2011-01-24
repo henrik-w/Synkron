@@ -446,7 +446,7 @@
     </message>
     <message>
         <source>Dutch</source>
-        <translation>Holenderski</translation>
+        <translation>Niderlandzki</translation>
     </message>
     <message>
         <source>Romanian</source>
