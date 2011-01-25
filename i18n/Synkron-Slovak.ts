@@ -438,19 +438,19 @@
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>čeština</translation>
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>čínština</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>holnadština</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>rumunština</translation>
     </message>
 </context>
 <context>
@@ -1774,11 +1774,11 @@
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovať rozdiel 1 hodina</translation>
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Kvôli letnému a zimnému času sa súbory môžu líšiť časom 1 hodina</translation>
     </message>
 </context>
 <context>
@@ -2181,11 +2181,11 @@
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Kvôli letnému a zimnému času sa súbory môžu líšiť časom 1 hodina</translation>
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovať rozdiel 1 hodina</translation>
     </message>
 </context>
 <context>
