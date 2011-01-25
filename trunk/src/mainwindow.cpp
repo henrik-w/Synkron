@@ -17,7 +17,7 @@
  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ********************************************************************/
 
-#include "MainWindow.h"
+#include "mainwindow.h"
 
 enum MainStackedWidgetIndex
 {
@@ -29,7 +29,7 @@ MainWindow::MainWindow(QSettings * s)
 {
     setupUi(this);
 
-        f_ver = 1.6;
+        f_ver = 1.62;
         ver = "1.6.2";
 
     if (tr("LTR") == "RTL")

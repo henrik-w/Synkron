@@ -1,37 +1,37 @@
 TEMPLATE = app
 QT += network xml
-INCLUDEPATH += ./src
-HEADERS += ./src/MainWindow.h \
-     ./src/syncpage.h \
-     ./src/mtfile.h \
-     ./src/mtadvancedgroupbox.h \
-     ./src/extendedlineedit.h \
-     ./src/extendedlistwidget.h \
-     ./src/extendedtreewidget.h \
-     ./src/syncfolders.h \
-     ./src/mtstringset.h \
-     ./src/mtpathdialogue.h \
-     ./src/mtdictionary.h
-FORMS += ./ui/main_window.ui \
-     ./ui/about.ui \
-     ./ui/multisync_page.ui \
-     ./ui/sync_view_item.ui
-SOURCES += ./src/main.cpp \
-     ./src/sync.cpp \
-     ./src/restore.cpp \
-     ./src/blacklist.cpp \
-     ./src/multisync.cpp \
-     ./src/scheduler.cpp \
-     ./src/filters.cpp \
-     ./src/mtfile.cpp \
-     ./src/syncfolders.cpp \
-     ./src/syncview.cpp \
-     ./src/analyse.cpp \
-     ./src/tabs.cpp \
-     ./src/other.cpp \
-     ./src/settings.cpp \
-     ./src/syncdb.cpp \
-    src/MainWindow.cpp
+INCLUDEPATH += src
+HEADERS += src/mainwindow.h \
+     src/syncpage.h \
+     src/mtfile.h \
+     src/mtadvancedgroupbox.h \
+     src/extendedlineedit.h \
+     src/extendedlistwidget.h \
+     src/extendedtreewidget.h \
+     src/syncfolders.h \
+     src/mtstringset.h \
+     src/mtpathdialogue.h \
+     src/mtdictionary.h
+FORMS += ui/mainwindow.ui \
+     ui/about.ui \
+     ui/multisyncpage.ui \
+     ui/syncviewitem.ui
+SOURCES += src/main.cpp \
+     src/sync.cpp \
+     src/restore.cpp \
+     src/blacklist.cpp \
+     src/multisync.cpp \
+     src/scheduler.cpp \
+     src/filters.cpp \
+     src/mtfile.cpp \
+     src/syncfolders.cpp \
+     src/syncview.cpp \
+     src/analyse.cpp \
+     src/tabs.cpp \
+     src/other.cpp \
+     src/settings.cpp \
+     src/syncdb.cpp \
+     src/mainwindow.cpp
 RESOURCES += resources.qrc \
      i18n.qrc
 DESTDIR = ./

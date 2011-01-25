@@ -18,7 +18,7 @@
 ********************************************************************/
 
 #include "ui_about.h"
-#include "ui_sync_view_item.h"
+#include "ui_syncviewitem.h"
 #include "syncpage.h"
 
 //inline void release(QFileInfo *& f) { if (f) { delete f; f = NULL; } }
