@@ -257,7 +257,7 @@
             <property name="checked">
              <bool>true</bool>
             </property>
-            <layout class="QGridLayout" name="gridLayout">
+            <layout class="QGridLayout" name="gridLayout8">
              <item row="0" column="0">
               <widget class="QLabel" name="keep_auto">
                <property name="text">

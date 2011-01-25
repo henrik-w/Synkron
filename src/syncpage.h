@@ -59,8 +59,8 @@
 #include <windows.h>
 #endif
 
-#include "ui_main_window.h"
-#include "ui_multisync_page.h"
+#include "ui_mainwindow.h"
+#include "ui_multisyncpage.h"
 #include "mtfile.h"
 #include "mtadvancedgroupbox.h"
 #include "mtstringset.h"
