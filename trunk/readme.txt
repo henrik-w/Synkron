@@ -29,6 +29,6 @@ You now have two options:
 	mingw32-make or nmake)
 
 When all is done, you may run the program:
-Linux/Unix: ./Synkron
+Linux/Unix: ./synkron
 Mac OS X: open Synkron.app
 Windows: Synkron
