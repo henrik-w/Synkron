@@ -526,83 +526,88 @@
 <context>
     <name>LanguageNames</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="102"/>
+        <location filename="../src/mainwindow.cpp" line="102"/>
         <source>Slovak</source>
         <translation>スロバキア語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="103"/>
+        <location filename="../src/mainwindow.cpp" line="103"/>
         <source>German</source>
         <translation>ドイツ語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="104"/>
+        <location filename="../src/mainwindow.cpp" line="104"/>
         <source>Japanese</source>
         <translation>日本語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="105"/>
+        <location filename="../src/mainwindow.cpp" line="105"/>
         <source>Arabic</source>
         <translation>Arabic</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="106"/>
+        <location filename="../src/mainwindow.cpp" line="106"/>
         <source>Russian</source>
         <translation>ロシア語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="107"/>
+        <location filename="../src/mainwindow.cpp" line="107"/>
         <source>Spanish</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="108"/>
+        <location filename="../src/mainwindow.cpp" line="108"/>
         <source>Brazilian Portuguese</source>
         <translation>ブラジルポルトガル語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="109"/>
+        <location filename="../src/mainwindow.cpp" line="109"/>
         <source>Polish</source>
         <translation>ポーランド語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="110"/>
+        <location filename="../src/mainwindow.cpp" line="110"/>
         <source>Italian</source>
         <translation>イタリア語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="111"/>
+        <location filename="../src/mainwindow.cpp" line="111"/>
         <source>French</source>
         <translation>フランス語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="112"/>
+        <location filename="../src/mainwindow.cpp" line="112"/>
         <source>Valencian</source>
         <translation>バレンシア自治</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="113"/>
+        <location filename="../src/mainwindow.cpp" line="113"/>
         <source>Finnish</source>
         <translation>フィンランド語</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="114"/>
+        <location filename="../src/mainwindow.cpp" line="114"/>
         <source>Czech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="115"/>
+        <location filename="../src/mainwindow.cpp" line="115"/>
         <source>Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="116"/>
+        <location filename="../src/mainwindow.cpp" line="116"/>
         <source>Dutch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="117"/>
+        <location filename="../src/mainwindow.cpp" line="117"/>
         <source>Romanian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="118"/>
+        <source>Turkish</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -662,8 +667,7 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../ui/main_window.ui" line="17"/>
-        <location filename="../src/MainWindow.cpp" line="373"/>
+        <location filename="../ui/mainwindow.ui" line="17"/>
         <location filename="../src/blacklist.cpp" line="60"/>
         <location filename="../src/blacklist.cpp" line="111"/>
         <location filename="../src/blacklist.cpp" line="168"/>
@@ -674,6 +678,7 @@
         <location filename="../src/main.cpp" line="99"/>
         <location filename="../src/main.cpp" line="105"/>
         <location filename="../src/main.cpp" line="205"/>
+        <location filename="../src/mainwindow.cpp" line="374"/>
         <location filename="../src/multisync.cpp" line="273"/>
         <location filename="../src/other.cpp" line="124"/>
         <location filename="../src/other.cpp" line="130"/>
@@ -764,18 +769,18 @@
         <translation>一覧から選択された拡張子を削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="41"/>
-        <location filename="../src/MainWindow.cpp" line="42"/>
+        <location filename="../src/mainwindow.cpp" line="41"/>
+        <location filename="../src/mainwindow.cpp" line="42"/>
         <source>Use the brushed metal style</source>
         <translation>ブラシ メタル スタイルを使用する</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="64"/>
+        <location filename="../src/mainwindow.cpp" line="64"/>
         <source>Schedule name</source>
         <translation>スケジュール名</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="64"/>
+        <location filename="../src/mainwindow.cpp" line="64"/>
         <source>Status</source>
         <translation>状態</translation>
     </message>
@@ -893,460 +898,460 @@
         <translation>Synkron 同期化ログ</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="49"/>
-        <location filename="../ui/main_window.ui" line="52"/>
-        <location filename="../ui/main_window.ui" line="567"/>
-        <location filename="../ui/main_window.ui" line="570"/>
+        <location filename="../ui/mainwindow.ui" line="49"/>
+        <location filename="../ui/mainwindow.ui" line="52"/>
+        <location filename="../ui/mainwindow.ui" line="567"/>
+        <location filename="../ui/mainwindow.ui" line="570"/>
         <source>Sync #1</source>
         <translation>同期化 #1</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="69"/>
+        <location filename="../ui/mainwindow.ui" line="69"/>
         <source>&lt;b&gt;Files available for restoring:&lt;/b&gt;</source>
         <translation>&lt;b&gt;復元に利用可能なファイル:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="100"/>
+        <location filename="../ui/mainwindow.ui" line="100"/>
         <source>List of files available for restoring</source>
         <translation>復元に利用可能なファイルの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="109"/>
+        <location filename="../ui/mainwindow.ui" line="109"/>
         <source>Select all temporary files</source>
         <translation>すべての一時ファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="112"/>
+        <location filename="../ui/mainwindow.ui" line="112"/>
         <source>Select all</source>
         <translation>すべて選択</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="134"/>
+        <location filename="../ui/mainwindow.ui" line="134"/>
         <source>Search</source>
         <translation>検索</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="148"/>
+        <location filename="../ui/mainwindow.ui" line="148"/>
         <source>Original file path</source>
         <translation>元のファイル パスです</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="158"/>
+        <location filename="../ui/mainwindow.ui" line="158"/>
         <source>Add file to blacklist</source>
         <translation>ファイルをブラックリストに追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="161"/>
+        <location filename="../ui/mainwindow.ui" line="161"/>
         <source>Do not synchronise this file again (add to blacklist)</source>
         <translation>再びこのファイルを同期化しない (ブラックリストに追加する)</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="168"/>
+        <location filename="../ui/mainwindow.ui" line="168"/>
         <source>Date and time of synchronisation:</source>
         <translation>同期化の日時:</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="175"/>
+        <location filename="../ui/mainwindow.ui" line="175"/>
         <source>Original file path:</source>
         <translation>元のファイル パス:</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="182"/>
+        <location filename="../ui/mainwindow.ui" line="182"/>
         <source>&lt;b&gt;About the selected item:&lt;/b&gt;</source>
         <translation>&lt;b&gt;選択されたアイテムについて:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="189"/>
+        <location filename="../ui/mainwindow.ui" line="189"/>
         <source>Date and time of synchronisation</source>
         <translation>同期化の日時です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="195"/>
+        <location filename="../ui/mainwindow.ui" line="195"/>
         <source>yyyy.MM.dd-hh:mm:ss</source>
         <translation>yyyy.MM.dd-hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="217"/>
+        <location filename="../ui/mainwindow.ui" line="217"/>
         <source>Restore selected files</source>
         <translation>選択されたファイルを復元します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="220"/>
-        <location filename="../ui/main_window.ui" line="1484"/>
+        <location filename="../ui/mainwindow.ui" line="220"/>
+        <location filename="../ui/mainwindow.ui" line="1484"/>
         <source>Restore</source>
         <translation>復元</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="315"/>
+        <location filename="../ui/mainwindow.ui" line="315"/>
         <source>&lt;b&gt;Files in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストのファイル:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="344"/>
+        <location filename="../ui/mainwindow.ui" line="344"/>
         <source>List of files in the blacklist</source>
         <translation>ブラックリストのファイルの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="366"/>
+        <location filename="../ui/mainwindow.ui" line="366"/>
         <source>Remove file from blacklist</source>
         <translation>ブラックリストからファイルを削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="369"/>
-        <location filename="../ui/main_window.ui" line="459"/>
-        <location filename="../ui/main_window.ui" line="526"/>
-        <location filename="../ui/main_window.ui" line="675"/>
-        <location filename="../ui/main_window.ui" line="935"/>
-        <location filename="../ui/main_window.ui" line="1116"/>
-        <location filename="../ui/main_window.ui" line="1150"/>
+        <location filename="../ui/mainwindow.ui" line="369"/>
+        <location filename="../ui/mainwindow.ui" line="459"/>
+        <location filename="../ui/mainwindow.ui" line="526"/>
+        <location filename="../ui/mainwindow.ui" line="675"/>
+        <location filename="../ui/mainwindow.ui" line="935"/>
+        <location filename="../ui/mainwindow.ui" line="1116"/>
+        <location filename="../ui/mainwindow.ui" line="1150"/>
         <location filename="../src/scheduler.cpp" line="536"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="380"/>
+        <location filename="../ui/mainwindow.ui" line="380"/>
         <source>Add file to black list</source>
         <translation>ファイルをブラック リストに追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="383"/>
-        <location filename="../ui/main_window.ui" line="473"/>
-        <location filename="../ui/main_window.ui" line="512"/>
-        <location filename="../ui/main_window.ui" line="661"/>
-        <location filename="../ui/main_window.ui" line="911"/>
-        <location filename="../ui/main_window.ui" line="1099"/>
-        <location filename="../ui/main_window.ui" line="1133"/>
+        <location filename="../ui/mainwindow.ui" line="383"/>
+        <location filename="../ui/mainwindow.ui" line="473"/>
+        <location filename="../ui/mainwindow.ui" line="512"/>
+        <location filename="../ui/mainwindow.ui" line="661"/>
+        <location filename="../ui/mainwindow.ui" line="911"/>
+        <location filename="../ui/mainwindow.ui" line="1099"/>
+        <location filename="../ui/mainwindow.ui" line="1133"/>
         <location filename="../src/scheduler.cpp" line="531"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="418"/>
+        <location filename="../ui/mainwindow.ui" line="418"/>
         <source>&lt;b&gt;Folders in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストのフォルダー:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="434"/>
+        <location filename="../ui/mainwindow.ui" line="434"/>
         <source>List of folders in the blacklist</source>
         <translation>ブラックリストのフォルダーの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="456"/>
+        <location filename="../ui/mainwindow.ui" line="456"/>
         <source>Remove folder from blacklist</source>
         <translation>ブラックリストからフォルダーを削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="470"/>
+        <location filename="../ui/mainwindow.ui" line="470"/>
         <source>Add folder to blacklist</source>
         <translation>フォルダーをブラックリストに追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="611"/>
+        <location filename="../ui/mainwindow.ui" line="611"/>
         <source>&lt;b&gt;Schedules:&lt;/b&gt;</source>
         <translation>&lt;b&gt;スケジュール:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="635"/>
+        <location filename="../ui/mainwindow.ui" line="635"/>
         <source>List of schedules</source>
         <translation>スケジュールの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="658"/>
+        <location filename="../ui/mainwindow.ui" line="658"/>
         <source>Add a schedule</source>
         <translation>スケジュールを追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="672"/>
+        <location filename="../ui/mainwindow.ui" line="672"/>
         <source>Remove the current schedule</source>
         <translation>現在のスケジュールを削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="699"/>
+        <location filename="../ui/mainwindow.ui" line="699"/>
         <source>Start all schedules</source>
         <translation>すべてのスケジュールを開始します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="702"/>
+        <location filename="../ui/mainwindow.ui" line="702"/>
         <source>Start all</source>
         <translation>すべて開始</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="709"/>
+        <location filename="../ui/mainwindow.ui" line="709"/>
         <source>Stop all schedules</source>
         <translation>すべてのスケジュールを停止します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="712"/>
+        <location filename="../ui/mainwindow.ui" line="712"/>
         <source>Stop all</source>
         <translation>すべて停止</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="727"/>
+        <location filename="../ui/mainwindow.ui" line="727"/>
         <source>Schedule options</source>
         <translation>スケジュールのオプション</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="750"/>
+        <location filename="../ui/mainwindow.ui" line="750"/>
         <source>Set schedule name</source>
         <translation>スケジュールを設定します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="826"/>
+        <location filename="../ui/mainwindow.ui" line="826"/>
         <source>Stop schedule</source>
         <translation>スケジュールを停止します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="829"/>
+        <location filename="../ui/mainwindow.ui" line="829"/>
         <source>Stop</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="836"/>
+        <location filename="../ui/mainwindow.ui" line="836"/>
         <source>Start schedule</source>
         <translation>スケジュールを開始します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="839"/>
+        <location filename="../ui/mainwindow.ui" line="839"/>
         <source>Start</source>
         <translation>開始</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="886"/>
+        <location filename="../ui/mainwindow.ui" line="886"/>
         <source>List of sync times</source>
         <translation>同期化時間の一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="908"/>
+        <location filename="../ui/mainwindow.ui" line="908"/>
         <source>Add a sync time</source>
         <translation>同期化時間を追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="922"/>
+        <location filename="../ui/mainwindow.ui" line="922"/>
         <source>Set sync time</source>
         <translation>同期化時間を設定します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="925"/>
+        <location filename="../ui/mainwindow.ui" line="925"/>
         <source>H:mm</source>
         <translation>H:mm</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="932"/>
+        <location filename="../ui/mainwindow.ui" line="932"/>
         <source>Remove the selected sync times</source>
         <translation>選択された同期化時間を削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1037"/>
+        <location filename="../ui/mainwindow.ui" line="1037"/>
         <source>&lt;b&gt;Filters:&lt;/b&gt;</source>
         <translation>&lt;b&gt;フィルター:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1059"/>
+        <location filename="../ui/mainwindow.ui" line="1059"/>
         <source>List of filters</source>
         <translation>フィルターの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1066"/>
+        <location filename="../ui/mainwindow.ui" line="1066"/>
         <source>&lt;b&gt;Extensions in the selected filter:&lt;/b&gt;</source>
         <translation>&lt;b&gt;選択されたフィルターの拡張子:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1073"/>
+        <location filename="../ui/mainwindow.ui" line="1073"/>
         <source>List of extensions in the selected filter</source>
         <translation>選択されたフィルターの拡張子の一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1096"/>
+        <location filename="../ui/mainwindow.ui" line="1096"/>
         <source>Add an extension</source>
         <translation>拡張子を追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1113"/>
+        <location filename="../ui/mainwindow.ui" line="1113"/>
         <source>Remove the current extension</source>
         <translation>現在の拡張子を削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1130"/>
+        <location filename="../ui/mainwindow.ui" line="1130"/>
         <source>Add a filter</source>
         <translation>フィルターを追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1147"/>
+        <location filename="../ui/mainwindow.ui" line="1147"/>
         <source>Remove the current filter</source>
         <translation>現在のフィルターを削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1287"/>
+        <location filename="../ui/mainwindow.ui" line="1287"/>
         <source>File</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1295"/>
+        <location filename="../ui/mainwindow.ui" line="1295"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1302"/>
+        <location filename="../ui/mainwindow.ui" line="1302"/>
         <source>View</source>
         <translation>表示</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1313"/>
+        <location filename="../ui/mainwindow.ui" line="1313"/>
         <source>Options</source>
         <translation>オプション</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1388"/>
-        <location filename="../ui/main_window.ui" line="1391"/>
+        <location filename="../ui/mainwindow.ui" line="1388"/>
+        <location filename="../ui/mainwindow.ui" line="1391"/>
         <source>Quit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1403"/>
+        <location filename="../ui/mainwindow.ui" line="1403"/>
         <source>About</source>
         <translation>バージョン情報</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1406"/>
+        <location filename="../ui/mainwindow.ui" line="1406"/>
         <source>View About</source>
         <translation>バージョン情報を表示します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1415"/>
+        <location filename="../ui/mainwindow.ui" line="1415"/>
         <source>Set synchronization folder 1</source>
         <translation>同期化フォルダー 1 を設定します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1424"/>
+        <location filename="../ui/mainwindow.ui" line="1424"/>
         <source>Set synchronization folder 2</source>
         <translation>同期化フォルダー 2 を設定します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1433"/>
+        <location filename="../ui/mainwindow.ui" line="1433"/>
         <source>New tab</source>
         <translation>新しいタブ</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1436"/>
+        <location filename="../ui/mainwindow.ui" line="1436"/>
         <source>Open new sync tab</source>
         <translation>新しい同期化タブを開きます</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1448"/>
+        <location filename="../ui/mainwindow.ui" line="1448"/>
         <source>Close tab</source>
         <translation>タブを閉じる</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1451"/>
+        <location filename="../ui/mainwindow.ui" line="1451"/>
         <source>Close current sync tab</source>
         <translation>現在の同期化タブを閉じます</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1469"/>
+        <location filename="../ui/mainwindow.ui" line="1469"/>
         <source>Synchronise</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1472"/>
+        <location filename="../ui/mainwindow.ui" line="1472"/>
         <source>Go to Synchronise</source>
         <translation>同期化へ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1487"/>
+        <location filename="../ui/mainwindow.ui" line="1487"/>
         <source>Go to Restore</source>
         <translation>復元へ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1499"/>
+        <location filename="../ui/mainwindow.ui" line="1499"/>
         <source>Blacklist</source>
         <translation>ブラックリスト</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1502"/>
+        <location filename="../ui/mainwindow.ui" line="1502"/>
         <source>Go to Blacklist</source>
         <translation>ブラックリストへ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1510"/>
+        <location filename="../ui/mainwindow.ui" line="1510"/>
         <source>Run hidden</source>
         <translation>非表示で実行</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1513"/>
+        <location filename="../ui/mainwindow.ui" line="1513"/>
         <source>Start Synkron hidden</source>
         <translation>非表示で Synkron を起動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1522"/>
-        <location filename="../ui/main_window.ui" line="1525"/>
+        <location filename="../ui/mainwindow.ui" line="1522"/>
+        <location filename="../ui/mainwindow.ui" line="1525"/>
         <source>Sync all</source>
         <translation>すべて同期化</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1534"/>
-        <location filename="../ui/main_window.ui" line="1537"/>
+        <location filename="../ui/mainwindow.ui" line="1534"/>
+        <location filename="../ui/mainwindow.ui" line="1537"/>
         <source>Check for updates</source>
         <translation>更新のチェック</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1549"/>
+        <location filename="../ui/mainwindow.ui" line="1549"/>
         <source>Multisync</source>
         <translation>複同期化</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1552"/>
+        <location filename="../ui/mainwindow.ui" line="1552"/>
         <source>Go to Multisync</source>
         <translation>複同期化へ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1564"/>
+        <location filename="../ui/mainwindow.ui" line="1564"/>
         <source>Scheduler</source>
         <translation>スケジューラー</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1567"/>
+        <location filename="../ui/mainwindow.ui" line="1567"/>
         <source>Go to Scheduler</source>
         <translation>スケジューラーへ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1576"/>
-        <location filename="../ui/main_window.ui" line="1579"/>
+        <location filename="../ui/mainwindow.ui" line="1576"/>
+        <location filename="../ui/mainwindow.ui" line="1579"/>
         <source>Change language</source>
         <translation>言語の変更</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1591"/>
+        <location filename="../ui/mainwindow.ui" line="1591"/>
         <source>Filters</source>
         <translation>フィルター</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1594"/>
+        <location filename="../ui/mainwindow.ui" line="1594"/>
         <source>Go to Filters</source>
         <translation>フィルターへ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1602"/>
-        <location filename="../ui/main_window.ui" line="1605"/>
+        <location filename="../ui/mainwindow.ui" line="1602"/>
+        <location filename="../ui/mainwindow.ui" line="1605"/>
         <source>Disable tray icon messages</source>
         <translation>トレイ アイコン メッセージを無効にする</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1614"/>
+        <location filename="../ui/mainwindow.ui" line="1614"/>
         <source>Save log</source>
         <translation>ログの保存</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1703"/>
+        <location filename="../ui/mainwindow.ui" line="1703"/>
         <source>Sync</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1712"/>
+        <location filename="../ui/mainwindow.ui" line="1712"/>
         <source>Analyse</source>
         <translation>解析</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1721"/>
+        <location filename="../ui/mainwindow.ui" line="1721"/>
         <source>Advanced</source>
         <translation>詳細設定</translation>
     </message>
@@ -1429,7 +1434,7 @@
         <translation>ファイルのより古いバージョンを削除する</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="281"/>
+        <location filename="../ui/mainwindow.ui" line="281"/>
         <location filename="../src/restore.cpp" line="246"/>
         <source> latest versions</source>
         <translation> 個を維持する</translation>
@@ -1475,7 +1480,7 @@
         <translation>同期化 #%1</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="952"/>
+        <location filename="../ui/mainwindow.ui" line="952"/>
         <source>Synchronise periodically</source>
         <translation>定期的に同期化する</translation>
     </message>
@@ -1490,17 +1495,17 @@
         <translation>%1 個のファイルが同期化されました</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="35"/>
+        <location filename="../src/mainwindow.cpp" line="35"/>
         <source>LTR</source>
         <translation>LTR</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="224"/>
+        <location filename="../src/mainwindow.cpp" line="225"/>
         <source>Synkron - Rename file</source>
         <translation>Synkron - ファイルの名前の変更</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="224"/>
+        <location filename="../src/mainwindow.cpp" line="225"/>
         <source>Type a new name for &quot;%1&quot;:</source>
         <translation>&quot;%1&quot; の新しい名前を入力します:</translation>
     </message>
@@ -1555,42 +1560,42 @@
         <translation>ディレクトリ %1 の名前の変更エラーです</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="794"/>
+        <location filename="../ui/mainwindow.ui" line="794"/>
         <source>Select multisyncs to use</source>
         <translation>使用する複同期化を選択します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="801"/>
+        <location filename="../ui/mainwindow.ui" line="801"/>
         <source>Select syncs to use</source>
         <translation>使用する同期化を選択します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="808"/>
+        <location filename="../ui/mainwindow.ui" line="808"/>
         <source>&lt;b&gt;Syncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;使用する同期化:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="815"/>
+        <location filename="../ui/mainwindow.ui" line="815"/>
         <source>&lt;b&gt;Multisyncs to use:&lt;/b&gt;</source>
         <translation>&lt;b&gt;使用する複同期化:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="867"/>
+        <location filename="../ui/mainwindow.ui" line="867"/>
         <source>Sync times</source>
         <translation>同期化時間です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="879"/>
+        <location filename="../ui/mainwindow.ui" line="879"/>
         <source>&lt;b&gt;Times:&lt;/b&gt;</source>
         <translation>&lt;b&gt;時間:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="971"/>
+        <location filename="../ui/mainwindow.ui" line="971"/>
         <source>Synchronise every</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="991"/>
+        <location filename="../ui/mainwindow.ui" line="991"/>
         <source>minute(s)</source>
         <translation>分ごとに同期化する</translation>
     </message>
@@ -1629,52 +1634,52 @@
         <translation>ブラックリストから選択された拡張子を削除してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="486"/>
+        <location filename="../ui/mainwindow.ui" line="486"/>
         <source>List of extensions in the blacklist</source>
         <translation>ブラックリストの拡張子の一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="509"/>
+        <location filename="../ui/mainwindow.ui" line="509"/>
         <source>Add extension to blacklist</source>
         <translation>拡張子をブラックリストに追加します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="523"/>
+        <location filename="../ui/mainwindow.ui" line="523"/>
         <source>Remove extension from blacklist</source>
         <translation>ブラックリストから拡張子を削除します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="500"/>
+        <location filename="../ui/mainwindow.ui" line="500"/>
         <source>&lt;b&gt;Extensions in the blacklist:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ブラックリストの拡張子:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1185"/>
+        <location filename="../ui/mainwindow.ui" line="1185"/>
         <source>&lt;b&gt;Syncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;同期化:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1626"/>
+        <location filename="../ui/mainwindow.ui" line="1626"/>
         <source>SyncView</source>
         <translation>同期化ビュー</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1629"/>
+        <location filename="../ui/mainwindow.ui" line="1629"/>
         <source>Go to SyncView</source>
         <translation>同期化ビューへ移動します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1214"/>
+        <location filename="../ui/mainwindow.ui" line="1214"/>
         <source>List of syncs</source>
         <translation>同期化の一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1260"/>
+        <location filename="../ui/mainwindow.ui" line="1260"/>
         <source>List of multisyncs</source>
         <translation>複同期化の一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1238"/>
+        <location filename="../ui/mainwindow.ui" line="1238"/>
         <source>&lt;b&gt;Multisyncs:&lt;/b&gt;</source>
         <translation>&lt;b&gt;複期化:&lt;/b&gt;</translation>
     </message>
@@ -1750,42 +1755,42 @@
         <translation>日付/日</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1394"/>
+        <location filename="../ui/mainwindow.ui" line="1394"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1439"/>
+        <location filename="../ui/mainwindow.ui" line="1439"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1454"/>
+        <location filename="../ui/mainwindow.ui" line="1454"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1637"/>
+        <location filename="../ui/mainwindow.ui" line="1637"/>
         <source>Sync all at launch</source>
         <translation>起動時にすべて同期化する</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1648"/>
+        <location filename="../ui/mainwindow.ui" line="1648"/>
         <source>Shut down after synchronisation</source>
         <translation>同期化後にシャット ダウンする</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1651"/>
+        <location filename="../ui/mainwindow.ui" line="1651"/>
         <source>Shut down computer after synchronisation finishes</source>
         <translation>同期化の完了後にコンピュータをシャット ダウンします</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1659"/>
+        <location filename="../ui/mainwindow.ui" line="1659"/>
         <source>Quit Synkron after synchronisation</source>
         <translation>同期化後に Synkron を終了する</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1662"/>
+        <location filename="../ui/mainwindow.ui" line="1662"/>
         <source>Quit Synkron after synchronisation finishes</source>
         <translation>同期化の完了後に Synkron を終了する</translation>
     </message>
@@ -1800,7 +1805,7 @@
         <translation>ブラックリストから削除</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1640"/>
+        <location filename="../ui/mainwindow.ui" line="1640"/>
         <source>Sync all tabs at launch</source>
         <translation>起動時にすべてのタブを同期する</translation>
     </message>
@@ -1816,64 +1821,64 @@
         <translation>最後の同期化: %1</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1327"/>
+        <location filename="../ui/mainwindow.ui" line="1327"/>
         <source>Tab</source>
         <translation>タブ</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1671"/>
+        <location filename="../ui/mainwindow.ui" line="1671"/>
         <source>Save tab</source>
         <translation>タブの保存</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1680"/>
+        <location filename="../ui/mainwindow.ui" line="1680"/>
         <source>Load tab</source>
         <translation>タブの読み込み</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1689"/>
+        <location filename="../ui/mainwindow.ui" line="1689"/>
         <source>Save tab as</source>
         <translation>名前を付けてタブを保存</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="304"/>
+        <location filename="../src/mainwindow.cpp" line="305"/>
         <source>Are you sure you want to close this tab?</source>
         <translation>このタブを閉じてよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="362"/>
+        <location filename="../src/mainwindow.cpp" line="363"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="364"/>
+        <location filename="../src/mainwindow.cpp" line="365"/>
         <source>Synkron Tabs (*.slist)</source>
         <translation>Synkron タブ (*.slist)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="374"/>
+        <location filename="../src/mainwindow.cpp" line="375"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>ファイル %1 を読み取れません:
 %2。</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="1694"/>
+        <location filename="../ui/mainwindow.ui" line="1694"/>
         <source>Change temporary folder path</source>
         <translation>一時フォルダのパスを変更します</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="252"/>
+        <location filename="../ui/mainwindow.ui" line="252"/>
         <source>Clean temporary files automatically after each sync</source>
         <translation>同期化後に自動的に一時ファイルをクリーンする</translation>
     </message>
     <message>
-        <location filename="../ui/main_window.ui" line="264"/>
+        <location filename="../ui/mainwindow.ui" line="264"/>
         <source>Keep </source>
         <translation>維持 </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="97"/>
+        <location filename="../src/mainwindow.cpp" line="97"/>
         <source>Show icons only</source>
         <translation>アイコンのみ表示する</translation>
     </message>
@@ -1881,125 +1886,125 @@
 <context>
     <name>MultisyncForm</name>
     <message>
-        <location filename="../ui/multisync_page.ui" line="14"/>
+        <location filename="../ui/multisyncpage.ui" line="14"/>
         <source>Form</source>
         <translation>フォーム</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="61"/>
+        <location filename="../ui/multisyncpage.ui" line="61"/>
         <source>Set multisync name</source>
         <translation>複同期化名を設定します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="101"/>
+        <location filename="../ui/multisyncpage.ui" line="101"/>
         <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ソース:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="111"/>
+        <location filename="../ui/multisyncpage.ui" line="111"/>
         <source>List of multisync sources</source>
         <translation>複同期化ソースの一覧です</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="122"/>
+        <location filename="../ui/multisyncpage.ui" line="122"/>
         <source>Add source</source>
         <translation>ソースを追加します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="125"/>
+        <location filename="../ui/multisyncpage.ui" line="125"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="136"/>
+        <location filename="../ui/multisyncpage.ui" line="136"/>
         <source>Remove source</source>
         <translation>ソースを削除します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="139"/>
+        <location filename="../ui/multisyncpage.ui" line="139"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="150"/>
+        <location filename="../ui/multisyncpage.ui" line="150"/>
         <source>Modify source path variables</source>
         <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
         <translation>ソース パスの変数の変更</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="184"/>
+        <location filename="../ui/multisyncpage.ui" line="184"/>
         <source>&lt;b&gt;Destination:&lt;/b&gt;</source>
         <translation>&lt;b&gt;複同期化先:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="191"/>
+        <location filename="../ui/multisyncpage.ui" line="191"/>
         <source>Set a destination</source>
         <translation>複同期化先を設定します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="198"/>
+        <location filename="../ui/multisyncpage.ui" line="198"/>
         <source>Browse for destination</source>
         <translation>複同期化先を参照します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="201"/>
+        <location filename="../ui/multisyncpage.ui" line="201"/>
         <source>Browse</source>
         <translation>参照</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="221"/>
+        <location filename="../ui/multisyncpage.ui" line="221"/>
         <source>Search sync log</source>
         <translation>同期化ログを検索します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="224"/>
+        <location filename="../ui/multisyncpage.ui" line="224"/>
         <source>Search</source>
         <translation>検索</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="241"/>
+        <location filename="../ui/multisyncpage.ui" line="241"/>
         <source>Multisync log</source>
         <translation>複同期化ログ</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="297"/>
+        <location filename="../ui/multisyncpage.ui" line="297"/>
         <source>Start multisync</source>
         <translation>複同期化を開始します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="300"/>
+        <location filename="../ui/multisyncpage.ui" line="300"/>
         <source>Multisync</source>
         <translation>複同期化</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="311"/>
-        <location filename="../ui/multisync_page.ui" line="314"/>
+        <location filename="../ui/multisyncpage.ui" line="311"/>
+        <location filename="../ui/multisyncpage.ui" line="314"/>
         <source>Stop multisync</source>
         <translation>複同期化を停止します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="153"/>
+        <location filename="../ui/multisyncpage.ui" line="153"/>
         <source>Variables</source>
         <translation>変数</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="261"/>
+        <location filename="../ui/multisyncpage.ui" line="261"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="325"/>
-        <location filename="../ui/multisync_page.ui" line="328"/>
+        <location filename="../ui/multisyncpage.ui" line="325"/>
+        <location filename="../ui/multisyncpage.ui" line="328"/>
         <source>Analyse</source>
         <translation>解析</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="339"/>
+        <location filename="../ui/multisyncpage.ui" line="339"/>
         <source>Show advanced options of configuration</source>
         <translation>構成の高度なオプションを表示します</translation>
     </message>
     <message>
-        <location filename="../ui/multisync_page.ui" line="342"/>
+        <location filename="../ui/multisyncpage.ui" line="342"/>
         <source>Advanced</source>
         <translation>詳細設定</translation>
     </message>
@@ -2919,27 +2924,27 @@
 <context>
     <name>SyncViewItem</name>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="13"/>
+        <location filename="../ui/syncviewitem.ui" line="13"/>
         <source>SyncViewItem</source>
         <translation>同期化ビューアイテム</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="34"/>
+        <location filename="../ui/syncviewitem.ui" line="34"/>
         <source>Sync name</source>
         <translation>同期化名</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="60"/>
+        <location filename="../ui/syncviewitem.ui" line="60"/>
         <source>Start</source>
         <translation>開始</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="70"/>
+        <location filename="../ui/syncviewitem.ui" line="70"/>
         <source>Stop</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="80"/>
+        <location filename="../ui/syncviewitem.ui" line="80"/>
         <source>Edit</source>
         <translation>編集</translation>
     </message>
@@ -2949,17 +2954,17 @@
         <translation>個のファイルが同期化されました</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="57"/>
+        <location filename="../ui/syncviewitem.ui" line="57"/>
         <source>Start synchronisation</source>
         <translation>同期化を開始します</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="67"/>
+        <location filename="../ui/syncviewitem.ui" line="67"/>
         <source>Stop synchronisation</source>
         <translation>同期化を停止します</translation>
     </message>
     <message>
-        <location filename="../ui/sync_view_item.ui" line="77"/>
+        <location filename="../ui/syncviewitem.ui" line="77"/>
         <source>Edit synchronisation</source>
         <translation>同期化を編集します</translation>
     </message>

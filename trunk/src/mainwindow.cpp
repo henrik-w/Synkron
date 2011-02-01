@@ -29,8 +29,8 @@ MainWindow::MainWindow(QSettings * s)
 {
     setupUi(this);
 
-        f_ver = 1.62;
-        ver = "1.6.2";
+        f_ver = 1.63;
+        ver = "1.6.3";
 
     if (tr("LTR") == "RTL")
     {
@@ -115,6 +115,7 @@ MainWindow::MainWindow(QSettings * s)
     synkron_i18n.insert(translator.translate("LanguageNames", "Chinese"), "Chinese");
     synkron_i18n.insert(translator.translate("LanguageNames", "Dutch"), "Dutch");
     synkron_i18n.insert(translator.translate("LanguageNames", "Romanian"), "Romanian");
+    synkron_i18n.insert(translator.translate("LanguageNames", "Turkish"), "Turkish");
 
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
     connect(actionNew_sync, SIGNAL(triggered()), this, SLOT(addTab()));

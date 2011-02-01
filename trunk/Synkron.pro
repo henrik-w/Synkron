@@ -82,4 +82,5 @@ TRANSLATIONS += i18n/Synkron-Arabic.ts \
      i18n/Synkron-Slovak.ts \
      i18n/Synkron-Spanish.ts \
      i18n/Synkron-Valencian.ts \
-     i18n/Synkron-Romanian.ts
+     i18n/Synkron-Romanian.ts \
+     i18n/Synkron-Turkish.ts

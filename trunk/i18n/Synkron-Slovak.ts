@@ -452,6 +452,10 @@
         <source>Romanian</source>
         <translation>rumunština</translation>
     </message>
+    <message>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MTAdvancedGroupBox</name>
