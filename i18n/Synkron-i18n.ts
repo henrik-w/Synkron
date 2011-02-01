@@ -67,5 +67,9 @@
         <source>Romanian</source>
         <translation>Română</translation>
     </message>
+    <message>
+        <source>Turkish</source>
+        <translation>Türkçe</translation>
+    </message>
 </context>
 </TS>
