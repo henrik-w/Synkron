@@ -568,22 +568,22 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="114"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceco</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="115"/>
         <source>Chinese</source>
-        <translation type="unfinished">Cinese</translation>
+        <translation>Cinese</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="116"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Olandese</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="117"/>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumeno</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="118"/>
@@ -2140,12 +2140,12 @@
     <message>
         <location filename="../src/multisync.cpp" line="87"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignora 1 ora di differenza</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="88"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>A causa dell&apos;ora legale, i file potrebbero avere 1 ora di differenza</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="129"/>
@@ -2617,7 +2617,7 @@
     <message>
         <location filename="../src/sync.cpp" line="205"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignora 1 ora di differenza</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="218"/>
@@ -2708,7 +2708,7 @@
     <message>
         <location filename="../src/sync.cpp" line="206"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>A causa dell&apos;ora legale, i file potrebbero avere 1 ora di differenza</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="419"/>
