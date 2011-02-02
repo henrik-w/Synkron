@@ -76,13 +76,13 @@
     <message>
         <location filename="../src/analyse.cpp" line="303"/>
         <source>OBSOLETE</source>
-        <translation>ESKİMİŞ</translation>
+        <translation>ESKİ</translation>
     </message>
     <message>
         <location filename="../src/analyse.cpp" line="347"/>
         <location filename="../src/syncdb.cpp" line="463"/>
         <source>OK</source>
-        <translation>TAMAM</translation>
+        <translation>GÜNCEL</translation>
     </message>
     <message>
         <location filename="../src/analyse.cpp" line="355"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../src/blacklist.cpp" line="289"/>
         <source>Set extension</source>
-        <translation>Uzantıyı belirle</translation>
+        <translation>Uzantı belirle</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="290"/>
@@ -381,7 +381,7 @@
         <location filename="../src/sync.cpp" line="939"/>
         <location filename="../src/sync.cpp" line="1476"/>
         <source>File %1 restored</source>
-        <translation>%1 dosyası yenilendi</translation>
+        <translation>%1 dosyası geri yüklendi</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="697"/>
@@ -451,7 +451,7 @@
     <message>
         <location filename="../src/syncdb.cpp" line="26"/>
         <source>Creating database</source>
-        <translation type="unfinished"></translation>
+        <translation>Veritabanı oluşturuluyor</translation>
     </message>
     <message>
         <location filename="../src/syncdb.cpp" line="48"/>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../src/syncdb.cpp" line="158"/>
         <source>Removing database</source>
-        <translation type="unfinished"></translation>
+        <translation>Veritabanı kaldırılıyor</translation>
     </message>
     <message>
         <location filename="../src/syncdb.cpp" line="392"/>
@@ -583,32 +583,32 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="113"/>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Fince</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="114"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Çekce</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="115"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Çince</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="116"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Flemenkçe</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="117"/>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Rumence</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="118"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkçe</translation>
     </message>
 </context>
 <context>
@@ -618,7 +618,7 @@
         <location filename="../src/mtadvancedgroupbox.h" line="51"/>
         <location filename="../src/mtadvancedgroupbox.h" line="56"/>
         <source>Advanced</source>
-        <translation>Uzman</translation>
+        <translation>Gelişmiş</translation>
     </message>
 </context>
 <context>
@@ -699,28 +699,28 @@
     <message>
         <location filename="../src/blacklist.cpp" line="60"/>
         <source>No file selected.</source>
-        <translation>Herhangi bir dosya seçilmedi.</translation>
+        <translation>Dosya seçilmedi.</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="61"/>
         <source>Are you sure you want to remove the selected file from blacklist?</source>
-        <translation>Seçili dosyayı kara listeden çıkarmak istediğinizden emin misiniz?</translation>
+        <translation>Seçili dosyayı karalisteden çıkarmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="111"/>
         <source>No folder selected.</source>
-        <translation>Herhangi bir klasör seçilmedi.</translation>
+        <translation>Klasör seçilmedi.</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="112"/>
         <source>Are you sure you want to remove the selected folder from blacklist?</source>
-        <translation>Seçili klasörü kara listeden çıkarmak istediğinizden emin misiniz?</translation>
+        <translation>Seçili klasörü karalisteden çıkarmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="143"/>
         <location filename="../src/filters.cpp" line="98"/>
         <source>Set extension</source>
-        <translation>Uzantı ayarla</translation>
+        <translation>Uzantı belirle</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="144"/>
@@ -731,7 +731,7 @@
         <location filename="../src/blacklist.cpp" line="168"/>
         <location filename="../src/filters.cpp" line="115"/>
         <source>No extension selected.</source>
-        <translation>Herhangi bir uzantı seçilmedi.</translation>
+        <translation>Uzantı seçilmedi.</translation>
     </message>
     <message>
         <location filename="../src/blacklist.cpp" line="169"/>
@@ -741,7 +741,7 @@
     <message>
         <location filename="../src/filters.cpp" line="25"/>
         <source>Set filter name</source>
-        <translation>Filtre adını ayarla</translation>
+        <translation>Filtre adını belirle</translation>
     </message>
     <message>
         <location filename="../src/filters.cpp" line="26"/>
@@ -751,7 +751,7 @@
     <message>
         <location filename="../src/filters.cpp" line="27"/>
         <source>filter_%1</source>
-        <translation>filtre%1</translation>
+        <translation>filtre_%1</translation>
     </message>
     <message>
         <location filename="../src/filters.cpp" line="31"/>
@@ -761,7 +761,7 @@
     <message>
         <location filename="../src/filters.cpp" line="60"/>
         <source>No filter selected.</source>
-        <translation>Herhangi bir filtre seçilmedi.</translation>
+        <translation>Filtre seçilmedi.</translation>
     </message>
     <message>
         <location filename="../src/filters.cpp" line="64"/>
@@ -781,19 +781,18 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="35"/>
         <source>LTR</source>
-        <translatorcomment>Nerede kullanıldığı belirgin olmadığı için çevrilmedi.</translatorcomment>
-        <translation>LTR</translation>
+        <translation>Soldan Sağa</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="41"/>
         <location filename="../src/mainwindow.cpp" line="42"/>
         <source>Use the brushed metal style</source>
-        <translation>Fırçalanmış metal stilini kullan</translation>
+        <translation>Zımparalanmış metal stilini kullan</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="64"/>
         <source>Schedule name</source>
-        <translation>Zaman çizelgesi adı</translation>
+        <translation>Zamanlamai adı</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="64"/>
@@ -818,7 +817,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="305"/>
         <source>Are you sure you want to close this tab?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu sekmeyi kapatmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="83"/>
@@ -838,7 +837,7 @@
     <message>
         <location filename="../src/main.cpp" line="99"/>
         <source>Your Synkron is up-to-date.</source>
-        <translation>Kullandığınız Synkron en güncel sürümdür.</translation>
+        <translation>Kullandığınız Synkron güncel sürümdür.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -866,17 +865,17 @@
         <location filename="../ui/mainwindow.ui" line="567"/>
         <location filename="../ui/mainwindow.ui" line="570"/>
         <source>Sync #1</source>
-        <translation>Senkron #1</translation>
+        <translation>Eşitleme #1</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="69"/>
         <source>&lt;b&gt;Files available for restoring:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Yenilemek için dosyalar hazır:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Geri yüklenmeye müsait dosyalar:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="100"/>
         <source>List of files available for restoring</source>
-        <translation>Yenileme için müsait olan dosyaların listesi</translation>
+        <translation>Geri yükleme için müsait olan dosyaların listesi</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="109"/>
@@ -896,7 +895,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="148"/>
         <source>Original file path</source>
-        <translation>Orijinal dosya adresi</translation>
+        <translation>Orijinal dosya&apos;yolu</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="158"/>
@@ -911,12 +910,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="168"/>
         <source>Date and time of synchronisation:</source>
-        <translation>Tarih ve zaman eşitlemesi:</translation>
+        <translation>Eşitlemenin zamanı:</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="175"/>
         <source>Original file path:</source>
-        <translation>Orijinal dosya adresi:</translation>
+        <translation>Orijinal dosya&apos;yolu:</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="182"/>
@@ -926,7 +925,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="189"/>
         <source>Date and time of synchronisation</source>
-        <translation>Eşitlemenin tarih ve saati</translation>
+        <translation>Eşitlemenin zamanı</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="195"/>
@@ -936,14 +935,14 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="217"/>
         <source>Restore selected files</source>
-        <translation>Seçili dosyaları yenile</translation>
+        <translation>Seçili dosyaları geri yükle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="220"/>
         <location filename="../ui/mainwindow.ui" line="1484"/>
         <source>Restore</source>
         <translatorcomment>çeviri: Restore</translatorcomment>
-        <translation>Yenile</translation>
+        <translation>Geri Yükle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="252"/>
@@ -1018,7 +1017,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="456"/>
         <source>Remove folder from blacklist</source>
-        <translation>Klasörü kara listeden çıkar</translation>
+        <translation>Klasörü karalisteden çıkar</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="470"/>
@@ -1048,27 +1047,27 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="611"/>
         <source>&lt;b&gt;Schedules:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Zaman Çizelgeleri:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Zamanlamalar:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="635"/>
         <source>List of schedules</source>
-        <translation>Zaman çizelgesi listesi</translation>
+        <translation>Zamanlamai listesi</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="658"/>
         <source>Add a schedule</source>
-        <translation>Zaman çizelgesi ekle</translation>
+        <translation>Zamanlama ekle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="672"/>
         <source>Remove the current schedule</source>
-        <translation>Mevcut zaman çizelgesini kaldır</translation>
+        <translation>Mevcut zamanlamayı kaldır</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="699"/>
         <source>Start all schedules</source>
-        <translation>Tüm zaman çizelgelerini başlat</translation>
+        <translation>Tüm zamanlamaları başlat</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="702"/>
@@ -1093,7 +1092,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="750"/>
         <source>Set schedule name</source>
-        <translation>Zamanlama ismini belirleyin</translation>
+        <translation>Zamanlama ismini belirle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="794"/>
@@ -1158,7 +1157,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="922"/>
         <source>Set sync time</source>
-        <translation>Eşitleme zamanını belirleyin</translation>
+        <translation>Eşitleme zamanını belirle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="925"/>
@@ -1294,12 +1293,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1415"/>
         <source>Set synchronization folder 1</source>
-        <translation>1. eşitleme klasörünü belirle</translation>
+        <translation>Eşitleme için &quot;Klasör 1&quot;&apos;i belirle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1424"/>
         <source>Set synchronization folder 2</source>
-        <translation>2. eşitleme klasörünü belirle</translation>
+        <translation>Eşitleme için &quot;Klasör 2&quot;y&apos;i belirle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1433"/>
@@ -1334,7 +1333,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1469"/>
         <source>Synchronise</source>
-        <translation>Eşitle</translation>
+        <translation>Eşitleme</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1472"/>
@@ -1344,7 +1343,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1487"/>
         <source>Go to Restore</source>
-        <translation>Yenilemeye git</translation>
+        <translation>Geri yüklemeye git</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1499"/>
@@ -1381,7 +1380,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1549"/>
         <source>Multisync</source>
-        <translation>Çoklu eşitleme</translation>
+        <translation>Çoklu Eşitleme</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1552"/>
@@ -1428,7 +1427,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1626"/>
         <source>SyncView</source>
-        <translation>Eşitleme Görünümü</translation>
+        <translation>Tüm Eşitlemeler</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1629"/>
@@ -1488,22 +1487,22 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1703"/>
         <source>Sync</source>
-        <translation type="unfinished">Eşitle</translation>
+        <translation>Eşitleme</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1712"/>
         <source>Analyse</source>
-        <translation type="unfinished">Analiz et</translation>
+        <translation>Analiz et</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1721"/>
         <source>Advanced</source>
-        <translation type="unfinished">Uzman</translation>
+        <translation>Gelişmiş seçenekler</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="209"/>
         <source>Multisync #%1</source>
-        <translation>Çoklu eşitleme #%1</translation>
+        <translation>Çoklu Eşitleme #%1</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="216"/>
@@ -1608,7 +1607,7 @@
     <message>
         <location filename="../src/other.cpp" line="472"/>
         <source>&amp;Restore</source>
-        <translation>&amp;Yenile</translation>
+        <translation>&amp;Geri Yükle</translation>
     </message>
     <message>
         <location filename="../src/other.cpp" line="475"/>
@@ -1638,7 +1637,7 @@
     <message>
         <location filename="../src/other.cpp" line="517"/>
         <source>&amp;Minimise</source>
-        <translation>&amp;Pencereyi küçült</translation>
+        <translation>&amp;Pencereyi indir</translation>
     </message>
     <message>
         <location filename="../src/other.cpp" line="549"/>
@@ -1676,12 +1675,12 @@
     <message>
         <location filename="../src/restore.cpp" line="97"/>
         <source>%1 files restored.</source>
-        <translation>%1 dosya yenilendi.</translation>
+        <translation>%1 dosya geri yüklendi.</translation>
     </message>
     <message>
         <location filename="../src/restore.cpp" line="110"/>
         <source>Unknown error restoring file: %1</source>
-        <translation>%1 yenilenirken bilinmeyen bir hata oluştu</translation>
+        <translation>%1 geri yüklenirken bilinmeyen bir hata oluştu</translation>
     </message>
     <message>
         <location filename="../src/restore.cpp" line="206"/>
@@ -1753,7 +1752,7 @@
     <message>
         <location filename="../src/restore.cpp" line="471"/>
         <source>Advanced selection</source>
-        <translation>Uzman seviye seçim</translation>
+        <translation>Gelişmiş seçim</translation>
     </message>
     <message>
         <location filename="../src/restore.cpp" line="474"/>
@@ -1794,12 +1793,12 @@
     <message>
         <location filename="../src/scheduler.cpp" line="259"/>
         <source>Off</source>
-        <translation>Kapalı</translation>
+        <translation>Pasif</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="263"/>
         <source>On</source>
-        <translation>Açık</translation>
+        <translation>Aktif</translation>
     </message>
     <message>
         <location filename="../src/scheduler.cpp" line="493"/>
@@ -1900,7 +1899,7 @@
     <message>
         <location filename="../ui/multisyncpage.ui" line="101"/>
         <source>&lt;b&gt;Sources:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Kaynak:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Kaynaklar:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="111"/>
@@ -1931,12 +1930,12 @@
         <location filename="../ui/multisyncpage.ui" line="150"/>
         <source>Modify source path variables</source>
         <extracomment>Modify the variables for the paths of Multisync sources</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kaynak adresi parametrelerini değiştir</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="153"/>
         <source>Variables</source>
-        <translation>Değişkenler</translation>
+        <translation>Parametreler</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="184"/>
@@ -1946,7 +1945,7 @@
     <message>
         <location filename="../ui/multisyncpage.ui" line="191"/>
         <source>Set a destination</source>
-        <translation>Bir hedef belirleyin</translation>
+        <translation>Bir hedef belirle</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="198"/>
@@ -1961,7 +1960,7 @@
     <message>
         <location filename="../ui/multisyncpage.ui" line="221"/>
         <source>Search sync log</source>
-        <translation type="unfinished">Eşitleme günlüğünde ara</translation>
+        <translation>Eşitleme günlüğünde ara</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="224"/>
@@ -2003,12 +2002,12 @@
     <message>
         <location filename="../ui/multisyncpage.ui" line="339"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigürasyonun ileri seviye seçeneklerini göster</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="342"/>
         <source>Advanced</source>
-        <translation>Uzman</translation>
+        <translation>Gelişmiş</translation>
     </message>
 </context>
 <context>
@@ -2061,7 +2060,7 @@
         <location filename="../src/multisync.cpp" line="69"/>
         <location filename="../src/multisync.cpp" line="70"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Boş klasör oluşturma</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="75"/>
@@ -2078,12 +2077,12 @@
     <message>
         <location filename="../src/multisync.cpp" line="87"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>1 saat içindeki değişiklikleri gözardı et</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="88"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaz saati uygulaması sebebiyle dosyalar 1 saatlik farklara sahip olabilir</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="93"/>
@@ -2115,7 +2114,7 @@
     <message>
         <location filename="../src/multisync.cpp" line="121"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Analiz için gelişmiş seçenekler</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="124"/>
@@ -2137,7 +2136,7 @@
     <message>
         <location filename="../src/multisync.cpp" line="138"/>
         <source>Advanced options for the sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaynaklar için gelişmiş seçenekler</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="141"/>
@@ -2171,7 +2170,7 @@
     <message>
         <location filename="../src/multisync.cpp" line="161"/>
         <source>Advanced options for the destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Hedef için gelişmiş seçenekler</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="166"/>
@@ -2368,13 +2367,13 @@
     <message>
         <location filename="../src/syncfolders.cpp" line="157"/>
         <source>Configure folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Klasörü yapılandır</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="168"/>
         <location filename="../src/syncfolders.cpp" line="169"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Boş klasör oluşturma</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="172"/>
@@ -2384,7 +2383,7 @@
     <message>
         <location filename="../src/syncfolders.cpp" line="174"/>
         <source>Do not make any changes to this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu klasörde hiç bir değişiklik yapma</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="176"/>
@@ -2406,7 +2405,7 @@
     <message>
         <location filename="../src/syncfolders.cpp" line="186"/>
         <source>Use this folder as master</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu klasörü ana klasör olarak kullan</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="190"/>
@@ -2416,7 +2415,7 @@
     <message>
         <location filename="../src/syncfolders.cpp" line="191"/>
         <source>Use this folder as slave</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu klasörü alt klasör olarak kullan</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="198"/>
@@ -2426,7 +2425,7 @@
     <message>
         <location filename="../src/syncfolders.cpp" line="199"/>
         <source>Remove this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu klasörü kaldır</translation>
     </message>
     <message>
         <location filename="../src/syncfolders.cpp" line="210"/>
@@ -2522,17 +2521,17 @@
     <message>
         <location filename="../src/analyse.cpp" line="433"/>
         <source>There is nothing to be done</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapılması gereken hiç bir şey bulunamadı</translation>
     </message>
     <message>
         <location filename="../src/analyse.cpp" line="436"/>
         <source>Skipped files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas geçilen dosyalar (%1)</translation>
     </message>
     <message>
         <location filename="../src/analyse.cpp" line="438"/>
         <source>Skipped folders (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas geçilen klasörler (%1)</translation>
     </message>
     <message>
         <source>Skipped files and folders (%1)</source>
@@ -2725,29 +2724,29 @@
     <message>
         <location filename="../src/sync.cpp" line="137"/>
         <source>Show advanced options of configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapılandırmanın gelişmiş seçeneklerini göster</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="176"/>
         <location filename="../src/sync.cpp" line="177"/>
         <source>Do not create empty folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Boş klasör oluşturma</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="205"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>1 saatlik farkları göz ardı et</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="206"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Yaz saati uygulaması sebebiyle dosyalar 1 saatlik farklara sahip olabilir</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="235"/>
         <location filename="../src/sync.cpp" line="236"/>
         <source>Store database in a text file</source>
-        <translation type="unfinished"></translation>
+        <translation>Veritabanını bir düz metin dosyasında sakla</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="246"/>
@@ -2763,7 +2762,7 @@
     <message>
         <location filename="../src/sync.cpp" line="254"/>
         <source>Advanced options for the analysis</source>
-        <translation type="unfinished"></translation>
+        <translation>Analiz için gelişmiş seçenekler</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="257"/>
@@ -2792,7 +2791,7 @@
     <message>
         <location filename="../src/sync.cpp" line="277"/>
         <source>Choose filters to be used</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanılacak filtreleri seç</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="291"/>
@@ -2898,7 +2897,7 @@
     <message>
         <location filename="../src/sync.cpp" line="1247"/>
         <source>File %1 restored</source>
-        <translation>%1 dosyası yenilendi</translation>
+        <translation>%1 dosyası geri yüklendi</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="1403"/>
