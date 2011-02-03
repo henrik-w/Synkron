@@ -942,7 +942,7 @@
         <location filename="../ui/mainwindow.ui" line="1484"/>
         <source>Restore</source>
         <translatorcomment>çeviri: Restore</translatorcomment>
-        <translation>Geri Yükleme</translation>
+        <translation>Geri Yükle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="252"/>
@@ -952,13 +952,13 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="264"/>
         <source>Keep </source>
-        <translation>Sakla</translation>
+        <translation>Son</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="281"/>
         <location filename="../src/restore.cpp" line="246"/>
         <source> latest versions</source>
-        <translation>son sürümler</translation>
+        <translation>sürümü sakla</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="315"/>
@@ -1380,7 +1380,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1549"/>
         <source>Multisync</source>
-        <translation>Çoklu Eşitleme</translation>
+        <translation>Çoklu Eşitle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1552"/>
@@ -1985,7 +1985,7 @@
     <message>
         <location filename="../ui/multisyncpage.ui" line="300"/>
         <source>Multisync</source>
-        <translation>Çoklu eşitleme</translation>
+        <translation>Çoklu Eşitle</translation>
     </message>
     <message>
         <location filename="../ui/multisyncpage.ui" line="311"/>
@@ -2305,7 +2305,7 @@
         <location filename="../src/multisync.cpp" line="478"/>
         <location filename="../src/multisync.cpp" line="494"/>
         <source>Multisync</source>
-        <translation>Çoklu eşitleme</translation>
+        <translation>Çoklu Eşitle</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="479"/>
@@ -2719,7 +2719,7 @@
         <location filename="../src/sync.cpp" line="211"/>
         <location filename="../src/sync.cpp" line="1404"/>
         <source>Move contents to folder 2, leaving folder 1 empty</source>
-        <translation>Klasör 1&apos;in içeriğini klasör 2&apos;ye taşı ve klasör 1&apos;i boşalt</translation>
+        <translation>Klasör 1&apos;in içeriğini klasör 2&apos;ye taşınsın ve klasör 1 boşaltılsın</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="137"/>
