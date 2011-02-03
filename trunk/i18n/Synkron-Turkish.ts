@@ -38,7 +38,7 @@
     <message>
         <location filename="../src/main.cpp" line="135"/>
         <source>The programme is provided AS IS with ABSOLUTELY NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
-        <translation>Bu yazılım size olduğu gibi aktarılmıştır. Herhangi bir taahhüt garanti şudur budur yoktur.</translation>
+        <translation>Bu yazılım size olduğu gibi aktarılmıştır. Herhangi bir taahhüt yada garanti içermez.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="146"/>
@@ -942,7 +942,7 @@
         <location filename="../ui/mainwindow.ui" line="1484"/>
         <source>Restore</source>
         <translatorcomment>çeviri: Restore</translatorcomment>
-        <translation>Geri Yükle</translation>
+        <translation>Geri Yükleme</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="252"/>
@@ -1333,7 +1333,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1469"/>
         <source>Synchronise</source>
-        <translation>Eşitleme</translation>
+        <translation>Eşitle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="1472"/>
@@ -1497,7 +1497,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="1721"/>
         <source>Advanced</source>
-        <translation>Gelişmiş seçenekler</translation>
+        <translation>Gelişmiş Seçenekler</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="209"/>
@@ -2054,30 +2054,30 @@
         <location filename="../src/multisync.cpp" line="63"/>
         <location filename="../src/multisync.cpp" line="64"/>
         <source>Synchronise hidden files and folders</source>
-        <translation>Gizli dosya ve klasörleri de eşitle</translation>
+        <translation>Gizli dosya ve klasörleri de eşitlensin</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="69"/>
         <location filename="../src/multisync.cpp" line="70"/>
         <source>Do not create empty folders</source>
-        <translation>Boş klasör oluşturma</translation>
+        <translation>Boş klasör oluşturulmasın</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="75"/>
         <location filename="../src/multisync.cpp" line="76"/>
         <source>Do not synchronise subdirectories</source>
-        <translation>Alt klasörleri eşitleme</translation>
+        <translation>Alt klasörler eşitlenmesin</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="81"/>
         <location filename="../src/multisync.cpp" line="82"/>
         <source>Ignore blacklist</source>
-        <translation>Karalisteyi görmezden gel</translation>
+        <translation>Karaliste görmezden gelinsin</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="87"/>
         <source>Ignore 1 hour difference</source>
-        <translation>1 saat içindeki değişiklikleri gözardı et</translation>
+        <translation>1 saat içindeki değişiklikler gözardı edilsin</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="88"/>
@@ -2088,12 +2088,12 @@
         <location filename="../src/multisync.cpp" line="93"/>
         <location filename="../src/multisync.cpp" line="94"/>
         <source>Propagate deletions</source>
-        <translation>Silme işlemini hedeflerde uygula</translation>
+        <translation>Silme işlemleri hedeflerde uygulansın</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="101"/>
         <source>Detect collisions</source>
-        <translation>Çakışmaları tespit et</translation>
+        <translation>Çakışmalar tespit edilsin</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="102"/>
@@ -2638,7 +2638,7 @@
         <location filename="../src/sync.cpp" line="136"/>
         <location filename="../src/sync.cpp" line="165"/>
         <source>Advanced</source>
-        <translation>Uzman</translation>
+        <translation>Gelişmiş Seçenekler</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="142"/>
@@ -2672,42 +2672,42 @@
         <location filename="../src/sync.cpp" line="170"/>
         <location filename="../src/sync.cpp" line="171"/>
         <source>Synchronise hidden files and folders</source>
-        <translation>Gizli dosya ve klasörleri de eşitle</translation>
+        <translation>Gizli dosya ve klasörler de eşitlensin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="182"/>
         <location filename="../src/sync.cpp" line="183"/>
         <source>Do not synchronise subdirectories</source>
-        <translation>Alt klasörleri eşitleme</translation>
+        <translation>Alt klasörler eşitlenmesin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="186"/>
         <location filename="../src/sync.cpp" line="187"/>
         <source>Do not backup updated files</source>
-        <translation>Güncellenen dosyaları yedekleme</translation>
+        <translation>Güncellenen dosyalar yedeklenmesin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="191"/>
         <location filename="../src/sync.cpp" line="192"/>
         <source>Update existing files only</source>
-        <translation>Sadece mevcut dosyaları güncelle</translation>
+        <translation>Sadece mevcut dosyalar güncellensin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="198"/>
         <location filename="../src/sync.cpp" line="199"/>
         <source>Ignore blacklist</source>
-        <translation>Karalisteyi görmezden gel</translation>
+        <translation>Karaliste görmezden gelinsin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="218"/>
         <location filename="../src/sync.cpp" line="219"/>
         <source>Propagate deletions</source>
-        <translation>Silme işlemini hedeflerde uygula</translation>
+        <translation>Silme işlemleri hedeflerde de uygulansın</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="226"/>
         <source>Detect collisions</source>
-        <translation>Çakışmaları tespit et</translation>
+        <translation>Çakışmalar tespit edilsin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="227"/>
@@ -2730,12 +2730,12 @@
         <location filename="../src/sync.cpp" line="176"/>
         <location filename="../src/sync.cpp" line="177"/>
         <source>Do not create empty folders</source>
-        <translation>Boş klasör oluşturma</translation>
+        <translation>Boş klasör oluşturulmasın</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="205"/>
         <source>Ignore 1 hour difference</source>
-        <translation>1 saatlik farkları göz ardı et</translation>
+        <translation>1 saatlik farkları göz ardı edilsin</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="206"/>
