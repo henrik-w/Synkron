@@ -578,7 +578,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="112"/>
         <source>Valencian</source>
-        <translation>Valencia</translation>
+        <translation>Valencianisch</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="113"/>
@@ -608,7 +608,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="118"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkisch</translation>
     </message>
 </context>
 <context>
