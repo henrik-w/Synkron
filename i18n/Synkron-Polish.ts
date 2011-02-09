@@ -454,7 +454,7 @@
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turecki</translation>
     </message>
 </context>
 <context>
