@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="ru">
 <context>
@@ -438,23 +438,23 @@
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Чешский</translation>
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Китайский</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Датский</translation>
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Румынский</translation>
     </message>
     <message>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецкий</translation>
     </message>
 </context>
 <context>
@@ -1395,15 +1395,15 @@
     </message>
     <message>
         <source>Change temporary folder path</source>
-        <translation>Изменить временный путь каталога</translation>
+        <translation>Изменить путь временного каталога</translation>
     </message>
     <message>
         <source>Clean temporary files automatically after each sync</source>
-        <translation>Автоматически очисить временные файлы после каждого синка</translation>
+        <translation>Автоматически очищать временные файлы после каждого синка</translation>
     </message>
     <message>
         <source>Keep </source>
-        <translation>Держивать</translation>
+        <translation>Хранить</translation>
     </message>
     <message>
         <source>Show icons only</source>
@@ -1780,11 +1780,11 @@
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Игнорировать разницу в 1 час</translation>
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Из-за перевода на летнее время файлы могут иметь разницу больше 1 часа</translation>
     </message>
 </context>
 <context>
@@ -1799,7 +1799,7 @@
     </message>
     <message>
         <source>Do not modify the contents of this folder</source>
-        <translation>Немодифицировать содержимое этого каталога</translation>
+        <translation>Не модифицировать содержимое этого каталога</translation>
     </message>
     <message>
         <source>Update existing files only</source>
@@ -2095,7 +2095,7 @@
     </message>
     <message>
         <source>Detect collisions</source>
-        <translation>Найдена коллизии</translation>
+        <translation>Поиск коллизий</translation>
     </message>
     <message>
         <source>Detect and alert collided files</source>
@@ -2187,11 +2187,11 @@
     </message>
     <message>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>Из-за перевода на летнее время файлы могут иметь разницу больше 1 часа</translation>
     </message>
     <message>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>Игнорировать разницу в 1 час</translation>
     </message>
 </context>
 <context>
