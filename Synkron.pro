@@ -43,6 +43,21 @@ unix {
 unix:!macx {
      DEFINES += USE_UNIX_TOUCH_COMMAND
      TARGET = synkron
+     
+     isEmpty(prefix):prefix = /usr/local
+     isEmpty(PREFIX):PREFIX = $$prefix
+     BINDIR = $$PREFIX/bin
+     DATADIR = $$PREFIX/share
+
+     INSTALLS = target \
+                desktop \
+                pixmaps \
+
+     target.path = $$BINDIR
+     desktop.path = $$DATADIR/applications/
+     desktop.files += $${TARGET}.desktop
+     pixmaps.path = $$DATADIR/pixmaps/
+     pixmaps.files += images/Synkron128.png
 }
 macx {
      # Comment the following line to use the NSFileManager class
