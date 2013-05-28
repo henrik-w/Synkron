@@ -442,7 +442,12 @@ void AbstractSyncPage::displayCollisions()
     dial_tw->setHorizontalHeaderLabels(QStringList() << tr("Newer files") << tr("Older files"));
     dial_tw->verticalHeader()->hide();
     dial_tw->setShowGrid(false);
+#if QT_VERSION >= 0x050000
+    dial_tw->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+#else
     dial_tw->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+#endif
+
     dial_tw->setLayoutDirection(Qt::LeftToRight);
     QCheckBox * newer; QCheckBox * older;
     for (int i = 0; i < collided.count(); ++i) {
@@ -473,18 +478,18 @@ void AbstractSyncPage::displayCollisions()
     dialogue->resize(500, 250);
     dialogue->show();
     switch (dialogue->exec()) {
-        case 0:
-            break;
-        case 1:
-            for (int i = 0; i < dial_tw->rowCount(); ++i) {
-                if (((QCheckBox *) dial_tw->cellWidget(i, 0))->isChecked()) {
-                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), true);
-                } else if (((QCheckBox *) dial_tw->cellWidget(i, 1))->isChecked()) {
-                    copyFile(((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), true);
-                }
+    case 0:
+        break;
+    case 1:
+        for (int i = 0; i < dial_tw->rowCount(); ++i) {
+            if (((QCheckBox *) dial_tw->cellWidget(i, 0))->isChecked()) {
+                copyFile(((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), true);
+            } else if (((QCheckBox *) dial_tw->cellWidget(i, 1))->isChecked()) {
+                copyFile(((QCheckBox *) dial_tw->cellWidget(i, 1))->text(), ((QCheckBox *) dial_tw->cellWidget(i, 0))->text(), true);
             }
-        default:
-            break;
+        }
+    default:
+        break;
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
 }

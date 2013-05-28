@@ -36,8 +36,8 @@ void MainWindow::changeTemp()
 void AbstractSyncPage::changeAllowedDifference()
 {
     bool ok = false;
-    int a = QInputDialog::getInteger(this, tr("Enter allowed time difference"),
-                                      tr("Allowed time difference (in seconds):"), allowed_difference, 0, 86400, 1, &ok);
+    int a = QInputDialog::getInt(this, tr("Enter allowed time difference"),
+                                 tr("Allowed time difference (in seconds):"), allowed_difference, 0, 86400, 1, &ok);
     if (ok) {
         allowed_difference = a;
     }
@@ -46,12 +46,12 @@ void AbstractSyncPage::changeAllowedDifference()
 void MainWindow::optionClicked(QAction * clckd_action)
 {
     if (clckd_action->isChecked()) {
-        #ifdef Q_WS_WIN
-            if (clckd_action == actionShut_down_after_sync) {
-                actionQuit_after_sync->setChecked(false);
-                actionSync_at_launch->setChecked(false);
-            }
-        #endif
+#ifdef Q_WS_WIN
+        if (clckd_action == actionShut_down_after_sync) {
+            actionQuit_after_sync->setChecked(false);
+            actionSync_at_launch->setChecked(false);
+        }
+#endif
         if (clckd_action == actionQuit_after_sync) {
             actionShut_down_after_sync->setChecked(false);
             actionSync_at_launch->setChecked(false);
@@ -230,8 +230,8 @@ void MainWindow::globalDelete(QString path)
                     path3.replace("//", "/");
                     if (path.startsWith(path3)) {
                         QString path2 = QString("%1/%2%3").arg(multi_page->destination_multi->text())
-                                                        .arg(multi_page->list_multi->item(s)->text())
-                                                        .arg(QString(path).remove(0, path3.count()));
+                                .arg(multi_page->list_multi->item(s)->text())
+                                .arg(QString(path).remove(0, path3.count()));
                         if (removeFile(path2)) {
                             multi_page->addTableItem(tr("File %1 deleted").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
                         }
@@ -365,8 +365,8 @@ void MainWindow::globalRename(QString path, QString name)
                 path3.replace("//", "/");
                 if (path.startsWith(path3)) {
                     QString path2 = QString("%1/%2%3").arg(multi_page->destination_multi->text())
-                                                        .arg(multi_page->list_multi->item(s)->text())
-                                                        .arg(QString(path).remove(0, path3.count()));
+                            .arg(multi_page->list_multi->item(s)->text())
+                            .arg(QString(path).remove(0, path3.count()));
 
                     if (renameFile(path2, name)) {
                         multi_page->addTableItem(tr("File %1 renamed").arg(path2), "", QString::fromUtf8(":/new/prefix1/images/file.png"), QBrush(Qt::darkMagenta), QBrush(Qt::white));
@@ -382,29 +382,29 @@ void MainWindow::globalRename(QString path, QString name)
 
 void MainWindow::createTrayIcon()
 {
-     QMenu * trayIconMenu = new QMenu(this);
-     trayIconMenu->addAction(syncAction);
-     trayIconMenu->addAction(syncAllAction);
-     trayIconMenu->addMenu(menuOptions);
-     trayIconMenu->addSeparator();
-     trayIconMenu->addAction(minimizeAction);
-     trayIconMenu->addAction(maximizeAction);
-     trayIconMenu->addSeparator();
-     trayIconMenu->addAction(quitAction);
+    QMenu * trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(syncAction);
+    trayIconMenu->addAction(syncAllAction);
+    trayIconMenu->addMenu(menuOptions);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(minimizeAction);
+    trayIconMenu->addAction(maximizeAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(quitAction);
 
-     trayIcon = new QSystemTrayIcon(this);
-     trayIcon->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/Synkron16.png")));
-     trayIcon->setToolTip("Synkron");
-     trayIcon->setContextMenu(trayIconMenu);
-     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/images/Synkron16.png")));
+    trayIcon->setToolTip("Synkron");
+    trayIcon->setContextMenu(trayIconMenu);
+    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void MainWindow::trayIconVisible(bool visible)
 {
-     minimizeAction->setEnabled(visible);
-     maximizeAction->setEnabled(!visible);
-     syncAction->setEnabled(true);
-     syncAllAction->setEnabled(true);
+    minimizeAction->setEnabled(visible);
+    maximizeAction->setEnabled(!visible);
+    syncAction->setEnabled(true);
+    syncAllAction->setEnabled(true);
 }
 
 void MainWindow::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
@@ -449,34 +449,34 @@ void MainWindow::hideEvent(QHideEvent *)
 
 void MainWindow::createActions()
 {
-     minimizeAction = new QAction(tr("&Hide"), this);
-     connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
-     //connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
+    minimizeAction = new QAction(tr("&Hide"), this);
+    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
+    //connect(minimizeAction, SIGNAL(triggered()), this, SLOT(minimizeTrayIcon()));
 
-     maximizeAction = new QAction(tr("S&how"), this);
-     connect(maximizeAction, SIGNAL(triggered()), this, SLOT(show()));
-     //connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
+    maximizeAction = new QAction(tr("S&how"), this);
+    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(show()));
+    //connect(maximizeAction, SIGNAL(triggered()), this, SLOT(maximizeTrayIcon()));
 
-     syncAction = new QAction(tr("Sync &current tab"), this);
-     connect(syncAction, SIGNAL(triggered()), this, SLOT(sync()));
+    syncAction = new QAction(tr("Sync &current tab"), this);
+    connect(syncAction, SIGNAL(triggered()), this, SLOT(sync()));
 
-     syncAllAction = new QAction(tr("Sync &all tabs"), this);
-     connect(syncAllAction, SIGNAL(triggered()), this, SLOT(syncAll()));
+    syncAllAction = new QAction(tr("Sync &all tabs"), this);
+    connect(syncAllAction, SIGNAL(triggered()), this, SLOT(syncAll()));
 
-     quitAction = new QAction(tr("&Quit"), this);
-     connect(quitAction, SIGNAL(triggered()), this, SLOT(closeApp()));
+    quitAction = new QAction(tr("&Quit"), this);
+    connect(quitAction, SIGNAL(triggered()), this, SLOT(closeApp()));
 
-     checkRestoreItemAction = new QAction(tr("&Check/Uncheck"), this);
-     connect(checkRestoreItemAction, SIGNAL(triggered()), this, SLOT(checkRestoreItem()));
+    checkRestoreItemAction = new QAction(tr("&Check/Uncheck"), this);
+    connect(checkRestoreItemAction, SIGNAL(triggered()), this, SLOT(checkRestoreItem()));
 
-     restoreAction = new QAction(tr("&Restore"), this);
-     connect(restoreAction, SIGNAL(triggered()), this, SLOT(restoreCurrentItem()));
+    restoreAction = new QAction(tr("&Restore"), this);
+    connect(restoreAction, SIGNAL(triggered()), this, SLOT(restoreCurrentItem()));
 
-     deleteRestoreItemAction = new QAction(tr("&Remove"), this);
-     connect(deleteRestoreItemAction, SIGNAL(triggered()), this, SLOT(deleteRestoreItem()));
+    deleteRestoreItemAction = new QAction(tr("&Remove"), this);
+    connect(deleteRestoreItemAction, SIGNAL(triggered()), this, SLOT(deleteRestoreItem()));
 
-     blacklistRestoreItemAction = new QAction(tr("Add to &blacklist"), this);
-     connect(blacklistRestoreItemAction, SIGNAL(triggered()), this, SLOT(blacklistRestoreItem()));
+    blacklistRestoreItemAction = new QAction(tr("Add to &blacklist"), this);
+    connect(blacklistRestoreItemAction, SIGNAL(triggered()), this, SLOT(blacklistRestoreItem()));
 }
 
 // --- Tray icon ---
@@ -520,17 +520,17 @@ bool MainWindow::closeDialogue()
     hlayout->addStretch();
     cl_glayout->addLayout(hlayout, 2, 0);
     switch (cl_dialogue->exec()) {
-        case 0: // Minimise
-            sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
-            sync_settings->setValue("minimise_on_quit", true);
-            minimizeAction->trigger();
-            return false;
-            break;
-        case 1: // Quit
-            sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
-            sync_settings->setValue("minimise_on_quit", false);
-            return true;
-            break;
+    case 0: // Minimise
+        sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
+        sync_settings->setValue("minimise_on_quit", true);
+        minimizeAction->trigger();
+        return false;
+        break;
+    case 1: // Quit
+        sync_settings->setValue("dont_ask_on_quit", rm_minimise->isChecked());
+        sync_settings->setValue("minimise_on_quit", false);
+        return true;
+        break;
     }
     return true;
 }
@@ -546,9 +546,9 @@ void MainWindow::saveSyncLog()
         tab_text = multi_tabWidget->tabText(multi_tabWidget->currentIndex());
     } else return;
     QString path = QFileDialog::getSaveFileName(this,
-                tr("Synkron - Save Multisync"),
-                QString("%1/%2.html").arg(QDir::homePath()).arg(tab_text),
-                tr("Sync logs (*.html)"));
+                                                tr("Synkron - Save Multisync"),
+                                                QString("%1/%2.html").arg(QDir::homePath()).arg(tab_text),
+                                                tr("Sync logs (*.html)"));
     if (path.isNull() || path.isEmpty()) { return; }
     QFile file(path);
     if (!file.open(QFile::WriteOnly | QFile::Text))

@@ -78,13 +78,13 @@ void ClientConnection::read()
 
 void MainWindow::httpRequestFinished(bool error)
 {
-    httpRequestFinished_start:
+httpRequestFinished_start:
     if (error) {
         switch (QMessageBox::critical(this, tr("Synkron"), tr("Failed to check for updates."), tr("&Try again"), tr("Cancel"), 0, 1)) {
-            case 0: // Try again
-                checkForUpdates(); return; break;
-            case 1: // Cancel
-                return; break;
+        case 0: // Try again
+            checkForUpdates(); return; break;
+        case 1: // Cancel
+            return; break;
         }
     }
     QString str(http_buffer->data()); QTextStream in(&str);
@@ -118,7 +118,7 @@ void MainWindow::about ()
 About::About(QString ver, QString year/*, QString qtver*/)
 {
     setupUi(this);
-
+    //NOTE: Really stupid way to appaend the text, you can use the UI instead!
     QString about = "<p style=\"font-family: sans-serif; font-style:italic;\"><span style=\"font-size:12pt;\">Synkron</span><br>";
     about.append("<span style=\"font-size:8pt;\">");
     about.append(tr("Version"));
@@ -165,9 +165,17 @@ About::About(QString ver, QString year/*, QString qtver*/)
 
 void MainWindow::checkForUpdates()
 {
-    delete http_buffer; http_buffer = new QBuffer(this);
+    delete http_buffer;
+
+#if QT_VERSION >= 0x050000
+    QByteArray bArr = http->get(QNetworkRequest(QUrl("http://synkron.sourceforge.net/current-version")))->readAll();
+    http_buffer = new QBuffer(&bArr);
+#else
+    http_buffer = new QBuffer(this);
     http->setHost("synkron.sourceforge.net");
     http->get("/current-version", http_buffer);
+#endif
+
 }
 
 void MainWindow::changeLanguage()
