@@ -206,7 +206,7 @@ MultisyncPage * MainWindow::addMultiTab()
 
     QString title;
     int n = 1; gen_title:
-    title = tr("Multisync #%1").arg(n); bool ok = true;
+        title = tr("Multisync #%1").arg(n); bool ok = true;
     for (int i = 0; i < multi_tabWidget->count(); ++i) {
         if (multi_tabWidget->tabText(i) == title) { ok = false; }
     }
@@ -217,7 +217,12 @@ MultisyncPage * MainWindow::addMultiTab()
     multi_page->tw_multi->verticalHeader()->hide();
     multi_page->tw_multi->setShowGrid(false);
     multi_page->tw_multi->setStatusTip(tr("List of synchronised files and folders"));
+#if QT_VERSION >= 0x050000
+    multi_page->tw_multi->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+#else
     multi_page->tw_multi->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+#endif
+
     multi_page->tw_multi->setLayoutDirection(Qt::LeftToRight);
 
     connect(multi_page->add_multi, SIGNAL(released()), this, SLOT(addSource()));
@@ -247,9 +252,9 @@ void MainWindow::addSource()
     MultisyncPage * multi_page = (MultisyncPage *) multi_tabWidget->currentWidget();
     QListWidgetItem * item = new QListWidgetItem();
     QString path = QFileDialog::getExistingDirectory(this,
-                "Choose a directory",
-                QDir::homePath(),
-                QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+                                                     "Choose a directory",
+                                                     QDir::homePath(),
+                                                     QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if (path.isEmpty()) return;
     QMapIterator<QString, QString> i(multi_page->vars_map);
     while (i.hasNext()) {
@@ -290,10 +295,10 @@ void MainWindow::removeSource()
 void MainWindow::browseMultiDestination()
 {
     ((MultisyncPage *)multi_tabWidget->currentWidget())->destination_multi->setText(QFileDialog::getExistingDirectory(
-                this,
-                "Choose a directory",
-                QDir::homePath(),
-                QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
+                                                                                        this,
+                                                                                        "Choose a directory",
+                                                                                        QDir::homePath(),
+                                                                                        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks));
 }
 
 int MultisyncPage::sync()
@@ -592,22 +597,22 @@ void MultisyncPage::addVariable()
 
     add_var_dialogue->show();
     QString path = QFileDialog::getExistingDirectory(
-                    add_var_dialogue,
-                    "Choose a directory",
-                    QDir::homePath(),
-                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+                add_var_dialogue,
+                "Choose a directory",
+                QDir::homePath(),
+                QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if (path != "") {
         path_le->setText(path);
     }
 
     QMap<QString, QString> old_vars_map = vars_map;
     switch (add_var_dialogue->exec()) {
-        case 0: // Cancel
-            break;
-        case 1: // OK
-            if (name_le->text().isEmpty() || path_le->text().isEmpty()) break;
-            vars_map.insert(name_le->text(), path_le->text());
-            break;
+    case 0: // Cancel
+        break;
+    case 1: // OK
+        if (name_le->text().isEmpty() || path_le->text().isEmpty()) break;
+        vars_map.insert(name_le->text(), path_le->text());
+        break;
     }
     resetSourcePaths(old_vars_map);
     varsDialogue();

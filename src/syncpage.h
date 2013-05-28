@@ -33,7 +33,16 @@
 #include <QSpinBox>
 #include <QGroupBox>
 #include <QDateTimeEdit>
+//NOTE: read how to replace QHttp with QtHttp https://qt-project.org/forums/viewthread/24466
+//#include <QtHttp>
+#if QT_VERSION >= 0x050000
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#else
 #include <QHttp>
+#endif
+
 #include <QBuffer>
 #include <QTextStream>
 #include <QComboBox>
@@ -340,7 +349,7 @@ public:
 
 class MultisyncPage : public AbstractSyncPage, private Ui::MultisyncForm
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     MultisyncPage(MainWindow *parent = 0);

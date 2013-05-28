@@ -67,9 +67,9 @@ class Filter : public QListWidgetItem
 {
 public:
     Filter():
-    QListWidgetItem(0, QListWidgetItem::UserType) {}
+        QListWidgetItem(0, QListWidgetItem::UserType) {}
     Filter(QString text):
-    QListWidgetItem(0, QListWidgetItem::UserType) { setText(text); }
+        QListWidgetItem(0, QListWidgetItem::UserType) { setText(text); }
 
     QStringList extensions;
 };
@@ -146,7 +146,7 @@ public slots:
 
 private slots:
 
-// Synchronisation
+    // Synchronisation
     void sync() { sync(tabWidget->currentWidget()); }
     void sync(QWidget *);
     void syncAll();
@@ -154,7 +154,7 @@ private slots:
     SyncPage * addSyncTab();
     //void showAdvancedGroupBox(bool show, SyncPage * page) { page->advanced->setChecked(show); }
 
-// Restore
+    // Restore
     void toRestorePage();
     void restoreItemChanged(QListWidgetItem *, QListWidgetItem *);
     void restoreFiles();
@@ -176,7 +176,7 @@ private slots:
     void convertOldTempSettings(QStringList);
     int autoCleanTemp();
 
-// Blacklist
+    // Blacklist
     void addToBlackList(int);
     void addFileToBlacklist();
     void removeFileFromBlacklist();
@@ -185,13 +185,13 @@ private slots:
     void addExtToBlacklist();
     void removeExtFromBlacklist();
 
-// Multisync
+    // Multisync
     MultisyncPage * addMultiTab();
     void addSource();
     void removeSource();
     void browseMultiDestination();
 
-// Scheduler
+    // Scheduler
     void addSchedule();
     SyncSchedule * addSchedule(QString);
     void removeSchedule();
@@ -224,7 +224,7 @@ private slots:
     void schedDateClicked(QListWidgetItem *);
     void schedDayClicked(QListWidgetItem *);
 
-// Filters
+    // Filters
     void addFilter();
     void addFilter(QString, QStringList);
     void removeFilter();
@@ -233,12 +233,12 @@ private slots:
     void filterChanged();
     void setFiltersEnabled(bool);
 
-//SyncView
+    //SyncView
     void refreshSyncs();
     void refreshMultisyncs();
     void toSyncView();
 
-// Other
+    // Other
     void changeLanguage(); void langChanged();
     void checkForUpdates(); void httpRequestFinished(bool);
     void about();
@@ -261,7 +261,7 @@ private slots:
     void changeTemp();
     void showIconsOnly(bool);
 
-// Tabs
+    // Tabs
     void saveTab();
     void saveTabAs();
     void loadTab(QString = QString());
@@ -273,7 +273,13 @@ private:
     bool run_hidden;
     bool sched_removed;
     bool no_closedialogue;
-    QHttp * http; QBuffer * http_buffer;
+#if QT_VERSION >= 0x050000
+    QNetworkAccessManager * http;
+#else
+    QHttp * http;
+#endif
+
+    QBuffer * http_buffer;
     QTcpServer * tcp_server; QTcpSocket * tcp_socket;
 
     void closeEvent(QCloseEvent*);
@@ -347,26 +353,34 @@ class MTApplication : public QApplication
 {
     Q_OBJECT
 protected:
-    void init() { app_main_window = NULL; };
+    void init() {
+        app_main_window = NULL;
+    }
 public:
     MTApplication(int & argc, char ** argv):
-    QApplication(argc, argv) { init(); };
+        QApplication(argc, argv) {
+        init();
+    }
     MTApplication(int & argc, char ** argv, bool GUIenabled):
-    QApplication(argc, argv, GUIenabled) { init(); };
-    MTApplication(int & argc, char ** argv, Type type):
-    QApplication(argc, argv, type) { init(); };
+        QApplication(argc, argv, GUIenabled) {
+        init();
+    }
+    //BUG: Where is Type define?
+    //    MTApplication(int & argc, char ** argv, Type type):QApplication(argc, argv, type) {
+    //        init();
+    //    }
 #ifdef Q_WS_X11
     MTApplication(Display * display, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0):
-    QApplication(display, visual, colormap) { init(); };
+        QApplication(display, visual, colormap) { init(); };
     MTApplication(Display * display, int & argc, char ** argv, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0):
-    QApplication(display, argc, argv, visual, colormap) { init(); };
+        QApplication(display, argc, argv, visual, colormap) { init(); };
 #endif
 #ifdef Q_WS_MAC
     bool macEventFilter(EventHandlerCallRef, EventRef event) {
         switch (GetEventKind(event)) {
-            case kEventAppActivated: if (app_main_window != NULL) {
+        case kEventAppActivated: if (app_main_window != NULL) {
                 if (!app_main_window->runHidden() || app_main_window->shownManually())
-                    { app_main_window->show(); }
+                { app_main_window->show(); }
             } break;
         }
         return false;

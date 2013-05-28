@@ -528,17 +528,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="102"/>
         <source>Slovak</source>
-        <translation>السلوفاكية</translation>
+        <translation>Slovak</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="103"/>
         <source>German</source>
-        <translation>الألمانية</translation>
+        <translation>German</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="104"/>
         <source>Japanese</source>
-        <translation>اليابانية</translation>
+        <translation>Japanese</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="105"/>
@@ -548,32 +548,32 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="106"/>
         <source>Russian</source>
-        <translation>الروسية</translation>
+        <translation>Russian</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="107"/>
         <source>Spanish</source>
-        <translation>الإسبانية</translation>
+        <translation>Spanish</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="108"/>
         <source>Brazilian Portuguese</source>
-        <translation>البرازيلية</translation>
+        <translation>Brazilian Portuguese</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="109"/>
         <source>Polish</source>
-        <translation>البولندية</translation>
+        <translation>Polish</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="110"/>
         <source>Italian</source>
-        <translation>الإيطالية</translation>
+        <translation>Italian</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="111"/>
         <source>French</source>
-        <translation>الفرنسية</translation>
+        <translation>French</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="112"/>
@@ -583,32 +583,32 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="113"/>
         <source>Finnish</source>
-        <translation>إنهاء</translation>
+        <translation>Finnish</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="114"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Czech</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="115"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="116"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Dutch</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="117"/>
         <source>Romanian</source>
-        <translation type="unfinished"></translation>
+        <translation>Romanian</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="118"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turkish</translation>
     </message>
 </context>
 <context>
@@ -2032,12 +2032,12 @@
     <message>
         <location filename="../src/multisync.cpp" line="87"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>تجاهل فرق ساعة واحدة</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="88"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>بسبب العمل بالتوقيت الصيفي قد يحدث فرق بنسبة ساعة واحدة</translation>
     </message>
     <message>
         <location filename="../src/multisync.cpp" line="113"/>
@@ -2690,7 +2690,7 @@
     <message>
         <location filename="../src/sync.cpp" line="205"/>
         <source>Ignore 1 hour difference</source>
-        <translation type="unfinished"></translation>
+        <translation>تجاهل فرق ساعة واحدة</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="218"/>
@@ -2786,7 +2786,7 @@
     <message>
         <location filename="../src/sync.cpp" line="206"/>
         <source>Due to Daylight Saving Time (DST), files may have 1 hour delta</source>
-        <translation type="unfinished"></translation>
+        <translation>بسبب العمل بالتوقيت الصيفي قد يحدث فرق بنسبة ساعة واحدة</translation>
     </message>
     <message>
         <location filename="../src/sync.cpp" line="470"/>
