@@ -71,8 +71,9 @@ macx {
      icons.files = images/slist.icns
      QMAKE_BUNDLE_DATA += icons
      CONFIG += x86
-     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.4
-     QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.5.sdk
+     CONFIG += sdk_no_version_check
+     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.14
+     QMAKE_MAC_SDK = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 }
 win32 {
      # If not commented, the following line ensures that Synkron is compiled
@@ -99,7 +100,8 @@ TRANSLATIONS += \
      i18n/Synkron-Spanish.ts \
      i18n/Synkron-Valencian.ts \
      i18n/Synkron-Romanian.ts \
-     i18n/Synkron-Turkish.ts
+     i18n/Synkron-Turkish.ts \
+     i18n/Synkron-Arabic.ts
 
 OTHER_FILES += \
     i18n/Synkron-Valencian.ts \

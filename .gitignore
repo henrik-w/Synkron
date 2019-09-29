@@ -1,0 +1,5 @@
+.build.unix
+*.qm
+*.user
+Makefile
+*.stash
